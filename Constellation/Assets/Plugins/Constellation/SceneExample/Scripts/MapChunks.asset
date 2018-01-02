@@ -1,0 +1,640 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: MapChunks
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: c894aa80-bfff-4442-aa49-51547b354a6c
+      XPosition: 737.5
+      YPosition: 31.5
+      Inputs: []
+      Outputs:
+      - Guid: 7abb3abf-eb7d-4b33-93c7-17f3b4f38e91
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      AttributesData:
+      - Value:
+          stringValue: Chunk1
+          floatValue: 0.000001
+        Type: 1
+    - Name: Transform
+      Namespace: Unity
+      Guid: 87d9cf0a-026b-4d2a-a3f1-0655e96cf22d
+      XPosition: 983.5
+      YPosition: 38.5
+      Inputs:
+      - Guid: 16179dfa-2e5a-4abb-8943-cfedb6377ab8
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 68c21e9c-d6a4-4c6c-a224-3eb3231c9e0f
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: d6a1e8e1-63dc-4502-ae24-42c34e6047ea
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 4876679d-cdd7-4d88-af10-f5d201cbfae6
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 29c6fdde-1a02-47ac-8040-fa64d348bd8c
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: a743b0b2-e814-4e0c-947d-28ec22c12278
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: cb5633bf-932b-416c-8bae-18e0fc0c270e
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: cc25d874-b8a7-46fa-a6f7-7ee88d64b216
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: cf86de7a-f2c1-47ce-ac91-bccbe0d166a6
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: 5a9cc03e-92d0-4e5c-a3b1-518c95fe101d
+      XPosition: 548.5
+      YPosition: 154.5
+      Inputs: []
+      Outputs:
+      - Guid: 17b7f53b-f88e-435b-b715-0019f9c2c0e9
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      AttributesData:
+      - Value:
+          stringValue: Chunk2
+          floatValue: 0.000001
+        Type: 1
+    - Name: Transform
+      Namespace: Unity
+      Guid: 108ffadd-72e5-423e-8cec-49a12c3f535a
+      XPosition: 752.1787
+      YPosition: 203.5
+      Inputs:
+      - Guid: 47e5c7e3-a387-4ed9-a3b1-3a891dc7c189
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 6abfc1d6-4875-4dc2-befb-60c7d606b15b
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 8dcec9b9-87c7-4fb9-92e1-1980783e0b2e
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 8593583d-bff9-4360-b3f3-9573fa532b78
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: ad596405-97ae-4b87-8083-5399e7b33eee
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: 2d3e6b93-3d8b-4825-aa84-51c29ffca729
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 410843de-ae69-4a3f-b43d-870b34e27614
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 3fda2cff-eede-4758-8e88-a7f8fc5fb31d
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 8642d3d3-b061-4f2c-9948-2552400e1d91
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: Transform
+      Namespace: Unity
+      Guid: d6080701-3f79-495f-9526-863520d54230
+      XPosition: 1253.5
+      YPosition: 213.5
+      Inputs:
+      - Guid: cca1d79e-9c1e-40fa-81ba-7bdeece43028
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 55faa49f-a3dd-4199-90de-a66fa0ea4669
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 771406a8-75ac-4cd0-9a7b-2b4947ce0e01
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 8244acf8-dffd-43b3-96bb-9f6b90e61182
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: a98b97fd-f018-4219-a618-8a603fab331f
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: dccf2b63-6c00-4a0e-895d-15d0f6154a03
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 92e84454-8f40-4a8f-b4c0-59b9f93ff565
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 0109ecde-8429-476b-950b-3d4c95394cda
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: af0a0bab-4ebd-4a3e-ab47-6f7fc297aad8
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: c50af2b7-f19c-4da6-8f66-bb9a3d350de7
+      XPosition: 901.3942
+      YPosition: 261.5
+      Inputs:
+      - Guid: e33d7fa5-85fa-4670-9b75-90f7cc2c4ade
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 3ffde4c8-9ae0-4c1a-a9f6-90ded61123aa
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: e015d8e6-f3e5-45c1-a757-19d38b2f2bb6
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: f5ac23ee-4bd1-4b97-a613-a87e127d41c3
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 78e7ea26-8c20-4dbe-95e8-3d20a0f70464
+      XPosition: 459.37524
+      YPosition: 261.5
+      Inputs: []
+      Outputs:
+      - Guid: e17bdd5c-f1fa-47d0-a74e-327daa823938
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 300
+        Type: 0
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: 7e89d102-1f10-498c-9a69-62d4c89605d4
+      XPosition: 94.5
+      YPosition: 281
+      Inputs: []
+      Outputs:
+      - Guid: 99b1aa4b-b27d-47f3-9f0d-8badee7115f8
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      AttributesData:
+      - Value:
+          stringValue: Bird
+          floatValue: 0.000001
+        Type: 1
+    - Name: Transform
+      Namespace: Unity
+      Guid: ca8a5f78-3be0-40f9-86c4-1e96f9298401
+      XPosition: 317.5
+      YPosition: 297.5
+      Inputs:
+      - Guid: a080d310-5bd7-4b1e-a929-2fa26f7d0dbe
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 1f70edbe-c377-4fdb-8100-32defc5f37aa
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: bbee63f6-3189-4aa8-8086-c19033bb509e
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 5cfbdda6-6042-4615-9fd4-e193d1f0349e
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 4e3db7fe-f029-4df5-99f2-d1a57acbb6ec
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: 258a3382-1555-48cc-a782-8c7b0655cd5f
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: fdf709ca-39c9-4308-8127-93e66c8d942b
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: d3e79080-ce4b-4ff5-a218-1fc8b0b19646
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: f5d90296-920d-4fbf-a989-fefe725d1add
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: e9e62fdb-bd3b-488b-a5da-8adb5e07155d
+      XPosition: 451.5
+      YPosition: 311.5
+      Inputs: []
+      Outputs:
+      - Guid: fbfd230d-fc14-4f5d-84a6-dc78830c685e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: -300
+        Type: 0
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: 6edf0494-3214-44d0-88b3-bee43cc7e67b
+      XPosition: 1500.5
+      YPosition: 316.5
+      Inputs:
+      - Guid: 10b079c0-d87d-4092-9c07-c7be602c3198
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 213b30c2-15f9-4793-91ca-186afb42f961
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: e89b9476-8727-47ef-8125-1ed00d025353
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: fa187c98-0137-4bad-ad3d-6443e8848d2f
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Vec3
+      Namespace: Unity
+      Guid: aab6d28b-92cc-4eed-a2f6-ac8e859cdded
+      XPosition: 1074.136
+      YPosition: 350.5
+      Inputs:
+      - Guid: 2359a3b4-e1f6-4650-853a-c0985f9e1a06
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: e552579b-0aa1-4df5-8870-7c46392ac7ac
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 2d91de29-ac7c-4fdd-8c6f-93e4c255e199
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: de6d7215-02d9-4025-b7a2-0bba52a4353d
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Condition
+      Namespace: BasicNodes
+      Guid: 11329aeb-2b12-47ca-9405-50cfe4323a45
+      XPosition: 673.5
+      YPosition: 352.5
+      Inputs:
+      - Guid: 629c3e73-a79d-4faa-8666-1457348922e4
+        IsWarm: 0
+        Type: 
+        Description: $1
+      - Guid: 220b19b8-8b8b-4921-a9c5-323f427150b2
+        IsWarm: 1
+        Type: 
+        Description: $2
+      - Guid: 4d8f2373-11c7-4c73-8535-179b76583b13
+        IsWarm: 1
+        Type: 
+        Description: $3
+      Outputs:
+      - Guid: ea55758c-2ea0-4f9b-aa3f-0082d5348384
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      AttributesData:
+      - Value:
+          stringValue: $3>150
+          floatValue: 0.000001
+        Type: 3
+      - Value:
+          stringValue: $1
+          floatValue: 0.000001
+        Type: 4
+      - Value:
+          stringValue: $2
+          floatValue: 0.000001
+        Type: 5
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: 9f85c277-0d53-4fa6-a478-a52bf7f801d0
+      XPosition: 455.5
+      YPosition: 370.5
+      Inputs:
+      - Guid: 13a900cb-b9f6-4d4d-afb7-62e2a621069b
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 51dd88c4-8da7-436c-a79e-3e261c5eb90e
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: a4ae48cd-748b-41b8-948d-4a94eea869aa
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: bd21c2ca-6017-49e8-961f-f97a18133810
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Update
+      Namespace: Unity
+      Guid: a3668fac-a98c-44ee-9a50-62c4e04a854b
+      XPosition: 138.64563
+      YPosition: 394.5
+      Inputs: []
+      Outputs:
+      - Guid: b2602713-6765-4574-8efb-086d03327c0a
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 16179dfa-2e5a-4abb-8943-cfedb6377ab8
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      Output:
+        Guid: 7abb3abf-eb7d-4b33-93c7-17f3b4f38e91
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 68.5
+    - Input:
+        Guid: 47e5c7e3-a387-4ed9-a3b1-3a891dc7c189
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      Output:
+        Guid: 17b7f53b-f88e-435b-b715-0019f9c2c0e9
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 233.5
+    - Input:
+        Guid: cca1d79e-9c1e-40fa-81ba-7bdeece43028
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      Output:
+        Guid: 17b7f53b-f88e-435b-b715-0019f9c2c0e9
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 243.5
+    - Input:
+        Guid: 55faa49f-a3dd-4199-90de-a66fa0ea4669
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      Output:
+        Guid: de6d7215-02d9-4025-b7a2-0bba52a4353d
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 263.5
+    - Input:
+        Guid: e33d7fa5-85fa-4670-9b75-90f7cc2c4ade
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: 2d3e6b93-3d8b-4825-aa84-51c29ffca729
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      outputPositionY: 291.5
+    - Input:
+        Guid: ad596405-97ae-4b87-8083-5399e7b33eee
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Output:
+        Guid: 17b7f53b-f88e-435b-b715-0019f9c2c0e9
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 313.5
+    - Input:
+        Guid: a080d310-5bd7-4b1e-a929-2fa26f7d0dbe
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      Output:
+        Guid: 99b1aa4b-b27d-47f3-9f0d-8badee7115f8
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 327.5
+    - Input:
+        Guid: 10b079c0-d87d-4092-9c07-c7be602c3198
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: dccf2b63-6c00-4a0e-895d-15d0f6154a03
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      outputPositionY: 346.5
+    - Input:
+        Guid: 2359a3b4-e1f6-4650-853a-c0985f9e1a06
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: ea55758c-2ea0-4f9b-aa3f-0082d5348384
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 380.5
+    - Input:
+        Guid: 629c3e73-a79d-4faa-8666-1457348922e4
+        IsWarm: 0
+        Type: 
+        Description: $1
+      Output:
+        Guid: e17bdd5c-f1fa-47d0-a74e-327daa823938
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 382.5
+    - Input:
+        Guid: 13a900cb-b9f6-4d4d-afb7-62e2a621069b
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: 258a3382-1555-48cc-a782-8c7b0655cd5f
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      outputPositionY: 400.5
+    - Input:
+        Guid: e552579b-0aa1-4df5-8870-7c46392ac7ac
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: e015d8e6-f3e5-45c1-a757-19d38b2f2bb6
+        IsWarm: 0
+        Type: 
+        Description: Y
+      outputPositionY: 400.5
+    - Input:
+        Guid: 220b19b8-8b8b-4921-a9c5-323f427150b2
+        IsWarm: 1
+        Type: 
+        Description: $2
+      Output:
+        Guid: fbfd230d-fc14-4f5d-84a6-dc78830c685e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 402.5
+    - Input:
+        Guid: 4e3db7fe-f029-4df5-99f2-d1a57acbb6ec
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Output:
+        Guid: b2602713-6765-4574-8efb-086d03327c0a
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 407.5
+    - Input:
+        Guid: 2d91de29-ac7c-4fdd-8c6f-93e4c255e199
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: f5ac23ee-4bd1-4b97-a613-a87e127d41c3
+        IsWarm: 0
+        Type: 
+        Description: Z
+      outputPositionY: 420.5
+    - Input:
+        Guid: 4d8f2373-11c7-4c73-8535-179b76583b13
+        IsWarm: 1
+        Type: 
+        Description: $3
+      Output:
+        Guid: 51dd88c4-8da7-436c-a79e-3e261c5eb90e
+        IsWarm: 0
+        Type: 
+        Description: X
+      outputPositionY: 422.5

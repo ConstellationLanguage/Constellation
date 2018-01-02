@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -420975998, guid: 4ec76eea010443f4aa2ade5035298a03, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 3998330b-08cf-42f0-b920-379a28c36f8c
+      XPosition: 161
+      YPosition: 161
+      Inputs:
+      - guid: 5906a787-eddd-4c6b-957d-901f5d0bb258
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: c55773fa-2d0a-492f-b7b4-4ae728ad19e6
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 006077aa-07d9-450a-b96f-d4bf6ce32b39
+      XPosition: 571
+      YPosition: 203
+      Inputs:
+      - guid: 42282d2a-4cc5-46a6-aebc-1eac5f29be97
+        IsWarm: 0
+        Type: 
+      Outputs: []
+      AttributesData: []
+    - Name: Add
+      Namespace: BasicNodes
+      Guid: 5f319247-71ba-4241-ad06-f0cc10106838
+      XPosition: 396
+      YPosition: 212
+      Inputs:
+      - guid: 43a6dfe3-c98a-4571-8f80-e9a45c517d4a
+        IsWarm: 0
+        Type: 
+      - guid: 02d1e00d-4188-4b87-a456-ccd62e0b7249
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: 89e6d7ae-928c-4cb7-810d-2fc95c179aa8
+        IsWarm: 0
+        Type: 
+      AttributesData: []
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 6c07c675-cde6-4612-a8c2-f2e393a586a5
+      XPosition: 137
+      YPosition: 302
+      Inputs:
+      - guid: fab98d35-7815-4b33-9f4f-43ee30ade1bb
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: 8979fe55-a943-451a-a748-d81475a0630a
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    Links:
+    - Input:
+        guid: 42282d2a-4cc5-46a6-aebc-1eac5f29be97
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: 89e6d7ae-928c-4cb7-810d-2fc95c179aa8
+        IsWarm: 0
+        Type: 
+      outputPositionY: 233
+    - Input:
+        guid: 43a6dfe3-c98a-4571-8f80-e9a45c517d4a
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: c55773fa-2d0a-492f-b7b4-4ae728ad19e6
+        IsWarm: 0
+        Type: 
+      outputPositionY: 242
+    - Input:
+        guid: 02d1e00d-4188-4b87-a456-ccd62e0b7249
+        IsWarm: 1
+        Type: 
+      Output:
+        guid: 8979fe55-a943-451a-a748-d81475a0630a
+        IsWarm: 0
+        Type: 
+      outputPositionY: 262

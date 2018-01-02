@@ -1,0 +1,7 @@
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\obj\Debug\Constellation.csprojResolveAssemblyReference.cache
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\bin\Debug\Constellation.dll
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\bin\Debug\Constellation.pdb
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\bin\Debug\UnityEngine.dll
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\bin\Debug\UnityEngine.xml
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\obj\Debug\Constellation.dll
+C:\dev\ConstellationEditor\ConstellationDll\Constellation\Constellation\obj\Debug\Constellation.pdb

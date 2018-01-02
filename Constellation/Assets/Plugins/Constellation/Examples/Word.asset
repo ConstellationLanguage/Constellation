@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Word
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Note
+      Namespace: 
+      Guid: 4bc7d6c9-fbf8-46a7-9b34-1ac5717e5297
+      XPosition: 535.5
+      YPosition: 56
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: '"I''m containing a string"'
+          floatValue: 0.000001
+        Type: 2
+    - Name: Note
+      Namespace: 
+      Guid: a4739233-fef6-4bd8-94e2-50ba8f16f100
+      XPosition: 27.5
+      YPosition: 57
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Word is used to store strings
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: 
+      Guid: 779d8589-1b74-4aa5-8f35-ed026fd545f9
+      XPosition: 191.5
+      YPosition: 91
+      Inputs:
+      - guid: 6b9214cf-c0dd-44e8-9f3f-ffd972e17361
+        IsWarm: 0
+        Type: 
+      - guid: d99fa7d9-0f4f-493c-9360-dd9a887f2e2a
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: bfb48949-a123-4983-9825-cba8928b378d
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: I'm containing a string
+          floatValue: 0.000001
+        Type: 1
+    - Name: Print
+      Namespace: 
+      Guid: 9941254f-3fa3-4af1-8df2-12a6d7eca640
+      XPosition: 411.5
+      YPosition: 92
+      Inputs:
+      - guid: 1d498d39-494c-4410-9d6d-2529464c71da
+        IsWarm: 0
+        Type: 
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        guid: 1d498d39-494c-4410-9d6d-2529464c71da
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: bfb48949-a123-4983-9825-cba8928b378d
+        IsWarm: 0
+        Type: 
+      outputPositionY: 122

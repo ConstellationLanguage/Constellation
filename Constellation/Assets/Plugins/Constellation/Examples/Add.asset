@@ -1,0 +1,497 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Add
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Note
+      Namespace: 
+      Guid: be51a5d6-6577-49c3-976c-322ac90f2fd3
+      XPosition: 2.5
+      YPosition: 41.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Add values
+          floatValue: 0.000001
+        Type: 2
+    - Name: Value
+      Namespace: 
+      Guid: fffa40bf-5129-43d1-ba8d-2cf3181e4734
+      XPosition: 145.5
+      YPosition: 43
+      Inputs:
+      - guid: 3653db59-f6c9-42dc-9518-4408a8d96afa
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: 1edffeee-44b0-49d5-9fb2-f80e6894e00a
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Note
+      Namespace: 
+      Guid: 911d06d2-e708-48b3-b640-9491d0e61214
+      XPosition: 726.5
+      YPosition: 47.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Output "3"
+          floatValue: 0.000001
+        Type: 2
+    - Name: Add
+      Namespace: 
+      Guid: 996d69e3-897a-4a92-ba14-8e0d743a4314
+      XPosition: 428.5
+      YPosition: 72
+      Inputs:
+      - guid: b0e0a1bb-2bda-44e9-bd00-10c7bf144d8b
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: d2eead7a-d630-48d9-9a39-5ff5e3387248
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: 0289b4aa-b4a8-478c-9f28-b6a545185b41
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData: []
+    - Name: Print
+      Namespace: 
+      Guid: f1c197fe-0cce-4510-b0ae-f859d2cf45ed
+      XPosition: 605.5
+      YPosition: 76
+      Inputs:
+      - guid: 16d390c8-96e8-4d15-b131-6e00f8b1c0e5
+        IsWarm: 0
+        Type: 
+        Description: 
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: 
+      Guid: 86c8e72d-743c-411a-874c-d8503fda05e7
+      XPosition: 140.5
+      YPosition: 114
+      Inputs:
+      - guid: f50ca771-0c36-41f8-a48b-ac1bceac8c84
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: 0681e786-5587-4994-a17e-3b5a76a70f4a
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 2
+        Type: 0
+    - Name: Note
+      Namespace: 
+      Guid: a63c640d-7917-4a01-b02a-f089925ad886
+      XPosition: 733.5
+      YPosition: 217.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Output "add word"
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: 
+      Guid: db7974f9-d742-4d39-8057-4ea534e3fdff
+      XPosition: 147.5
+      YPosition: 224
+      Inputs:
+      - guid: 94c5b9fb-7465-4932-a2e3-475e56954851
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: 36aab4ae-99dd-4fe1-bd52-bbf0e08d0679
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: 644f596d-b66e-449d-86bf-855e5acdacac
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData:
+      - Value:
+          stringValue: add
+          floatValue: 0.000001
+        Type: 1
+    - Name: Note
+      Namespace: 
+      Guid: 32253ac9-81b3-4545-9af7-77a4b611452d
+      XPosition: 2.5
+      YPosition: 235.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Add words
+          floatValue: 0.000001
+        Type: 2
+    - Name: Add
+      Namespace: 
+      Guid: edd22743-75fc-4e70-823a-6f3031769e1d
+      XPosition: 434.5
+      YPosition: 269
+      Inputs:
+      - guid: c3f972d6-7ac7-446d-bc64-2d67c4929e6a
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: ab2537fe-653e-45ef-a89e-f08f4408f559
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: eac25e09-0e9c-4d96-bf2d-753dc7e382a6
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData: []
+    - Name: Print
+      Namespace: 
+      Guid: 09da0ce1-7dad-41b2-8390-3a8e7862e20a
+      XPosition: 613.5
+      YPosition: 270
+      Inputs:
+      - guid: d6dcbe21-b1c3-4869-9ecd-bd0f6d6ae489
+        IsWarm: 0
+        Type: 
+        Description: 
+      Outputs: []
+      AttributesData: []
+    - Name: Word
+      Namespace: 
+      Guid: ef820234-a029-4bfa-8a34-eabfab1ec875
+      XPosition: 155.5
+      YPosition: 306
+      Inputs:
+      - guid: 04280a76-3ea0-4447-bedb-b41720b61896
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: c7e97f9c-06fe-4a1d-83ba-067ce0d88516
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: a55f77d7-d6a8-418a-a853-8cc8d6df718f
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData:
+      - Value:
+          stringValue: ' word'
+          floatValue: 0.000001
+        Type: 1
+    - Name: Note
+      Namespace: 
+      Guid: e7a1fade-1016-4bcb-aaa8-768c80583c73
+      XPosition: 732
+      YPosition: 372.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: 'Output  each frame "Frame count is: 1"
+
+            "Frame count is: 2"
+
+            "Frame count is: 3"
+
+            ...'
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: 
+      Guid: 9893ac08-1519-40d1-b657-1bce8ed91c9e
+      XPosition: 575.5
+      YPosition: 397
+      Inputs:
+      - guid: d5ccbc16-3105-4ac4-b72f-e17ea33b9aab
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: 12f1af32-eae8-4a0c-9c2b-6b44063c1ef7
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: 5780df62-30eb-4675-91b6-b057642c93af
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData:
+      - Value:
+          stringValue: 'Frame count is: '
+          floatValue: 0.000001
+        Type: 1
+    - Name: Note
+      Namespace: 
+      Guid: 3c276f22-71dd-4fe9-8da7-90ade072d7e7
+      XPosition: 3.5
+      YPosition: 437.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Mixing word and value to make a framecounter
+          floatValue: 0.000001
+        Type: 2
+    - Name: Add
+      Namespace: 
+      Guid: 86a556f7-dd0b-4bb0-b305-7fa5c41236a9
+      XPosition: 439.5
+      YPosition: 450
+      Inputs:
+      - guid: 6d331fea-ec8c-4b8b-ab16-644aa728194f
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: c852e59f-fa68-423d-af57-7ccb0ad76ca7
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: d1e1f391-c530-4c89-8bcb-4077de9932e6
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData: []
+    - Name: Value
+      Namespace: 
+      Guid: b319eff5-9017-4c27-be2f-6b4a984f5c81
+      XPosition: 262.5
+      YPosition: 468.5
+      Inputs:
+      - guid: be5af73c-537a-440e-b269-f8c80bd6747c
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: 003eb81a-2c2c-4c21-8e78-fcf5775955ec
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Update
+      Namespace: 
+      Guid: d361e68f-b05b-42a6-89b2-48799b977bb1
+      XPosition: 133.5
+      YPosition: 469.5
+      Inputs: []
+      Outputs:
+      - guid: 043ac4a0-b100-45a8-80da-5034d663cc9b
+        IsWarm: 1
+        Type: 
+        Description: 
+      AttributesData: []
+    - Name: Add
+      Namespace: 
+      Guid: 6e171be9-d8c3-4737-9e7b-c9e90f1eb8c7
+      XPosition: 575.5
+      YPosition: 480
+      Inputs:
+      - guid: 7decfe33-e7d7-4d15-8a31-209355f2e15a
+        IsWarm: 0
+        Type: 
+        Description: 
+      - guid: 7e282499-fc7b-4eee-ac45-e11a7314e465
+        IsWarm: 1
+        Type: 
+        Description: 
+      Outputs:
+      - guid: f68dac90-1dd5-4b49-af97-ad279c8abb1d
+        IsWarm: 0
+        Type: 
+        Description: 
+      AttributesData: []
+    - Name: Print
+      Namespace: 
+      Guid: 4a9f320e-2f5e-4a82-8e92-65c78d5a1f48
+      XPosition: 730.5
+      YPosition: 497.5
+      Inputs:
+      - guid: 981528ae-2bc6-4b29-8ecf-f1251415de1a
+        IsWarm: 0
+        Type: 
+        Description: 
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        guid: b0e0a1bb-2bda-44e9-bd00-10c7bf144d8b
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: 1edffeee-44b0-49d5-9fb2-f80e6894e00a
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 102
+    - Input:
+        guid: 16d390c8-96e8-4d15-b131-6e00f8b1c0e5
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: 0289b4aa-b4a8-478c-9f28-b6a545185b41
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 106
+    - Input:
+        guid: d2eead7a-d630-48d9-9a39-5ff5e3387248
+        IsWarm: 1
+        Type: 
+        Description: 
+      Output:
+        guid: 0681e786-5587-4994-a17e-3b5a76a70f4a
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 122
+    - Input:
+        guid: c3f972d6-7ac7-446d-bc64-2d67c4929e6a
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: 644f596d-b66e-449d-86bf-855e5acdacac
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 299
+    - Input:
+        guid: d6dcbe21-b1c3-4869-9ecd-bd0f6d6ae489
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: eac25e09-0e9c-4d96-bf2d-753dc7e382a6
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 300
+    - Input:
+        guid: ab2537fe-653e-45ef-a89e-f08f4408f559
+        IsWarm: 1
+        Type: 
+        Description: 
+      Output:
+        guid: a55f77d7-d6a8-418a-a853-8cc8d6df718f
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 319
+    - Input:
+        guid: 12f1af32-eae8-4a0c-9c2b-6b44063c1ef7
+        IsWarm: 1
+        Type: 
+        Description: 
+      Output:
+        guid: d1e1f391-c530-4c89-8bcb-4077de9932e6
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 447
+    - Input:
+        guid: 6d331fea-ec8c-4b8b-ab16-644aa728194f
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: d1e1f391-c530-4c89-8bcb-4077de9932e6
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 480
+    - Input:
+        guid: be5af73c-537a-440e-b269-f8c80bd6747c
+        IsWarm: 1
+        Type: 
+        Description: 
+      Output:
+        guid: 043ac4a0-b100-45a8-80da-5034d663cc9b
+        IsWarm: 1
+        Type: 
+        Description: 
+      outputPositionY: 498.5
+    - Input:
+        guid: c852e59f-fa68-423d-af57-7ccb0ad76ca7
+        IsWarm: 1
+        Type: 
+        Description: 
+      Output:
+        guid: 003eb81a-2c2c-4c21-8e78-fcf5775955ec
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 500
+    - Input:
+        guid: 7decfe33-e7d7-4d15-8a31-209355f2e15a
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: 5780df62-30eb-4675-91b6-b057642c93af
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 510
+    - Input:
+        guid: 981528ae-2bc6-4b29-8ecf-f1251415de1a
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        guid: f68dac90-1dd5-4b49-af97-ad279c8abb1d
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 527.5
+    - Input:
+        guid: 7e282499-fc7b-4eee-ac45-e11a7314e465
+        IsWarm: 1
+        Type: 
+        Description: 
+      Output:
+        guid: d1e1f391-c530-4c89-8bcb-4077de9932e6
+        IsWarm: 0
+        Type: 
+        Description: 
+      outputPositionY: 530

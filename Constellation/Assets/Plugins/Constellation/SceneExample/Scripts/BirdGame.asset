@@ -1,0 +1,892 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: BirdGame
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: SetActive
+      Namespace: Unity
+      Guid: 02ffd64a-6789-4318-804b-e488e082d0e5
+      XPosition: 954.5
+      YPosition: 12
+      Inputs:
+      - Guid: 3c21815b-b682-4e62-8ed3-8e5768ac35ec
+        IsWarm: 0
+        Type: Object
+        Description: The gameobject to activate
+      - Guid: 653a5246-89b5-4f14-aeb8-3fbdef84a3b7
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      - Guid: 86ae4d0f-64c5-4d38-93b7-cc8a7efe4d2e
+        IsWarm: 1
+        Type: 
+        Description: send currend enabled state
+      Outputs:
+      - Guid: 0ef63f3b-e5d8-4fcb-9193-d8549f6a724a
+        IsWarm: 0
+        Type: 
+        Description: get the current state
+      AttributesData: []
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: 2f5d83ed-7f96-4cc2-bc1c-fe44bb705f18
+      XPosition: 47
+      YPosition: 15
+      Inputs: []
+      Outputs:
+      - Guid: 8ba22e5c-123f-46a0-b771-e6262d803c9c
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      AttributesData:
+      - Value:
+          stringValue: Start Screen
+          floatValue: 0.000001
+        Type: 1
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 4dbb959a-126f-4a97-9a7c-f0211022e87b
+      XPosition: 361.5
+      YPosition: 59
+      Inputs: []
+      Outputs:
+      - Guid: 06d3acba-011e-41f4-a626-486d683f9db6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Condition
+      Namespace: BasicNodes
+      Guid: 02ff612e-8c78-4956-bc48-29fddef7c14b
+      XPosition: 722.5
+      YPosition: 76
+      Inputs:
+      - Guid: c3514626-ca63-4ef3-b3c9-215ebb17b841
+        IsWarm: 0
+        Type: 
+        Description: $1
+      - Guid: d1c1b002-d482-40fc-9234-6c140c465090
+        IsWarm: 1
+        Type: 
+        Description: $2
+      - Guid: 4070d61a-5b8d-45e3-9925-2e9811c87328
+        IsWarm: 1
+        Type: 
+        Description: $3
+      Outputs:
+      - Guid: 9f4e7578-1eb9-4dde-8c14-0592ef9a3f14
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      AttributesData:
+      - Value:
+          stringValue: $3==1
+          floatValue: 0.000001
+        Type: 3
+      - Value:
+          stringValue: $1
+          floatValue: 0.000001
+        Type: 4
+      - Value:
+          stringValue: $2
+          floatValue: 0.000001
+        Type: 5
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 7fd5395d-5ecb-46b5-89f7-8c4d9e7b8c72
+      XPosition: 947.5
+      YPosition: 103
+      Inputs:
+      - Guid: aaba7dec-7d4f-43f8-8890-62506626c24d
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 1648c39f-b117-49a0-b422-2e151c9f7bfe
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: d5f86a2e-c83b-48a2-bf39-5629cb0cc9ca
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: b0e91e10-e7d8-4085-bfec-d15eed182a75
+      XPosition: 346.5
+      YPosition: 109
+      Inputs: []
+      Outputs:
+      - Guid: e7b37d54-2eda-4691-86d4-e052f117677e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Transform
+      Namespace: Unity
+      Guid: 85f133c8-ca29-4a11-b4b7-c874fe5b2dfb
+      XPosition: 1325.4338
+      YPosition: 177
+      Inputs:
+      - Guid: 2f8ea7b0-c47a-4650-9c5f-e9a0d66746f4
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: af8fc6d2-f02e-458c-9904-4a55349c5d96
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 8fd27ecd-230e-484f-b593-58da8a323ab1
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: c97e186a-13af-49e0-a17b-14e7d82d94fd
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 98a36345-60d6-4c63-80bb-5883d2765d10
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: b025c940-413d-4630-b4c5-307294734eb1
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: d47675a0-8164-4cd3-947b-31f604151431
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 85b456fd-c332-4f42-afdd-1d00ca1f7dab
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 740e3cbc-816e-43a4-896d-1e89ec855233
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: 10dc01b5-7385-46a1-a3d7-40612a98ec73
+      XPosition: 96
+      YPosition: 181
+      Inputs: []
+      Outputs:
+      - Guid: ff732b4d-600c-49f1-bc58-f83de28d8036
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      AttributesData:
+      - Value:
+          stringValue: Bird GameObject
+          floatValue: 0.000001
+        Type: 1
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: c1b4a16d-7b37-4dd2-940e-b756e4dcfa2d
+      XPosition: 702
+      YPosition: 218.5
+      Inputs: []
+      Outputs:
+      - Guid: bd0b07f2-ffb5-4cba-9bbe-f1c09bc7b7eb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Vec3
+      Namespace: Unity
+      Guid: c96cc453-3e9a-4e0a-bc45-3d78193f62fc
+      XPosition: 1124
+      YPosition: 232.5
+      Inputs:
+      - Guid: 15518405-6913-418e-bcd9-0de5f025bde8
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: afabaf65-0e7a-4dc6-9d9e-6a2f2bbdd2b9
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 2ab0808d-adcb-4a9f-a590-86bcdd8662cc
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: de3b20b5-d3a7-4dc0-92e5-e5a9eb36d4a3
+      XPosition: 940
+      YPosition: 250.5
+      Inputs:
+      - Guid: 4f4d3d63-de84-41e7-8cae-2ee0964ed392
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 6e6acc9c-27bd-47c3-b559-722e2cab142d
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 6f5f9ff8-d45c-44de-95c7-69daf119b31a
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: dcb23ab0-8877-4171-a405-39ddb8997433
+      XPosition: 1.5
+      YPosition: 269
+      Inputs: []
+      Outputs:
+      - Guid: 4da00798-c82c-43b4-b0f1-6a1386fcb9be
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Receiver
+      Namespace: BasicNodes
+      Guid: 0108087f-91d3-4a7c-88f5-ae4f41dc723d
+      XPosition: 691
+      YPosition: 269.5
+      Inputs: []
+      Outputs:
+      - Guid: 936f114f-4dec-4f1d-8ae6-93a3303ad55f
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      AttributesData:
+      - Value:
+          stringValue: Bird Died
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 4ba67800-f921-4454-85ff-ac61b96379a2
+      XPosition: 216.5
+      YPosition: 297
+      Inputs:
+      - Guid: fc853412-5532-465f-a276-243592971d2a
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 3e075fb2-7580-4f4e-ae5f-a3ddb41ee20e
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 921baffd-dcd2-4f4a-b56d-3f44d6227708
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: SetActive
+      Namespace: Unity
+      Guid: 399a71c2-99f6-4b27-b106-af8cb49ac8c9
+      XPosition: 533.5
+      YPosition: 309
+      Inputs:
+      - Guid: 743d2806-6488-4388-996a-49f849d7de0e
+        IsWarm: 0
+        Type: Object
+        Description: The gameobject to activate
+      - Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      - Guid: 7f01596f-fa71-4e24-be9c-808dac02efaa
+        IsWarm: 1
+        Type: 
+        Description: send currend enabled state
+      Outputs:
+      - Guid: 33ef4010-b9cf-4e52-8dae-2216fa517d8b
+        IsWarm: 0
+        Type: 
+        Description: get the current state
+      AttributesData: []
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 1fb9b408-213a-458e-a27f-56221945e18a
+      XPosition: 1310.2634
+      YPosition: 315.5
+      Inputs:
+      - Guid: 3ef0e75b-2035-417b-9ab5-6b7c9e9c5aa4
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Receiver
+      Namespace: BasicNodes
+      Guid: 68a91a58-4126-4e45-bcaa-54c80eca20e4
+      XPosition: 36.5
+      YPosition: 337
+      Inputs: []
+      Outputs:
+      - Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      AttributesData:
+      - Value:
+          stringValue: Bird Died
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 507b7041-db05-4a6a-99bf-2f85be73b3fd
+      XPosition: 225.5
+      YPosition: 369
+      Inputs:
+      - Guid: 81dac282-8a32-44e7-8a84-e689582c7640
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 9ed0a964-ed51-4445-b4de-554bbfb22036
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: b175a346-311e-46c5-9a6a-e0e3e9b302e3
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Vec3
+      Namespace: Unity
+      Guid: 537bdd33-02e1-47bc-89d9-cc25d7764532
+      XPosition: 1331.5328
+      YPosition: 402.5
+      Inputs:
+      - Guid: b6336fc1-f445-4a38-a312-06d7d4e4a011
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: 2dcd81dc-3b27-429c-bc9d-c402edd5b846
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 33028688-9398-4d5a-b04b-3c04476221a9
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: c9db2f48-4565-45f9-8f16-8283c41b0a57
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 61ef1649-a3bd-4d0f-a8f8-046708d4de34
+      XPosition: 26.060394
+      YPosition: 412
+      Inputs: []
+      Outputs:
+      - Guid: 1b67995f-5d51-41e0-b0cc-d0a03f6f0111
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 334f16c3-80fe-4e4f-8085-532a8fb022e5
+      XPosition: 198.5
+      YPosition: 462
+      Inputs: []
+      Outputs:
+      - Guid: 985b10f6-42dd-4b96-80cf-2c2c67a58021
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Switch
+      Namespace: BasicNodes
+      Guid: 32d87665-f535-43e6-9e61-b2e676da7bd3
+      XPosition: 271.5
+      YPosition: 554
+      Inputs:
+      - Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      - Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Outputs:
+      - Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      AttributesData: []
+    - Name: KeyDown
+      Namespace: Unity
+      Guid: 8bdb48b5-2bc8-429a-afc2-46b3e663255c
+      XPosition: 44.5
+      YPosition: 564
+      Inputs: []
+      Outputs:
+      - Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      AttributesData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
+    - Name: Add
+      Namespace: BasicNodes
+      Guid: 6c58568a-3e73-487a-add0-2c1f300deb29
+      XPosition: 523.5
+      YPosition: 591.5
+      Inputs:
+      - Guid: f1f99fa9-b371-4a21-af5d-b5c59100d5af
+        IsWarm: 0
+        Type: 
+        Description: value 1
+      - Guid: 1bc33162-9dd8-4e0a-ac6d-e2583ec9d6e6
+        IsWarm: 1
+        Type: 
+        Description: value 2
+      Outputs:
+      - Guid: 96ee4cb6-94de-4938-a0ef-48da836c2bb0
+        IsWarm: 0
+        Type: 
+        Description: value 1 + value 2
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 3c21815b-b682-4e62-8ed3-8e5768ac35ec
+        IsWarm: 0
+        Type: Object
+        Description: The gameobject to activate
+      Output:
+        Guid: 8ba22e5c-123f-46a0-b771-e6262d803c9c
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 42
+    - Input:
+        Guid: 653a5246-89b5-4f14-aeb8-3fbdef84a3b7
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      Output:
+        Guid: 921baffd-dcd2-4f4a-b56d-3f44d6227708
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 62
+    - Input:
+        Guid: 653a5246-89b5-4f14-aeb8-3fbdef84a3b7
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      Output:
+        Guid: 9f4e7578-1eb9-4dde-8c14-0592ef9a3f14
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 62
+    - Input:
+        Guid: c3514626-ca63-4ef3-b3c9-215ebb17b841
+        IsWarm: 0
+        Type: 
+        Description: $1
+      Output:
+        Guid: 06d3acba-011e-41f4-a626-486d683f9db6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 106
+    - Input:
+        Guid: d1c1b002-d482-40fc-9234-6c140c465090
+        IsWarm: 1
+        Type: 
+        Description: $2
+      Output:
+        Guid: e7b37d54-2eda-4691-86d4-e052f117677e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 126
+    - Input:
+        Guid: aaba7dec-7d4f-43f8-8890-62506626c24d
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 9f4e7578-1eb9-4dde-8c14-0592ef9a3f14
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 133
+    - Input:
+        Guid: 4070d61a-5b8d-45e3-9925-2e9811c87328
+        IsWarm: 1
+        Type: 
+        Description: $3
+      Output:
+        Guid: 33ef4010-b9cf-4e52-8dae-2216fa517d8b
+        IsWarm: 0
+        Type: 
+        Description: get the current state
+      outputPositionY: 146
+    - Input:
+        Guid: 2f8ea7b0-c47a-4650-9c5f-e9a0d66746f4
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      Output:
+        Guid: ff732b4d-600c-49f1-bc58-f83de28d8036
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 207
+    - Input:
+        Guid: af8fc6d2-f02e-458c-9904-4a55349c5d96
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      Output:
+        Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 227
+    - Input:
+        Guid: 15518405-6913-418e-bcd9-0de5f025bde8
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: 6f5f9ff8-d45c-44de-95c7-69daf119b31a
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 262.5
+    - Input:
+        Guid: 4f4d3d63-de84-41e7-8cae-2ee0964ed392
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: bd0b07f2-ffb5-4cba-9bbe-f1c09bc7b7eb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 280.5
+    - Input:
+        Guid: afabaf65-0e7a-4dc6-9d9e-6a2f2bbdd2b9
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: 6f5f9ff8-d45c-44de-95c7-69daf119b31a
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 282.5
+    - Input:
+        Guid: 98a36345-60d6-4c63-80bb-5883d2765d10
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Output:
+        Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 287
+    - Input:
+        Guid: 6e6acc9c-27bd-47c3-b559-722e2cab142d
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 936f114f-4dec-4f1d-8ae6-93a3303ad55f
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      outputPositionY: 300.5
+    - Input:
+        Guid: 2ab0808d-adcb-4a9f-a590-86bcdd8662cc
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 6f5f9ff8-d45c-44de-95c7-69daf119b31a
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 302.5
+    - Input:
+        Guid: fc853412-5532-465f-a276-243592971d2a
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 4da00798-c82c-43b4-b0f1-6a1386fcb9be
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 327
+    - Input:
+        Guid: 743d2806-6488-4388-996a-49f849d7de0e
+        IsWarm: 0
+        Type: Object
+        Description: The gameobject to activate
+      Output:
+        Guid: ff732b4d-600c-49f1-bc58-f83de28d8036
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      outputPositionY: 339
+    - Input:
+        Guid: 3ef0e75b-2035-417b-9ab5-6b7c9e9c5aa4
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 345.5
+    - Input:
+        Guid: 3e075fb2-7580-4f4e-ae5f-a3ddb41ee20e
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      outputPositionY: 347
+    - Input:
+        Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      Output:
+        Guid: b175a346-311e-46c5-9a6a-e0e3e9b302e3
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 359
+    - Input:
+        Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      Output:
+        Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      outputPositionY: 359
+    - Input:
+        Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
+        IsWarm: 0
+        Type: 
+        Description: 1 = activate; 0 = disable
+      Output:
+        Guid: 985b10f6-42dd-4b96-80cf-2c2c67a58021
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 359
+    - Input:
+        Guid: 7f01596f-fa71-4e24-be9c-808dac02efaa
+        IsWarm: 1
+        Type: 
+        Description: send currend enabled state
+      Output:
+        Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      outputPositionY: 379
+    - Input:
+        Guid: 7f01596f-fa71-4e24-be9c-808dac02efaa
+        IsWarm: 1
+        Type: 
+        Description: send currend enabled state
+      Output:
+        Guid: b175a346-311e-46c5-9a6a-e0e3e9b302e3
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 379
+    - Input:
+        Guid: 81dac282-8a32-44e7-8a84-e689582c7640
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 1b67995f-5d51-41e0-b0cc-d0a03f6f0111
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 399
+    - Input:
+        Guid: 9ed0a964-ed51-4445-b4de-554bbfb22036
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      outputPositionY: 419
+    - Input:
+        Guid: b6336fc1-f445-4a38-a312-06d7d4e4a011
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 432.5
+    - Input:
+        Guid: 2dcd81dc-3b27-429c-bc9d-c402edd5b846
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 452.5
+    - Input:
+        Guid: 33028688-9398-4d5a-b04b-3c04476221a9
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 4e0e1497-e28c-4ac1-811b-c1524cfd47e5
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 472.5
+    - Input:
+        Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      outputPositionY: 584
+    - Input:
+        Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Output:
+        Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      outputPositionY: 604
+    - Input:
+        Guid: f1f99fa9-b371-4a21-af5d-b5c59100d5af
+        IsWarm: 0
+        Type: 
+        Description: value 1
+      Output:
+        Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      outputPositionY: 621.5

@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Remove
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Value
+      Guid: 47767884-ba4a-42ef-a337-c12595d35491
+      XPosition: 230.5
+      YPosition: 38
+      Inputs:
+      - guid: e199bee5-9f65-4562-9803-5aa2c56d24d9
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: 6b732961-3ebc-4625-a8df-3c45a1282465
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Note
+      Guid: c098a450-3c64-446c-b9b4-b451659f68cb
+      XPosition: 76.5
+      YPosition: 41
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: "If two numbers are connected in it will output \na - b"
+          floatValue: 0.000001
+        Type: 2
+    - Name: Note
+      Guid: d153d654-49e1-451f-b271-4756366f0763
+      XPosition: 691.5
+      YPosition: 42.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Print "-1"
+          floatValue: 0.000001
+        Type: 2
+    - Name: Remove
+      Guid: 2c05a7fb-98b5-49e5-b229-034debf600a2
+      XPosition: 421.5
+      YPosition: 64
+      Inputs:
+      - guid: f5a73249-4da7-4c02-9171-ec81171550a8
+        IsWarm: 0
+        Type: 
+      - guid: c38873c0-e437-43a6-880d-1733b373f938
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: ea5193a6-2bd9-4ff9-8ad8-6d49b6c72df3
+        IsWarm: 0
+        Type: 
+      AttributesData: []
+    - Name: Print
+      Guid: faef8359-745e-4aa4-b9d6-7ab8ffdf53e5
+      XPosition: 576.5
+      YPosition: 82
+      Inputs:
+      - guid: 3efadb13-1b6c-4d2c-9bf9-0b682b27ecaa
+        IsWarm: 0
+        Type: 
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Guid: bc0416ad-54e4-49ce-a232-b42f45f65d46
+      XPosition: 225.5
+      YPosition: 109
+      Inputs:
+      - guid: 073fedbc-26b6-435d-be27-906cdfc48dcb
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: b2127bfc-4ffd-4e39-b500-cf36f0a96f05
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 2
+        Type: 0
+    - Name: Word
+      Guid: 8e3ffc54-df6c-4a45-823a-048e18a3a14d
+      XPosition: 222.5
+      YPosition: 248
+      Inputs:
+      - guid: babc7cb5-2f65-4c74-9fa6-2646f0348953
+        IsWarm: 1
+        Type: 
+      - guid: 4652af42-3814-4834-897c-761bd272cd22
+        IsWarm: 0
+        Type: 
+      Outputs:
+      - guid: 41bde1f1-7a1e-4bdd-9bee-0968cd366215
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: this is a complete sentance
+          floatValue: 0.000001
+        Type: 1
+    - Name: Note
+      Guid: c9b7d160-22fd-4a08-9ab2-65c94c694184
+      XPosition: 64.5
+      YPosition: 251.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: If two words are connected it will remove a word from a string
+          floatValue: 0.000001
+        Type: 2
+    - Name: Note
+      Guid: 81097b4d-c2ef-4326-a08e-4a8708f49edf
+      XPosition: 697.5
+      YPosition: 267.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: print this is a sentance
+          floatValue: 0.000001
+        Type: 2
+    - Name: Print
+      Guid: 912db5db-034c-4e5f-b377-c814c2331f4b
+      XPosition: 569.5
+      YPosition: 288
+      Inputs:
+      - guid: 5fccdf8a-e2ef-4a3e-8ef8-32e5d562780d
+        IsWarm: 0
+        Type: 
+      Outputs: []
+      AttributesData: []
+    - Name: Remove
+      Guid: c76c389c-69a9-4787-b47e-53e70fb41d3e
+      XPosition: 415.5
+      YPosition: 300
+      Inputs:
+      - guid: bea786cc-3f18-4ba6-8db7-4665680a4d94
+        IsWarm: 0
+        Type: 
+      - guid: 7f079e83-5e97-4651-855d-0509cae2025d
+        IsWarm: 1
+        Type: 
+      Outputs:
+      - guid: fd112d59-dc5e-4f5f-9a0c-940199c761c3
+        IsWarm: 0
+        Type: 
+      AttributesData: []
+    - Name: Word
+      Guid: 739e50c2-b923-4c56-8599-8e210bf74fc4
+      XPosition: 221.5
+      YPosition: 321
+      Inputs:
+      - guid: a5235124-d596-47ed-8647-bb7f0964e7a5
+        IsWarm: 1
+        Type: 
+      - guid: 91178e4a-bb38-4b62-9c37-9fc3d27a3abd
+        IsWarm: 0
+        Type: 
+      Outputs:
+      - guid: e18a86d0-2c0e-41ae-96e6-ce69d1871843
+        IsWarm: 0
+        Type: 
+      AttributesData:
+      - Value:
+          stringValue: ' complete'
+          floatValue: 0.000001
+        Type: 1
+    Links:
+    - Input:
+        guid: f5a73249-4da7-4c02-9171-ec81171550a8
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: 6b732961-3ebc-4625-a8df-3c45a1282465
+        IsWarm: 0
+        Type: 
+      outputPositionY: 94
+    - Input:
+        guid: 3efadb13-1b6c-4d2c-9bf9-0b682b27ecaa
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: ea5193a6-2bd9-4ff9-8ad8-6d49b6c72df3
+        IsWarm: 0
+        Type: 
+      outputPositionY: 112
+    - Input:
+        guid: c38873c0-e437-43a6-880d-1733b373f938
+        IsWarm: 1
+        Type: 
+      Output:
+        guid: b2127bfc-4ffd-4e39-b500-cf36f0a96f05
+        IsWarm: 0
+        Type: 
+      outputPositionY: 114
+    - Input:
+        guid: 5fccdf8a-e2ef-4a3e-8ef8-32e5d562780d
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: fd112d59-dc5e-4f5f-9a0c-940199c761c3
+        IsWarm: 0
+        Type: 
+      outputPositionY: 318
+    - Input:
+        guid: bea786cc-3f18-4ba6-8db7-4665680a4d94
+        IsWarm: 0
+        Type: 
+      Output:
+        guid: 41bde1f1-7a1e-4bdd-9bee-0968cd366215
+        IsWarm: 0
+        Type: 
+      outputPositionY: 330
+    - Input:
+        guid: 7f079e83-5e97-4651-855d-0509cae2025d
+        IsWarm: 1
+        Type: 
+      Output:
+        guid: e18a86d0-2c0e-41ae-96e6-ce69d1871843
+        IsWarm: 0
+        Type: 
+      outputPositionY: 350
