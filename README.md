@@ -7,9 +7,10 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 
 # Features
 - Editor: Beta.
-- Live editing: preview (very buggy).
+- Live editing: very buggy but still very cool.
 - Examples: in development.
 - Basic nodes to do a game.
+- Integration with unity attribute system.
 
 # Quick start
 - Download or clone the repo.
