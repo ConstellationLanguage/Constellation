@@ -13,72 +13,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Note
-      Guid: 86de1687-ca18-47ed-8651-3c49b685cfdd
-      XPosition: 593.5
-      YPosition: 23
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Output 4
-          floatValue: 0.000001
-        Type: 2
     - Name: Value
-      Guid: 135174cc-1658-4fab-b69d-0c8821adf53d
-      XPosition: 27.5
-      YPosition: 42
-      Inputs:
-      - guid: 948a5cbd-236a-4fc1-b97e-2b1c9c6a14c6
+      Namespace: BasicNodes
+      Guid: 5c7e0e72-abb9-4369-9f5f-c641bc5b6b9e
+      XPosition: 29.5
+      YPosition: 95
+      Inputs: []
+      Outputs:
+      - Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
         IsWarm: 1
         Type: 
-      Outputs:
-      - guid: 2b41db08-303e-4bb1-a1fc-d529b8ec5456
-        IsWarm: 0
-        Type: 
+        Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 2
         Type: 0
-    - Name: Print
-      Guid: bdd85243-ecdf-401f-84f6-2de1b9de1dfe
-      XPosition: 439.5
-      YPosition: 67
+    - Name: Multiply
+      Namespace: BasicNodes
+      Guid: 2f741397-c255-466f-bdcd-2d167f59ebc0
+      XPosition: 239.5
+      YPosition: 96
       Inputs:
-      - guid: 7b54ec57-1254-4f38-aaac-c0247f6ebc6e
+      - Guid: 7f5596bb-308f-4dd8-92b3-1e7a379b1b10
         IsWarm: 0
         Type: 
+        Description: Multiply factor
+      - Guid: 7bc4ea98-2d1f-4622-95c2-6e56c2ab7275
+        IsWarm: 1
+        Type: 
+        Description: Value to multiply
+      Outputs:
+      - Guid: 543e02ae-ac65-483b-8dab-615163ecdeb6
+        IsWarm: 0
+        Type: 
+        Description: Result $1 x $2
+      AttributesData: []
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 79894679-f790-43fc-b54f-3113cf7e9a21
+      XPosition: 435.5
+      YPosition: 97
+      Inputs:
+      - Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Multiply
-      Guid: d22b0731-89a1-4124-9343-531ec4a3c626
-      XPosition: 256.5
-      YPosition: 68
-      Inputs:
-      - guid: 00f9df51-20bf-4759-8294-54d07f128743
-        IsWarm: 0
-        Type: 
-      - guid: 732977bb-763d-42d5-89d2-48e42ad55b26
-        IsWarm: 1
-        Type: 
-      Outputs:
-      - guid: a858883a-98a6-49ac-adac-d62194feb1cf
-        IsWarm: 0
-        Type: 
-      AttributesData: []
     - Name: Value
-      Guid: 99c1764c-f337-498e-ac6b-3a98b3b5e363
-      XPosition: 27.5
-      YPosition: 99
-      Inputs:
-      - guid: 65d118e7-c54c-46a7-969c-8977398c28ee
+      Namespace: BasicNodes
+      Guid: ec61e46a-8e19-4015-81c2-f1f2203a02a1
+      XPosition: 25.5
+      YPosition: 162
+      Inputs: []
+      Outputs:
+      - Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
         IsWarm: 1
         Type: 
-      Outputs:
-      - guid: 1833f76f-c1de-4deb-8edc-ac6e971e3930
-        IsWarm: 0
-        Type: 
+        Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
@@ -86,29 +79,35 @@ MonoBehaviour:
         Type: 0
     Links:
     - Input:
-        guid: 7b54ec57-1254-4f38-aaac-c0247f6ebc6e
+        Guid: 7f5596bb-308f-4dd8-92b3-1e7a379b1b10
         IsWarm: 0
         Type: 
+        Description: Multiply factor
       Output:
-        guid: a858883a-98a6-49ac-adac-d62194feb1cf
-        IsWarm: 0
-        Type: 
-      outputPositionY: 97
-    - Input:
-        guid: 00f9df51-20bf-4759-8294-54d07f128743
-        IsWarm: 0
-        Type: 
-      Output:
-        guid: 2b41db08-303e-4bb1-a1fc-d529b8ec5456
-        IsWarm: 0
-        Type: 
-      outputPositionY: 98
-    - Input:
-        guid: 732977bb-763d-42d5-89d2-48e42ad55b26
+        Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
         IsWarm: 1
         Type: 
-      Output:
-        guid: 1833f76f-c1de-4deb-8edc-ac6e971e3930
+        Description: The value
+      outputPositionY: 126
+    - Input:
+        Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
         IsWarm: 0
         Type: 
-      outputPositionY: 118
+        Description: value to log in console
+      Output:
+        Guid: 543e02ae-ac65-483b-8dab-615163ecdeb6
+        IsWarm: 0
+        Type: 
+        Description: Result $1 x $2
+      outputPositionY: 127
+    - Input:
+        Guid: 7bc4ea98-2d1f-4622-95c2-6e56c2ab7275
+        IsWarm: 1
+        Type: 
+        Description: Value to multiply
+      Output:
+        Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 146

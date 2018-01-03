@@ -11,76 +11,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
   m_Name: Update
   m_EditorClassIdentifier: 
-  Nodes:
-  - Name: Note
-    Guid: 1df260b4-dc7a-4f12-911a-95594a26b27a
-    XPosition: 23
-    YPosition: 16
-    Inputs: []
-    Outputs: []
-    AttributesData:
-    - Value:
-        stringValue: 'Update is Called Once per frame.
-
-          It will output a "Ray"'
-        floatValue: 0.000001
-      Type: 2
-  - Name: Update
-    Guid: bbfef638-1ceb-4355-8efa-e326c6cf8090
-    XPosition: 23
-    YPosition: 153
-    Inputs: []
-    Outputs:
-    - guid: 555b52ea-76ae-424e-8bc7-2e7930982a86
-      IsWarm: 1
-      Type: 
-    AttributesData: []
-  - Name: Print
-    Guid: ae231fa3-3422-481e-85bf-57ca24f6a4a1
-    XPosition: 203
-    YPosition: 153
-    Inputs:
-    - guid: 28cb83ce-ceaa-45fa-b3e0-2032f33e5de2
-      IsWarm: 0
-      Type: 
-    Outputs: []
-    AttributesData: []
-  - Name: Word
-    Guid: 10ff81d7-b350-4b69-9c2f-14c2a7cbbb54
-    XPosition: 194
-    YPosition: 210
-    Inputs:
-    - guid: f63c76eb-c5c8-4c45-a19a-364a7cd8c4ea
-      IsWarm: 1
-      Type: 
-    - guid: 378e41a1-77b3-4f61-86f6-42d4d2805eef
-      IsWarm: 0
-      Type: 
-    Outputs:
-    - guid: 05fc3ad7-891d-43fb-b565-2dac5a26d7e7
-      IsWarm: 0
-      Type: 
-    AttributesData:
-    - Value:
-        stringValue: Ray
-        floatValue: 0.000001
-      Type: 1
-  Links:
-  - Input:
-      guid: 28cb83ce-ceaa-45fa-b3e0-2032f33e5de2
-      IsWarm: 0
-      Type: 
-    Output:
-      guid: 555b52ea-76ae-424e-8bc7-2e7930982a86
-      IsWarm: 1
-      Type: 
-    outputPositionY: 183
-  - Input:
-      guid: 378e41a1-77b3-4f61-86f6-42d4d2805eef
-      IsWarm: 0
-      Type: 
-    Output:
-      guid: 555b52ea-76ae-424e-8bc7-2e7930982a86
-      IsWarm: 1
-      Type: 
-    outputPositionY: 260
+  script:
+    Nodes:
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: 19cc8ad6-6288-4e2b-aff3-77c39eebb6bf
+      XPosition: 29.5
+      YPosition: 93
+      Inputs: []
+      Outputs:
+      - Guid: fff5780d-595c-4a5c-aee7-2346afc9e4cb
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: I'm called once per frame
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: ce9db2a2-01c7-4626-b826-436ee57cf459
+      XPosition: 238.5
+      YPosition: 108
+      Inputs:
+      - Guid: 5dc83fb6-3d47-4660-acbb-4f320742bfe8
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 6507ef80-1cc1-4971-b5cc-21bc00869183
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: c75f23f9-0d2e-4308-9f7c-bd33778e821b
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 85be7518-2c9c-4952-bace-e3ff3046989f
+      XPosition: 471.5
+      YPosition: 112
+      Inputs:
+      - Guid: f7b153f6-1e54-4960-9803-c7a05d859da5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Update
+      Namespace: Unity
+      Guid: 0f78eab1-2171-40a7-9802-fae345a4f1e6
+      XPosition: 47.5
+      YPosition: 147
+      Inputs: []
+      Outputs:
+      - Guid: ac2d780d-6022-4c1f-a740-58b472ff521c
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 5dc83fb6-3d47-4660-acbb-4f320742bfe8
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: fff5780d-595c-4a5c-aee7-2346afc9e4cb
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 138
+    - Input:
+        Guid: f7b153f6-1e54-4960-9803-c7a05d859da5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: c75f23f9-0d2e-4308-9f7c-bd33778e821b
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 142
+    - Input:
+        Guid: 6507ef80-1cc1-4971-b5cc-21bc00869183
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: ac2d780d-6022-4c1f-a740-58b472ff521c
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 158

@@ -14,9 +14,10 @@ MonoBehaviour:
   script:
     Nodes:
     - Name: Note
+      Namespace: 
       Guid: 464fc151-fca6-4578-aaa5-22672b092194
-      XPosition: 18.5
-      YPosition: 24
+      XPosition: 29.5
+      YPosition: 35
       Inputs: []
       Outputs: []
       AttributesData:

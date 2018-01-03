@@ -13,43 +13,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Word
-      Guid: 50027446-2c9f-46de-a64b-60d3747abc13
-      XPosition: 54.5
-      YPosition: 47
-      Inputs:
-      - guid: f8c25495-fecc-4370-b3d8-9fc1714c635c
-        IsWarm: 1
-        Type: 
-      - guid: b89f2592-c2ce-47dd-b160-14d6aca64e9c
-        IsWarm: 0
-        Type: 
-      Outputs:
-      - guid: 390c7848-08fc-4bfb-80ba-8bf85d6d83bc
-        IsWarm: 0
-        Type: 
-      AttributesData:
-      - Value:
-          stringValue: Print to unity console
-          floatValue: 0.000001
-        Type: 1
     - Name: Print
+      Namespace: 
       Guid: 3c54506d-9e56-49d1-9f6f-e0b072b2ab77
-      XPosition: 287.5
-      YPosition: 70
+      XPosition: 352.5
+      YPosition: 95
       Inputs:
-      - guid: 60919d94-9e66-4e46-b25f-bf1417b26be9
+      - Guid: 
         IsWarm: 0
         Type: 
+        Description: 
       Outputs: []
       AttributesData: []
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: 75f247eb-918a-4ee0-ab2b-fac9abe1c677
+      XPosition: 85.5
+      YPosition: 95
+      Inputs: []
+      Outputs:
+      - Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: printing
+          floatValue: 0.000001
+        Type: 1
     Links:
     - Input:
-        guid: 60919d94-9e66-4e46-b25f-bf1417b26be9
+        Guid: 
         IsWarm: 0
         Type: 
+        Description: 
       Output:
-        guid: 390c7848-08fc-4bfb-80ba-8bf85d6d83bc
-        IsWarm: 0
+        Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
+        IsWarm: 1
         Type: 
-      outputPositionY: 100
+        Description: The Word
+      outputPositionY: 125

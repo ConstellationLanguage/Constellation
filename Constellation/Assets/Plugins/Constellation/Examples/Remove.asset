@@ -13,24 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Value
-      Guid: 47767884-ba4a-42ef-a337-c12595d35491
-      XPosition: 230.5
-      YPosition: 38
-      Inputs:
-      - guid: e199bee5-9f65-4562-9803-5aa2c56d24d9
-        IsWarm: 1
-        Type: 
-      Outputs:
-      - guid: 6b732961-3ebc-4625-a8df-3c45a1282465
-        IsWarm: 0
-        Type: 
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 1
-        Type: 0
     - Name: Note
+      Namespace: 
       Guid: c098a450-3c64-446c-b9b4-b451659f68cb
       XPosition: 76.5
       YPosition: 41
@@ -42,6 +26,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     - Name: Note
+      Namespace: 
       Guid: d153d654-49e1-451f-b271-4756366f0763
       XPosition: 691.5
       YPosition: 42.5
@@ -52,70 +37,88 @@ MonoBehaviour:
           stringValue: Print "-1"
           floatValue: 0.000001
         Type: 2
-    - Name: Remove
-      Guid: 2c05a7fb-98b5-49e5-b229-034debf600a2
-      XPosition: 421.5
-      YPosition: 64
-      Inputs:
-      - guid: f5a73249-4da7-4c02-9171-ec81171550a8
-        IsWarm: 0
-        Type: 
-      - guid: c38873c0-e437-43a6-880d-1733b373f938
-        IsWarm: 1
-        Type: 
-      Outputs:
-      - guid: ea5193a6-2bd9-4ff9-8ad8-6d49b6c72df3
-        IsWarm: 0
-        Type: 
-      AttributesData: []
-    - Name: Print
-      Guid: faef8359-745e-4aa4-b9d6-7ab8ffdf53e5
-      XPosition: 576.5
-      YPosition: 82
-      Inputs:
-      - guid: 3efadb13-1b6c-4d2c-9bf9-0b682b27ecaa
-        IsWarm: 0
-        Type: 
-      Outputs: []
-      AttributesData: []
     - Name: Value
-      Guid: bc0416ad-54e4-49ce-a232-b42f45f65d46
-      XPosition: 225.5
-      YPosition: 109
-      Inputs:
-      - guid: 073fedbc-26b6-435d-be27-906cdfc48dcb
+      Namespace: BasicNodes
+      Guid: d42f2c08-97a2-4268-9a79-9c9a8fef993f
+      XPosition: 234.5
+      YPosition: 63
+      Inputs: []
+      Outputs:
+      - Guid: ecb6539a-724c-4d16-ada9-8faa2d805e5d
         IsWarm: 1
         Type: 
-      Outputs:
-      - guid: b2127bfc-4ffd-4e39-b500-cf36f0a96f05
-        IsWarm: 0
-        Type: 
+        Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 2
         Type: 0
-    - Name: Word
-      Guid: 8e3ffc54-df6c-4a45-823a-048e18a3a14d
-      XPosition: 222.5
-      YPosition: 248
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 1bb2fd60-16d4-4a8f-a681-1bb45b82089a
+      XPosition: 585.5
+      YPosition: 80
       Inputs:
-      - guid: babc7cb5-2f65-4c74-9fa6-2646f0348953
+      - Guid: 96fd9bab-8f0b-45ed-93c3-c670c64a56b1
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Remove
+      Namespace: BasicNodes
+      Guid: cd366815-2900-4f58-bbcf-e05fd96c1c07
+      XPosition: 431.5
+      YPosition: 80
+      Inputs:
+      - Guid: 16b13634-adf7-4f66-b847-c60ded2f7f3c
+        IsWarm: 0
+        Type: 
+        Description: Value to remove
+      - Guid: 2909e4d7-8dec-4736-afd5-acb867ec3da5
         IsWarm: 1
         Type: 
-      - guid: 4652af42-3814-4834-897c-761bd272cd22
-        IsWarm: 0
-        Type: 
+        Description: Remove factor
       Outputs:
-      - guid: 41bde1f1-7a1e-4bdd-9bee-0968cd366215
+      - Guid: dc8e95b4-3fcb-4a3e-955b-a9e4b2c32373
         IsWarm: 0
         Type: 
+        Description: $1 - $2
+      AttributesData: []
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 339083de-fc67-4830-b529-7be171036407
+      XPosition: 215.5
+      YPosition: 151
+      Inputs: []
+      Outputs:
+      - Guid: ac13adf3-2c8e-4e99-bfef-6a9d9f532453
+        IsWarm: 1
+        Type: 
+        Description: The value
       AttributesData:
       - Value:
-          stringValue: this is a complete sentance
+          stringValue: UNDEFINED
+          floatValue: 3
+        Type: 0
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: a9b2ed0c-efc0-45cd-821b-be8ae4d9f19a
+      XPosition: 229.5
+      YPosition: 245
+      Inputs: []
+      Outputs:
+      - Guid: 9c4b6495-c0c8-4f4c-8738-e0fad842a0b6
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: this is a long sentance
           floatValue: 0.000001
         Type: 1
     - Name: Note
+      Namespace: 
       Guid: c9b7d160-22fd-4a08-9ab2-65c94c694184
       XPosition: 64.5
       YPosition: 251.5
@@ -127,9 +130,10 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     - Name: Note
+      Namespace: 
       Guid: 81097b4d-c2ef-4326-a08e-4a8708f49edf
-      XPosition: 697.5
-      YPosition: 267.5
+      XPosition: 692.5
+      YPosition: 264.5
       Inputs: []
       Outputs: []
       AttributesData:
@@ -137,104 +141,118 @@ MonoBehaviour:
           stringValue: print this is a sentance
           floatValue: 0.000001
         Type: 2
-    - Name: Print
-      Guid: 912db5db-034c-4e5f-b377-c814c2331f4b
-      XPosition: 569.5
-      YPosition: 288
+    - Name: Remove
+      Namespace: BasicNodes
+      Guid: 794b8ae0-eea7-4d5b-bf2a-a5846e972e0b
+      XPosition: 436.5
+      YPosition: 280
       Inputs:
-      - guid: 5fccdf8a-e2ef-4a3e-8ef8-32e5d562780d
+      - Guid: b190e684-35b4-4cfe-bf76-53ec1bef9071
         IsWarm: 0
         Type: 
+        Description: Value to remove
+      - Guid: 55c0a197-b8af-44e1-8b60-66527c6fe53a
+        IsWarm: 1
+        Type: 
+        Description: Remove factor
+      Outputs:
+      - Guid: 57a2c3f8-d1f7-4f15-8492-c182ad0125da
+        IsWarm: 0
+        Type: 
+        Description: $1 - $2
+      AttributesData: []
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 26a837ac-69aa-4c06-ac00-39b8af300173
+      XPosition: 587.5
+      YPosition: 283
+      Inputs:
+      - Guid: 3179bd4d-f33e-47a3-a66f-7d1c41983606
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Remove
-      Guid: c76c389c-69a9-4787-b47e-53e70fb41d3e
-      XPosition: 415.5
-      YPosition: 300
-      Inputs:
-      - guid: bea786cc-3f18-4ba6-8db7-4665680a4d94
-        IsWarm: 0
-        Type: 
-      - guid: 7f079e83-5e97-4651-855d-0509cae2025d
-        IsWarm: 1
-        Type: 
-      Outputs:
-      - guid: fd112d59-dc5e-4f5f-9a0c-940199c761c3
-        IsWarm: 0
-        Type: 
-      AttributesData: []
     - Name: Word
-      Guid: 739e50c2-b923-4c56-8599-8e210bf74fc4
-      XPosition: 221.5
-      YPosition: 321
-      Inputs:
-      - guid: a5235124-d596-47ed-8647-bb7f0964e7a5
+      Namespace: BasicNodes
+      Guid: 46c0a66b-be3f-4701-942f-39bb91f101c2
+      XPosition: 213.5
+      YPosition: 324
+      Inputs: []
+      Outputs:
+      - Guid: e33213d3-4586-4662-a326-63a0e9827cf3
         IsWarm: 1
         Type: 
-      - guid: 91178e4a-bb38-4b62-9c37-9fc3d27a3abd
-        IsWarm: 0
-        Type: 
-      Outputs:
-      - guid: e18a86d0-2c0e-41ae-96e6-ce69d1871843
-        IsWarm: 0
-        Type: 
+        Description: The Word
       AttributesData:
       - Value:
-          stringValue: ' complete'
+          stringValue: long
           floatValue: 0.000001
         Type: 1
     Links:
     - Input:
-        guid: f5a73249-4da7-4c02-9171-ec81171550a8
+        Guid: 96fd9bab-8f0b-45ed-93c3-c670c64a56b1
         IsWarm: 0
         Type: 
+        Description: value to log in console
       Output:
-        guid: 6b732961-3ebc-4625-a8df-3c45a1282465
+        Guid: dc8e95b4-3fcb-4a3e-955b-a9e4b2c32373
         IsWarm: 0
         Type: 
-      outputPositionY: 94
+        Description: $1 - $2
+      outputPositionY: 110
     - Input:
-        guid: 3efadb13-1b6c-4d2c-9bf9-0b682b27ecaa
+        Guid: 16b13634-adf7-4f66-b847-c60ded2f7f3c
         IsWarm: 0
         Type: 
+        Description: Value to remove
       Output:
-        guid: ea5193a6-2bd9-4ff9-8ad8-6d49b6c72df3
-        IsWarm: 0
-        Type: 
-      outputPositionY: 112
-    - Input:
-        guid: c38873c0-e437-43a6-880d-1733b373f938
+        Guid: ecb6539a-724c-4d16-ada9-8faa2d805e5d
         IsWarm: 1
         Type: 
-      Output:
-        guid: b2127bfc-4ffd-4e39-b500-cf36f0a96f05
-        IsWarm: 0
-        Type: 
-      outputPositionY: 114
+        Description: The value
+      outputPositionY: 110
     - Input:
-        guid: 5fccdf8a-e2ef-4a3e-8ef8-32e5d562780d
-        IsWarm: 0
+        Guid: 2909e4d7-8dec-4736-afd5-acb867ec3da5
+        IsWarm: 1
         Type: 
+        Description: Remove factor
       Output:
-        guid: fd112d59-dc5e-4f5f-9a0c-940199c761c3
-        IsWarm: 0
+        Guid: ac13adf3-2c8e-4e99-bfef-6a9d9f532453
+        IsWarm: 1
         Type: 
-      outputPositionY: 318
+        Description: The value
+      outputPositionY: 130
     - Input:
-        guid: bea786cc-3f18-4ba6-8db7-4665680a4d94
+        Guid: b190e684-35b4-4cfe-bf76-53ec1bef9071
         IsWarm: 0
         Type: 
+        Description: Value to remove
       Output:
-        guid: 41bde1f1-7a1e-4bdd-9bee-0968cd366215
+        Guid: 9c4b6495-c0c8-4f4c-8738-e0fad842a0b6
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 310
+    - Input:
+        Guid: 3179bd4d-f33e-47a3-a66f-7d1c41983606
         IsWarm: 0
         Type: 
+        Description: value to log in console
+      Output:
+        Guid: 57a2c3f8-d1f7-4f15-8492-c182ad0125da
+        IsWarm: 0
+        Type: 
+        Description: $1 - $2
+      outputPositionY: 313
+    - Input:
+        Guid: 55c0a197-b8af-44e1-8b60-66527c6fe53a
+        IsWarm: 1
+        Type: 
+        Description: Remove factor
+      Output:
+        Guid: e33213d3-4586-4662-a326-63a0e9827cf3
+        IsWarm: 1
+        Type: 
+        Description: The Word
       outputPositionY: 330
-    - Input:
-        guid: 7f079e83-5e97-4651-855d-0509cae2025d
-        IsWarm: 1
-        Type: 
-      Output:
-        guid: e18a86d0-2c0e-41ae-96e6-ce69d1871843
-        IsWarm: 0
-        Type: 
-      outputPositionY: 350

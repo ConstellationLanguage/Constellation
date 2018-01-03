@@ -15,18 +15,6 @@ MonoBehaviour:
     Nodes:
     - Name: Note
       Namespace: 
-      Guid: 4bc7d6c9-fbf8-46a7-9b34-1ac5717e5297
-      XPosition: 535.5
-      YPosition: 56
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: '"I''m containing a string"'
-          floatValue: 0.000001
-        Type: 2
-    - Name: Note
-      Namespace: 
       Guid: a4739233-fef6-4bd8-94e2-50ba8f16f100
       XPosition: 27.5
       YPosition: 57
@@ -37,22 +25,29 @@ MonoBehaviour:
           stringValue: Word is used to store strings
           floatValue: 0.000001
         Type: 2
-    - Name: Word
+    - Name: Note
       Namespace: 
-      Guid: 779d8589-1b74-4aa5-8f35-ed026fd545f9
-      XPosition: 191.5
-      YPosition: 91
-      Inputs:
-      - guid: 6b9214cf-c0dd-44e8-9f3f-ffd972e17361
-        IsWarm: 0
-        Type: 
-      - guid: d99fa7d9-0f4f-493c-9360-dd9a887f2e2a
+      Guid: 4bc7d6c9-fbf8-46a7-9b34-1ac5717e5297
+      XPosition: 550.5
+      YPosition: 66
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: '"I''m containing a string"'
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: 7455275f-a1d9-4118-9813-187f8427e8ce
+      XPosition: 205.5
+      YPosition: 87
+      Inputs: []
+      Outputs:
+      - Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
         IsWarm: 1
         Type: 
-      Outputs:
-      - guid: bfb48949-a123-4983-9825-cba8928b378d
-        IsWarm: 0
-        Type: 
+        Description: The Word
       AttributesData:
       - Value:
           stringValue: I'm containing a string
@@ -64,18 +59,21 @@ MonoBehaviour:
       XPosition: 411.5
       YPosition: 92
       Inputs:
-      - guid: 1d498d39-494c-4410-9d6d-2529464c71da
+      - Guid: 
         IsWarm: 0
         Type: 
+        Description: 
       Outputs: []
       AttributesData: []
     Links:
     - Input:
-        guid: 1d498d39-494c-4410-9d6d-2529464c71da
+        Guid: 
         IsWarm: 0
         Type: 
+        Description: 
       Output:
-        guid: bfb48949-a123-4983-9825-cba8928b378d
-        IsWarm: 0
+        Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
+        IsWarm: 1
         Type: 
+        Description: The Word
       outputPositionY: 122
