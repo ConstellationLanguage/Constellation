@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Name: EditorData
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
+  - Assets/Plugins/Constellation/Examples/Key.asset
+  - Assets/Plugins/Constellation/Examples/DeltaTime.asset
   - Assets/Plugins/Constellation/SceneExample/Scripts/Bird.asset
   - Assets/Plugins/Constellation/Examples/Var.asset
   - Assets/Plugins/Constellation/Examples/Switch.asset
