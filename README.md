@@ -39,3 +39,10 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - Add a Constellation behaviour component to your GameObject
 - Add your Constellation script the script field.
 
+# Live editing
+![alt text](https://static.wixstatic.com/media/cbe6c9_ca78219d477d44998dd55d91d0ae68c2~mv2.png/v1/fill/w_920,h_475,al_c,usm_0.66_1.00_0.01/cbe6c9_ca78219d477d44998dd55d91d0ae68c2~mv2.png)
+- Hit play.
+- Open a constellation editor window.
+- Click on the gameobject you want to profile.
+- You should see the live values.
+
