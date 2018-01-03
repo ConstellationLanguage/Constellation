@@ -15,3 +15,5 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - Download or clone the repo.
 - Open with unity 2017.3.
 - Open the constellation Window.
+
+![alt text](https://static.wixstatic.com/media/cbe6c9_908c53aaea714a2e8c80f5515578e157~mv2.png/v1/fill/w_600,h_233,al_c,usm_0.66_1.00_0.01/cbe6c9_908c53aaea714a2e8c80f5515578e157~mv2.png)
