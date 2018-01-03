@@ -34,3 +34,8 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - A Unity variable is an object wich inherite from unity object.
 - Links alow you to connect a node output to a node input.
 
+# Assigning your script to a GameObject
+![alt text](https://static.wixstatic.com/media/cbe6c9_c26b21b554884010ba84d41388d00526~mv2.png/v1/fill/w_267,h_75,al_c/cbe6c9_c26b21b554884010ba84d41388d00526~mv2.png)
+- Add a Constellation behaviour component to your GameObject
+- Add your Constellation script the script field.
+
