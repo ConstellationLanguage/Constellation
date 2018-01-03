@@ -4,3 +4,9 @@ Constellation is a node based programming language for unity that gives you the 
 
 # Who should use it?
 Designers, Artiste, programmers... Constellation is easy to use and extendable if you want to use your custom scripts.
+
+#Features
+- Editor: Beta.
+- Live editing: preview (very buggy).
+- Examples: in development.
+- Basic nodes to do a game.
