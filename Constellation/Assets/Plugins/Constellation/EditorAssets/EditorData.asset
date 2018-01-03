@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Name: EditorData
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
-  - Assets/Plugins/Constellation/Examples/Word.asset
-  - Assets/Plugins/Constellation/Examples/Value.asset
-  - Assets/Plugins/Constellation/Examples/Update.asset
-  - Assets/Plugins/Constellation/Examples/Remove.asset
-  - Assets/Plugins/Constellation/Examples/Print.asset
-  - Assets/Plugins/Constellation/Examples/Note.asset
-  - Assets/Plugins/Constellation/Examples/Multiply.asset
-  - Assets/Plugins/Constellation/Examples/Add.asset
+  - Assets/Plugins/Constellation/SceneExample/Scripts/Bird.asset
+  - Assets/Plugins/Constellation/Examples/Var.asset
+  - Assets/Plugins/Constellation/Examples/Switch.asset
+  - Assets/Plugins/Constellation/Examples/Sender.asset
+  - Assets/Plugins/Constellation/Examples/Receiver.asset
+  - Assets/Plugins/Constellation/Examples/Vec3.asset
   EditorUndoService:
     Actions: []
     SelectedAction: -1
