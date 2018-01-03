@@ -12,21 +12,5 @@ MonoBehaviour:
   m_Name: NewConstellation
   m_EditorClassIdentifier: 
   script:
-    Nodes:
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: 01f24368-ee83-47e2-bdd2-60a3fbe3523c
-      XPosition: 183.5
-      YPosition: 64.5
-      Inputs: []
-      Outputs:
-      - guid: 9e6ee208-cec4-426f-be1d-3436f57eea74
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 14.03
-        Type: 0
+    Nodes: []
     Links: []

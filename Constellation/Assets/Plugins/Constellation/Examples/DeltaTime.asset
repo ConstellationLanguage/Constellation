@@ -13,6 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Note
+      Namespace: BasicNodes
+      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      XPosition: 53.5
+      YPosition: 19
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Delta time between frames
+          floatValue: 0.000001
+        Type: 2
     - Name: Value
       Namespace: BasicNodes
       Guid: 0fa7f05c-9a59-4fa4-b7b4-b4655f3c5320

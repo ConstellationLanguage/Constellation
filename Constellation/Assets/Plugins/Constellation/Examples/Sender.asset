@@ -13,6 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Note
+      Namespace: BasicNodes
+      Guid: 8ccf9c94-48c3-4533-b620-9996ac88e8b3
+      XPosition: 245.5
+      YPosition: 21
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Used to send var to a sender. Sender and Receiver name should
+            match
+          floatValue: 0.000001
+        Type: 2
     - Name: Word
       Namespace: BasicNodes
       Guid: 13333850-00f4-4ae6-98d6-b76cbd8cf406

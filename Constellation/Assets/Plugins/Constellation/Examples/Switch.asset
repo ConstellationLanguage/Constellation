@@ -13,6 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Note
+      Namespace: BasicNodes
+      Guid: d2d5feb8-63d3-4ff6-8277-e0aff5579b36
+      XPosition: 355.5
+      YPosition: 10
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Output if first input = 1
+          floatValue: 0.000001
+        Type: 2
     - Name: Key
       Namespace: Unity
       Guid: 65f4546c-c9c5-4f47-8db0-4cdd36429551
@@ -29,10 +41,22 @@ MonoBehaviour:
           stringValue: s
           floatValue: 0.000001
         Type: 1
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 9844741c-3329-4458-8c5d-58b732a54046
+      XPosition: 656.5
+      YPosition: 121
+      Inputs:
+      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
     - Name: Switch
       Namespace: BasicNodes
       Guid: 1f829511-eb89-4dc0-8bc7-cc360641dade
-      XPosition: 589.5
+      XPosition: 498.5
       YPosition: 125
       Inputs:
       - Guid: 35aebd4c-523f-4666-abc2-80b428bdd41c
@@ -48,18 +72,6 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Output if on
-      AttributesData: []
-    - Name: Print
-      Namespace: BasicNodes
-      Guid: 9844741c-3329-4458-8c5d-58b732a54046
-      XPosition: 764.5
-      YPosition: 134
-      Inputs:
-      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Outputs: []
       AttributesData: []
     - Name: Var
       Namespace: BasicNodes
@@ -115,6 +127,17 @@ MonoBehaviour:
       AttributesData: []
     Links:
     - Input:
+        Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: c6834329-83e5-4ba4-bf2e-c9447f9c11b1
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      outputPositionY: 151
+    - Input:
         Guid: 35aebd4c-523f-4666-abc2-80b428bdd41c
         IsWarm: 0
         Type: 
@@ -125,17 +148,6 @@ MonoBehaviour:
         Type: 
         Description: Output 1 when key pressed
       outputPositionY: 155
-    - Input:
-        Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: c6834329-83e5-4ba4-bf2e-c9447f9c11b1
-        IsWarm: 0
-        Type: 
-        Description: Output if on
-      outputPositionY: 164
     - Input:
         Guid: cdad95b7-ce0c-4e1e-997a-a2f3a0178272
         IsWarm: 1

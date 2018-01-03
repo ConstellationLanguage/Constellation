@@ -137,6 +137,18 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 2
         Type: 0
+    - Name: Note
+      Namespace: BasicNodes
+      Guid: ab9335f7-17d4-4a55-b4d7-f871f689587a
+      XPosition: 330.5
+      YPosition: 213
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: List to store a position or a rotation
+          floatValue: 0.000001
+        Type: 2
     - Name: Value
       Namespace: BasicNodes
       Guid: bec5a51a-6649-4880-840a-3b144b02dbca

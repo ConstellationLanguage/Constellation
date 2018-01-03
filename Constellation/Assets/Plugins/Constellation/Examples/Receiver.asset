@@ -16,8 +16,8 @@ MonoBehaviour:
     - Name: Word
       Namespace: BasicNodes
       Guid: 0696622c-02a2-4933-b39f-f3649576f88d
-      XPosition: 124.5
-      YPosition: 114
+      XPosition: 34.5
+      YPosition: 22
       Inputs: []
       Outputs:
       - Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
@@ -29,27 +29,11 @@ MonoBehaviour:
           stringValue: sending a string
           floatValue: 0.000001
         Type: 1
-    - Name: Sender
-      Namespace: BasicNodes
-      Guid: ccef19a7-7e25-4cb3-827a-2d5ddc064e4a
-      XPosition: 484.5
-      YPosition: 140
-      Inputs:
-      - Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
-        IsWarm: 1
-        Type: 
-        Description: value to send
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: EventDemo
-          floatValue: 0.000001
-        Type: 1
     - Name: Var
       Namespace: BasicNodes
       Guid: 849f24a3-3c11-42f6-9821-03ba33598bd4
-      XPosition: 297.5
-      YPosition: 153
+      XPosition: 207.5
+      YPosition: 61
       Inputs:
       - Guid: fcb9c28d-faa2-4e18-ac7b-0fb111d527be
         IsWarm: 0
@@ -69,11 +53,27 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
+    - Name: Sender
+      Namespace: BasicNodes
+      Guid: ccef19a7-7e25-4cb3-827a-2d5ddc064e4a
+      XPosition: 402.5
+      YPosition: 67
+      Inputs:
+      - Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: EventDemo
+          floatValue: 0.000001
+        Type: 1
     - Name: Update
       Namespace: Unity
       Guid: f749fdb7-c2f8-471c-a34c-1061a9935db9
-      XPosition: 117.5
-      YPosition: 212
+      XPosition: 27.5
+      YPosition: 120
       Inputs: []
       Outputs:
       - Guid: 91a4f122-ae62-4e28-b793-437a0735cc52
@@ -84,8 +84,8 @@ MonoBehaviour:
     - Name: Print
       Namespace: BasicNodes
       Guid: cd703c62-243d-4b04-bdb3-599ad00fea6a
-      XPosition: 332.5
-      YPosition: 296
+      XPosition: 242.5
+      YPosition: 204
       Inputs:
       - Guid: 120b6d5b-d004-4509-be37-15570dfc88c5
         IsWarm: 0
@@ -96,8 +96,8 @@ MonoBehaviour:
     - Name: Receiver
       Namespace: BasicNodes
       Guid: cf36a7a6-0bdb-485b-8cfc-797e4fca3294
-      XPosition: 123.5
-      YPosition: 300
+      XPosition: 33.5
+      YPosition: 208
       Inputs: []
       Outputs:
       - Guid: 2a03dbc4-9ede-4956-8f95-f7d636a2ac06
@@ -109,18 +109,19 @@ MonoBehaviour:
           stringValue: EventDemo
           floatValue: 0.000001
         Type: 1
+    - Name: Note
+      Namespace: BasicNodes
+      Guid: 914fcbc6-10e4-461d-8c2c-384a4f9fac0f
+      XPosition: 36.5
+      YPosition: 259
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Used to receive data from a sender
+          floatValue: 0.000001
+        Type: 2
     Links:
-    - Input:
-        Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
-        IsWarm: 1
-        Type: 
-        Description: value to send
-      Output:
-        Guid: a199cb9f-9d1c-45e4-9c4a-ea21e40e9b64
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 170
     - Input:
         Guid: fcb9c28d-faa2-4e18-ac7b-0fb111d527be
         IsWarm: 0
@@ -131,7 +132,18 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The Word
-      outputPositionY: 183
+      outputPositionY: 91
+    - Input:
+        Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Output:
+        Guid: a199cb9f-9d1c-45e4-9c4a-ea21e40e9b64
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 97
     - Input:
         Guid: 3ce4075d-84c5-453d-a75b-5d7a1399bf81
         IsWarm: 1
@@ -142,7 +154,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Ray on update
-      outputPositionY: 203
+      outputPositionY: 111
     - Input:
         Guid: 120b6d5b-d004-4509-be37-15570dfc88c5
         IsWarm: 0
@@ -153,4 +165,4 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Received Value from a sender
-      outputPositionY: 326
+      outputPositionY: 234
