@@ -10,3 +10,8 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - Live editing: preview (very buggy).
 - Examples: in development.
 - Basic nodes to do a game.
+
+# Quick start
+- Download or clone the repo.
+- Open with unity 2017.3.
+- Open the constellation Window.
