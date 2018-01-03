@@ -22,6 +22,8 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - Output are the result.
 - A warm input will trigger an output.
 - A warm output is triggered without warm input. For example keyDown node will trigger an output because a key is pressed.
+- A cold output is triggered only when a warm input receive a message.
+- A cold input does not trigger an output.
 - A Variable is either a number, a string, an array, an object, or a list of variable (Very similar to the var in javascript).
 - A Unity variable is an object wich inherite from unity object.
 - Links alow you to connect a node output to a node input.
