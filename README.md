@@ -16,4 +16,13 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - Open with unity 2017.3.
 - Open the constellation Window.
 
+# Anatomy of a node
 ![alt text](https://static.wixstatic.com/media/cbe6c9_908c53aaea714a2e8c80f5515578e157~mv2.png/v1/fill/w_600,h_233,al_c,usm_0.66_1.00_0.01/cbe6c9_908c53aaea714a2e8c80f5515578e157~mv2.png)
+- Inputs set variables in the node.
+- Output are the result.
+- A warm input will trigger an output.
+- A warm output is triggered without warm input. For example keyDown node will trigger an output because a key is pressed.
+- A Variable is either a number, a string, an array, an object, or a list of variable (Very similar to the var in javascript).
+- A Unity variable is an object wich inherite from unity object.
+- Links alow you to connect a node output to a node input.
+
