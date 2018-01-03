@@ -16,6 +16,12 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 - Open with unity 2017.3.
 - Open the constellation Window.
 
+# Editor overview
+![alt text](https://static.wixstatic.com/media/cbe6c9_88e6cc8d9fde4f9099d8d5f6402861c1~mv2.png/v1/fill/w_767,h_413,al_c,usm_0.66_1.00_0.01/cbe6c9_88e6cc8d9fde4f9099d8d5f6402861c1~mv2.png)
+- Constellation tab:  Currently open constellation
+- Node selection panel: The nodes list. Click one in the list to add it
+- Node editor: Where you edit your scripts
+
 # Anatomy of a node
 ![alt text](https://static.wixstatic.com/media/cbe6c9_908c53aaea714a2e8c80f5515578e157~mv2.png/v1/fill/w_600,h_233,al_c,usm_0.66_1.00_0.01/cbe6c9_908c53aaea714a2e8c80f5515578e157~mv2.png)
 - Inputs set variables in the node.
