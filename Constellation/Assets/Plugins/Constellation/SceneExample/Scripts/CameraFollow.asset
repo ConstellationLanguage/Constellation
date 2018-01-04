@@ -17,7 +17,7 @@ MonoBehaviour:
       Namespace: Unity
       Guid: b44cc94d-587a-4442-bdb6-d6683cea6304
       XPosition: 27.5
-      YPosition: 47.5
+      YPosition: 12.5
       Inputs: []
       Outputs:
       - Guid: 9bf782a2-bd2a-4c32-a0a4-9061139e3cd2
@@ -29,27 +29,11 @@ MonoBehaviour:
           stringValue: Bird
           floatValue: 0.000001
         Type: 1
-    - Name: ValueAttribute
-      Namespace: Attributes
-      Guid: c80eddc8-0552-4ac3-870f-003d9088b060
-      XPosition: 390.71436
-      YPosition: 82.5
-      Inputs: []
-      Outputs:
-      - Guid: 771c39f3-b7e3-49fc-aacb-36a609b0f7a4
-        IsWarm: 1
-        Type: 
-        Description: Current value
-      AttributesData:
-      - Value:
-          stringValue: OffsetX
-          floatValue: 0.000001
-        Type: 1
     - Name: Transform
       Namespace: Unity
       Guid: e7a79b9c-8823-4614-bbe4-758e2cbe70fc
-      XPosition: 249.5
-      YPosition: 91.5
+      XPosition: 233.5
+      YPosition: 36.5
       Inputs:
       - Guid: f21cb615-fd68-465e-8573-e6550b7bbcd1
         IsWarm: 0
@@ -89,11 +73,27 @@ MonoBehaviour:
         Type: Object
         Description: Transform
       AttributesData: []
+    - Name: ValueAttribute
+      Namespace: Attributes
+      Guid: c80eddc8-0552-4ac3-870f-003d9088b060
+      XPosition: 372.71436
+      YPosition: 46.5
+      Inputs: []
+      Outputs:
+      - Guid: 771c39f3-b7e3-49fc-aacb-36a609b0f7a4
+        IsWarm: 1
+        Type: 
+        Description: Current value
+      AttributesData:
+      - Value:
+          stringValue: OffsetX
+          floatValue: 0.000001
+        Type: 1
     - Name: Transform
       Namespace: Unity
       Guid: dcfd900a-e6e8-4914-9a80-c1c3b6543baf
-      XPosition: 980.5
-      YPosition: 123.5
+      XPosition: 892.5
+      YPosition: 69.5
       Inputs:
       - Guid: 85b3041e-e3c4-4168-8fe9-c2ba57de86d2
         IsWarm: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
     - Name: Add
       Namespace: BasicNodes
       Guid: 396f8880-9890-4620-8588-de2f51592a61
-      XPosition: 598.5
-      YPosition: 143.5
+      XPosition: 582.5
+      YPosition: 88.5
       Inputs:
       - Guid: 14f4363b-67ab-46ec-bb37-fe401ba99657
         IsWarm: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
     - Name: Vec3
       Namespace: Unity
       Guid: 8185999c-6d92-40e1-929b-3906c04eec94
-      XPosition: 793.5
-      YPosition: 146.5
+      XPosition: 705.5
+      YPosition: 92.5
       Inputs:
       - Guid: 1238c105-f30f-4fed-8467-d626b222d36c
         IsWarm: 1
@@ -192,8 +192,8 @@ MonoBehaviour:
     - Name: SplitVec3
       Namespace: Unity
       Guid: 6e20ae00-7ba1-4f12-821b-4cd2da330048
-      XPosition: 387.5
-      YPosition: 150.5
+      XPosition: 371.5
+      YPosition: 95.5
       Inputs:
       - Guid: e480bd9c-d832-45df-b891-58060d67f139
         IsWarm: 1
@@ -240,8 +240,8 @@ MonoBehaviour:
     - Name: ValueAttribute
       Namespace: Attributes
       Guid: 43f4c5fd-3ee5-4f04-9ba3-d1c19294c173
-      XPosition: 387.71436
-      YPosition: 247.5
+      XPosition: 370.71436
+      YPosition: 189.5
       Inputs: []
       Outputs:
       - Guid: 906fbc20-9066-435d-a53d-4720759d7656
@@ -253,11 +253,23 @@ MonoBehaviour:
           stringValue: OffsetY
           floatValue: 0.000001
         Type: 1
+    - Name: Note
+      Namespace: BasicNodes
+      Guid: 8174fd34-a735-47da-abc5-ace5cbe6a6a4
+      XPosition: 59.5
+      YPosition: 213.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Follow the bird gameObject
+          floatValue: 0.000001
+        Type: 2
     - Name: ValueAttribute
       Namespace: Attributes
       Guid: 736c00e1-7c9b-4582-8b3e-432b67cbe868
-      XPosition: 396.71436
-      YPosition: 333.5
+      XPosition: 368.71436
+      YPosition: 237.5
       Inputs: []
       Outputs:
       - Guid: 7839a901-9fd0-4d3c-a60d-0c0205627e14
@@ -280,7 +292,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: Object
         Description: Unity object
-      outputPositionY: 121.5
+      outputPositionY: 66.5
     - Input:
         Guid: 14f4363b-67ab-46ec-bb37-fe401ba99657
         IsWarm: 0
@@ -291,7 +303,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Current value
-      outputPositionY: 173.5
+      outputPositionY: 118.5
     - Input:
         Guid: 27a0c2f5-7e64-47da-98a2-4c6be7d650ae
         IsWarm: 0
@@ -302,7 +314,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Vec3[X][Y][Z]
-      outputPositionY: 173.5
+      outputPositionY: 119.5
     - Input:
         Guid: 1238c105-f30f-4fed-8467-d626b222d36c
         IsWarm: 1
@@ -313,7 +325,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: value 1 + value 2
-      outputPositionY: 176.5
+      outputPositionY: 122.5
     - Input:
         Guid: e480bd9c-d832-45df-b891-58060d67f139
         IsWarm: 1
@@ -324,7 +336,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Vec3 position
-      outputPositionY: 180.5
+      outputPositionY: 125.5
     - Input:
         Guid: b35bb074-b14c-4866-a766-5227e7ed8b03
         IsWarm: 1
@@ -335,7 +347,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: X
-      outputPositionY: 193.5
+      outputPositionY: 138.5
     - Input:
         Guid: cce40589-c8c1-4dae-a903-2b131c565eff
         IsWarm: 1
@@ -346,7 +358,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Current value
-      outputPositionY: 196.5
+      outputPositionY: 142.5
     - Input:
         Guid: c803009b-fc5a-4588-80e7-d0d4166e77c0
         IsWarm: 1
@@ -357,7 +369,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Ray on lateUpdate
-      outputPositionY: 201.5
+      outputPositionY: 146.5
     - Input:
         Guid: e48a704e-5c84-4c60-81f8-4e39f65549a8
         IsWarm: 1
@@ -368,4 +380,4 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Current value
-      outputPositionY: 216.5
+      outputPositionY: 162.5
