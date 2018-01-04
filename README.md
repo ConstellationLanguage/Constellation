@@ -15,9 +15,9 @@ Designers, Artiste, programmers... Constellation is easy to use and extendable i
 
 # Quick start
 
-#What do I need
+## What do I need?
 - You need the latest version of [unity](https://unity3d.com/get-unity/download)
-- When your unity is installed you can Download or clone the repo.
+- When your unity is installed, you can Download or clone the repo.
 - Open with unity 2017.3.
 - Open the constellation Window (Constellation/editor).
 
