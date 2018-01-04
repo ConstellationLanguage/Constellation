@@ -1,4 +1,4 @@
-Any help or idea is welcome. If you don't know where to start go check the issues tab and find one for starters.
+Any help or idea is welcome. If you don't know where to start go check the issues tab and find one labeled for beginners.
 
 CREATING A NEW NODE (Use the Var.cs node as a reference, it's one of the most basic ones and easy to understand)
 - Node should implement INode, IReceiver interfaces
