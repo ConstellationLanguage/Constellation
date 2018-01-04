@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Plugins/Constellation/SceneExample/FlappyBird.unity
+    guid: cd7b7cf93687ad240b5d894b40b05b51

@@ -41,6 +41,9 @@ namespace Constellation.Unity {
                 case SetActive.NAME:
                     INode nodeSetActive = new SetActive() as INode;
                     return new Node<INode> (nodeSetActive);
+                case LoadScene.NAME:
+                    INode nodeLoadScene = new LoadScene() as INode;
+                    return new Node<INode> (nodeLoadScene);
                 default:
                     return null;
             }

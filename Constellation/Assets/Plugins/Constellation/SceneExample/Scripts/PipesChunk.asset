@@ -98,15 +98,15 @@ MonoBehaviour:
         Description: Z
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 30
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: -4
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
     - Name: Vec3
@@ -134,15 +134,15 @@ MonoBehaviour:
         Description: Vec3[X][Y][Z]
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 30
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: -4.801903
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
     - Name: Transform
@@ -202,8 +202,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: -5
+          stringValue: -5
+          floatValue: 0.000001
         Type: 0
     - Name: Random
       Namespace: Math
@@ -238,8 +238,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 5
+          stringValue: 5
+          floatValue: 0.000001
         Type: 0
     - Name: Transform
       Namespace: Unity
@@ -326,15 +326,15 @@ MonoBehaviour:
         Description: Z
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 45
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: 4
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
     - Name: Vec3
@@ -362,15 +362,15 @@ MonoBehaviour:
         Description: Vec3[X][Y][Z]
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 45
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: -0.2190642
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
     - Name: Transform
@@ -430,8 +430,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: -5
+          stringValue: -5
+          floatValue: 0.000001
         Type: 0
     - Name: Random
       Namespace: Math
@@ -466,8 +466,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 5
+          stringValue: 5
+          floatValue: 0.000001
         Type: 0
     - Name: Transform
       Namespace: Unity
@@ -598,15 +598,15 @@ MonoBehaviour:
         Description: Vec3[X][Y][Z]
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 60
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: 3.378501
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
     - Name: SplitVec3
@@ -634,15 +634,15 @@ MonoBehaviour:
         Description: Z
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 60
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: 4
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
     - Name: Random
@@ -678,8 +678,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: -5
+          stringValue: -5
+          floatValue: 0.000001
         Type: 0
     - Name: Value
       Namespace: BasicNodes
@@ -694,8 +694,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 5
+          stringValue: 5
+          floatValue: 0.000001
         Type: 0
     Links:
     - Input:

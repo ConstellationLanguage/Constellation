@@ -11,34 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72031b8cdebc5dc42a100b3b0b823f8f, type: 3}
   m_Name: EditorData
   m_EditorClassIdentifier: 
-  LastOpenedConstellationPath: []
+  LastOpenedConstellationPath:
+  - Assets/Plugins/Constellation/SceneExample/Scripts/BirdGame.asset
+  - Assets/Plugins/Constellation/SceneExample/Scripts/Bird.asset
+  - Assets/Plugins/Constellation/SceneExample/Scripts/PipesChunk.asset
   EditorUndoService:
-    Actions:
-    - Nodes:
-      - Name: Multiply
-        Namespace: BasicNodes
-        Guid: f39e5c54-1d9f-4750-bf3d-325f5613d5e8
-        XPosition: 331.5
-        YPosition: 230
-        Inputs:
-        - Guid: e096cc83-69c9-4542-9363-e20692cf9e6b
-          IsWarm: 0
-          Type: 
-          Description: Multiply factor
-        - Guid: 47039879-cfc7-4b64-b22e-d69bdced38f2
-          IsWarm: 1
-          Type: 
-          Description: Value to multiply
-        Outputs:
-        - Guid: 9fa49b4d-ca67-453b-940a-0fd829e4bba6
-          IsWarm: 0
-          Type: 
-          Description: Result $1 x $2
-        AttributesData: []
-      Links: []
-    - Nodes: []
-      Links: []
-    SelectedAction: 1
+    Actions: []
+    SelectedAction: -1
   SliderX: 0
   SliderY: 500
   clipBoard:

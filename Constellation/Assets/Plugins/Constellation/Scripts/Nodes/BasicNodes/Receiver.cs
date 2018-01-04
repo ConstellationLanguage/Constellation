@@ -10,8 +10,8 @@ namespace Constellation.BasicNodes {
                 ConstellationBehaviour.eventSystem.Register (OnConstellationEvent);
         }
 
-        public void OnConstellationEvent (string eventName, Variable _value) {
-            if (eventName == this.eventName.Value.GetString ()) {
+        public void OnConstellationEvent (string _eventName, Variable _value) {
+            if (_eventName == this.eventName.Value.GetString ()) {
                 sender.Send (_value, 0);
             }
         }

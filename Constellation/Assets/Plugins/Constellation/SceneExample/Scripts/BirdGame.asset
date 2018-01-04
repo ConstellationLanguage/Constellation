@@ -145,54 +145,38 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 1
         Type: 0
-    - Name: ObjectAttribute
-      Namespace: Unity
-      Guid: 10dc01b5-7385-46a1-a3d7-40612a98ec73
-      XPosition: 96
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: 826a24af-f035-4913-aa95-c01f8c7cab13
+      XPosition: 12.5
       YPosition: 181
       Inputs: []
       Outputs:
-      - Guid: ff732b4d-600c-49f1-bc58-f83de28d8036
-        IsWarm: 1
-        Type: Object
-        Description: Unity object
-      AttributesData:
-      - Value:
-          stringValue: Bird GameObject
-          floatValue: 0.000001
-        Type: 1
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: dcb23ab0-8877-4171-a405-39ddb8997433
-      XPosition: 1.5
-      YPosition: 269
-      Inputs: []
-      Outputs:
-      - Guid: 4da00798-c82c-43b4-b0f1-6a1386fcb9be
+      - Guid: a0c9e5b6-fe31-40e7-a062-9858cc82e4af
         IsWarm: 1
         Type: 
-        Description: The value
+        Description: The Word
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 1
-        Type: 0
+          stringValue: FlappyBird
+          floatValue: 0.000001
+        Type: 1
     - Name: Var
       Namespace: BasicNodes
-      Guid: 4ba67800-f921-4454-85ff-ac61b96379a2
-      XPosition: 216.5
-      YPosition: 297
+      Guid: 3159b558-5460-49a9-b687-146bfd8a9f3c
+      XPosition: 220.5
+      YPosition: 215
       Inputs:
-      - Guid: fc853412-5532-465f-a276-243592971d2a
+      - Guid: 664bfb72-725e-4b39-9eb9-faa323f31720
         IsWarm: 0
         Type: 
         Description: New var
-      - Guid: 3e075fb2-7580-4f4e-ae5f-a3ddb41ee20e
+      - Guid: 35094647-ffe7-4a80-ac24-7a716e191b3c
         IsWarm: 1
         Type: 
         Description: Send var
       Outputs:
-      - Guid: 921baffd-dcd2-4f4a-b56d-3f44d6227708
+      - Guid: 40383e58-4c39-4e8d-90fe-148d079fb388
         IsWarm: 0
         Type: 
         Description: Current setted word
@@ -201,11 +185,55 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
+    - Name: LoadScene
+      Namespace: Unity
+      Guid: 2b9ca277-1d38-44d0-9010-49d50595384e
+      XPosition: 398.5
+      YPosition: 231
+      Inputs:
+      - Guid: 2ea00017-478e-425d-9a23-ace925269ca1
+        IsWarm: 1
+        Type: 
+        Description: Scene Name to load
+      Outputs: []
+      AttributesData: []
+    - Name: Receiver
+      Namespace: BasicNodes
+      Guid: 68a91a58-4126-4e45-bcaa-54c80eca20e4
+      XPosition: 37.5
+      YPosition: 239
+      Inputs: []
+      Outputs:
+      - Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      AttributesData:
+      - Value:
+          stringValue: Bird Died
+          floatValue: 0.000001
+        Type: 1
+    - Name: Sender
+      Namespace: BasicNodes
+      Guid: 9a90e3a5-de10-49ed-822d-ee6bdef9c414
+      XPosition: 554.5
+      YPosition: 270.5
+      Inputs:
+      - Guid: a9e76068-7041-49f4-947f-2c8751874501
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Reset Game
+          floatValue: 0.000001
+        Type: 1
     - Name: SetActive
       Namespace: Unity
       Guid: 399a71c2-99f6-4b27-b106-af8cb49ac8c9
-      XPosition: 533.5
-      YPosition: 309
+      XPosition: 661.5
+      YPosition: 349
       Inputs:
       - Guid: 743d2806-6488-4388-996a-49f849d7de0e
         IsWarm: 0
@@ -225,67 +253,27 @@ MonoBehaviour:
         Type: 
         Description: get the current state
       AttributesData: []
-    - Name: Receiver
-      Namespace: BasicNodes
-      Guid: 68a91a58-4126-4e45-bcaa-54c80eca20e4
-      XPosition: 36.5
-      YPosition: 337
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: 10dc01b5-7385-46a1-a3d7-40612a98ec73
+      XPosition: 427
+      YPosition: 350
       Inputs: []
       Outputs:
-      - Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
+      - Guid: ff732b4d-600c-49f1-bc58-f83de28d8036
         IsWarm: 1
-        Type: 
-        Description: Received Value from a sender
+        Type: Object
+        Description: Unity object
       AttributesData:
       - Value:
-          stringValue: Bird Died
+          stringValue: Bird GameObject
           floatValue: 0.000001
         Type: 1
-    - Name: Var
-      Namespace: BasicNodes
-      Guid: 507b7041-db05-4a6a-99bf-2f85be73b3fd
-      XPosition: 225.5
-      YPosition: 369
-      Inputs:
-      - Guid: 81dac282-8a32-44e7-8a84-e689582c7640
-        IsWarm: 0
-        Type: 
-        Description: New var
-      - Guid: 9ed0a964-ed51-4445-b4de-554bbfb22036
-        IsWarm: 1
-        Type: 
-        Description: Send var
-      Outputs:
-      - Guid: b175a346-311e-46c5-9a6a-e0e3e9b302e3
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 6
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: 61ef1649-a3bd-4d0f-a8f8-046708d4de34
-      XPosition: 26.060394
-      YPosition: 412
-      Inputs: []
-      Outputs:
-      - Guid: 1b67995f-5d51-41e0-b0cc-d0a03f6f0111
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
     - Name: Value
       Namespace: BasicNodes
       Guid: 334f16c3-80fe-4e4f-8085-532a8fb022e5
-      XPosition: 198.5
-      YPosition: 462
+      XPosition: 222.5
+      YPosition: 461
       Inputs: []
       Outputs:
       - Guid: 985b10f6-42dd-4b96-80cf-2c2c67a58021
@@ -300,8 +288,8 @@ MonoBehaviour:
     - Name: Switch
       Namespace: BasicNodes
       Guid: 32d87665-f535-43e6-9e61-b2e676da7bd3
-      XPosition: 271.5
-      YPosition: 554
+      XPosition: 291.5
+      YPosition: 556
       Inputs:
       - Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
         IsWarm: 0
@@ -333,26 +321,6 @@ MonoBehaviour:
           stringValue: w
           floatValue: 0.000001
         Type: 1
-    - Name: Add
-      Namespace: BasicNodes
-      Guid: 6c58568a-3e73-487a-add0-2c1f300deb29
-      XPosition: 523.5
-      YPosition: 591.5
-      Inputs:
-      - Guid: f1f99fa9-b371-4a21-af5d-b5c59100d5af
-        IsWarm: 0
-        Type: 
-        Description: value 1
-      - Guid: 1bc33162-9dd8-4e0a-ac6d-e2583ec9d6e6
-        IsWarm: 1
-        Type: 
-        Description: value 2
-      Outputs:
-      - Guid: 96ee4cb6-94de-4938-a0ef-48da836c2bb0
-        IsWarm: 0
-        Type: 
-        Description: value 1 + value 2
-      AttributesData: []
     Links:
     - Input:
         Guid: 3c21815b-b682-4e62-8ed3-8e5768ac35ec
@@ -365,17 +333,6 @@ MonoBehaviour:
         Type: Object
         Description: Unity object
       outputPositionY: 42
-    - Input:
-        Guid: 653a5246-89b5-4f14-aeb8-3fbdef84a3b7
-        IsWarm: 0
-        Type: 
-        Description: 1 = activate; 0 = disable
-      Output:
-        Guid: 921baffd-dcd2-4f4a-b56d-3f44d6227708
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 62
     - Input:
         Guid: 653a5246-89b5-4f14-aeb8-3fbdef84a3b7
         IsWarm: 0
@@ -432,16 +389,38 @@ MonoBehaviour:
         Description: get the current state
       outputPositionY: 146
     - Input:
-        Guid: fc853412-5532-465f-a276-243592971d2a
+        Guid: 664bfb72-725e-4b39-9eb9-faa323f31720
         IsWarm: 0
         Type: 
         Description: New var
       Output:
-        Guid: 4da00798-c82c-43b4-b0f1-6a1386fcb9be
+        Guid: a0c9e5b6-fe31-40e7-a062-9858cc82e4af
         IsWarm: 1
         Type: 
-        Description: The value
-      outputPositionY: 327
+        Description: The Word
+      outputPositionY: 245
+    - Input:
+        Guid: 2ea00017-478e-425d-9a23-ace925269ca1
+        IsWarm: 1
+        Type: 
+        Description: Scene Name to load
+      Output:
+        Guid: 40383e58-4c39-4e8d-90fe-148d079fb388
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 261
+    - Input:
+        Guid: 35094647-ffe7-4a80-ac24-7a716e191b3c
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      outputPositionY: 265
     - Input:
         Guid: 743d2806-6488-4388-996a-49f849d7de0e
         IsWarm: 0
@@ -452,29 +431,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: Object
         Description: Unity object
-      outputPositionY: 339
-    - Input:
-        Guid: 3e075fb2-7580-4f4e-ae5f-a3ddb41ee20e
-        IsWarm: 1
-        Type: 
-        Description: Send var
-      Output:
-        Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
-        IsWarm: 1
-        Type: 
-        Description: Received Value from a sender
-      outputPositionY: 347
-    - Input:
-        Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
-        IsWarm: 0
-        Type: 
-        Description: 1 = activate; 0 = disable
-      Output:
-        Guid: b175a346-311e-46c5-9a6a-e0e3e9b302e3
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 359
+      outputPositionY: 379
     - Input:
         Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
         IsWarm: 0
@@ -485,7 +442,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Output if on
-      outputPositionY: 359
+      outputPositionY: 399
     - Input:
         Guid: 92e3d5be-cc2f-4320-aa90-24d4f1b6d3af
         IsWarm: 0
@@ -496,7 +453,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The value
-      outputPositionY: 359
+      outputPositionY: 399
     - Input:
         Guid: 7f01596f-fa71-4e24-be9c-808dac02efaa
         IsWarm: 1
@@ -507,39 +464,6 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Output if on
-      outputPositionY: 379
-    - Input:
-        Guid: 7f01596f-fa71-4e24-be9c-808dac02efaa
-        IsWarm: 1
-        Type: 
-        Description: send currend enabled state
-      Output:
-        Guid: b175a346-311e-46c5-9a6a-e0e3e9b302e3
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 379
-    - Input:
-        Guid: 81dac282-8a32-44e7-8a84-e689582c7640
-        IsWarm: 0
-        Type: 
-        Description: New var
-      Output:
-        Guid: 1b67995f-5d51-41e0-b0cc-d0a03f6f0111
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 399
-    - Input:
-        Guid: 9ed0a964-ed51-4445-b4de-554bbfb22036
-        IsWarm: 1
-        Type: 
-        Description: Send var
-      Output:
-        Guid: 8ba18e35-70c2-4de9-9499-06df6dd6a3de
-        IsWarm: 1
-        Type: 
-        Description: Received Value from a sender
       outputPositionY: 419
     - Input:
         Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
@@ -551,7 +475,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on key down else 0
-      outputPositionY: 584
+      outputPositionY: 586
     - Input:
         Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
         IsWarm: 1
@@ -562,15 +486,4 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on key down else 0
-      outputPositionY: 604
-    - Input:
-        Guid: f1f99fa9-b371-4a21-af5d-b5c59100d5af
-        IsWarm: 0
-        Type: 
-        Description: value 1
-      Output:
-        Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
-        IsWarm: 0
-        Type: 
-        Description: Output if on
-      outputPositionY: 621.5
+      outputPositionY: 606
