@@ -272,8 +272,8 @@ MonoBehaviour:
     - Name: Value
       Namespace: BasicNodes
       Guid: 334f16c3-80fe-4e4f-8085-532a8fb022e5
-      XPosition: 222.5
-      YPosition: 461
+      XPosition: 119.5
+      YPosition: 413
       Inputs: []
       Outputs:
       - Guid: 985b10f6-42dd-4b96-80cf-2c2c67a58021
