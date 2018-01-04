@@ -89,6 +89,22 @@ MonoBehaviour:
           stringValue: speed
           floatValue: 0.000001
         Type: 1
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 640846d9-7332-4583-9814-9fcdde7213b0
+      XPosition: 1423.8782
+      YPosition: 84.5
+      Inputs: []
+      Outputs:
+      - Guid: 91d3c8bd-c848-4ad6-b877-8d6074ddc5d6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
     - Name: Var
       Namespace: BasicNodes
       Guid: f415fab0-b5bd-4de9-b2fb-851b8fcebe23
@@ -197,6 +213,78 @@ MonoBehaviour:
           stringValue: Z
           floatValue: 0.000001
         Type: 9
+    - Name: Switch
+      Namespace: BasicNodes
+      Guid: a3162dfe-b0c2-4dfe-a8d5-cb027a3ae2ea
+      XPosition: 1609.8782
+      YPosition: 175.5
+      Inputs:
+      - Guid: 377049b9-b51c-47c0-aa07-4c37019386aa
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      - Guid: 5f8436a3-dc3c-4068-a037-bdd77f00ed42
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Outputs:
+      - Guid: 746a37ee-bb47-447c-9509-4d0ffd17a330
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      AttributesData: []
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 8c4cc550-a21d-467b-9a27-7ebf8ac0fc64
+      XPosition: 1128.8782
+      YPosition: 181.5
+      Inputs: []
+      Outputs:
+      - Guid: 5f6bc5ed-61f7-4f02-b7ce-67a460471585
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Condition
+      Namespace: BasicNodes
+      Guid: 2f5a188f-b1c0-4108-8f4a-9c710bfb7ca3
+      XPosition: 1357.0813
+      YPosition: 193.5
+      Inputs:
+      - Guid: cbeee148-40d5-45f6-988b-51197c5b9f22
+        IsWarm: 0
+        Type: 
+        Description: $1
+      - Guid: 2a765e02-7f58-485c-b75e-e8b60a86b86f
+        IsWarm: 1
+        Type: 
+        Description: $2
+      - Guid: f3f6d469-4521-435a-be36-bc93a5767d58
+        IsWarm: 1
+        Type: 
+        Description: $3
+      Outputs:
+      - Guid: 6f17f89c-1dcd-4d33-8ae8-77755c251211
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      AttributesData:
+      - Value:
+          stringValue: $2>=15
+          floatValue: 0.000001
+        Type: 3
+      - Value:
+          stringValue: $1
+          floatValue: 0.000001
+        Type: 4
+      - Value:
+          stringValue: 
+          floatValue: 0.000001
+        Type: 5
     - Name: Note
       Namespace: BasicNodes
       Guid: ef4175e1-d876-48f6-888f-a6b09bbf0b19
@@ -341,11 +429,63 @@ MonoBehaviour:
           stringValue: Z
           floatValue: 0.000001
         Type: 9
+    - Name: Sender
+      Namespace: BasicNodes
+      Guid: 9f66359e-3450-4693-9669-46866019d130
+      XPosition: 1741.5
+      YPosition: 295
+      Inputs:
+      - Guid: d8aea3cd-becb-4fdf-a7d2-43cf5d5afe24
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Bird Died
+          floatValue: 0.000001
+        Type: 1
+    - Name: Condition
+      Namespace: BasicNodes
+      Guid: caf2c2bf-a664-4c00-b532-d1e552533e8a
+      XPosition: 1347.0813
+      YPosition: 300.5
+      Inputs:
+      - Guid: 92c5a4fb-c019-4131-b07b-e6c6a2e6d6e5
+        IsWarm: 0
+        Type: 
+        Description: $1
+      - Guid: 306f56b0-54a9-43c2-adef-5467ee1be401
+        IsWarm: 1
+        Type: 
+        Description: $2
+      - Guid: 172c2e2b-7e20-4634-8092-88d510094e4f
+        IsWarm: 1
+        Type: 
+        Description: $3
+      Outputs:
+      - Guid: 47752bae-7555-43e0-83aa-6a76c00e5136
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      AttributesData:
+      - Value:
+          stringValue: $2<=-15
+          floatValue: 0.000001
+        Type: 3
+      - Value:
+          stringValue: $1
+          floatValue: 0.000001
+        Type: 4
+      - Value:
+          stringValue: 
+          floatValue: 0.000001
+        Type: 5
     - Name: Transform
       Namespace: Unity
       Guid: 46b1cc75-4441-4290-adb1-fffa152e9ac3
-      XPosition: 1016.5
-      YPosition: 300.5
+      XPosition: 1017.5
+      YPosition: 301.5
       Inputs:
       - Guid: fad91386-8dab-4a98-aefd-96851e6bf1ce
         IsWarm: 0
@@ -385,6 +525,42 @@ MonoBehaviour:
         Type: Object
         Description: Transform
       AttributesData: []
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: ce9e9e45-06c3-408d-8a8f-154f72952acc
+      XPosition: 1154.5813
+      YPosition: 302.5
+      Inputs:
+      - Guid: a762f813-ecab-4db0-bce9-4c6e2197fae5
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: c61f5aac-6acf-4861-b138-b442269af5be
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: 1aa68cd0-628c-4542-87a2-37989f33885c
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: 9ec2097c-3730-4e33-b35b-ea4dd4822d62
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
     - Name: Multiply
       Namespace: BasicNodes
       Guid: bf0e4da9-e56e-4be7-b054-0ab6028a3dd1
@@ -844,6 +1020,83 @@ MonoBehaviour:
         Description: Vec3 position
       outputPositionY: 205
     - Input:
+        Guid: 377049b9-b51c-47c0-aa07-4c37019386aa
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: 91d3c8bd-c848-4ad6-b877-8d6074ddc5d6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 205.5
+    - Input:
+        Guid: 377049b9-b51c-47c0-aa07-4c37019386aa
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: 47752bae-7555-43e0-83aa-6a76c00e5136
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 205.5
+    - Input:
+        Guid: 377049b9-b51c-47c0-aa07-4c37019386aa
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: 6f17f89c-1dcd-4d33-8ae8-77755c251211
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 205.5
+    - Input:
+        Guid: cbeee148-40d5-45f6-988b-51197c5b9f22
+        IsWarm: 0
+        Type: 
+        Description: $1
+      Output:
+        Guid: 5f6bc5ed-61f7-4f02-b7ce-67a460471585
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 223.5
+    - Input:
+        Guid: 5f8436a3-dc3c-4068-a037-bdd77f00ed42
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Output:
+        Guid: 47752bae-7555-43e0-83aa-6a76c00e5136
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 225.5
+    - Input:
+        Guid: 5f8436a3-dc3c-4068-a037-bdd77f00ed42
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Output:
+        Guid: 6f17f89c-1dcd-4d33-8ae8-77755c251211
+        IsWarm: 0
+        Type: 
+        Description: then/else
+      outputPositionY: 225.5
+    - Input:
+        Guid: 2a765e02-7f58-485c-b75e-e8b60a86b86f
+        IsWarm: 1
+        Type: 
+        Description: $2
+      Output:
+        Guid: 1aa68cd0-628c-4542-87a2-37989f33885c
+        IsWarm: 0
+        Type: 
+        Description: Y
+      outputPositionY: 243.5
+    - Input:
         Guid: 705accae-a27c-435c-a1fa-402f2a292131
         IsWarm: 1
         Type: 
@@ -877,6 +1130,17 @@ MonoBehaviour:
         Description: Ray on update
       outputPositionY: 322
     - Input:
+        Guid: d8aea3cd-becb-4fdf-a7d2-43cf5d5afe24
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Output:
+        Guid: 746a37ee-bb47-447c-9509-4d0ffd17a330
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      outputPositionY: 325
+    - Input:
         Guid: e08ee96f-d9e1-4f71-936f-434504890eb3
         IsWarm: 1
         Type: 
@@ -887,6 +1151,28 @@ MonoBehaviour:
         Type: 
         Description: Y
       outputPositionY: 329
+    - Input:
+        Guid: 92c5a4fb-c019-4131-b07b-e6c6a2e6d6e5
+        IsWarm: 0
+        Type: 
+        Description: $1
+      Output:
+        Guid: 5f6bc5ed-61f7-4f02-b7ce-67a460471585
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 330.5
+    - Input:
+        Guid: a762f813-ecab-4db0-bce9-4c6e2197fae5
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: e373e354-8848-40a9-83a2-d28b9121f275
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      outputPositionY: 332.5
     - Input:
         Guid: 137ed652-70bf-46d5-8f69-9e7b973b4e32
         IsWarm: 1
@@ -899,6 +1185,17 @@ MonoBehaviour:
         Description: Result $1 x $2
       outputPositionY: 349
     - Input:
+        Guid: 306f56b0-54a9-43c2-adef-5467ee1be401
+        IsWarm: 1
+        Type: 
+        Description: $2
+      Output:
+        Guid: 1aa68cd0-628c-4542-87a2-37989f33885c
+        IsWarm: 0
+        Type: 
+        Description: Y
+      outputPositionY: 350.5
+    - Input:
         Guid: 17b0e9eb-5d7d-44e6-afab-a99a7604a934
         IsWarm: 0
         Type: 
@@ -908,7 +1205,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Vec3[X][Y][Z]
-      outputPositionY: 350.5
+      outputPositionY: 351.5
     - Input:
         Guid: 5ec97739-7293-4e92-87c7-5008b229ce50
         IsWarm: 0
@@ -941,7 +1238,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Vec3[X][Y][Z]
-      outputPositionY: 370.5
+      outputPositionY: 371.5
     - Input:
         Guid: e0d16a3f-7d71-4d8a-98ab-30562f512526
         IsWarm: 1
@@ -963,7 +1260,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Ray on update
-      outputPositionY: 410.5
+      outputPositionY: 411.5
     - Input:
         Guid: 621daecc-ea8a-4d89-b45e-e1a19f42465b
         IsWarm: 0

@@ -16,8 +16,8 @@ MonoBehaviour:
     - Name: Note
       Namespace: BasicNodes
       Guid: 35a9685f-49f8-46d3-9cc0-ecb8d7bfcf6e
-      XPosition: 295.5
-      YPosition: 53
+      XPosition: 39.5
+      YPosition: 26
       Inputs: []
       Outputs: []
       AttributesData:

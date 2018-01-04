@@ -121,6 +121,22 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: af961602-1daf-4e21-85a7-8b750863d13d
+      XPosition: 549.67645
+      YPosition: 168
+      Inputs: []
+      Outputs:
+      - Guid: 391d7620-f30a-4cb9-88c6-8ae75414f9c4
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
     - Name: Switch
       Namespace: BasicNodes
       Guid: 32d87665-f535-43e6-9e61-b2e676da7bd3
@@ -141,11 +157,27 @@ MonoBehaviour:
         Type: 
         Description: Output if on
       AttributesData: []
+    - Name: KeyDown
+      Namespace: Unity
+      Guid: 8bdb48b5-2bc8-429a-afc2-46b3e663255c
+      XPosition: 153.5
+      YPosition: 188
+      Inputs: []
+      Outputs:
+      - Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      AttributesData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
     - Name: Var
       Namespace: BasicNodes
       Guid: f80f6b45-8472-495b-9677-b9d1eeaf17ae
-      XPosition: 704.67645
-      YPosition: 184
+      XPosition: 726.67645
+      YPosition: 200
       Inputs:
       - Guid: 2b993ab1-65fa-43fa-862a-8ee432b1e384
         IsWarm: 0
@@ -165,38 +197,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: af961602-1daf-4e21-85a7-8b750863d13d
-      XPosition: 537.67645
-      YPosition: 185
-      Inputs: []
-      Outputs:
-      - Guid: 391d7620-f30a-4cb9-88c6-8ae75414f9c4
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-    - Name: KeyDown
-      Namespace: Unity
-      Guid: 8bdb48b5-2bc8-429a-afc2-46b3e663255c
-      XPosition: 153.5
-      YPosition: 188
-      Inputs: []
-      Outputs:
-      - Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      AttributesData:
-      - Value:
-          stringValue: w
-          floatValue: 0.000001
-        Type: 1
     - Name: Word
       Namespace: BasicNodes
       Guid: 826a24af-f035-4913-aa95-c01f8c7cab13
@@ -356,17 +356,6 @@ MonoBehaviour:
         Description: 1 on key down else 0
       outputPositionY: 203
     - Input:
-        Guid: 2b993ab1-65fa-43fa-862a-8ee432b1e384
-        IsWarm: 0
-        Type: 
-        Description: New var
-      Output:
-        Guid: 391d7620-f30a-4cb9-88c6-8ae75414f9c4
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 214
-    - Input:
         Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
         IsWarm: 1
         Type: 
@@ -378,6 +367,17 @@ MonoBehaviour:
         Description: 1 on key down else 0
       outputPositionY: 223
     - Input:
+        Guid: 2b993ab1-65fa-43fa-862a-8ee432b1e384
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 391d7620-f30a-4cb9-88c6-8ae75414f9c4
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 230
+    - Input:
         Guid: 6532c0ef-a147-4507-ab3e-392c11911a14
         IsWarm: 1
         Type: 
@@ -387,7 +387,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Output if on
-      outputPositionY: 234
+      outputPositionY: 250
     - Input:
         Guid: 664bfb72-725e-4b39-9eb9-faa323f31720
         IsWarm: 0
