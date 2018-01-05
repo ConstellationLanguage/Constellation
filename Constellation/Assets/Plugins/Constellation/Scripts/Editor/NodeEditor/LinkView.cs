@@ -88,7 +88,7 @@ namespace ConstellationEditor {
                 foreach (OutputData output in node.GetOutputs ()) {
                     if (_output.Guid == output.Guid) {
                         return new Rect (node.XPosition + nodeConfig.NodeWidth,
-                            node.YPosition + nodeConfig.TopMargin + ((nodeConfig.InputSize * 0.5f) * j),
+                            node.YPosition + (nodeConfig.TopMargin* 0.5f) + ((nodeConfig.InputSize ) * j),
                             0,
                             0);
                     }
