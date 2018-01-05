@@ -3,6 +3,6 @@
 
     public interface IReceiver
     {
-        void Receive(global::Variable value, Input input);
+        void Receive(Variable value, Input input);
     }
 }

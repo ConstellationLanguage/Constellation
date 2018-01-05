@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ConstellationEditor {
     public class NodeConfig {
         public float NodeWidth = 100;
-        public float NodeWidthAsAttributes = 150;
+        public float NodeWidthAsAttributes = 125;
         public float InputSize = 20;
         public float OutputSize = 20;
         public float TopMargin = 20;
@@ -16,6 +16,6 @@ namespace ConstellationEditor {
         public GUIStyle ColdInputObjectStyle = GUI.skin.GetStyle ("sv_label_1");
         public GUIStyle WarmOutputObjectStyle = GUI.skin.GetStyle ("sv_label_2");
         public GUIStyle ColdOutputObjectStyle = GUI.skin.GetStyle ("sv_label_1");
-        public Rect AtrributeSize = new Rect (20, 15, 109, 20);
+        public Rect AtrributeSize = new Rect (18, 15, 88, 20);
     }
 }
