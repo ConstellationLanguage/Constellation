@@ -163,7 +163,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878422646276194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 30, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -378,6 +378,12 @@ MonoBehaviour:
       floatValue: 0.000001
     Name: Pipe3
     UnityObject: {fileID: 1131821107695308}
+    AttributeType: 2
+  - Variable:
+      stringValue: UNDEFINED
+      floatValue: 0.000001
+    Name: Bird
+    UnityObject: {fileID: 0}
     AttributeType: 2
   ConstellationData: {fileID: 11400000, guid: 3a0232245669b4344a5819e64a451d84, type: 2}
   Constellation:

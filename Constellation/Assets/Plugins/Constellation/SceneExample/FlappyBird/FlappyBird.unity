@@ -503,10 +503,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1878422646276194, guid: 46b371eaee906494ab890080722e26ae, type: 2}
-      propertyPath: m_Name
-      value: Pref_PipeChunk
-      objectReference: {fileID: 0}
+    - target: {fileID: 114407591791958946, guid: 46b371eaee906494ab890080722e26ae,
+        type: 2}
+      propertyPath: Attributes.Array.data[3].UnityObject
+      value: 
+      objectReference: {fileID: 733773437}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46b371eaee906494ab890080722e26ae, type: 2}
   m_IsPrefabParent: 0
@@ -1260,6 +1261,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114407591791958946, guid: 46b371eaee906494ab890080722e26ae,
+        type: 2}
+      propertyPath: Attributes.Array.data[3].UnityObject
+      value: 
+      objectReference: {fileID: 733773437}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46b371eaee906494ab890080722e26ae, type: 2}
   m_IsPrefabParent: 0
