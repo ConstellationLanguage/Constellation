@@ -19,6 +19,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 
 # Ready to start?
 [Tutorials and contribution instructions](https://github.com/AntoineCharton/Constellation/wiki)
+[Download](https://www.constellationeditor.com/download)
 
 # Dependancies
 [Unity OSC](https://github.com/thomasfredericks/UnityOSC) from Thomas Fredericks
