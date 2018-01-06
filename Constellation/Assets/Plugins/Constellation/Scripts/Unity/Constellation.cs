@@ -14,12 +14,6 @@ namespace Constellation {
             Name = "Constellation";
         }
 
-        public void Start (ConstellationBehaviour _constellation) {
-            foreach (Node<INode> node in Nodes) {
-                node.Start (_constellation);
-            }
-        }
-
         public Input GetInput (string guid) {
             foreach (Node<INode> node in Nodes) {
                 if (node.Inputs != null) {
