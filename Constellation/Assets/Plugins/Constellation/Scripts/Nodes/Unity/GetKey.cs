@@ -12,7 +12,7 @@
 			sender = _nodeParameters.AddOutput(true, "Output 1 when key pressed");
 			key = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "The key");
         }
-
+        
         public string NodeName () {
             return NAME;
         }

@@ -1,29 +1,29 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+namespace OSCComponent {
+	public class ReceiveLevel : MonoBehaviour {
 
-public class ReceiveLevel : MonoBehaviour {
+		public OSC oscReference;
 
-	public OSC oscReference;
-	
-	// Use this for initialization
-	void Start () {
-		oscReference.SetAddressHandler( "/level" , OnReceive );
-	
-	}
+		// Use this for initialization
+		void Start () {
+			oscReference.SetAddressHandler ("/level", OnReceive);
 
-	// Function that receives the message
-	void OnReceive(OscMessage message) {
+		}
 
-		float data = message.GetFloat(0);
+		// Function that receives the message
+		void OnReceive (OscMessage message) {
 
-		float scaled = Mathf.Lerp(0.1f,8f,data); // Scale to new range
+			float data = message.GetFloat (0);
 
-		transform.localScale = new Vector3(scaled,scaled,scaled);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+			float scaled = Mathf.Lerp (0.1f, 8f, data); // Scale to new range
+
+			transform.localScale = new Vector3 (scaled, scaled, scaled);
+		}
+
+		// Update is called once per frame
+		void Update () {
+
+		}
 	}
 }
-	

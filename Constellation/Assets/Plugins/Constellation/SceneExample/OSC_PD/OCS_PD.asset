@@ -1,0 +1,834 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: OCS_PD
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: OSCFilter
+      Namespace: Experimental
+      Guid: 5f2b150a-9698-40d7-8dbb-35cc5e2825b2
+      XPosition: 361
+      YPosition: 6
+      Inputs:
+      - Guid: 4cb7a63d-29c5-41f2-9bb9-a6f0beebabef
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Outputs:
+      - Guid: db2086e3-ecf3-45f0-acff-b61a0734b281
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      AttributesData:
+      - Value:
+          stringValue: /CubeX
+          floatValue: 0.000001
+        Type: 1
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 2c99f6c2-cc62-481a-91b2-ff6ce7ad14aa
+      XPosition: 24
+      YPosition: 10
+      Inputs: []
+      Outputs:
+      - Guid: 1861e2f1-bf5c-4d33-866c-2805d986b8cf
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 4444
+        Type: 0
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 942c7d4b-b328-4133-a176-1c87469426b7
+      XPosition: 566.5
+      YPosition: 10
+      Inputs:
+      - Guid: 4ecf38f3-663e-479a-8a40-a707817de7e8
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 028b15ce-0f28-4018-81e4-d3f4a4baa2a7
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 71608235-41b0-451a-8d6b-f1a9a2fa94cc
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: OSCManager
+      Namespace: Experimental
+      Guid: b81faa70-c596-438f-9e6d-48889556b5f0
+      XPosition: 201.5
+      YPosition: 39
+      Inputs:
+      - Guid: b2963c8b-f125-4213-b857-52549edd32f7
+        IsWarm: 0
+        Type: 
+        Description: input port
+      - Guid: 0596c2a6-9203-4fe0-b716-49e4e57630ba
+        IsWarm: 0
+        Type: 
+        Description: output port
+      - Guid: 02c94fe0-cee0-4b52-84aa-f1193c976cae
+        IsWarm: 0
+        Type: 
+        Description: output IP
+      Outputs:
+      - Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      AttributesData: []
+    - Name: OSCFilter
+      Namespace: Experimental
+      Guid: 4686f022-6dd3-4cdd-ad0a-e37788179547
+      XPosition: 355
+      YPosition: 64
+      Inputs:
+      - Guid: 7178126c-5b8b-4dc4-94ee-d7411576bcc9
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Outputs:
+      - Guid: 0a007a86-24a8-49e2-9165-6f18ad86d5ff
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      AttributesData:
+      - Value:
+          stringValue: /CubeY
+          floatValue: 0.000001
+        Type: 1
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 1949f689-4857-4ae7-8391-48c4735157b1
+      XPosition: 26
+      YPosition: 70
+      Inputs: []
+      Outputs:
+      - Guid: 7d2f9635-58dd-4582-aa85-1b479b8ff717
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 4445
+        Type: 0
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 19a5df86-1be2-4635-a01d-40f6c7387ce3
+      XPosition: 565
+      YPosition: 83
+      Inputs:
+      - Guid: 935e2bd6-80b7-455a-8d82-1230dfb185ef
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: b9bf266c-f6ba-4876-ad5b-3222d0f08b88
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 24d8133d-f156-4bf5-ba52-1b85163a7abf
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Vec3
+      Namespace: Unity
+      Guid: 073cfa48-7d9a-48a6-8e34-d3e087031659
+      XPosition: 712.5
+      YPosition: 90
+      Inputs:
+      - Guid: e584c140-7316-4f58-8dd1-9425df5485b0
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: 822d744e-2b79-40d7-9abe-35ddf7e548da
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 04f36124-5b70-4472-b96d-86553aeab20c
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: b385672f-251b-4f69-90c2-04d0e3692539
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Update
+      Namespace: Unity
+      Guid: 19caa47b-1fd0-43a6-bad1-bab66ce74177
+      XPosition: 373.5
+      YPosition: 113
+      Inputs: []
+      Outputs:
+      - Guid: 99a75af4-4611-4e35-aa37-2a582b8efe60
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: 4d065fc9-b142-4108-8909-a09569a25b45
+      XPosition: 21
+      YPosition: 129
+      Inputs: []
+      Outputs:
+      - Guid: 66e47749-283a-4a57-9aae-7add9edd3b93
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: 127.0.0.1
+          floatValue: 0.000001
+        Type: 1
+    - Name: Transform
+      Namespace: Unity
+      Guid: 874c4228-2e44-4fea-beac-47c6df5a50ba
+      XPosition: 868
+      YPosition: 150
+      Inputs:
+      - Guid: d23dbd82-8b8e-4630-859b-5a39e0dff54f
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: a92266b7-412b-487d-addf-859e0a2762c5
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 571cfef0-0c54-45ec-a0d8-36db5d8a631b
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 8480b68f-4258-45f4-b33f-3f0ee2fb95de
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: b5b4cd95-c5a3-4828-ad48-a9126f9090fd
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: 6f4fd04e-5cba-4241-9b02-00f909e927fa
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 9812243e-c049-4036-bfcb-a74bb921af02
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: b978ec9f-2426-4179-a52c-b7910a1d4e7d
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 4a52df4f-80da-4eb0-a989-b4fe79ce4fd8
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: OSCFilter
+      Namespace: Experimental
+      Guid: 7481edc6-ef41-405e-a7a1-8f4f6b9f3ca1
+      XPosition: 365
+      YPosition: 165
+      Inputs:
+      - Guid: 8767b480-d5da-41e3-9954-4d7e299df279
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Outputs:
+      - Guid: 0b1937fe-1878-4fd9-a65f-70512587a167
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      AttributesData:
+      - Value:
+          stringValue: /CubeZ
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 441750e0-93d8-43ee-81eb-ee5f9c591002
+      XPosition: 567
+      YPosition: 177
+      Inputs:
+      - Guid: 259aea50-9394-4314-bde4-a2adbea3cab1
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 6a563cc6-692e-4e1b-b116-8d26823a1a94
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 8a188da7-6b55-4a05-b2bb-d87536be1af5
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: OSCFilter
+      Namespace: Experimental
+      Guid: e4af404c-0b33-417e-8635-65c1db4def54
+      XPosition: 363
+      YPosition: 211
+      Inputs:
+      - Guid: 6d2856ed-bb6f-4a0e-b3e1-81490d69a195
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Outputs:
+      - Guid: 438541db-2a4b-4352-8a32-ed396c607950
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      AttributesData:
+      - Value:
+          stringValue: /RotationX
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 1552a1dd-8ece-4734-bf33-5a793614c071
+      XPosition: 550.5
+      YPosition: 249
+      Inputs:
+      - Guid: c2ef0dbd-9425-4f10-b8e2-c7c7ed685cc9
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 5dd31f1d-bcd1-4eaa-9a25-c12d826a82e0
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: ba1feb74-7508-4d93-bca0-21571bb104fe
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: OSCFilter
+      Namespace: Experimental
+      Guid: 22cb0973-d59c-40f3-bfd7-41caa2196e3b
+      XPosition: 361
+      YPosition: 275
+      Inputs:
+      - Guid: 92a61aab-87ed-4f11-8bb5-95101837e0b5
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Outputs:
+      - Guid: a8701686-a468-4c6d-8047-7f24057d759f
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      AttributesData:
+      - Value:
+          stringValue: /RotationY
+          floatValue: 0.000001
+        Type: 1
+    - Name: Vec3
+      Namespace: Unity
+      Guid: 46ecf4dc-4257-41ec-b399-8ef35b09012c
+      XPosition: 717
+      YPosition: 281.5
+      Inputs:
+      - Guid: 79721cae-3ee8-402e-95fa-b6498fd1e483
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: dc3e13c0-7cf8-47fa-b851-e14c679f714f
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 924a8b41-d74f-4096-8059-73f1303aa0c4
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: f0f577dc-e2cc-4ebc-9e5a-bb016aec943d
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 83db2ace-7f9c-43f3-bf5a-2570ef0db05c
+      XPosition: 554
+      YPosition: 316
+      Inputs:
+      - Guid: 4c0c612c-b77a-44b5-83fb-cf6cf84913e7
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: d32682e6-3ffa-451c-bf74-c5204eb8af3d
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: eca1e831-bbd9-4d24-a264-06b2a5dcc914
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Update
+      Namespace: Unity
+      Guid: 29241d8a-07ee-4055-8d5d-53863e503090
+      XPosition: 375.5
+      YPosition: 325
+      Inputs: []
+      Outputs:
+      - Guid: 26555c53-f831-48c2-9833-0758bc46166c
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    - Name: OSCFilter
+      Namespace: Experimental
+      Guid: cf4f7421-d9cb-4965-88bc-82955ff89ccd
+      XPosition: 365
+      YPosition: 377
+      Inputs:
+      - Guid: e6ca9ba2-e38d-42de-8531-2b6975d883fd
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Outputs:
+      - Guid: 661321a4-c795-4713-a91a-23620bf185d5
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      AttributesData:
+      - Value:
+          stringValue: /RotationZ
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: f26e236e-3ee3-43a5-a01e-6155810838c6
+      XPosition: 544
+      YPosition: 398
+      Inputs:
+      - Guid: 63d08229-a1ce-42f3-8683-8c139025f23d
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: b7fd5d35-1252-4e1d-bc5a-c4c4f272ee6b
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 03c1373a-ff5f-4458-a27f-5ad34d7988cd
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Update
+      Namespace: Unity
+      Guid: b901bdd8-a429-4668-a7d7-16615b340b9b
+      XPosition: 378.5
+      YPosition: 423
+      Inputs: []
+      Outputs:
+      - Guid: cbd2a129-4cae-4340-9e07-f317aebe09ee
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 4cb7a63d-29c5-41f2-9bb9-a6f0beebabef
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Output:
+        Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      outputPositionY: 36
+    - Input:
+        Guid: 4ecf38f3-663e-479a-8a40-a707817de7e8
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: db2086e3-ecf3-45f0-acff-b61a0734b281
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      outputPositionY: 40
+    - Input:
+        Guid: 028b15ce-0f28-4018-81e4-d3f4a4baa2a7
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 99a75af4-4611-4e35-aa37-2a582b8efe60
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 60
+    - Input:
+        Guid: b2963c8b-f125-4213-b857-52549edd32f7
+        IsWarm: 0
+        Type: 
+        Description: input port
+      Output:
+        Guid: 1861e2f1-bf5c-4d33-866c-2805d986b8cf
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 69
+    - Input:
+        Guid: 0596c2a6-9203-4fe0-b716-49e4e57630ba
+        IsWarm: 0
+        Type: 
+        Description: output port
+      Output:
+        Guid: 7d2f9635-58dd-4582-aa85-1b479b8ff717
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 89
+    - Input:
+        Guid: 7178126c-5b8b-4dc4-94ee-d7411576bcc9
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Output:
+        Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      outputPositionY: 94
+    - Input:
+        Guid: 02c94fe0-cee0-4b52-84aa-f1193c976cae
+        IsWarm: 0
+        Type: 
+        Description: output IP
+      Output:
+        Guid: 66e47749-283a-4a57-9aae-7add9edd3b93
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 109
+    - Input:
+        Guid: 935e2bd6-80b7-455a-8d82-1230dfb185ef
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 0a007a86-24a8-49e2-9165-6f18ad86d5ff
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      outputPositionY: 113
+    - Input:
+        Guid: e584c140-7316-4f58-8dd1-9425df5485b0
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: 71608235-41b0-451a-8d6b-f1a9a2fa94cc
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 120
+    - Input:
+        Guid: b9bf266c-f6ba-4876-ad5b-3222d0f08b88
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 99a75af4-4611-4e35-aa37-2a582b8efe60
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 133
+    - Input:
+        Guid: 822d744e-2b79-40d7-9abe-35ddf7e548da
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: 24d8133d-f156-4bf5-ba52-1b85163a7abf
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 140
+    - Input:
+        Guid: 04f36124-5b70-4472-b96d-86553aeab20c
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 8a188da7-6b55-4a05-b2bb-d87536be1af5
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 160
+    - Input:
+        Guid: 8767b480-d5da-41e3-9954-4d7e299df279
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Output:
+        Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      outputPositionY: 195
+    - Input:
+        Guid: a92266b7-412b-487d-addf-859e0a2762c5
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      Output:
+        Guid: b385672f-251b-4f69-90c2-04d0e3692539
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 200
+    - Input:
+        Guid: 259aea50-9394-4314-bde4-a2adbea3cab1
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 0b1937fe-1878-4fd9-a65f-70512587a167
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      outputPositionY: 207
+    - Input:
+        Guid: 571cfef0-0c54-45ec-a0d8-36db5d8a631b
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      Output:
+        Guid: f0f577dc-e2cc-4ebc-9e5a-bb016aec943d
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 220
+    - Input:
+        Guid: 6a563cc6-692e-4e1b-b116-8d26823a1a94
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 99a75af4-4611-4e35-aa37-2a582b8efe60
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 227
+    - Input:
+        Guid: 6d2856ed-bb6f-4a0e-b3e1-81490d69a195
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Output:
+        Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      outputPositionY: 241
+    - Input:
+        Guid: c2ef0dbd-9425-4f10-b8e2-c7c7ed685cc9
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 438541db-2a4b-4352-8a32-ed396c607950
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      outputPositionY: 279
+    - Input:
+        Guid: 5dd31f1d-bcd1-4eaa-9a25-c12d826a82e0
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 26555c53-f831-48c2-9833-0758bc46166c
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 299
+    - Input:
+        Guid: 92a61aab-87ed-4f11-8bb5-95101837e0b5
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Output:
+        Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      outputPositionY: 305
+    - Input:
+        Guid: 79721cae-3ee8-402e-95fa-b6498fd1e483
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: ba1feb74-7508-4d93-bca0-21571bb104fe
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 311.5
+    - Input:
+        Guid: dc3e13c0-7cf8-47fa-b851-e14c679f714f
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: eca1e831-bbd9-4d24-a264-06b2a5dcc914
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 331.5
+    - Input:
+        Guid: 4c0c612c-b77a-44b5-83fb-cf6cf84913e7
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: a8701686-a468-4c6d-8047-7f24057d759f
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      outputPositionY: 346
+    - Input:
+        Guid: 924a8b41-d74f-4096-8059-73f1303aa0c4
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 03c1373a-ff5f-4458-a27f-5ad34d7988cd
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 351.5
+    - Input:
+        Guid: d32682e6-3ffa-451c-bf74-c5204eb8af3d
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 26555c53-f831-48c2-9833-0758bc46166c
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 366
+    - Input:
+        Guid: e6ca9ba2-e38d-42de-8531-2b6975d883fd
+        IsWarm: 0
+        Type: 
+        Description: On OSC Ready
+      Output:
+        Guid: 79e8d9a6-8461-41c7-8c78-58963529f311
+        IsWarm: 1
+        Type: 
+        Description: On OSC Ready
+      outputPositionY: 407
+    - Input:
+        Guid: 63d08229-a1ce-42f3-8683-8c139025f23d
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 661321a4-c795-4713-a91a-23620bf185d5
+        IsWarm: 1
+        Type: 
+        Description: Current OSC Output
+      outputPositionY: 428
+    - Input:
+        Guid: b7fd5d35-1252-4e1d-bc5a-c4c4f272ee6b
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 26555c53-f831-48c2-9833-0758bc46166c
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 448
+    - Input:
+        Guid: b7fd5d35-1252-4e1d-bc5a-c4c4f272ee6b
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: cbd2a129-4cae-4340-9e07-f317aebe09ee
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 448

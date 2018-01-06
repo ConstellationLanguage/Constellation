@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Constellation.Attributes;
 using Constellation.BasicNodes;
+using Constellation.Experimental;
 using Constellation.Math;
 using Constellation.Physics;
-using Constellation.Attributes;
-using Constellation.Unity;
 using Constellation.UI;
+using Constellation.Unity;
 
 namespace Constellation {
     public static class NodesFactory {
@@ -20,9 +21,11 @@ namespace Constellation {
                 case Physics.NameSpace.NAME:
                     return PhysicsNodeFactory.GetNode (_nodeName);
                 case Attributes.NameSpace.NAME:
-                    return AttributesNodeFactory.GetNode(_nodeName);
+                    return AttributesNodeFactory.GetNode (_nodeName);
                 case UI.NameSpace.NAME:
-                    return UINodeFactory.GetNode(_nodeName);
+                    return UINodeFactory.GetNode (_nodeName);
+                case Experimental.NameSpace.NAME:
+                    return ExperimentalNodeFactory.GetNode (_nodeName);
                 default:
                     return null;
             }
@@ -56,10 +59,13 @@ namespace Constellation {
                         node = PhysicsNodeFactory.GetNode (_nodeData.Name);
                         break;
                     case Attributes.NameSpace.NAME:
-                        node = AttributesNodeFactory.GetNode(_nodeData.Name);
+                        node = AttributesNodeFactory.GetNode (_nodeData.Name);
                         break;
                     case UI.NameSpace.NAME:
-                        node = UINodeFactory.GetNode(_nodeData.Name);
+                        node = UINodeFactory.GetNode (_nodeData.Name);
+                        break;
+                    case Experimental.NameSpace.NAME:
+                        node = ExperimentalNodeFactory.GetNode (_nodeData.Name);
                         break;
                     default:
                         return null;

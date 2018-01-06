@@ -129,7 +129,8 @@ namespace Constellation {
 		}
 
 		/// <summary>
-		/// Use this function if you want to log a variable from 
+		/// Use this function if you want to log a variable from your node.
+		/// 
 		/// </summary>
 		public void Log (Variable value) {
 			Debug.Log (value.GetString ());
