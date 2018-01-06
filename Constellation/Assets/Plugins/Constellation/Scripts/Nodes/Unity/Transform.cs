@@ -64,9 +64,9 @@ namespace Constellation.Unity {
 
         void UpdateTransform () {
             gameObject = UnityObjectsConvertions.ConvertToGameObject (GameObject.GetObject ()) as GameObject;
-            Position.SetAtIndex (gameObject.transform.position.x, 0);
-            Position.SetAtIndex (gameObject.transform.position.y, 1);
-            Position.SetAtIndex (gameObject.transform.position.z, 2);
+            Position.SetAtIndex (gameObject.transform.localPosition.x, 0);
+            Position.SetAtIndex (gameObject.transform.localPosition.y, 1);
+            Position.SetAtIndex (gameObject.transform.localPosition.z, 2);
 
             Rotation.SetAtIndex (gameObject.transform.rotation.eulerAngles.x, 0);
             Rotation.SetAtIndex (gameObject.transform.rotation.eulerAngles.y, 1);
@@ -81,7 +81,7 @@ namespace Constellation.Unity {
             if (_input.InputId == 1) {
                 Position.Set (value.GetArray ());
                 if(rigidBody == null || gameObject.activeInHierarchy == false)
-                    gameObject.transform.position = new Vector3 (Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
+                    gameObject.transform.localPosition = new Vector3 (Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
                 else 
                     rigidBody.position = new Vector3 (Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
             } else if (_input.InputId == 2) {
