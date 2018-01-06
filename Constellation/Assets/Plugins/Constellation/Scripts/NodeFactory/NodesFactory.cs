@@ -6,6 +6,7 @@ using Constellation.Math;
 using Constellation.Physics;
 using Constellation.UI;
 using Constellation.Unity;
+using Constellation.Sound;
 
 namespace Constellation {
     public static class NodesFactory {
@@ -26,6 +27,8 @@ namespace Constellation {
                     return UINodeFactory.GetNode (_nodeName);
                 case Experimental.NameSpace.NAME:
                     return ExperimentalNodeFactory.GetNode (_nodeName);
+                case Sound.NameSpace.NAME:
+                    return SoundNodeFactory.GetNode(_nodeName);
                 default:
                     return null;
             }
@@ -67,6 +70,9 @@ namespace Constellation {
                     case Experimental.NameSpace.NAME:
                         node = ExperimentalNodeFactory.GetNode (_nodeData.Name);
                         break;
+                    case Sound.NameSpace.NAME:
+                         node = SoundNodeFactory.GetNode(_nodeData.Name);
+                         break;
                     default:
                         return null;
                 }
