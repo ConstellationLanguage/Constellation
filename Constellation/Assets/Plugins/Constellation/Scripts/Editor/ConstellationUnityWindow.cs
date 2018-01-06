@@ -1,6 +1,7 @@
 ﻿using Constellation;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ConstellationEditor {
     [InitializeOnLoadAttribute]
@@ -18,6 +19,11 @@ namespace ConstellationEditor {
         [MenuItem ("Constellation/Editor")]
         public static void ShowWindow () {
             WindowInstance = EditorWindow.GetWindow (typeof (ConstellationUnityWindow), false, "Constellation") as ConstellationUnityWindow;
+            
+        }
+
+        void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
+            RefreshNodeEditor();
         }
 
         [MenuItem ("Constellation/Files/New %&n")]
@@ -111,10 +117,12 @@ namespace ConstellationEditor {
         void OnDestroy () {
             WindowInstance = null;
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
+            SceneManager.sceneLoaded -=  OnSceneLoaded;
         }
 
         protected void RefreshNodeEditor () {
             if (scriptDataService != null) {
+                previousSelectedGameObject = null;
                 nodeEditorPanel = new NodeEditorPanel (this, this, scriptDataService.GetCurrentScript (), this, scriptDataService.GetEditorData ().clipBoard, scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), OnLinkAdded, OnNodeAdded, OnNodeRemoved);
                 nodeTabPanel = new ConstellationTabPanel (this);
             }
@@ -122,6 +130,7 @@ namespace ConstellationEditor {
 
         protected override void Setup () {
             WindowInstance = this as ConstellationUnityWindow;
+            SceneManager.sceneLoaded +=  OnSceneLoaded;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
             if (scriptDataService != null) {
                 nodeEditorPanel = new NodeEditorPanel (this, this, scriptDataService.GetCurrentScript (), this, scriptDataService.GetEditorData ().clipBoard, scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), OnLinkAdded, OnNodeAdded, OnNodeRemoved);
@@ -186,6 +195,7 @@ namespace ConstellationEditor {
                 var selectedGameObjects = Selection.gameObjects;
                 if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject)
                     return;
+
                 var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 if (selectedConstellation != null) {
                     previousSelectedGameObject = selectedGameObjects[0];
