@@ -215,8 +215,11 @@ namespace ConstellationEditor {
         }
 
         private void OnNodeAdded (NodeData node) {
-            if (Application.isPlaying)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().AddNode (node);
+            if (Application.isPlaying){
+                var currentConstellation = previousSelectedGameObject.GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
+                currentConstellation.AddNode (node);
+                currentConstellation.RefreshConstellationEvents();
+            }
         }
 
         private void OnNodeRemoved (NodeData node) {

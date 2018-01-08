@@ -20,7 +20,6 @@ namespace ConstellationEditor
             nodeEditorPanel.DrawNodeEditor(position.width, position.height);
         }
 
-
         protected override void DrawStartGUI()
         {
             if (!hasTriedFinddingExample) {

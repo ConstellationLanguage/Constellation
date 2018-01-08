@@ -61,7 +61,6 @@ namespace Constellation {
         }
 
         public void RemovedNode (string guid) {
-            Debug.Log ("removing node");
             foreach (var node in Nodes) {
                 if (node.Guid == guid) {
                     var links = Links.ToArray();
@@ -84,7 +83,7 @@ namespace Constellation {
                     return;
                 }
             }
-            Debug.LogError ("Node not found");
+            Debug.LogError ("Constellation: Node not found");
         }
 
         public Link AddLink (Link link, string guid) {

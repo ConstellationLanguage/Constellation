@@ -20,6 +20,11 @@ namespace Constellation {
             if (ConstellationBehaviour.eventSystem == null)
                 eventSystem = new ConstellationEventSystem ();
 
+            if (ConstellationData == null) {
+                this.enabled = false;
+                Debug.LogError ("Constellation Error: No Constellation attached to " + this.gameObject);
+                return;
+            }
             var nodes = ConstellationData.GetNodes ();
             Constellation = new Constellation ();
             SetNodes (nodes);
@@ -30,7 +35,25 @@ namespace Constellation {
                     Constellation.GetOutput (link.Output.Guid),
                     Constellation.GetOutput (link.Output.Guid).Type), "none");
             }
-            SetUnityObject ();
+            SetUnityObject();
+            SetConstellationEvents ();
+            foreach (var awakables in Awakables) {
+                awakables.OnAwake ();
+            }
+        }
+
+        public void RefreshConstellationEvents () {
+            updatables = null;
+            Awakables = null;
+            lateUpdatables = null;
+            CollisionEnterListeners = null;
+            CollisionStayListeners = null;
+            CollisionExitListeners = null;
+            FixedUpdatables = null;
+            SetConstellationEvents ();
+        }
+
+        public void SetConstellationEvents () {
             SetAwakables ();
             SetUpdatables ();
             SetLateUpdatables ();
@@ -39,10 +62,6 @@ namespace Constellation {
             SetCollisionStay ();
             SetFixedUpdate ();
             SetAttribute ();
-
-            foreach (var awakables in Awakables) {
-                awakables.OnAwake ();
-            }
         }
 
         public void RemoveLink (LinkData linkData) {
@@ -66,7 +85,7 @@ namespace Constellation {
         void OnDestroy () {
             foreach (var node in Constellation.GetNodes ()) {
                 if (node.NodeType as IDestroy != null) {
-                    node.OnDestroy();
+                    node.OnDestroy ();
                 }
             }
         }
@@ -75,7 +94,7 @@ namespace Constellation {
             var previousAttributes = Attributes;
             Attributes = new List<BehaviourAttribute> ();
             foreach (NodeData node in nodes) {
-                if(node == null || previousAttributes == null)
+                if (node == null || previousAttributes == null)
                     return;
                 if (node.Name == "ValueAttribute") {
                     var previousAttribute = GetAttributeByName (node.AttributesData[0].Value.GetString (), previousAttributes.ToArray ());
