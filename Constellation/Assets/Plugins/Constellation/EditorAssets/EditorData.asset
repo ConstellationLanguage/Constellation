@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: EditorData
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
+  - Assets/Plugins/Constellation/SceneExample/FlappyBird/Scripts/BirdGame.asset
   - Assets/Plugins/Constellation/SceneExample/FlappyBird/Scripts/PipesChunk.asset
   EditorUndoService:
     Actions: []
