@@ -2,18 +2,13 @@ using UnityEngine;
 
 namespace Constellation.Sound {
     public class AudioSource : INode, IReceiver, IGameObject {
-        private ISender sender;
-        private Attribute attribute;
         public const string NAME = "AudioSource";
         private GameObject gameObject;
         private UnityEngine.AudioSource audioSource;
 
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
-            var wordValue = new Variable ();
             _nodeParameters.AddInput (this, false, "Object", "The GameObject that contains the play sound component");
-            _nodeParameters.AddInput (this, true, "Play the current sound attached to the audio source");
-            sender = _nodeParameters.AddOutput (false, "get the current state");
-            attribute = _nodeParameters.AddAttribute (wordValue.Set ("Var"), Attribute.AttributeType.ReadOnlyValue, "The default word");
+            _nodeParameters.AddInput (this, false, "Play the current sound attached to the audio source");
         }
 
         public void Set (GameObject newGameObject) {

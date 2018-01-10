@@ -795,28 +795,20 @@ MonoBehaviour:
         Type: 1
     - Name: AudioSource
       Namespace: Sound
-      Guid: 15c1902b-2001-4bea-befa-a917de91bf88
-      XPosition: 520.5
-      YPosition: 552
+      Guid: 31088bfc-c93a-40b3-938d-91d7342a71d5
+      XPosition: 585.5
+      YPosition: 525
       Inputs:
-      - Guid: 117c5df9-a5cf-4621-9e89-6fb131e36ae5
+      - Guid: 92d9319d-ac72-46ad-89b3-be7787f4610c
         IsWarm: 0
         Type: Object
         Description: The GameObject that contains the play sound component
-      - Guid: 68802b1f-df78-4c52-9704-fe2037dc745e
-        IsWarm: 1
-        Type: 
-        Description: Play the current sound attached to the audio source
-      Outputs:
-      - Guid: 98024706-2ab0-4bc0-a2c3-c390784d49e6
+      - Guid: c3079cce-b844-4bd5-89a1-94e70b491f2f
         IsWarm: 0
         Type: 
-        Description: get the current state
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 6
+        Description: Play the current sound attached to the audio source
+      Outputs: []
+      AttributesData: []
     - Name: MouseButtonDown
       Namespace: Unity
       Guid: bba5761d-7919-435a-9568-579f36d2b8cf
@@ -1364,8 +1356,8 @@ MonoBehaviour:
         Description: 1 on key down else 0
       outputPositionY: 556
     - Input:
-        Guid: 68802b1f-df78-4c52-9704-fe2037dc745e
-        IsWarm: 1
+        Guid: c3079cce-b844-4bd5-89a1-94e70b491f2f
+        IsWarm: 0
         Type: 
         Description: Play the current sound attached to the audio source
       Output:
@@ -1373,7 +1365,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Output if on
-      outputPositionY: 602
+      outputPositionY: 575
     - Input:
         Guid: 1221fab4-4ddb-4c7a-b19d-b7a590f940ce
         IsWarm: 0

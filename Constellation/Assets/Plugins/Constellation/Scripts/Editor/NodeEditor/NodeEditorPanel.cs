@@ -26,7 +26,6 @@ namespace ConstellationEditor {
         private bool isDraggingWindow;
         private NodeEditorSelection nodeEditorSelection;
         private Vector2 panelSize = Vector2.zero;
-        private GameObject previousSelectedGameObject;
         public delegate void LinkAdded (LinkData link);
         LinkAdded OnLinkAdded;
         public delegate void NodeAdded (NodeData node);
@@ -68,10 +67,6 @@ namespace ConstellationEditor {
             foreach (NodeData nodeData in constellationScript.GetNodes ()) {
                 Nodes.Add (new NodeView (nodeData, this, nodeConfig, constellationScript));
             }
-        }
-
-        public void OnPlayStateChanged () {
-            previousSelectedGameObject = null;
         }
 
         public void Update (Constellation.Constellation constellation) {

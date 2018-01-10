@@ -197,6 +197,18 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
+    - Name: LoadScene
+      Namespace: Unity
+      Guid: 2b9ca277-1d38-44d0-9010-49d50595384e
+      XPosition: 527.5
+      YPosition: 244
+      Inputs:
+      - Guid: 2ea00017-478e-425d-9a23-ace925269ca1
+        IsWarm: 1
+        Type: 
+        Description: Scene Name to load
+      Outputs: []
+      AttributesData: []
     - Name: Word
       Namespace: BasicNodes
       Guid: 826a24af-f035-4913-aa95-c01f8c7cab13
@@ -249,18 +261,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
-    - Name: LoadScene
-      Namespace: Unity
-      Guid: 2b9ca277-1d38-44d0-9010-49d50595384e
-      XPosition: 524.5
-      YPosition: 290
-      Inputs:
-      - Guid: 2ea00017-478e-425d-9a23-ace925269ca1
-        IsWarm: 1
-        Type: 
-        Description: Scene Name to load
-      Outputs: []
-      AttributesData: []
     - Name: Receiver
       Namespace: BasicNodes
       Guid: 68a91a58-4126-4e45-bcaa-54c80eca20e4
@@ -389,6 +389,17 @@ MonoBehaviour:
         Description: Output if on
       outputPositionY: 250
     - Input:
+        Guid: 2ea00017-478e-425d-9a23-ace925269ca1
+        IsWarm: 1
+        Type: 
+        Description: Scene Name to load
+      Output:
+        Guid: 40383e58-4c39-4e8d-90fe-148d079fb388
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 274
+    - Input:
         Guid: 664bfb72-725e-4b39-9eb9-faa323f31720
         IsWarm: 0
         Type: 
@@ -399,17 +410,6 @@ MonoBehaviour:
         Type: 
         Description: The Word
       outputPositionY: 319
-    - Input:
-        Guid: 2ea00017-478e-425d-9a23-ace925269ca1
-        IsWarm: 1
-        Type: 
-        Description: Scene Name to load
-      Output:
-        Guid: 40383e58-4c39-4e8d-90fe-148d079fb388
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 320
     - Input:
         Guid: 35094647-ffe7-4a80-ac24-7a716e191b3c
         IsWarm: 1

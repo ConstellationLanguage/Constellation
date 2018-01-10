@@ -8,7 +8,6 @@
         private Variable YPosition;
         private Variable keyState;
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
-            var newValue = new Variable ();
             XPositionSender = _nodeParameters.AddOutput (true, "Mouse position X");
             YPositionSender = _nodeParameters.AddOutput (true, "Mosue position Y");
             XPosition = new Variable(UnityEngine.Input.mousePosition.x);

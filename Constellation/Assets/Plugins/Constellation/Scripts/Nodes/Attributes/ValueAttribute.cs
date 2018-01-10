@@ -2,7 +2,6 @@
     public class ValueAttribute : INode, IReceiver, IAwakable, IAttribute{
         private ISender sender;
         private Variable Value;
-        private float previousValue;
         public const string NAME = "ValueAttribute";
 
         public void Setup (INodeParameters _node, ILogger _logger) {
@@ -27,7 +26,6 @@
         }
 
         public void OnAwake () {
-            previousValue = Value.GetFloat();
             sender.Send (Value, 0);
         }
 

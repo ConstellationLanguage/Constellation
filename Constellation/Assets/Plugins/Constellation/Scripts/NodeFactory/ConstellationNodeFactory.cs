@@ -38,6 +38,12 @@
                 case Receiver.NAME:
                     INode nodeReceiver = new Receiver() as INode;
                     return new Node<INode>(nodeReceiver);
+                case GetVar.NAME:
+                    INode nodeGetVar = new GetVar()  as INode;
+                    return new Node<INode>(nodeGetVar);
+                case GetComponent.NAME:
+                    INode nodeGetComponent = new GetComponent() as INode;
+                    return new Node<INode>(nodeGetComponent);
                 default:
                     return null;
             }

@@ -50,7 +50,7 @@ namespace Constellation.Unity {
 			}
 
 			if (_input.isWarm) {
-				senderData.Send (value, 0);
+				senderName.Send (value, 0);
 				senderData.Send (savedData, 1);
 			}
 		}

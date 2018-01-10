@@ -14,7 +14,6 @@ namespace Constellation.Experimental {
             inPort = new Variable ();
             outIP = new Variable ();
             outPort = new Variable ();
-            var wordValue = new Variable ();
             _node.AddInput (this, false, "input port"); 
             _node.AddInput (this, false, "output port");
             _node.AddInput (this, false, "output IP");
