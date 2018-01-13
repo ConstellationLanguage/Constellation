@@ -1,8 +1,8 @@
 ﻿namespace Constellation.Math
 {
-    public static class MathNodeFactory
+    public class MathNodeFactory: INodeGetter
     {
-        public static Node<INode> GetNode(string nodeName)
+        public Node<INode> GetNode(string nodeName)
         {
             switch (nodeName)
             {

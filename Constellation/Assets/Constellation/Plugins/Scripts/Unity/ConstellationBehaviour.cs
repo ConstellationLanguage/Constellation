@@ -15,12 +15,18 @@ namespace Constellation {
         public ConstellationScript ConstellationData;
         public Constellation Constellation;
         public static ConstellationEventSystem eventSystem;
+        private NodesFactory nodeFactory;
 
         public void Awake () {
             if (ConstellationBehaviour.eventSystem == null)
                 eventSystem = new ConstellationEventSystem ();
+            
+            if(NodesFactory.Current == null)
+                nodeFactory = new NodesFactory();
+            else 
+                nodeFactory = NodesFactory.Current;
 
-            if (ConstellationData == null) {
+            if (ConstellationData == null && Application.isPlaying) {
                 this.enabled = false;
                 Debug.LogError ("Constellation Error: No Constellation attached to " + this.gameObject);
                 return;
@@ -135,7 +141,7 @@ namespace Constellation {
         void SetNodes (NodeData[] nodes) {
             var attributesCounter = 0;
             foreach (NodeData node in nodes) {
-                var newNode = NodesFactory.GetNode (node);
+                var newNode = nodeFactory.GetNode (node);
                 Constellation.AddNode (newNode, node.Guid);
                 if (IsAttribute (node) && Attributes != null) {
                     IAttribute nodeAttribute = newNode.NodeType as IAttribute;
@@ -150,7 +156,7 @@ namespace Constellation {
         }
 
         public void AddNode (NodeData node) {
-            var newNode = NodesFactory.GetNode (node);
+            var newNode = nodeFactory.GetNode (node);
             Constellation.AddNode (newNode, node.Guid);
             AddUnityObject (newNode);
         }

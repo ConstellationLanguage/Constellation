@@ -1,6 +1,6 @@
 ﻿namespace Constellation.BasicNodes {
-    public static class ConstellationNodeFactory{
-        public static Node<INode> GetNode (string nodeName) {
+    public class ConstellationNodeFactory: INodeGetter{
+        public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case Add.NAME:
                     INode nodeAdd = new Add () as INode;

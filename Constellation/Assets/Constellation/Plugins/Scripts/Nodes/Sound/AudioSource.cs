@@ -3,7 +3,6 @@ using UnityEngine;
 namespace Constellation.Sound {
     public class AudioSource : INode, IReceiver, IGameObject {
         public const string NAME = "AudioSource";
-        private GameObject gameObject;
         private UnityEngine.AudioSource audioSource;
 
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
@@ -12,7 +11,6 @@ namespace Constellation.Sound {
         }
 
         public void Set (GameObject newGameObject) {
-            gameObject = newGameObject;
             var newAudioSource = newGameObject.GetComponent<UnityEngine.AudioSource> () as UnityEngine.AudioSource;
             if (newAudioSource != null)                
                 audioSource = newAudioSource;

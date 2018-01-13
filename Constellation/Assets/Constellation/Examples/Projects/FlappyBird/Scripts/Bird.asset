@@ -873,6 +873,22 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Name: Sender
+      Namespace: BasicNodes
+      Guid: 0d53f081-9986-4ee6-9dcd-a1878847ad91
+      XPosition: 558.5
+      YPosition: 696
+      Inputs:
+      - Guid: 29c847b5-f7b2-4ffc-a3f9-4246e041e455
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Bird Died
+          floatValue: 0.000001
+        Type: 1
     - Name: Var
       Namespace: BasicNodes
       Guid: d8f9c249-6a72-43c6-95e3-b8cefb234fc9
@@ -897,22 +913,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
-    - Name: Sender
-      Namespace: BasicNodes
-      Guid: 0d53f081-9986-4ee6-9dcd-a1878847ad91
-      XPosition: 559.5
-      YPosition: 698
-      Inputs:
-      - Guid: 29c847b5-f7b2-4ffc-a3f9-4246e041e455
-        IsWarm: 1
-        Type: 
-        Description: value to send
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Bird Died
-          floatValue: 0.000001
-        Type: 1
     - Name: CollisionEnter
       Namespace: Physics
       Guid: 2a8f77c8-e3fe-43d1-90ea-40707507c537
@@ -1389,6 +1389,17 @@ MonoBehaviour:
         Description: 1 on mouse button down else 0
       outputPositionY: 641
     - Input:
+        Guid: 29c847b5-f7b2-4ffc-a3f9-4246e041e455
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Output:
+        Guid: ee0cd17e-186c-477b-8b30-cff9fc671a27
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 726
+    - Input:
         Guid: ea9e798e-3b0f-4498-ac4c-bc6d360b4550
         IsWarm: 0
         Type: 
@@ -1399,17 +1410,6 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 727
-    - Input:
-        Guid: 29c847b5-f7b2-4ffc-a3f9-4246e041e455
-        IsWarm: 1
-        Type: 
-        Description: value to send
-      Output:
-        Guid: ee0cd17e-186c-477b-8b30-cff9fc671a27
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 728
     - Input:
         Guid: cc0d583a-62c7-4387-abf2-51e563d4a510
         IsWarm: 1

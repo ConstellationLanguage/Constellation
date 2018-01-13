@@ -1,6 +1,6 @@
 namespace Constellation.Physics {
-    public static class PhysicsNodeFactory {
-        public static Node<INode> GetNode (string nodeName) {
+    public class PhysicsNodeFactory: INodeGetter {
+        public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case AddForce.NAME:
                     INode nodeAddForce = new AddForce () as INode;

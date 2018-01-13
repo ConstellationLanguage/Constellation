@@ -1,80 +1,52 @@
-﻿using System.Collections.Generic;
-using Constellation.Attributes;
-using Constellation.BasicNodes;
-using Constellation.Experimental;
-using Constellation.Math;
-using Constellation.Physics;
-using Constellation.UI;
-using Constellation.Unity;
-using Constellation.Sound;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using UnityEngine;
 
 namespace Constellation {
-    public static class NodesFactory {
+    public class NodesFactory {
+        public static NodesFactory Current;
+        public List<INodeGetter> NodeGetters;
 
-        public static Node<INode> GetNode (string _nodeName, string _nodenamespaces) {
-            switch (_nodenamespaces) {
-                case BasicNodes.NameSpace.NAME:
-                    return ConstellationNodeFactory.GetNode (_nodeName);
-                case Unity.NameSpace.NAME:
-                    return UnityNodeFactory.GetNode (_nodeName);
-                case Math.NameSpace.NAME:
-                    return MathNodeFactory.GetNode (_nodeName);
-                case Physics.NameSpace.NAME:
-                    return PhysicsNodeFactory.GetNode (_nodeName);
-                case Attributes.NameSpace.NAME:
-                    return AttributesNodeFactory.GetNode (_nodeName);
-                case UI.NameSpace.NAME:
-                    return UINodeFactory.GetNode (_nodeName);
-                case Experimental.NameSpace.NAME:
-                    return ExperimentalNodeFactory.GetNode (_nodeName);
-                case Sound.NameSpace.NAME:
-                    return SoundNodeFactory.GetNode(_nodeName);
-                default:
-                    return null;
+        public NodesFactory () {
+            Current = this;
+            SetInterfaces ();
+        }
+
+        public void SetInterfaces () {
+            Debug.Log ("Setting interfaces");
+            NodeGetters = new List<INodeGetter> ();
+            var type = typeof (INodeGetter);
+            var types = AppDomain.CurrentDomain.GetAssemblies ()
+                .SelectMany (s => s.GetTypes ())
+                .Where (p => type.IsAssignableFrom (p));
+            foreach (var t in types) {
+                Debug.Log (t.FullName);
+                if (t.FullName != "Constellation.INodeGetter") {
+                    var factory = Activator.CreateInstance (t) as INodeGetter;
+                    NodeGetters.Add (factory);
+                }
             }
         }
 
-        public static Node<INode> GetNode (NodeData _nodeData) {
+        public Node<INode> GetNode (string _nodeName, string _nodenamespaces) {
+            foreach (var nodesGetter in NodeGetters) {
+                var node = nodesGetter.GetNode (_nodeName);
+                if (node != null)
+                    return node;
+            }
+            return null;
+        }
+
+        public Node<INode> GetNode (NodeData _nodeData) {
             Node<INode> node = null;
-            if (_nodeData.Namespace == "") {
-                node = ConstellationNodeFactory.GetNode (_nodeData.Name);
-
-                if (node == null)
-                    node = UnityNodeFactory.GetNode (_nodeData.Name);
-
-                if (node == null)
-                    node = MathNodeFactory.GetNode (_nodeData.Name);
-                if (node == null)
-                    return null;
-
-            } else {
-                switch (_nodeData.Namespace) {
-                    case BasicNodes.NameSpace.NAME:
-                        node = ConstellationNodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case Unity.NameSpace.NAME:
-                        node = UnityNodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case Math.NameSpace.NAME:
-                        node = MathNodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case Physics.NameSpace.NAME:
-                        node = PhysicsNodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case Attributes.NameSpace.NAME:
-                        node = AttributesNodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case UI.NameSpace.NAME:
-                        node = UINodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case Experimental.NameSpace.NAME:
-                        node = ExperimentalNodeFactory.GetNode (_nodeData.Name);
-                        break;
-                    case Sound.NameSpace.NAME:
-                         node = SoundNodeFactory.GetNode(_nodeData.Name);
-                         break;
-                    default:
-                        return null;
+            foreach (var nodesGetter in NodeGetters) {
+                var selectedNode = nodesGetter.GetNode (_nodeData.Name);
+                if (selectedNode != null) {
+                    node = selectedNode;
+                    break;
                 }
             }
 

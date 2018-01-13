@@ -35,7 +35,6 @@ namespace ConstellationEditor {
             DragSelection ();
             SelectionDisplay = new Rect (StartMousePosition.x, StartMousePosition.y, DragSize.x, DragSize.y);
             Selection = new Rect (StartMousePosition.x + selectionOffset.x, StartMousePosition.y + selectionOffset.y, DragSize.x, DragSize.y);
-
             if (e.button == 1 && e.isMouse && (e.type == EventType.MouseDown)) {
                 UnselectAll ();
                 GUI.RequestRepaint();

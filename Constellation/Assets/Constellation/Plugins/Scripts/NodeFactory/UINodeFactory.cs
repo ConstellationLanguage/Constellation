@@ -1,6 +1,6 @@
 namespace Constellation.UI {
-    public static class UINodeFactory {
-        public static Node<INode> GetNode (string nodeName) {
+    public class UINodeFactory: INodeGetter {
+        public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case Text.NAME:
                     INode nodeText = new Text () as INode;

@@ -32,6 +32,7 @@ namespace ConstellationEditor {
         NodeAdded OnNodeAdded;
         public delegate void NodeRemoved (NodeData node);
         NodeRemoved OnNodeRemoved;
+        private NodesFactory nodesFactory;
 
         public NodeEditorPanel (IGUI _gui,
             EditorWindow _editorWindow,
@@ -43,7 +44,7 @@ namespace ConstellationEditor {
             LinkAdded linkAdded,
             NodeAdded nodeAdded,
             NodeRemoved nodeRemoved) {
-
+            nodesFactory = new NodesFactory();
             constellationScript = _script;
             undoable = _undoable;
             Nodes = new List<NodeView> ();
@@ -132,7 +133,7 @@ namespace ConstellationEditor {
         }
 
         public NodeData AddNode (string _nodeName, string _namespace) {
-            var newNode = constellationScript.AddNode (NodesFactory.GetNode (_nodeName, _namespace));
+            var newNode = constellationScript.AddNode (nodesFactory.GetNode (_nodeName, _namespace));
             newNode.XPosition = editorScrollPos.x + (panelSize.x * 0.5f);
             newNode.YPosition = editorScrollPos.y + (panelSize.y * 0.5f);
             var newNodeWindow = new NodeView (newNode, this, nodeConfig, constellationScript);

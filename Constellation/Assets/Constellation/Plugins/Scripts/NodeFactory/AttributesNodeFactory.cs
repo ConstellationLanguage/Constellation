@@ -1,6 +1,6 @@
 namespace Constellation.Attributes {
-    public static class AttributesNodeFactory {
-        public static Node<INode> GetNode (string nodeName) {
+    public class AttributesNodeFactory: INodeGetter {
+        public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case ValueAttribute.NAME:
                     INode nodeValueAttribute = new ValueAttribute () as INode;

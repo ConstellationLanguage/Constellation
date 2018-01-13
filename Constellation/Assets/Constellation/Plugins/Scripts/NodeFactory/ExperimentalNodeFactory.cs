@@ -1,6 +1,6 @@
 namespace Constellation.Experimental {
-    public static class ExperimentalNodeFactory {
-        public static Node<INode> GetNode (string nodeName) {
+    public class ExperimentalNodeFactory: INodeGetter {
+        public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case OSCManager.NAME:
                     INode nodeOsc = new OSCManager () as INode;

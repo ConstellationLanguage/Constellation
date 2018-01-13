@@ -124,8 +124,8 @@ MonoBehaviour:
     - Name: Value
       Namespace: BasicNodes
       Guid: af961602-1daf-4e21-85a7-8b750863d13d
-      XPosition: 549.67645
-      YPosition: 168
+      XPosition: 584.67645
+      YPosition: 164
       Inputs: []
       Outputs:
       - Guid: 391d7620-f30a-4cb9-88c6-8ae75414f9c4
@@ -137,47 +137,11 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Name: Switch
-      Namespace: BasicNodes
-      Guid: 32d87665-f535-43e6-9e61-b2e676da7bd3
-      XPosition: 404.5
-      YPosition: 173
-      Inputs:
-      - Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
-        IsWarm: 0
-        Type: 
-        Description: 1 = on, 0 = off
-      - Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
-        IsWarm: 1
-        Type: 
-        Description: Value to send
-      Outputs:
-      - Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
-        IsWarm: 0
-        Type: 
-        Description: Output if on
-      AttributesData: []
-    - Name: KeyDown
-      Namespace: Unity
-      Guid: 8bdb48b5-2bc8-429a-afc2-46b3e663255c
-      XPosition: 153.5
-      YPosition: 188
-      Inputs: []
-      Outputs:
-      - Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      AttributesData:
-      - Value:
-          stringValue: w
-          floatValue: 0.000001
-        Type: 1
     - Name: Var
       Namespace: BasicNodes
       Guid: f80f6b45-8472-495b-9677-b9d1eeaf17ae
-      XPosition: 726.67645
-      YPosition: 200
+      XPosition: 735.67645
+      YPosition: 184
       Inputs:
       - Guid: 2b993ab1-65fa-43fa-862a-8ee432b1e384
         IsWarm: 0
@@ -197,6 +161,42 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
+    - Name: KeyDown
+      Namespace: Unity
+      Guid: 8bdb48b5-2bc8-429a-afc2-46b3e663255c
+      XPosition: 153.5
+      YPosition: 188
+      Inputs: []
+      Outputs:
+      - Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      AttributesData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
+    - Name: Switch
+      Namespace: BasicNodes
+      Guid: 32d87665-f535-43e6-9e61-b2e676da7bd3
+      XPosition: 381.5
+      YPosition: 192
+      Inputs:
+      - Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      - Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Outputs:
+      - Guid: 49a1d6fe-75fc-461d-94ee-6d8c1c9ed25f
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      AttributesData: []
     - Name: LoadScene
       Namespace: Unity
       Guid: 2b9ca277-1d38-44d0-9010-49d50595384e
@@ -345,28 +345,6 @@ MonoBehaviour:
         Description: Output if on
       outputPositionY: 138
     - Input:
-        Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
-        IsWarm: 0
-        Type: 
-        Description: 1 = on, 0 = off
-      Output:
-        Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      outputPositionY: 203
-    - Input:
-        Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
-        IsWarm: 1
-        Type: 
-        Description: Value to send
-      Output:
-        Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      outputPositionY: 223
-    - Input:
         Guid: 2b993ab1-65fa-43fa-862a-8ee432b1e384
         IsWarm: 0
         Type: 
@@ -376,7 +354,18 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The value
-      outputPositionY: 230
+      outputPositionY: 214
+    - Input:
+        Guid: efb80950-0634-41d3-b1b5-9b80b4f7d072
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      outputPositionY: 222
     - Input:
         Guid: 6532c0ef-a147-4507-ab3e-392c11911a14
         IsWarm: 1
@@ -387,7 +376,18 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Output if on
-      outputPositionY: 250
+      outputPositionY: 234
+    - Input:
+        Guid: 95330cd3-ee58-41e4-998b-d65f903984e6
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Output:
+        Guid: acd14bac-e46f-45d7-96a9-b27d43b72b8d
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      outputPositionY: 242
     - Input:
         Guid: 2ea00017-478e-425d-9a23-ace925269ca1
         IsWarm: 1

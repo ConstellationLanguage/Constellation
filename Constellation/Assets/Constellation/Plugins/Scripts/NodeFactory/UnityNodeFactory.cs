@@ -1,6 +1,6 @@
 namespace Constellation.Unity {
-    public static class UnityNodeFactory {
-        public static Node<INode> GetNode (string nodeName) {
+    public class UnityNodeFactory: INodeGetter {
+        public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case DeltaTime.NAME:
                     INode nodeDeltaTime = new DeltaTime () as INode;
