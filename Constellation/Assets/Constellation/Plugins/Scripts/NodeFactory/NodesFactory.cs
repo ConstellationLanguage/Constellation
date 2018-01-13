@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using UnityEngine;
 
 namespace Constellation {
@@ -16,14 +14,12 @@ namespace Constellation {
         }
 
         public void SetInterfaces () {
-            Debug.Log ("Setting interfaces");
             NodeGetters = new List<INodeGetter> ();
             var type = typeof (INodeGetter);
             var types = AppDomain.CurrentDomain.GetAssemblies ()
                 .SelectMany (s => s.GetTypes ())
                 .Where (p => type.IsAssignableFrom (p));
             foreach (var t in types) {
-                Debug.Log (t.FullName);
                 if (t.FullName != "Constellation.INodeGetter") {
                     var factory = Activator.CreateInstance (t) as INodeGetter;
                     NodeGetters.Add (factory);
