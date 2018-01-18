@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: BotScript
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: GetComponent
+      Namespace: BasicNodes
+      Guid: d8a5880a-ab31-4e7d-b135-a3497981dff7
+      XPosition: 250.5
+      YPosition: 173.5
+      Inputs:
+      - Guid: 6d69335f-ba97-40b5-ac53-6e12b7f9bb33
+        IsWarm: 1
+        Type: Object
+        Description: Object which contain the component
+      - Guid: 767d067d-c272-47b1-8b38-63f761644786
+        IsWarm: 1
+        Type: 
+        Description: Send the component
+      Outputs:
+      - Guid: 9847c9dc-fe6d-4299-b320-39da3fcacaec
+        IsWarm: 0
+        Type: Object
+        Description: The Component
+      AttributesData:
+      - Value:
+          stringValue: Light
+          floatValue: 0.000001
+        Type: 1
+    - Name: Print
+      Namespace: BasicNodes
+      Guid: 14dab7af-b48e-4e48-9161-9c50214a9f6a
+      XPosition: 710.5
+      YPosition: 185.5
+      Inputs:
+      - Guid: d3488b2a-eb67-4b92-9256-2560cb93d502
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 4ea94255-c410-46ed-824e-e8c6add3ce83
+      XPosition: 50.5
+      YPosition: 186.5
+      Inputs: []
+      Outputs:
+      - Guid: 2df7b5ec-8798-4a6d-9556-14dd4da05b1d
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 55.78
+        Type: 0
+    - Name: CodeVar
+      Namespace: BasicNodes
+      Guid: acf61092-8055-4993-beb4-3ce28ec27115
+      XPosition: 483.5
+      YPosition: 207.5
+      Inputs:
+      - Guid: 2d99b098-16fb-49b0-ae63-29712c9fab75
+        IsWarm: 0
+        Type: Object
+        Description: Object which contains the var
+      - Guid: c494e47d-3ba6-4e90-a367-a60d27d7ebea
+        IsWarm: 0
+        Type: 
+        Description: Set Var
+      - Guid: 1b4b7cdb-b8e9-4dc2-8e1b-86e8c772e31e
+        IsWarm: 1
+        Type: 
+        Description: Push var
+      Outputs:
+      - Guid: 1092fa26-1031-49d5-8f46-192f621485a5
+        IsWarm: 0
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: intensity
+          floatValue: 0.000001
+        Type: 1
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: 52616e9c-f961-459c-99d1-a5b34589e221
+      XPosition: 233.5
+      YPosition: 249.5
+      Inputs: []
+      Outputs:
+      - Guid: 81b2be6b-7a94-4d1b-bd0c-c7a0dd9f1778
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 25.6
+        Type: 0
+    Links:
+    - Input:
+        Guid: d3488b2a-eb67-4b92-9256-2560cb93d502
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 1092fa26-1031-49d5-8f46-192f621485a5
+        IsWarm: 0
+        Type: 
+        Description: The value
+      outputPositionY: 215.5
+    - Input:
+        Guid: 767d067d-c272-47b1-8b38-63f761644786
+        IsWarm: 1
+        Type: 
+        Description: Send the component
+      Output:
+        Guid: 2df7b5ec-8798-4a6d-9556-14dd4da05b1d
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 223.5
+    - Input:
+        Guid: 2d99b098-16fb-49b0-ae63-29712c9fab75
+        IsWarm: 0
+        Type: Object
+        Description: Object which contains the var
+      Output:
+        Guid: 9847c9dc-fe6d-4299-b320-39da3fcacaec
+        IsWarm: 0
+        Type: Object
+        Description: The Component
+      outputPositionY: 237.5
+    - Input:
+        Guid: c494e47d-3ba6-4e90-a367-a60d27d7ebea
+        IsWarm: 0
+        Type: 
+        Description: Set Var
+      Output:
+        Guid: 81b2be6b-7a94-4d1b-bd0c-c7a0dd9f1778
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 257.5
+    - Input:
+        Guid: 1b4b7cdb-b8e9-4dc2-8e1b-86e8c772e31e
+        IsWarm: 1
+        Type: 
+        Description: Push var
+      Output:
+        Guid: 9847c9dc-fe6d-4299-b320-39da3fcacaec
+        IsWarm: 0
+        Type: Object
+        Description: The Component
+      outputPositionY: 277.5

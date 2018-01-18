@@ -125,7 +125,14 @@ public class Variable {
     }
 
     public object GetObject () {
-        return Object;
+        if(Object != null)
+            return Object;
+        else if(stringValue != "UNDEFINED")
+            return stringValue;
+        else if(floatValue != nullValue)
+            return floatValue;
+        else
+            return null;
     }
 
     public bool IsFloat () {
