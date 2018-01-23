@@ -22,7 +22,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 
 [Download](https://www.constellationeditor.com/download)
 
-# Dependancies
+# Dependencies
 [Unity OSC](https://github.com/thomasfredericks/UnityOSC) from Thomas Fredericks
 
 
