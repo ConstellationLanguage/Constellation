@@ -20,7 +20,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 # Ready to start?
 [Tutorials and contribution instructions](https://github.com/AntoineCharton/Constellation/wiki)
 
-[Discord](https://discord.gg/tBFns3)
+[Discord](https://discord.gg/Cx2k7We)
 
 [Download](https://www.constellationeditor.com/download)
 
