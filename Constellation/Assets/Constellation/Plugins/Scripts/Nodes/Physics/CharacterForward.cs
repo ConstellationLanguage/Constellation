@@ -1,0 +1,60 @@
+using UnityEngine;
+
+namespace Constellation.Physics {
+    public class CharacterForward : INode, IReceiver, IGameObject {
+        UnityEngine.CharacterController controller;
+        private Vector3 direction;
+        private Vector3 movingVector;
+
+        public const string NAME = "CharacterForward";
+
+        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+            _nodeParameters.AddInput (this, false, "Object", "Character controller object");
+            _nodeParameters.AddInput (this, false, "Vertical");
+            _nodeParameters.AddInput (this, false, "Horizontal");
+            _nodeParameters.AddInput (this, false, "Jump");
+            _nodeParameters.AddInput (this, false, "Update Physics");
+            direction = Vector3.zero;
+        }
+
+        public string NodeName () {
+            return NAME;
+        }
+
+        public string NodeNamespace () {
+            return NameSpace.NAME;
+        }
+
+        public void Set (GameObject _gameObject) {
+            var ctrl = _gameObject.GetComponent<UnityEngine.CharacterController> ();
+            if (ctrl != null)
+                controller = ctrl;
+            else
+                controller = _gameObject.AddComponent<CharacterController> () as CharacterController;
+        }
+
+        public void Receive (Variable value, Input _input) {
+            if (_input.InputId == 0)
+                Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
+
+            if (_input.InputId == 1) {
+                movingVector = new Vector3 (movingVector.x * direction.x, movingVector.y * direction.y, value.GetFloat ());
+            }
+
+            if (_input.InputId == 2) {
+                movingVector = new Vector3 (value.GetFloat (), movingVector.y * direction.y, movingVector.z * direction.z);
+            }
+
+            if (_input.InputId == 3) {
+                movingVector = new Vector3(movingVector.x * direction.x, value.GetFloat(), movingVector.z * direction.z);
+            }
+
+            if (_input.InputId == 4) {
+                movingVector = controller.transform.TransformDirection(movingVector);
+                movingVector.y += UnityEngine.Physics.gravity.y * Time.deltaTime;
+                controller.Move(movingVector);
+                movingVector = Vector3.zero;
+            }
+        }
+    }
+}

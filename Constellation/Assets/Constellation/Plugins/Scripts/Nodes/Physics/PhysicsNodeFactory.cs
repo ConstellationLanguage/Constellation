@@ -1,5 +1,5 @@
 namespace Constellation.Physics {
-    public class PhysicsNodeFactory: INodeGetter {
+    public class PhysicsNodeFactory : INodeGetter {
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case AddForce.NAME:
@@ -23,12 +23,18 @@ namespace Constellation.Physics {
                 case CollisionExit.NAME:
                     INode nodeCollisionExit = new CollisionEnter () as INode;
                     return new Node<INode> (nodeCollisionExit);
-                 case FixedUpdate.NAME:
+                case FixedUpdate.NAME:
                     INode nodeFixedUpdate = new FixedUpdate () as INode;
                     return new Node<INode> (nodeFixedUpdate);
                 case AddImpulse.NAME:
-                    INode nodeImpulse = new AddImpulse() as INode;
+                    INode nodeImpulse = new AddImpulse () as INode;
                     return new Node<INode> (nodeImpulse);
+                case Character.NAME:
+                    var nodeCharacter = new Character () as INode;
+                    return new Node<INode> (nodeCharacter);
+                case CharacterForward.NAME:
+                    var nodeCharacterForward = new CharacterForward() as INode;
+                    return new Node<INode> (nodeCharacterForward);
                 default:
                     return null;
             }

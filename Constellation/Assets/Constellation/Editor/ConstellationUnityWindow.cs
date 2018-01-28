@@ -226,7 +226,7 @@ namespace ConstellationEditor {
         }
 
         private void OnNodeAdded (NodeData node) {
-            if (Application.isPlaying) {
+            if (Application.isPlaying && previousSelectedGameObject != null) {
                 var currentConstellation = previousSelectedGameObject.GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 currentConstellation.AddNode (node);
                 currentConstellation.RefreshConstellationEvents ();
@@ -235,7 +235,7 @@ namespace ConstellationEditor {
         }
 
         private void OnNodeRemoved (NodeData node) {
-            if (Application.isPlaying)
+            if (Application.isPlaying && previousSelectedGameObject)
                 previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().RemoveNode (node);
 
             Repaint ();
