@@ -47,6 +47,9 @@ namespace Constellation.Unity {
                 case MousePosition.NAME:
                     INode nodeMousePosition = new MousePosition() as INode;
                     return new Node<INode> (nodeMousePosition);
+                case ScreenToWorld.NAME:
+                    INode nodeScreenToWorld = new ScreenToWorld() as INode;
+                    return new Node<INode> (nodeScreenToWorld);
                 default:
                     return null;
             }

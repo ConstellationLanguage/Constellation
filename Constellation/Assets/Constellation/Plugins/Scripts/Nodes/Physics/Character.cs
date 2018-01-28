@@ -38,15 +38,16 @@ namespace Constellation.Physics {
                 Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 
             if (_input.InputId == 1) {
-                movingVector = new Vector3 (movingVector.x * direction.x, movingVector.y * direction.y, value.GetFloat ());
+                movingVector = new Vector3 (movingVector.x, movingVector.y, value.GetFloat ());
             }
 
             if (_input.InputId == 2) {
-                movingVector = new Vector3 (value.GetFloat (), movingVector.y * direction.y, movingVector.z * direction.z);
+                movingVector = new Vector3 (value.GetFloat (), movingVector.y, movingVector.z);
             }
 
             if (_input.InputId == 3) {
-                movingVector = new Vector3(movingVector.x * direction.x, value.GetFloat(), movingVector.z * direction.z);
+                if(controller.isGrounded)
+                    movingVector = new Vector3(movingVector.x, value.GetFloat(), movingVector.z);
             }
 
             if (_input.InputId == 4) {

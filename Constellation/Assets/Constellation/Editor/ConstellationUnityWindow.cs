@@ -216,12 +216,12 @@ namespace ConstellationEditor {
         }
 
         private void OnLinkAdded (LinkData link) {
-            if (Application.isPlaying)
+            if (Application.isPlaying && previousSelectedGameObject != null)
                 previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().AddLink (link);
         }
 
         private void OnLinkRemoved (LinkData link) {
-            if (Application.isPlaying)
+            if (Application.isPlaying && previousSelectedGameObject != null)
                 previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().RemoveLink (link);
         }
 
