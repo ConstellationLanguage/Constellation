@@ -35,6 +35,9 @@ namespace Constellation.Physics {
                 case CharacterForward.NAME:
                     var nodeCharacterForward = new CharacterForward() as INode;
                     return new Node<INode> (nodeCharacterForward);
+                case CameraRaycast.NAME:
+                    var nodeCameraRayCast = new CameraRaycast() as INode;
+                    return new Node<INode> (nodeCameraRayCast);
                 default:
                     return null;
             }
