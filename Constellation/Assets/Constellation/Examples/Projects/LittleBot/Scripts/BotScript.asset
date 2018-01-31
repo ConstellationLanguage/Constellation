@@ -13,375 +13,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: f0402425-3883-43d4-8107-51e6b659aed6
-      XPosition: 276.91656
-      YPosition: 52.5
-      Inputs: []
-      Outputs:
-      - Guid: 8cfb9fcd-7949-40fe-aaf8-435a685190bd
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: -10
-        Type: 0
-    - Name: Multiply
-      Namespace: BasicNodes
-      Guid: d7976e80-0dd2-4aef-8f83-1a7711d1a91a
-      XPosition: 502.91656
-      YPosition: 55.5
-      Inputs:
-      - Guid: 12283ed5-1ab0-4377-a310-c6f519df43d8
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      - Guid: 294bcd18-33a4-4f3d-b576-ff45ac8933b5
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Outputs:
-      - Guid: 442dd4b7-6dde-4c11-b33c-ff566ceb94b7
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      AttributesData: []
-    - Name: DeltaTime
+    - Name: LookAtPosition
       Namespace: Unity
-      Guid: e94b9368-90ad-4be6-9a3b-06ced05444dd
-      XPosition: 648.91656
-      YPosition: 60.5
+      Guid: 9b4e36b6-2d5c-4afc-af15-25671787448b
+      XPosition: 669
+      YPosition: 610.5
       Inputs:
-      - Guid: d38a00ee-d9bb-4d26-b2b8-b27ae78b899d
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Outputs:
-      - Guid: f6dfbfdb-02eb-4924-8dd6-7ea72a74b882
+      - Guid: d02b07fd-a88e-4a60-bf9e-1a36201f4199
         IsWarm: 0
         Type: 
-        Description: Value x Delta time
+        Description: GameObject position
+      - Guid: a85c5841-4ae0-4a6c-bddc-e8b1360a5816
+        IsWarm: 1
+        Type: 
+        Description: Position to look at
+      Outputs:
+      - Guid: f91e61c1-75cb-4fc8-8d6a-f6fcfa6f070b
+        IsWarm: 0
+        Type: 
+        Description: Target rotation
       AttributesData: []
-    - Name: Key
-      Namespace: Unity
-      Guid: 8c6c6692-9e92-416a-aace-ac7e77ae3276
-      XPosition: 281.91656
-      YPosition: 95.5
-      Inputs: []
-      Outputs:
-      - Guid: 879b70ad-b0bd-43e5-84e9-813a52e3f09c
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      AttributesData:
-      - Value:
-          stringValue: s
-          floatValue: 0.000001
-        Type: 1
-    - Name: Multiply
-      Namespace: BasicNodes
-      Guid: affc6a67-a3a8-4e5b-bc44-2a7e61ab9516
-      XPosition: 508.734
-      YPosition: 120.5
-      Inputs:
-      - Guid: e6567361-92c4-4d27-ab0b-3f80c07a7896
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      - Guid: a0600c44-14cf-4750-8081-a1f416bf3bed
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Outputs:
-      - Guid: 99ff2088-5afe-4835-bead-528d56c16945
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      AttributesData: []
-    - Name: DeltaTime
-      Namespace: Unity
-      Guid: c83ab3b8-1a6b-4474-a458-b15a865fd619
-      XPosition: 643.734
-      YPosition: 127.5
-      Inputs:
-      - Guid: 5bcc0a42-63da-4813-b4ed-f118edc3600a
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Outputs:
-      - Guid: ef984e72-cf7e-4d6e-b246-b54cc0009906
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      AttributesData: []
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: f55b558a-07b1-4418-afb6-32fc6d7d04e9
-      XPosition: 283.734
-      YPosition: 137.5
-      Inputs: []
-      Outputs:
-      - Guid: 726670d5-37df-43e7-9deb-88e1b5d31a77
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 10
-        Type: 0
-    - Name: Key
-      Namespace: Unity
-      Guid: 6210d6b7-5d39-44dc-87f2-cd342baec802
-      XPosition: 284.09863
-      YPosition: 182.5
-      Inputs: []
-      Outputs:
-      - Guid: 915973bf-c0ac-4446-a4d6-2d22ab0ee2f2
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      AttributesData:
-      - Value:
-          stringValue: w
-          floatValue: 0.000001
-        Type: 1
-    - Name: DeltaTime
-      Namespace: Unity
-      Guid: 104f13e2-f472-42b4-802d-98eaccbc40af
-      XPosition: 634.91656
-      YPosition: 198.5
-      Inputs:
-      - Guid: e2d8797f-8089-41d8-b6ee-c82d2d10fa3a
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Outputs:
-      - Guid: 1130137d-0ab3-4772-ae24-9db4378d59d1
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      AttributesData: []
-    - Name: Character
+    - Name: CameraRaycast
       Namespace: Physics
-      Guid: b49d4b22-49b5-4aee-96fd-df68cb918d49
-      XPosition: 844.9165
-      YPosition: 211.5
+      Guid: 6274e721-d5d2-4eeb-9126-b9d51be07a91
+      XPosition: 326
+      YPosition: 619.5
       Inputs:
-      - Guid: 272d6c6a-df32-476b-80a0-0a3d2c570cd7
+      - Guid: 810ff35e-26f0-4950-9049-2895e6d4a74d
+        IsWarm: 0
+        Type: 
+        Description: Position X
+      - Guid: 0166844b-fd50-4be0-b8cd-c03843ac2632
+        IsWarm: 0
+        Type: 
+        Description: Position Y
+      - Guid: 5d25613a-39cc-4cc7-800a-99fea7f66598
+        IsWarm: 1
+        Type: 
+        Description: Calculate
+      Outputs:
+      - Guid: b18edc95-e511-4e7d-b093-1333eb267f83
         IsWarm: 0
         Type: Object
-        Description: Character controller object
-      - Guid: fcb0606d-7f10-4f72-b6b2-c9d49b5800e1
+        Description: The object that was hit
+      - Guid: c83bc441-e0d3-4e06-a6f8-756528a2bce6
         IsWarm: 0
         Type: 
-        Description: Vertical
-      - Guid: 992505fd-d828-46e4-b3e6-e755a6a2519b
-        IsWarm: 0
-        Type: 
-        Description: Horizontal
-      - Guid: 0d8402c6-8031-4edf-88bf-a024f55dcfea
-        IsWarm: 0
-        Type: 
-        Description: Jump
-      - Guid: 06ff1c8f-eb3d-4ab7-affc-34c52c5229b8
-        IsWarm: 0
-        Type: 
-        Description: Update Physics
-      Outputs: []
-      AttributesData: []
-    - Name: Multiply
-      Namespace: BasicNodes
-      Guid: 8df0badf-abb6-42d0-8c53-2b640f892c62
-      XPosition: 490.91656
-      YPosition: 220.5
-      Inputs:
-      - Guid: 2518f5ec-f83f-43a5-9ccd-2f185def8150
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      - Guid: 02744cb0-4e0f-46da-89a2-45d4a1bd5f78
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Outputs:
-      - Guid: e5796970-a0c9-439a-bcbc-fdbb9797d87d
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      AttributesData: []
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: 26190c76-9ab1-4145-8702-c01e0e8eb071
-      XPosition: 288.91656
-      YPosition: 225.5
-      Inputs: []
-      Outputs:
-      - Guid: d5c0d288-4d68-4935-930d-723e14fc9b75
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: -10
-        Type: 0
-    - Name: DeltaTime
-      Namespace: Unity
-      Guid: e4c87848-bb46-40fd-a65c-8eb40013a48c
-      XPosition: 635.734
-      YPosition: 260.5
-      Inputs:
-      - Guid: a7bd5c89-3eb5-46e2-a89c-e623cfeac5e0
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Outputs:
-      - Guid: ea9eb9c6-dcdd-4f8e-84dd-4498374a1cb4
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      AttributesData: []
-    - Name: Key
-      Namespace: Unity
-      Guid: 0bd15a1b-8dbe-44bc-a1e9-b4017217f5f5
-      XPosition: 288.91656
-      YPosition: 268.5
-      Inputs: []
-      Outputs:
-      - Guid: 2f8b56f1-6ab3-4282-a3bd-8ec9dc6ba991
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      AttributesData:
-      - Value:
-          stringValue: a
-          floatValue: 0.000001
-        Type: 1
-    - Name: Multiply
-      Namespace: BasicNodes
-      Guid: 069376ec-72b3-4a03-967c-a8bd5f681e78
-      XPosition: 493.734
-      YPosition: 291.5
-      Inputs:
-      - Guid: 993a3c89-9a6e-4d42-b43e-81c6f12492a1
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      - Guid: d26479d5-b4c2-409b-8d97-095b557f5be8
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Outputs:
-      - Guid: 22972568-f8b0-4ac5-a9da-926ef5cf618f
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      AttributesData: []
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: 52611e4c-a553-4382-8345-ffdf3808a0d0
-      XPosition: 291.91656
-      YPosition: 325.5
-      Inputs: []
-      Outputs:
-      - Guid: a583ff73-f4e9-4504-9f6e-8aceaaea185e
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 10
-        Type: 0
-    - Name: Multiply
-      Namespace: BasicNodes
-      Guid: 5155d46b-c052-4825-af47-50b0483442f6
-      XPosition: 563.56934
-      YPosition: 367.5
-      Inputs:
-      - Guid: d1f8df7b-ed3a-4102-a98b-3e60701f66a5
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      - Guid: 7564b4c6-9a7d-4703-aa6a-baf6bc6ac0ec
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Outputs:
-      - Guid: 10faaffa-85c4-481b-bf6f-5a2b1db391b2
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      AttributesData: []
-    - Name: Key
-      Namespace: Unity
-      Guid: 4014eec3-f5d7-47b0-97c5-b85b145b50e2
-      XPosition: 298.09863
-      YPosition: 373.5
-      Inputs: []
-      Outputs:
-      - Guid: 84278a06-ce55-4735-9234-bea5b63ce9d3
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      AttributesData:
-      - Value:
-          stringValue: d
-          floatValue: 0.000001
-        Type: 1
-    - Name: Value
-      Namespace: BasicNodes
-      Guid: 11b84c81-0ff1-49df-9d18-e4f12da79406
-      XPosition: 395.56934
-      YPosition: 398.5
-      Inputs: []
-      Outputs:
-      - Guid: de0000da-01c5-42ff-9d76-4dbff984f272
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 3
-        Type: 0
-    - Name: KeyDown
-      Namespace: Unity
-      Guid: f692d061-98b5-4db0-b229-b0d2c51cdda8
-      XPosition: 360.56934
-      YPosition: 454.5
-      Inputs: []
-      Outputs:
-      - Guid: 1393808f-18b4-476c-ba73-07641cccb655
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      AttributesData:
-      - Value:
-          stringValue: space
-          floatValue: 0.000001
-        Type: 1
-    - Name: Update
-      Namespace: Unity
-      Guid: 248cd531-381d-431d-9f10-ca8925a20d55
-      XPosition: 535.09863
-      YPosition: 457.5
-      Inputs: []
-      Outputs:
-      - Guid: 7d074430-fb52-4547-a8d0-0e81e288d252
-        IsWarm: 1
-        Type: 
-        Description: Ray on update
+        Description: The hit position
       AttributesData: []
     - Name: Transform
       Namespace: Unity
       Guid: 7f296e64-55f9-48d0-920d-a7a9f14314ef
-      XPosition: 1304.3276
-      YPosition: 528.5
+      XPosition: 1290.3276
+      YPosition: 634.5
       Inputs:
       - Guid: 2cbb0874-48e3-4cb9-a794-a864fc98f33e
         IsWarm: 0
@@ -421,11 +105,83 @@ MonoBehaviour:
         Type: Object
         Description: Transform
       AttributesData: []
+    - Name: Vec3
+      Namespace: Unity
+      Guid: 9c9c3f06-cdfc-4ab3-94a0-6a4ae3ca498c
+      XPosition: 1112.2634
+      YPosition: 669.5
+      Inputs:
+      - Guid: 4d66aa1b-3ea7-4525-ad34-9074b5cbcc23
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: 50369373-9e8c-47e4-ae0b-924f16f215b5
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 0c93bd74-cfae-4740-a6e8-1325a1a7e2cd
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: 77ed30ed-9abe-4745-b766-7cd034682c51
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: 305.0058
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: d06380e7-427c-40b0-a8b1-4800b16b2824
+      XPosition: 936.2634
+      YPosition: 677.5
+      Inputs:
+      - Guid: 94f24b0e-e8f5-492a-9ae6-9ac5422a546d
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 240044a7-237a-4637-a8a4-fd34f101a070
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: e4dc448e-552c-4cd2-ab70-c29aa4de32cd
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: 1b5f800f-a057-4c57-9aed-1ffc03bdbb27
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: 8.347403
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: 305.0058
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: -9.25719E-07
+          floatValue: 0.000001
+        Type: 9
     - Name: Transform
       Namespace: Unity
       Guid: 4941cf3f-8f8b-4412-863c-ef8905943869
-      XPosition: 427
-      YPosition: 568.5
+      XPosition: 502
+      YPosition: 680.5
       Inputs:
       - Guid: 8f6cda38-58a3-401c-acc3-507babd38135
         IsWarm: 0
@@ -465,97 +221,29 @@ MonoBehaviour:
         Type: Object
         Description: Transform
       AttributesData: []
-    - Name: Vec3
-      Namespace: Unity
-      Guid: 919af105-bb33-44e1-9de7-0ce885c7c841
-      XPosition: 1083.3484
-      YPosition: 582.5
+    - Name: Lerp
+      Namespace: Math
+      Guid: 511bf607-113b-4e4c-a5d7-a1ac25053f59
+      XPosition: 802.7871
+      YPosition: 694
       Inputs:
-      - Guid: 65fbd302-8474-468d-aa56-5e43650d4429
+      - Guid: 8f13809f-4494-4dd6-b00a-8752a00d5161
+        IsWarm: 0
+        Type: 
+        Description: A
+      - Guid: 20599102-5fb4-4115-8d96-3edfaba943a7
+        IsWarm: 0
+        Type: 
+        Description: B
+      - Guid: 5bb3e490-9b00-4352-89ff-f220f3269519
         IsWarm: 1
         Type: 
-        Description: X
-      - Guid: afa95120-851d-4166-a90f-7d8d747894cc
-        IsWarm: 1
-        Type: 
-        Description: Y
-      - Guid: a4f2aef0-b7b7-4c80-a9dd-8b13a11fd951
-        IsWarm: 1
-        Type: 
-        Description: Z
+        Description: T
       Outputs:
-      - Guid: 918dd947-fff0-44aa-87a7-214133c782bd
+      - Guid: 98c74aed-f5dc-4da7-93ed-e394dbefe035
         IsWarm: 0
         Type: 
-        Description: Vec3[X][Y][Z]
-      AttributesData:
-      - Value:
-          stringValue: X
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: Y
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: Z
-          floatValue: 0.000001
-        Type: 9
-    - Name: SplitVec3
-      Namespace: Unity
-      Guid: 712c3e87-3e95-414f-9cf4-1797fb8729ea
-      XPosition: 891
-      YPosition: 586.5
-      Inputs:
-      - Guid: 2d5772f3-299a-48ff-bc58-a2631b55acb9
-        IsWarm: 1
-        Type: 
-        Description: Vec3
-      Outputs:
-      - Guid: 4ce7d8d0-7644-44ae-9f0b-e54d175eb2e4
-        IsWarm: 0
-        Type: 
-        Description: X
-      - Guid: f4cc587d-7791-48b4-acbe-61c87c4fa53c
-        IsWarm: 0
-        Type: 
-        Description: Y
-      - Guid: bf10cfec-5331-4701-97e3-5559d9dfda05
-        IsWarm: 0
-        Type: 
-        Description: Z
-      AttributesData:
-      - Value:
-          stringValue: X
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: Y
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: Z
-          floatValue: 0.000001
-        Type: 9
-    - Name: LookAtPosition
-      Namespace: Unity
-      Guid: 9b4e36b6-2d5c-4afc-af15-25671787448b
-      XPosition: 664
-      YPosition: 588.5
-      Inputs:
-      - Guid: d02b07fd-a88e-4a60-bf9e-1a36201f4199
-        IsWarm: 0
-        Type: 
-        Description: GameObject position
-      - Guid: a85c5841-4ae0-4a6c-bddc-e8b1360a5816
-        IsWarm: 1
-        Type: 
-        Description: Position to look at
-      Outputs:
-      - Guid: f91e61c1-75cb-4fc8-8d6a-f6fcfa6f070b
-        IsWarm: 0
-        Type: 
-        Description: Target rotation
+        Description: T=0 output A, T=1 output B
       AttributesData: []
     - Name: MousePosition
       Namespace: Unity
@@ -573,277 +261,75 @@ MonoBehaviour:
         Type: 
         Description: Mosue position Y
       AttributesData: []
-    - Name: CameraRaycast
-      Namespace: Physics
-      Guid: 6274e721-d5d2-4eeb-9126-b9d51be07a91
-      XPosition: 433
-      YPosition: 721.5
+    - Name: DeltaTime
+      Namespace: Unity
+      Guid: 2b562500-74cf-4e17-81b9-0fcb9a84d024
+      XPosition: 652.05566
+      YPosition: 784
       Inputs:
-      - Guid: 810ff35e-26f0-4950-9049-2895e6d4a74d
-        IsWarm: 0
-        Type: 
-        Description: Position X
-      - Guid: 0166844b-fd50-4be0-b8cd-c03843ac2632
-        IsWarm: 0
-        Type: 
-        Description: Position Y
-      - Guid: 5d25613a-39cc-4cc7-800a-99fea7f66598
+      - Guid: 68948efa-354b-4ebb-9cb5-57968c7fc4d9
         IsWarm: 1
         Type: 
-        Description: Calculate
+        Description: Value
       Outputs:
-      - Guid: b18edc95-e511-4e7d-b093-1333eb267f83
-        IsWarm: 0
-        Type: Object
-        Description: The object that was hit
-      - Guid: c83bc441-e0d3-4e06-a6f8-756528a2bce6
+      - Guid: d6c2f26d-9d7d-4df7-8ff3-5235a1a489e5
         IsWarm: 0
         Type: 
-        Description: The hit position
+        Description: Value x Delta time
       AttributesData: []
-    Links:
-    - Input:
-        Guid: 12283ed5-1ab0-4377-a310-c6f519df43d8
+    - Name: Var
+      Namespace: BasicNodes
+      Guid: 76f181e4-0167-44fd-b29f-df148325f3d5
+      XPosition: 482.05566
+      YPosition: 824
+      Inputs:
+      - Guid: 335fd2db-1438-4894-9ef0-f7718ed81fa5
         IsWarm: 0
         Type: 
-        Description: Multiply factor
-      Output:
-        Guid: 8cfb9fcd-7949-40fe-aaf8-435a685190bd
+        Description: New var
+      - Guid: 90792537-cd46-4b11-abe0-36bbceb26a6e
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: d0f0c203-68e8-4f65-96c9-bfcbdde2edd1
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: 5
+          floatValue: 0.000001
+        Type: 6
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: a45fa158-84bd-41bb-b4c0-2d011015148d
+      XPosition: 289.6134
+      YPosition: 844
+      Inputs: []
+      Outputs:
+      - Guid: 2f097119-472a-430c-b5a3-79504ce3f2df
         IsWarm: 1
         Type: 
         Description: The value
-      outputPositionY: 85.5
-    - Input:
-        Guid: d38a00ee-d9bb-4d26-b2b8-b27ae78b899d
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Output:
-        Guid: 442dd4b7-6dde-4c11-b33c-ff566ceb94b7
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      outputPositionY: 90.5
-    - Input:
-        Guid: 294bcd18-33a4-4f3d-b576-ff45ac8933b5
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Output:
-        Guid: 879b70ad-b0bd-43e5-84e9-813a52e3f09c
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      outputPositionY: 105.5
-    - Input:
-        Guid: e6567361-92c4-4d27-ab0b-3f80c07a7896
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      Output:
-        Guid: 726670d5-37df-43e7-9deb-88e1b5d31a77
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 150.5
-    - Input:
-        Guid: 5bcc0a42-63da-4813-b4ed-f118edc3600a
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Output:
-        Guid: 99ff2088-5afe-4835-bead-528d56c16945
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      outputPositionY: 157.5
-    - Input:
-        Guid: a0600c44-14cf-4750-8081-a1f416bf3bed
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Output:
-        Guid: 915973bf-c0ac-4446-a4d6-2d22ab0ee2f2
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      outputPositionY: 170.5
-    - Input:
-        Guid: e2d8797f-8089-41d8-b6ee-c82d2d10fa3a
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Output:
-        Guid: e5796970-a0c9-439a-bcbc-fdbb9797d87d
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      outputPositionY: 228.5
-    - Input:
-        Guid: 2518f5ec-f83f-43a5-9ccd-2f185def8150
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      Output:
-        Guid: d5c0d288-4d68-4935-930d-723e14fc9b75
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 250.5
-    - Input:
-        Guid: fcb0606d-7f10-4f72-b6b2-c9d49b5800e1
-        IsWarm: 0
-        Type: 
-        Description: Vertical
-      Output:
-        Guid: ef984e72-cf7e-4d6e-b246-b54cc0009906
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      outputPositionY: 261.5
-    - Input:
-        Guid: fcb0606d-7f10-4f72-b6b2-c9d49b5800e1
-        IsWarm: 0
-        Type: 
-        Description: Vertical
-      Output:
-        Guid: f6dfbfdb-02eb-4924-8dd6-7ea72a74b882
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      outputPositionY: 261.5
-    - Input:
-        Guid: 02744cb0-4e0f-46da-89a2-45d4a1bd5f78
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Output:
-        Guid: 2f8b56f1-6ab3-4282-a3bd-8ec9dc6ba991
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      outputPositionY: 270.5
-    - Input:
-        Guid: 992505fd-d828-46e4-b3e6-e755a6a2519b
-        IsWarm: 0
-        Type: 
-        Description: Horizontal
-      Output:
-        Guid: ea9eb9c6-dcdd-4f8e-84dd-4498374a1cb4
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      outputPositionY: 281.5
-    - Input:
-        Guid: 992505fd-d828-46e4-b3e6-e755a6a2519b
-        IsWarm: 0
-        Type: 
-        Description: Horizontal
-      Output:
-        Guid: 1130137d-0ab3-4772-ae24-9db4378d59d1
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      outputPositionY: 281.5
-    - Input:
-        Guid: a7bd5c89-3eb5-46e2-a89c-e623cfeac5e0
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Output:
-        Guid: 22972568-f8b0-4ac5-a9da-926ef5cf618f
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      outputPositionY: 290.5
-    - Input:
-        Guid: 0d8402c6-8031-4edf-88bf-a024f55dcfea
-        IsWarm: 0
-        Type: 
-        Description: Jump
-      Output:
-        Guid: 10faaffa-85c4-481b-bf6f-5a2b1db391b2
-        IsWarm: 0
-        Type: 
-        Description: Result $1 x $2
-      outputPositionY: 301.5
-    - Input:
-        Guid: 06ff1c8f-eb3d-4ab7-affc-34c52c5229b8
-        IsWarm: 0
-        Type: 
-        Description: Update Physics
-      Output:
-        Guid: 7d074430-fb52-4547-a8d0-0e81e288d252
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 5
+        Type: 0
+    - Name: Update
+      Namespace: Unity
+      Guid: e49fb7cf-90b3-4eb2-9e77-6ca69bc26013
+      XPosition: 300.05566
+      YPosition: 911
+      Inputs: []
+      Outputs:
+      - Guid: 11c3982b-733b-42e6-81ac-49506f56414b
         IsWarm: 1
         Type: 
         Description: Ray on update
-      outputPositionY: 321.5
-    - Input:
-        Guid: 993a3c89-9a6e-4d42-b43e-81c6f12492a1
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      Output:
-        Guid: a583ff73-f4e9-4504-9f6e-8aceaaea185e
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 321.5
-    - Input:
-        Guid: d26479d5-b4c2-409b-8d97-095b557f5be8
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Output:
-        Guid: 84278a06-ce55-4735-9234-bea5b63ce9d3
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      outputPositionY: 341.5
-    - Input:
-        Guid: d1f8df7b-ed3a-4102-a98b-3e60701f66a5
-        IsWarm: 0
-        Type: 
-        Description: Multiply factor
-      Output:
-        Guid: de0000da-01c5-42ff-9d76-4dbff984f272
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 397.5
-    - Input:
-        Guid: 7564b4c6-9a7d-4703-aa6a-baf6bc6ac0ec
-        IsWarm: 1
-        Type: 
-        Description: Value to multiply
-      Output:
-        Guid: 1393808f-18b4-476c-ba73-07641cccb655
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      outputPositionY: 417.5
-    - Input:
-        Guid: f8832032-9102-467e-824f-1efa17c7a8ec
-        IsWarm: 0
-        Type: 
-        Description: Vec3 rotation
-      Output:
-        Guid: 918dd947-fff0-44aa-87a7-214133c782bd
-        IsWarm: 0
-        Type: 
-        Description: Vec3[X][Y][Z]
-      outputPositionY: 598.5
-    - Input:
-        Guid: 2d5772f3-299a-48ff-bc58-a2631b55acb9
-        IsWarm: 1
-        Type: 
-        Description: Vec3
-      Output:
-        Guid: f91e61c1-75cb-4fc8-8d6a-f6fcfa6f070b
-        IsWarm: 0
-        Type: 
-        Description: Target rotation
-      outputPositionY: 616.5
+      AttributesData: []
+    Links:
     - Input:
         Guid: d02b07fd-a88e-4a60-bf9e-1a36201f4199
         IsWarm: 0
@@ -854,29 +340,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Vec3 position
-      outputPositionY: 618.5
-    - Input:
-        Guid: afa95120-851d-4166-a90f-7d8d747894cc
-        IsWarm: 1
-        Type: 
-        Description: Y
-      Output:
-        Guid: f4cc587d-7791-48b4-acbe-61c87c4fa53c
-        IsWarm: 0
-        Type: 
-        Description: Y
-      outputPositionY: 632.5
-    - Input:
-        Guid: a85c5841-4ae0-4a6c-bddc-e8b1360a5816
-        IsWarm: 1
-        Type: 
-        Description: Position to look at
-      Output:
-        Guid: c83bc441-e0d3-4e06-a6f8-756528a2bce6
-        IsWarm: 0
-        Type: 
-        Description: The hit position
-      outputPositionY: 638.5
+      outputPositionY: 640.5
     - Input:
         Guid: 810ff35e-26f0-4950-9049-2895e6d4a74d
         IsWarm: 0
@@ -887,7 +351,18 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Mouse position X
-      outputPositionY: 751.5
+      outputPositionY: 649.5
+    - Input:
+        Guid: a85c5841-4ae0-4a6c-bddc-e8b1360a5816
+        IsWarm: 1
+        Type: 
+        Description: Position to look at
+      Output:
+        Guid: c83bc441-e0d3-4e06-a6f8-756528a2bce6
+        IsWarm: 0
+        Type: 
+        Description: The hit position
+      outputPositionY: 660.5
     - Input:
         Guid: 0166844b-fd50-4be0-b8cd-c03843ac2632
         IsWarm: 0
@@ -898,7 +373,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Mosue position Y
-      outputPositionY: 771.5
+      outputPositionY: 669.5
     - Input:
         Guid: 5d25613a-39cc-4cc7-800a-99fea7f66598
         IsWarm: 1
@@ -909,4 +384,114 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: Mosue position Y
-      outputPositionY: 791.5
+      outputPositionY: 689.5
+    - Input:
+        Guid: f8832032-9102-467e-824f-1efa17c7a8ec
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      Output:
+        Guid: 77ed30ed-9abe-4745-b766-7cd034682c51
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 704.5
+    - Input:
+        Guid: 94f24b0e-e8f5-492a-9ae6-9ac5422a546d
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: 98c74aed-f5dc-4da7-93ed-e394dbefe035
+        IsWarm: 0
+        Type: 
+        Description: T=0 output A, T=1 output B
+      outputPositionY: 707.5
+    - Input:
+        Guid: 50369373-9e8c-47e4-ae0b-924f16f215b5
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: e4dc448e-552c-4cd2-ab70-c29aa4de32cd
+        IsWarm: 0
+        Type: 
+        Description: Y
+      outputPositionY: 719.5
+    - Input:
+        Guid: 8f13809f-4494-4dd6-b00a-8752a00d5161
+        IsWarm: 0
+        Type: 
+        Description: A
+      Output:
+        Guid: 8140e693-d3a0-480d-99a5-ad4e45c78b64
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      outputPositionY: 724
+    - Input:
+        Guid: 20599102-5fb4-4115-8d96-3edfaba943a7
+        IsWarm: 0
+        Type: 
+        Description: B
+      Output:
+        Guid: f91e61c1-75cb-4fc8-8d6a-f6fcfa6f070b
+        IsWarm: 0
+        Type: 
+        Description: Target rotation
+      outputPositionY: 744
+    - Input:
+        Guid: 5bb3e490-9b00-4352-89ff-f220f3269519
+        IsWarm: 1
+        Type: 
+        Description: T
+      Output:
+        Guid: d6c2f26d-9d7d-4df7-8ff3-5235a1a489e5
+        IsWarm: 0
+        Type: 
+        Description: Value x Delta time
+      outputPositionY: 764
+    - Input:
+        Guid: 40048939-7dee-4ff6-abb1-3bdb64119557
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Output:
+        Guid: 11c3982b-733b-42e6-81ac-49506f56414b
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 790.5
+    - Input:
+        Guid: 68948efa-354b-4ebb-9cb5-57968c7fc4d9
+        IsWarm: 1
+        Type: 
+        Description: Value
+      Output:
+        Guid: d0f0c203-68e8-4f65-96c9-bfcbdde2edd1
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 814
+    - Input:
+        Guid: 335fd2db-1438-4894-9ef0-f7718ed81fa5
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 2f097119-472a-430c-b5a3-79504ce3f2df
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 854
+    - Input:
+        Guid: 90792537-cd46-4b11-abe0-36bbceb26a6e
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 11c3982b-733b-42e6-81ac-49506f56414b
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 874
