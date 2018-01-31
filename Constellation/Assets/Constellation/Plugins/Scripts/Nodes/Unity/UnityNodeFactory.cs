@@ -50,6 +50,9 @@ namespace Constellation.Unity {
                 case ScreenToWorld.NAME:
                     INode nodeScreenToWorld = new ScreenToWorld() as INode;
                     return new Node<INode> (nodeScreenToWorld);
+                case LookAtPosition.NAME:
+                    INode nodeLookAt = new LookAtPosition() as INode;
+                    return new Node<INode> (nodeLookAt);
                 default:
                     return null;
             }

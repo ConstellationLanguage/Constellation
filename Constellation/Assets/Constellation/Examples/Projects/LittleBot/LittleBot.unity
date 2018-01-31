@@ -143,13 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45173c581fdba8419e9a3e9415aa7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attributes:
-  - Variable:
-      stringValue: UNDEFINED
-      floatValue: 0.000001
-    Name: Test
-    UnityObject: {fileID: 1330217162}
-    AttributeType: 2
+  Attributes: []
   ConstellationData: {fileID: 11400000, guid: 9dc1a72ba810ca543a963042398c5c2d, type: 2}
   Constellation:
     Name: 
@@ -454,7 +448,7 @@ SphereCollider:
   m_GameObject: {fileID: 1330217162}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

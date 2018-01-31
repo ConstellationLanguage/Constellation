@@ -27,7 +27,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: -5
+          floatValue: -10
         Type: 0
     - Name: Multiply
       Namespace: BasicNodes
@@ -131,7 +131,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 5
+          floatValue: 10
         Type: 0
     - Name: Key
       Namespace: Unity
@@ -227,7 +227,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: -5
+          floatValue: -10
         Type: 0
     - Name: DeltaTime
       Namespace: Unity
@@ -295,7 +295,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 5
+          floatValue: 10
         Type: 0
     - Name: Multiply
       Namespace: BasicNodes
@@ -377,145 +377,229 @@ MonoBehaviour:
         Type: 
         Description: Ray on update
       AttributesData: []
-    - Name: ObjectAttribute
+    - Name: Transform
       Namespace: Unity
-      Guid: d5f9acff-8a42-475d-9c1e-d6b6c0692d5d
-      XPosition: 217
-      YPosition: 505.5
-      Inputs: []
-      Outputs:
-      - Guid: 89c7e04c-81f8-4645-9716-5fc2fd71f236
-        IsWarm: 1
+      Guid: 7f296e64-55f9-48d0-920d-a7a9f14314ef
+      XPosition: 1304.3276
+      YPosition: 528.5
+      Inputs:
+      - Guid: 2cbb0874-48e3-4cb9-a794-a864fc98f33e
+        IsWarm: 0
         Type: Object
-        Description: Unity object
+        Description: Transform object
+      - Guid: eda56d12-f8ab-418a-b6bc-afd0000b7d11
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: f8832032-9102-467e-824f-1efa17c7a8ec
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: efceee40-1457-4202-86ce-92d538ebc0eb
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: bf642c13-9f92-4aa9-ae23-039080746943
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: 5b756deb-e631-4de7-9c34-2d70c2dd0508
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 6e433e0c-38d3-4ba9-9711-1e6494e62fe5
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: a3b5281d-548c-4d40-99fe-a3aa6f44b2e3
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: d9ef3152-ad5a-4f50-a74e-e7090f71b709
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: Transform
+      Namespace: Unity
+      Guid: 4941cf3f-8f8b-4412-863c-ef8905943869
+      XPosition: 427
+      YPosition: 568.5
+      Inputs:
+      - Guid: 8f6cda38-58a3-401c-acc3-507babd38135
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: d2aa1024-bd3f-4fb4-9f26-761ba3b48685
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 79c3ea13-3bfa-431b-9a97-88635baf71dc
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: ae345e98-c0a0-4415-aea6-a73939b44c11
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: 40048939-7dee-4ff6-abb1-3bdb64119557
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: e176bad9-baa2-4178-8e0d-ad3a01cf85a1
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: 8140e693-d3a0-480d-99a5-ad4e45c78b64
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 154123df-cc97-4f11-824c-f4d01268bd9a
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: cbb62115-bec0-4b70-bedd-d3d26fad78f9
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: Vec3
+      Namespace: Unity
+      Guid: 919af105-bb33-44e1-9de7-0ce885c7c841
+      XPosition: 1083.3484
+      YPosition: 582.5
+      Inputs:
+      - Guid: 65fbd302-8474-468d-aa56-5e43650d4429
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: afa95120-851d-4166-a90f-7d8d747894cc
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: a4f2aef0-b7b7-4c80-a9dd-8b13a11fd951
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: 918dd947-fff0-44aa-87a7-214133c782bd
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
       AttributesData:
       - Value:
-          stringValue: Test
+          stringValue: X
           floatValue: 0.000001
-        Type: 1
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: 712c3e87-3e95-414f-9cf4-1797fb8729ea
+      XPosition: 891
+      YPosition: 586.5
+      Inputs:
+      - Guid: 2d5772f3-299a-48ff-bc58-a2631b55acb9
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 4ce7d8d0-7644-44ae-9f0b-e54d175eb2e4
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: f4cc587d-7791-48b4-acbe-61c87c4fa53c
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: bf10cfec-5331-4701-97e3-5559d9dfda05
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: LookAtPosition
+      Namespace: Unity
+      Guid: 9b4e36b6-2d5c-4afc-af15-25671787448b
+      XPosition: 664
+      YPosition: 588.5
+      Inputs:
+      - Guid: d02b07fd-a88e-4a60-bf9e-1a36201f4199
+        IsWarm: 0
+        Type: 
+        Description: GameObject position
+      - Guid: a85c5841-4ae0-4a6c-bddc-e8b1360a5816
+        IsWarm: 1
+        Type: 
+        Description: Position to look at
+      Outputs:
+      - Guid: f91e61c1-75cb-4fc8-8d6a-f6fcfa6f070b
+        IsWarm: 0
+        Type: 
+        Description: Target rotation
+      AttributesData: []
     - Name: MousePosition
       Namespace: Unity
-      Guid: 319d9e03-dbdc-4fea-bf08-5bb135ee4cbf
-      XPosition: 123.89462
-      YPosition: 551.5
+      Guid: dd5878a4-289f-4a25-b4df-e742a1ba2744
+      XPosition: 157
+      YPosition: 711.5
       Inputs: []
       Outputs:
-      - Guid: d0a776d9-0152-4877-9996-aa3803e1acd5
+      - Guid: 1d272cb8-fd4a-4ed2-8580-f4099e7c0d6a
         IsWarm: 1
         Type: 
         Description: Mouse position X
-      - Guid: 296c5c2d-ffa9-4fa2-b80f-5ca4c36047da
+      - Guid: 06ca82bd-519c-4066-8c67-48d0f479aea7
         IsWarm: 1
         Type: 
         Description: Mosue position Y
       AttributesData: []
     - Name: CameraRaycast
       Namespace: Physics
-      Guid: 480dfa15-38ec-49d3-bd9f-8d19567d788f
-      XPosition: 277
-      YPosition: 566.5
+      Guid: 6274e721-d5d2-4eeb-9126-b9d51be07a91
+      XPosition: 433
+      YPosition: 721.5
       Inputs:
-      - Guid: 27a3ab9e-fc19-4de7-8577-c47924a787ab
+      - Guid: 810ff35e-26f0-4950-9049-2895e6d4a74d
         IsWarm: 0
         Type: 
         Description: Position X
-      - Guid: f779bf13-986c-4b51-b0c7-d588d0d53389
+      - Guid: 0166844b-fd50-4be0-b8cd-c03843ac2632
         IsWarm: 0
         Type: 
         Description: Position Y
-      - Guid: a0e2e14c-7736-4cb3-8d75-92394c038a27
+      - Guid: 5d25613a-39cc-4cc7-800a-99fea7f66598
         IsWarm: 1
         Type: 
         Description: Calculate
       Outputs:
-      - Guid: c4b7cd64-3b25-4b71-aed3-6d91a64b164c
+      - Guid: b18edc95-e511-4e7d-b093-1333eb267f83
         IsWarm: 0
         Type: Object
         Description: The object that was hit
-      - Guid: 2e7a86c5-3ad1-45c4-84ab-29f0a96b514d
+      - Guid: c83bc441-e0d3-4e06-a6f8-756528a2bce6
         IsWarm: 0
         Type: 
         Description: The hit position
-      AttributesData: []
-    - Name: Transform
-      Namespace: Unity
-      Guid: c18d4493-5bd4-477e-84a6-29d5a452dc2c
-      XPosition: 537
-      YPosition: 624.5
-      Inputs:
-      - Guid: 0affb24b-d832-46c6-9e0a-b4d7bcc91b6f
-        IsWarm: 0
-        Type: Object
-        Description: Transform object
-      - Guid: fb5165ad-5c62-4376-bb8e-7c953a8fb67f
-        IsWarm: 0
-        Type: 
-        Description: Vec3 position
-      - Guid: eeed1ce5-4965-4752-9834-7effdcdd3de8
-        IsWarm: 0
-        Type: 
-        Description: Vec3 rotation
-      - Guid: 41d66be4-6831-46f0-9b20-a6ef9452f9aa
-        IsWarm: 0
-        Type: 
-        Description: Vec3 scale
-      - Guid: 59244fe7-9259-4b4b-8a58-5bba9be462b8
-        IsWarm: 1
-        Type: 
-        Description: Send
-      Outputs:
-      - Guid: d5fbc095-629e-4232-8ac4-1b5c1555e652
-        IsWarm: 0
-        Type: 
-        Description: Vec3 position
-      - Guid: 2bc43aff-3d50-4b68-b04c-abffe67f155b
-        IsWarm: 0
-        Type: 
-        Description: Vec3 rotation
-      - Guid: d9e0f35d-93f6-4b0e-b674-e61e1d0b988b
-        IsWarm: 0
-        Type: 
-        Description: Vec3 scale
-      - Guid: a75c8206-0c64-4eba-beea-aec0e42d6a98
-        IsWarm: 0
-        Type: Object
-        Description: Transform
-      AttributesData: []
-    - Name: Update
-      Namespace: Unity
-      Guid: bfbe7907-c91a-4164-b540-3bc2b50b6c11
-      XPosition: 114.89462
-      YPosition: 633.5
-      Inputs: []
-      Outputs:
-      - Guid: 1f568f64-9982-4782-96af-9424fbd3bf83
-        IsWarm: 1
-        Type: 
-        Description: Ray on update
-      AttributesData: []
-    - Name: Lerp
-      Namespace: Math
-      Guid: 1c1e56d5-a989-42e3-adc3-a481bd45a518
-      XPosition: 353.03528
-      YPosition: 708.5
-      Inputs:
-      - Guid: 346807e1-80e6-4192-b1bd-92c1d6ecf2fc
-        IsWarm: 0
-        Type: 
-        Description: A
-      - Guid: 0754c92f-f07d-4504-a16f-d756612c17c9
-        IsWarm: 0
-        Type: 
-        Description: B
-      - Guid: 71b045ca-ff87-45c5-b305-5de98c83c88a
-        IsWarm: 1
-        Type: 
-        Description: T
-      Outputs:
-      - Guid: 7f30a2d9-cefd-459d-822d-cfe4ff657d8a
-        IsWarm: 0
-        Type: 
-        Description: T=0 output A, T=1 output B
       AttributesData: []
     Links:
     - Input:
@@ -739,57 +823,90 @@ MonoBehaviour:
         Description: 1 on key down else 0
       outputPositionY: 417.5
     - Input:
-        Guid: 27a3ab9e-fc19-4de7-8577-c47924a787ab
+        Guid: f8832032-9102-467e-824f-1efa17c7a8ec
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      Output:
+        Guid: 918dd947-fff0-44aa-87a7-214133c782bd
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 598.5
+    - Input:
+        Guid: 2d5772f3-299a-48ff-bc58-a2631b55acb9
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: f91e61c1-75cb-4fc8-8d6a-f6fcfa6f070b
+        IsWarm: 0
+        Type: 
+        Description: Target rotation
+      outputPositionY: 616.5
+    - Input:
+        Guid: d02b07fd-a88e-4a60-bf9e-1a36201f4199
+        IsWarm: 0
+        Type: 
+        Description: GameObject position
+      Output:
+        Guid: e176bad9-baa2-4178-8e0d-ad3a01cf85a1
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      outputPositionY: 618.5
+    - Input:
+        Guid: afa95120-851d-4166-a90f-7d8d747894cc
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: f4cc587d-7791-48b4-acbe-61c87c4fa53c
+        IsWarm: 0
+        Type: 
+        Description: Y
+      outputPositionY: 632.5
+    - Input:
+        Guid: a85c5841-4ae0-4a6c-bddc-e8b1360a5816
+        IsWarm: 1
+        Type: 
+        Description: Position to look at
+      Output:
+        Guid: c83bc441-e0d3-4e06-a6f8-756528a2bce6
+        IsWarm: 0
+        Type: 
+        Description: The hit position
+      outputPositionY: 638.5
+    - Input:
+        Guid: 810ff35e-26f0-4950-9049-2895e6d4a74d
         IsWarm: 0
         Type: 
         Description: Position X
       Output:
-        Guid: d0a776d9-0152-4877-9996-aa3803e1acd5
+        Guid: 1d272cb8-fd4a-4ed2-8580-f4099e7c0d6a
         IsWarm: 1
         Type: 
         Description: Mouse position X
-      outputPositionY: 596.5
+      outputPositionY: 751.5
     - Input:
-        Guid: f779bf13-986c-4b51-b0c7-d588d0d53389
+        Guid: 0166844b-fd50-4be0-b8cd-c03843ac2632
         IsWarm: 0
         Type: 
         Description: Position Y
       Output:
-        Guid: 296c5c2d-ffa9-4fa2-b80f-5ca4c36047da
+        Guid: 06ca82bd-519c-4066-8c67-48d0f479aea7
         IsWarm: 1
         Type: 
         Description: Mosue position Y
-      outputPositionY: 616.5
+      outputPositionY: 771.5
     - Input:
-        Guid: a0e2e14c-7736-4cb3-8d75-92394c038a27
+        Guid: 5d25613a-39cc-4cc7-800a-99fea7f66598
         IsWarm: 1
         Type: 
         Description: Calculate
       Output:
-        Guid: 1f568f64-9982-4782-96af-9424fbd3bf83
+        Guid: 06ca82bd-519c-4066-8c67-48d0f479aea7
         IsWarm: 1
         Type: 
-        Description: Ray on update
-      outputPositionY: 636.5
-    - Input:
-        Guid: 0affb24b-d832-46c6-9e0a-b4d7bcc91b6f
-        IsWarm: 0
-        Type: Object
-        Description: Transform object
-      Output:
-        Guid: 89c7e04c-81f8-4645-9716-5fc2fd71f236
-        IsWarm: 1
-        Type: Object
-        Description: Unity object
-      outputPositionY: 654.5
-    - Input:
-        Guid: fb5165ad-5c62-4376-bb8e-7c953a8fb67f
-        IsWarm: 0
-        Type: 
-        Description: Vec3 position
-      Output:
-        Guid: 2e7a86c5-3ad1-45c4-84ab-29f0a96b514d
-        IsWarm: 0
-        Type: 
-        Description: The hit position
-      outputPositionY: 674.5
+        Description: Mosue position Y
+      outputPositionY: 791.5

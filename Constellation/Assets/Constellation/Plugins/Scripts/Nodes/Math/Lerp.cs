@@ -32,8 +32,9 @@ public class Lerp: INode, IReceiver
 			else if(_input.InputId == 1)
 				endValue.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isWarm) {
                 sender.Send(new Variable().Set(Mathf.Lerp(startValue.GetFloat(), endValue.GetFloat(), _value.GetFloat())), 0);
+            }
         }
     }
 }
