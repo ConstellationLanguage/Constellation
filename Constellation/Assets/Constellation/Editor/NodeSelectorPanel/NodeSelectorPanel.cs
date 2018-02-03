@@ -26,16 +26,23 @@ namespace ConstellationEditor {
             }
         }
 
+        private void FilterNodes(string _filer)
+        {
+            foreach(var nodeNameData in NodeNamespaceData)
+            {
+                nodeNameData.FilterNodes(_filer);
+            }
+        }
+
         public void Draw (float _width, float _height) {
             GUILayout.BeginVertical ();
             DrawSearchField ();
             nodeSelectorScrollPos = EditorGUILayout.BeginScrollView (nodeSelectorScrollPos, GUILayout.Width (_width), GUILayout.Height (_height));
             foreach (NodeNamespacesData nodeNamespace in NodeNamespaceData) {
                 GUILayout.Label (nodeNamespace.namespaceName, GUI.skin.GetStyle ("OL Title"));
-               var selGridInt = GUILayout.SelectionGrid (-1, nodeNamespace.nodesNiceNames.ToArray(), 2);
+               var selGridInt = GUILayout.SelectionGrid (-1, nodeNamespace.GetNiceNames(), 2);
                 if (selGridInt >= 0) {
-                    ClearSerachField ();
-                    OnNodeAdded (nodeNamespace.nodesNames[selGridInt], nodeNamespace.namespaceName);
+                    OnNodeAdded (nodeNamespace.GetNames()[selGridInt], nodeNamespace.namespaceName);
                 }
             }
             EditorGUILayout.EndScrollView ();
@@ -44,18 +51,26 @@ namespace ConstellationEditor {
 
         private void ClearSerachField () {
             searchString = "";
+            FilterNodes(searchString);
         }
 
         private void DrawSearchField () {
             EditorGUIUtility.labelWidth = 0;
             EditorGUIUtility.fieldWidth = 0;
             GUILayout.BeginHorizontal (GUI.skin.FindStyle ("Toolbar"));
-            searchString = GUILayout.TextField (searchString, GUI.skin.FindStyle ("ToolbarSeachTextField"));
+            var newSearchString = GUILayout.TextField (searchString, GUI.skin.FindStyle ("ToolbarSeachTextField"));
             if (GUILayout.Button ("", GUI.skin.FindStyle ("ToolbarSeachCancelButton"))) {
-                // Remove focus if cleared
                 searchString = "";
+                FilterNodes(searchString);
                 GUI.FocusControl (null);
             }
+
+            if(newSearchString != searchString){
+                FilterNodes(searchString);
+                searchString = newSearchString;
+            }
+
+
             GUILayout.EndHorizontal ();
         }
     }

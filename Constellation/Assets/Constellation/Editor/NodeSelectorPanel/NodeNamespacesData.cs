@@ -4,23 +4,53 @@ namespace ConstellationEditor {
     public class NodeNamespacesData {
         public List<NodeButtonData> namespaceGroup;
         public string namespaceName;
-        public List<string> nodesNiceNames;
-        public List<string> nodesNames;
+        List<string> nodesNiceNames = new List<string> ();
+        List<string> nodesNames = new List<string> ();
         public NodeNamespacesData (string _namespaceName, string[] _nodes) {
             namespaceGroup = new List<NodeButtonData> ();
             namespaceName = _namespaceName;
-            nodesNames = new List<string>();
-            nodesNiceNames = new List<string>();
             foreach (var node in _nodes) {
-                Debug.Log(node.Split ('.') [1]);
+                Debug.Log (node.Split ('.') [1]);
                 if (_namespaceName == node.Split ('.') [1]) {
                     var nodeButtonData = new NodeButtonData (node);
                     namespaceGroup.Add (nodeButtonData);
-                    nodesNames.Add(nodeButtonData.nodeName);
-                    nodesNiceNames.Add(nodeButtonData.niceNodeName);
                 }
             }
+            FilterNodes("");
+            RefreshNamesList();
             namespaceName = _namespaceName;
+        }
+
+        public void FilterNodes (string _filterName) {
+            foreach (var group in namespaceGroup) {
+                if (group.niceNodeName.Contains (_filterName) || _filterName == "" || _filterName == null)
+                    group.Display ();
+                else
+                    group.Hide ();
+            }
+            RefreshNamesList();
+        }
+
+        private void RefreshNamesList () {
+            nodesNames = new List<string> ();
+            nodesNiceNames = new List<string> ();
+
+            foreach (var group in namespaceGroup) {
+                if (group.display){
+                    nodesNiceNames.Add (group.niceNodeName);
+                    nodesNames.Add (group.nodeName);
+                }
+            }
+        }
+
+        public string[] GetNiceNames () {
+
+            return nodesNiceNames.ToArray ();
+        }
+
+        public string[] GetNames () {
+
+            return nodesNames.ToArray ();
         }
     }
 }

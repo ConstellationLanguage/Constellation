@@ -573,42 +573,6 @@ MonoBehaviour:
         Type: Object
         Description: Transform
       AttributesData: []
-    - Name: SplitVec3
-      Namespace: Unity
-      Guid: 1a0c0581-9450-4ad5-b44b-b1b823e98e71
-      XPosition: 286.07214
-      YPosition: 317
-      Inputs:
-      - Guid: 3d56b8c3-3db1-4bee-8d2b-d2426aaa6562
-        IsWarm: 1
-        Type: 
-        Description: Vec3
-      Outputs:
-      - Guid: 38604074-69bb-47a7-b7d7-686f260c97a9
-        IsWarm: 0
-        Type: 
-        Description: X
-      - Guid: cb867ff3-c5fb-4d6b-baab-0431ff196211
-        IsWarm: 0
-        Type: 
-        Description: Y
-      - Guid: ad523b1a-62d5-4c79-8e87-c3ec7257a612
-        IsWarm: 0
-        Type: 
-        Description: Z
-      AttributesData:
-      - Value:
-          stringValue: X
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: Y
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: Z
-          floatValue: 0.000001
-        Type: 9
     - Name: Multiply
       Namespace: BasicNodes
       Guid: bf0e4da9-e56e-4be7-b054-0ab6028a3dd1
@@ -649,6 +613,42 @@ MonoBehaviour:
         Type: 
         Description: The current velocity of the rigidBody
       AttributesData: []
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: 1a0c0581-9450-4ad5-b44b-b1b823e98e71
+      XPosition: 283.07214
+      YPosition: 336
+      Inputs:
+      - Guid: 3d56b8c3-3db1-4bee-8d2b-d2426aaa6562
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 38604074-69bb-47a7-b7d7-686f260c97a9
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: cb867ff3-c5fb-4d6b-baab-0431ff196211
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: ad523b1a-62d5-4c79-8e87-c3ec7257a612
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
     - Name: Update
       Namespace: Unity
       Guid: 7b40dbdd-49d6-431e-abd3-6c2952192167
@@ -761,7 +761,7 @@ MonoBehaviour:
       Namespace: BasicNodes
       Guid: aecba83a-60cc-407d-aea3-a1b9fff51573
       XPosition: 305.5
-      YPosition: 506
+      YPosition: 501
       Inputs:
       - Guid: 70942eb0-d657-431e-ae10-5fce93c4c621
         IsWarm: 0
@@ -828,8 +828,8 @@ MonoBehaviour:
     - Name: Switch
       Namespace: BasicNodes
       Guid: 331fc2ab-b4e9-4f2f-8cee-9288debc7f24
-      XPosition: 304.5
-      YPosition: 591
+      XPosition: 314.5
+      YPosition: 594
       Inputs:
       - Guid: 1221fab4-4ddb-4c7a-b19d-b7a590f940ce
         IsWarm: 0
@@ -1224,17 +1224,6 @@ MonoBehaviour:
         Description: Vec3[X][Y][Z]
       outputPositionY: 339.5
     - Input:
-        Guid: 3d56b8c3-3db1-4bee-8d2b-d2426aaa6562
-        IsWarm: 1
-        Type: 
-        Description: Vec3
-      Output:
-        Guid: 31fec71d-4d1d-4de5-9b24-85a4e23291e4
-        IsWarm: 1
-        Type: 
-        Description: The current velocity of the rigidBody
-      outputPositionY: 347
-    - Input:
         Guid: 5ec97739-7293-4e92-87c7-5008b229ce50
         IsWarm: 0
         Type: 
@@ -1267,6 +1256,17 @@ MonoBehaviour:
         Type: 
         Description: Vec3[X][Y][Z]
       outputPositionY: 359.5
+    - Input:
+        Guid: 3d56b8c3-3db1-4bee-8d2b-d2426aaa6562
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: 31fec71d-4d1d-4de5-9b24-85a4e23291e4
+        IsWarm: 1
+        Type: 
+        Description: The current velocity of the rigidBody
+      outputPositionY: 366
     - Input:
         Guid: e0d16a3f-7d71-4d8a-98ab-30562f512526
         IsWarm: 1
@@ -1343,7 +1343,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on key down else 0
-      outputPositionY: 536
+      outputPositionY: 531
     - Input:
         Guid: 97d63c9c-2c71-4195-9eb5-960f86fc9a6f
         IsWarm: 1
@@ -1354,7 +1354,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on key down else 0
-      outputPositionY: 556
+      outputPositionY: 551
     - Input:
         Guid: c3079cce-b844-4bd5-89a1-94e70b491f2f
         IsWarm: 0
@@ -1376,7 +1376,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on mouse button down else 0
-      outputPositionY: 621
+      outputPositionY: 624
     - Input:
         Guid: 752231b9-675a-4b99-b160-fd47010dd0c1
         IsWarm: 1
@@ -1387,7 +1387,7 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on mouse button down else 0
-      outputPositionY: 641
+      outputPositionY: 644
     - Input:
         Guid: 29c847b5-f7b2-4ffc-a3f9-4246e041e455
         IsWarm: 1
