@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: EditorData
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
-  - Assets/Constellation/Examples/Projects/LittleBot/Scripts/BotScript.asset
+  - Assets/Constellation/Examples/Nodes/AddForce.asset
   EditorUndoService:
     Actions: []
     SelectedAction: -1

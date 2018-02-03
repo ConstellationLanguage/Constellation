@@ -134,7 +134,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: 305.0058
+          stringValue: Y
           floatValue: 0.000001
         Type: 8
       - Value:
@@ -166,15 +166,15 @@ MonoBehaviour:
         Description: Z
       AttributesData:
       - Value:
-          stringValue: 8.347403
+          stringValue: X
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: 305.0058
+          stringValue: Y
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: -9.25719E-07
+          stringValue: Z
           floatValue: 0.000001
         Type: 9
     - Name: Transform
@@ -298,8 +298,8 @@ MonoBehaviour:
         Description: Current setted word
       AttributesData:
       - Value:
-          stringValue: 5
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 6
     - Name: Value
       Namespace: BasicNodes
