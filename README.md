@@ -15,7 +15,12 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - Examples: in development.
 - Basic nodes (enough to make a simple game).
 - Integration with unity attribute system (Objects, string and number).
-- OSC support with pure data examples
+- OSC support with pure data examples.
+
+# Want to help?
+- Share our [facebook](https://www.facebook.com/ConstellationEditor/) page.
+- Share our [website](https://www.constellationeditor.com/).
+- [contribution instructions] (https://github.com/AntoineCharton/Constellation/wiki).
 
 # Ready to start?
 [Tutorials and contribution instructions](https://github.com/AntoineCharton/Constellation/wiki)
