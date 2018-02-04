@@ -10,7 +10,6 @@ namespace ConstellationEditor {
                 menu.AddItem (new GUIContent ("New: Ctrl+Atl+N "), false, OnNew, loadable);
                 menu.AddItem (new GUIContent ("Load: Ctrl+Atl+L"), false, OnLoad, loadable);
                 menu.AddItem (new GUIContent ("Save: Ctrl+Atl+S"), false, OnSave, loadable);
-                menu.AddItem (new GUIContent ("Save as"), false, OnSave, loadable);
                 menu.ShowAsContext ();
                 return true;
             }
@@ -20,7 +19,6 @@ namespace ConstellationEditor {
                 menu.AddItem (new GUIContent ("Undo: Ctrl+Atl+Z"), false, OnUndo, undoable);
                 menu.AddItem (new GUIContent ("Redo: Ctrl+Atl+Y"), false, OnRedo, undoable);
                 menu.AddItem (new GUIContent ("Copy: Ctrl+Atl+C"), false, Copy, copyable);
-                menu.AddItem (new GUIContent ("Cut: Ctrl+Atl+X"), false, Cut, copyable);
                 menu.AddItem (new GUIContent ("Past: Ctrl+Atl+V"), false, Paste, copyable);
                 menu.ShowAsContext ();
                 return true;

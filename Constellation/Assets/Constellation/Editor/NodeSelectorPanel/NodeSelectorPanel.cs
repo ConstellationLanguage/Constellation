@@ -13,9 +13,8 @@ namespace ConstellationEditor {
         string searchString = "";
         private List<NodeNamespacesData> NodeNamespaceData;
         private string[] namespaces;
-        private IGUI gui;
 
-        public NodeSelectorPanel (NodeAdded _onNodeAdded, IGUI _GUI) {
+        public NodeSelectorPanel (NodeAdded _onNodeAdded) {
             OnNodeAdded = null;
             OnNodeAdded += _onNodeAdded;
             var nodes = NodesFactory.GetAllNodes ();
@@ -25,7 +24,6 @@ namespace ConstellationEditor {
                 var nodeNamespace = new NodeNamespacesData (_namespace, nodes);
                 NodeNamespaceData.Add (nodeNamespace);
             }
-            gui = _GUI;
         }
 
         private void FilterNodes (string _filer) {
