@@ -25,7 +25,7 @@ namespace ConstellationEditor {
             RefreshNodeEditor ();
         }
 
-        [MenuItem ("Tools/Constellation/Files/New %&n")]
+        [MenuItem ("File/Constellation/New %&n")]
         static void NewConstellation () {
             if (WindowInstance != null)
                 WindowInstance.New ();
@@ -35,7 +35,7 @@ namespace ConstellationEditor {
             }
         }
 
-        [MenuItem ("Tools/Constellation/Files/Save %&s")]
+        [MenuItem ("File/Constellation/Save %&s")]
         static void SaveConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Save ();
@@ -43,7 +43,7 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Tools/Constellation/Files/Copy %&c")]
+        [MenuItem ("Edit/Constellation/Copy %&c")]
         static void CopyConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Copy ();
@@ -51,7 +51,7 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Tools/Constellation/Files/Paste %&v")]
+        [MenuItem ("Edit/Constellation/Paste %&v")]
         static void PasteConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Paste ();
@@ -59,7 +59,7 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Tools/Constellation/Files/Load %&l")]
+        [MenuItem ("File/Constellation/Load %&l")]
         static void LoadConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Open ();
@@ -69,7 +69,7 @@ namespace ConstellationEditor {
             }
         }
 
-        [MenuItem ("Tools/Constellation/Edit/Undo %&z")]
+        [MenuItem ("Edit/Constellation/Undo %&z")]
         static void UndoConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Undo ();
@@ -77,12 +77,17 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Tools/Constellation/Edit/Redo %&y")]
+        [MenuItem ("Edit/Constellation/Redo %&y")]
         static void RedoConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Redo ();
             else
                 ShowWindow ();
+        }
+
+        [MenuItem ("Help/Constellation tutorials")]
+        static void Help() {
+            Application.OpenURL("https://www.constellationeditor.com/beginner");
         }
 
         public void Undo () {
