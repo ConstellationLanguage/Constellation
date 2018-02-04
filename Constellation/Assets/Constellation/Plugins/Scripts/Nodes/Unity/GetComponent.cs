@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Constellation.BasicNodes {
+namespace Constellation.Unity {
     public class GetComponent : INode, IReceiver, IGameObject {
         private ISender sender;
         private Attribute ComponentName;

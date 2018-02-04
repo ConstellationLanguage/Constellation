@@ -41,9 +41,6 @@
                 case CodeVar.NAME:
                     INode nodeGetVar = new CodeVar()  as INode;
                     return new Node<INode>(nodeGetVar);
-                case GetComponent.NAME:
-                    INode nodeGetComponent = new GetComponent() as INode;
-                    return new Node<INode>(nodeGetComponent);
                 default:
                     return null;
             }
