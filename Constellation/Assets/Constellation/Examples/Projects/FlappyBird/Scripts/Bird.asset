@@ -540,8 +540,8 @@ MonoBehaviour:
     - Name: Vec3
       Namespace: Unity
       Guid: db8671d3-de7a-463c-b781-ff64e2582470
-      XPosition: 610.1228
-      YPosition: 275
+      XPosition: 608.1228
+      YPosition: 276
       Inputs:
       - Guid: 9d9c4373-b38b-4167-97d6-6c9717558374
         IsWarm: 1
@@ -1180,17 +1180,6 @@ MonoBehaviour:
         Description: Vec3 rotation
       outputPositionY: 267
     - Input:
-        Guid: 9d9c4373-b38b-4167-97d6-6c9717558374
-        IsWarm: 1
-        Type: 
-        Description: X
-      Output:
-        Guid: f8b6131a-3975-4bfe-a267-7b1db6bcc1d4
-        IsWarm: 0
-        Type: 
-        Description: X
-      outputPositionY: 305
-    - Input:
         Guid: 17b0e9eb-5d7d-44e6-afab-a99a7604a934
         IsWarm: 0
         Type: 
@@ -1201,6 +1190,17 @@ MonoBehaviour:
         Type: 
         Description: Vec3[X][Y][Z]
       outputPositionY: 305.5
+    - Input:
+        Guid: 9d9c4373-b38b-4167-97d6-6c9717558374
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: f8b6131a-3975-4bfe-a267-7b1db6bcc1d4
+        IsWarm: 0
+        Type: 
+        Description: X
+      outputPositionY: 306
     - Input:
         Guid: 967810f8-2ff9-4c09-b996-758261bdec38
         IsWarm: 1
@@ -1213,17 +1213,6 @@ MonoBehaviour:
         Description: Ray on update
       outputPositionY: 315
     - Input:
-        Guid: e08ee96f-d9e1-4f71-936f-434504890eb3
-        IsWarm: 1
-        Type: 
-        Description: Y
-      Output:
-        Guid: b9117c23-9217-4797-a4c4-6c8d98f6666f
-        IsWarm: 0
-        Type: 
-        Description: Y
-      outputPositionY: 325
-    - Input:
         Guid: 6d3cbb44-ce04-48fc-bfc5-47f50d620974
         IsWarm: 0
         Type: 
@@ -1235,6 +1224,17 @@ MonoBehaviour:
         Description: Vec3[X][Y][Z]
       outputPositionY: 325.5
     - Input:
+        Guid: e08ee96f-d9e1-4f71-936f-434504890eb3
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: b9117c23-9217-4797-a4c4-6c8d98f6666f
+        IsWarm: 0
+        Type: 
+        Description: Y
+      outputPositionY: 326
+    - Input:
         Guid: 137ed652-70bf-46d5-8f69-9e7b973b4e32
         IsWarm: 1
         Type: 
@@ -1244,7 +1244,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Result $1 x $2
-      outputPositionY: 345
+      outputPositionY: 346
     - Input:
         Guid: 3d56b8c3-3db1-4bee-8d2b-d2426aaa6562
         IsWarm: 1

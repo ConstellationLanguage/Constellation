@@ -14,6 +14,7 @@ namespace ConstellationEditor {
         private string currentPath;
         public static ConstellationUnityWindow WindowInstance;
         private GameObject previousSelectedGameObject;
+        private ConstellationBehaviour currentConstellation;
         Constellation.Constellation constellation;
 
         [MenuItem ("Window/Constellation Editor")]
@@ -205,7 +206,7 @@ namespace ConstellationEditor {
             if (Application.isPlaying) {
                 RequestRepaint();
                 if (nodeEditorPanel != null && previousSelectedGameObject != null) {
-                    nodeEditorPanel.Update (previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().Constellation);
+                    nodeEditorPanel.Update (currentConstellation.Constellation);
                 }
 
                 var selectedGameObjects = Selection.gameObjects;
@@ -214,6 +215,7 @@ namespace ConstellationEditor {
 
                 var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 if (selectedConstellation != null) {
+                    currentConstellation = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
                     Open (AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
                 }
@@ -222,17 +224,16 @@ namespace ConstellationEditor {
 
         private void OnLinkAdded (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().AddLink (link);
+                currentConstellation.AddLink (link);
         }
 
         private void OnLinkRemoved (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().RemoveLink (link);
+                currentConstellation.RemoveLink (link);
         }
 
         private void OnNodeAdded (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject != null) {
-                var currentConstellation = previousSelectedGameObject.GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 currentConstellation.AddNode (node);
                 currentConstellation.RefreshConstellationEvents ();
             }
@@ -241,7 +242,7 @@ namespace ConstellationEditor {
 
         private void OnNodeRemoved (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().RemoveNode (node);
+                currentConstellation.RemoveNode (node);
 
             Repaint ();
         }
