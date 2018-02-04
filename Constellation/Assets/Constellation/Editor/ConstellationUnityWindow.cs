@@ -14,9 +14,10 @@ namespace ConstellationEditor {
         private string currentPath;
         public static ConstellationUnityWindow WindowInstance;
         private GameObject previousSelectedGameObject;
+        private ConstellationBehaviour currentConstellation;
         Constellation.Constellation constellation;
 
-        [MenuItem ("Constellation/Editor")]
+        [MenuItem ("Window/Constellation Editor")]
         public static void ShowWindow () {
             WindowInstance = EditorWindow.GetWindow (typeof (ConstellationUnityWindow), false, "Constellation") as ConstellationUnityWindow;
         }
@@ -25,7 +26,7 @@ namespace ConstellationEditor {
             RefreshNodeEditor ();
         }
 
-        [MenuItem ("Constellation/Files/New %&n")]
+        [MenuItem ("File/Constellation/New %&n")]
         static void NewConstellation () {
             if (WindowInstance != null)
                 WindowInstance.New ();
@@ -35,7 +36,7 @@ namespace ConstellationEditor {
             }
         }
 
-        [MenuItem ("Constellation/Files/Save %&s")]
+        [MenuItem ("File/Constellation/Save %&s")]
         static void SaveConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Save ();
@@ -43,7 +44,7 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Constellation/Files/Copy %&c")]
+        [MenuItem ("Edit/Constellation/Copy %&c")]
         static void CopyConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Copy ();
@@ -51,7 +52,7 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Constellation/Files/Paste %&v")]
+        [MenuItem ("Edit/Constellation/Paste %&v")]
         static void PasteConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Paste ();
@@ -59,7 +60,7 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Constellation/Files/Load %&l")]
+        [MenuItem ("File/Constellation/Load %&l")]
         static void LoadConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Open ();
@@ -69,7 +70,7 @@ namespace ConstellationEditor {
             }
         }
 
-        [MenuItem ("Constellation/Edit/Undo %&z")]
+        [MenuItem ("Edit/Constellation/Undo %&z")]
         static void UndoConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Undo ();
@@ -77,12 +78,17 @@ namespace ConstellationEditor {
                 ShowWindow ();
         }
 
-        [MenuItem ("Constellation/Edit/Redo %&y")]
+        [MenuItem ("Edit/Constellation/Redo %&y")]
         static void RedoConstellation () {
             if (WindowInstance != null)
                 WindowInstance.Redo ();
             else
                 ShowWindow ();
+        }
+
+        [MenuItem ("Help/Constellation tutorials")]
+        static void Help() {
+            Application.OpenURL("https://www.constellationeditor.com/beginner");
         }
 
         public void Undo () {
@@ -200,7 +206,7 @@ namespace ConstellationEditor {
             if (Application.isPlaying) {
                 RequestRepaint();
                 if (nodeEditorPanel != null && previousSelectedGameObject != null) {
-                    nodeEditorPanel.Update (previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().Constellation);
+                    nodeEditorPanel.Update (currentConstellation.Constellation);
                 }
 
                 var selectedGameObjects = Selection.gameObjects;
@@ -209,6 +215,7 @@ namespace ConstellationEditor {
 
                 var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 if (selectedConstellation != null) {
+                    currentConstellation = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
                     Open (AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
                 }
@@ -217,17 +224,16 @@ namespace ConstellationEditor {
 
         private void OnLinkAdded (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().AddLink (link);
+                currentConstellation.AddLink (link);
         }
 
         private void OnLinkRemoved (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().RemoveLink (link);
+                currentConstellation.RemoveLink (link);
         }
 
         private void OnNodeAdded (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject != null) {
-                var currentConstellation = previousSelectedGameObject.GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 currentConstellation.AddNode (node);
                 currentConstellation.RefreshConstellationEvents ();
             }
@@ -236,7 +242,7 @@ namespace ConstellationEditor {
 
         private void OnNodeRemoved (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject)
-                previousSelectedGameObject.GetComponent<ConstellationBehaviour> ().RemoveNode (node);
+                currentConstellation.RemoveNode (node);
 
             Repaint ();
         }

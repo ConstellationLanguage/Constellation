@@ -1,5 +1,5 @@
 namespace Constellation.Unity {
-    public class UnityNodeFactory: INodeGetter {
+    public class UnityNodeFactory : INodeGetter {
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case DeltaTime.NAME:
@@ -33,26 +33,29 @@ namespace Constellation.Unity {
                     INode nodeLateUpdate = new LateUpdate () as INode;
                     return new Node<INode> (nodeLateUpdate);
                 case MouseButtonDown.NAME:
-                    INode nodeMouseButtonDown = new MouseButtonDown() as INode;
+                    INode nodeMouseButtonDown = new MouseButtonDown () as INode;
                     return new Node<INode> (nodeMouseButtonDown);
                 case PlayerPreferences.NAME:
-                    INode nodePlayerPref = new PlayerPreferences() as INode;
+                    INode nodePlayerPref = new PlayerPreferences () as INode;
                     return new Node<INode> (nodePlayerPref);
                 case SetActive.NAME:
-                    INode nodeSetActive = new SetActive() as INode;
+                    INode nodeSetActive = new SetActive () as INode;
                     return new Node<INode> (nodeSetActive);
                 case LoadScene.NAME:
-                    INode nodeLoadScene = new LoadScene() as INode;
+                    INode nodeLoadScene = new LoadScene () as INode;
                     return new Node<INode> (nodeLoadScene);
                 case MousePosition.NAME:
-                    INode nodeMousePosition = new MousePosition() as INode;
+                    INode nodeMousePosition = new MousePosition () as INode;
                     return new Node<INode> (nodeMousePosition);
                 case ScreenToWorld.NAME:
-                    INode nodeScreenToWorld = new ScreenToWorld() as INode;
+                    INode nodeScreenToWorld = new ScreenToWorld () as INode;
                     return new Node<INode> (nodeScreenToWorld);
                 case LookAtPosition.NAME:
-                    INode nodeLookAt = new LookAtPosition() as INode;
+                    INode nodeLookAt = new LookAtPosition () as INode;
                     return new Node<INode> (nodeLookAt);
+                case GetComponent.NAME:
+                    INode nodeGetComponent = new GetComponent () as INode;
+                    return new Node<INode> (nodeGetComponent);
                 default:
                     return null;
             }
