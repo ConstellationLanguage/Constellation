@@ -13,8 +13,9 @@ namespace ConstellationEditor {
         string searchString = "";
         private List<NodeNamespacesData> NodeNamespaceData;
         private string[] namespaces;
+        private IGUI gui;
 
-        public NodeSelectorPanel (NodeAdded _onNodeAdded) {
+        public NodeSelectorPanel (NodeAdded _onNodeAdded, IGUI _GUI) {
             OnNodeAdded = null;
             OnNodeAdded += _onNodeAdded;
             var nodes = NodesFactory.GetAllNodes ();
@@ -22,15 +23,14 @@ namespace ConstellationEditor {
             NodeNamespaceData = new List<NodeNamespacesData> ();
             foreach (var _namespace in namespaces) {
                 var nodeNamespace = new NodeNamespacesData (_namespace, nodes);
-                NodeNamespaceData.Add(nodeNamespace);
+                NodeNamespaceData.Add (nodeNamespace);
             }
+            gui = _GUI;
         }
 
-        private void FilterNodes(string _filer)
-        {
-            foreach(var nodeNameData in NodeNamespaceData)
-            {
-                nodeNameData.FilterNodes(_filer);
+        private void FilterNodes (string _filer) {
+            foreach (var nodeNameData in NodeNamespaceData) {
+                nodeNameData.FilterNodes (_filer);
             }
         }
 
@@ -40,9 +40,9 @@ namespace ConstellationEditor {
             nodeSelectorScrollPos = EditorGUILayout.BeginScrollView (nodeSelectorScrollPos, GUILayout.Width (_width), GUILayout.Height (_height));
             foreach (NodeNamespacesData nodeNamespace in NodeNamespaceData) {
                 GUILayout.Label (nodeNamespace.namespaceName, GUI.skin.GetStyle ("OL Title"));
-               var selGridInt = GUILayout.SelectionGrid (-1, nodeNamespace.GetNiceNames(), 2);
+                var selGridInt = GUILayout.SelectionGrid (-1, nodeNamespace.GetNiceNames (), 2);
                 if (selGridInt >= 0) {
-                    OnNodeAdded (nodeNamespace.GetNames()[selGridInt], nodeNamespace.namespaceName);
+                    OnNodeAdded (nodeNamespace.GetNames () [selGridInt], nodeNamespace.namespaceName);
                 }
             }
             EditorGUILayout.EndScrollView ();
@@ -51,25 +51,25 @@ namespace ConstellationEditor {
 
         private void ClearSerachField () {
             searchString = "";
-            FilterNodes(searchString);
+            FilterNodes (searchString);
         }
 
         private void DrawSearchField () {
             EditorGUIUtility.labelWidth = 0;
             EditorGUIUtility.fieldWidth = 0;
             GUILayout.BeginHorizontal (GUI.skin.FindStyle ("Toolbar"));
-            var newSearchString = GUILayout.TextField (searchString, GUI.skin.FindStyle ("ToolbarSeachTextField"));
+            var newSearchString = searchString;
+            newSearchString = GUILayout.TextField (newSearchString, GUI.skin.FindStyle ("ToolbarSeachTextField"));
+
+            if (newSearchString != searchString) {
+                searchString = newSearchString;
+                FilterNodes (searchString);
+            }
+
             if (GUILayout.Button ("", GUI.skin.FindStyle ("ToolbarSeachCancelButton"))) {
-                searchString = "";
-                FilterNodes(searchString);
+                ClearSerachField ();
                 GUI.FocusControl (null);
             }
-
-            if(newSearchString != searchString){
-                FilterNodes(searchString);
-                searchString = newSearchString;
-            }
-
 
             GUILayout.EndHorizontal ();
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 namespace ConstellationEditor {
@@ -10,25 +11,28 @@ namespace ConstellationEditor {
             namespaceGroup = new List<NodeButtonData> ();
             namespaceName = _namespaceName;
             foreach (var node in _nodes) {
-                Debug.Log (node.Split ('.') [1]);
                 if (_namespaceName == node.Split ('.') [1]) {
                     var nodeButtonData = new NodeButtonData (node);
                     namespaceGroup.Add (nodeButtonData);
                 }
             }
-            FilterNodes("");
-            RefreshNamesList();
+            FilterNodes ("");
+            RefreshNamesList ();
             namespaceName = _namespaceName;
         }
 
         public void FilterNodes (string _filterName) {
             foreach (var group in namespaceGroup) {
-                if (group.niceNodeName.Contains (_filterName) || _filterName == "" || _filterName == null)
+                if (group.niceNodeName.IndexOf (_filterName, StringComparison.CurrentCultureIgnoreCase) > 0 ||
+                    group.nodeName.IndexOf (_filterName, StringComparison.CurrentCultureIgnoreCase) > 0 ||
+                    group.nodeFullName.IndexOf (_filterName, StringComparison.CurrentCultureIgnoreCase) > 0 ||
+                    _filterName == "" ||
+                    _filterName == null)
                     group.Display ();
                 else
                     group.Hide ();
             }
-            RefreshNamesList();
+            RefreshNamesList ();
         }
 
         private void RefreshNamesList () {
@@ -36,7 +40,7 @@ namespace ConstellationEditor {
             nodesNiceNames = new List<string> ();
 
             foreach (var group in namespaceGroup) {
-                if (group.display){
+                if (group.display) {
                     nodesNiceNames.Add (group.niceNodeName);
                     nodesNames.Add (group.nodeName);
                 }

@@ -142,7 +142,7 @@ namespace ConstellationEditor {
                     WindowInstance.titleContent.text = "Constellation";
                 scriptDataService.ClearActions ();
             }
-            nodeSelector = new NodeSelectorPanel (OnNodeAddRequested);
+            nodeSelector = new NodeSelectorPanel (OnNodeAddRequested, this);
 
         }
 
