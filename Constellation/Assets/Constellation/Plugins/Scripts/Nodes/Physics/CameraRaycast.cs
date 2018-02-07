@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Constellation.Physics {
     public class CameraRaycast : INode, IReceiver {
         private Vector3 movingVector;
-        private ISender PositionHit;
+        private ISender Sender;
         private ISender ObjectHit;
         private Vector3 hitPosition;
 
@@ -18,8 +18,9 @@ namespace Constellation.Physics {
             _nodeParameters.AddInput (this, false, "Position X");
             _nodeParameters.AddInput (this, false, "Position Y");
             _nodeParameters.AddInput (this, true, "Calculate");
-            PositionHit = _nodeParameters.AddOutput (false,"Object", "The object that was hit");
-            PositionHit = _nodeParameters.AddOutput (false, "The hit position");
+            Sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput (false,"Object", "The object that was hit");
+           _nodeParameters.AddOutput (false, "The hit position");
 
             valueX = new Variable ().Set (0);
             valueY = new Variable ().Set (0);
@@ -52,8 +53,8 @@ namespace Constellation.Physics {
                     newVar[1] = new Variable ().Set (hit.point.y);
                     newVar[2] = new Variable ().Set (hit.point.z);
                     Result = new Variable ().Set (newVar);
-                    PositionHit.Send(new Variable(hit.transform.gameObject),0);
-                    PositionHit.Send (Result, 1);
+                    Sender.Send(new Variable(hit.transform.gameObject),0);
+                    Sender.Send (Result, 1);
                 }
 
             }

@@ -9,7 +9,8 @@
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "Object", "GameObject");
-            sender = _node.AddOutput(true, "Object", "Instantiated GameObject");
+            sender = _node.GetSender();
+            _node.AddOutput(true, "Object", "Instantiated GameObject");
             UnityObject = new Variable().Set(null as object);
         }
 

@@ -224,6 +224,14 @@ namespace Constellation.BasicNodes {
             conditions.Add (newCondition as ICondition);
         }
 
+        public bool isConditionMet () {
+            foreach (var condition in conditions) {
+                if (condition.isConditionMet ())
+                    return true;
+            }
+            return false;
+        }
+
         public Variable ConditionResult () {
             foreach (var condition in conditions) {
                 if (condition.isConditionMet ())

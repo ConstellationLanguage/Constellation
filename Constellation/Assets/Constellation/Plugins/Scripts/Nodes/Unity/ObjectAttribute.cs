@@ -10,7 +10,8 @@ namespace Constellation.Unity
 
         public void Setup(INodeParameters _node, ILogger _logger)
         {
-            sender = _node.AddOutput(true, "Object", "Unity object");
+            sender = _node.GetSender();
+            _node.AddOutput(true, "Object", "Unity object");
             UnityObject = new Variable().Set(null as object);
             nameValue = new Variable().Set("Default");
 			_node.AddAttribute(nameValue, Attribute.AttributeType.Word, "Name in inspector");

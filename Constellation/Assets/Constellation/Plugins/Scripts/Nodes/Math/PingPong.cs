@@ -13,7 +13,8 @@ public class PingPong: INode, IReceiver
 			_node.AddInput(this, true, "Lenght");
 			VarT = new Variable(0);
 			VarLenght = new Variable(0);
-            sender = _node.AddOutput(false, "Ping Pong T value");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Ping Pong T value");
         }
 
         public string NodeName () {

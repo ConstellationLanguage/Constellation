@@ -2,18 +2,17 @@ namespace Constellation.Unity {
     public class SplitVec3 : INode, IReceiver {
         public const string NAME = "SplitVec3";
         public ConstellationBehaviour galaxy;
-        private ISender Xsender;
-        private ISender Ysender;
-        private ISender Zsender;
+        private ISender sender;
         private Attribute valueX;
         private Attribute valueY;
         private Attribute valueZ;
 
         public void Setup (INodeParameters _node, ILogger _logger) {
             _node.AddInput (this, true, "Vec3");
-            Xsender = _node.AddOutput (false, "X");
-            Ysender = _node.AddOutput (false, "Y");
-            Zsender = _node.AddOutput (false, "Z");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "X");
+            _node.AddOutput (false, "Y");
+            _node.AddOutput (false, "Z");
             valueX = _node.AddAttribute (new Variable ().Set ("X"), Attribute.AttributeType.ReadOnlyXValue, "X");
             valueY = _node.AddAttribute (new Variable ().Set ("Y"), Attribute.AttributeType.ReadOnlyYValue, "Y");
             valueZ = _node.AddAttribute (new Variable ().Set ("Z"), Attribute.AttributeType.ReadOnlyZValue, "Z");
@@ -46,9 +45,9 @@ namespace Constellation.Unity {
             }
 
             if (_input.isWarm) {
-                Xsender.Send (valueX.Value, 0);
-                Ysender.Send (valueY.Value, 1);
-                Zsender.Send (valueZ.Value, 2);
+                sender.Send (valueX.Value, 0);
+                sender.Send (valueY.Value, 1);
+                sender.Send (valueZ.Value, 2);
             }
         }
     }

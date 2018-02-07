@@ -7,7 +7,8 @@ namespace Constellation.Math {
         
         public void Setup (INodeParameters _node, ILogger _logger) {
             _node.AddInput (this, true, "A");
-            sender = _node.AddOutput (false, "largest integer smaller to or equal to A");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "largest integer smaller to or equal to A");
         }
 
         public string NodeName () {

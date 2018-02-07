@@ -25,7 +25,9 @@ namespace Constellation.BasicNodes {
             _node.AddInput (this, false, "$1");
             _node.AddInput (this, true, "$2");
             _node.AddInput (this, true, "$3");
-            sender = _node.AddOutput (false, "then/else");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "then");
+            _node.AddOutput(false, "else");
 
             conditionAttribute = _node.AddAttribute (ifValue, Attribute.AttributeType.Conditionals, "ex: $1>$2");
             thenAttribute = _node.AddAttribute (thenValue, Attribute.AttributeType.Then, "ex: $2");
@@ -63,7 +65,10 @@ namespace Constellation.BasicNodes {
             }
 
             if(_input.isWarm) {
-                sender.Send(conditon.ConditionResult(), 0);
+                if(conditon.isConditionMet())
+                    sender.Send(conditon.ConditionResult(), 0);
+                else
+                    sender.Send(conditon.ConditionResult(), 1);
             }
         }
     }

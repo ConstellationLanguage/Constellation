@@ -9,7 +9,8 @@ public class Log10: INode, IReceiver
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "A");
-            sender = _node.AddOutput(false, "base 10 logarithm of A");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "base 10 logarithm of A");
         }
 
         public string NodeName () {

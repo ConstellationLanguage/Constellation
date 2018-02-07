@@ -9,7 +9,8 @@ namespace Constellation.Unity {
 
         public void Setup (INodeParameters _node, ILogger _logger) {
             var newValue = new Variable ("ComponentName");
-            sender = _node.AddOutput (false, "Object", "The Component");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "Object", "The Component");
             _node.AddInput (this, true, "Object", "Object which contain the component");
             _node.AddInput (this, true, "Send the component");
             ComponentName = _node.AddAttribute (newValue, Attribute.AttributeType.Word, "ComponentName");

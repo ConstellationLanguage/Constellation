@@ -8,12 +8,13 @@ namespace Constellation.Unity {
 		private Vector3 gameobjectPosition;
 		private Vector3 targetPosition;
 		private Variable ResultRotation;
-		private ISender outputRotation;
+		private ISender sender;
 
 		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
 			_nodeParameters.AddInput (this, false, "GameObject position");
 			_nodeParameters.AddInput (this, true, "Position to look at");
-			outputRotation = _nodeParameters.AddOutput (false, "Target rotation");
+			sender = _nodeParameters.GetSender();
+			_nodeParameters.AddOutput (false, "Target rotation");
 		}
 
 		public void Set (GameObject _gameObject) {
@@ -57,7 +58,7 @@ namespace Constellation.Unity {
 				newVar[1] = new Variable(targetRotation.y);
 				newVar[2] =new Variable(targetRotation.z);
 				ResultRotation = new Variable ().Set (newVar);
-				outputRotation.Send(ResultRotation, 0);
+				sender.Send(ResultRotation, 0);
 			}
 		}
 	}

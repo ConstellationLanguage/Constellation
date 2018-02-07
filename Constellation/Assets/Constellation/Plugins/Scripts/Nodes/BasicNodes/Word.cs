@@ -6,7 +6,8 @@ namespace Constellation.BasicNodes {
 
         public void Setup (INodeParameters _node, ILogger _logger) {
             var newValue = new Variable ().Set("your word");
-            sender = _node.AddOutput (true, "The Word");
+            sender = _node.GetSender();
+            _node.AddOutput (true, "The Word");
             value = _node.AddAttribute (newValue, Attribute.AttributeType.Word, "Word to set");
         }
 

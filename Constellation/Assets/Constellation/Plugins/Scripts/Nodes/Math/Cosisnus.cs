@@ -10,7 +10,8 @@ namespace Constellation.Math
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "a");
-            sender = _node.AddOutput(false, "Cos(a)");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Cos(a)");
         }
 
         public string NodeName () {

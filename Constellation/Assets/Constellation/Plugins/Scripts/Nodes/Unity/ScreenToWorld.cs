@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Constellation.Unity {
     public class ScreenToWorld : INode, IReceiver {
         private Vector3 movingVector;
-        private ISender PositionHit;
+        private ISender sender;
         private Vector3 hitPosition;
 
         private Variable valueX;
@@ -18,7 +18,8 @@ namespace Constellation.Unity {
             _nodeParameters.AddInput (this, false, "Position Y");
             _nodeParameters.AddInput (this, false, "Distance");
             _nodeParameters.AddInput (this, true, "Calculate");
-            PositionHit = _nodeParameters.AddOutput (false, "The hit position");
+            sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput (false, "The hit position");
 
             valueX = new Variable ().Set (0);
             valueY = new Variable ().Set (0);
@@ -51,7 +52,7 @@ namespace Constellation.Unity {
                 newVar[1] = new Variable().Set(hitPosition.y);
                 newVar[2] =new Variable().Set(hitPosition.z);
                 Result = new Variable ().Set (newVar);
-                PositionHit.Send(Result, 0);
+                sender.Send(Result, 0);
             }
         }
     }

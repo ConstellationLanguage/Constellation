@@ -9,7 +9,8 @@ public class ArcSin: INode, IReceiver
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "a");
-            sender = _node.AddOutput(false, "the arc-sine of a");
+            sender = _node.GetSender(); 
+            _node.AddOutput(false, "the arc-sine of a");
         }
 
         public string NodeName () {

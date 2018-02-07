@@ -6,8 +6,7 @@ namespace Constellation.Unity {
 		public Variable keyName;
 		public Variable savedData;
 		public Variable keyValue;
-		private ISender senderName;
-		private ISender senderData;
+		private ISender sender;
 		public void Setup (INodeParameters _node, ILogger _logger) {
 			keyName = new Variable ("");
 			keyValue = new Variable ("");
@@ -18,8 +17,9 @@ namespace Constellation.Unity {
 			_node.AddInput (this, false, "Delete key");
 			_node.AddInput (this, true, "Get data");
 
-			senderName = _node.AddOutput (false, "Key name");
-			senderData = _node.AddOutput (false, "Key data");
+			sender = _node.GetSender();
+			_node.AddOutput (false, "Key name");
+			_node.AddOutput (false, "Key data");
 		}
 		public string NodeName () {
 			return NAME;
@@ -50,8 +50,8 @@ namespace Constellation.Unity {
 			}
 
 			if (_input.isWarm) {
-				senderName.Send (value, 0);
-				senderData.Send (savedData, 1);
+				sender.Send (value, 0);
+				sender.Send (savedData, 1);
 			}
 		}
 	}

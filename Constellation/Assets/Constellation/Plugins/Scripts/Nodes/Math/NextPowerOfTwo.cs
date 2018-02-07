@@ -10,7 +10,8 @@ public class NextPowerOfTwo: INode, IReceiver
         {
 			_node.AddInput(this, true, "Var");
 			Var1 = new Variable(0);
-            sender = _node.AddOutput(false, "Next power of two");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Next power of two");
         }
 
         public string NodeName () {

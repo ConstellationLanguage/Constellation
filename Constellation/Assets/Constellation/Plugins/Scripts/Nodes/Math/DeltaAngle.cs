@@ -11,7 +11,8 @@ namespace Constellation.Math
         {
             _node.AddInput(this, false, "Angle a");
             _node.AddInput(this, true, "Angle b");
-            sender = _node.AddOutput(false, "Sortest difference between a and b");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Sortest difference between a and b");
             variable = new Variable().Set(0);
         }
 

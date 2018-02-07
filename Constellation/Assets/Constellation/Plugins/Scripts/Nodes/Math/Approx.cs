@@ -11,7 +11,8 @@ namespace Constellation.Math
         {
             _node.AddInput(this, false, "a");
             _node.AddInput(this, true, "b");
-            sender = _node.AddOutput(false, "true if +- the same");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "true if +- the same");
             VarToCompare = new Variable().Set(0);
         }
 

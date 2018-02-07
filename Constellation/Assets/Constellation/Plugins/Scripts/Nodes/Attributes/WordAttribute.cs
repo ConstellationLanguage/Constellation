@@ -10,7 +10,8 @@
 
         public void Setup(INodeParameters _node, ILogger _logger)
         {
-            sender = _node.AddOutput(true, "Current value");
+            sender = _node.GetSender(); 
+            _node.AddOutput(true, "Current value");
             defaultValue = new Variable().Set("Default");
 			var nameValue = new Variable().Set("AttributeName");
 			_node.AddAttribute(nameValue, Attribute.AttributeType.Word, "Attribute Name");

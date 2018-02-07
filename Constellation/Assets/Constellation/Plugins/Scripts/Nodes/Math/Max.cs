@@ -13,7 +13,8 @@ public class Max: INode, IReceiver
 			_node.AddInput(this, true, "Var2");
 			Var1 = new Variable(0);
 			Var2 = new Variable(0);
-            sender = _node.AddOutput(false, "Max value");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Max value");
         }
 
         public string NodeName () {

@@ -6,7 +6,8 @@ namespace Constellation.Math {
         public const string NAME = "ClosestPowerOf2";
         public void Setup (INodeParameters _node, ILogger _logger) {
             _node.AddInput (this, true, "a");
-            sender = _node.AddOutput (false, "Closest power of two");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "Closest power of two");
         }
 
         public string NodeName () {

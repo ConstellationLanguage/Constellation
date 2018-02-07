@@ -3,10 +3,11 @@ namespace Constellation.BasicNodes {
         private Variable switchValue;
         private ISender sender;
         public const string NAME = "Switch";
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
-            _nodeParameters.AddInput (this, false, "1 = on, 0 = off");
-            _nodeParameters.AddInput (this, true, "Value to send");
-            sender = _nodeParameters.AddOutput (false, "Output if on");
+        public void Setup (INodeParameters nodeParameters, ILogger logger) {
+            nodeParameters.AddInput (this, false, "1 = on, 0 = off");
+            nodeParameters.AddInput (this, true, "Value to send");
+            sender = nodeParameters.GetSender();
+            nodeParameters.AddOutput (false, "Output if on");
             switchValue = new Variable (0);
         }
 

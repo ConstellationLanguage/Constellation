@@ -10,7 +10,8 @@
         {
             _node.AddInput(this, false, "Multiply factor");
 			_node.AddInput(this, true, "Value to multiply");
-            sender = _node.AddOutput(false, "Result $1 x $2");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Result $1 x $2");
             varsToAdd = new Variable[2];
             varsToAdd[0] = new Variable().Set(0);
             varsToAdd[1] = new Variable().Set(0);

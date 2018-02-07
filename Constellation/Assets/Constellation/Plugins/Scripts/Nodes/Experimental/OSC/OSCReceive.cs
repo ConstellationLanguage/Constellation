@@ -11,7 +11,8 @@ namespace Constellation.Experimental {
         public void Setup (INodeParameters _node, ILogger _logger) {
             var wordValue = new Variable ();
             _node.AddInput (this, false, "On OSC Ready"); // setting a cold input
-            sender = _node.AddOutput (true, "Current OSC Output"); // setting a cold input
+            sender = _node.GetSender();
+            _node.AddOutput (true, "Current OSC Output"); // setting a cold input
             ChannelName = _node.AddAttribute (wordValue.Set ("/ReceiveName"), Attribute.AttributeType.Word, "/Channel"); // setting an attribute (Used only for the editor)
         }
 

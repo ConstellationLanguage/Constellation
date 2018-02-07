@@ -6,7 +6,8 @@ namespace Constellation.Math {
         public const string NAME = "CeilToInt";
         public void Setup (INodeParameters _node, ILogger _logger) {
             _node.AddInput (this, true, "a");
-            sender = _node.AddOutput (false, "smallest integer greater to or equal to a");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "smallest integer greater to or equal to a");
         }
 
         public string NodeName () {

@@ -4,10 +4,11 @@
         private Variable[] varsToRemove;
         private Variable result;
         public const string NAME = "Remove";
-        public void Setup (INodeParameters _node, ILogger _logger) {
-            _node.AddInput (this, false, "Value to remove");
-            _node.AddInput (this, true, "Remove factor");
-            sender = _node.AddOutput (false, "$1 - $2");
+        public void Setup (INodeParameters node, ILogger logger) {
+            node.AddInput (this, false, "Value to remove");
+            node.AddInput (this, true, "Remove factor");
+            sender = node.GetSender();
+            node.AddOutput (false, "$1 - $2");
             varsToRemove = new Variable[2];
             varsToRemove[0] = new Variable ().Set (0);
             varsToRemove[1] = new Variable ().Set (0);

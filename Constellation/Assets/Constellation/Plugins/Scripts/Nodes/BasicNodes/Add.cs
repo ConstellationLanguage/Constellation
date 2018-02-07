@@ -10,7 +10,8 @@
         {
             _node.AddInput(this, false, "value 1");
 			_node.AddInput(this, true, "value 2");
-            sender = _node.AddOutput(false, "value 1 + value 2");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "value 1 + value 2");
             varsToAdd = new Variable[2];
             varsToAdd[0] = new Variable().Set(0);
             varsToAdd[1] = new Variable().Set(0);

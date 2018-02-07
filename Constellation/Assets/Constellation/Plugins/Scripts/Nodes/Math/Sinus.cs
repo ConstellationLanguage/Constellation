@@ -9,7 +9,8 @@ namespace Constellation.Math
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "A");
-            sender = _node.AddOutput(false, "Sin(A)");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Sin(A)");
         }
 
         public string NodeName () {

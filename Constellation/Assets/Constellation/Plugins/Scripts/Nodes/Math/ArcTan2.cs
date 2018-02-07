@@ -10,7 +10,8 @@ public class ArcTan2: INode, IReceiver
         {
 			_node.AddInput(this, false, "x");
 			_node.AddInput(this, true, "y");
-            sender = _node.AddOutput(false, "Angle between the x-axis and a 2D vector starting at zero and terminating at (x,y)");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Angle between the x-axis and a 2D vector starting at zero and terminating at (x,y)");
             Variable = new Variable().Set(0);
 			
         }

@@ -4,14 +4,15 @@ namespace Constellation.Physics {
     public class Velocity : INode, IReceiver, IGameObject, IFixedUpdate, IUpdatable {
         private Rigidbody rigidBody;
         Vector3 force;
-        ISender output;
+        ISender sender;
         Variable currentVelocity;
         bool isVelocityUpdated;
         public const string NAME = "Velocity";
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
             _nodeParameters.AddInput (this, false, "Object", "Rigidbody affected");
             _nodeParameters.AddInput (this, false, "Vec3 world relative");
-            output = _nodeParameters.AddOutput (true, "The current velocity of the rigidBody");
+            sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput (true, "The current velocity of the rigidBody");
 
             force = Vector3.zero;
             Variable[] positions = new Variable[3];
@@ -50,7 +51,7 @@ namespace Constellation.Physics {
             currentVelocity.SetAtIndex (rigidBody.velocity.x, 0);
             currentVelocity.SetAtIndex (rigidBody.velocity.y, 1);
             currentVelocity.SetAtIndex (rigidBody.velocity.z, 2);
-            output.Send (currentVelocity, 0);
+            sender.Send (currentVelocity, 0);
         }
 
         public void Receive (Variable value, Input _input) {

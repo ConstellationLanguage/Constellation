@@ -13,7 +13,8 @@ public class Min: INode, IReceiver
 			_node.AddInput(this, true, "Var2");
 			Var1 = new Variable(0);
 			Var2 = new Variable(0);
-            sender = _node.AddOutput(false, "Min value");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Min value");
         }
 
         public string NodeName () {

@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 namespace Constellation.Experimental {
     public class OSCSend : INode, IReceiver {
         private Attribute ChannelName; // attributes are setted in the editor.

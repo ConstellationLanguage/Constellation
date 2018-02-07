@@ -17,7 +17,8 @@ namespace Constellation.Experimental {
             _node.AddInput (this, false, "input port"); 
             _node.AddInput (this, false, "output port");
             _node.AddInput (this, false, "output IP");
-            sender = _node.AddOutput (true, "On OSC Ready");
+            sender = _node.GetSender();
+            _node.AddOutput (true, "On OSC Ready");
             isMultipleOSCInstances = false;
             Application.runInBackground = true;
         }

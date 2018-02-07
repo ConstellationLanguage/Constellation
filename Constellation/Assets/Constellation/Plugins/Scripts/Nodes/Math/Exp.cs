@@ -8,7 +8,8 @@ public class Exp: INode, IReceiver
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "A");
-            sender = _node.AddOutput(false, "e raised to A power");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "e raised to A power");
         }
 
         public string NodeName () {

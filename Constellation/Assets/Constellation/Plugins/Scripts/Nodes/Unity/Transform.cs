@@ -10,10 +10,8 @@ namespace Constellation.Unity {
         private Variable Rotation;
         private Variable Scale;
         private Variable Name;
-        private ISender PositionOutput;
-        private ISender RotationOutput;
-        private ISender ScaleOutput;
-        private ISender GameObjectOutput;
+        private ISender sender;
+
         private Rigidbody rigidBody;
 
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
@@ -22,10 +20,12 @@ namespace Constellation.Unity {
             _nodeParameters.AddInput (this, false, "Vec3 rotation");
             _nodeParameters.AddInput (this, false, "Vec3 scale");
             _nodeParameters.AddInput (this, true, "Send");
-            PositionOutput = _nodeParameters.AddOutput (false, "Vec3 position");
-            RotationOutput = _nodeParameters.AddOutput (false, "Vec3 rotation");
-            ScaleOutput = _nodeParameters.AddOutput (false, "Vec3 scale");
-            GameObjectOutput = _nodeParameters.AddOutput(false, "Object", "Transform");
+
+             sender =  _nodeParameters.GetSender();
+            _nodeParameters.AddOutput (false, "Vec3 position");
+            _nodeParameters.AddOutput (false, "Vec3 rotation");
+            _nodeParameters.AddOutput (false, "Vec3 scale");
+            _nodeParameters.AddOutput(false, "Object", "Transform");
 
             GameObject = new Variable ().Set (null as object);
             Variable[] newPositionVar = new Variable[3];
@@ -102,10 +102,10 @@ namespace Constellation.Unity {
 
             if (_input.isWarm) {
                 UpdateTransform ();
-                PositionOutput.Send (Position, 0);
-                RotationOutput.Send (Rotation, 1);
-                ScaleOutput.Send (Scale, 2);
-                GameObjectOutput.Send(GameObject, 3);
+                sender.Send (Position, 0);
+                sender.Send (Rotation, 1);
+                sender.Send (Scale, 2);
+                sender.Send(GameObject, 3);
             }
         }
     }
