@@ -28,6 +28,7 @@ namespace Constellation.BasicNodes {
             sender = _node.GetSender();
             _node.AddOutput (false, "then");
             _node.AddOutput(false, "else");
+             _node.AddOutput(false, "any");
 
             conditionAttribute = _node.AddAttribute (ifValue, Attribute.AttributeType.Conditionals, "ex: $1>$2");
             thenAttribute = _node.AddAttribute (thenValue, Attribute.AttributeType.Then, "ex: $2");
@@ -69,6 +70,8 @@ namespace Constellation.BasicNodes {
                     sender.Send(conditon.ConditionResult(), 0);
                 else
                     sender.Send(conditon.ConditionResult(), 1);
+
+                sender.Send(conditon.ConditionResult(), 2);
             }
         }
     }

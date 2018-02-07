@@ -48,8 +48,8 @@ MonoBehaviour:
     - Name: PlayerPreferences
       Namespace: Unity
       Guid: 27fe552b-b7f7-41f6-b57e-a3e9b6e958f7
-      XPosition: 1355.8433
-      YPosition: 110
+      XPosition: 1404.8433
+      YPosition: 108
       Inputs:
       - Guid: 93cbe814-3ccf-41a3-97df-89101347e69e
         IsWarm: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
     - Name: Var
       Namespace: BasicNodes
       Guid: ae519690-8424-41dd-83e6-02e1f0943ec5
-      XPosition: 1064.3469
-      YPosition: 114.5
+      XPosition: 1183.3469
+      YPosition: 116.5
       Inputs:
       - Guid: 664f8807-0b24-49be-a247-1a0e14e14e1d
         IsWarm: 0
@@ -219,27 +219,35 @@ MonoBehaviour:
         Type: 1
     - Name: Condition
       Namespace: BasicNodes
-      Guid: 0fdfc3d7-44fb-4faa-a6ab-45e986837f5b
-      XPosition: 924
-      YPosition: 268.5
+      Guid: f2e279fa-2aab-481a-9270-3034b856ac47
+      XPosition: 928
+      YPosition: 257.5
       Inputs:
-      - Guid: 66873e88-47ae-41a3-bc24-dd8ac1864e93
+      - Guid: 90661435-2728-43c3-9975-f4ca7cda3d15
         IsWarm: 0
         Type: 
         Description: $1
-      - Guid: 7a3b1663-cd95-48b4-b8a0-a2feb84a6038
+      - Guid: a9a82442-0ffa-416a-a74f-72e9f6449a54
         IsWarm: 1
         Type: 
         Description: $2
-      - Guid: e025d145-6ffc-44ff-8510-ff71daaa78a9
+      - Guid: 7ddd375f-68b8-446b-806c-adb585997bbd
         IsWarm: 1
         Type: 
         Description: $3
       Outputs:
-      - Guid: 0d736f90-b904-4637-a2db-3f1a739ddf1b
+      - Guid: 04eeeba6-31f4-4057-b6fd-978ab8e60907
         IsWarm: 0
         Type: 
-        Description: then/else
+        Description: then
+      - Guid: 6831ac14-04c5-42a2-8263-4e83f9be0803
+        IsWarm: 0
+        Type: 
+        Description: else
+      - Guid: 32ea7324-dd64-4826-a274-89fa739b8b7b
+        IsWarm: 0
+        Type: 
+        Description: any
       AttributesData:
       - Value:
           stringValue: $1==$2
@@ -256,8 +264,8 @@ MonoBehaviour:
     - Name: Word
       Namespace: BasicNodes
       Guid: f02ff605-8b12-4548-b8f1-5295e2999fc6
-      XPosition: 717
-      YPosition: 276.5
+      XPosition: 711
+      YPosition: 284.5
       Inputs: []
       Outputs:
       - Guid: b12b1186-e61c-4054-be3f-f7498a1c7014
@@ -271,27 +279,35 @@ MonoBehaviour:
         Type: 1
     - Name: Condition
       Namespace: BasicNodes
-      Guid: b28685f7-63d9-4154-89b5-c437d8043be5
-      XPosition: 1153.4329
-      YPosition: 278.5
+      Guid: 8f041d2f-a7cf-421d-922b-aa2e3e081d3f
+      XPosition: 1081
+      YPosition: 308.5
       Inputs:
-      - Guid: a42dd9f2-4692-433a-9cd0-3f34f74b3c26
+      - Guid: c8528883-63c2-4c6c-ba09-4fc469515a99
         IsWarm: 0
         Type: 
         Description: $1
-      - Guid: 3a58ec14-f8bc-4f48-bf88-11828d597e4c
+      - Guid: 9aa07ada-7fa8-4954-a2d8-b3199f24e50b
         IsWarm: 1
         Type: 
         Description: $2
-      - Guid: 3f369c50-0b6a-42fb-b05c-781d2798d514
+      - Guid: 45093034-26e1-4107-bfb2-dd664c8bcd86
         IsWarm: 1
         Type: 
         Description: $3
       Outputs:
-      - Guid: ab8ffe6e-ce34-4c6f-aaa1-3c05dd9d72ad
+      - Guid: 599d0d59-dcde-4f7a-b8a9-49818254dc8e
         IsWarm: 0
         Type: 
-        Description: then/else
+        Description: then
+      - Guid: 3e6bcff6-5c1c-44f1-ad2a-f5608c1489aa
+        IsWarm: 0
+        Type: 
+        Description: else
+      - Guid: fbe6be4e-438b-4f3e-8673-a6a4d7482d2a
+        IsWarm: 0
+        Type: 
+        Description: any
       AttributesData:
       - Value:
           stringValue: $1>=$2
@@ -546,7 +562,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Current setted word
-      outputPositionY: 140
+      outputPositionY: 138
     - Input:
         Guid: 664f8807-0b24-49be-a247-1a0e14e14e1d
         IsWarm: 0
@@ -557,29 +573,29 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The Word
-      outputPositionY: 144.5
+      outputPositionY: 146.5
     - Input:
         Guid: 5b00c514-5ded-41b0-aad1-b2f46f288032
         IsWarm: 0
         Type: 
         Description: key Data
       Output:
-        Guid: ab8ffe6e-ce34-4c6f-aaa1-3c05dd9d72ad
+        Guid: fbe6be4e-438b-4f3e-8673-a6a4d7482d2a
         IsWarm: 0
         Type: 
-        Description: then/else
-      outputPositionY: 160
+        Description: any
+      outputPositionY: 158
     - Input:
         Guid: 7f8d03a9-65a8-46cf-af51-07b20112f120
         IsWarm: 1
         Type: 
         Description: Send var
       Output:
-        Guid: ab8ffe6e-ce34-4c6f-aaa1-3c05dd9d72ad
+        Guid: fbe6be4e-438b-4f3e-8673-a6a4d7482d2a
         IsWarm: 0
         Type: 
-        Description: then/else
-      outputPositionY: 164.5
+        Description: any
+      outputPositionY: 166.5
     - Input:
         Guid: 9e088232-a324-4934-8ad6-318381e45632
         IsWarm: 0
@@ -590,7 +606,7 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Current setted word
-      outputPositionY: 180
+      outputPositionY: 178
     - Input:
         Guid: 829a3511-3ed4-4dc4-8d59-d9e0abfa36fa
         IsWarm: 0
@@ -636,18 +652,7 @@ MonoBehaviour:
         Description: The Word
       outputPositionY: 269.5
     - Input:
-        Guid: 5467eb87-0c9c-4108-b493-ded7072c1ca0
-        IsWarm: 1
-        Type: 
-        Description: value 2
-      Output:
-        Guid: ab8ffe6e-ce34-4c6f-aaa1-3c05dd9d72ad
-        IsWarm: 0
-        Type: 
-        Description: then/else
-      outputPositionY: 289.5
-    - Input:
-        Guid: 66873e88-47ae-41a3-bc24-dd8ac1864e93
+        Guid: 90661435-2728-43c3-9975-f4ca7cda3d15
         IsWarm: 0
         Type: 
         Description: $1
@@ -656,20 +661,20 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Current setted word
-      outputPositionY: 298.5
+      outputPositionY: 287.5
     - Input:
-        Guid: a42dd9f2-4692-433a-9cd0-3f34f74b3c26
-        IsWarm: 0
+        Guid: 5467eb87-0c9c-4108-b493-ded7072c1ca0
+        IsWarm: 1
         Type: 
-        Description: $1
+        Description: value 2
       Output:
-        Guid: 0d736f90-b904-4637-a2db-3f1a739ddf1b
+        Guid: fbe6be4e-438b-4f3e-8673-a6a4d7482d2a
         IsWarm: 0
         Type: 
-        Description: then/else
-      outputPositionY: 308.5
+        Description: any
+      outputPositionY: 289.5
     - Input:
-        Guid: 7a3b1663-cd95-48b4-b8a0-a2feb84a6038
+        Guid: a9a82442-0ffa-416a-a74f-72e9f6449a54
         IsWarm: 1
         Type: 
         Description: $2
@@ -678,20 +683,9 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The Word
-      outputPositionY: 318.5
+      outputPositionY: 307.5
     - Input:
-        Guid: 3a58ec14-f8bc-4f48-bf88-11828d597e4c
-        IsWarm: 1
-        Type: 
-        Description: $2
-      Output:
-        Guid: adb40fd5-4fe3-433f-9016-f228795063f8
-        IsWarm: 0
-        Type: 
-        Description: largest integer smaller to or equal to A
-      outputPositionY: 328.5
-    - Input:
-        Guid: e025d145-6ffc-44ff-8510-ff71daaa78a9
+        Guid: 7ddd375f-68b8-446b-806c-adb585997bbd
         IsWarm: 1
         Type: 
         Description: $3
@@ -700,7 +694,29 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The value
+      outputPositionY: 327.5
+    - Input:
+        Guid: c8528883-63c2-4c6c-ba09-4fc469515a99
+        IsWarm: 0
+        Type: 
+        Description: $1
+      Output:
+        Guid: 32ea7324-dd64-4826-a274-89fa739b8b7b
+        IsWarm: 0
+        Type: 
+        Description: any
       outputPositionY: 338.5
+    - Input:
+        Guid: 9aa07ada-7fa8-4954-a2d8-b3199f24e50b
+        IsWarm: 1
+        Type: 
+        Description: $2
+      Output:
+        Guid: adb40fd5-4fe3-433f-9016-f228795063f8
+        IsWarm: 0
+        Type: 
+        Description: largest integer smaller to or equal to A
+      outputPositionY: 358.5
     - Input:
         Guid: 1acd14d0-1228-4144-8756-b43661403fe2
         IsWarm: 0
