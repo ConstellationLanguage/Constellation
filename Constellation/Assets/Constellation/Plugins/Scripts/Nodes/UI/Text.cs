@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 namespace Constellation.UI {
 	public class Text : INode, IReceiver, IGameObject {

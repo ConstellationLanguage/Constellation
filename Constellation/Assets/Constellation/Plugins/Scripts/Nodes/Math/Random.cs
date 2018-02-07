@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Constellation.Math {
 public class Random: INode, IReceiver
     {
@@ -14,7 +11,8 @@ public class Random: INode, IReceiver
 			_node.AddInput(this, true, "End");
 			VarF = new Variable(0);
 			VarP = new Variable(0);
-            sender = _node.AddOutput(false, "Random Value between Start and End");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Random Value between Start and End");
         }
 
         public string NodeName () {

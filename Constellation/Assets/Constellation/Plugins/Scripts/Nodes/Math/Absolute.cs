@@ -9,7 +9,8 @@ namespace Constellation.Math
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "Value abs");
-            sender = _node.AddOutput(false, "Absolute value");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Absolute value");
         }
 
 

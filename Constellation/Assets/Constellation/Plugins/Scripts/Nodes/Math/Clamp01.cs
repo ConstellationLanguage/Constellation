@@ -8,7 +8,8 @@ public class Clamp01: INode, IReceiver
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "a");
-            sender = _node.AddOutput(false, "Clamps value between 0 and 1 and returns value.");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Clamps value between 0 and 1 and returns value.");
         }
 
         public string NodeName () {

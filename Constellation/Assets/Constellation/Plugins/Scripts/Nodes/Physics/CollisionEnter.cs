@@ -10,7 +10,8 @@ namespace Constellation.Physics
         public void Setup(INodeParameters _nodeParameters, ILogger _logger)
         {
             variable = new Variable().Set(null as object);
-            sender = _nodeParameters.AddOutput(true, "Object", "Unity collision object");
+            sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput(true, "Object", "Unity collision object");
         }
 
         public string NodeName () {

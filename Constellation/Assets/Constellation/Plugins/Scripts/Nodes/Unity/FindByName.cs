@@ -7,7 +7,8 @@ namespace Constellation.Unity {
 
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
             var newValue = new Variable ().Set("Name");
-            sender = _nodeParameters.AddOutput (true, "Object", "Gameobject name");
+            sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput (true, "Object", "Gameobject name");
             GameObjectName = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "Name");
         }
 

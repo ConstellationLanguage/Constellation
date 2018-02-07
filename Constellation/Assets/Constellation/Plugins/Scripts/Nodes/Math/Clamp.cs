@@ -12,7 +12,8 @@ public class Clamp: INode, IReceiver
 			_node.AddInput(this, false, "min");
 			_node.AddInput(this, false, "max");
 			_node.AddInput(this, true, "t");
-            sender = _node.AddOutput(false, "Clamps a value between a minimum value and maximum value");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Clamps a value between a minimum value and maximum value");
 			startValue = new Variable().Set(0);
 			endValue = new Variable().Set(0);
         }

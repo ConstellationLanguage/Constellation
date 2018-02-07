@@ -8,7 +8,8 @@ public class Floor: INode, IReceiver
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "A");
-            sender = _node.AddOutput(false, "Largest integer smaller to or equal to a.");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Largest integer smaller to or equal to a.");
         }
 
         public string NodeName () {

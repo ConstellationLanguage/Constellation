@@ -9,7 +9,8 @@ namespace Constellation.Unity {
 			_nodeParameters.AddInput (this, false, "Object", "The gameobject to activate");
 			_nodeParameters.AddInput (this, false, "1 = activate; 0 = disable");
 			_nodeParameters.AddInput (this, true, "send currend enabled state");
-			sender = _nodeParameters.AddOutput (false, "get the current state");
+			sender = _nodeParameters.GetSender();
+			_nodeParameters.AddOutput (false, "get the current state");
 
 		}
 

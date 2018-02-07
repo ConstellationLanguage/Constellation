@@ -118,8 +118,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: 0
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 0
     - Name: Value
       Namespace: BasicNodes
@@ -134,8 +134,8 @@ MonoBehaviour:
         Description: The value
       AttributesData:
       - Value:
-          stringValue: 0
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 0
     - Name: Var
       Namespace: BasicNodes
@@ -158,8 +158,8 @@ MonoBehaviour:
         Description: Current setted word
       AttributesData:
       - Value:
-          stringValue: 0
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 6
     - Name: KeyDown
       Namespace: Unity
@@ -258,8 +258,8 @@ MonoBehaviour:
         Description: Current setted word
       AttributesData:
       - Value:
-          stringValue: FlappyBird
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 6
     - Name: Receiver
       Namespace: BasicNodes

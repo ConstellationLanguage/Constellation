@@ -12,7 +12,8 @@ public class LerpAngle: INode, IReceiver
 			_node.AddInput(this, false, "A");
 			_node.AddInput(this, false, "B");
 			_node.AddInput(this, true, "T");
-            sender = _node.AddOutput(false, "Same as lerp but with radians");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Same as lerp but with radians");
 			startValue = new Variable().Set(0);
 			endValue = new Variable().Set(0);
         }

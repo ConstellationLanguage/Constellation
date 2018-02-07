@@ -10,7 +10,8 @@ public class Tan: INode, IReceiver
         {
 			_node.AddInput(this, true, "X");
 			VarX = new Variable(0);
-            sender = _node.AddOutput(false, "Tan of X");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Tan of X");
         }
 
         public string NodeName () {

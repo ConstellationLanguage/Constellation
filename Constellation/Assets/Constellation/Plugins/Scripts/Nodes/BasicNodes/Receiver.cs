@@ -4,7 +4,8 @@ namespace Constellation.BasicNodes {
         private ISender sender;
         private Attribute eventName;
         public void Setup (INodeParameters _node, ILogger _logger) {
-            sender = _node.AddOutput (true, "Received Value from a sender");
+            sender = _node.GetSender();
+            _node.AddOutput (true, "Received Value from a sender");
             eventName = _node.AddAttribute (new Variable ("event name"), Attribute.AttributeType.Word, "The event name");
             if (ConstellationBehaviour.eventSystem != null)
                 ConstellationBehaviour.eventSystem.Register (OnConstellationEvent);

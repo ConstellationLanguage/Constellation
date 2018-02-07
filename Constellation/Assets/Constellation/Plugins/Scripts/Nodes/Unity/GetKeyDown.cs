@@ -10,7 +10,8 @@ namespace Constellation.Unity
         public void Setup(INodeParameters _nodeParameters, ILogger _logger)
         {
 			var newValue = new Variable();
-			sender = _nodeParameters.AddOutput(true, "1 on key down else 0");
+			sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput(true, "1 on key down else 0");
 			key = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "Key code");
 			keyState = new Variable().Set(0);
         }

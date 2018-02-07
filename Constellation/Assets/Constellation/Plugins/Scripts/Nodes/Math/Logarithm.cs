@@ -8,7 +8,8 @@ public class Logarithm: INode, IReceiver
         public void Setup(INodeParameters _node, ILogger _logger)
         {
 			_node.AddInput(this, true, "A");
-            sender = _node.AddOutput(false, "Log(A)");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Log(A)");
         }
 
         public string NodeName () {

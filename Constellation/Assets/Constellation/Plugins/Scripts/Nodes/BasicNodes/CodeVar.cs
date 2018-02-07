@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
 namespace Constellation.BasicNodes {
     public class CodeVar : INode, IReceiver {
-        private ISender varSender;
+        private ISender Sender;
         private Attribute VarName;
         public const string NAME = "CodeVar";
         private Variable currentVar;
@@ -16,7 +15,8 @@ namespace Constellation.BasicNodes {
 
         public void Setup (INodeParameters _node, ILogger _logger) {
             var newValue = new Variable ("VarName");
-            varSender = _node.AddOutput (false, "The value");
+            Sender = _node.GetSender(); 
+            _node.AddOutput (false, "The value");
             _node.AddInput (this, false, "Object", "Object which contains the var");
             _node.AddInput (this, false, "Set Var");
             _node.AddInput (this, true, "Push var");
@@ -49,7 +49,7 @@ namespace Constellation.BasicNodes {
                 }
 
                 if (_input.isWarm) {
-                    varSender.Send (currentVar, 0);
+                    Sender.Send (currentVar, 0);
                 }
             } catch {
                 Debug.LogWarning("Something went wrong while parsing your var: \n 1) make sure an object is setted in the first input \n 2) make sure the name match the variable name \n 3) The type you are trying to set is not handled by the node");

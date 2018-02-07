@@ -9,7 +9,8 @@
         public void Setup(INodeParameters _nodeParameters, ILogger _logger)
         {
 			var newValue = new Variable();
-			sender = _nodeParameters.AddOutput(true, "Output 1 when key pressed");
+			sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput(true, "Output 1 when key pressed");
 			key = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "The key");
         }
         

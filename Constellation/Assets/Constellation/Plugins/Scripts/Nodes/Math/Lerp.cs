@@ -10,7 +10,8 @@ namespace Constellation.Math {
             _node.AddInput (this, false, "A");
             _node.AddInput (this, false, "B");
             _node.AddInput (this, true, "T");
-            sender = _node.AddOutput (false, "T=0 output A, T=1 output B");
+            sender = _node.GetSender();
+            _node.AddOutput (false, "T=0 output A, T=1 output B");
             startValue = new Variable ().Set (0);
             endValue = new Variable ().Set (0);
         }

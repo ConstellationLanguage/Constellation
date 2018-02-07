@@ -16,7 +16,8 @@ public class MoveTowardsAngle: INode, IReceiver
 			Var1 = new Variable(0);
 			Var2 = new Variable(0);
 			Var3 = new Variable(0);
-            sender = _node.AddOutput(false, "Move a value toward target");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Move a value toward target");
         }
 
         public string NodeName () {

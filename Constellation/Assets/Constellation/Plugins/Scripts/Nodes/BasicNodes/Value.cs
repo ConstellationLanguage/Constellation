@@ -6,7 +6,8 @@
 
         public void Setup (INodeParameters _node, ILogger _logger) {
             var newValue = new Variable ();
-            sender = _node.AddOutput (true, "The value");
+            sender = _node.GetSender();
+            _node.AddOutput (true, "The value");
             value = _node.AddAttribute (newValue, Attribute.AttributeType.Value, "Number to set");
         }
 

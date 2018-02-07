@@ -13,7 +13,8 @@ public class Pow: INode, IReceiver
 			_node.AddInput(this, true, "P");
 			VarF = new Variable(0);
 			VarP = new Variable(0);
-            sender = _node.AddOutput(false, "F raised to power P");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "F raised to power P");
         }
 
         public string NodeName () {

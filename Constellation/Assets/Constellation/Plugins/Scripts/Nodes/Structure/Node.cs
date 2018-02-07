@@ -107,8 +107,8 @@ namespace Constellation {
 		/// </summary>
 		/// <param name="isWarm">If called from a node just set this parameter to this</param>  
 		/// <param name="description">Is the input is warm your Receiver should output a value when this is called</param>
-		public ISender AddOutput (bool isWarm, string description) {
-			return AddOutput (isWarm, "", description);
+		public void AddOutput (bool isWarm, string description) {
+			AddOutput (isWarm, "", description);
 		}
 
 		/// <summary>
@@ -119,12 +119,20 @@ namespace Constellation {
 		/// <param name="isWarm">If called from a node just set this parameter to this</param>  
 		/// <param name="type">the type of the input.</param>  
 		/// <param name="description">Is the input is warm your Receiver should output a value when this is called</param>
-		public ISender AddOutput (bool isWarm, string type, string description) {
+		public void AddOutput (bool isWarm, string type, string description) {
 			if (Outputs == null)
 				Outputs = new List<Output> ();
 
 			var newOutput = new Output (System.Guid.NewGuid ().ToString (), isWarm, type, description);
 			Outputs.Add (newOutput);
+		}
+
+		/// <summary>
+		/// return the node sender
+		/// 
+		/// </summary>
+
+		public ISender GetSender () {
 			return this;
 		}
 

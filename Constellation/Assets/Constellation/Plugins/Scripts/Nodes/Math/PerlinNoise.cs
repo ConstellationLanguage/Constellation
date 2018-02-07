@@ -13,7 +13,8 @@ public class PerlinNoise: INode, IReceiver
 			_node.AddInput(this, true, "Y");
 			VarX = new Variable(0);
 			VarY = new Variable(0);
-            sender = _node.AddOutput(false, "Next power of two");
+            sender = _node.GetSender();
+            _node.AddOutput(false, "Next power of two");
         }
 
         public string NodeName () {

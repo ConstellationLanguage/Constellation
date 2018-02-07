@@ -11,7 +11,8 @@ namespace Constellation.Unity
         public void Setup(INodeParameters _nodeParameters,ILogger _logger)
         {
             _nodeParameters.AddInput(this, true, "Value");
-            sender = _nodeParameters.AddOutput(false, "Value x Delta time");
+            sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput(false, "Value x Delta time");
             deltaTimeVar = new Variable().Set(0);
         }
 

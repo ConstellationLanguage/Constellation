@@ -2,14 +2,15 @@
     public class MousePosition : INode, IReceiver, IUpdatable {
         public const string NAME = "MousePosition";
         public Transform transform;
-        private ISender XPositionSender;
+        private ISender Sender;
         private ISender YPositionSender;
         private Variable XPosition;
         private Variable YPosition;
         private Variable keyState;
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
-            XPositionSender = _nodeParameters.AddOutput (true, "Mouse position X");
-            YPositionSender = _nodeParameters.AddOutput (true, "Mosue position Y");
+            Sender = _nodeParameters.GetSender();
+            _nodeParameters.AddOutput (true, "Mouse position X");
+            _nodeParameters.AddOutput (true, "Mosue position Y");
             XPosition = new Variable(UnityEngine.Input.mousePosition.x);
             YPosition = new Variable(UnityEngine.Input.mousePosition.y);
         }
@@ -23,8 +24,8 @@
         }
 
         public void OnUpdate () {
-            XPositionSender.Send (XPosition.Set (UnityEngine.Input.mousePosition.x), 0);
-            YPositionSender.Send (YPosition.Set (UnityEngine.Input.mousePosition.y), 1);
+            Sender.Send (XPosition.Set (UnityEngine.Input.mousePosition.x), 0);
+            Sender.Send (YPosition.Set (UnityEngine.Input.mousePosition.y), 1);
         }
 
         public void Receive (Variable value, Input _input) { }

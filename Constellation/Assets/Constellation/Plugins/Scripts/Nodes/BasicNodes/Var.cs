@@ -8,7 +8,8 @@
             var wordValue = new Variable ();
             _node.AddInput (this, false, "New var"); // setting a cold input
             _node.AddInput (this, true, "Send var"); // setting a warm input
-            sender = _node.AddOutput (false, "Current setted word"); // setting a cold input
+            sender = _node.GetSender();
+            _node.AddOutput (false, "Current setted word"); // setting a cold input
             attribute = _node.AddAttribute (wordValue.Set("Var"), Attribute.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
         }
 
