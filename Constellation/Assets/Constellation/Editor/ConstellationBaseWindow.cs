@@ -18,6 +18,9 @@
 
         public void Recover () {
             scriptDataService = new ConstellationEditorDataService ();
+            if(scriptDataService.OpenEditorData ().LastOpenedConstellationPath == null)
+                return;
+                
             if (scriptDataService.OpenEditorData ().LastOpenedConstellationPath.Count != 0) {
                 var scriptData = scriptDataService.Recover (scriptDataService.OpenEditorData ().LastOpenedConstellationPath[0]);
                 if (scriptData != null){

@@ -3,7 +3,6 @@ using UnityEngine;
 namespace Constellation.Physics {
     public class CharacterForward : INode, IReceiver, IGameObject {
         UnityEngine.CharacterController controller;
-        private Vector3 direction;
         private Vector3 movingVector;
 
         public const string NAME = "CharacterForward";
@@ -14,7 +13,6 @@ namespace Constellation.Physics {
             _nodeParameters.AddInput (this, false, "Horizontal");
             _nodeParameters.AddInput (this, false, "Jump");
             _nodeParameters.AddInput (this, false, "Update Physics");
-            direction = Vector3.zero;
         }
 
         public string NodeName () {

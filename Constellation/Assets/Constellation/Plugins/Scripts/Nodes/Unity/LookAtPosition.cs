@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
 namespace Constellation.Unity {
-	public class LookAtPosition : INode, IReceiver, IGameObject {
+	public class LookAtPosition : INode, IReceiver{
 
 		public const string NAME = "LookAtPosition";
-		private GameObject gameobject;
 		private Vector3 gameobjectPosition;
 		private Vector3 targetPosition;
 		private Variable ResultRotation;
@@ -15,11 +14,6 @@ namespace Constellation.Unity {
 			_nodeParameters.AddInput (this, true, "Position to look at");
 			sender = _nodeParameters.GetSender();
 			_nodeParameters.AddOutput (false, "Target rotation");
-		}
-
-		public void Set (GameObject _gameObject) {
-			gameobject = _gameObject;
-
 		}
 
 		public string NodeName () {
