@@ -55,7 +55,21 @@ namespace ConstellationEditor {
                     constellationScript.RemoveLink (link);
 
                 link.outputPositionY = endLink.y;
-                DrawNodeCurve (startLink, endLink);
+
+                var color = Color.gray;
+                if (link.Input.IsWarm == true) {
+                    if (link.Input.Type == "Object")
+                        color = new Color(0.2f, 0.6f, 0.55f);
+                    else
+                        color = new Color(0.8f, 0.5f, 0.3f);
+                } else {
+                    if (link.Input.Type == "Object")
+                        color = new Color(0.2f, 0.3f, 0.6f);
+                    else
+                        color = Color.yellow;
+                }
+
+                DrawNodeCurve (startLink, endLink, color);
 
                 if(MouseOverCurve(startLink.position, endLink.position)){
                     var linkCenter = new Rect((startLink.x + (endLink.x - startLink.x) / 2) - (nodeConfig.TopMargin * 0.5f),
@@ -104,6 +118,10 @@ namespace ConstellationEditor {
         }
 
         public void DrawNodeCurve (Rect start, Rect end) {
+            DrawNodeCurve(start, end, Color.gray);//Color.Lerp(Color.grey, Color.yellow, 0.5f)
+        }
+
+        public void DrawNodeCurve (Rect start, Rect end, Color color) {
             Vector3 startPos = new Vector3 (start.x + start.width, start.y + start.height / 2, 0);
             Vector3 endPos = new Vector3 (end.x, end.y + end.height / 2, 0);
 
@@ -120,7 +138,7 @@ namespace ConstellationEditor {
                 endTan = endPos + Vector3.left * (distance * 0.5f);
             }
 
-            Handles.DrawBezier (startPos, endPos, startTan, endTan, Color.Lerp (Color.grey, Color.yellow, 0.5f), null, 5);
+            Handles.DrawBezier (startPos, endPos, startTan, endTan, color, null, 5);
         }
 
         public bool MouseOverCurve(Vector3 start, Vector3 end) {

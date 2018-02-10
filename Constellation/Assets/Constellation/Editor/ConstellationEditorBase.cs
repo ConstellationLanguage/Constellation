@@ -36,6 +36,15 @@ namespace ConstellationEditor
             shouldRepaint = true;
         }
 
+        public void RepaintIfRequested()
+        {
+            if(shouldRepaint)
+            {
+                shouldRepaint = false;
+                Repaint();
+            }
+        }
+
         public bool DrawButton(Rect _rect)
         {
             if (GUI.Button(_rect, ""))

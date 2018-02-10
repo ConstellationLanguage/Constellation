@@ -195,10 +195,8 @@ namespace ConstellationEditor {
             EditorGUILayout.EndVertical ();
             nodeSelector.Draw (nodeSelectorWidht, position.height - 50);
             EditorGUILayout.EndHorizontal ();
-            if (shouldRepaint) {
-                shouldRepaint = false;
-                Repaint ();
-            }
+
+            RepaintIfRequested();
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {

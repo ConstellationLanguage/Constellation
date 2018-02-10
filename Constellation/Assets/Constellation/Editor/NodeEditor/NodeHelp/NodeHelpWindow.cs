@@ -14,7 +14,6 @@ namespace ConstellationEditor {
             hasTriedFinddingExample = false;
             helpName = help;
             EditorWindow.GetWindow (typeof (NodeHelpWindow), false, "Constellation Help");
-
         }
 
         protected override void DrawGUI () {
@@ -24,11 +23,13 @@ namespace ConstellationEditor {
 
             playBar.Draw ();
             nodeEditorPanel.DrawNodeEditor (position.width, position.height - 20);
-
             GUILayout.EndVertical ();
+
+            RepaintIfRequested();
         }
 
         protected override void DrawStartGUI () {
+            wantsMouseMove = true;
             if (!hasTriedFinddingExample) {
                 hasTriedFinddingExample = true;
                 scriptDataService = new ConstellationEditorDataService ();
@@ -36,15 +37,28 @@ namespace ConstellationEditor {
                 Background = AssetDatabase.LoadAssetAtPath (editorPath + "background.png", typeof (Texture2D)) as Texture2D;
                 Setup ();
             } else {
-                if (Background != null)
-                    for (var i = 0; i < 50; i++) {
-                        for (var j = 0; j < 25; j++) {
-                            Rect texRect = new Rect (i * Background.width,
-                                j * Background.height,
-                                Background.width, Background.height);
-                            GUI.DrawTexture (texRect, Background);
-                        }
+                DrawBackgroundGrid(Screen.width, Screen.height);
+            }
+        }
+
+        private void DrawBackgroundGrid(float _width, float _height)
+        {
+            if (Background != null)
+            {
+                //Background location based of current location allowing unlimited background
+                //How many background are needed to fill the background
+                var xCount = Mathf.Round(_width / Background.width) + 2;
+                var yCount = Mathf.Round(_height / Background.height) + 2;
+
+                var texRect = new Rect(0, 0, Background.width, Background.height);
+
+                for (var i = 0; i < xCount; i++) {
+                    for (var j = 0; j < yCount; j++) {
+                        texRect.x = i * Background.width;
+                        texRect.y = j * Background.height;
+                        GUI.DrawTexture(texRect, Background);
                     }
+                }
             }
         }
     }
