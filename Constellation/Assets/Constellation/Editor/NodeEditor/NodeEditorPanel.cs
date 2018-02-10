@@ -107,7 +107,7 @@ namespace ConstellationEditor {
         void Setup () {
             nodeConfig = new NodeConfig ();
             LoadConstellation ();
-            LinksView = new LinkView (GUI, constellationScript, nodeConfig);
+            LinksView = new LinkView (GUI, this, constellationScript, nodeConfig);
         }
 
         void DrawEditorNodes () {
@@ -153,12 +153,14 @@ namespace ConstellationEditor {
                     undoable.AddAction ();
                 }
             }
+
             if (Event.current.delta == Vector2.zero && isDraggingWindow && Event.current.isMouse) {
                 undoable.AddAction ();
                 isDraggingWindow = false;
             } else if (Event.current.button == 0) {
                 isDraggingWindow = true;
             }
+
             var script = constellationScript.script;
             script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
             script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
@@ -226,22 +228,53 @@ namespace ConstellationEditor {
             GUI.SetColor (new Color (25, 25, 25));
             GUI.DrawTexture (new Rect (0, 0, _width, _height), Texture2D.blackTexture);
             GUI.SetColor (Color.white);
-            if (Background != null)
-                for (var i = 0; i < 50; i++) {
-                    for (var j = 0; j < 25; j++) {
-                        Rect texRect = new Rect (i * Background.width,
-                            j * Background.height,
-                            Background.width, Background.height);
-                        GUI.DrawTexture (texRect, Background);
-                    }
-                }
+            DrawBackgroundGrid(_width, _height);
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
             nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);
+        }
 
+        private void DrawBackgroundGrid(float _width, float _height) {
+            if (Background != null) {
+                //Background location based of current location allowing unlimited background
+                //How many background are needed to fill the background
+                var xCount = Mathf.Round(_width / Background.width) + 2;
+                var yCount = Mathf.Round(_height / Background.height) + 2;
+                //Current scroll offset for background
+                var xOffset = Mathf.Round(GetCurrentScrollPosX() / Background.width) - 1;
+                var yOffset = Mathf.Round(GetCurrentScrollPosY() / Background.height) - 1;
+                var texRect = new Rect( 0, 0, Background.width, Background.height);
+
+                for (var i = xOffset; i < xOffset + xCount; i++) {
+                    for (var j = yOffset; j < yOffset + yCount; j++) {
+                        texRect.x = i * Background.width;
+                        texRect.y = j * Background.height;
+                        GUI.DrawTexture(texRect, Background);
+                    }
+                }
+            }
+        }
+
+        public bool InView(Rect rect) {
+            var scrollX = GetCurrentScrollPosX();
+            var scrollY = GetCurrentScrollPosY();
+            var view = new Rect(scrollX, scrollY, scrollX + GetWidth(), scrollY + GetHeight());
+
+            return (rect.x > view.x - rect.width &&
+                    rect.y > view.y - rect.height &&
+                    rect.x < view.width + rect.width &&
+                    rect.y < view.height + rect.height);
+        }
+
+        public float GetWidth() {
+            return panelSize.x;
+        }
+
+        public float GetHeight() {
+            return panelSize.y;
         }
     }
 }
