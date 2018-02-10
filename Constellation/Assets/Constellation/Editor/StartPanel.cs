@@ -10,7 +10,7 @@ public static class StartPanel
                 loadable.Open("");
             }
             if(GUILayout.Button("Wiki")) {
-                Application.OpenURL("https://bitbucket.org/GeekZebra/constellation/wiki/Home");
+                Application.OpenURL("https://github.com/AntoineCharton/Constellation/wiki");
             }
     }
 }

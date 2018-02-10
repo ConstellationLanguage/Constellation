@@ -88,7 +88,7 @@ namespace ConstellationEditor {
 
         [MenuItem ("Help/Constellation tutorials")]
         static void Help() {
-            Application.OpenURL("https://www.constellationeditor.com/beginner");
+            Application.OpenURL("https://github.com/AntoineCharton/Constellation/wiki");
         }
 
         public void Undo () {

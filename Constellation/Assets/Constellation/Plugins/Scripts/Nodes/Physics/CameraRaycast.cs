@@ -9,7 +9,6 @@ namespace Constellation.Physics {
 
         private Variable valueX;
         private Variable valueY;
-        private Variable valueZ;
         private Variable Result;
 
         public const string NAME = "CameraRaycast";
@@ -24,7 +23,6 @@ namespace Constellation.Physics {
 
             valueX = new Variable ().Set (0);
             valueY = new Variable ().Set (0);
-            valueZ = new Variable ().Set (0);
 
         }
 

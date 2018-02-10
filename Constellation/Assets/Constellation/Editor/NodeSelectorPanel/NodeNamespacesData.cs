@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 namespace ConstellationEditor {
     public class NodeNamespacesData {
         public List<NodeButtonData> namespaceGroup;

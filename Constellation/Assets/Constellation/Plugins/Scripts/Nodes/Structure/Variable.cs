@@ -58,10 +58,13 @@ public class Variable {
 
     public Variable Set (Variable[] variables) {
         UnsetAll ();
-        Variables = new Variable[variables.Length];
+        if (variables != null)
+            Variables = new Variable[variables.Length];
+        else 
+            return this;
 
-        for(var i = 0; i < variables.Length; i ++){
-            Variables[i] = new Variable(variables[i]);
+        for (var i = 0; i < variables.Length; i++) {
+            Variables[i] = new Variable (variables[i]);
         }
         return this;
     }
@@ -125,11 +128,11 @@ public class Variable {
     }
 
     public object GetObject () {
-        if(Object != null)
+        if (Object != null)
             return Object;
-        else if(stringValue != "UNDEFINED")
+        else if (stringValue != "UNDEFINED")
             return stringValue;
-        else if(floatValue != nullValue)
+        else if (floatValue != nullValue)
             return floatValue;
         else
             return null;
