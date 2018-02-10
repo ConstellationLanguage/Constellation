@@ -20,6 +20,8 @@ namespace ConstellationEditor {
         private bool CloseOnNextFrame = false;
         private bool isAttributeValueChanged = false;
 
+        private bool isMouseOver = false;
+
         public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, ConstellationScript _constellation) {
             nodeConfig = _nodeConfig;
             var nodeWidth = nodeConfig.NodeWidth;
@@ -38,7 +40,7 @@ namespace ConstellationEditor {
 
         public void DrawWindow (int id, GUI.WindowFunction DrawNodeWindow, bool isNote) {
             //Only draw visible nodes
-            if (!editor.InView(Rect)) 
+            if (!editor.InView (Rect))
                 return;
 
             if (DrawDescription)
@@ -64,6 +66,7 @@ namespace ConstellationEditor {
             }
             node.XPosition = Rect.x;
             node.YPosition = Rect.y;
+            UpdateMouseOver ();
         }
 
         public bool IsDragged () {
@@ -206,7 +209,7 @@ namespace ConstellationEditor {
             var width = Rect.width - 10;
 
             //Draw help and close button if mouse is over node
-            if(MouseOver()) {
+            if (IsMouseOver ()) {
                 //Save original gui color
                 var color = GUI.color;
 
@@ -214,39 +217,43 @@ namespace ConstellationEditor {
                 width -= ButtonSize * 2 + 7;
 
                 //Light gray color for close button
-                GUI.color = new Color(0.8f, 0.8f, 0.8f);
-                UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", UnityEngine.GUI.skin.GetStyle("sv_label_0"));
-                if (GUI.Button(new Rect(Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", GUI.skin.GetStyle("WinBtnClose"))) {
-                    DestroyNode();
+                GUI.color = new Color (0.8f, 0.8f, 0.8f);
+                UnityEngine.GUI.Box (new Rect (Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", UnityEngine.GUI.skin.GetStyle ("sv_label_0"));
+                if (GUI.Button (new Rect (Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", GUI.skin.GetStyle ("WinBtnClose"))) {
+                    DestroyNode ();
                 }
 
                 //The following could be simplified with custom GUIStyle?
                 //Make invisible button
-                GUI.color = new Color(0, 0, 0, 0);
-                var helpPosition = new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize);
-                if (GUI.Button(helpPosition, "")) {
-                    NodeHelpWindow.ShowHelpWindow(node.Name);
+                GUI.color = new Color (0, 0, 0, 0);
+                var helpPosition = new Rect (Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize);
+                if (GUI.Button (helpPosition, "")) {
+                    NodeHelpWindow.ShowHelpWindow (node.Name);
                 }
 
                 //Restore original gui color
                 GUI.color = color;
 
                 //Create help icon on top of invisible button
-                Texture image = EditorGUIUtility.IconContent("_Help").image;
-                GUI.DrawTexture(helpPosition, image, ScaleMode.ScaleToFit);
+                Texture image = EditorGUIUtility.IconContent ("_Help").image;
+                GUI.DrawTexture (helpPosition, image, ScaleMode.ScaleToFit);
             }
 
             //Draw node name
-            GUI.Label(new Rect(10, 0, width, 16), node.Name, UnityEngine.GUI.skin.GetStyle("MiniLabel"));
-
+            GUI.Label (new Rect (10, 0, width, 16), node.Name, UnityEngine.GUI.skin.GetStyle ("MiniLabel"));
 
             if (DrawDescription)
                 DrawHelp (Description);
         }
 
-        private bool MouseOver() {
+        private bool IsMouseOver () {
+
+            return isMouseOver;
+        }
+
+        private void UpdateMouseOver () {
             var current = Event.current.mousePosition;
-            return (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
+            isMouseOver = (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
         }
 
         public NodeData GetData () {
