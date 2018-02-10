@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ConstellationEditor {
     public class NodeView {
+        private const int ButtonSize = 14;
+
         private Rect Rect;
         public NodeData node;
         private NodeEditorPanel editor;
@@ -35,6 +37,10 @@ namespace ConstellationEditor {
         }
 
         public void DrawWindow (int id, GUI.WindowFunction DrawNodeWindow, bool isNote) {
+            //Only draw visible nodes
+            if (!editor.InView(Rect)) 
+                return;
+
             if (DrawDescription)
                 DrawHelp (Description);
 
@@ -196,18 +202,53 @@ namespace ConstellationEditor {
                 }
             }
 
-            GUI.Label (new Rect (40, 0, 100, 16), node.Name, UnityEngine.GUI.skin.GetStyle ("MiniLabel"));
+            //node name width. Modified when buttons are visible.
+            var width = Rect.width - 10;
 
-            UnityEngine.GUI.Box (new Rect (0, 1, 20, 13), "", UnityEngine.GUI.skin.GetStyle ("sv_label_0"));
-            if (GUI.Button (new Rect (4, 1, 13, 13), "", GUI.skin.GetStyle ("WinBtnClose"))) {
-                DestroyNode ();
+            //Draw help and close button if mouse is over node
+            if(MouseOver()) {
+                //Save original gui color
+                var color = GUI.color;
+
+                //Modify node name width to prevent overlapping with buttons
+                width -= ButtonSize * 2 + 7;
+
+                //Light gray color for close button
+                GUI.color = new Color(0.8f, 0.8f, 0.8f);
+                UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", UnityEngine.GUI.skin.GetStyle("sv_label_0"));
+                if (GUI.Button(new Rect(Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", GUI.skin.GetStyle("WinBtnClose"))) {
+                    DestroyNode();
+                }
+
+                //The following could be simplified with custom GUIStyle?
+                //Make invisible button
+                GUI.color = new Color(0, 0, 0, 0);
+                var helpPosition = new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize);
+                if (GUI.Button(helpPosition, "")) {
+                    NodeHelpWindow.ShowHelpWindow(node.Name);
+                }
+
+                //Restore original gui color
+                GUI.color = color;
+
+                //Create help icon on top of invisible button
+                Texture image = EditorGUIUtility.IconContent("_Help").image;
+                GUI.DrawTexture(helpPosition, image, ScaleMode.ScaleToFit);
             }
-            if (GUI.Button (new Rect (20, 1, 20, 13), "?", UnityEngine.GUI.skin.GetStyle ("sv_label_0"))) {
-                NodeHelpWindow.ShowHelpWindow (node.Name);
-            }
+
+            //Draw node name
+            GUI.Label(new Rect(10, 0, width, 16), node.Name, UnityEngine.GUI.skin.GetStyle("MiniLabel"));
+
+
             if (DrawDescription)
                 DrawHelp (Description);
         }
+
+        private bool MouseOver() {
+            var current = Event.current.mousePosition;
+            return (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
+        }
+
         public NodeData GetData () {
             return node;
         }

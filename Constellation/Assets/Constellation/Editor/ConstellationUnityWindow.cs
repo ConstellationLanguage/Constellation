@@ -135,6 +135,7 @@ namespace ConstellationEditor {
         }
 
         protected override void Setup () {
+            wantsMouseMove = true;
             canDrawUI = false;
             WindowInstance = this as ConstellationUnityWindow;
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -155,6 +156,11 @@ namespace ConstellationEditor {
         void OnGUI () {
             if (Event.current.type == EventType.Layout) {
                 canDrawUI = true;
+            }
+
+            //Used to hide and show buttons
+            if (Event.current.type == EventType.MouseMove && !(Event.current.type == EventType.MouseDrag)) {
+                RequestRepaint();
             }
 
             if (canDrawUI) {
@@ -189,10 +195,8 @@ namespace ConstellationEditor {
             EditorGUILayout.EndVertical ();
             nodeSelector.Draw (nodeSelectorWidht, position.height - 50);
             EditorGUILayout.EndHorizontal ();
-            if (shouldRepaint) {
-                shouldRepaint = false;
-                Repaint ();
-            }
+
+            RepaintIfRequested();
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
