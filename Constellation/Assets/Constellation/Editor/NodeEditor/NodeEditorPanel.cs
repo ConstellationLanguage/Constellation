@@ -132,17 +132,6 @@ namespace ConstellationEditor {
             EditorWindow.EndWindows ();
         }
 
-        private void UpdateEditorNodesMouseOver () {
-            if (Nodes == null)
-                return;
-            foreach (NodeView node in Nodes) {
-                if (node == null)
-                    return;
-                var current = Event.current.mousePosition;
-                node.UpdateMouseOverState(current.x >= node.GetRect().x && current.x <= node.GetRect().width && current.y >= node.GetRect().y && current.y <= node.GetRect().height);
-            }
-        }
-
         public NodeData AddNode (string _nodeName, string _namespace) {
             var newNode = constellationScript.AddNode (nodesFactory.GetNode (_nodeName, _namespace));
             newNode.XPosition = editorScrollPos.x + (panelSize.x * 0.5f);
@@ -250,7 +239,6 @@ namespace ConstellationEditor {
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
             nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);
-            UpdateEditorNodesMouseOver();
         }
 
         private void DrawBackgroundGrid (float _width, float _height) {
