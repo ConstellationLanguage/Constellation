@@ -19,8 +19,7 @@ namespace ConstellationEditor {
         private string Description = "";
         private bool CloseOnNextFrame = false;
         private bool isAttributeValueChanged = false;
-
-        private bool isMouseOver = false;
+        private bool isMouseOver = true;
 
         public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, ConstellationScript _constellation) {
             nodeConfig = _nodeConfig;
@@ -66,7 +65,6 @@ namespace ConstellationEditor {
             }
             node.XPosition = Rect.x;
             node.YPosition = Rect.y;
-            UpdateMouseOver ();
         }
 
         public bool IsDragged () {
@@ -209,7 +207,7 @@ namespace ConstellationEditor {
             var width = Rect.width - 10;
 
             //Draw help and close button if mouse is over node
-            if (IsMouseOver ()) {
+            if (MouseOver ()) {
                 //Save original gui color
                 var color = GUI.color;
 
@@ -246,14 +244,14 @@ namespace ConstellationEditor {
                 DrawHelp (Description);
         }
 
-        private bool IsMouseOver () {
+        private bool MouseOver () {
 
             return isMouseOver;
         }
 
-        private void UpdateMouseOver () {
-            var current = Event.current.mousePosition;
-            isMouseOver = (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
+        // I had to set the mouse over state after the update window was set because the event was preventing it from updating.
+        public void UpdateMouseOverState (bool _mouseOverState) {
+            isMouseOver = true;
         }
 
         public NodeData GetData () {
