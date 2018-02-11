@@ -82,7 +82,6 @@ namespace ConstellationEditor {
             }
 
             draggedNode.ClearDrag ();
-
         }
 
         public void UnselectAll () {
