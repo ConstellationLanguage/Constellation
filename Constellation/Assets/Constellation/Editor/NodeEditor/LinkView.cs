@@ -14,8 +14,7 @@ namespace ConstellationEditor {
             nodeConfig = _nodeConfig;
         }
 
-        public LinkData [] GetLinks () 
-        {
+        public LinkData [] GetLinks () {
             return constellationScript.GetLinks();
         }
 
@@ -31,6 +30,7 @@ namespace ConstellationEditor {
                                 node.YPosition + (nodeConfig.TopMargin * 0.5f) + ((nodeConfig.InputSize) * i),
                                 0,
                                 0);
+                            break;
                         }
                         i++;
                     }
@@ -47,6 +47,7 @@ namespace ConstellationEditor {
                                 node.YPosition + (nodeConfig.TopMargin*0.5f) + ((nodeConfig.InputSize) * j),
                                 0,
                                 0);
+                            break;
                         }
                         j++;
                     }

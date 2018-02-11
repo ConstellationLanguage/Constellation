@@ -143,6 +143,7 @@ namespace ConstellationEditor {
                     }
                 }
             }
+
             if (node.Inputs != null) {
                 var i = 0;
                 foreach (var input in node.Inputs) {
@@ -220,25 +221,15 @@ namespace ConstellationEditor {
                     DestroyNode();
                 }
 
-                //The following could be simplified with custom GUIStyle?
-                //Make invisible button
-                GUI.color = new Color(0, 0, 0, 0);
+                GUI.color = color;
                 var helpPosition = new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize);
-                if (GUI.Button(helpPosition, "")) {
+                if (GUI.Button(helpPosition, "", ConstellationStyles.HelpStyle)) {
                     NodeHelpWindow.ShowHelpWindow(node.Name);
                 }
-
-                //Restore original gui color
-                GUI.color = color;
-
-                //Create help icon on top of invisible button
-                Texture image = EditorGUIUtility.IconContent("_Help").image;
-                GUI.DrawTexture(helpPosition, image, ScaleMode.ScaleToFit);
             }
 
             //Draw node name
             GUI.Label(new Rect(10, 0, width, 16), node.Name, UnityEngine.GUI.skin.GetStyle("MiniLabel"));
-
 
             if (DrawDescription)
                 DrawHelp (Description);

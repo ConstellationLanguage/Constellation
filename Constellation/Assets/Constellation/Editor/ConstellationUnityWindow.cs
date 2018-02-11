@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 namespace ConstellationEditor {
     [InitializeOnLoadAttribute]
     public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable {
-
         protected NodeEditorPanel nodeEditorPanel;
         protected ConstellationTabPanel nodeTabPanel;
         private float nodeSelectorWidht = 270;
@@ -88,7 +87,7 @@ namespace ConstellationEditor {
 
         [MenuItem ("Help/Constellation tutorials")]
         static void Help() {
-            Application.OpenURL("https://www.constellationeditor.com/beginner");
+            Application.OpenURL(ConstellationLinks.Tutorials);
         }
 
         public void Undo () {
@@ -169,8 +168,7 @@ namespace ConstellationEditor {
                 } else if (!IsConstellationSelected ()) {
                     DrawStartGUI ();
                 }
-            }else 
-            {
+            } else {
                 GUI.Label(new Rect(0,0,500,500), "Loading");
                 Repaint();
             }
@@ -250,9 +248,9 @@ namespace ConstellationEditor {
 
             Repaint ();
         }
+
         private void OnNodeAddRequested (string nodeName, string _namespace) {
             nodeEditorPanel.AddNode (nodeName, _namespace);
         }
-
     }
 }

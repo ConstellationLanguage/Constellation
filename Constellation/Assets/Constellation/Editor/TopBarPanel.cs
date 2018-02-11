@@ -31,6 +31,10 @@ namespace ConstellationEditor {
             }
 
             GUILayout.Label("", EditorStyles.toolbarButton);
+            if(GUI.Button(new Rect(new Vector2(Screen.width / 2 - 20, 1), Vector2.one * 14), "", ConstellationStyles.HelpStyle)){
+                Application.OpenURL(ConstellationLinks.Wiki);
+            }
+
             EditorGUILayout.EndHorizontal ();
             return false;
         }
