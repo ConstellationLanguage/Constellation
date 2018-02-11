@@ -206,6 +206,7 @@ namespace ConstellationEditor {
             //node name width. Modified when buttons are visible.
             var width = Rect.width - 10;
 
+            UpdateMouseOverState(true);
             //Draw help and close button if mouse is over node
             if (MouseOver ()) {
                 //Save original gui color
@@ -245,13 +246,15 @@ namespace ConstellationEditor {
         }
 
         private bool MouseOver () {
-
+            //[TODO] the check on mouse over is having a conflict with gui.window had to disable it because it was buggy if the editor was at a low fps.
+            //var current = Event.current.mousePosition;
+            //return (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
             return isMouseOver;
         }
 
-        // I had to set the mouse over state after the update window was set because the event was preventing it from updating.
+        //I had to set the mouse over state after the update window was set because the event was preventing the gui.window from updating.
         public void UpdateMouseOverState (bool _mouseOverState) {
-            isMouseOver = true;
+            isMouseOver = _mouseOverState;
         }
 
         public NodeData GetData () {
