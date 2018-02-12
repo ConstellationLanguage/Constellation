@@ -121,9 +121,11 @@ namespace ConstellationEditor {
             var i = 0;
             if (Nodes == null)
                 return;
+
             foreach (NodeView node in Nodes) {
                 if (node == null)
                     return;
+
                 node.DrawWindow (i, DrawNodeWindow, false);
                 i++;
                 farNodeX = Mathf.Max (node.GetRect ().x, farNodeX);
@@ -146,7 +148,7 @@ namespace ConstellationEditor {
         void DrawNodeWindow (int id) {
             if (id < Nodes.Count) {
                 if (Nodes[id].NodeExist ()) {
-                    Nodes[id].DrawContent ();
+                    Nodes[id].DrawContent();
                 } else {
                     OnNodeRemoved (Nodes[id].node);
                     Nodes.Remove (Nodes[id]);
@@ -228,14 +230,13 @@ namespace ConstellationEditor {
             panelSize = new Vector2 (_width, _height);
             editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (_width), GUILayout.Height (_height));
             GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
-            EditorGUILayout.LabelField ("", options);
-            GUI.SetColor (new Color (25, 25, 25));
-            GUI.DrawTexture (new Rect (0, 0, _width, _height), Texture2D.blackTexture);
-            GUI.SetColor (Color.white);
-            DrawBackgroundGrid (_width, _height);
+            EditorGUILayout.LabelField ("", options); 
+
+            DrawBackgroundGrid(_width, _height);
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();
+
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
             nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);

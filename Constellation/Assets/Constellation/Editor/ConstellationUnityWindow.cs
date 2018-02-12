@@ -152,14 +152,14 @@ namespace ConstellationEditor {
             nodeSelector = new NodeSelectorPanel (OnNodeAddRequested);
 
         }
-
+        
         void OnGUI () {
             if (Event.current.type == EventType.Layout) {
                 canDrawUI = true;
             }
 
             //Used to hide and show buttons
-            if (Event.current.type == EventType.MouseMove && !(Event.current.type == EventType.MouseDrag)) {
+            if (Event.current.type == EventType.MouseMove) {
                 RequestRepaint();
             }
 
