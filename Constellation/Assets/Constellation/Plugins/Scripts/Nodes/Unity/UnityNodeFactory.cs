@@ -56,6 +56,9 @@ namespace Constellation.Unity {
                 case GetComponent.NAME:
                     INode nodeGetComponent = new GetComponent () as INode;
                     return new Node<INode> (nodeGetComponent);
+                case Color.NAME:
+                    INode nodeColor = new Color() as INode;
+                    return new Node<INode> (nodeColor);
                 default:
                     return null;
             }

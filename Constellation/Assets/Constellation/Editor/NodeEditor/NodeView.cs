@@ -244,9 +244,11 @@ namespace ConstellationEditor {
                 DrawHelp (Description);
         }
 
+        // interfering with the mouse drag window fix before uncommenting
         private bool MouseOver() {
-            var current = Event.current.mousePosition;
-            return (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
+            //var current = Event.current.mousePosition;
+            //return (current.x >= 0 && current.x <= Rect.width && current.y >= 0 && current.y <= Rect.height);
+            return true;
         }
 
         public NodeData GetData () {

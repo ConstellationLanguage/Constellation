@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: EditorData
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
-  - 
+  - Assets/CoolScript.asset
+  - Assets/Constellation/Examples/Projects/FlappyBird/Scripts/Bird.asset
   EditorUndoService:
     Actions: []
     SelectedAction: -1
