@@ -18,6 +18,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - OSC support with pure data examples.
 
 # Want to help?
+- Join us on [discord](https://discord.gg/Cx2k7We) and share your experience with us.
 - Share our [facebook](https://www.facebook.com/ConstellationEditor/) page.
 - Share our [website](https://www.constellationeditor.com/).
 - [Contribution instructions](https://github.com/AntoineCharton/Constellation/wiki/).
