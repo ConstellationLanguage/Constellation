@@ -27,6 +27,8 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 
 [Discord](https://discord.gg/Cx2k7We)
 
+[Twitter](https://twitter.com/ConstLanguage)
+
 [Forum](https://www.constellationeditor.com/forum-1)
 
 [Download](https://www.constellationeditor.com/download)
