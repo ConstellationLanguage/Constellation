@@ -14,8 +14,7 @@ namespace ConstellationEditor {
             nodeConfig = _nodeConfig;
         }
 
-        public LinkData [] GetLinks () 
-        {
+        public LinkData [] GetLinks () {
             return constellationScript.GetLinks();
         }
 
@@ -118,7 +117,7 @@ namespace ConstellationEditor {
         }
 
         public void DrawNodeCurve (Rect start, Rect end) {
-            DrawNodeCurve(start, end, Color.gray);//Color.Lerp(Color.grey, Color.yellow, 0.5f)
+            DrawNodeCurve(start, end, Color.gray);
         }
 
         public void DrawNodeCurve (Rect start, Rect end, Color color) {

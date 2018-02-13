@@ -155,7 +155,7 @@ namespace ConstellationEditor {
                     undoable.AddAction ();
                 }
             }
-
+            
             if (Event.current.delta == Vector2.zero && isDraggingWindow && Event.current.isMouse) {
                 undoable.AddAction ();
                 isDraggingWindow = false;
@@ -267,11 +267,7 @@ namespace ConstellationEditor {
             var scrollX = GetCurrentScrollPosX ();
             var scrollY = GetCurrentScrollPosY ();
             var view = new Rect (scrollX, scrollY, scrollX + GetWidth (), scrollY + GetHeight ());
-
-            return (rect.x > view.x - rect.width &&
-                rect.y > view.y - rect.height &&
-                rect.x < view.width + rect.width &&
-                rect.y < view.height + rect.height);
+            return view.Overlaps(rect);
         }
 
         public float GetWidth () {
