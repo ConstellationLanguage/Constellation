@@ -19,7 +19,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 
 # Want to help?
 - Join us on [discord](https://discord.gg/Cx2k7We) and share your experience with us.
-- Follow us on [Twitter](https://twitter.com/ConstLanguage).
+- Follow us on [Twitter](https://twitter.com/ConstellationVS).
 - Share our [facebook](https://www.facebook.com/ConstellationEditor/) page.
 - Share our [website](https://www.constellationeditor.com/).
 - Post your ideas on [reddit](https://www.reddit.com/r/ConstellationVS/).
