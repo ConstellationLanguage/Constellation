@@ -18,7 +18,7 @@ namespace ConstellationEditor {
         private string Description = "";
         private bool CloseOnNextFrame = false;
         private bool isAttributeValueChanged = false;
-
+        
         public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, ConstellationScript _constellation) {
             nodeConfig = _nodeConfig;
             var nodeWidth = nodeConfig.NodeWidth;
@@ -29,7 +29,7 @@ namespace ConstellationEditor {
             node = _node;
             editor = _editor;
             constellationScript = _constellation;
-
+            
             foreach (var attribute in node.AttributesData) {
                 attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
             }
@@ -43,12 +43,10 @@ namespace ConstellationEditor {
             if (DrawDescription)
                 DrawHelp(Description);
 
-            var defaultStyle = GUI.skin.GetStyle("flow node 0");
-            if (selected)
-                defaultStyle = GUI.skin.GetStyle("flow node 0 on");
+            var defaultStyle = selected ? GUI.skin.GetStyle("flow node 0 on") : GUI.skin.GetStyle("flow node 0");
             defaultStyle.alignment = TextAnchor.UpperRight;
             defaultStyle.margin.top = -5;
-
+            
             if (node.Name != "Note")
                 Rect = GUI.Window(id, Rect, DrawNodeWindow, "", defaultStyle);
             else
@@ -103,7 +101,7 @@ namespace ConstellationEditor {
 
         private void DrawHelp (string text) {
             Event current = Event.current;
-            GUI.Label(new Rect(current.mousePosition.x, current.mousePosition.y, 120, 30), text, GUI.skin.GetStyle("AnimationEventTooltip"));
+            GUI.Label(new Rect(current.mousePosition.x + 30, current.mousePosition.y + 20, 30 + Description.Length * 4, 30), text, GUI.skin.GetStyle("AnimationEventTooltip"));
             if (CloseOnNextFrame == true) {
                 DrawDescription = false;
                 CloseOnNextFrame = false;
@@ -124,14 +122,14 @@ namespace ConstellationEditor {
         }
 
         public void DrawContent () {
-            var current = Event.current.type;
+            var current = Event.current;
 
             //Only draw node on Repaint if it's not selected
-            if (current == EventType.Repaint)
+            if (current.IsRepaint())
                 Draw();
 
             //Draw on multiple events for buttons to work
-            if (selected && current != EventType.Repaint)
+            if (selected && !current.IsRepaint())
                 Draw();
         }
 
@@ -219,7 +217,7 @@ namespace ConstellationEditor {
 
                 GUI.color = color;
                 var helpPosition = new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize);
-                if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize), "", ConstellationStyles.HelpStyle) && Event.current.button == 0) {
+                if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize), "", nodeConfig.HelpStyle) && Event.current.button == 0) {
                     NodeHelpWindow.ShowHelpWindow(node.Name);
                 }
             }
@@ -247,6 +245,12 @@ namespace ConstellationEditor {
 
         public Rect GetRect () {
             return Rect;
+        }
+
+        public bool Selected {
+            get {
+                return selected;
+            }
         }
     }
 }

@@ -121,11 +121,16 @@ namespace ConstellationEditor {
             var i = 0;
             if (Nodes == null)
                 return;
-
+            
+            if (Event.current.button == 2) {
+                editorScrollPos -= Event.current.delta * 0.5f;
+                RequestRepaint();
+            }
+            
             foreach (NodeView node in Nodes) {
                 if (node == null)
                     return;
-
+                
                 node.DrawWindow (i, DrawNodeWindow, false);
                 i++;
                 farNodeX = Mathf.Max (node.GetRect ().x, farNodeX);
@@ -162,11 +167,12 @@ namespace ConstellationEditor {
             } else if (Event.current.button == 0) {
                 isDraggingWindow = true;
             }
-
+            
             var script = constellationScript.script;
             script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
             script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
-            GUI.DragWindow ();
+            if(Event.current.button == 0)
+                GUI.DragWindow ();
             EditorUtility.SetDirty (constellationScript);
         }
 
@@ -228,11 +234,12 @@ namespace ConstellationEditor {
 
         public void DrawNodeEditor (float _width, float _height) {
             panelSize = new Vector2 (_width, _height);
+            
             editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (_width), GUILayout.Height (_height));
             GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
             EditorGUILayout.LabelField ("", options); 
-
-            DrawBackgroundGrid(_width, _height);
+            
+            DrawBackgroundGrid (_width, _height);
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();

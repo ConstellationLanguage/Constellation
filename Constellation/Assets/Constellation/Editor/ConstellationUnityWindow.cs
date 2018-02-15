@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 namespace ConstellationEditor {
     [InitializeOnLoadAttribute]
     public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable {
-
         protected NodeEditorPanel nodeEditorPanel;
         protected ConstellationTabPanel nodeTabPanel;
         private float nodeSelectorWidht = 270;

@@ -1,5 +1,6 @@
 using Constellation;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace ConstellationEditor {
@@ -26,31 +27,21 @@ namespace ConstellationEditor {
         }
 
         public void Draw (NodeView[] nodes, LinkData[] links, Vector2 selectionOffset) {
-            var e = Event.current;
-            //Mouse position corrected by view (scroll) offset
-            var hoverPosition = e.mousePosition + selectionOffset;
-
-            //Get the view position to correct node positions.
-            //This is to counter the offset caused by menus, toolbars etc..
-            //Ignore the position on Layout event because it always return zero
-            if (e.type != EventType.Layout)
-                offset = GUILayoutUtility.GetLastRect().position;
-
-            /*
-            //Mousewheel drag
-            if(e.button == 2) {
-                Move(nodes, e.delta);
-                return;
-            }
-            */
-
-            if (e.keyCode == KeyCode.Delete)
-                DestroySelection();
+            var current = Event.current;
+            var hoverPosition = current.mousePosition + selectionOffset;
+            var viewport = GUILayoutUtility.GetLastRect();
 
             DragSelection();
+                        
+            if (!current.IsLayout()) {
+                offset = viewport.position;                
+            }
+
+            UpdateKeyDown();
+
             //Special handling for single node. This is to make GUI.DragWindow work correctly
             if (SelectedNodes.Count == 1 && DragSize == Vector2.zero) {
-                if (e.type != EventType.Used && e.type != EventType.Layout && e.type != EventType.Repaint) {
+                if (!current.IsUsed() && !current.IsLayoutOrRepaint()) {
                     UnselectAll();
                     SelectNode(nodes, hoverPosition);
                     GUI.RequestRepaint();
@@ -59,15 +50,16 @@ namespace ConstellationEditor {
             }
 
             //Deselect all
-            if (e.button == 1 && e.isMouse && (e.type == EventType.MouseDown)) {
+            if (current.MouseButtonDown(1) && current.isMouse) {
                 UnselectAll();
                 GUI.RequestRepaint();
             }
 
+            //TODO: Limit dragging to node editor panel.
             UpdateSelectionArea(selectionOffset, Event.current, nodes);
 
             //Mouse over
-            if (DragSize == Vector2.zero && e.type != EventType.Used && e.type != EventType.MouseDrag) {
+            if (DragSize == Vector2.zero && !current.IsUsed() && !current.MouseDrag()) {
                 if (SelectedNodes.Count <= 1) {
                     UnselectAll();
                     var selection = SelectNode(nodes, hoverPosition);
@@ -76,16 +68,24 @@ namespace ConstellationEditor {
                 }
             }
         }
+        
+        private void UpdateKeyDown () {
+            var current = Event.current;
+            if (current.type != EventType.KeyDown) return;
 
-        private void UpdateSelectionArea (Vector2 _offset, Event _event, NodeView[] _nodes) {
+            if (current.keyCode == KeyCode.Delete)
+                DestroySelection();
+        }
+        
+        private void UpdateSelectionArea (Vector2 _offset, Event _event, NodeView[] _nodes) {            
             var SelectionDisplay = new Rect(StartMousePosition.x, StartMousePosition.y, DragSize.x, DragSize.y);
             var Selection = new Rect(StartMousePosition.x + _offset.x, StartMousePosition.y + _offset.y, DragSize.x, DragSize.y);
 
-            if (_event.button == 0 && _event.isMouse && (_event.type == EventType.MouseDown)) {
+            if (_event.MouseButtonDown(0) && _event.isMouse) {
                 UnselectAll();
                 StartMousePosition = _event.mousePosition;
                 GUI.RequestRepaint();
-            } else if (_event.type == EventType.MouseDrag && Selection.x != 0 && Selection.y != 0) {
+            } else if (_event.button == 0 && _event.MouseDrag() && Selection.x != 0 && Selection.y != 0) {
                 DragSize = _event.mousePosition - StartMousePosition;
                 UnselectAll();
                 GUI.RequestRepaint();
@@ -103,16 +103,7 @@ namespace ConstellationEditor {
             if (SelectionDisplay.width != 0 && SelectionDisplay.height != 0)
                 UnityEngine.GUI.Label(SelectionDisplay, "", UnityEngine.GUI.skin.GetStyle("grey_border"));
         }
-
-        //WIP: Used with mousewheel draging
-        private void Move (NodeView[] _nodes, Vector2 _drag) {
-            foreach (var node in _nodes) {
-                node.DragNode(-_drag);
-                node.ClearDrag();
-            }
-            GUI.RequestRepaint();
-        }
-
+        
         public void DragSelection () {
             //TODO: Sometimes nodes might move with varying speeds
             //      Haven't found a way to reproduce this.
@@ -173,7 +164,7 @@ namespace ConstellationEditor {
 
             if (possibleNodes.Count == 0)
                 return null;
-            else
+            else 
                 return possibleNodes[0];
             //TODO: sort out which node is on top currently
         }
