@@ -26,7 +26,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - [Contribution instructions](https://github.com/AntoineCharton/Constellation/wiki/).
 
 # Ready to start?
-[Wiki](https://github.com/AntoineCharton/Constellation/wiki)
+[Wiki](https://github.com/ConstellationLanguage/Constellation/wiki)
 
 [Forum](https://www.constellationeditor.com/forum-1)
 
