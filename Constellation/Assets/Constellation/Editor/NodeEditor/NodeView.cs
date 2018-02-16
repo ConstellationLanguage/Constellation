@@ -50,7 +50,7 @@ namespace ConstellationEditor {
             if (node.Name != "Note")
                 Rect = GUI.Window(id, Rect, DrawNodeWindow, "", defaultStyle);
             else
-                Rect = GUI.Window(id, new Rect(Rect.x, Rect.y, 120, 120), DrawNodeWindow, "", GUI.skin.GetStyle("VCS_StickyNote"));
+                Rect = GUI.Window(id, new Rect(Rect.x, Rect.y, 120, 120), DrawNodeWindow, "", selected ? nodeConfig.NoteHover : GUI.skin.GetStyle("VCS_StickyNote"));
 
             if (node.XPosition != Rect.x || node.YPosition != Rect.y) {
                 nodeMovement = new Vector2(node.XPosition - Rect.x, node.YPosition - Rect.y);
