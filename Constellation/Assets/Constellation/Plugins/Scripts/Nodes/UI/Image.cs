@@ -12,9 +12,6 @@ namespace Constellation.UI {
 			_nodeParameters.AddInput (this, false, "Object", "Image");
 			_nodeParameters.AddInput (this, false, "Color");
 
-			_nodeParameters.AddOutput (false, "Object", "Button object");
-			_nodeParameters.AddOutput (false, "Object", "Image");
-			_nodeParameters.AddOutput (false, "Color");
 			output = _nodeParameters.GetSender ();
 
 			Variable[] newColorVar = new Variable[4];
@@ -44,13 +41,16 @@ namespace Constellation.UI {
 			}
 		}
 
-		private void ButtonClicked () {
-			output.Send (new Variable (image.gameObject.name), 0);
-		}
-
 		public void Receive (Variable value, Input _input) {
 			if (_input.InputId == 0)
 				Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
+
+			if(_input.InputId == 1){
+				var sprite = UnityObjectsConvertions.ConvertToSprite(value);
+				if(sprite != null){
+					image.sprite = sprite;
+				}
+			}
 
 			if (_input.InputId == 2) {
 				ColorVar.Set (value.GetArray ());

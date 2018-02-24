@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Constellation {
 	public static class UnityObjectsConvertions {
@@ -28,6 +29,25 @@ namespace Constellation {
 				vector3 = (Object as Collision).contacts[0].point;
 
 			return vector3;
+		}
+
+		public static Sprite ConvertToSprite (Variable variable) {
+			var obj = variable.GetObject ();
+			if (obj == null)
+				return null;
+
+			System.Type type = variable.GetObject().GetType ();
+
+			if (type == typeof (UnityEngine.Texture2D)) {
+
+				Texture2D tex = obj as Texture2D;
+
+				Sprite newSprite = Sprite.Create (obj as Texture2D, new Rect (0f, 0f, tex.width, tex.height), Vector2.zero);
+
+				return newSprite;
+
+			}
+			return null;
 		}
 
 		public static Vector3 ConvertToVector3 (Variable variable) {
