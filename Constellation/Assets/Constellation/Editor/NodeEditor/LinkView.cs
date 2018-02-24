@@ -7,6 +7,7 @@ namespace ConstellationEditor {
         private ConstellationScript constellationScript;
 		private NodeEditorPanel editor;
         private NodeConfig nodeConfig;
+        private bool dragging;
 
         public LinkView (IGUI _gui, NodeEditorPanel _editor, ConstellationScript _constellationScript, NodeConfig _nodeConfig) {
             constellationScript = _constellationScript;
@@ -14,8 +15,7 @@ namespace ConstellationEditor {
             nodeConfig = _nodeConfig;
         }
 
-        public LinkData [] GetLinks () 
-        {
+        public LinkData [] GetLinks () {
             return constellationScript.GetLinks();
         }
 
@@ -59,14 +59,14 @@ namespace ConstellationEditor {
                 var color = Color.gray;
                 if (link.Input.IsWarm == true) {
                     if (link.Input.Type == "Object")
-                        color = new Color(0.2f, 0.6f, 0.55f);
+                        color = nodeConfig.WarmInputObjectColor;
                     else
-                        color = new Color(0.8f, 0.5f, 0.3f);
+                        color = nodeConfig.WarmInputColor;
                 } else {
                     if (link.Input.Type == "Object")
-                        color = new Color(0.2f, 0.3f, 0.6f);
+                        color = nodeConfig.ColdInputObjectColor;
                     else
-                        color = Color.yellow;
+                        color = nodeConfig.ColdInputColor;
                 }
 
                 DrawNodeCurve (startLink, endLink, color);
@@ -77,9 +77,17 @@ namespace ConstellationEditor {
                     nodeConfig.LinkButtonSize,
                     nodeConfig.LinkButtonSize);
 
-                    UnityEngine.GUI.Box(linkCenter, "", UnityEngine.GUI.skin.GetStyle("flow var 0"));
-                    if (UnityEngine.GUI.Button(linkCenter, "", UnityEngine.GUI.skin.GetStyle("WinBtnClose"))) {
+                    GUI.Box(linkCenter, "", GUI.skin.GetStyle("flow var 0"));
+                    if (GUI.Button(linkCenter, "", GUI.skin.GetStyle("WinBtnClose"))) {
                         constellationScript.RemoveLink(link);
+                    } else if (Event.current.IsUsed()) {
+                        if(!dragging) {
+                            dragging = true;
+                            if(linkCenter.Contains(Event.current.mousePosition))
+                                constellationScript.RemoveLink(link);
+                        }
+                    } else if (!Event.current.IsLayoutOrRepaint()) {
+                        dragging = false;
                     }
                 }
             }
@@ -118,7 +126,7 @@ namespace ConstellationEditor {
         }
 
         public void DrawNodeCurve (Rect start, Rect end) {
-            DrawNodeCurve(start, end, Color.gray);//Color.Lerp(Color.grey, Color.yellow, 0.5f)
+            DrawNodeCurve(start, end, Color.gray);
         }
 
         public void DrawNodeCurve (Rect start, Rect end, Color color) {

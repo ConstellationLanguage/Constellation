@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 namespace ConstellationEditor {
     [InitializeOnLoadAttribute]
     public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable {
-
         protected NodeEditorPanel nodeEditorPanel;
         protected ConstellationTabPanel nodeTabPanel;
         private float nodeSelectorWidht = 270;
@@ -152,14 +151,14 @@ namespace ConstellationEditor {
             nodeSelector = new NodeSelectorPanel (OnNodeAddRequested);
 
         }
-
+        
         void OnGUI () {
             if (Event.current.type == EventType.Layout) {
                 canDrawUI = true;
             }
 
             //Used to hide and show buttons
-            if (Event.current.type == EventType.MouseMove && !(Event.current.type == EventType.MouseDrag)) {
+            if (Event.current.type == EventType.MouseMove) {
                 RequestRepaint();
             }
 

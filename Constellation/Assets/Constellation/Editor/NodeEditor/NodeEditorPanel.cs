@@ -1,7 +1,7 @@
 //C# Example
+using Constellation;
 using System.Collections.Generic;
 using System.Linq;
-using Constellation;
 using UnityEditor;
 using UnityEngine;
 
@@ -44,7 +44,7 @@ namespace ConstellationEditor {
             LinkAdded linkAdded,
             NodeAdded nodeAdded,
             NodeRemoved nodeRemoved) {
-            nodesFactory = new NodesFactory();
+            nodesFactory = new NodesFactory ();
             constellationScript = _script;
             undoable = _undoable;
             Nodes = new List<NodeView> ();
@@ -121,9 +121,16 @@ namespace ConstellationEditor {
             var i = 0;
             if (Nodes == null)
                 return;
+            
+            if (Event.current.button == 2) {
+                editorScrollPos -= Event.current.delta * 0.5f;
+                RequestRepaint();
+            }
+            
             foreach (NodeView node in Nodes) {
                 if (node == null)
                     return;
+                
                 node.DrawWindow (i, DrawNodeWindow, false);
                 i++;
                 farNodeX = Mathf.Max (node.GetRect ().x, farNodeX);
@@ -146,25 +153,26 @@ namespace ConstellationEditor {
         void DrawNodeWindow (int id) {
             if (id < Nodes.Count) {
                 if (Nodes[id].NodeExist ()) {
-                    Nodes[id].DrawContent ();
+                    Nodes[id].DrawContent();
                 } else {
                     OnNodeRemoved (Nodes[id].node);
                     Nodes.Remove (Nodes[id]);
                     undoable.AddAction ();
                 }
             }
-
+            
             if (Event.current.delta == Vector2.zero && isDraggingWindow && Event.current.isMouse) {
                 undoable.AddAction ();
                 isDraggingWindow = false;
             } else if (Event.current.button == 0) {
                 isDraggingWindow = true;
             }
-
+            
             var script = constellationScript.script;
             script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
             script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
-            GUI.DragWindow ();
+            if(Event.current.button == 0)
+                GUI.DragWindow ();
             EditorUtility.SetDirty (constellationScript);
         }
 
@@ -173,10 +181,10 @@ namespace ConstellationEditor {
                 var e = Event.current;
                 if (selectedInput != null) {
                     LinksView.DrawNodeCurve (new Rect (e.mousePosition.x, e.mousePosition.y, 0, 0), LinksView.InputPosition (selectedInput));
-                    GUI.RequestRepaint();
+                    GUI.RequestRepaint ();
                 } else if (selectedOutput != null) {
                     LinksView.DrawNodeCurve (LinksView.OutputPosition (selectedOutput), new Rect (e.mousePosition.x, e.mousePosition.y, 0, 0));
-                    GUI.RequestRepaint();
+                    GUI.RequestRepaint ();
                 }
 
                 if (e.button == 1) {
@@ -184,6 +192,10 @@ namespace ConstellationEditor {
                     selectedOutput = null;
                 }
             }
+        }
+
+        public void RequestRepaint () {
+            GUI.RequestRepaint ();
         }
 
         public void AddLinkFromOutput (OutputData _output) {
@@ -208,7 +220,7 @@ namespace ConstellationEditor {
                 constellationScript.AddLink (newLink);
                 OnLinkAdded (newLink);
                 undoable.AddAction ();
-                GUI.RequestRepaint();
+                GUI.RequestRepaint ();
             }
         }
 
@@ -222,58 +234,54 @@ namespace ConstellationEditor {
 
         public void DrawNodeEditor (float _width, float _height) {
             panelSize = new Vector2 (_width, _height);
+            
             editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (_width), GUILayout.Height (_height));
             GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
-            EditorGUILayout.LabelField ("", options);
-            GUI.SetColor (new Color (25, 25, 25));
-            GUI.DrawTexture (new Rect (0, 0, _width, _height), Texture2D.blackTexture);
-            GUI.SetColor (Color.white);
-            DrawBackgroundGrid(_width, _height);
+            EditorGUILayout.LabelField ("", options); 
+            
+            DrawBackgroundGrid (_width, _height);
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();
+
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
             nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);
         }
 
-        private void DrawBackgroundGrid(float _width, float _height) {
+        private void DrawBackgroundGrid (float _width, float _height) {
             if (Background != null) {
                 //Background location based of current location allowing unlimited background
                 //How many background are needed to fill the background
-                var xCount = Mathf.Round(_width / Background.width) + 2;
-                var yCount = Mathf.Round(_height / Background.height) + 2;
+                var xCount = Mathf.Round (_width / Background.width) + 2;
+                var yCount = Mathf.Round (_height / Background.height) + 2;
                 //Current scroll offset for background
-                var xOffset = Mathf.Round(GetCurrentScrollPosX() / Background.width) - 1;
-                var yOffset = Mathf.Round(GetCurrentScrollPosY() / Background.height) - 1;
-                var texRect = new Rect( 0, 0, Background.width, Background.height);
+                var xOffset = Mathf.Round (GetCurrentScrollPosX () / Background.width) - 1;
+                var yOffset = Mathf.Round (GetCurrentScrollPosY () / Background.height) - 1;
+                var texRect = new Rect (0, 0, Background.width, Background.height);
 
                 for (var i = xOffset; i < xOffset + xCount; i++) {
                     for (var j = yOffset; j < yOffset + yCount; j++) {
                         texRect.x = i * Background.width;
                         texRect.y = j * Background.height;
-                        GUI.DrawTexture(texRect, Background);
+                        GUI.DrawTexture (texRect, Background);
                     }
                 }
             }
         }
 
-        public bool InView(Rect rect) {
-            var scrollX = GetCurrentScrollPosX();
-            var scrollY = GetCurrentScrollPosY();
-            var view = new Rect(scrollX, scrollY, scrollX + GetWidth(), scrollY + GetHeight());
-
-            return (rect.x > view.x - rect.width &&
-                    rect.y > view.y - rect.height &&
-                    rect.x < view.width + rect.width &&
-                    rect.y < view.height + rect.height);
+        public bool InView (Rect rect) {
+            var scrollX = GetCurrentScrollPosX ();
+            var scrollY = GetCurrentScrollPosY ();
+            var view = new Rect (scrollX, scrollY, scrollX + GetWidth (), scrollY + GetHeight ());
+            return view.Overlaps(rect);
         }
 
-        public float GetWidth() {
+        public float GetWidth () {
             return panelSize.x;
         }
 
-        public float GetHeight() {
+        public float GetHeight () {
             return panelSize.y;
         }
     }
