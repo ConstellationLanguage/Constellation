@@ -41,20 +41,16 @@ namespace Constellation.UI {
 			}
 		}
 
-		private void ButtonClicked () {
-			output.Send (new Variable (image.gameObject.name), 0);
-		}
-
 		public void Receive (Variable value, Input _input) {
 			if (_input.InputId == 0)
 				Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 
 			if(_input.InputId == 1){
-				if(value.GetObject() is Texture){
-					
+				var sprite = UnityObjectsConvertions.ConvertToSprite(value);
+				if(sprite != null){
+					image.sprite = sprite;
 				}
 			}
-
 
 			if (_input.InputId == 2) {
 				ColorVar.Set (value.GetArray ());

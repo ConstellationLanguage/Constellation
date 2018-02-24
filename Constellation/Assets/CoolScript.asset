@@ -13,11 +13,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: ObjectAttribute
+      Namespace: Unity
+      Guid: 080f1be0-266e-4496-8a87-b5cd92a36217
+      XPosition: 378.52036
+      YPosition: 111
+      Inputs: []
+      Outputs:
+      - Guid: 3457ae90-e194-4c8e-ab73-559203374138
+        IsWarm: 1
+        Type: Object
+        Description: Unity object
+      AttributesData:
+      - Value:
+          stringValue: Image
+          floatValue: 0.000001
+        Type: 1
     - Name: Value
       Namespace: BasicNodes
       Guid: 3dcbcb95-2241-4371-88fd-c3655ddfeafd
-      XPosition: 156.5
-      YPosition: 133
+      XPosition: 159.5
+      YPosition: 140
       Inputs: []
       Outputs:
       - Guid: ccf47282-38b6-4ea0-b47b-dcab450cbfda
@@ -27,13 +43,49 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 255
+          floatValue: -42.2
+        Type: 0
+    - Name: Image
+      Namespace: UI
+      Guid: 0ce070f1-dd03-4c19-ab39-987860241435
+      XPosition: 632
+      YPosition: 158.5
+      Inputs:
+      - Guid: aa72a834-d61c-41ab-a426-b717dc508d27
+        IsWarm: 0
+        Type: Object
+        Description: Button object
+      - Guid: 75fff1cb-e059-4c19-a59d-f50c3385ff39
+        IsWarm: 0
+        Type: Object
+        Description: Image
+      - Guid: a96b507d-8538-4023-a6c7-b6816f2aa496
+        IsWarm: 0
+        Type: 
+        Description: Color
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: BasicNodes
+      Guid: dd9c2cbc-b241-44f8-83a4-745284ebe922
+      XPosition: 157
+      YPosition: 196.5
+      Inputs: []
+      Outputs:
+      - Guid: d83108c9-9c6a-4004-807e-0297070332f0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 80.5
         Type: 0
     - Name: Color
       Namespace: Unity
       Guid: 794c2e4b-8bb9-4086-a828-0d571e59c865
-      XPosition: 371.5
-      YPosition: 172
+      XPosition: 397.5
+      YPosition: 222
       Inputs:
       - Guid: 9b64fe4b-ff6b-43c4-a008-f4760673d599
         IsWarm: 1
@@ -75,22 +127,6 @@ MonoBehaviour:
         Type: 13
     - Name: Value
       Namespace: BasicNodes
-      Guid: dd9c2cbc-b241-44f8-83a4-745284ebe922
-      XPosition: 157
-      YPosition: 196.5
-      Inputs: []
-      Outputs:
-      - Guid: d83108c9-9c6a-4004-807e-0297070332f0
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 114.2
-        Type: 0
-    - Name: Value
-      Namespace: BasicNodes
       Guid: 8d2e3407-0c0b-4695-94a4-27b520fa26b5
       XPosition: 171
       YPosition: 253.5
@@ -103,28 +139,8 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 54.2
+          floatValue: 38.2
         Type: 0
-    - Name: Image
-      Namespace: UI
-      Guid: 0ce070f1-dd03-4c19-ab39-987860241435
-      XPosition: 699
-      YPosition: 262.5
-      Inputs:
-      - Guid: aa72a834-d61c-41ab-a426-b717dc508d27
-        IsWarm: 0
-        Type: Object
-        Description: Button object
-      - Guid: 75fff1cb-e059-4c19-a59d-f50c3385ff39
-        IsWarm: 0
-        Type: Object
-        Description: Image
-      - Guid: a96b507d-8538-4023-a6c7-b6816f2aa496
-        IsWarm: 0
-        Type: 
-        Description: Color
-      Outputs: []
-      AttributesData: []
     - Name: Value
       Namespace: BasicNodes
       Guid: 0f69791e-92f3-4637-9d07-28d8dfbd201d
@@ -143,49 +159,16 @@ MonoBehaviour:
         Type: 0
     Links:
     - Input:
-        Guid: 9b64fe4b-ff6b-43c4-a008-f4760673d599
-        IsWarm: 1
-        Type: 
-        Description: R
+        Guid: 75fff1cb-e059-4c19-a59d-f50c3385ff39
+        IsWarm: 0
+        Type: Object
+        Description: Image
       Output:
-        Guid: ccf47282-38b6-4ea0-b47b-dcab450cbfda
+        Guid: 3457ae90-e194-4c8e-ab73-559203374138
         IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 202
-    - Input:
-        Guid: 4004d97d-c2c4-4d04-b4f5-47ba8ac1dae0
-        IsWarm: 1
-        Type: 
-        Description: G
-      Output:
-        Guid: d83108c9-9c6a-4004-807e-0297070332f0
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 222
-    - Input:
-        Guid: aa98a29c-1254-4c64-b4f0-eeae5a6b4fe8
-        IsWarm: 1
-        Type: 
-        Description: B
-      Output:
-        Guid: daf52ac8-6968-4823-a1cb-b81e49fdbf60
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 242
-    - Input:
-        Guid: b9bb22f5-483a-4a56-a4c8-f4d1d024107f
-        IsWarm: 1
-        Type: 
-        Description: A
-      Output:
-        Guid: 90bcd052-9282-4b27-a959-904c03e624c8
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 262
+        Type: Object
+        Description: Unity object
+      outputPositionY: 208.5
     - Input:
         Guid: a96b507d-8538-4023-a6c7-b6816f2aa496
         IsWarm: 0
@@ -196,4 +179,48 @@ MonoBehaviour:
         IsWarm: 0
         Type: 
         Description: Color[R][G][B][A]
-      outputPositionY: 332.5
+      outputPositionY: 228.5
+    - Input:
+        Guid: 9b64fe4b-ff6b-43c4-a008-f4760673d599
+        IsWarm: 1
+        Type: 
+        Description: R
+      Output:
+        Guid: ccf47282-38b6-4ea0-b47b-dcab450cbfda
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 252
+    - Input:
+        Guid: 4004d97d-c2c4-4d04-b4f5-47ba8ac1dae0
+        IsWarm: 1
+        Type: 
+        Description: G
+      Output:
+        Guid: d83108c9-9c6a-4004-807e-0297070332f0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 272
+    - Input:
+        Guid: aa98a29c-1254-4c64-b4f0-eeae5a6b4fe8
+        IsWarm: 1
+        Type: 
+        Description: B
+      Output:
+        Guid: daf52ac8-6968-4823-a1cb-b81e49fdbf60
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 292
+    - Input:
+        Guid: b9bb22f5-483a-4a56-a4c8-f4d1d024107f
+        IsWarm: 1
+        Type: 
+        Description: A
+      Output:
+        Guid: 90bcd052-9282-4b27-a959-904c03e624c8
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 312
