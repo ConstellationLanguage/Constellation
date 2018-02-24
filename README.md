@@ -18,14 +18,15 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - OSC support with pure data examples.
 
 # Want to help?
+- Join us on [discord](https://discord.gg/Cx2k7We) and share your experience with us.
+- Follow us on [Twitter](https://twitter.com/ConstellationVS).
 - Share our [facebook](https://www.facebook.com/ConstellationEditor/) page.
 - Share our [website](https://www.constellationeditor.com/).
+- Post your ideas on [reddit](https://www.reddit.com/r/ConstellationVS/).
 - [Contribution instructions](https://github.com/AntoineCharton/Constellation/wiki/).
 
 # Ready to start?
-[Wiki](https://github.com/AntoineCharton/Constellation/wiki)
-
-[Discord](https://discord.gg/Cx2k7We)
+[Wiki](https://github.com/ConstellationLanguage/Constellation/wiki)
 
 [Forum](https://www.constellationeditor.com/forum-1)
 

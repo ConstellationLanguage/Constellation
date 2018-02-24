@@ -1,5 +1,5 @@
-using System.Text.RegularExpressions;
 using Constellation;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -30,6 +30,18 @@ namespace ConstellationEditor {
                     EditorGUI.LabelField (size, Value.GetString ());
                     return Value;
                 case Attribute.AttributeType.ReadOnlyZValue:
+                    EditorGUI.LabelField (size, Value.GetString ());
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueR:
+                    EditorGUI.LabelField (size, Value.GetString ());
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueG:
+                    EditorGUI.LabelField (size, Value.GetString ());
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueB:
+                    EditorGUI.LabelField (size, Value.GetString ());
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueA:
                     EditorGUI.LabelField (size, Value.GetString ());
                     return Value;
                 default:
@@ -63,6 +75,18 @@ namespace ConstellationEditor {
                     return Value;
                 case Attribute.AttributeType.ReadOnlyZValue:
                     Value.Set ("Z");
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueR:
+                    Value.Set ("R");
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueG:
+                    Value.Set ("G");
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueB:
+                    Value.Set ("B");
+                    return Value;
+                case Attribute.AttributeType.ReadOnlyValueA:
+                    Value.Set ("A");
                     return Value;
                 default:
                     return Value;
