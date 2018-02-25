@@ -6,12 +6,93 @@ namespace Constellation {
     public class Constellation : ConstellationObject {
         private List<Node<INode>> Nodes;
         public List<Link> Links;
+        public List<IUpdatable> updatables;
+        public List<IAwakable> Awakables;
+        public List<ILateUpdatable> lateUpdatables;
 
         public override void Initialize (string _guid) {
             base.Initialize (_guid);
             if (Nodes == null)
                 Nodes = new List<Node<INode>> ();
             Name = "Constellation";
+        }
+
+        public void Awake () {
+            foreach (var awakables in Awakables) {
+                awakables.OnAwake ();
+            }
+        }
+
+        public void SetAwakables () {
+            if (Awakables == null)
+                Awakables = new List<IAwakable> ();
+
+            foreach (var node in GetNodes ()) {
+                if (node.NodeType as IAwakable != null) {
+                    Awakables.Add (node.NodeType as IAwakable);
+                }
+            }
+        }
+
+        public void SetUpdatables () {
+            if (updatables == null)
+                updatables = new List<IUpdatable> ();
+
+            foreach (var node in GetNodes ()) {
+                if (node.NodeType as IUpdatable != null) {
+                    updatables.Add (node.NodeType as IUpdatable);
+                }
+            }
+        }
+
+        public void Update () {
+            foreach (var updatable in updatables) {
+                updatable.OnUpdate ();
+            }
+        }
+
+        public void LateUpdate(){
+            foreach(var lateUpdatable in lateUpdatables){
+                lateUpdatable.OnLateUpdate();
+            }
+        }
+
+        public void SetLateUpdatables () {
+            if (lateUpdatables == null)
+                lateUpdatables = new List<ILateUpdatable> ();
+
+            foreach (var node in GetNodes ()) {
+                if (node.NodeType as ILateUpdatable != null) {
+                    lateUpdatables.Add (node.NodeType as ILateUpdatable);
+                }
+            }
+        }
+
+        public void SubscribeUpdate (IUpdatable _updatable) {
+            updatables.Add (_updatable);
+        }
+
+        public void RemoveUpdatable (IUpdatable _updatable) {
+            updatables.Remove (_updatable);
+        }
+
+        public void RefreshConstellationEvents () {
+            updatables = null;
+            Awakables = null;
+            lateUpdatables = null;
+            SetConstellationEvents();
+        }
+
+        public void SetConstellationEvents () {
+            SetUpdatables ();
+            SetLateUpdatables ();
+            SetAwakables ();
+        }
+
+        public void AddLink (LinkData link) {
+            AddLink (new Link (GetInput (link.Input.Guid),
+                GetOutput (link.Output.Guid),
+                GetOutput (link.Output.Guid).Type), "none");
         }
 
         public Input GetInput (string guid) {
@@ -35,7 +116,7 @@ namespace Constellation {
         }
 
         public void SetTeleportsIn () {
-            
+
         }
 
         public void SetTeleportsOut () {
