@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72031b8cdebc5dc42a100b3b0b823f8f, type: 3}
   m_Name: EditorData
   m_EditorClassIdentifier: 
-  LastOpenedConstellationPath: []
+  LastOpenedConstellationPath:
+  - 
   EditorUndoService:
     Actions:
     - Nodes:
