@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+
 public interface IGUI {
     void DragWindow();
     void SetColor(Color color);
