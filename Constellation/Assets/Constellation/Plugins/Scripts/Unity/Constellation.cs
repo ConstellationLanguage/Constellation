@@ -29,6 +29,19 @@ namespace Constellation {
             return null;
         }
 
+        public void SetTeleports () {
+            SetTeleportsIn ();
+            SetTeleportsOut ();
+        }
+
+        public void SetTeleportsIn () {
+            
+        }
+
+        public void SetTeleportsOut () {
+
+        }
+
         public Node<INode>[] GetNodes () {
             if (Nodes == null)
                 Nodes = new List<Node<INode>> ();
@@ -63,22 +76,22 @@ namespace Constellation {
         public void RemovedNode (string guid) {
             foreach (var node in Nodes) {
                 if (node.Guid == guid) {
-                    var links = Links.ToArray();
+                    var links = Links.ToArray ();
                     foreach (var link in links) {
                         foreach (var input in node.Inputs) {
                             if (link.Input.Guid == input.Guid) {
-                                link.OnDestroy();
+                                link.OnDestroy ();
                                 Links.Remove (link);
                             }
                         }
                         foreach (var output in node.Outputs) {
                             if (link.Output.Guid == output.Guid) {
-                                link.OnDestroy();
+                                link.OnDestroy ();
                                 Links.Remove (link);
                             }
                         }
                     }
-                    node.Destroy();
+                    node.Destroy ();
                     Nodes.Remove (node);
                     return;
                 }

@@ -20,6 +20,7 @@ namespace ConstellationEditor {
         }
 
         public void DestroySelection () {
+
             foreach (var node in SelectedNodes) {
                 node.DestroyNode();
             }

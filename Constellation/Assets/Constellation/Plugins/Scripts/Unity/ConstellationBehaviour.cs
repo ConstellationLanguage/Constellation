@@ -20,10 +20,10 @@ namespace Constellation {
         public void Awake () {
             if (ConstellationBehaviour.eventSystem == null)
                 eventSystem = new ConstellationEventSystem ();
-            
-            if(NodesFactory.Current == null)
-                nodeFactory = new NodesFactory();
-            else 
+
+            if (NodesFactory.Current == null)
+                nodeFactory = new NodesFactory ();
+            else
                 nodeFactory = NodesFactory.Current;
 
             if (ConstellationData == null && Application.isPlaying) {
@@ -41,7 +41,7 @@ namespace Constellation {
                     Constellation.GetOutput (link.Output.Guid),
                     Constellation.GetOutput (link.Output.Guid).Type), "none");
             }
-            SetUnityObject();
+            SetUnityObject ();
             SetConstellationEvents ();
             foreach (var awakables in Awakables) {
                 awakables.OnAwake ();
@@ -174,6 +174,10 @@ namespace Constellation {
 
         void Start () {
 
+        }
+
+        public void SetTeleports() {
+            Constellation.SetTeleports();
         }
 
         public void SetCollisionStay () {

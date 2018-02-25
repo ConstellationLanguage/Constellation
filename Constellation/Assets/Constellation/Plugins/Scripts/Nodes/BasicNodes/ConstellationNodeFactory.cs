@@ -41,6 +41,12 @@
                 case CodeVar.NAME:
                     INode nodeGetVar = new CodeVar()  as INode;
                     return new Node<INode>(nodeGetVar);
+                case TeleportIn.NAME:
+                    INode nodeTeleportIn = new TeleportIn() as INode;
+                    return new Node<INode>(nodeTeleportIn);
+                case TeleportOut.NAME:
+                    INode nodeTeleportOut = new TeleportOut() as INode;
+                    return new Node<INode>(nodeTeleportOut);
                 default:
                     return null;
             }
