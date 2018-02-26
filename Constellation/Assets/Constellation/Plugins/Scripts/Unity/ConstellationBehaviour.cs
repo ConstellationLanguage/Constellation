@@ -53,6 +53,7 @@ namespace Constellation {
         }
 
         public void SetConstellationEvents () {
+            Constellation.SetConstellationEvents();
             SetCollisionEnter ();
             SetCollisionExit ();
             SetCollisionStay ();
@@ -153,10 +154,6 @@ namespace Constellation {
                 return true;
 
             return false;
-        }
-
-        public void SetTeleports() {
-            Constellation.SetTeleports();
         }
 
         public void SetCollisionStay () {

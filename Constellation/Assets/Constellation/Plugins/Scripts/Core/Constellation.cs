@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace Constellation {
     [System.Serializable]
-    public class Constellation : ConstellationObject {
+    public class Constellation : ConstellationObject, ITeleportIn {
         private List<Node<INode>> Nodes;
         public List<Link> Links;
         public List<IUpdatable> updatables;
         public List<IAwakable> Awakables;
         public List<ILateUpdatable> lateUpdatables;
+        public List<ITeleportIn> teleportsIn;
+        public List<ITeleportOut> teleportsOut;
 
         public override void Initialize (string _guid) {
             base.Initialize (_guid);
@@ -45,15 +47,22 @@ namespace Constellation {
             }
         }
 
+        public void OnTeleport (Variable var, string id)
+        {
+            foreach (var teleport in teleportsIn) {
+                teleport.OnTeleport(var, id);
+            }
+        }
+
         public void Update () {
             foreach (var updatable in updatables) {
                 updatable.OnUpdate ();
             }
         }
 
-        public void LateUpdate(){
-            foreach(var lateUpdatable in lateUpdatables){
-                lateUpdatable.OnLateUpdate();
+        public void LateUpdate () {
+            foreach (var lateUpdatable in lateUpdatables) {
+                lateUpdatable.OnLateUpdate ();
             }
         }
 
@@ -80,10 +89,11 @@ namespace Constellation {
             updatables = null;
             Awakables = null;
             lateUpdatables = null;
-            SetConstellationEvents();
+            SetConstellationEvents ();
         }
 
         public void SetConstellationEvents () {
+            SetTeleports ();
             SetUpdatables ();
             SetLateUpdatables ();
             SetAwakables ();
@@ -117,10 +127,29 @@ namespace Constellation {
 
         public void SetTeleportsIn () {
 
+            if (teleportsIn == null)
+                teleportsIn = new List<ITeleportIn> ();
+
+            foreach (var node in GetNodes ()) {
+                if (node.NodeType as ITeleportIn != null) {
+                    var newTeleportIn = node.NodeType as ITeleportIn;
+                    teleportsIn.Add (newTeleportIn);
+                }
+            }
         }
 
         public void SetTeleportsOut () {
 
+            if (teleportsOut == null)
+                teleportsOut = new List<ITeleportOut> ();
+
+            foreach (var node in GetNodes ()) {
+                if (node.NodeType as ITeleportOut != null) {
+                    var newTeleportOut = node.NodeType as ITeleportOut;
+                    teleportsOut.Add (newTeleportOut);
+                    newTeleportOut.Set(this);
+                }
+            }
         }
 
         public Node<INode>[] GetNodes () {

@@ -1,13 +1,17 @@
 namespace Constellation.BasicNodes {
-    public class TeleportOut : INode, IReceiver {
+    public class TeleportOut : INode, IReceiver, ITeleportOut {
         public const string NAME = "TeleportOut";
         private Attribute eventName;
+        private ITeleportIn teleport;
 
         public void Setup (INodeParameters _node, ILogger _logger) {
-            _node.AddOutput (false, "Value received in the teleport");
+            _node.AddInput (this, true, "value to teleport");
             eventName = _node.AddAttribute (new Variable ("event name"), Attribute.AttributeType.Word, "The event name");
         }
-    
+
+        public void Set (ITeleportIn teleporter) {
+            this.teleport = teleporter;
+        }
 
         public string NodeName () {
             return NAME;
@@ -18,8 +22,7 @@ namespace Constellation.BasicNodes {
         }
 
         public void Receive (Variable value, Input _input) {
-            if (_input.isWarm)
-                ConstellationBehaviour.eventSystem.SendEvent (eventName.Value.GetString(), value);
+            teleport.OnTeleport(value, this.eventName.Value.GetString());
         }
     }
 }
