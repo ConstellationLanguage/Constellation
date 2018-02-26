@@ -60,7 +60,7 @@ namespace ConstellationEditor {
             UpdateSelectionArea(selectionOffset, Event.current, nodes);
 
             //Mouse over
-            if (DragSize == Vector2.zero && !current.IsUsed() && !current.MouseDrag()) {
+            if (DragSize == Vector2.zero && !current.IsUsed() && !current.MouseDrag()){
                 if (SelectedNodes.Count <= 1) {
                     UnselectAll();
                     var selection = SelectNode(nodes, hoverPosition);
@@ -106,8 +106,7 @@ namespace ConstellationEditor {
         }
         
         public void DragSelection () {
-            //TODO: Sometimes nodes might move with varying speeds
-            //      Haven't found a way to reproduce this.
+            
             if (SelectedNodes.Count < 2)
                 return;
 
