@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: uDD_Screen_Unlit_Displacement
+  m_Shader: {fileID: 4800000, guid: 05df46eb51b13c84eabbdf4c53cc8db7, type: 3}
+  m_ShaderKeywords: BEND_ON _CULL_OFF _FORWARD_Z
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CursorTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DispTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Bend: 1
+    - _Cull: 0
+    - _DispFactor: 0.72
+    - _Displacement: 0.3
+    - _Forward: 1
+    - _InsideTessFactor: 1
+    - _Radius: 100
+    - _TessDistFactor: 3
+    - _TessDistPower: 1.545
+    - _TessEdgeLen: 1
+    - _TessFactor: 0.1
+    - _TessMaxDist: 72.4
+    - _TessMinDist: 55.4
+    - _Thickness: 10
+    - _Width: 6.79
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
