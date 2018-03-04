@@ -216,7 +216,6 @@ namespace ConstellationEditor {
                 }
 
                 GUI.color = color;
-                var helpPosition = new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize);
                 if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize), "", nodeConfig.HelpStyle) && Event.current.button == 0) {
                     NodeHelpWindow.ShowHelpWindow(node.Name);
                 }

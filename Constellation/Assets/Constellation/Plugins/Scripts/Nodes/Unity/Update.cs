@@ -25,7 +25,6 @@
 		}
 
 		public void OnUpdate () {
-
 			sender.Send (value, 0);
 		}
 	}

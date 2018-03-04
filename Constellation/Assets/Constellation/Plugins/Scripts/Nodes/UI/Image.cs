@@ -4,15 +4,12 @@ namespace Constellation.UI {
 	public class Image : INode, IReceiver, IGameObject {
 		UnityEngine.UI.Image image;
 		public const string NAME = "Image";
-		private ISender output;
 		private Variable ColorVar;
 
 		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
 			_nodeParameters.AddInput (this, false, "Object", "Button object");
 			_nodeParameters.AddInput (this, false, "Object", "Image");
 			_nodeParameters.AddInput (this, false, "Color");
-
-			output = _nodeParameters.GetSender ();
 
 			Variable[] newColorVar = new Variable[4];
 			newColorVar[0] = new Variable ().Set (0);

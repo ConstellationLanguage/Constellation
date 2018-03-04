@@ -11,6 +11,9 @@ namespace Constellation.Experimental {
                 case OSCSend.NAME:
                     INode nodeOSCSend = new OSCSend () as INode;
                     return new Node<INode> (nodeOSCSend);
+                case DesktopCapture.NAME:
+                    INode nodeDestopCapture = new DesktopCapture() as INode;
+                    return new Node<INode> (nodeDestopCapture);
                 default:
                     return null;
             }

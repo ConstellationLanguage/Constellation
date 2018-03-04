@@ -129,16 +129,13 @@ namespace Constellation {
 
 		/// <summary>
 		/// return the node sender
-		/// 
 		/// </summary>
-
 		public ISender GetSender () {
 			return this;
 		}
 
 		/// <summary>
 		/// Use this function if you want to log a variable from your node.
-		/// 
 		/// </summary>
 		public void Log (Variable value) {
 			Debug.Log (value.GetString ());
@@ -165,6 +162,5 @@ namespace Constellation {
 		public virtual void Send (Variable value, int _output) {
 			Outputs[_output].Send (value);
 		}
-
 	}
 }

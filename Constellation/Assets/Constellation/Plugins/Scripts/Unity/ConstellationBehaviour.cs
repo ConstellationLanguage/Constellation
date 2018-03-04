@@ -4,9 +4,6 @@ using UnityEngine;
 namespace Constellation {
     public class ConstellationBehaviour : MonoBehaviour {
 
-        public List<IUpdatable> updatables;
-        public List<IAwakable> Awakables;
-        public List<ILateUpdatable> lateUpdatables;
         public List<ICollisionEnter> CollisionEnterListeners;
         public List<ICollisionStay> CollisionStayListeners;
         public List<ICollisionExit> CollisionExitListeners;
@@ -20,10 +17,10 @@ namespace Constellation {
         public void Awake () {
             if (ConstellationBehaviour.eventSystem == null)
                 eventSystem = new ConstellationEventSystem ();
-            
-            if(NodesFactory.Current == null)
-                nodeFactory = new NodesFactory();
-            else 
+
+            if (NodesFactory.Current == null)
+                nodeFactory = new NodesFactory ();
+            else
                 nodeFactory = NodesFactory.Current;
 
             if (ConstellationData == null && Application.isPlaying) {
@@ -41,33 +38,26 @@ namespace Constellation {
                     Constellation.GetOutput (link.Output.Guid),
                     Constellation.GetOutput (link.Output.Guid).Type), "none");
             }
-            SetUnityObject();
+            SetUnityObject ();
             SetConstellationEvents ();
-            foreach (var awakables in Awakables) {
-                awakables.OnAwake ();
-            }
+            Constellation.Awake();
         }
 
         public void RefreshConstellationEvents () {
-            updatables = null;
-            Awakables = null;
-            lateUpdatables = null;
             CollisionEnterListeners = null;
             CollisionStayListeners = null;
             CollisionExitListeners = null;
             FixedUpdatables = null;
+            Constellation.RefreshConstellationEvents();
             SetConstellationEvents ();
         }
 
         public void SetConstellationEvents () {
-            SetAwakables ();
-            SetUpdatables ();
-            SetLateUpdatables ();
+            Constellation.SetConstellationEvents();
             SetCollisionEnter ();
             SetCollisionExit ();
             SetCollisionStay ();
             SetFixedUpdate ();
-            SetAttribute ();
         }
 
         public void RemoveLink (LinkData linkData) {
@@ -79,9 +69,7 @@ namespace Constellation {
         }
 
         public void AddLink (LinkData link) {
-            Constellation.AddLink (new Link (Constellation.GetInput (link.Input.Guid),
-                Constellation.GetOutput (link.Output.Guid),
-                Constellation.GetOutput (link.Output.Guid).Type), "none");
+            Constellation.AddLink(link);
         }
 
         public void RemoveNode (NodeData node) {
@@ -168,14 +156,6 @@ namespace Constellation {
             return false;
         }
 
-        void SetAttribute () {
-
-        }
-
-        void Start () {
-
-        }
-
         public void SetCollisionStay () {
             if (CollisionStayListeners == null) {
                 CollisionStayListeners = new List<ICollisionStay> ();
@@ -212,28 +192,6 @@ namespace Constellation {
             }
         }
 
-        public void SetAwakables () {
-            if (Awakables == null)
-                Awakables = new List<IAwakable> ();
-
-            foreach (var node in Constellation.GetNodes ()) {
-                if (node.NodeType as IAwakable != null) {
-                    Awakables.Add (node.NodeType as IAwakable);
-                }
-            }
-        }
-
-        public void SetUpdatables () {
-            if (updatables == null)
-                updatables = new List<IUpdatable> ();
-
-            foreach (var node in Constellation.GetNodes ()) {
-                if (node.NodeType as IUpdatable != null) {
-                    updatables.Add (node.NodeType as IUpdatable);
-                }
-            }
-        }
-
         public void SetFixedUpdate () {
             if (FixedUpdatables == null)
                 FixedUpdatables = new List<IFixedUpdate> ();
@@ -258,21 +216,8 @@ namespace Constellation {
             }
         }
 
-        public void SetLateUpdatables () {
-            if (lateUpdatables == null)
-                lateUpdatables = new List<ILateUpdatable> ();
-
-            foreach (var node in Constellation.GetNodes ()) {
-                if (node.NodeType as ILateUpdatable != null) {
-                    lateUpdatables.Add (node.NodeType as ILateUpdatable);
-                }
-            }
-        }
-
         void Update () {
-            foreach (var updatable in updatables) {
-                updatable.OnUpdate ();
-            }
+            Constellation.Update();
         }
 
         void FixedUpdate () {
@@ -282,17 +227,7 @@ namespace Constellation {
         }
 
         void LateUpdate () {
-            foreach (var lateUpdatable in lateUpdatables) {
-                lateUpdatable.OnLateUpdate ();
-            }
-        }
-
-        public void SubscribeUpdate (IUpdatable _updatable) {
-            updatables.Add (_updatable);
-        }
-
-        public void RemoveUpdatable (IUpdatable _updatable) {
-            updatables.Remove (_updatable);
+            Constellation.LateUpdate();
         }
 
         public void Log (Variable value) {

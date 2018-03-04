@@ -11,6 +11,9 @@ namespace Constellation.UI {
                 case Image.NAME:
                     INode nodeImage = new Image() as INode;
                     return new Node<INode> (nodeImage);
+                case Slider.NAME:
+                    INode nodeSlider = new Slider() as INode;
+                    return new Node<INode> (nodeSlider);
                 default:
                     return null;
             }

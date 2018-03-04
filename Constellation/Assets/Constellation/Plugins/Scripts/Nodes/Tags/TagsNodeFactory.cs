@@ -5,6 +5,9 @@ namespace Constellation.Tags {
                 case Tutorial.NAME:
                     INode nodeTutorial = new Tutorial () as INode;
                     return new Node<INode> (nodeTutorial);
+                case Component.NAME:
+                    INode nodeComponent = new Component() as INode;
+                    return new Node<INode> (nodeComponent);
                 default:
                     return null;
             }
