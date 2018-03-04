@@ -34,6 +34,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 
 # Dependencies
 [Unity OSC](https://github.com/thomasfredericks/UnityOSC) from Thomas Fredericks
+
 [uDesktopDuplication](https://github.com/hecomi/uDesktopDuplication) from hecomi
 
 
