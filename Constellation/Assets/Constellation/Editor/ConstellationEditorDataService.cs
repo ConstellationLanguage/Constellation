@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ConstellationEditor {
     public class ConstellationEditorDataService {
-        private ConstellationScript Script;
+        private IConstellationScript Script;
         protected ConstellationEditorData EditorData;
         public List<string> currentPath;
         private bool isSaved;
@@ -22,7 +22,7 @@ namespace ConstellationEditor {
         }
 
         public void AddAction () {
-            EditorData.EditorUndoService.AddAction (Script.script);
+            EditorData.EditorUndoService.AddAction (Script.GetData());
         }
 
         public void Undo () {
@@ -80,7 +80,8 @@ namespace ConstellationEditor {
         }
 
         public void New () {
-            Script = ScriptableObject.CreateInstance<ConstellationScript> ();
+            var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            Script = constellationScript as IConstellationScript;
             var path = EditorUtility.SaveFilePanel ("Save Constellation", Application.dataPath, "NewConstellation" + ".asset", "asset");
 
             if (path.StartsWith (Application.dataPath)) {
@@ -90,7 +91,7 @@ namespace ConstellationEditor {
                 Script = null;
                 return;
             }
-            AssetDatabase.CreateAsset (Script, path);
+            AssetDatabase.CreateAsset (constellationScript, path);
             if (currentPath == null)
                 currentPath = new List<string> (EditorData.LastOpenedConstellationPath.ToArray ());
 
@@ -98,7 +99,7 @@ namespace ConstellationEditor {
             SaveEditorData ();
         }
 
-        public ConstellationScript GetCurrentScript () {
+        public IConstellationScript GetCurrentScript () {
             return Script;
         }
 
@@ -130,6 +131,36 @@ namespace ConstellationEditor {
             return t;
         }
 
+        public void OpenConstellationInstance (Constellation.Constellation constellation) {
+            var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            Script = constellation as IConstellationScript;
+            var path = "Assets/Constellation/Editor/EditorData/"+ constellation.Name +"_Instance_.asset";
+
+            if (path == null || path == "") {
+                Script = null;
+                return;
+            }
+            AssetDatabase.CreateAsset (constellationScript, path);
+            if (currentPath == null)
+                currentPath = new List<string> (EditorData.LastOpenedConstellationPath.ToArray ());
+            
+            var nodes = constellation.GetNodes();
+            var links = constellation.GetLinks();
+
+            foreach(var node in nodes) {
+                Script.AddNode(node);
+            }
+
+            currentPath.Insert (0, path);
+            SaveEditorData ();
+            
+            foreach(var link in links) {
+                Script.AddLink(link);
+            }
+
+            SaveEditorData();
+        }
+
         public ConstellationScript Recover (string _path) {
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (_path, typeof (ConstellationScript));
             Script = t;
@@ -148,8 +179,8 @@ namespace ConstellationEditor {
         }
 
         public void SetSliderY (float position) {
-             EditorData.SliderY = position;
-             SaveEditorData ();
+            EditorData.SliderY = position;
+            SaveEditorData ();
         }
 
         public float GetLastEditorScrollPositionX () {
@@ -161,7 +192,7 @@ namespace ConstellationEditor {
         }
 
         public void Save () {
-            EditorUtility.SetDirty (Script);
+            EditorUtility.SetDirty (Script.GetScriptObject() as UnityEngine.Object);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
         }

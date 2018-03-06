@@ -4,12 +4,12 @@ using UnityEditor;
 
 namespace ConstellationEditor {
     public class LinkView {
-        private ConstellationScript constellationScript;
+        private IConstellationScript constellationScript;
 		private NodeEditorPanel editor;
         private NodeConfig nodeConfig;
         private bool dragging;
 
-        public LinkView (IGUI _gui, NodeEditorPanel _editor, ConstellationScript _constellationScript, NodeConfig _nodeConfig) {
+        public LinkView (IGUI _gui, NodeEditorPanel _editor, IConstellationScript _constellationScript, NodeConfig _nodeConfig) {
             constellationScript = _constellationScript;
             editor = _editor;
             nodeConfig = _nodeConfig;

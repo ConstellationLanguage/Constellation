@@ -1,12 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Constellation {
-    public class ConstellationScript : ScriptableObject {
-        public ConstellationScriptData script;
+    public class ConstellationScript : ScriptableObject, IConstellationScript {
+        private ConstellationScriptData script;
 
-        public ConstellationScript Set (ConstellationScriptData _script) {
+
+        public ConstellationScriptData GetData()
+        {
+            return script;
+        }
+        public void Set (ConstellationScriptData _script) {
+            if(script == null)
+                script = new ConstellationScriptData();
             script.Nodes = new List<NodeData>();
             script.Links = new List<LinkData>();
 
@@ -18,7 +24,6 @@ namespace Constellation {
                 foreach(var link in _script.Links) {
                     AddLink(link);
             }
-            return this;
         }
 
         public NodeData AddNode (NodeData _node) {
@@ -92,6 +97,11 @@ namespace Constellation {
 
         public void RemoveLink (LinkData _link) {
             script.Links.Remove (_link);
+        }
+
+        public System.Object GetScriptObject()
+        {
+            return this;
         }
     }
 }

@@ -33,8 +33,8 @@ namespace Constellation {
                 _node.Initialize (System.Guid.NewGuid ().ToString ());
             }
 
-            XPosition = 0;
-            YPosition = 0;
+            XPosition =_node.XPosition;
+            YPosition =_node.YPosition;
             Name = _node.Name;
             Namespace = _node.Namespace;
             Guid = _node.GetGuid ();
@@ -57,8 +57,8 @@ namespace Constellation {
                 AttributesData.Add (new AttributeData (attribute.Type, attribute.Value));
             }
 
-            XPosition = 0;
-            YPosition = 0;
+            XPosition = _node.XPosition;
+            YPosition = _node.YPosition;
             Name = _node.Name;
             Namespace = _node.Namespace;
             Guid = _node.Guid;

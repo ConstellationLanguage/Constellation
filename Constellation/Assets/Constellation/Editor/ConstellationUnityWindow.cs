@@ -86,8 +86,8 @@ namespace ConstellationEditor {
         }
 
         [MenuItem ("Help/Constellation tutorials")]
-        static void Help() {
-            Application.OpenURL("https://github.com/AntoineCharton/Constellation/wiki");
+        static void Help () {
+            Application.OpenURL ("https://github.com/AntoineCharton/Constellation/wiki");
         }
 
         public void Undo () {
@@ -142,16 +142,16 @@ namespace ConstellationEditor {
             if (scriptDataService != null) {
                 nodeEditorPanel = new NodeEditorPanel (this, this, scriptDataService.GetCurrentScript (), this, scriptDataService.GetEditorData ().clipBoard, scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), OnLinkAdded, OnNodeAdded, OnNodeRemoved);
                 nodeTabPanel = new ConstellationTabPanel (this);
-                if (scriptDataService.GetCurrentScript () != null)
-                    WindowInstance.titleContent.text = scriptDataService.GetCurrentScript ().name;
-                else
-                    WindowInstance.titleContent.text = "Constellation";
+                // if (scriptDataService.GetCurrentScript () != null)
+                //     WindowInstance.titleContent.text = scriptDataService.GetCurrentScript ().GetData().name;
+                //else
+                WindowInstance.titleContent.text = "Constellation";
                 scriptDataService.ClearActions ();
             }
             nodeSelector = new NodeSelectorPanel (OnNodeAddRequested);
 
         }
-        
+
         void OnGUI () {
             if (Event.current.type == EventType.Layout) {
                 canDrawUI = true;
@@ -159,7 +159,7 @@ namespace ConstellationEditor {
 
             //Used to hide and show buttons
             if (Event.current.type == EventType.MouseMove) {
-                RequestRepaint();
+                RequestRepaint ();
             }
 
             if (canDrawUI) {
@@ -168,10 +168,9 @@ namespace ConstellationEditor {
                 } else if (!IsConstellationSelected ()) {
                     DrawStartGUI ();
                 }
-            }else 
-            {
-                GUI.Label(new Rect(0,0,500,500), "Loading");
-                Repaint();
+            } else {
+                GUI.Label (new Rect (0, 0, 500, 500), "Loading");
+                Repaint ();
             }
         }
 
@@ -195,19 +194,19 @@ namespace ConstellationEditor {
             nodeSelector.Draw (nodeSelectorWidht, position.height - 50);
             EditorGUILayout.EndHorizontal ();
 
-            RepaintIfRequested();
+            RepaintIfRequested ();
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
             WindowInstance.Recover ();
             WindowInstance.previousSelectedGameObject = null;
-        
+
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
         }
 
         void Update () {
             if (Application.isPlaying) {
-                RequestRepaint();
+                RequestRepaint ();
                 if (nodeEditorPanel != null && previousSelectedGameObject != null) {
                     nodeEditorPanel.Update (currentConstellationbehavior.Constellation);
                 }
@@ -220,7 +219,7 @@ namespace ConstellationEditor {
                 if (selectedConstellation != null) {
                     currentConstellationbehavior = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
-                    Open (AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
+                    OpenConstellationInstance (selectedConstellation.Constellation);
                 }
             }
         }

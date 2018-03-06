@@ -130,7 +130,7 @@ namespace Constellation {
             var attributesCounter = 0;
             foreach (NodeData node in nodes) {
                 var newNode = nodeFactory.GetNode (node);
-                Constellation.AddNode (newNode, node.Guid);
+                Constellation.AddNode (newNode, node.Guid, node);
                 if (IsAttribute (node) && Attributes != null) {
                     IAttribute nodeAttribute = newNode.NodeType as IAttribute;
                     if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
@@ -145,7 +145,7 @@ namespace Constellation {
 
         public void AddNode (NodeData node) {
             var newNode = nodeFactory.GetNode (node);
-            Constellation.AddNode (newNode, node.Guid);
+            Constellation.AddNode (newNode, node.Guid, node);
             AddUnityObject (newNode);
         }
 

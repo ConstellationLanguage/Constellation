@@ -16,7 +16,7 @@ namespace ConstellationEditor {
         public LinkView LinksView;
         private EditorWindow EditorWindow;
         private IGUI GUI;
-        private ConstellationScript constellationScript;
+        private IConstellationScript constellationScript;
         private InputData selectedInput;
         private OutputData selectedOutput;
         private NodeConfig nodeConfig;
@@ -36,7 +36,7 @@ namespace ConstellationEditor {
 
         public NodeEditorPanel (IGUI _gui,
             EditorWindow _editorWindow,
-            ConstellationScript _script,
+            IConstellationScript _script,
             IUndoable _undoable,
             ClipBoard _editorClipBoard,
             float positionX,
@@ -168,12 +168,12 @@ namespace ConstellationEditor {
                 isDraggingWindow = true;
             }
             
-            var script = constellationScript.script;
+            var script = constellationScript.GetData();
             script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
             script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
             if(Event.current.button == 0)
                 GUI.DragWindow ();
-            EditorUtility.SetDirty (constellationScript);
+            EditorUtility.SetDirty (constellationScript.GetScriptObject() as UnityEngine.Object);
         }
 
         private void DrawIncompleteLink () {
