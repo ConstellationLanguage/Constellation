@@ -10,7 +10,6 @@ namespace ConstellationEditor {
         Vector2 editorScrollPos;
         Vector2 editorScrollSize;
         private Texture2D Background;
-        private const string editorPath = "Assets/Constellation/Editor/EditorAssets/";
         private string[] nodes;
         public List<NodeView> Nodes;
         public LinkView LinksView;
@@ -51,7 +50,7 @@ namespace ConstellationEditor {
             GUI = _gui;
             EditorWindow = _editorWindow;
             editorScrollSize = new Vector2 (500, 500);
-            Background = AssetDatabase.LoadAssetAtPath (editorPath + "background.png", typeof (Texture2D)) as Texture2D;
+            Background = AssetDatabase.LoadAssetAtPath (ConstellationEditor.GetEditorAssetPath() + "background.png", typeof (Texture2D)) as Texture2D;
             var allNodes = NodesFactory.GetAllNodes ();
             nodes = new string[allNodes.Length];
             editorScrollPos = new Vector2 (positionX, positionY);
@@ -283,6 +282,10 @@ namespace ConstellationEditor {
 
         public float GetHeight () {
             return panelSize.y;
+        }
+
+        public Vector2 GetScrollSize () {
+            return editorScrollSize;
         }
     }
 }

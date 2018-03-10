@@ -22,8 +22,17 @@ namespace ConstellationEditor {
         public Color ColdInputColor = Color.yellow;
         public Color WarmInputObjectColor = new Color(0.2f, 0.6f, 0.55f);
         public Color ColdInputObjectColor = new Color(0.2f, 0.3f, 0.6f);
+        public GUIStyle NodeStyle = new GUIStyle(GUI.skin.GetStyle("flow node 0")) {
+            alignment = TextAnchor.UpperRight,
+            margin = new RectOffset(0, 0, -5, 0)
+        };
+        public GUIStyle NodeHoverStyle = new GUIStyle(GUI.skin.GetStyle("flow node 0 on")) {
+            alignment = TextAnchor.UpperRight,
+            margin = new RectOffset(0, 0, -5, 0)
+        };
+        public GUIStyle NoteStyle = GUI.skin.GetStyle("VCS_StickyNote");
+        private GUIStyle noteHoverStyle;
         private GUIStyle helpStyle;
-        private GUIStyle noteHover;
 
         private GUIStyle InitHelpStyle () {
             helpStyle = new GUIStyle();
@@ -32,11 +41,12 @@ namespace ConstellationEditor {
         }
 
         private GUIStyle InitNoteHoverStyle () {
-            noteHover = new GUIStyle(GUI.skin.GetStyle("VCS_StickyNote"));
-            noteHover.normal.background = AssetDatabase.LoadAssetAtPath("Assets/Constellation/Editor/EditorAssets/note_on.png", typeof(Texture2D)) as Texture2D;
-            noteHover.border = new RectOffset(10, 10, 10, 10);
-            noteHover.overflow = new RectOffset(7, 7, 5, 10);
-            return noteHover;
+            
+            noteHoverStyle = new GUIStyle(NoteStyle);
+            noteHoverStyle.normal.background = EditorGUIUtility.Load(ConstellationEditor.GetEditorAssetPath() + "note_on.png") as Texture2D;
+            noteHoverStyle.border = new RectOffset(10, 10, 10, 10);
+            noteHoverStyle.overflow = new RectOffset(7, 7, 5, 10);
+            return noteHoverStyle;
         }
 
         public GUIStyle HelpStyle {
@@ -45,9 +55,9 @@ namespace ConstellationEditor {
             }
         }
 
-        public GUIStyle NoteHover {
+        public GUIStyle NoteHoverStyle {
             get {
-                return noteHover ?? InitNoteHoverStyle();
+                return noteHoverStyle ?? InitNoteHoverStyle();
             }
         }
     }

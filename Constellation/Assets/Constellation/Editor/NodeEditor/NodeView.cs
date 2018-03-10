@@ -42,16 +42,15 @@ namespace ConstellationEditor {
 
             if (DrawDescription)
                 DrawHelp(Description);
-
-            var defaultStyle = selected ? GUI.skin.GetStyle("flow node 0 on") : GUI.skin.GetStyle("flow node 0");
-            defaultStyle.alignment = TextAnchor.UpperRight;
-            defaultStyle.margin.top = -5;
             
-            if (node.Name != "Note")
-                Rect = GUI.Window(id, Rect, DrawNodeWindow, "", defaultStyle);
-            else
-                Rect = GUI.Window(id, new Rect(Rect.x, Rect.y, 120, 120), DrawNodeWindow, "", selected ? nodeConfig.NoteHover : GUI.skin.GetStyle("VCS_StickyNote"));
-
+            if (node.Name != "Note") {
+                var nodeStyle = selected ? nodeConfig.NodeHoverStyle : nodeConfig.NodeStyle;
+                Rect = GUI.Window(id, Rect, DrawNodeWindow, "", nodeStyle);
+            } else {
+                var noteStyle = selected ? nodeConfig.NoteHoverStyle : nodeConfig.NoteStyle;
+                Rect = GUI.Window(id, new Rect(Rect.x, Rect.y, 120, 120), DrawNodeWindow, "", noteStyle);
+            }
+            
             if (node.XPosition != Rect.x || node.YPosition != Rect.y) {
                 nodeMovement = new Vector2(node.XPosition - Rect.x, node.YPosition - Rect.y);
                 nodeMoved = true;
@@ -170,7 +169,7 @@ namespace ConstellationEditor {
                     if (GUI.Button(new Rect(0, nodeConfig.TopMargin + (nodeConfig.InputSize * i), nodeConfig.InputSize, nodeConfig.InputSize), "",
                             GetConnectionStyle(input.IsWarm, input.Type))) {
                         Event current = Event.current;
-                        if (current.button == 0)
+                        if (current.button == 0) 
                             editor.AddLinkFromInput(input);
                         else {
                             DrawDescription = true;
