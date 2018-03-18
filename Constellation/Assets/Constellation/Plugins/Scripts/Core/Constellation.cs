@@ -47,10 +47,10 @@ namespace Constellation {
             }
         }
 
-        public void OnTeleport (Variable var, string id)
-        {
+        public void OnTeleport (Variable
+            var, string id) {
             foreach (var teleport in teleportsIn) {
-                teleport.OnTeleport(var, id);
+                teleport.OnTeleport (var, id);
             }
         }
 
@@ -147,7 +147,7 @@ namespace Constellation {
                 if (node.NodeType as ITeleportOut != null) {
                     var newTeleportOut = node.NodeType as ITeleportOut;
                     teleportsOut.Add (newTeleportOut);
-                    newTeleportOut.Set(this);
+                    newTeleportOut.Set (this);
                 }
             }
         }
@@ -173,14 +173,22 @@ namespace Constellation {
             return null;
         }
 
-        public Node<INode> AddNode (Node<INode> node, string guid) {
+        public Node<INode> AddNode (Node<INode> node, string guid, NodeData nodeData = null) {
             if (Nodes == null)
                 Nodes = new List<Node<INode>> ();
 
             var newNode = node;
-            node.Initialize (guid);
-            Nodes.Add (node);
+            newNode.Initialize (guid);
+            if (nodeData != null) {
+                newNode.XPosition = nodeData.XPosition;
+                newNode.YPosition = nodeData.YPosition;
+            }
+            Nodes.Add (newNode);
             return newNode;
+        }
+
+        public Link[] GetLinks () {
+            return Links.ToArray ();
         }
 
         public void RemovedNode (string guid) {

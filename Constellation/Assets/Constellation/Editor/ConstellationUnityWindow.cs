@@ -220,7 +220,7 @@ namespace ConstellationEditor {
                 if (selectedConstellation != null) {
                     currentConstellationbehavior = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
-                    Open (AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
+                    OpenConstellationInstance (selectedConstellation.Constellation);
                 }
             }
         }

@@ -29,21 +29,21 @@ namespace Constellation.Unity {
 
             GameObject = new Variable ().Set (null as object);
             Variable[] newPositionVar = new Variable[3];
-            newPositionVar[0] = new Variable ().Set (0);
-            newPositionVar[1] = new Variable ().Set (0);
-            newPositionVar[2] = new Variable ().Set (0);
+            newPositionVar[0] = new Variable (0);
+            newPositionVar[1] = new Variable (0);
+            newPositionVar[2] = new Variable (0);
             Position = new Variable ().Set (newPositionVar);
             Variable[] newRotationVar = new Variable[3];
             
-            newRotationVar[0] = new Variable ().Set (0);
-            newRotationVar[1] = new Variable ().Set (0);
-            newRotationVar[2] = new Variable ().Set (0);
+            newRotationVar[0] = new Variable (0);
+            newRotationVar[1] = new Variable (0);
+            newRotationVar[2] = new Variable (0);
             Rotation = new Variable ().Set (newRotationVar);
 
             Variable[] newScaleVar = new Variable[3];
-            newScaleVar[0] = new Variable ().Set (0);
-            newScaleVar[1] = new Variable ().Set (0);
-            newScaleVar[2] = new Variable ().Set (0);
+            newScaleVar[0] = new Variable (0);
+            newScaleVar[1] = new Variable (0);
+            newScaleVar[2] = new Variable (0);
             Scale = new Variable ().Set (newScaleVar);
         }
 
@@ -81,9 +81,9 @@ namespace Constellation.Unity {
             if (_input.InputId == 1) {
                 Position.Set (value.GetArray ());
                 if(rigidBody == null || gameObject.activeInHierarchy == false)
-                    gameObject.transform.localPosition = new Vector3 (Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
+                    gameObject.transform.localPosition.Set(Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
                 else 
-                    rigidBody.position = new Vector3 (Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
+                    rigidBody.position.Set(Position.GetArrayVariable (0).GetFloat (), Position.GetArrayVariable (1).GetFloat (), Position.GetArrayVariable (2).GetFloat ());
             } else if (_input.InputId == 2) {
                 Rotation.Set (value.GetArray ());
                 if(rigidBody == null)
@@ -92,7 +92,7 @@ namespace Constellation.Unity {
                     rigidBody.rotation = Quaternion.Euler (new Vector3 (Rotation.GetArrayVariable (0).GetFloat (), Rotation.GetArrayVariable (1).GetFloat (), Rotation.GetArrayVariable (2).GetFloat ()));
             } else if (_input.InputId == 3) {
                 Scale.Set (value.GetArray ());
-                gameObject.transform.localScale = new Vector3 (Scale.GetArrayVariable (0).GetFloat (), Scale.GetArrayVariable (1).GetFloat (), Scale.GetArrayVariable (2).GetFloat ());
+                gameObject.transform.localScale.Set(Scale.GetArrayVariable (0).GetFloat (), Scale.GetArrayVariable (1).GetFloat (), Scale.GetArrayVariable (2).GetFloat ());
             } else if (_input.InputId == 0) {
                 var obj = UnityObjectsConvertions.ConvertToGameObject (value.GetObject ());
                 if (obj is GameObject) {

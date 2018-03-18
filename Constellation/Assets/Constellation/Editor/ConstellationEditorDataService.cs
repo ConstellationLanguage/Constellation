@@ -59,6 +59,38 @@ namespace ConstellationEditor {
             return EditorData;
         }
 
+        public void OpenConstellationInstance (Constellation.Constellation constellation) {
+            var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            var path = "Assets/Constellation/Editor/EditorData/" + constellation.Name + "_Instance_.asset";
+           
+
+            if (path == null || path == "") {
+                Script = null;
+                return;
+            }
+
+            Script = constellationScript;
+            AssetDatabase.CreateAsset (constellationScript, path);
+            if (currentPath == null)
+                currentPath = new List<string> (EditorData.LastOpenedConstellationPath.ToArray ());
+
+            var nodes = constellation.GetNodes ();
+            var links = constellation.GetLinks ();
+
+            foreach (var node in nodes) {
+                Script.AddNode (node);
+            }
+
+            currentPath.Insert (0, path);
+            SaveEditorData ();
+
+            foreach (var link in links) {
+                Script.AddLink (link);
+            }
+
+            SaveEditorData ();
+        }
+
         public bool RemoveOpenedConstellation (string name) {
             if (name == null)
                 return false;
@@ -148,8 +180,8 @@ namespace ConstellationEditor {
         }
 
         public void SetSliderY (float position) {
-             EditorData.SliderY = position;
-             SaveEditorData ();
+            EditorData.SliderY = position;
+            SaveEditorData ();
         }
 
         public float GetLastEditorScrollPositionX () {

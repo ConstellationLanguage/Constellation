@@ -10,6 +10,7 @@ namespace Constellation.Unity {
         private Variable valueY;
         private Variable valueZ;
         private Variable Result;
+        private Vector3 ScreenPosition;
 
         public const string NAME = "ScreenToWorld";
 
@@ -20,7 +21,7 @@ namespace Constellation.Unity {
             _nodeParameters.AddInput (this, true, "Calculate");
             sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput (false, "The hit position");
-
+            ScreenPosition = Vector3.zero;
             valueX = new Variable ().Set (0);
             valueY = new Variable ().Set (0);
             valueZ = new Variable ().Set (0);
@@ -46,7 +47,8 @@ namespace Constellation.Unity {
                 valueZ.Set (value.GetFloat ());
 
             if (_input.InputId == 3) {
-                hitPosition = Camera.main.ScreenToWorldPoint (new Vector3 (valueX.GetFloat (), valueY.GetFloat (), valueZ.GetFloat ()));
+                ScreenPosition.Set(valueX.GetFloat (), valueY.GetFloat (), valueZ.GetFloat ());
+                hitPosition = Camera.main.ScreenToWorldPoint (ScreenPosition);
                 Variable[] newVar = new Variable[3];
                 newVar[0] = new Variable().Set(hitPosition.x);
                 newVar[1] = new Variable().Set(hitPosition.y);
