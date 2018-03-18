@@ -2,7 +2,7 @@
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
         protected ConstellationEditorDataService scriptDataService;
         static protected bool canDrawUI = false;
-        protected string[] CurrentEditedInstancesName;
+        protected ConstellationInstanceObject[] CurrentEditedInstancesName;
 
         public void Awake () {
             Setup ();
@@ -50,6 +50,10 @@
 
         public void Save () {
             scriptDataService.Save ();
+        }
+
+        public void SaveInstance() {
+            scriptDataService.SaveInstance();
         }
 
         protected bool IsConstellationSelected () {

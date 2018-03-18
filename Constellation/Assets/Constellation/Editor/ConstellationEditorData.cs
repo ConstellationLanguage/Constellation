@@ -7,6 +7,6 @@ namespace ConstellationEditor {
 		public float SliderX;
 		public float SliderY;
 		public ClipBoard clipBoard;
-		public List<string> CurrentInstancePath;
+		public List<ConstellationInstanceObject> CurrentInstancePath;
 	}
 }

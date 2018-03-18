@@ -13,6 +13,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Word
+      Namespace: BasicNodes
+      Guid: 18c41840-044f-4cb3-8e58-76a25621e044
+      XPosition: 119.5
+      YPosition: 73
+      Inputs: []
+      Outputs:
+      - Guid: 419e4446-3dc8-45d4-95cc-b75065e9ab28
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: Patate
+          floatValue: 0.000001
+        Type: 1
+    - Name: Update
+      Namespace: Unity
+      Guid: 5a682334-e90d-464a-8bb1-151d5e204e05
+      XPosition: 119
+      YPosition: 190
+      Inputs: []
+      Outputs:
+      - Guid: ffb3208e-549c-4036-af28-397bffde9c07
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
     - Name: Transform
       Namespace: Unity
       Guid: f0b70a37-49e0-4da6-84ce-e00983873542
@@ -93,18 +121,6 @@ MonoBehaviour:
           stringValue: Z
           floatValue: 0.000001
         Type: 9
-    - Name: Update
-      Namespace: Unity
-      Guid: 5a682334-e90d-464a-8bb1-151d5e204e05
-      XPosition: 118
-      YPosition: 211
-      Inputs: []
-      Outputs:
-      - Guid: ffb3208e-549c-4036-af28-397bffde9c07
-        IsWarm: 1
-        Type: 
-        Description: Ray on update
-      AttributesData: []
     - Name: Var
       Namespace: BasicNodes
       Guid: af81db22-f83b-47f2-bdd8-d4384cc77fd0
@@ -143,7 +159,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 17.22
+          floatValue: 5.4
         Type: 0
     Links:
     - Input:

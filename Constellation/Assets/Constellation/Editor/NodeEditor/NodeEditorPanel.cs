@@ -33,6 +33,9 @@ namespace ConstellationEditor {
         NodeAdded OnNodeAdded;
         public delegate void NodeRemoved (NodeData node);
         NodeRemoved OnNodeRemoved;
+
+        public delegate void ApplyInstanceChanges();
+        ApplyInstanceChanges OnApplyInstanceChanges;
         private NodesFactory nodesFactory;
 
         public NodeEditorPanel (IGUI _gui,
@@ -44,7 +47,8 @@ namespace ConstellationEditor {
             float positionY,
             LinkAdded linkAdded,
             NodeAdded nodeAdded,
-            NodeRemoved nodeRemoved) {
+            NodeRemoved nodeRemoved,
+            ApplyInstanceChanges applyInstanceChanges) {
             nodesFactory = new NodesFactory ();
             constellationScript = _script;
             undoable = _undoable;
@@ -62,6 +66,7 @@ namespace ConstellationEditor {
             OnLinkAdded += linkAdded;
             OnNodeAdded += nodeAdded;
             OnNodeRemoved += nodeRemoved;
+            OnApplyInstanceChanges += applyInstanceChanges;
             nodeEditorSelection = new NodeEditorSelection (GUI, _editorClipBoard);
         }
 
@@ -257,7 +262,9 @@ namespace ConstellationEditor {
         private void DrawInstancePannel()
         {
             GUI.SetColor(Color.yellow);
-            GUI.DrawButton(new Rect(0,0, 100, 25), "apply");
+            if(GUI.DrawButton(new Rect(0,0, 100, 25), "apply")) {
+                OnApplyInstanceChanges();
+            }
             GUI.SetColor(Color.white);
         }
 

@@ -8,7 +8,7 @@ namespace ConstellationEditor {
         private ConstellationScript Script;
         protected ConstellationEditorData EditorData;
         public List<string> currentPath;
-        public List<string> currentInstancePath;
+        public List<ConstellationInstanceObject> currentInstancePath;
         private bool isSaved;
 
         public ConstellationEditorDataService () {
@@ -77,16 +77,17 @@ namespace ConstellationEditor {
             var links = constellation.GetLinks ();
 
             if (EditorData.CurrentInstancePath == null)
-                EditorData.CurrentInstancePath = new List<string> ();
+                EditorData.CurrentInstancePath = new List<ConstellationInstanceObject> ();
 
-            currentInstancePath = new List<string> (EditorData.CurrentInstancePath);
-            currentInstancePath.Add (instanceSourcePath);
-            if (!currentInstancePath.Contains (instanceSourcePath))
+            currentInstancePath = new List<ConstellationInstanceObject> (EditorData.CurrentInstancePath);
+            var newInstanceObject = new ConstellationInstanceObject(path, instanceSourcePath);
+            currentInstancePath.Add (newInstanceObject);
+            /*if (!currentInstancePath.Contains (instanceSourcePath))
                 currentInstancePath.Insert (0, path);
             else {
                 currentInstancePath.Remove (instanceSourcePath);
                 currentInstancePath.Insert (0, path);
-            }
+            }*/
 
             currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
             if (!currentPath.Contains (path))
@@ -107,11 +108,16 @@ namespace ConstellationEditor {
             SaveEditorData ();
         }
 
-        public void SaveInstance (string path) {
+        public void SaveInstance () {
             var newScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            var path = "";
+            foreach(var instancePath in currentInstancePath) {
+                if(instancePath.InstancePath == currentPath[0])
+                    path = instancePath.ScriptPath;
+            }
+            Debug.Log("Saving instance");
             AssetDatabase.CreateAsset (newScript, path);
             newScript.script = Script.script;
-            RessetInstancesPath ();
             Save ();
             Script = newScript;
         }
@@ -153,7 +159,7 @@ namespace ConstellationEditor {
                 }
             }
 
-            currentInstancePath = new List<string> ();
+            currentInstancePath = new List<ConstellationInstanceObject> ();
             SaveEditorData ();
         }
 
