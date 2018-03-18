@@ -13,8 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
   - Assets/Constellation/Editor/EditorData/_Instance_.asset
-  - Assets/Devdir/Test.asset
-  - Assets/Devdir/FlappyBirdExample/Scripts/Bird.asset
   EditorUndoService:
     Actions: []
     SelectedAction: -1
@@ -23,3 +21,4 @@ MonoBehaviour:
   clipBoard:
     nodes: []
     links: []
+  CurrentInstancePath: 

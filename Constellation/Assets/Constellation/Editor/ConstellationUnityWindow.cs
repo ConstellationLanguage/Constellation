@@ -182,7 +182,7 @@ namespace ConstellationEditor {
 
         protected virtual void DrawGUI () {
             TopBarPanel.Draw (this, this, this);
-            var constellationName = nodeTabPanel.Draw (scriptDataService.currentPath.ToArray ());
+            var constellationName = nodeTabPanel.Draw (scriptDataService.currentPath.ToArray (), "_Instance_");
             if (constellationName != null)
                 Open (constellationName);
 
@@ -220,7 +220,7 @@ namespace ConstellationEditor {
                 if (selectedConstellation != null) {
                     currentConstellationbehavior = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
-                    OpenConstellationInstance (selectedConstellation.Constellation);
+                    OpenConstellationInstance (selectedConstellation.Constellation, AssetDatabase.GetAssetPath(selectedConstellation.ConstellationData));
                 }
             }
         }

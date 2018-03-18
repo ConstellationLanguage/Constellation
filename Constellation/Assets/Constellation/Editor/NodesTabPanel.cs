@@ -7,13 +7,15 @@ public class ConstellationTabPanel {
         GUI = _gui;
     }
 
-    public string Draw (string[] constellationNames) {
+    public string Draw (string[] constellationNames, string instanceName) {
         GUI.SetColor (Color.white);
         GUILayout.BeginHorizontal ();
 
         foreach (var path in constellationNames) {
             var names = path.Split ('/');
-            var name = names[names.Length - 1].Split('.')[0];
+            var name = names[names.Length - 1].Split ('.') [0];
+            if (name == instanceName)
+                GUI.SetColor (Color.yellow);
             if (GUILayout.Button (name, "MiniToolbarButton", GUILayout.MaxWidth (125), GUILayout.MinWidth (125))) {
                 return path;
             }

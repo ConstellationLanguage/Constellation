@@ -30,9 +30,9 @@
             }
         }
 
-        public void OpenConstellationInstance (Constellation.Constellation constellation) {
+        public void OpenConstellationInstance (Constellation.Constellation constellation, string path) {
             scriptDataService = new ConstellationEditorDataService ();
-            scriptDataService.OpenConstellationInstance (constellation);
+            scriptDataService.OpenConstellationInstance (constellation, path);
             Setup ();
         }
 

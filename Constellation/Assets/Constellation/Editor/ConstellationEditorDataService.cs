@@ -8,6 +8,7 @@ namespace ConstellationEditor {
         private ConstellationScript Script;
         protected ConstellationEditorData EditorData;
         public List<string> currentPath;
+        public string currentInstancePath;
         private bool isSaved;
 
         public ConstellationEditorDataService () {
@@ -59,10 +60,9 @@ namespace ConstellationEditor {
             return EditorData;
         }
 
-        public void OpenConstellationInstance (Constellation.Constellation constellation) {
+        public void OpenConstellationInstance (Constellation.Constellation constellation, string instancePath) {
             var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
             var path = "Assets/Constellation/Editor/EditorData/" + constellation.Name + "_Instance_.asset";
-           
 
             if (path == null || path == "") {
                 Script = null;
@@ -71,24 +71,38 @@ namespace ConstellationEditor {
 
             Script = constellationScript;
             AssetDatabase.CreateAsset (constellationScript, path);
-            if (currentPath == null)
-                currentPath = new List<string> (EditorData.LastOpenedConstellationPath.ToArray ());
 
             var nodes = constellation.GetNodes ();
             var links = constellation.GetLinks ();
+            currentInstancePath = instancePath;
+
+            currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
+            if (!currentPath.Contains (instancePath))
+                currentPath.Insert (0, path);
+            else {
+                currentPath.Remove (instancePath);
+                currentPath.Insert (0, path);
+            }
 
             foreach (var node in nodes) {
                 Script.AddNode (node);
             }
-
-            currentPath.Insert (0, path);
-            SaveEditorData ();
 
             foreach (var link in links) {
                 Script.AddLink (link);
             }
 
             SaveEditorData ();
+        }
+
+        public void SaveInstance()
+        {
+            var newScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            AssetDatabase.CreateAsset (newScript, currentInstancePath);
+            newScript.script = Script.script;
+            RessetInstancesPath();
+            Save();
+            Script = newScript;
         }
 
         public bool RemoveOpenedConstellation (string name) {
@@ -106,9 +120,15 @@ namespace ConstellationEditor {
                 if (!EditorData.LastOpenedConstellationPath.Contains (path))
                     EditorData.LastOpenedConstellationPath.Add (path);
             }
+            EditorData.CurrentInstancePath = currentInstancePath;
             EditorUtility.SetDirty (EditorData);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
+        }
+
+        public void RessetInstancesPath () {
+            currentInstancePath = "";
+            SaveEditorData ();
         }
 
         public void New () {
