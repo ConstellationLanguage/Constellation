@@ -40,6 +40,7 @@ namespace Constellation {
             }
             SetUnityObject ();
             SetConstellationEvents ();
+            Constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.name);
             Constellation.Awake();
         }
 

@@ -30,7 +30,7 @@ namespace Constellation {
             }
 
             if (_node.GetGuid () == null) {
-                _node.Initialize (System.Guid.NewGuid ().ToString ());
+                _node.Initialize (System.Guid.NewGuid ().ToString (), _node.Name);
             }
 
             XPosition =_node.XPosition;

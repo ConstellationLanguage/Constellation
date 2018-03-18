@@ -1,21 +1,25 @@
 using UnityEngine;
-public class ConstellationTabPanel {
+public class ConstellationsTabPanel {
     private IGUI GUI;
     private string removeNode = "";
 
-    public ConstellationTabPanel (IGUI _gui) {
+    public ConstellationsTabPanel (IGUI _gui) {
         GUI = _gui;
     }
-
-    public string Draw (string[] constellationNames, string instanceName) {
+    
+    public string Draw (string[] constellationsPath, string[] instancesPath) {
         GUI.SetColor (Color.white);
         GUILayout.BeginHorizontal ();
 
-        foreach (var path in constellationNames) {
-            var names = path.Split ('/');
-            var name = names[names.Length - 1].Split ('.') [0];
-            if (name == instanceName)
-                GUI.SetColor (Color.yellow);
+        foreach (var path in constellationsPath) {
+            var constellationPath = path.Split ('/');
+            var name = constellationPath[constellationPath.Length - 1].Split ('.') [0];
+            if(instancesPath != null)
+                foreach (var instanceName in instancesPath) {
+                    if (path == instanceName)
+                        GUI.SetColor (Color.yellow);
+             }
+
             if (GUILayout.Button (name, "MiniToolbarButton", GUILayout.MaxWidth (125), GUILayout.MinWidth (125))) {
                 return path;
             }
@@ -25,7 +29,6 @@ public class ConstellationTabPanel {
             }
             GUI.SetColor (Color.grey);
             GUILayout.Space (10);
-
         }
         GUI.SetColor (Color.white);
         GUILayout.EndHorizontal ();

@@ -7,9 +7,10 @@
         public string Namespace;
         public string Guid;
 
-        public virtual void Initialize(string _guid)
+        public virtual void Initialize(string _guid, string _name)
         {
             Guid = _guid;
+            Name = _name;
         }
 
 

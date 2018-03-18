@@ -8,7 +8,7 @@ namespace ConstellationEditor {
         private ConstellationScript Script;
         protected ConstellationEditorData EditorData;
         public List<string> currentPath;
-        public string currentInstancePath;
+        public List<string> currentInstancePath;
         private bool isSaved;
 
         public ConstellationEditorDataService () {
@@ -60,9 +60,10 @@ namespace ConstellationEditor {
             return EditorData;
         }
 
-        public void OpenConstellationInstance (Constellation.Constellation constellation, string instancePath) {
+        public void OpenConstellationInstance (Constellation.Constellation constellation, string instanceSourcePath) {
             var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
-            var path = "Assets/Constellation/Editor/EditorData/" + constellation.Name + "_Instance_.asset";
+            constellationScript.IsInstance = true;
+            var path = "Assets/Constellation/Editor/EditorData/" + constellation.Name + "(Instance).asset";
 
             if (path == null || path == "") {
                 Script = null;
@@ -74,13 +75,24 @@ namespace ConstellationEditor {
 
             var nodes = constellation.GetNodes ();
             var links = constellation.GetLinks ();
-            currentInstancePath = instancePath;
+
+            if (EditorData.CurrentInstancePath == null)
+                EditorData.CurrentInstancePath = new List<string> ();
+
+            currentInstancePath = new List<string> (EditorData.CurrentInstancePath);
+            currentInstancePath.Add (instanceSourcePath);
+            if (!currentInstancePath.Contains (instanceSourcePath))
+                currentInstancePath.Insert (0, path);
+            else {
+                currentInstancePath.Remove (instanceSourcePath);
+                currentInstancePath.Insert (0, path);
+            }
 
             currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
-            if (!currentPath.Contains (instancePath))
+            if (!currentPath.Contains (path))
                 currentPath.Insert (0, path);
             else {
-                currentPath.Remove (instancePath);
+                currentPath.Remove (path);
                 currentPath.Insert (0, path);
             }
 
@@ -95,13 +107,12 @@ namespace ConstellationEditor {
             SaveEditorData ();
         }
 
-        public void SaveInstance()
-        {
+        public void SaveInstance (string path) {
             var newScript = ScriptableObject.CreateInstance<ConstellationScript> ();
-            AssetDatabase.CreateAsset (newScript, currentInstancePath);
+            AssetDatabase.CreateAsset (newScript, path);
             newScript.script = Script.script;
-            RessetInstancesPath();
-            Save();
+            RessetInstancesPath ();
+            Save ();
             Script = newScript;
         }
 
@@ -127,7 +138,22 @@ namespace ConstellationEditor {
         }
 
         public void RessetInstancesPath () {
-            currentInstancePath = "";
+            var constellationsToRemove = new List<string>();
+            
+            if (currentPath != null) {
+                foreach (var path in currentPath) {
+                    ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
+                    if(t.IsInstance) {
+                        constellationsToRemove.Add(path);
+                    }
+                }
+
+                foreach(var constellationToRemove in constellationsToRemove) {
+                    currentPath.Remove(constellationToRemove);
+                }
+            }
+
+            currentInstancePath = new List<string> ();
             SaveEditorData ();
         }
 
@@ -138,6 +164,7 @@ namespace ConstellationEditor {
             if (path.StartsWith (Application.dataPath)) {
                 path = "Assets" + path.Substring (Application.dataPath.Length);
             }
+
             if (path == null || path == "") {
                 Script = null;
                 return;

@@ -2,6 +2,7 @@
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
         protected ConstellationEditorDataService scriptDataService;
         static protected bool canDrawUI = false;
+        protected string[] CurrentEditedInstancesName;
 
         public void Awake () {
             Setup ();
@@ -30,9 +31,14 @@
             }
         }
 
+        public void RessetInstances () {
+            scriptDataService.RessetInstancesPath ();
+        }
+
         public void OpenConstellationInstance (Constellation.Constellation constellation, string path) {
             scriptDataService = new ConstellationEditorDataService ();
             scriptDataService.OpenConstellationInstance (constellation, path);
+            CurrentEditedInstancesName = scriptDataService.currentInstancePath.ToArray ();
             Setup ();
         }
 

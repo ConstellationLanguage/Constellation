@@ -9,22 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
-  m_Name: _Instance_
+  m_Name: Test(Instance)
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Update
-      Namespace: Unity
-      Guid: 5a682334-e90d-464a-8bb1-151d5e204e05
-      XPosition: 107
-      YPosition: 113
-      Inputs: []
-      Outputs:
-      - Guid: ffb3208e-549c-4036-af28-397bffde9c07
-        IsWarm: 1
-        Type: 
-        Description: Ray on update
-      AttributesData: []
     - Name: Transform
       Namespace: Unity
       Guid: f0b70a37-49e0-4da6-84ce-e00983873542
@@ -105,6 +93,18 @@ MonoBehaviour:
           stringValue: Z
           floatValue: 0.000001
         Type: 9
+    - Name: Update
+      Namespace: Unity
+      Guid: 5a682334-e90d-464a-8bb1-151d5e204e05
+      XPosition: 118
+      YPosition: 211
+      Inputs: []
+      Outputs:
+      - Guid: ffb3208e-549c-4036-af28-397bffde9c07
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
     - Name: Var
       Namespace: BasicNodes
       Guid: af81db22-f83b-47f2-bdd8-d4384cc77fd0
@@ -132,8 +132,8 @@ MonoBehaviour:
     - Name: Value
       Namespace: BasicNodes
       Guid: b588f07d-7cfe-468c-a579-16297a5de7ab
-      XPosition: 108
-      YPosition: 382
+      XPosition: 109
+      YPosition: 303
       Inputs: []
       Outputs:
       - Guid: d950c578-6c13-45ba-b53d-3c7742104c97
@@ -143,7 +143,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 1.12
+          floatValue: 17.22
         Type: 0
     Links:
     - Input:
@@ -190,3 +190,4 @@ MonoBehaviour:
         Type: 
         Description: Ray on update
       outputPositionY: 276
+  IsInstance: 1

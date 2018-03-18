@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Constellation {
     public class ConstellationScript : ScriptableObject {
         public ConstellationScriptData script;
+        public bool IsInstance = false;
 
         public ConstellationScript Set (ConstellationScriptData _script) {
             script.Nodes = new List<NodeData>();

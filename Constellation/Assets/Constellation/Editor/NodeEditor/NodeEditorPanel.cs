@@ -26,6 +26,7 @@ namespace ConstellationEditor {
         private bool isDraggingWindow;
         private NodeEditorSelection nodeEditorSelection;
         private Vector2 panelSize = Vector2.zero;
+        private bool isInstance;
         public delegate void LinkAdded (LinkData link);
         LinkAdded OnLinkAdded;
         public delegate void NodeAdded (NodeData node);
@@ -68,6 +69,8 @@ namespace ConstellationEditor {
             foreach (NodeData nodeData in constellationScript.GetNodes ()) {
                 Nodes.Add (new NodeView (nodeData, this, nodeConfig, constellationScript));
             }
+            if(constellationScript.IsInstance)
+                isInstance = true;
         }
 
         public void Update (Constellation.Constellation constellation) {
@@ -243,10 +246,19 @@ namespace ConstellationEditor {
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();
+            if(isInstance)
+                DrawInstancePannel();
 
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
             nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);
+        }
+
+        private void DrawInstancePannel()
+        {
+            GUI.SetColor(Color.yellow);
+            GUI.DrawButton(new Rect(0,0, 100, 25), "apply");
+            GUI.SetColor(Color.white);
         }
 
         private void DrawBackgroundGrid (float _width, float _height) {
@@ -259,7 +271,8 @@ namespace ConstellationEditor {
                 var xOffset = Mathf.Round (GetCurrentScrollPosX () / Background.width) - 1;
                 var yOffset = Mathf.Round (GetCurrentScrollPosY () / Background.height) - 1;
                 var texRect = new Rect (0, 0, Background.width, Background.height);
-
+                if(isInstance)
+                    GUI.SetColor(Color.yellow);
                 for (var i = xOffset; i < xOffset + xCount; i++) {
                     for (var j = yOffset; j < yOffset + yCount; j++) {
                         texRect.x = i * Background.width;
@@ -267,6 +280,7 @@ namespace ConstellationEditor {
                         GUI.DrawTexture (texRect, Background);
                     }
                 }
+                GUI.SetColor(Color.white);
             }
         }
 
