@@ -31,7 +31,7 @@
             }
         }
 
-        public void RessetInstances () {
+        public void ResetInstances () {
             scriptDataService.RessetInstancesPath ();
         }
 

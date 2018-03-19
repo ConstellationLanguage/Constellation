@@ -80,7 +80,7 @@ namespace ConstellationEditor {
                 EditorData.CurrentInstancePath = new List<ConstellationInstanceObject> ();
 
             currentInstancePath = new List<ConstellationInstanceObject> (EditorData.CurrentInstancePath);
-            var newInstanceObject = new ConstellationInstanceObject(path, instanceSourcePath);
+            var newInstanceObject = new ConstellationInstanceObject (path, instanceSourcePath);
             currentInstancePath.Add (newInstanceObject);
             /*if (!currentInstancePath.Contains (instanceSourcePath))
                 currentInstancePath.Insert (0, path);
@@ -111,11 +111,10 @@ namespace ConstellationEditor {
         public void SaveInstance () {
             var newScript = ScriptableObject.CreateInstance<ConstellationScript> ();
             var path = "";
-            foreach(var instancePath in currentInstancePath) {
-                if(instancePath.InstancePath == currentPath[0])
+            foreach (var instancePath in currentInstancePath) {
+                if (instancePath.InstancePath == currentPath[0])
                     path = instancePath.ScriptPath;
             }
-            Debug.Log("Saving instance");
             AssetDatabase.CreateAsset (newScript, path);
             newScript.script = Script.script;
             Save ();
@@ -144,21 +143,25 @@ namespace ConstellationEditor {
         }
 
         public void RessetInstancesPath () {
-            var constellationsToRemove = new List<string>();
-            
+            var constellationsToRemove = new List<string> ();
+            if (currentInstancePath != null)
+                foreach (var constellationInstanceObject in currentInstancePath) {
+                    AssetDatabase.DeleteAsset (constellationInstanceObject.InstancePath);
+                }
+
             if (currentPath != null) {
                 foreach (var path in currentPath) {
                     ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
-                    if(t.IsInstance) {
-                        constellationsToRemove.Add(path);
+                    if (t.IsInstance) {
+                        constellationsToRemove.Add (path);
                     }
                 }
 
-                foreach(var constellationToRemove in constellationsToRemove) {
-                    currentPath.Remove(constellationToRemove);
+                foreach (var constellationToRemove in constellationsToRemove) {
+                    currentPath.Remove (constellationToRemove);
                 }
-            }
 
+            }
             currentInstancePath = new List<ConstellationInstanceObject> ();
             SaveEditorData ();
         }
@@ -246,7 +249,8 @@ namespace ConstellationEditor {
         }
 
         public void Save () {
-            EditorUtility.SetDirty (Script);
+            if(Script)
+                EditorUtility.SetDirty (Script);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
         }

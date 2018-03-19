@@ -207,7 +207,7 @@ namespace ConstellationEditor {
         static void OnPlayStateChanged (PlayModeStateChange state) {
             WindowInstance.Recover ();
             WindowInstance.previousSelectedGameObject = null;
-            WindowInstance.RessetInstances ();
+            WindowInstance.ResetInstances ();
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
         }
 

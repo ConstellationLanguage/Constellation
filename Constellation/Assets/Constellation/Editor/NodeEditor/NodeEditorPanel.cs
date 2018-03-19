@@ -1,7 +1,7 @@
-//C# Example
-using Constellation;
+//[TODO] AC Split this class into multiples ones. For example background could have it's own class.
 using System.Collections.Generic;
 using System.Linq;
+using Constellation;
 using UnityEditor;
 using UnityEngine;
 
@@ -34,7 +34,7 @@ namespace ConstellationEditor {
         public delegate void NodeRemoved (NodeData node);
         NodeRemoved OnNodeRemoved;
 
-        public delegate void ApplyInstanceChanges();
+        public delegate void ApplyInstanceChanges ();
         ApplyInstanceChanges OnApplyInstanceChanges;
         private NodesFactory nodesFactory;
 
@@ -74,8 +74,11 @@ namespace ConstellationEditor {
             foreach (NodeData nodeData in constellationScript.GetNodes ()) {
                 Nodes.Add (new NodeView (nodeData, this, nodeConfig, constellationScript));
             }
-            if(constellationScript.IsInstance)
+            if (constellationScript.IsInstance){
                 isInstance = true;
+                //Here should check if is different
+                constellationScript.IsDifferentThanSource = true;
+            }
         }
 
         public void Update (Constellation.Constellation constellation) {
@@ -83,9 +86,11 @@ namespace ConstellationEditor {
                 foreach (var nodeData in Nodes) {
                     if (node.Guid == nodeData.node.Guid) {
                         for (var i = 0; i < node.GetAttributes ().Length; i++) {
-                            if (!nodeData.IsAttributeValueChanged ())
+                            if (!nodeData.IsAttributeValueChanged ()) {
                                 nodeData.GetData ().AttributesData[i].Value.Set (node.GetAttributes () [i].Value.GetString ());
-                            else {
+                            } else {
+                                if (isInstance)
+                                    constellationScript.IsDifferentThanSource = true;
                                 node.GetAttributes () [i].Value.Set (nodeData.GetData ().AttributesData[i].Value);
                                 node.NodeType.Receive (nodeData.GetData ().AttributesData[i].Value, new Constellation.Input ("0000-0000-0000-0000", 999, true, "editor", "none"));
                             }
@@ -129,16 +134,16 @@ namespace ConstellationEditor {
             var i = 0;
             if (Nodes == null)
                 return;
-            
+
             if (Event.current.button == 2) {
                 editorScrollPos -= Event.current.delta * 0.5f;
-                RequestRepaint();
+                RequestRepaint ();
             }
-            
+
             foreach (NodeView node in Nodes) {
                 if (node == null)
                     return;
-                
+
                 node.DrawWindow (i, DrawNodeWindow, false);
                 i++;
                 farNodeX = Mathf.Max (node.GetRect ().x, farNodeX);
@@ -148,6 +153,10 @@ namespace ConstellationEditor {
         }
 
         public NodeData AddNode (string _nodeName, string _namespace) {
+
+            if (isInstance)
+                constellationScript.IsDifferentThanSource = true;
+
             var newNode = constellationScript.AddNode (nodesFactory.GetNode (_nodeName, _namespace));
             newNode.XPosition = editorScrollPos.x + (panelSize.x * 0.5f);
             newNode.YPosition = editorScrollPos.y + (panelSize.y * 0.5f);
@@ -161,26 +170,30 @@ namespace ConstellationEditor {
         void DrawNodeWindow (int id) {
             if (id < Nodes.Count) {
                 if (Nodes[id].NodeExist ()) {
-                    Nodes[id].DrawContent();
+                    Nodes[id].DrawContent ();
                 } else {
                     OnNodeRemoved (Nodes[id].node);
                     Nodes.Remove (Nodes[id]);
                     undoable.AddAction ();
                 }
             }
-            
+
             if (Event.current.delta == Vector2.zero && isDraggingWindow && Event.current.isMouse) {
                 undoable.AddAction ();
                 isDraggingWindow = false;
+
+                if (isInstance)
+                    constellationScript.IsDifferentThanSource = true;
             } else if (Event.current.button == 0) {
                 isDraggingWindow = true;
             }
-            
+
             var script = constellationScript.script;
             script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
             script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
-            if(Event.current.button == 0)
+            if (Event.current.button == 0) {
                 GUI.DragWindow ();
+            }
             EditorUtility.SetDirty (constellationScript);
         }
 
@@ -221,6 +234,9 @@ namespace ConstellationEditor {
         }
 
         private void CreateLink (InputData _input, OutputData _output) {
+            if (isInstance)
+                constellationScript.IsDifferentThanSource = true;
+
             selectedInput = null;
             selectedOutput = null;
             var newLink = new LinkData (_input, _output);
@@ -242,30 +258,34 @@ namespace ConstellationEditor {
 
         public void DrawNodeEditor (float _width, float _height) {
             panelSize = new Vector2 (_width, _height);
-            
+
             editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (_width), GUILayout.Height (_height));
             GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
-            EditorGUILayout.LabelField ("", options); 
-            
+            EditorGUILayout.LabelField ("", options);
+
             DrawBackgroundGrid (_width, _height);
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();
-            if(isInstance)
-                DrawInstancePannel();
+            if (isInstance)
+                DrawInstancePannel ();
 
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
             nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);
         }
 
-        private void DrawInstancePannel()
-        {
-            GUI.SetColor(Color.yellow);
-            if(GUI.DrawButton(new Rect(0,0, 100, 25), "apply")) {
-                OnApplyInstanceChanges();
+        private void DrawInstancePannel () {
+            if (!constellationScript.IsDifferentThanSource)
+                return;
+
+            GUI.SetColor (Color.yellow);
+            if (GUI.DrawButton (new Rect (0, 0, 100, 25), "Apply")) {
+                if (isInstance)
+                    constellationScript.IsDifferentThanSource = false;
+                OnApplyInstanceChanges ();
             }
-            GUI.SetColor(Color.white);
+            GUI.SetColor (Color.white);
         }
 
         private void DrawBackgroundGrid (float _width, float _height) {
@@ -278,8 +298,8 @@ namespace ConstellationEditor {
                 var xOffset = Mathf.Round (GetCurrentScrollPosX () / Background.width) - 1;
                 var yOffset = Mathf.Round (GetCurrentScrollPosY () / Background.height) - 1;
                 var texRect = new Rect (0, 0, Background.width, Background.height);
-                if(isInstance)
-                    GUI.SetColor(Color.yellow);
+                if (isInstance && constellationScript.IsDifferentThanSource)
+                    GUI.SetColor (Color.yellow);
                 for (var i = xOffset; i < xOffset + xCount; i++) {
                     for (var j = yOffset; j < yOffset + yCount; j++) {
                         texRect.x = i * Background.width;
@@ -287,7 +307,7 @@ namespace ConstellationEditor {
                         GUI.DrawTexture (texRect, Background);
                     }
                 }
-                GUI.SetColor(Color.white);
+                GUI.SetColor (Color.white);
             }
         }
 
@@ -295,7 +315,7 @@ namespace ConstellationEditor {
             var scrollX = GetCurrentScrollPosX ();
             var scrollY = GetCurrentScrollPosY ();
             var view = new Rect (scrollX, scrollY, scrollX + GetWidth (), scrollY + GetHeight ());
-            return view.Overlaps(rect);
+            return view.Overlaps (rect);
         }
 
         public float GetWidth () {

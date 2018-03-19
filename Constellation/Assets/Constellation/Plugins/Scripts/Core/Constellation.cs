@@ -54,6 +54,9 @@ namespace Constellation {
         }
 
         public void Update () {
+            if (updatables == null)
+                return;
+
             foreach (var updatable in updatables) {
                 updatable.OnUpdate ();
             }

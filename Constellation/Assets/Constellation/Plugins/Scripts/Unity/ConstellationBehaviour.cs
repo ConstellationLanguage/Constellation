@@ -222,6 +222,8 @@ namespace Constellation {
         }
 
         void FixedUpdate () {
+            if(FixedUpdatables == null)
+                return;
             foreach (var updatable in FixedUpdatables) {
                 updatable.OnFixedUpdate ();
             }
