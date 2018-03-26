@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Constellation;
 using UnityEditor;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace ConstellationEditor {
         public List<string> currentPath;
         public List<ConstellationInstanceObject> currentInstancePath;
         private bool isSaved;
+        private string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
 
         public ConstellationEditorDataService () {
             OpenEditorData ();
@@ -63,7 +65,7 @@ namespace ConstellationEditor {
         public void OpenConstellationInstance (Constellation.Constellation constellation, string instanceSourcePath) {
             var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
             constellationScript.IsInstance = true;
-            var path = "Assets/Constellation/Editor/EditorData/" + constellation.Name + "(Instance).asset";
+            var path = "Assets/Constellation/Editor/EditorData/Temp/" + constellation.Name + "(Instance).asset";
 
             if (path == null || path == "") {
                 Script = null;
@@ -82,12 +84,6 @@ namespace ConstellationEditor {
             currentInstancePath = new List<ConstellationInstanceObject> (EditorData.CurrentInstancePath);
             var newInstanceObject = new ConstellationInstanceObject (path, instanceSourcePath);
             currentInstancePath.Add (newInstanceObject);
-            /*if (!currentInstancePath.Contains (instanceSourcePath))
-                currentInstancePath.Insert (0, path);
-            else {
-                currentInstancePath.Remove (instanceSourcePath);
-                currentInstancePath.Insert (0, path);
-            }*/
 
             currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
             if (!currentPath.Contains (path))
@@ -163,6 +159,8 @@ namespace ConstellationEditor {
 
             }
             currentInstancePath = new List<ConstellationInstanceObject> ();
+            if (Directory.Exists (tempPath)) { Directory.Delete (tempPath, true); }
+            Directory.CreateDirectory (tempPath);
             SaveEditorData ();
         }
 
@@ -249,7 +247,7 @@ namespace ConstellationEditor {
         }
 
         public void Save () {
-            if(Script)
+            if (Script)
                 EditorUtility.SetDirty (Script);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
