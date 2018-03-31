@@ -36,8 +36,8 @@ namespace ConstellationEditor {
             }
         }
 
-        public bool DrawButton(Rect _rect) {
-            if (GUI.Button(_rect, "")) {
+        public bool DrawButton(Rect _rect, string _name) {
+            if (GUI.Button(_rect, _name)) {
                 return true;
             }
 

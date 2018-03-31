@@ -9,7 +9,7 @@ namespace ConstellationEditor {
         public NodeData node;
         private NodeEditorPanel editor;
         private NodeConfig nodeConfig;
-        private IConstellationScript constellationScript;
+        private ConstellationScript constellationScript;
         private bool isDestroyed = false;
         private bool selected = false;
         private bool nodeMoved = false;
@@ -19,7 +19,7 @@ namespace ConstellationEditor {
         private bool CloseOnNextFrame = false;
         private bool isAttributeValueChanged = false;
         
-        public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, IConstellationScript _constellation) {
+        public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, ConstellationScript _constellation) {
             nodeConfig = _nodeConfig;
             var nodeWidth = nodeConfig.NodeWidth;
             if (_node.GetAttributes().Length > 0) {

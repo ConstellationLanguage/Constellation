@@ -1,7 +1,9 @@
 ﻿namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
         protected ConstellationEditorDataService scriptDataService;
+        protected ConstellationCompiler ConstellationCompiler;
         static protected bool canDrawUI = false;
+        protected ConstellationInstanceObject[] CurrentEditedInstancesName;
 
         public void Awake () {
             Setup ();
@@ -18,6 +20,7 @@
 
         public void Recover () {
             scriptDataService = new ConstellationEditorDataService ();
+            ConstellationCompiler = new ConstellationCompiler ();
             if (scriptDataService.OpenEditorData ().LastOpenedConstellationPath == null)
                 return;
 
@@ -30,9 +33,14 @@
             }
         }
 
-        public void OpenConstellationInstance (Constellation.Constellation constellation) {
+        public void ResetInstances () {
+            scriptDataService.RessetInstancesPath ();
+        }
+
+        public void OpenConstellationInstance (Constellation.Constellation constellation, string path) {
             scriptDataService = new ConstellationEditorDataService ();
-            scriptDataService.OpenConstellationInstance (constellation);
+            scriptDataService.OpenConstellationInstance (constellation, path);
+            CurrentEditedInstancesName = scriptDataService.currentInstancePath.ToArray ();
             Setup ();
         }
 
@@ -44,6 +52,10 @@
 
         public void Save () {
             scriptDataService.Save ();
+        }
+
+        public void SaveInstance () {
+            scriptDataService.SaveInstance ();
         }
 
         protected bool IsConstellationSelected () {

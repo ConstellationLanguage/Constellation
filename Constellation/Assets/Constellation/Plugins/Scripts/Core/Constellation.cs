@@ -12,11 +12,10 @@ namespace Constellation {
         public List<ITeleportIn> teleportsIn;
         public List<ITeleportOut> teleportsOut;
 
-        public override void Initialize (string _guid) {
-            base.Initialize (_guid);
+        public override void Initialize (string _guid, string _name) {
+            base.Initialize (_guid, _name);
             if (Nodes == null)
                 Nodes = new List<Node<INode>> ();
-            Name = "Constellation";
         }
 
         public void Awake () {
@@ -55,6 +54,9 @@ namespace Constellation {
         }
 
         public void Update () {
+            if (updatables == null)
+                return;
+
             foreach (var updatable in updatables) {
                 updatable.OnUpdate ();
             }
@@ -178,7 +180,7 @@ namespace Constellation {
                 Nodes = new List<Node<INode>> ();
 
             var newNode = node;
-            newNode.Initialize (guid);
+            newNode.Initialize (guid, node.Name);
             if (nodeData != null) {
                 newNode.XPosition = nodeData.XPosition;
                 newNode.YPosition = nodeData.YPosition;
@@ -222,7 +224,7 @@ namespace Constellation {
                 Links = new List<Link> ();
 
             var newLink = link;
-            link.Initialize (guid);
+            link.Initialize (guid, guid);
             Links.Add (link);
 
             return newLink;

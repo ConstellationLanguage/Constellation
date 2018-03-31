@@ -48,7 +48,7 @@ namespace ConstellationEditor {
             }
         }
 
-        public NodeData[] PasteClipBoard (IConstellationScript constellation) {
+        public NodeData[] PasteClipBoard (ConstellationScript constellation) {
             if(nodes == null)
                 return null;
 

@@ -40,6 +40,7 @@ namespace Constellation {
             }
             SetUnityObject ();
             SetConstellationEvents ();
+            Constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.name);
             Constellation.Awake();
         }
 
@@ -145,7 +146,7 @@ namespace Constellation {
 
         public void AddNode (NodeData node) {
             var newNode = nodeFactory.GetNode (node);
-            Constellation.AddNode (newNode, node.Guid, node);
+            Constellation.AddNode (newNode, node.Guid);
             AddUnityObject (newNode);
         }
 
@@ -221,6 +222,8 @@ namespace Constellation {
         }
 
         void FixedUpdate () {
+            if(FixedUpdatables == null)
+                return;
             foreach (var updatable in FixedUpdatables) {
                 updatable.OnFixedUpdate ();
             }
