@@ -1,6 +1,7 @@
 ﻿namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
         protected ConstellationEditorDataService scriptDataService;
+        protected ConstellationCompiler ConstellationCompiler;
         static protected bool canDrawUI = false;
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
 
@@ -19,6 +20,7 @@
 
         public void Recover () {
             scriptDataService = new ConstellationEditorDataService ();
+            ConstellationCompiler = new ConstellationCompiler ();
             if (scriptDataService.OpenEditorData ().LastOpenedConstellationPath == null)
                 return;
 
@@ -52,8 +54,8 @@
             scriptDataService.Save ();
         }
 
-        public void SaveInstance() {
-            scriptDataService.SaveInstance();
+        public void SaveInstance () {
+            scriptDataService.SaveInstance ();
         }
 
         protected bool IsConstellationSelected () {

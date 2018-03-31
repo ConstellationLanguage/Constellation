@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace ConstellationEditor {
     [InitializeOnLoadAttribute]
-    public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable {
+    public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable, ICompilable {
         protected NodeEditorPanel nodeEditorPanel;
         protected ConstellationsTabPanel nodeTabPanel;
         private float nodeSelectorWidht = 270;
@@ -32,6 +32,12 @@ namespace ConstellationEditor {
             else {
                 ShowWindow ();
                 NewConstellation ();
+            }
+        }
+
+        public void CompileScripts() {
+            if (WindowInstance != null) {
+                WindowInstance.ConstellationCompiler.UpdateScriptsNodes(WindowInstance.scriptDataService.GetAllScriptsInProject());
             }
         }
 
@@ -187,7 +193,7 @@ namespace ConstellationEditor {
         }
 
         protected virtual void DrawGUI () {
-            TopBarPanel.Draw (this, this, this);
+            TopBarPanel.Draw (this, this, this, this);
             var constellationName = nodeTabPanel.Draw (scriptDataService.currentPath.ToArray (), CurrentEditedInstancesName);
             if (constellationName != null)
                 Open (constellationName);
@@ -205,6 +211,7 @@ namespace ConstellationEditor {
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
+            WindowInstance.CompileScripts();
             WindowInstance.Recover ();
             WindowInstance.previousSelectedGameObject = null;
             WindowInstance.ResetInstances ();

@@ -17,6 +17,11 @@ namespace ConstellationEditor {
             OpenEditorData ();
         }
 
+        public ConstellationScript [] GetAllScriptsInProject()
+        {
+            return EditorUtils.GetAllInstances<ConstellationScript>();
+        }
+
         private ConstellationEditorData Setup () {
             var path = "Assets/Constellation/Editor/EditorData/EditorData.asset";
             EditorData = ScriptableObject.CreateInstance<ConstellationEditorData> ();
