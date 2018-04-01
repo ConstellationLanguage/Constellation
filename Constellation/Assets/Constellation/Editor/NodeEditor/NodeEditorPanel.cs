@@ -191,6 +191,7 @@ namespace ConstellationEditor {
             Nodes.Add (newNodeWindow);
             undoable.AddAction ();
             OnNodeAdded (newNode);
+            nodeEditorSelection.UnselectAll();
             return newNode;
         }
 
@@ -287,14 +288,14 @@ namespace ConstellationEditor {
             return editorScrollPos.y;
         }
 
-        public void DrawNodeEditor (float _width, float _height) {
-            panelSize = new Vector2 (_width, _height);
+        public void DrawNodeEditor (Rect LayoutPosition) {
+            panelSize = new Vector2 (LayoutPosition.width, LayoutPosition.height);
 
-            editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (_width), GUILayout.Height (_height));
+            editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (LayoutPosition.width), GUILayout.Height (LayoutPosition.height));
             GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
             EditorGUILayout.LabelField ("", options);
 
-            DrawBackgroundGrid (_width, _height);
+            DrawBackgroundGrid (LayoutPosition.width, LayoutPosition.height);
             DrawEditorNodes ();
             LinksView.DrawLinks ();
             DrawIncompleteLink ();
@@ -303,7 +304,7 @@ namespace ConstellationEditor {
 
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
-            nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos, _width, _height);
+            nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos, LayoutPosition);
         }
 
         private void DrawInstancePannel () {

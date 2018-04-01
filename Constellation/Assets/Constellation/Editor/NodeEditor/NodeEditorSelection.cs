@@ -26,7 +26,7 @@ namespace ConstellationEditor {
             UnselectAll ();
         }
 
-        public void Draw (NodeView[] nodes, LinkData[] links, Vector2 selectionOffset, float _width, float _height) {
+        public void Draw (NodeView[] nodes, LinkData[] links, Vector2 selectionOffset, Rect window) {
             var current = Event.current;
             var hoverPosition = current.mousePosition + selectionOffset;
             var viewport = GUILayoutUtility.GetLastRect ();
@@ -55,13 +55,13 @@ namespace ConstellationEditor {
                 GUI.RequestRepaint ();
             }
 
-            if (current.mousePosition.x < _width && current.mousePosition.y < _height)
+            if (current.mousePosition.x + window.x < window.width 
+                && current.mousePosition.y - window.y < window.height)
                 UpdateSelectionArea (selectionOffset, Event.current, nodes);
             else {
                 DragSize = Vector2.zero;
                 StartMousePosition = Vector2.zero;
                 DragSize = Vector2.zero;
-                UnselectAll ();
             }
 
             //Mouse over
