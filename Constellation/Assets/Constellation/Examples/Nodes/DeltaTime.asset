@@ -13,11 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      XPosition: 4.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Name: Note
       Namespace: BasicNodes
       Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
-      XPosition: 53.5
-      YPosition: 19
+      XPosition: 257.5
+      YPosition: 57
       Inputs: []
       Outputs: []
       AttributesData:
@@ -129,17 +137,6 @@ MonoBehaviour:
         Description: Current setted word
       outputPositionY: 226
     - Input:
-        Guid: de437ff7-ba2d-4091-8405-eee278021809
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: b7150fe9-4e15-4d2c-ba85-bb0135137b76
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      outputPositionY: 227
-    - Input:
         Guid: 5642b352-2e33-4b79-b7c8-3dd1583ded7b
         IsWarm: 1
         Type: 
@@ -150,3 +147,5 @@ MonoBehaviour:
         Type: 
         Description: Ray on update
       outputPositionY: 241
+  IsInstance: 0
+  IsDifferentThanSource: 0

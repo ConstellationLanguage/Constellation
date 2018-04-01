@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using uDesktopDuplication;
+
 namespace Constellation.Experimental {
     public class DesktopCapture : INode, IReceiver, IGameObject {
         private ISender sender;

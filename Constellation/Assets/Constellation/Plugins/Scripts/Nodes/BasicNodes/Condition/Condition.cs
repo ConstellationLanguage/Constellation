@@ -1,5 +1,5 @@
 namespace Constellation.BasicNodes {
-    public class Condition : INode, IReceiver {
+    public class Condition : INode, IReceiver, IAttributeUpdate {
         private ISender sender;
         
         private Variable var1;
@@ -28,7 +28,7 @@ namespace Constellation.BasicNodes {
             sender = _node.GetSender();
             _node.AddOutput (false, "then");
             _node.AddOutput(false, "else");
-             _node.AddOutput(false, "any");
+            _node.AddOutput(false, "any");
 
             conditionAttribute = _node.AddAttribute (ifValue, Attribute.AttributeType.Conditionals, "ex: $1>$2");
             thenAttribute = _node.AddAttribute (thenValue, Attribute.AttributeType.Then, "ex: $2");
@@ -36,7 +36,10 @@ namespace Constellation.BasicNodes {
             var1 = new Variable();
             var2 = new Variable();
             var3 = new Variable();
-            
+        } 
+
+        public void OnAttributesUpdate() {
+            conditon = null;
         }
 
         public string NodeName () {

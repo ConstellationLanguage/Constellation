@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Constellation;
 using UnityEditor;
 using UnityEngine;
@@ -8,10 +9,29 @@ namespace ConstellationEditor {
         private ConstellationScript Script;
         protected ConstellationEditorData EditorData;
         public List<string> currentPath;
+        public List<ConstellationInstanceObject> currentInstancePath;
         private bool isSaved;
+        private string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
+        private ExamplePlayer ExamplePlayer;
 
         public ConstellationEditorDataService () {
             OpenEditorData ();
+        }
+
+        public ConstellationScript [] GetAllScriptsInProject()
+        {
+            return EditorUtils.GetAllInstances<ConstellationScript>();
+        }
+
+        public ConstellationScript GetConstellationByName(string scriptName)
+        {
+            var allConstellations = EditorUtils.GetAllInstances<ConstellationScript>();
+            foreach (var constellation in allConstellations) {
+                if(constellation.name == scriptName) {
+                    return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath(constellation), typeof (ConstellationScript));;
+                }
+            }
+            return null;
         }
 
         private ConstellationEditorData Setup () {
@@ -59,6 +79,61 @@ namespace ConstellationEditor {
             return EditorData;
         }
 
+        public void OpenConstellationInstance (Constellation.Constellation constellation, string instanceSourcePath) {
+            var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            constellationScript.IsInstance = true;
+            var path = "Assets/Constellation/Editor/EditorData/Temp/" + constellation.Name + "(Instance).asset";
+
+            if (path == null || path == "") {
+                Script = null;
+                return;
+            }
+
+            Script = constellationScript;
+            AssetDatabase.CreateAsset (constellationScript, path);
+
+            var nodes = constellation.GetNodes ();
+            var links = constellation.GetLinks ();
+
+            if (EditorData.CurrentInstancePath == null)
+                EditorData.CurrentInstancePath = new List<ConstellationInstanceObject> ();
+
+            currentInstancePath = new List<ConstellationInstanceObject> (EditorData.CurrentInstancePath);
+            var newInstanceObject = new ConstellationInstanceObject (path, instanceSourcePath);
+            currentInstancePath.Add (newInstanceObject);
+
+            currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
+            if (!currentPath.Contains (path))
+                currentPath.Insert (0, path);
+            else {
+                currentPath.Remove (path);
+                currentPath.Insert (0, path);
+            }
+
+            foreach (var node in nodes) {
+                Script.AddNode (node);
+            }
+
+            foreach (var link in links) {
+                Script.AddLink (link);
+            }
+
+            SaveEditorData ();
+        }
+
+        public void SaveInstance () {
+            var newScript = ScriptableObject.CreateInstance<ConstellationScript> ();
+            var path = "";
+            foreach (var instancePath in currentInstancePath) {
+                if (instancePath.InstancePath == currentPath[0])
+                    path = instancePath.ScriptPath;
+            }
+            AssetDatabase.CreateAsset (newScript, path);
+            newScript.script = Script.script;
+            Save ();
+            Script = newScript;
+        }
+
         public bool RemoveOpenedConstellation (string name) {
             if (name == null)
                 return false;
@@ -74,9 +149,36 @@ namespace ConstellationEditor {
                 if (!EditorData.LastOpenedConstellationPath.Contains (path))
                     EditorData.LastOpenedConstellationPath.Add (path);
             }
+            EditorData.CurrentInstancePath = currentInstancePath;
             EditorUtility.SetDirty (EditorData);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
+        }
+
+        public void RessetInstancesPath () {
+            var constellationsToRemove = new List<string> ();
+            if (currentInstancePath != null)
+                foreach (var constellationInstanceObject in currentInstancePath) {
+                    AssetDatabase.DeleteAsset (constellationInstanceObject.InstancePath);
+                }
+
+            if (currentPath != null) {
+                foreach (var path in currentPath) {
+                    ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
+                    if (t.IsInstance) {
+                        constellationsToRemove.Add (path);
+                    }
+                }
+
+                foreach (var constellationToRemove in constellationsToRemove) {
+                    currentPath.Remove (constellationToRemove);
+                }
+
+            }
+            currentInstancePath = new List<ConstellationInstanceObject> ();
+            if (Directory.Exists (tempPath)) { Directory.Delete (tempPath, true); }
+            Directory.CreateDirectory (tempPath);
+            SaveEditorData ();
         }
 
         public void New () {
@@ -86,6 +188,7 @@ namespace ConstellationEditor {
             if (path.StartsWith (Application.dataPath)) {
                 path = "Assets" + path.Substring (Application.dataPath.Length);
             }
+
             if (path == null || path == "") {
                 Script = null;
                 return;
@@ -148,8 +251,8 @@ namespace ConstellationEditor {
         }
 
         public void SetSliderY (float position) {
-             EditorData.SliderY = position;
-             SaveEditorData ();
+            EditorData.SliderY = position;
+            SaveEditorData ();
         }
 
         public float GetLastEditorScrollPositionX () {
@@ -161,7 +264,8 @@ namespace ConstellationEditor {
         }
 
         public void Save () {
-            EditorUtility.SetDirty (Script);
+            if (Script)
+                EditorUtility.SetDirty (Script);
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
         }

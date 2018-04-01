@@ -7,5 +7,7 @@ namespace ConstellationEditor {
 		public float SliderX;
 		public float SliderY;
 		public ClipBoard clipBoard;
+		public List<ConstellationInstanceObject> CurrentInstancePath;
+		public ConstellationExampleData ExampleData;
 	}
 }

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: a8fdfe0a-dbee-45d5-951e-93ac3c7f2d14
+      XPosition: 3.5
+      YPosition: 1.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Name: Note
       Namespace: BasicNodes
       Guid: 6fab211f-0784-4604-a12f-51d75a30e19d
-      XPosition: 255.5
-      YPosition: 48
+      XPosition: 93.5
+      YPosition: 30
       Inputs: []
       Outputs: []
       AttributesData:
@@ -30,8 +38,8 @@ MonoBehaviour:
     - Name: Print
       Namespace: BasicNodes
       Guid: b67d3871-276f-4924-8fd6-3eafbfe642be
-      XPosition: 451.5
-      YPosition: 196
+      XPosition: 289.5
+      YPosition: 178
       Inputs:
       - Guid: 519e092b-f0cc-4474-8144-e4aa7c25d167
         IsWarm: 0
@@ -42,8 +50,8 @@ MonoBehaviour:
     - Name: MouseButtonDown
       Namespace: Unity
       Guid: 130eb5a3-4f92-4d70-afad-3f4d1741714e
-      XPosition: 224.5
-      YPosition: 197
+      XPosition: 62.5
+      YPosition: 179
       Inputs: []
       Outputs:
       - Guid: b8604cc5-adea-4a51-852c-75bc4de6b16b
@@ -66,4 +74,6 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on mouse button down else 0
-      outputPositionY: 226
+      outputPositionY: 208
+  IsInstance: 0
+  IsDifferentThanSource: 0

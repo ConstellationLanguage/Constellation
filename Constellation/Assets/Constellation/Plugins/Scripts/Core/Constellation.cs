@@ -12,11 +12,10 @@ namespace Constellation {
         public List<ITeleportIn> teleportsIn;
         public List<ITeleportOut> teleportsOut;
 
-        public override void Initialize (string _guid) {
-            base.Initialize (_guid);
+        public override void Initialize (string _guid, string _name) {
+            base.Initialize (_guid, _name);
             if (Nodes == null)
                 Nodes = new List<Node<INode>> ();
-            Name = "Constellation";
         }
 
         public void Awake () {
@@ -47,14 +46,17 @@ namespace Constellation {
             }
         }
 
-        public void OnTeleport (Variable var, string id)
-        {
+        public void OnTeleport (Variable
+            var, string id) {
             foreach (var teleport in teleportsIn) {
-                teleport.OnTeleport(var, id);
+                teleport.OnTeleport (var, id);
             }
         }
 
         public void Update () {
+            if (updatables == null)
+                return;
+
             foreach (var updatable in updatables) {
                 updatable.OnUpdate ();
             }
@@ -147,7 +149,7 @@ namespace Constellation {
                 if (node.NodeType as ITeleportOut != null) {
                     var newTeleportOut = node.NodeType as ITeleportOut;
                     teleportsOut.Add (newTeleportOut);
-                    newTeleportOut.Set(this);
+                    newTeleportOut.Set (this);
                 }
             }
         }
@@ -173,14 +175,22 @@ namespace Constellation {
             return null;
         }
 
-        public Node<INode> AddNode (Node<INode> node, string guid) {
+        public Node<INode> AddNode (Node<INode> node, string guid, NodeData nodeData = null) {
             if (Nodes == null)
                 Nodes = new List<Node<INode>> ();
 
             var newNode = node;
-            node.Initialize (guid);
-            Nodes.Add (node);
+            newNode.Initialize (guid, node.Name);
+            if (nodeData != null) {
+                newNode.XPosition = nodeData.XPosition;
+                newNode.YPosition = nodeData.YPosition;
+            }
+            Nodes.Add (newNode);
             return newNode;
+        }
+
+        public Link[] GetLinks () {
+            return Links.ToArray ();
         }
 
         public void RemovedNode (string guid) {
@@ -214,7 +224,7 @@ namespace Constellation {
                 Links = new List<Link> ();
 
             var newLink = link;
-            link.Initialize (guid);
+            link.Initialize (guid, guid);
             Links.Add (link);
 
             return newLink;

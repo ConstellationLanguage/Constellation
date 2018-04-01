@@ -13,6 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: d04e8f79-d5e9-4b41-aec8-f98265ea219f
+      XPosition: 1.5
+      YPosition: 4.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Name: Note
       Namespace: BasicNodes
       Guid: 8ccf9c94-48c3-4533-b620-9996ac88e8b3
@@ -167,3 +175,5 @@ MonoBehaviour:
         Type: 
         Description: Received Value from a sender
       outputPositionY: 321
+  IsInstance: 0
+  IsDifferentThanSource: 0

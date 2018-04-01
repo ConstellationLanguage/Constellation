@@ -40,6 +40,7 @@ namespace Constellation {
             }
             SetUnityObject ();
             SetConstellationEvents ();
+            Constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.name);
             Constellation.Awake();
         }
 
@@ -61,11 +62,14 @@ namespace Constellation {
         }
 
         public void RemoveLink (LinkData linkData) {
+            Link linkToRemove = null;
             foreach (var link in Constellation.Links) {
                 if (link.Input.Guid == linkData.Input.Guid && link.Output.Guid == linkData.Output.Guid) {
-                    Constellation.Links.Remove (link);
+                    linkToRemove = link;
                 }
             }
+            linkToRemove.OnDestroy();
+            Constellation.Links.Remove (linkToRemove);
         }
 
         public void AddLink (LinkData link) {
@@ -130,7 +134,7 @@ namespace Constellation {
             var attributesCounter = 0;
             foreach (NodeData node in nodes) {
                 var newNode = nodeFactory.GetNode (node);
-                Constellation.AddNode (newNode, node.Guid);
+                Constellation.AddNode (newNode, node.Guid, node);
                 if (IsAttribute (node) && Attributes != null) {
                     IAttribute nodeAttribute = newNode.NodeType as IAttribute;
                     if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
@@ -221,6 +225,8 @@ namespace Constellation {
         }
 
         void FixedUpdate () {
+            if(FixedUpdatables == null)
+                return;
             foreach (var updatable in FixedUpdatables) {
                 updatable.OnFixedUpdate ();
             }

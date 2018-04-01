@@ -7,7 +7,7 @@ QualitySettings:
   m_CurrentQuality: 5
   m_QualitySettings:
   - serializedVersion: 2
-    name: Fastest
+    name: Very Low
     pixelLightCount: 0
     shadows: 0
     shadowResolution: 0
@@ -35,7 +35,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: Fast
+    name: Low
     pixelLightCount: 0
     shadows: 0
     shadowResolution: 0
@@ -63,7 +63,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: Simple
+    name: Medium
     pixelLightCount: 1
     shadows: 1
     shadowResolution: 0
@@ -91,7 +91,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: Good
+    name: High
     pixelLightCount: 2
     shadows: 2
     shadowResolution: 1
@@ -119,7 +119,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: Beautiful
+    name: Very High
     pixelLightCount: 3
     shadows: 2
     shadowResolution: 2
@@ -147,7 +147,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: Fantastic
+    name: Ultra
     pixelLightCount: 4
     shadows: 2
     shadowResolution: 2

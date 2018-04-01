@@ -18,6 +18,16 @@ namespace Constellation {
             return this;
         }
 
+        public void RemoveNode(string guid)
+        {
+            foreach(var node in Nodes) {
+                if(node.Guid == guid){
+                    Nodes.Remove(node);
+                    return;
+                }
+            }
+        }
+
         public NodeData FindNodeByGUID (string _guid) {
             if (Nodes == null)
                 Nodes = new List<NodeData> ();
