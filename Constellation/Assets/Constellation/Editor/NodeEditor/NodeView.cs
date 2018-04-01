@@ -18,6 +18,7 @@ namespace ConstellationEditor {
         private string Description = "";
         private bool CloseOnNextFrame = false;
         private bool isAttributeValueChanged = false;
+        public delegate void HelpClicked (string _nodeName);
         
         public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, ConstellationScript _constellation) {
             nodeConfig = _nodeConfig;
@@ -121,23 +122,23 @@ namespace ConstellationEditor {
             isAttributeValueChanged = true;
         }
 
-        public void DrawContent () {
+        public void DrawContent (HelpClicked _onHelpClicked) {
             var current = Event.current;
 
             //Only draw node on Repaint if it's not selected
             if (current.IsRepaint())
-                Draw();
+                Draw(_onHelpClicked);
 
             //Draw on multiple events for buttons to work
             if (selected && !current.IsRepaint())
-                Draw();
+                Draw(_onHelpClicked);
         }
 
-        private void Draw () {
+        private void Draw (HelpClicked _onHelpClicked) {
             DrawAttributes();
             DrawInputs();
             DrawOutputs();
-            DrawHeader();
+            DrawHeader(_onHelpClicked);
 
             if (DrawDescription)
                 DrawHelp(Description);
@@ -201,7 +202,7 @@ namespace ConstellationEditor {
             }
         }
 
-        public void DrawHeader () {
+        public void DrawHeader (HelpClicked onHelpClicked) {
             var width = Rect.width - 10;
 
             if (selected) {
@@ -217,7 +218,7 @@ namespace ConstellationEditor {
 
                 GUI.color = color;
                 if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize), "", nodeConfig.HelpStyle) && Event.current.button == 0) {
-                    NodeHelpWindow.ShowHelpWindow(node.Name);
+                    onHelpClicked(node.Name);
                 }
             }
 

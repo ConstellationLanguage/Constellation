@@ -35,9 +35,11 @@ namespace ConstellationEditor {
             }
         }
 
-        public void CompileScripts() {
+        public void CompileScripts () {
             if (WindowInstance != null) {
-                WindowInstance.ConstellationCompiler.UpdateScriptsNodes(WindowInstance.scriptDataService.GetAllScriptsInProject());
+                if (WindowInstance.ConstellationCompiler != null)
+                    WindowInstance.ConstellationCompiler = new ConstellationCompiler ();
+                WindowInstance.ConstellationCompiler.UpdateScriptsNodes (WindowInstance.scriptDataService.GetAllScriptsInProject ());
             }
         }
 
@@ -141,9 +143,21 @@ namespace ConstellationEditor {
             canDrawUI = false;
             if (scriptDataService != null) {
                 previousSelectedGameObject = null;
-                nodeEditorPanel = new NodeEditorPanel (this, this, scriptDataService.GetCurrentScript (), this, scriptDataService.GetEditorData ().clipBoard, scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), OnLinkAdded, OnNodeAdded, OnNodeRemoved, SaveConstellationInstance);
+                nodeEditorPanel = new NodeEditorPanel (this,
+                    this,
+                    scriptDataService.GetCurrentScript (),
+                    this,
+                    scriptDataService.GetEditorData ().clipBoard,
+                    scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), // Editor Position
+                    OnLinkAdded, OnNodeAdded, OnNodeRemoved, OnHelpRequested, SaveConstellationInstance); // CallBacks 
                 nodeTabPanel = new ConstellationsTabPanel (this);
             }
+        }
+
+        private void OnHelpRequested (string nodeName) {
+            scriptDataService.GetEditorData ().ExampleData.openExampleConstellation = true;
+            scriptDataService.GetEditorData ().ExampleData.constellationName = nodeName;
+            EditorApplication.isPlaying = true;
         }
 
         protected override void Setup () {
@@ -153,7 +167,14 @@ namespace ConstellationEditor {
             SceneManager.sceneLoaded += OnSceneLoaded;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
             if (scriptDataService != null) {
-                nodeEditorPanel = new NodeEditorPanel (this, this, scriptDataService.GetCurrentScript (), this, scriptDataService.GetEditorData ().clipBoard, scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), OnLinkAdded, OnNodeAdded, OnNodeRemoved, SaveConstellationInstance);
+                nodeEditorPanel = new NodeEditorPanel (this,
+                    this,
+                    scriptDataService.GetCurrentScript (),
+                    this,
+                    scriptDataService.GetEditorData ().clipBoard,
+                    scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), // Saved editor position
+                    OnLinkAdded, OnNodeAdded, OnNodeRemoved, OnHelpRequested, // callBacks
+                    SaveConstellationInstance);
                 nodeTabPanel = new ConstellationsTabPanel (this);
                 if (scriptDataService.GetCurrentScript () != null)
                     WindowInstance.titleContent.text = scriptDataService.GetCurrentScript ().name;
@@ -162,7 +183,6 @@ namespace ConstellationEditor {
                 scriptDataService.ClearActions ();
             }
             nodeSelector = new NodeSelectorPanel (OnNodeAddRequested);
-
         }
 
         void OnGUI () {
@@ -206,15 +226,20 @@ namespace ConstellationEditor {
             EditorGUILayout.EndVertical ();
             nodeSelector.Draw (nodeSelectorWidht, position.height - 50);
             EditorGUILayout.EndHorizontal ();
-
             RepaintIfRequested ();
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
-            WindowInstance.CompileScripts();
+            WindowInstance.CompileScripts ();
             WindowInstance.Recover ();
             WindowInstance.previousSelectedGameObject = null;
             WindowInstance.ResetInstances ();
+            if (WindowInstance.scriptDataService.GetEditorData ().ExampleData.openExampleConstellation && state == PlayModeStateChange.EnteredPlayMode) {
+                var nodeExampleLoader = new ExampleSceneLoader ();
+                nodeExampleLoader.RunExample (WindowInstance.scriptDataService.GetEditorData ().ExampleData.constellationName, WindowInstance.scriptDataService);
+                WindowInstance.scriptDataService.GetEditorData ().ExampleData.openExampleConstellation = false;
+            }
+
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
         }
 

@@ -12,6 +12,7 @@ namespace ConstellationEditor {
         public List<ConstellationInstanceObject> currentInstancePath;
         private bool isSaved;
         private string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
+        private ExamplePlayer ExamplePlayer;
 
         public ConstellationEditorDataService () {
             OpenEditorData ();
@@ -20,6 +21,17 @@ namespace ConstellationEditor {
         public ConstellationScript [] GetAllScriptsInProject()
         {
             return EditorUtils.GetAllInstances<ConstellationScript>();
+        }
+
+        public ConstellationScript GetConstellationByName(string scriptName)
+        {
+            var allConstellations = EditorUtils.GetAllInstances<ConstellationScript>();
+            foreach (var constellation in allConstellations) {
+                if(constellation.name == scriptName) {
+                    return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath(constellation), typeof (ConstellationScript));;
+                }
+            }
+            return null;
         }
 
         private ConstellationEditorData Setup () {

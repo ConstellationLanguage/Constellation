@@ -33,10 +33,13 @@ namespace ConstellationEditor {
         NodeAdded OnNodeAdded;
         public delegate void NodeRemoved (NodeData node);
         NodeRemoved OnNodeRemoved;
+        public delegate void HelpClicked(string NodeName);
+        HelpClicked OnHelpClicked;
 
         public delegate void ApplyInstanceChanges ();
         ApplyInstanceChanges OnApplyInstanceChanges;
         private NodesFactory nodesFactory;
+        private bool isTutorial = false;
 
         public NodeEditorPanel (IGUI _gui,
             EditorWindow _editorWindow,
@@ -48,7 +51,9 @@ namespace ConstellationEditor {
             LinkAdded linkAdded,
             NodeAdded nodeAdded,
             NodeRemoved nodeRemoved,
+            HelpClicked onHelpClicked,
             ApplyInstanceChanges applyInstanceChanges) {
+
             nodesFactory = new NodesFactory ();
             constellationScript = _script;
             undoable = _undoable;
@@ -60,13 +65,17 @@ namespace ConstellationEditor {
             var allNodes = NodesFactory.GetAllNodes ();
             nodes = new string[allNodes.Length];
             editorScrollPos = new Vector2 (positionX, positionY);
+
             for (var i = 0; i < allNodes.Length; i++) {
+                if(allNodes[i] == "Constellation.Tags.Tutorial")
+                    isTutorial = true;
                 nodes[i] = allNodes[i];
             }
             OnLinkAdded += linkAdded;
             OnNodeAdded += nodeAdded;
             OnNodeRemoved += nodeRemoved;
             OnApplyInstanceChanges += applyInstanceChanges;
+            OnHelpClicked += onHelpClicked;
             nodeEditorSelection = new NodeEditorSelection (GUI, _editorClipBoard);
         }
 
@@ -79,6 +88,11 @@ namespace ConstellationEditor {
                 //Here should check if is different
                 constellationScript.IsDifferentThanSource = true;
             }
+        }
+
+        public void RequestHelp(string _nodeName)
+        {
+            OnHelpClicked(_nodeName);
         }
 
         public void Update (Constellation.Constellation constellation) {
@@ -167,10 +181,15 @@ namespace ConstellationEditor {
             return newNode;
         }
 
+        void HelpRequested(string nodeName)
+        {
+            OnHelpClicked(nodeName);
+        }
+
         void DrawNodeWindow (int id) {
             if (id < Nodes.Count) {
                 if (Nodes[id].NodeExist ()) {
-                    Nodes[id].DrawContent ();
+                    Nodes[id].DrawContent (HelpRequested);
                 } else {
                     OnNodeRemoved (Nodes[id].node);
                     Nodes.Remove (Nodes[id]);
@@ -276,7 +295,7 @@ namespace ConstellationEditor {
         }
 
         private void DrawInstancePannel () {
-            if (!constellationScript.IsDifferentThanSource)
+            if (!constellationScript.IsDifferentThanSource || isTutorial)
                 return;
 
             GUI.SetColor (Color.yellow);
