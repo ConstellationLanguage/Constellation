@@ -22,7 +22,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 535f5c06-e072-4dd8-9622-8388a371e01c
       XPosition: 633.5
       YPosition: 75
@@ -34,7 +34,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 6bde80c8-1d54-4ade-8c61-e825b3c5d2e2
       XPosition: 508.5
       YPosition: 107
@@ -46,7 +46,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 6568cb02-a6e9-4a7a-afdf-c6ca915c01e6
       XPosition: 92.5
       YPosition: 118
@@ -62,7 +62,7 @@ MonoBehaviour:
           floatValue: 2
         Type: 0
     - Name: Condition
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 98db9aa0-a29c-468a-88c9-ba631a2ef111
       XPosition: 290.5
       YPosition: 118
@@ -106,7 +106,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 5
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 64a7b531-a187-45af-bb31-7876879489d5
       XPosition: 90.5
       YPosition: 164
@@ -122,7 +122,7 @@ MonoBehaviour:
           floatValue: 1
         Type: 0
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: b7ba6453-f68a-45fc-9418-9fe17b6cef96
       XPosition: 87.5
       YPosition: 235
@@ -138,7 +138,7 @@ MonoBehaviour:
           floatValue: 3
         Type: 0
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: aa6fe6e7-22cc-4750-b5e8-5898840d3121
       XPosition: 640.2995
       YPosition: 245
@@ -150,7 +150,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: f2c15bfa-ddaf-498e-bbf5-4f71b3915689
       XPosition: 525.5
       YPosition: 278
@@ -162,7 +162,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Condition
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: e7c849c7-76d6-41da-8640-67e389930879
       XPosition: 311.5
       YPosition: 278
@@ -206,7 +206,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 5
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 857d1512-5c3f-42b5-9340-17d9f0c7acd4
       XPosition: 102.5
       YPosition: 313

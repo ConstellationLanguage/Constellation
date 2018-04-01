@@ -1,4 +1,4 @@
-﻿namespace Constellation.BasicNodes {
+﻿namespace Constellation.CoreNodes {
     public class Remove : INode, IReceiver {
         private ISender sender;
         private Variable[] varsToRemove;

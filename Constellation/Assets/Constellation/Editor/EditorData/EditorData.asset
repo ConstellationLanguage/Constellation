@@ -13,7 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
   - Assets/DevDir/NewConstellation.asset
-  - Assets/DevDir/test.asset
   EditorUndoService:
     Actions: []
     SelectedAction: -1
@@ -25,4 +24,4 @@ MonoBehaviour:
   CurrentInstancePath: []
   ExampleData:
     openExampleConstellation: 0
-    constellationName: Vec3
+    constellationName: Add

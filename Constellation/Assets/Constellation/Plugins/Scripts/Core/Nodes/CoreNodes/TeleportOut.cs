@@ -1,4 +1,4 @@
-namespace Constellation.BasicNodes {
+namespace Constellation.CoreNodes {
     public class TeleportOut : INode, IReceiver, ITeleportOut {
         public const string NAME = "TeleportOut";
         private Attribute eventName;

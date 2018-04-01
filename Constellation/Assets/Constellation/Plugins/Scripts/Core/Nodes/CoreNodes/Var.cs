@@ -1,4 +1,4 @@
-﻿namespace Constellation.BasicNodes {
+﻿namespace Constellation.CoreNodes {
     public class Var : INode, IReceiver{
         private ISender sender;
         private Attribute attribute; // attributes are setted in the editor.

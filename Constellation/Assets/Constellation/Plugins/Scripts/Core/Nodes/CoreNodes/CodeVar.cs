@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-namespace Constellation.BasicNodes {
+namespace Constellation.CoreNodes {
     public class CodeVar : INode, IReceiver {
         private ISender Sender;
         private Attribute VarName;

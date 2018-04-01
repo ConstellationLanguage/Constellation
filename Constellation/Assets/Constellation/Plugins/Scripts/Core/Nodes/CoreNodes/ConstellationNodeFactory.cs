@@ -1,4 +1,4 @@
-﻿namespace Constellation.BasicNodes {
+﻿namespace Constellation.CoreNodes {
     public class ConstellationNodeFactory: INodeGetter{
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {

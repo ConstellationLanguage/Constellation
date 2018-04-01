@@ -22,7 +22,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Word
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 19cc8ad6-6288-4e2b-aff3-77c39eebb6bf
       XPosition: 29.5
       YPosition: 93
@@ -38,7 +38,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 1
     - Name: Var
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: ce9db2a2-01c7-4626-b826-436ee57cf459
       XPosition: 238.5
       YPosition: 108
@@ -62,7 +62,7 @@ MonoBehaviour:
           floatValue: 0
         Type: 6
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 85be7518-2c9c-4952-bace-e3ff3046989f
       XPosition: 471.5
       YPosition: 112

@@ -1,4 +1,4 @@
-namespace Constellation.BasicNodes {
+namespace Constellation.CoreNodes {
     public class Switch : INode, IReceiver {
         private Variable switchValue;
         private ISender sender;

@@ -22,7 +22,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Word
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 0696622c-02a2-4933-b39f-f3649576f88d
       XPosition: 27.5
       YPosition: 54
@@ -38,7 +38,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 1
     - Name: Var
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 849f24a3-3c11-42f6-9821-03ba33598bd4
       XPosition: 207.5
       YPosition: 61
@@ -62,7 +62,7 @@ MonoBehaviour:
           floatValue: 0
         Type: 6
     - Name: Sender
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: ccef19a7-7e25-4cb3-827a-2d5ddc064e4a
       XPosition: 402.5
       YPosition: 67
@@ -90,7 +90,7 @@ MonoBehaviour:
         Description: Ray on update
       AttributesData: []
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: cd703c62-243d-4b04-bdb3-599ad00fea6a
       XPosition: 242.5
       YPosition: 204
@@ -102,7 +102,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Receiver
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: cf36a7a6-0bdb-485b-8cfc-797e4fca3294
       XPosition: 33.5
       YPosition: 208
@@ -118,7 +118,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 1
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 914fcbc6-10e4-461d-8c2c-384a4f9fac0f
       XPosition: 36.5
       YPosition: 259

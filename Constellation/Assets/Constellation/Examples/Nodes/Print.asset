@@ -34,7 +34,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Word
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 75f247eb-918a-4ee0-ab2b-fac9abe1c677
       XPosition: 85.5
       YPosition: 95

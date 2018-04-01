@@ -22,7 +22,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 635b980e-d069-4503-8277-706632d49359
       XPosition: 289.5
       YPosition: 42
@@ -58,7 +58,7 @@ MonoBehaviour:
         Description: get the current state
       AttributesData: []
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: c88ad4a2-c2e4-43db-8ec8-1b605a478234
       XPosition: 147.5
       YPosition: 181

@@ -1,14 +1,14 @@
-﻿namespace Constellation.BasicNodes {
-    public class Value : INode, IReceiver, IAwakable {
+namespace Constellation.CoreNodes {
+    public class Word : INode, IReceiver, IAwakable {
         private ISender sender;
         private Attribute value;
-        public const string NAME = "Value";
+        public const string NAME = "Word";
 
         public void Setup (INodeParameters _node, ILogger _logger) {
-            var newValue = new Variable ();
+            var newValue = new Variable ().Set("your word");
             sender = _node.GetSender();
-            _node.AddOutput (true, "The value");
-            value = _node.AddAttribute (newValue, Attribute.AttributeType.Value, "Number to set");
+            _node.AddOutput (true, "The Word");
+            value = _node.AddAttribute (newValue, Attribute.AttributeType.Word, "Word to set");
         }
 
         public string NodeName () {
@@ -24,9 +24,7 @@
         }
 
         public void Receive (Variable _value, Input _input) {
-            if (_value.IsFloat ()) {
-                value.Value.Set (_value.GetFloat ());
-            }
+            value.Value.Set (_value.GetString ());
             if (_input.isWarm)
                 sender.Send (value.Value, 0);
         }

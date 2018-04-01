@@ -46,7 +46,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     - Name: Word
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 7455275f-a1d9-4118-9813-187f8427e8ce
       XPosition: 205.5
       YPosition: 87

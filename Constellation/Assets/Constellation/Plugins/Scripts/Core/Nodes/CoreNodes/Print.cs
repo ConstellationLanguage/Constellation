@@ -1,4 +1,4 @@
-﻿namespace Constellation.BasicNodes {
+﻿namespace Constellation.CoreNodes {
     public class Print : INode, IReceiver {
         private ILogger logger;
         public const string NAME = "Print";

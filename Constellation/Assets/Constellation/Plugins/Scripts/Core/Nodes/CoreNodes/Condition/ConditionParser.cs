@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Constellation.BasicNodes {
+namespace Constellation.CoreNodes {
     public class ConditionParser {
         private List<ICondition> conditions;
         private Variable thenVar;

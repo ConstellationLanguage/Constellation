@@ -1,4 +1,4 @@
-namespace Constellation.BasicNodes {
+namespace Constellation.CoreNodes {
     public class Receiver : INode, IReceiver, IDestroy{
         public const string NAME = "Receiver";
         private ISender sender;
