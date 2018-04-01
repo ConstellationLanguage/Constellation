@@ -13,6 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 8aa3b9ec-7214-4b76-9a01-4eec090b1d0d
+      XPosition: 3.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Name: KeyDown
       Namespace: Unity
       Guid: d4749494-0f1f-40f8-80dd-0d28a3a97fc6
@@ -67,3 +75,5 @@ MonoBehaviour:
         Type: 
         Description: 1 on key down else 0
       outputPositionY: 68
+  IsInstance: 0
+  IsDifferentThanSource: 0

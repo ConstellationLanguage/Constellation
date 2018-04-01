@@ -149,7 +149,7 @@ namespace ConstellationEditor {
                     this,
                     scriptDataService.GetEditorData ().clipBoard,
                     scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), // Editor Position
-                    OnLinkAdded, OnNodeAdded, OnNodeRemoved, OnHelpRequested, SaveConstellationInstance); // CallBacks 
+                    OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, SaveConstellationInstance); // CallBacks 
                 nodeTabPanel = new ConstellationsTabPanel (this);
             }
         }
@@ -173,7 +173,7 @@ namespace ConstellationEditor {
                     this,
                     scriptDataService.GetEditorData ().clipBoard,
                     scriptDataService.GetLastEditorScrollPositionX (), scriptDataService.GetLastEditorScrollPositionY (), // Saved editor position
-                    OnLinkAdded, OnNodeAdded, OnNodeRemoved, OnHelpRequested, // callBacks
+                    OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, // callBacks
                     SaveConstellationInstance);
                 nodeTabPanel = new ConstellationsTabPanel (this);
                 if (scriptDataService.GetCurrentScript () != null)
@@ -218,7 +218,12 @@ namespace ConstellationEditor {
             if (constellationName != null)
                 Open (constellationName);
 
-            scriptDataService.RemoveOpenedConstellation (nodeTabPanel.ConstellationToRemove ());
+            var constellationToRemove = nodeTabPanel.ConstellationToRemove ();
+            scriptDataService.RemoveOpenedConstellation (constellationToRemove);
+            if (constellationToRemove != "" && constellationToRemove != null) {
+                Recover ();
+            }
+            
 
             EditorGUILayout.BeginHorizontal ();
             EditorGUILayout.BeginVertical ();

@@ -111,3 +111,5 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 146
+  IsInstance: 0
+  IsDifferentThanSource: 0

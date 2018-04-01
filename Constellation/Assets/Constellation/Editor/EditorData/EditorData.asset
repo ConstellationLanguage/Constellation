@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastOpenedConstellationPath:
   - Assets/DevDir/test.asset
+  - Assets/DevDir/NewConstellation.asset
   EditorUndoService:
     Actions: []
     SelectedAction: -1

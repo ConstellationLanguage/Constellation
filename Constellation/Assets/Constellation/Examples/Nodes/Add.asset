@@ -16,8 +16,8 @@ MonoBehaviour:
     - Name: Tutorial
       Namespace: Tags
       Guid: a72aec90-2877-426f-8fc3-f8099c147b34
-      XPosition: 105.5
-      YPosition: 30.5
+      XPosition: 7.5
+      YPosition: 6.5
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -313,3 +313,5 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 428
+  IsInstance: 0
+  IsDifferentThanSource: 0

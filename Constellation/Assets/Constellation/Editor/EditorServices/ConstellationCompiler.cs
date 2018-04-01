@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Constellation;
+using UnityEngine;
 
 namespace ConstellationEditor {
     public class ConstellationCompiler {
@@ -14,6 +15,7 @@ namespace ConstellationEditor {
         public void UpdateScriptNodes (ConstellationScriptData script) {
             List<NodeData> nodesToRemove = new List<NodeData> ();
             NodesFactory = new NodesFactory ();
+            try {
             foreach (var node in script.Nodes) {
                 if (NodesFactory.GetNodeSafeMode (node) == null) {
                     nodesToRemove.Add (node);
@@ -52,6 +54,9 @@ namespace ConstellationEditor {
                     }
                 }
                 script.AddNode (new NodeData (replacementNode));
+            }
+            } catch {
+                Debug.LogError(script);
             }
         }
     }

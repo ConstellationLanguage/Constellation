@@ -13,11 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 38208011-a941-47b2-a3cb-3bf262f73d85
+      XPosition: 1.5
+      YPosition: 3.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Name: Word
       Namespace: BasicNodes
       Guid: 0696622c-02a2-4933-b39f-f3649576f88d
-      XPosition: 34.5
-      YPosition: 22
+      XPosition: 27.5
+      YPosition: 54
       Inputs: []
       Outputs:
       - Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
@@ -166,3 +174,5 @@ MonoBehaviour:
         Type: 
         Description: Received Value from a sender
       outputPositionY: 234
+  IsInstance: 0
+  IsDifferentThanSource: 0

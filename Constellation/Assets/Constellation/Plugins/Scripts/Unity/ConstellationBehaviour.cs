@@ -62,11 +62,14 @@ namespace Constellation {
         }
 
         public void RemoveLink (LinkData linkData) {
+            Link linkToRemove = null;
             foreach (var link in Constellation.Links) {
                 if (link.Input.Guid == linkData.Input.Guid && link.Output.Guid == linkData.Output.Guid) {
-                    Constellation.Links.Remove (link);
+                    linkToRemove = link;
                 }
             }
+            linkToRemove.OnDestroy();
+            Constellation.Links.Remove (linkToRemove);
         }
 
         public void AddLink (LinkData link) {

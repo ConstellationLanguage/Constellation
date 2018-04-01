@@ -30,7 +30,7 @@ namespace ConstellationEditor {
                 return true;
             }
 
-            if (GUILayout.Button ("RecompileScript", EditorStyles.toolbarButton, GUILayout.Width (70))) {
+            if (GUILayout.Button ("Refresh", EditorStyles.toolbarButton, GUILayout.Width (70))) {
                 compilable.CompileScripts();
                 return true;
             }
