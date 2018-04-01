@@ -303,7 +303,7 @@ namespace ConstellationEditor {
 
             EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (farNodeX + 400, farNodeY + 400);
-            nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos);
+            nodeEditorSelection.Draw (Nodes.ToArray (), LinksView.GetLinks (), editorScrollPos, _width, _height);
         }
 
         private void DrawInstancePannel () {
