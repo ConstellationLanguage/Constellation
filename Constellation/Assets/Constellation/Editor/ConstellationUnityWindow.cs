@@ -102,7 +102,7 @@ namespace ConstellationEditor {
 
         [MenuItem ("Help/Constellation tutorials")]
         static void Help () {
-            Application.OpenURL ("https://github.com/AntoineCharton/Constellation/wiki");
+            Application.OpenURL ("https://github.com/ConstellationLanguage/Constellation/wiki");
         }
 
         public void Undo () {

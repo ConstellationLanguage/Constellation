@@ -15,7 +15,15 @@ namespace ConstellationEditor {
             cube.transform.position = new Vector3 (0, 0, 0);
             cube.gameObject.SetActive(false);
             var behaviour = cube.AddComponent<ConstellationBehaviour> () as ConstellationBehaviour;
-            behaviour.ConstellationData = constellationEditorDataService.GetConstellationByName (name);
+            var exampleConstellation = constellationEditorDataService.GetConstellationByName (name);
+            if(exampleConstellation == null) {
+                 EditorUtility.DisplayDialog("Oops...",
+                "The example you are trying to open does not exist... If you need more info on " + name + ", you can still double right click on either input or outputs.",
+                 "Go back");
+                EditorApplication.isPlaying = false;
+                return;
+            }
+            behaviour.ConstellationData = exampleConstellation;
             Selection.activeGameObject = cube;
             cube.gameObject.SetActive(true);
             
