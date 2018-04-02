@@ -2,14 +2,12 @@ namespace Constellation.Unity {
     public class FindByName : INode, IReceiver, IAwakable {
         public const string NAME = "FindByName";
         private ISender sender;
-        public Attribute GameObjectName;
         public Variable GameObject;
 
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
-            var newValue = new Variable ().Set("Name");
-            sender = _nodeParameters.GetSender();
-            _nodeParameters.AddOutput (true, "Object", "Gameobject name");
-            GameObjectName = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "Name");
+            sender = _nodeParameters.GetSender ();
+            _nodeParameters.AddInput (this, true, "Game Object Name");
+            _nodeParameters.AddOutput (false, "Object", "Gameobject");
         }
 
         public string NodeName () {
@@ -21,10 +19,14 @@ namespace Constellation.Unity {
         }
 
         public void OnAwake () {
-            GameObject = new Variable().Set(UnityEngine.GameObject.Find(GameObjectName.Value.GetString()));
-            sender.Send(GameObject,0);
+
         }
 
-        public void Receive (Variable value, Input _input) { }
+        public void Receive (Variable value, Input _input) {
+            if (_input.isWarm){
+                GameObject = new Variable ().Set (UnityEngine.GameObject.Find (value.GetString ()));
+                sender.Send (GameObject, 0);
+            }
+        }
     }
 }

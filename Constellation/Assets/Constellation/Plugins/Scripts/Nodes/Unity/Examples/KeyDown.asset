@@ -34,7 +34,7 @@ MonoBehaviour:
         Description: 1 on key down else 0
       AttributesData:
       - Value:
-          stringValue: s
+          stringValue: q
           floatValue: 0.000001
         Type: 1
     - Name: Print

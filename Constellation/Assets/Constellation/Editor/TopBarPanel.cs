@@ -24,12 +24,6 @@ namespace ConstellationEditor {
                 return true;
             }
 
-            if (GUILayout.Button ("View", EditorStyles.toolbarButton, GUILayout.Width (35))) {
-                GenericMenu menu = new GenericMenu ();
-                menu.ShowAsContext ();
-                return true;
-            }
-
             if (GUILayout.Button ("Refresh", EditorStyles.toolbarButton, GUILayout.Width (70))) {
                 compilable.CompileScripts();
                 return true;

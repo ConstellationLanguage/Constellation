@@ -35,18 +35,6 @@ MonoBehaviour:
 '
           floatValue: 0.000001
         Type: 2
-    - Name: Print
-      Namespace: CoreNodes
-      Guid: b67d3871-276f-4924-8fd6-3eafbfe642be
-      XPosition: 289.5
-      YPosition: 178
-      Inputs:
-      - Guid: 519e092b-f0cc-4474-8144-e4aa7c25d167
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Name: MouseButtonDown
       Namespace: Unity
       Guid: 130eb5a3-4f92-4d70-afad-3f4d1741714e
@@ -63,9 +51,21 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: e17f6adc-9593-4777-98d6-b3e4c1b98431
+      XPosition: 254.5
+      YPosition: 179.5
+      Inputs:
+      - Guid: f593b06e-6fa7-45a5-a94e-078194844b65
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
-        Guid: 519e092b-f0cc-4474-8144-e4aa7c25d167
+        Guid: f593b06e-6fa7-45a5-a94e-078194844b65
         IsWarm: 0
         Type: 
         Description: value to log in console
@@ -74,6 +74,6 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: 1 on mouse button down else 0
-      outputPositionY: 208
+      outputPositionY: 209.5
   IsInstance: 0
   IsDifferentThanSource: 0
