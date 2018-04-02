@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: SplitVec3
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      XPosition: 4.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Vec3
+      Namespace: Unity
+      Guid: 65610f37-fdbb-4fd2-a8b6-57a005c1e894
+      XPosition: 168.5
+      YPosition: 44.5
+      Inputs:
+      - Guid: afc63c90-10cd-49a1-a1df-fdbddf0f0114
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: 552935f9-60a1-4c46-8c4f-1fb03191b465
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 81525fdc-4572-42d1-a0b8-308fccda6058
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: f912d271-421e-4984-989a-c499ee2b1f53
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 65c4b386-0ba0-47dd-8258-2da6eda3c8a8
+      XPosition: 6.5
+      YPosition: 46.5
+      Inputs: []
+      Outputs:
+      - Guid: 44b3f51d-091a-40e5-ac90-061d68eed679
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 5
+        Type: 0
+    - Name: SplitVec3
+      Namespace: Unity
+      Guid: f92bc424-d40a-44ce-bec5-89ce7c90d193
+      XPosition: 342.5
+      YPosition: 48.5
+      Inputs:
+      - Guid: 37b17173-cdb6-45fe-9dec-152323240e45
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Outputs:
+      - Guid: 7bd92896-50ee-4119-9ff8-cd32ca2b0a62
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: 15a6155f-3740-4aa8-93e1-36415ced3706
+        IsWarm: 0
+        Type: 
+        Description: Y
+      - Guid: 03a83612-7a8a-4310-b0a8-345f66e3286d
+        IsWarm: 0
+        Type: 
+        Description: Z
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: d75ff04e-53b5-40c0-a138-2686ef4a2440
+      XPosition: 550.5
+      YPosition: 65
+      Inputs:
+      - Guid: de437ff7-ba2d-4091-8405-eee278021809
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 7f6e8a08-aecf-4e10-a246-511ceb236bbc
+      XPosition: 6.5
+      YPosition: 91.5
+      Inputs: []
+      Outputs:
+      - Guid: bc734cc0-de9b-4da2-a323-a1aa841f7e1f
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: b7812b2a-713e-48cd-8791-135639c11040
+      XPosition: 7.5
+      YPosition: 136.5
+      Inputs: []
+      Outputs:
+      - Guid: 22080b9a-ef77-4c94-a5af-9596e4219dc7
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: afc63c90-10cd-49a1-a1df-fdbddf0f0114
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: 44b3f51d-091a-40e5-ac90-061d68eed679
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 74.5
+    - Input:
+        Guid: 37b17173-cdb6-45fe-9dec-152323240e45
+        IsWarm: 1
+        Type: 
+        Description: Vec3
+      Output:
+        Guid: f912d271-421e-4984-989a-c499ee2b1f53
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 78.5
+    - Input:
+        Guid: 552935f9-60a1-4c46-8c4f-1fb03191b465
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: bc734cc0-de9b-4da2-a323-a1aa841f7e1f
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 94.5
+    - Input:
+        Guid: de437ff7-ba2d-4091-8405-eee278021809
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 7bd92896-50ee-4119-9ff8-cd32ca2b0a62
+        IsWarm: 0
+        Type: 
+        Description: X
+      outputPositionY: 95
+    - Input:
+        Guid: 81525fdc-4572-42d1-a0b8-308fccda6058
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 22080b9a-ef77-4c94-a5af-9596e4219dc7
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 114.5
+  IsInstance: 0
+  IsDifferentThanSource: 0

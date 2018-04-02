@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: LoadScene
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      XPosition: 4.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      XPosition: 257.5
+      YPosition: 57
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Load a scene by name
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 387c10ae-8511-41ce-bcea-cd3f70180914
+      XPosition: 59.5
+      YPosition: 172.5
+      Inputs: []
+      Outputs:
+      - Guid: 8a3db0b8-37e2-493f-9aec-edbdb70c222f
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: ExampleScene
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: d480c937-5725-47f3-a8f0-980bfd6cd774
+      XPosition: 240.5
+      YPosition: 200.5
+      Inputs:
+      - Guid: 2a20b9c2-9be9-4949-8ef0-fbf40a305462
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: a9bd8013-403d-4ef6-b73f-ac2e2e244feb
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: f21835ab-c86c-4151-8fec-09f54911821d
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: LoadScene
+      Namespace: Unity
+      Guid: d5391ae3-aa40-4a93-b412-0cce8f4c2bb2
+      XPosition: 404
+      YPosition: 201.5
+      Inputs:
+      - Guid: 299ac9d5-586a-454f-9307-0e026c7e22b9
+        IsWarm: 1
+        Type: 
+        Description: Scene Name to load
+      Outputs: []
+      AttributesData: []
+    - Name: KeyDown
+      Namespace: Unity
+      Guid: 0f5001b3-836b-4852-b70f-9112a4a61a6d
+      XPosition: 61.5
+      YPosition: 229.5
+      Inputs: []
+      Outputs:
+      - Guid: 7f987994-7a1a-4625-82f0-1a5ade59fc13
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      AttributesData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
+    Links:
+    - Input:
+        Guid: 2a20b9c2-9be9-4949-8ef0-fbf40a305462
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 8a3db0b8-37e2-493f-9aec-edbdb70c222f
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 230.5
+    - Input:
+        Guid: 299ac9d5-586a-454f-9307-0e026c7e22b9
+        IsWarm: 1
+        Type: 
+        Description: Scene Name to load
+      Output:
+        Guid: f21835ab-c86c-4151-8fec-09f54911821d
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 231.5
+    - Input:
+        Guid: a9bd8013-403d-4ef6-b73f-ac2e2e244feb
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 7f987994-7a1a-4625-82f0-1a5ade59fc13
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      outputPositionY: 250.5
+  IsInstance: 0
+  IsDifferentThanSource: 0

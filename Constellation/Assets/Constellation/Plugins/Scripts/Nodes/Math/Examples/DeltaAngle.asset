@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: DeltaAngle
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 4.5
+      YPosition: 25
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Calculates the shortest difference between two given angles
+            given in degrees..
+          floatValue: 0.000001
+        Type: 2
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 552.5
+      YPosition: 111
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 228.5
+      YPosition: 112
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: DeltaAngle
+      Namespace: Math
+      Guid: 2a08fb56-bd72-40f3-9ca8-a5aeeb490350
+      XPosition: 406.5
+      YPosition: 113
+      Inputs:
+      - Guid: 11fc0d57-1a7c-405b-bd64-445f568d0688
+        IsWarm: 0
+        Type: 
+        Description: Angle a
+      - Guid: f1f3a22c-fa73-433a-aa7f-01c7e363b456
+        IsWarm: 1
+        Type: 
+        Description: Angle b
+      Outputs:
+      - Guid: c4977e18-2860-40e2-8f70-20b67156cf78
+        IsWarm: 0
+        Type: 
+        Description: Sortest difference between a and b
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: c3acd5d2-e992-43e6-9008-1b16426aae03
+      XPosition: 231.5
+      YPosition: 153
+      Inputs: []
+      Outputs:
+      - Guid: eb52b2b5-0cb6-4f98-aa71-874dc1a81bf6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: c4977e18-2860-40e2-8f70-20b67156cf78
+        IsWarm: 0
+        Type: 
+        Description: Sortest difference between a and b
+      outputPositionY: 141
+    - Input:
+        Guid: 11fc0d57-1a7c-405b-bd64-445f568d0688
+        IsWarm: 0
+        Type: 
+        Description: Angle a
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 143
+    - Input:
+        Guid: f1f3a22c-fa73-433a-aa7f-01c7e363b456
+        IsWarm: 1
+        Type: 
+        Description: Angle b
+      Output:
+        Guid: eb52b2b5-0cb6-4f98-aa71-874dc1a81bf6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 163
+  IsInstance: 0
+  IsDifferentThanSource: 0

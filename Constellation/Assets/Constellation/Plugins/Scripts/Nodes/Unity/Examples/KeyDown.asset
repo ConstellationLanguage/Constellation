@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: KeyDown
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 8aa3b9ec-7214-4b76-9a01-4eec090b1d0d
+      XPosition: 3.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: KeyDown
+      Namespace: Unity
+      Guid: d4749494-0f1f-40f8-80dd-0d28a3a97fc6
+      XPosition: 53.5
+      YPosition: 38
+      Inputs: []
+      Outputs:
+      - Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      AttributesData:
+      - Value:
+          stringValue: q
+          floatValue: 0.000001
+        Type: 1
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: 72262a71-f32e-406c-a0c9-15dff48e93fa
+      XPosition: 259.5
+      YPosition: 38
+      Inputs:
+      - Guid: 405c0592-2a24-4d10-b23b-3c3dc6b5b405
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 1b86364f-a103-4b66-bd85-1d0177a33afc
+      XPosition: 116.5
+      YPosition: 123
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: 'Output 1 the frame the key is pressed.
+
+            Otherwise it''s 0.'
+          floatValue: 0.000001
+        Type: 2
+    Links:
+    - Input:
+        Guid: 405c0592-2a24-4d10-b23b-3c3dc6b5b405
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
+        IsWarm: 1
+        Type: 
+        Description: 1 on key down else 0
+      outputPositionY: 68
+  IsInstance: 0
+  IsDifferentThanSource: 0

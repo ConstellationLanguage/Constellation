@@ -226,7 +226,8 @@ namespace ConstellationEditor {
             if (Event.current.button == 0) {
                 GUI.DragWindow ();
             }
-            EditorUtility.SetDirty (constellationScript);
+            if(constellationScript != null)
+                EditorUtility.SetDirty (constellationScript);
         }
 
         private void DrawIncompleteLink () {

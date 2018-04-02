@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Max
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 4.5
+      YPosition: 25
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Returns largest of two or more values.
+          floatValue: 0.000001
+        Type: 2
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 552.5
+      YPosition: 111
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 228.5
+      YPosition: 112
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Max
+      Namespace: Math
+      Guid: 6ef886f1-a33e-4064-beb3-9d8d9b7370f5
+      XPosition: 413.5
+      YPosition: 117
+      Inputs:
+      - Guid: ad988e16-8278-4599-aba7-9c10269ba852
+        IsWarm: 0
+        Type: 
+        Description: Var1
+      - Guid: 26b13af2-ab40-4c48-84b2-1645feaa8b8c
+        IsWarm: 1
+        Type: 
+        Description: Var2
+      Outputs:
+      - Guid: 1e5e43e9-d2d9-4dc4-92f9-48b9028dfe10
+        IsWarm: 0
+        Type: 
+        Description: Max value
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: f34cc5bc-bc23-4ff8-83ae-3b991eba3061
+      XPosition: 228.5
+      YPosition: 167
+      Inputs: []
+      Outputs:
+      - Guid: d4616c40-489d-461f-ae02-bff14b6d3da0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 10
+        Type: 0
+    Links:
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 1e5e43e9-d2d9-4dc4-92f9-48b9028dfe10
+        IsWarm: 0
+        Type: 
+        Description: Max value
+      outputPositionY: 141
+    - Input:
+        Guid: ad988e16-8278-4599-aba7-9c10269ba852
+        IsWarm: 0
+        Type: 
+        Description: Var1
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 147
+    - Input:
+        Guid: 26b13af2-ab40-4c48-84b2-1645feaa8b8c
+        IsWarm: 1
+        Type: 
+        Description: Var2
+      Output:
+        Guid: d4616c40-489d-461f-ae02-bff14b6d3da0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 167
+  IsInstance: 0
+  IsDifferentThanSource: 0

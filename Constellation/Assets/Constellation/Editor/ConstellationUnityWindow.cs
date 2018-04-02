@@ -102,7 +102,7 @@ namespace ConstellationEditor {
 
         [MenuItem ("Help/Constellation tutorials")]
         static void Help () {
-            Application.OpenURL ("https://github.com/AntoineCharton/Constellation/wiki");
+            Application.OpenURL ("https://github.com/ConstellationLanguage/Constellation/wiki");
         }
 
         public void Undo () {
@@ -155,6 +155,13 @@ namespace ConstellationEditor {
         }
 
         private void OnHelpRequested (string nodeName) {
+            if(Application.isPlaying) {
+                if(EditorUtility.DisplayDialog("Exit play mode", "You need to exit play mode in order to open a Constellation help.", "Continue", "Stop Playing"))
+                    return;
+
+                EditorApplication.isPlaying = false;
+                return;
+            }
             scriptDataService.GetEditorData ().ExampleData.openExampleConstellation = true;
             scriptDataService.GetEditorData ().ExampleData.constellationName = nodeName;
             EditorApplication.isPlaying = true;

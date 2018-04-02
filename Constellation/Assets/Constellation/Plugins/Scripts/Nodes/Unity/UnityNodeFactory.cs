@@ -62,6 +62,9 @@ namespace Constellation.Unity {
                 case Instantiate.NAME:
                     INode instantiate = new Instantiate () as INode;
                     return new Node<INode> (instantiate);
+                case MaterialColor.NAME:
+                    INode materialColor = new MaterialColor()  as INode;
+                    return new Node<INode> (materialColor);
                 default:
                     return null;
             }

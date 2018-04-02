@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Instantiate
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      XPosition: 4.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      XPosition: 257.5
+      YPosition: 57
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Instantiate a gameObject
+          floatValue: 0.000001
+        Type: 2
+    - Name: Instantiate
+      Namespace: Unity
+      Guid: fadd47ef-36a2-4136-ab1c-ff016ebc5cbf
+      XPosition: 273
+      YPosition: 192.5
+      Inputs:
+      - Guid: 87a5f949-bc8b-40b4-aa5c-21bdbcd094e3
+        IsWarm: 1
+        Type: Object
+        Description: GameObject
+      Outputs:
+      - Guid: dbb39e0e-7a55-4c32-b448-14595a0661ba
+        IsWarm: 1
+        Type: Object
+        Description: Instantiated GameObject
+      AttributesData: []
+    Links: []
+  IsInstance: 0
+  IsDifferentThanSource: 0
