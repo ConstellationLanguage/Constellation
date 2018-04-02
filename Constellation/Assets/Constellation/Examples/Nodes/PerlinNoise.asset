@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: PerlinNoise
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 4.5
+      YPosition: 25
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Generate 2D Perlin noise.
+          floatValue: 0.000001
+        Type: 2
+    - Name: PerlinNoise
+      Namespace: Math
+      Guid: 3054e374-8c23-41af-8777-e0cfe6f23e54
+      XPosition: 388.5
+      YPosition: 109
+      Inputs:
+      - Guid: 7b0bcb94-7b15-482a-a795-a5d3bdf1b5e9
+        IsWarm: 0
+        Type: 
+        Description: X
+      - Guid: 4af64899-9dce-43e3-8297-66f19bfcc327
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Outputs:
+      - Guid: fb0dd903-e861-431a-bf61-82b4845cb14d
+        IsWarm: 0
+        Type: 
+        Description: Next power of two
+      AttributesData: []
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 552.5
+      YPosition: 111
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 228.5
+      YPosition: 112
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 610266a8-2dd8-47f3-9199-9db225b58f4a
+      XPosition: 230.5
+      YPosition: 160
+      Inputs: []
+      Outputs:
+      - Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: 7b0bcb94-7b15-482a-a795-a5d3bdf1b5e9
+        IsWarm: 0
+        Type: 
+        Description: X
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 139
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: fb0dd903-e861-431a-bf61-82b4845cb14d
+        IsWarm: 0
+        Type: 
+        Description: Next power of two
+      outputPositionY: 141
+    - Input:
+        Guid: 4af64899-9dce-43e3-8297-66f19bfcc327
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 159
+  IsInstance: 0
+  IsDifferentThanSource: 0

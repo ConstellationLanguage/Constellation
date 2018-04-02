@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: PingPong
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 4.5
+      YPosition: 25
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: PingPongs the value t, so that it is never larger than length
+            and never smaller than 0.
+          floatValue: 0.000001
+        Type: 2
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 552.5
+      YPosition: 111
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: PingPong
+      Namespace: Math
+      Guid: bb05f0e4-ce9e-4bb8-ae11-cd29693ce955
+      XPosition: 393.5
+      YPosition: 118
+      Inputs:
+      - Guid: 93fc91b0-3cfd-4893-bff3-07b03aa5a035
+        IsWarm: 0
+        Type: 
+        Description: T
+      - Guid: 9534baa0-08fd-4517-804e-57b681845e94
+        IsWarm: 1
+        Type: 
+        Description: Lenght
+      Outputs:
+      - Guid: 27d0a6d4-9753-4aaf-9d8b-7ba1cf622a39
+        IsWarm: 0
+        Type: 
+        Description: Ping Pong T value
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 220.5
+      YPosition: 121
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 96a1ed71-1319-42f6-a193-c9a120593f09
+      XPosition: 221.5
+      YPosition: 168
+      Inputs: []
+      Outputs:
+      - Guid: fc68dfd7-ca3c-4332-bd2b-c4f1213ad35a
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 27d0a6d4-9753-4aaf-9d8b-7ba1cf622a39
+        IsWarm: 0
+        Type: 
+        Description: Ping Pong T value
+      outputPositionY: 141
+    - Input:
+        Guid: 93fc91b0-3cfd-4893-bff3-07b03aa5a035
+        IsWarm: 0
+        Type: 
+        Description: T
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 148
+    - Input:
+        Guid: 9534baa0-08fd-4517-804e-57b681845e94
+        IsWarm: 1
+        Type: 
+        Description: Lenght
+      Output:
+        Guid: fc68dfd7-ca3c-4332-bd2b-c4f1213ad35a
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 168
+  IsInstance: 0
+  IsDifferentThanSource: 0

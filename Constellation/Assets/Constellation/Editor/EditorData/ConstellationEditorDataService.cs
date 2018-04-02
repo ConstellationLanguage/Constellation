@@ -25,13 +25,8 @@ namespace ConstellationEditor {
 
         public ConstellationScript GetConstellationByName(string scriptName)
         {
-            var allConstellations = EditorUtils.GetAllInstances<ConstellationScript>();
-            foreach (var constellation in allConstellations) {
-                if(constellation.name == scriptName) {
-                    return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath(constellation), typeof (ConstellationScript));;
-                }
-            }
-            return null;
+            var constellation = EditorUtils.GetInstanceByName<ConstellationScript>(scriptName);
+            return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath(constellation), typeof (ConstellationScript));
         }
 
         private ConstellationEditorData Setup () {
