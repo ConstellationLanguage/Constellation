@@ -32,10 +32,3 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 [Forum](https://www.constellationeditor.com/forum-1)
 
 [Download](https://www.constellationeditor.com/download)
-
-# Dependencies
-[Unity OSC](https://github.com/thomasfredericks/UnityOSC) from Thomas Fredericks
-
-[uDesktopDuplication](https://github.com/hecomi/uDesktopDuplication) from hecomi
-
-
