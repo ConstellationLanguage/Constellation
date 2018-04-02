@@ -38,7 +38,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 1
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 72262a71-f32e-406c-a0c9-15dff48e93fa
       XPosition: 259.5
       YPosition: 38
@@ -50,7 +50,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 1b86364f-a103-4b66-bd85-1d0177a33afc
       XPosition: 116.5
       YPosition: 123

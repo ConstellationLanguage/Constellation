@@ -227,7 +227,7 @@ namespace ConstellationEditor {
 
             EditorGUILayout.BeginHorizontal ();
             EditorGUILayout.BeginVertical ();
-            nodeEditorPanel.DrawNodeEditor (position.width - nodeSelectorWidht, position.height - 35);
+            nodeEditorPanel.DrawNodeEditor (new Rect(0,35,position.width - nodeSelectorWidht, position.height - 35));
             EditorGUILayout.EndVertical ();
             nodeSelector.Draw (nodeSelectorWidht, position.height - 50);
             EditorGUILayout.EndHorizontal ();

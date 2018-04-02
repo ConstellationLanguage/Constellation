@@ -22,7 +22,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 44a9dd82-5f19-4fa4-8c1f-7d9c42fc6ee6
       XPosition: 425.5
       YPosition: 57
@@ -80,7 +80,7 @@ MonoBehaviour:
         Description: Transform
       AttributesData: []
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 79e43b5c-f6e3-4865-af1f-8e98eb935ac4
       XPosition: 14.5
       YPosition: 213
@@ -168,7 +168,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 9
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 08fd4952-3fce-4e0b-8164-3ae71c400c42
       XPosition: 814
       YPosition: 223
@@ -180,7 +180,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: ff76da0d-9905-47c8-8921-e064d9091f51
       XPosition: 13.5
       YPosition: 262
@@ -196,7 +196,7 @@ MonoBehaviour:
           floatValue: 0
         Type: 0
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 5fa2412e-0ab6-4e5d-9a5b-437f49aeed4c
       XPosition: 10.5
       YPosition: 316

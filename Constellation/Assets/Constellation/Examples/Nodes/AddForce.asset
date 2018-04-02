@@ -22,7 +22,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Note
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: b21022cb-b673-4c87-badf-c970e11b5b24
       XPosition: 211.5
       YPosition: 23
@@ -36,7 +36,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 53fa3689-35a0-410c-ad43-69b85c3f7dca
       XPosition: 24.5
       YPosition: 141
@@ -100,7 +100,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: d2b009e3-0763-4752-bac0-1e2cf715ea94
       XPosition: 28.5
       YPosition: 205

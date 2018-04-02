@@ -14,7 +14,7 @@ MonoBehaviour:
   script:
     Nodes:
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 5c7e0e72-abb9-4369-9f5f-c641bc5b6b9e
       XPosition: 29.5
       YPosition: 95
@@ -30,7 +30,7 @@ MonoBehaviour:
           floatValue: 2
         Type: 0
     - Name: Multiply
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 2f741397-c255-466f-bdcd-2d167f59ebc0
       XPosition: 239.5
       YPosition: 96
@@ -50,7 +50,7 @@ MonoBehaviour:
         Description: Result $1 x $2
       AttributesData: []
     - Name: Print
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: 79894679-f790-43fc-b54f-3113cf7e9a21
       XPosition: 435.5
       YPosition: 97
@@ -62,7 +62,7 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Value
-      Namespace: BasicNodes
+      Namespace: CoreNodes
       Guid: ec61e46a-8e19-4015-81c2-f1f2203a02a1
       XPosition: 25.5
       YPosition: 162
