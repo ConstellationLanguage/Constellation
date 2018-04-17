@@ -18,15 +18,13 @@ namespace ConstellationEditor {
             OpenEditorData ();
         }
 
-        public ConstellationScript [] GetAllScriptsInProject()
-        {
-            return EditorUtils.GetAllInstances<ConstellationScript>();
+        public ConstellationScript[] GetAllScriptsInProject () {
+            return EditorUtils.GetAllInstances<ConstellationScript> ();
         }
 
-        public ConstellationScript GetConstellationByName(string scriptName)
-        {
-            var constellation = EditorUtils.GetInstanceByName<ConstellationScript>(scriptName);
-            return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath(constellation), typeof (ConstellationScript));
+        public ConstellationScript GetConstellationByName (string scriptName) {
+            var constellation = EditorUtils.GetInstanceByName<ConstellationScript> (scriptName);
+            return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath (constellation), typeof (ConstellationScript));
         }
 
         private ConstellationEditorData Setup () {
@@ -71,6 +69,8 @@ namespace ConstellationEditor {
             }
 
             EditorData = t;
+            if (EditorData.LastOpenedConstellationPath == null)
+                EditorData.LastOpenedConstellationPath = new List<string> ();
             return EditorData;
         }
 
