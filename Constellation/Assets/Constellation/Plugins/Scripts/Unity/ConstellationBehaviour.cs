@@ -34,14 +34,17 @@ namespace Constellation {
 
             var links = ConstellationData.GetLinks ();
             foreach (LinkData link in links) {
-                Constellation.AddLink (new Link (Constellation.GetInput (link.Input.Guid),
-                    Constellation.GetOutput (link.Output.Guid),
-                    Constellation.GetOutput (link.Output.Guid).Type), "none");
+                var input = Constellation.GetInput (link.Input.Guid);
+                var output = Constellation.GetOutput (link.Output.Guid);
+                if (input != null && output != null)
+                    Constellation.AddLink (new Link (Constellation.GetInput (link.Input.Guid),
+                        Constellation.GetOutput (link.Output.Guid),
+                        Constellation.GetOutput (link.Output.Guid).Type), "none");
             }
             SetUnityObject ();
             SetConstellationEvents ();
-            Constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.name);
-            Constellation.Awake();
+            Constellation.Initialize (System.Guid.NewGuid ().ToString (), ConstellationData.name);
+            Constellation.Awake ();
         }
 
         public void RefreshConstellationEvents () {
@@ -49,12 +52,12 @@ namespace Constellation {
             CollisionStayListeners = null;
             CollisionExitListeners = null;
             FixedUpdatables = null;
-            Constellation.RefreshConstellationEvents();
+            Constellation.RefreshConstellationEvents ();
             SetConstellationEvents ();
         }
 
         public void SetConstellationEvents () {
-            Constellation.SetConstellationEvents();
+            Constellation.SetConstellationEvents ();
             SetCollisionEnter ();
             SetCollisionExit ();
             SetCollisionStay ();
@@ -68,12 +71,12 @@ namespace Constellation {
                     linkToRemove = link;
                 }
             }
-            linkToRemove.OnDestroy();
+            linkToRemove.OnDestroy ();
             Constellation.Links.Remove (linkToRemove);
         }
 
         public void AddLink (LinkData link) {
-            Constellation.AddLink(link);
+            Constellation.AddLink (link);
         }
 
         public void RemoveNode (NodeData node) {
@@ -221,11 +224,11 @@ namespace Constellation {
         }
 
         void Update () {
-            Constellation.Update();
+            Constellation.Update ();
         }
 
         void FixedUpdate () {
-            if(FixedUpdatables == null)
+            if (FixedUpdatables == null)
                 return;
             foreach (var updatable in FixedUpdatables) {
                 updatable.OnFixedUpdate ();
@@ -233,7 +236,7 @@ namespace Constellation {
         }
 
         void LateUpdate () {
-            Constellation.LateUpdate();
+            Constellation.LateUpdate ();
         }
 
         public void Log (Variable value) {

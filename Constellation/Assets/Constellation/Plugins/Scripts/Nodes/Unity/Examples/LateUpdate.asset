@@ -21,18 +21,6 @@ MonoBehaviour:
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
-      Namespace: CoreNodes
-      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
-      XPosition: 257.5
-      YPosition: 57
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Called after all updates
-          floatValue: 0.000001
-        Type: 2
     - Name: Value
       Namespace: CoreNodes
       Guid: 0fa7f05c-9a59-4fa4-b7b4-b4655f3c5320
@@ -113,6 +101,18 @@ MonoBehaviour:
         Type: 
         Description: Ray on lateUpdate
       AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      XPosition: 27.5
+      YPosition: 286
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Called after all updates
+          floatValue: 0.000001
+        Type: 2
     Links:
     - Input:
         Guid: ff5f7b44-96f4-42cd-9037-444f242b5faa

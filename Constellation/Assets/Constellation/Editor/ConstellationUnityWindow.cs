@@ -36,11 +36,11 @@ namespace ConstellationEditor {
         }
 
         public void CompileScripts () {
-            if (WindowInstance != null) {
-                if (WindowInstance.ConstellationCompiler != null)
+                if (WindowInstance.ConstellationCompiler == null)
                     WindowInstance.ConstellationCompiler = new ConstellationCompiler ();
+
                 WindowInstance.ConstellationCompiler.UpdateScriptsNodes (WindowInstance.scriptDataService.GetAllScriptsInProject ());
-            }
+                Recover();
         }
 
         [MenuItem ("File/Constellation/Save %&s")]
