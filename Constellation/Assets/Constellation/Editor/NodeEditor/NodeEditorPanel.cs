@@ -145,9 +145,8 @@ namespace ConstellationEditor {
             LinksView = new LinkView (GUI, this, constellationScript, nodeConfig, linkRemoved);
         }
 
-        void linkRemoved(LinkData link)
-        {
-            OnLinkRemoved(link);
+        void linkRemoved (LinkData link) {
+            OnLinkRemoved (link);
         }
 
         void DrawEditorNodes () {
@@ -191,7 +190,7 @@ namespace ConstellationEditor {
             Nodes.Add (newNodeWindow);
             undoable.AddAction ();
             OnNodeAdded (newNode);
-            nodeEditorSelection.UnselectAll();
+            nodeEditorSelection.UnselectAll ();
             return newNode;
         }
 
@@ -221,12 +220,16 @@ namespace ConstellationEditor {
             }
 
             var script = constellationScript.script;
-            script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
-            script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
+
+            if (script.Nodes != null)
+                script.Nodes = script.Nodes.OrderBy (x => x.YPosition).ToList ();
+            if (script.Links != null)
+                script.Links = script.Links.OrderBy (x => x.outputPositionY).ToList ();
+                
             if (Event.current.button == 0) {
                 GUI.DragWindow ();
             }
-            if(constellationScript != null)
+            if (constellationScript != null)
                 EditorUtility.SetDirty (constellationScript);
         }
 

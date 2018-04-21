@@ -36,11 +36,11 @@ namespace ConstellationEditor {
         }
 
         public void CompileScripts () {
-                if (WindowInstance.ConstellationCompiler == null)
-                    WindowInstance.ConstellationCompiler = new ConstellationCompiler ();
+            if (WindowInstance.ConstellationCompiler == null)
+                WindowInstance.ConstellationCompiler = new ConstellationCompiler ();
 
-                WindowInstance.ConstellationCompiler.UpdateScriptsNodes (WindowInstance.scriptDataService.GetAllScriptsInProject ());
-                Recover();
+            WindowInstance.ConstellationCompiler.UpdateScriptsNodes (WindowInstance.scriptDataService.GetAllScriptsInProject ());
+            Recover ();
         }
 
         [MenuItem ("File/Constellation/Save %&s")]
@@ -155,8 +155,8 @@ namespace ConstellationEditor {
         }
 
         private void OnHelpRequested (string nodeName) {
-            if(Application.isPlaying) {
-                if(EditorUtility.DisplayDialog("Exit play mode", "You need to exit play mode in order to open a Constellation help.", "Continue", "Stop Playing"))
+            if (Application.isPlaying) {
+                if (EditorUtility.DisplayDialog ("Exit play mode", "You need to exit play mode in order to open a Constellation help.", "Continue", "Stop Playing"))
                     return;
 
                 EditorApplication.isPlaying = false;
@@ -230,11 +230,10 @@ namespace ConstellationEditor {
             if (constellationToRemove != "" && constellationToRemove != null) {
                 Recover ();
             }
-            
 
             EditorGUILayout.BeginHorizontal ();
             EditorGUILayout.BeginVertical ();
-            nodeEditorPanel.DrawNodeEditor (new Rect(0,35,position.width - nodeSelectorWidht, position.height - 35));
+            nodeEditorPanel.DrawNodeEditor (new Rect (0, 35, position.width - nodeSelectorWidht, position.height - 35));
             EditorGUILayout.EndVertical ();
             nodeSelector.Draw (nodeSelectorWidht, position.height - 50);
             EditorGUILayout.EndHorizontal ();
@@ -242,7 +241,9 @@ namespace ConstellationEditor {
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
-            WindowInstance.CompileScripts ();
+            if (Application.isPlaying)
+                WindowInstance.CompileScripts ();
+
             WindowInstance.Recover ();
             WindowInstance.previousSelectedGameObject = null;
             WindowInstance.ResetInstances ();
