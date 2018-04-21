@@ -116,7 +116,7 @@ namespace ConstellationEditor {
         }
 
         public void Copy () {
-            scriptDataService.GetEditorData ().clipBoard.AddSelection (nodeEditorPanel.GetNodeSelection ().SelectedNodes.ToArray (), nodeEditorPanel.LinksView.GetLinks ());
+            scriptDataService.GetEditorData ().clipBoard.AddSelection (nodeEditorPanel.GetNodeSelection ().SelectedNodes.ToArray (), nodeEditorPanel.GetLinks ());
         }
 
         public void Paste () {

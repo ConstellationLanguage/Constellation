@@ -12,7 +12,47 @@ MonoBehaviour:
   m_Name: NewConstellation
   m_EditorClassIdentifier: 
   script:
-    Nodes: []
+    Nodes:
+    - Name: Add
+      Namespace: CoreNodes
+      Guid: 1fbe39f7-1b75-4ea9-9d61-1712f7473570
+      XPosition: 356
+      YPosition: 155.5
+      Inputs:
+      - Guid: 38427c2f-4961-43a3-af68-ec699fb27789
+        IsWarm: 0
+        Type: 
+        Description: value 1
+      - Guid: f40bf44a-70b0-4d7c-a844-f7b260dfdff2
+        IsWarm: 1
+        Type: 
+        Description: value 2
+      Outputs:
+      - Guid: 41cb19ca-b7ba-4e67-a050-c6083fe0e35e
+        IsWarm: 0
+        Type: 
+        Description: value 1 + value 2
+      AttributesData: []
+    - Name: Add
+      Namespace: CoreNodes
+      Guid: 5904574c-57cd-4157-a2bf-250e41bdd5f0
+      XPosition: 120
+      YPosition: 158.5
+      Inputs:
+      - Guid: c72989c2-ffaa-4683-a785-3b4af027bf78
+        IsWarm: 0
+        Type: 
+        Description: value 1
+      - Guid: 562b6f1c-0c36-4fd2-aade-c7c4f8814784
+        IsWarm: 1
+        Type: 
+        Description: value 2
+      Outputs:
+      - Guid: f9277012-42d3-4531-a98b-dfb74753721d
+        IsWarm: 0
+        Type: 
+        Description: value 1 + value 2
+      AttributesData: []
     Links: []
   IsInstance: 0
   IsDifferentThanSource: 0
