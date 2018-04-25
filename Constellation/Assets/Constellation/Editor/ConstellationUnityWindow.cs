@@ -197,7 +197,6 @@ namespace ConstellationEditor {
                 canDrawUI = true;
             }
 
-            //Used to hide and show buttons
             if (Event.current.type == EventType.MouseMove) {
                 RequestRepaint ();
             }
@@ -257,7 +256,7 @@ namespace ConstellationEditor {
         }
 
         void Update () {
-            if (Application.isPlaying) {
+            if (Application.isPlaying && IsConstellationSelected()) {
                 RequestRepaint ();
                 if (nodeEditorPanel != null && previousSelectedGameObject != null && scriptDataService.GetCurrentScript ().IsInstance) {
                     nodeEditorPanel.Update (currentConstellationbehavior.Constellation);
@@ -268,10 +267,11 @@ namespace ConstellationEditor {
                     return;
 
                 var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
-                if (selectedConstellation != null) {
+                if (selectedConstellation != null ) {
                     currentConstellationbehavior = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
                     OpenConstellationInstance (selectedConstellation.Constellation, AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
+                    selectedConstellation.Initialize();
                 }
             }
         }
@@ -300,9 +300,9 @@ namespace ConstellationEditor {
 
             Repaint ();
         }
+        
         private void OnNodeAddRequested (string nodeName, string _namespace) {
             nodeEditorPanel.AddNode (nodeName, _namespace);
         }
-
     }
 }

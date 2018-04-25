@@ -12,9 +12,18 @@ namespace Constellation {
         public ConstellationScript ConstellationData;
         public Constellation Constellation;
         public static ConstellationEventSystem eventSystem;
+        public static bool IsGCDone = false;
         private NodesFactory nodeFactory;
+        private bool isInitialized = false;
 
         public void Awake () {
+            Initialize ();
+        }
+
+        public void Initialize () {
+            if (isInitialized) // do not initialize twice
+                return;
+
             if (ConstellationBehaviour.eventSystem == null)
                 eventSystem = new ConstellationEventSystem ();
 
@@ -41,10 +50,12 @@ namespace Constellation {
                         Constellation.GetOutput (link.Output.Guid),
                         Constellation.GetOutput (link.Output.Guid).Type), "none");
             }
+            
             SetUnityObject ();
             SetConstellationEvents ();
             Constellation.Initialize (System.Guid.NewGuid ().ToString (), ConstellationData.name);
             Constellation.Awake ();
+            isInitialized = true;
         }
 
         public void RefreshConstellationEvents () {
@@ -224,6 +235,11 @@ namespace Constellation {
         }
 
         void Update () {
+            if (!IsGCDone) {
+                System.GC.Collect ();
+                IsGCDone = true;
+            }
+
             Constellation.Update ();
         }
 
@@ -236,6 +252,7 @@ namespace Constellation {
         }
 
         void LateUpdate () {
+            IsGCDone = false;
             Constellation.LateUpdate ();
         }
 
