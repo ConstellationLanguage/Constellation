@@ -36,6 +36,8 @@ namespace ConstellationEditor {
 
         }
 
+//[AC] Not choice to use unload scene. I don't wnat it to be async
+#pragma warning disable 0618
         void UnloadAllScenesExcept (string sceneName) {
             int c = SceneManager.sceneCount;
             Scene[] scenesIdToRemove = new Scene[c - 1];
@@ -47,6 +49,7 @@ namespace ConstellationEditor {
             }
 
             foreach (var scene in scenesIdToRemove) {
+                
                 SceneManager.UnloadScene (scene);
             }
         }
