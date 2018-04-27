@@ -1,5 +1,4 @@
 //[TODO] AC Split this class into multiples ones. For example background could have it's own class.
-using System.Collections.Generic;
 using System.Linq;
 using Constellation;
 using UnityEditor;
@@ -29,10 +28,9 @@ namespace ConstellationEditor {
 
         public delegate void ApplyInstanceChanges ();
         ApplyInstanceChanges OnApplyInstanceChanges;
-        private NodesFactory nodesFactory;
-        private bool isTutorial = false;
         private NodeEditorBackground Background;
         public NodeEditorLinks NodeEditorLinks;
+        private bool isSetupRequested = false;
 
         public NodeEditorPanel (IGUI _gui,
             EditorWindow _editorWindow,
@@ -47,8 +45,6 @@ namespace ConstellationEditor {
             NodeEditorNodes.NodeRemoved nodeRemoved,
             NodeEditorNodes.HelpClicked onHelpClicked,
             ApplyInstanceChanges applyInstanceChanges) {
-            isTutorial = false;
-            nodesFactory = new NodesFactory ();
             constellationScript = _script;
             undoable = _undoable;
             GUI = _gui;
@@ -71,7 +67,7 @@ namespace ConstellationEditor {
             OnHelpClicked += onHelpClicked;
             OnLinkRemoved += onLinkRemoved;
             nodeEditorSelection = new NodeEditorSelection (GUI, _editorClipBoard);
-            Setup();
+            RequestSetup();
         }
 
         public void Initialize () {
@@ -144,9 +140,15 @@ namespace ConstellationEditor {
             return nodeEditorSelection;
         }
 
+        void RequestSetup()
+        {
+            isSetupRequested = true;
+        }
+
         void Setup () {
             nodeConfig = new NodeConfig ();
             LoadConstellation ();
+            isSetupRequested = false;
         }
 
         public LinkData[] GetLinks () {
@@ -166,6 +168,9 @@ namespace ConstellationEditor {
         }
 
         public void DrawNodeEditor (Rect LayoutPosition) {
+            if(isSetupRequested)
+                Setup();
+
             panelSize = new Vector2 (LayoutPosition.width, LayoutPosition.height);
 
             editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (LayoutPosition.width), GUILayout.Height (LayoutPosition.height));

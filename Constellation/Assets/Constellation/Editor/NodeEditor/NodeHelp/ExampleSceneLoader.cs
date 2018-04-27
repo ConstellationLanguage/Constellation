@@ -1,6 +1,5 @@
 using Constellation;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,7 @@ namespace ConstellationEditor {
         public ExampleSceneLoader () { }
 
         public void RunExample (string name, ConstellationEditorDataService constellationEditorDataService) {
-            var newScene = SceneManager.CreateScene ("Example");
+            SceneManager.CreateScene ("Example");
             UnloadAllScenesExcept ("Example");
 
             GameObject light = new GameObject ("Light");
