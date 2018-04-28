@@ -1,4 +1,6 @@
-﻿namespace ConstellationEditor {
+﻿using UnityEngine;
+
+namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
         protected ConstellationEditorDataService scriptDataService;
         protected ConstellationCompiler ConstellationCompiler;
@@ -66,7 +68,11 @@
                     return false;
             } else
                 return false;
+        }
 
+        
+        protected virtual void OnLostFocus () {
+            Debug.Log("lost focus");
         }
     }
 }

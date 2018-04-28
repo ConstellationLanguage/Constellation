@@ -240,8 +240,12 @@ namespace ConstellationEditor {
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
-            if (Application.isPlaying)
+
+            if (Application.isPlaying) {
+                ConstellationUnityWindow.ShowWindow ();
+                WindowInstance.Recover();
                 WindowInstance.CompileScripts ();
+            }
 
             WindowInstance.Recover ();
             WindowInstance.previousSelectedGameObject = null;
@@ -256,7 +260,7 @@ namespace ConstellationEditor {
         }
 
         void Update () {
-            if (Application.isPlaying && IsConstellationSelected()) {
+            if (Application.isPlaying && IsConstellationSelected ()) {
                 RequestRepaint ();
                 if (nodeEditorPanel != null && previousSelectedGameObject != null && scriptDataService.GetCurrentScript ().IsInstance) {
                     nodeEditorPanel.Update (currentConstellationbehavior.Constellation);
@@ -267,11 +271,11 @@ namespace ConstellationEditor {
                     return;
 
                 var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
-                if (selectedConstellation != null ) {
+                if (selectedConstellation != null) {
                     currentConstellationbehavior = selectedConstellation;
                     previousSelectedGameObject = selectedGameObjects[0];
                     OpenConstellationInstance (selectedConstellation.Constellation, AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
-                    selectedConstellation.Initialize();
+                    selectedConstellation.Initialize ();
                 }
             }
         }
@@ -300,9 +304,15 @@ namespace ConstellationEditor {
 
             Repaint ();
         }
-        
+
         private void OnNodeAddRequested (string nodeName, string _namespace) {
             nodeEditorPanel.AddNode (nodeName, _namespace);
         }
+
+        protected override void OnLostFocus () {
+            EditorApplication.playModeStateChanged -= OnPlayStateChanged;
+            EditorApplication.playModeStateChanged += OnPlayStateChanged;
+        }
+
     }
 }
