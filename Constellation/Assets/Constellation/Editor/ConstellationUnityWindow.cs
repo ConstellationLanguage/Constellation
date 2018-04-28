@@ -12,8 +12,6 @@ namespace ConstellationEditor {
         private NodeSelectorPanel nodeSelector;
         private string currentPath;
         public static ConstellationUnityWindow WindowInstance;
-        private GameObject previousSelectedGameObject;
-        private ConstellationBehaviour currentConstellationbehavior;
         Constellation.Constellation constellation;
 
         [MenuItem ("Window/Constellation Editor")]
@@ -98,11 +96,6 @@ namespace ConstellationEditor {
                 WindowInstance.Redo ();
             else
                 ShowWindow ();
-        }
-
-        [MenuItem ("Help/Constellation tutorials")]
-        static void Help () {
-            Application.OpenURL ("https://github.com/ConstellationLanguage/Constellation/wiki");
         }
 
         public void Undo () {
@@ -218,6 +211,10 @@ namespace ConstellationEditor {
             Recover ();
         }
 
+        protected void OnNodeAddRequested (string nodeName, string _namespace) {
+            nodeEditorPanel.AddNode (nodeName, _namespace);
+        }
+
         protected virtual void DrawGUI () {
             TopBarPanel.Draw (this, this, this, this);
             var constellationName = nodeTabPanel.Draw (scriptDataService.currentPath.ToArray (), CurrentEditedInstancesName);
@@ -225,7 +222,7 @@ namespace ConstellationEditor {
                 Open (constellationName);
 
             var constellationToRemove = nodeTabPanel.ConstellationToRemove ();
-            scriptDataService.RemoveOpenedConstellation (constellationToRemove);
+            scriptDataService.CloseOpenedConstellation (constellationToRemove);
             if (constellationToRemove != "" && constellationToRemove != null) {
                 Recover ();
             }
@@ -243,7 +240,7 @@ namespace ConstellationEditor {
 
             if (Application.isPlaying) {
                 ConstellationUnityWindow.ShowWindow ();
-                WindowInstance.Recover();
+                WindowInstance.Recover ();
                 WindowInstance.CompileScripts ();
             }
 
@@ -269,6 +266,12 @@ namespace ConstellationEditor {
                 var selectedGameObjects = Selection.gameObjects;
                 if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject)
                     return;
+                else if(scriptDataService.GetCurrentScript ().IsInstance){
+                    scriptDataService.CloseCurrentConstellationInstance();
+                    previousSelectedGameObject = selectedGameObjects[0];
+                    Recover();
+                }
+                    
 
                 var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
                 if (selectedConstellation != null) {
@@ -280,39 +283,9 @@ namespace ConstellationEditor {
             }
         }
 
-        private void OnLinkAdded (LinkData link) {
-            if (Application.isPlaying && previousSelectedGameObject != null)
-                currentConstellationbehavior.AddLink (link);
-        }
-
-        private void OnLinkRemoved (LinkData link) {
-            if (Application.isPlaying && previousSelectedGameObject != null)
-                currentConstellationbehavior.RemoveLink (link);
-        }
-
-        private void OnNodeAdded (NodeData node) {
-            if (Application.isPlaying && previousSelectedGameObject != null) {
-                currentConstellationbehavior.AddNode (node);
-                currentConstellationbehavior.RefreshConstellationEvents ();
-            }
-            Repaint ();
-        }
-
-        private void OnNodeRemoved (NodeData node) {
-            if (Application.isPlaying && previousSelectedGameObject)
-                currentConstellationbehavior.RemoveNode (node);
-
-            Repaint ();
-        }
-
-        private void OnNodeAddRequested (string nodeName, string _namespace) {
-            nodeEditorPanel.AddNode (nodeName, _namespace);
-        }
-
-        protected override void OnLostFocus () {
+        protected virtual void OnLostFocus () {
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
         }
-
     }
 }

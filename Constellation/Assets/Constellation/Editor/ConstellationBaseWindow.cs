@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Constellation;
+using UnityEditor;
+using UnityEngine;
 
 namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
@@ -6,10 +8,17 @@ namespace ConstellationEditor {
         protected ConstellationCompiler ConstellationCompiler;
         static protected bool canDrawUI = false;
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
+        protected GameObject previousSelectedGameObject;
+        protected ConstellationBehaviour currentConstellationbehavior;
 
         public void Awake () {
             Setup ();
             canDrawUI = false;
+        }
+
+        [MenuItem ("Help/Constellation tutorials")]
+        static void Help () {
+            Application.OpenURL ("https://github.com/ConstellationLanguage/Constellation/wiki");
         }
 
         protected virtual void Setup () { }
@@ -70,9 +79,29 @@ namespace ConstellationEditor {
                 return false;
         }
 
-        
-        protected virtual void OnLostFocus () {
-            Debug.Log("lost focus");
+        protected void OnLinkAdded (LinkData link) {
+            if (Application.isPlaying && previousSelectedGameObject != null)
+                currentConstellationbehavior.AddLink (link);
+        }
+
+        protected void OnLinkRemoved (LinkData link) {
+            if (Application.isPlaying && previousSelectedGameObject != null)
+                currentConstellationbehavior.RemoveLink (link);
+        }
+
+        protected void OnNodeAdded (NodeData node) {
+            if (Application.isPlaying && previousSelectedGameObject != null) {
+                currentConstellationbehavior.AddNode (node);
+                currentConstellationbehavior.RefreshConstellationEvents ();
+            }
+            Repaint ();
+        }
+
+        protected void OnNodeRemoved (NodeData node) {
+            if (Application.isPlaying && previousSelectedGameObject)
+                currentConstellationbehavior.RemoveNode (node);
+
+            Repaint ();
         }
     }
 }
