@@ -190,6 +190,9 @@ namespace Constellation {
         }
 
         public Link[] GetLinks () {
+            if(Links == null)
+                Links = new List<Link>();
+
             return Links.ToArray ();
         }
 

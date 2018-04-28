@@ -3,13 +3,11 @@
 namespace Constellation.Unity {
     public class MaterialColor : INode, IReceiver, IAwakable, IGameObject {
         public const string NAME = "MaterialColor";
-        private ISender sender;
         private Renderer renderer;
         private string parameterName;
         private UnityEngine.Color color;
 
         public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
-            sender = _nodeParameters.GetSender ();
             _nodeParameters.AddInput (this, false, "Object", "Game Object");
             _nodeParameters.AddInput (this, true, "Color");
             color = UnityEngine.Color.black;

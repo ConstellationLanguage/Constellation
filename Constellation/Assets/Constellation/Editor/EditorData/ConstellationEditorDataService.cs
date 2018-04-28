@@ -129,17 +129,27 @@ namespace ConstellationEditor {
             Script = newScript;
         }
 
-        public bool RemoveOpenedConstellation (string name) {
-            if (name == null)
+        public bool CloseOpenedConstellation (string path) {
+            if (path == null)
                 return false;
-            EditorData.LastOpenedConstellationPath.Remove (name);
-            currentPath.Remove (name);
+            EditorData.LastOpenedConstellationPath.Remove (path);
+            currentPath.Remove (path);
             SaveEditorData ();
+            return true;
+        }
+
+        public bool CloseCurrentConstellationInstance ()
+        {
+            if (EditorData.CurrentInstancePath == null)
+                return false;
+            CloseOpenedConstellation(EditorData.CurrentInstancePath[0].InstancePath);
             return true;
         }
 
         private void SaveEditorData () {
             EditorData.LastOpenedConstellationPath = new List<string> ();
+            if(currentPath == null)
+                currentPath = new List<string>();
             foreach (var path in currentPath) {
                 if (!EditorData.LastOpenedConstellationPath.Contains (path))
                     EditorData.LastOpenedConstellationPath.Add (path);

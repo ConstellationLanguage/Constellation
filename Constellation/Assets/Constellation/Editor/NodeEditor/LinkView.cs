@@ -54,9 +54,9 @@ namespace ConstellationEditor {
                         j++;
                     }
                 }
-                if (startLink == Rect.zero || endLink == Rect.zero){
+                if (startLink == Rect.zero || endLink == Rect.zero) {
                     constellationScript.RemoveLink (link);
-                    OnLinkRemoved(link);
+                    OnLinkRemoved (link);
                 }
 
                 link.outputPositionY = endLink.y;
@@ -85,13 +85,13 @@ namespace ConstellationEditor {
                     GUI.Box (linkCenter, "", GUI.skin.GetStyle ("flow var 0"));
                     if (GUI.Button (linkCenter, "", GUI.skin.GetStyle ("WinBtnClose"))) {
                         constellationScript.RemoveLink (link);
-                        OnLinkRemoved(link);
+                        OnLinkRemoved (link);
                     } else if (Event.current.IsUsed ()) {
                         if (!dragging) {
                             dragging = true;
-                            if (linkCenter.Contains (Event.current.mousePosition)){
+                            if (linkCenter.Contains (Event.current.mousePosition)) {
                                 constellationScript.RemoveLink (link);
-                                OnLinkRemoved(link);
+                                OnLinkRemoved (link);
                             }
                         }
                     } else if (!Event.current.IsLayoutOrRepaint ()) {

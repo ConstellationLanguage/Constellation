@@ -7,7 +7,6 @@ namespace ConstellationEditor {
         private const int ButtonSize = 14;
         private Rect Rect;
         public NodeData node;
-        private NodeEditorPanel editor;
         private NodeConfig nodeConfig;
         private ConstellationScript constellationScript;
         private bool isDestroyed = false;
@@ -19,8 +18,10 @@ namespace ConstellationEditor {
         private bool CloseOnNextFrame = false;
         private bool isAttributeValueChanged = false;
         public delegate void HelpClicked (string _nodeName);
+        private ILinkEditor linkEditor;
+        private IVisibleObject visibleObject;
         
-        public NodeView (NodeData _node, NodeEditorPanel _editor, NodeConfig _nodeConfig, ConstellationScript _constellation) {
+        public NodeView (NodeData _node, IVisibleObject _visibleObject, NodeConfig _nodeConfig, ConstellationScript _constellation, ILinkEditor _linkEditor) {
             nodeConfig = _nodeConfig;
             var nodeWidth = nodeConfig.NodeWidth;
             if (_node.GetAttributes().Length > 0) {
@@ -28,8 +29,10 @@ namespace ConstellationEditor {
             }
             Rect = new Rect(_node.XPosition, _node.YPosition, nodeWidth, (Mathf.Max(Mathf.Max(_node.Inputs.Count, _node.Outputs.Count), _node.AttributesData.Count) * nodeConfig.InputSize) + nodeConfig.TopMargin);
             node = _node;
-            editor = _editor;
+            visibleObject = _visibleObject;
             constellationScript = _constellation;
+            linkEditor = _linkEditor;
+
             
             foreach (var attribute in node.AttributesData) {
                 attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
@@ -38,7 +41,7 @@ namespace ConstellationEditor {
 
         public void DrawWindow (int id, GUI.WindowFunction DrawNodeWindow, bool isNote) {
             //Only draw visible nodes
-            if (!editor.InView(Rect))
+            if (!visibleObject.InView(Rect))
                 return;
 
             if (DrawDescription)
@@ -172,7 +175,7 @@ namespace ConstellationEditor {
                             GetConnectionStyle(input.IsWarm, input.Type))) {
                         Event current = Event.current;
                         if (current.button == 0)
-                            editor.AddLinkFromInput(input);
+                            linkEditor.AddLinkFromInput(input);
                         else {
                             DrawDescription = true;
                             Description = input.Description;
@@ -190,9 +193,9 @@ namespace ConstellationEditor {
                     if (GUI.Button(new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize), "",
                             GetConnectionStyle(output.IsWarm, output.Type))) {
                         Event current = Event.current;
-                        if (current.button == 0)
-                            editor.AddLinkFromOutput(output);
-                        else {
+                        if (current.button == 0){
+                            linkEditor.AddLinkFromOutput(output);
+                        } else {
                             DrawDescription = true;
                             Description = output.Description;
                         }

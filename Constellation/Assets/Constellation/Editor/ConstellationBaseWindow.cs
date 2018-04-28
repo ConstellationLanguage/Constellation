@@ -1,13 +1,24 @@
-﻿namespace ConstellationEditor {
+﻿using Constellation;
+using UnityEditor;
+using UnityEngine;
+
+namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
         protected ConstellationEditorDataService scriptDataService;
         protected ConstellationCompiler ConstellationCompiler;
         static protected bool canDrawUI = false;
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
+        protected GameObject previousSelectedGameObject;
+        protected ConstellationBehaviour currentConstellationbehavior;
 
         public void Awake () {
             Setup ();
             canDrawUI = false;
+        }
+
+        [MenuItem ("Help/Constellation tutorials")]
+        static void Help () {
+            Application.OpenURL ("https://github.com/ConstellationLanguage/Constellation/wiki");
         }
 
         protected virtual void Setup () { }
@@ -66,7 +77,31 @@
                     return false;
             } else
                 return false;
+        }
 
+        protected void OnLinkAdded (LinkData link) {
+            if (Application.isPlaying && previousSelectedGameObject != null)
+                currentConstellationbehavior.AddLink (link);
+        }
+
+        protected void OnLinkRemoved (LinkData link) {
+            if (Application.isPlaying && previousSelectedGameObject != null)
+                currentConstellationbehavior.RemoveLink (link);
+        }
+
+        protected void OnNodeAdded (NodeData node) {
+            if (Application.isPlaying && previousSelectedGameObject != null) {
+                currentConstellationbehavior.AddNode (node);
+                currentConstellationbehavior.RefreshConstellationEvents ();
+            }
+            Repaint ();
+        }
+
+        protected void OnNodeRemoved (NodeData node) {
+            if (Application.isPlaying && previousSelectedGameObject)
+                currentConstellationbehavior.RemoveNode (node);
+
+            Repaint ();
         }
     }
 }

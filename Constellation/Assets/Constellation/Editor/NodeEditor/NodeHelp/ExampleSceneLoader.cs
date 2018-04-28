@@ -1,6 +1,5 @@
 using Constellation;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,7 @@ namespace ConstellationEditor {
         public ExampleSceneLoader () { }
 
         public void RunExample (string name, ConstellationEditorDataService constellationEditorDataService) {
-            var newScene = SceneManager.CreateScene ("Example");
+            SceneManager.CreateScene ("Example");
             UnloadAllScenesExcept ("Example");
 
             GameObject light = new GameObject ("Light");
@@ -37,6 +36,8 @@ namespace ConstellationEditor {
 
         }
 
+//[AC] Not choice to use unload scene. I don't wnat it to be async
+#pragma warning disable 0618
         void UnloadAllScenesExcept (string sceneName) {
             int c = SceneManager.sceneCount;
             Scene[] scenesIdToRemove = new Scene[c - 1];
@@ -48,6 +49,7 @@ namespace ConstellationEditor {
             }
 
             foreach (var scene in scenesIdToRemove) {
+                
                 SceneManager.UnloadScene (scene);
             }
         }
