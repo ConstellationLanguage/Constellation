@@ -148,6 +148,8 @@ namespace ConstellationEditor {
 
         private void SaveEditorData () {
             EditorData.LastOpenedConstellationPath = new List<string> ();
+            if(currentPath == null)
+                currentPath = new List<string>();
             foreach (var path in currentPath) {
                 if (!EditorData.LastOpenedConstellationPath.Contains (path))
                     EditorData.LastOpenedConstellationPath.Add (path);
