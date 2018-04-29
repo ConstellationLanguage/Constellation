@@ -10,17 +10,44 @@ namespace Constellation {
         public List<BehaviourAttribute> Attributes;
         public List<IFixedUpdate> FixedUpdatables;
         public ConstellationScript ConstellationData;
-        public Constellation Constellation;
+        private Constellation constellation;
         public static ConstellationEventSystem eventSystem;
         public static bool IsGCDone = false;
         private NodesFactory nodeFactory;
         private bool isInitialized = false;
+        private ConstellationError lastConstellationError = null;
 
         public void Awake () {
-            Initialize ();
+            try {
+                Initialize ();
+            }catch (ConstellationError e) {
+                Debug.LogError(e.GetError().GetFormatedError());
+            }
+        }
+
+        public void HasThrownError(ConstellationError error)
+        {
+            lastConstellationError = error;
+        }
+
+        public ConstellationError GetLastError()
+        {
+            return lastConstellationError;
+        }
+
+        public Constellation GetConstellation () {
+            if(constellation == null)
+                throw new TryingToAccessANullCosntellation (this);
+
+            return constellation;
         }
 
         public void Initialize () {
+            if (ConstellationData == null && Application.isPlaying) {
+                this.enabled = false;
+                throw new NoConstellationAttached (this);
+            }
+
             if (isInitialized) // do not initialize twice
                 return;
 
@@ -32,29 +59,24 @@ namespace Constellation {
             else
                 nodeFactory = NodesFactory.Current;
 
-            if (ConstellationData == null && Application.isPlaying) {
-                this.enabled = false;
-                Debug.LogError ("Constellation Error: No Constellation attached to " + this.gameObject);
-                return;
-            }
             var nodes = ConstellationData.GetNodes ();
-            Constellation = new Constellation ();
+            constellation = new Constellation ();
             SetNodes (nodes);
 
             var links = ConstellationData.GetLinks ();
             foreach (LinkData link in links) {
-                var input = Constellation.GetInput (link.Input.Guid);
-                var output = Constellation.GetOutput (link.Output.Guid);
+                var input = constellation.GetInput (link.Input.Guid);
+                var output = constellation.GetOutput (link.Output.Guid);
                 if (input != null && output != null)
-                    Constellation.AddLink (new Link (Constellation.GetInput (link.Input.Guid),
-                        Constellation.GetOutput (link.Output.Guid),
-                        Constellation.GetOutput (link.Output.Guid).Type), "none");
+                    constellation.AddLink (new Link (constellation.GetInput (link.Input.Guid),
+                        constellation.GetOutput (link.Output.Guid),
+                        constellation.GetOutput (link.Output.Guid).Type), "none");
             }
-            
+
             SetUnityObject ();
             SetConstellationEvents ();
-            Constellation.Initialize (System.Guid.NewGuid ().ToString (), ConstellationData.name);
-            Constellation.Awake ();
+            constellation.Initialize (System.Guid.NewGuid ().ToString (), ConstellationData.name);
+            constellation.Awake ();
             isInitialized = true;
         }
 
@@ -63,12 +85,12 @@ namespace Constellation {
             CollisionStayListeners = null;
             CollisionExitListeners = null;
             FixedUpdatables = null;
-            Constellation.RefreshConstellationEvents ();
+            constellation.RefreshConstellationEvents ();
             SetConstellationEvents ();
         }
 
         public void SetConstellationEvents () {
-            Constellation.SetConstellationEvents ();
+            constellation.SetConstellationEvents ();
             SetCollisionEnter ();
             SetCollisionExit ();
             SetCollisionStay ();
@@ -77,25 +99,28 @@ namespace Constellation {
 
         public void RemoveLink (LinkData linkData) {
             Link linkToRemove = null;
-            foreach (var link in Constellation.Links) {
+            foreach (var link in constellation.Links) {
                 if (link.Input.Guid == linkData.Input.Guid && link.Output.Guid == linkData.Output.Guid) {
                     linkToRemove = link;
                 }
             }
             linkToRemove.OnDestroy ();
-            Constellation.Links.Remove (linkToRemove);
+            constellation.Links.Remove (linkToRemove);
         }
 
         public void AddLink (LinkData link) {
-            Constellation.AddLink (link);
+            constellation.AddLink (link);
         }
 
         public void RemoveNode (NodeData node) {
-            Constellation.RemovedNode (node.Guid);
+            constellation.RemovedNode (node.Guid);
         }
 
         void OnDestroy () {
-            foreach (var node in Constellation.GetNodes ()) {
+            if(constellation == null)
+                return;
+
+            foreach (var node in constellation.GetNodes ()) {
                 if (node.NodeType as IDestroy != null) {
                     node.OnDestroy ();
                 }
@@ -148,7 +173,7 @@ namespace Constellation {
             var attributesCounter = 0;
             foreach (NodeData node in nodes) {
                 var newNode = nodeFactory.GetNode (node);
-                Constellation.AddNode (newNode, node.Guid, node);
+                constellation.AddNode (newNode, node.Guid, node);
                 if (IsAttribute (node) && Attributes != null) {
                     IAttribute nodeAttribute = newNode.NodeType as IAttribute;
                     if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
@@ -163,7 +188,7 @@ namespace Constellation {
 
         public void AddNode (NodeData node) {
             var newNode = nodeFactory.GetNode (node);
-            Constellation.AddNode (newNode, node.Guid);
+            constellation.AddNode (newNode, node.Guid);
             AddUnityObject (newNode);
         }
 
@@ -179,7 +204,7 @@ namespace Constellation {
                 CollisionStayListeners = new List<ICollisionStay> ();
             }
 
-            foreach (var node in Constellation.GetNodes ()) {
+            foreach (var node in constellation.GetNodes ()) {
                 if (node.NodeType as ICollisionStay != null) {
                     CollisionStayListeners.Add (node.NodeType as ICollisionStay);
                 }
@@ -191,7 +216,7 @@ namespace Constellation {
                 CollisionExitListeners = new List<ICollisionExit> ();
             }
 
-            foreach (var node in Constellation.GetNodes ()) {
+            foreach (var node in constellation.GetNodes ()) {
                 if (node.NodeType as ICollisionStay != null) {
                     CollisionExitListeners.Add (node.NodeType as ICollisionExit);
                 }
@@ -203,7 +228,7 @@ namespace Constellation {
                 CollisionEnterListeners = new List<ICollisionEnter> ();
             }
 
-            foreach (var node in Constellation.GetNodes ()) {
+            foreach (var node in constellation.GetNodes ()) {
                 if (node.NodeType as ICollisionEnter != null) {
                     CollisionEnterListeners.Add (node.NodeType as ICollisionEnter);
                 }
@@ -214,7 +239,7 @@ namespace Constellation {
             if (FixedUpdatables == null)
                 FixedUpdatables = new List<IFixedUpdate> ();
 
-            foreach (var node in Constellation.GetNodes ()) {
+            foreach (var node in constellation.GetNodes ()) {
                 if (node.NodeType as IFixedUpdate != null) {
                     FixedUpdatables.Add (node.NodeType as IFixedUpdate);
                 }
@@ -222,7 +247,7 @@ namespace Constellation {
         }
 
         public void SetUnityObject () {
-            foreach (var node in Constellation.GetNodes ()) {
+            foreach (var node in constellation.GetNodes ()) {
                 AddUnityObject (node);
             }
         }
@@ -240,7 +265,7 @@ namespace Constellation {
                 IsGCDone = true;
             }
 
-            Constellation.Update ();
+            constellation.Update ();
         }
 
         void FixedUpdate () {
@@ -253,7 +278,7 @@ namespace Constellation {
 
         void LateUpdate () {
             IsGCDone = false;
-            Constellation.LateUpdate ();
+            constellation.LateUpdate ();
         }
 
         public void Log (Variable value) {

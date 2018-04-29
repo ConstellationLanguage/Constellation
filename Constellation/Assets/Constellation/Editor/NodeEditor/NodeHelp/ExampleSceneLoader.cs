@@ -1,3 +1,4 @@
+using System.Reflection;
 using Constellation;
 using UnityEditor;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace ConstellationEditor {
         public void RunExample (string name, ConstellationEditorDataService constellationEditorDataService) {
             SceneManager.CreateScene ("Example");
             UnloadAllScenesExcept ("Example");
-
+            ClearConsole ();
             GameObject light = new GameObject ("Light");
             light.AddComponent<Light> ().type = LightType.Directional;
 
@@ -33,10 +34,16 @@ namespace ConstellationEditor {
             GameObject camera = new GameObject ("Camera");
             camera.transform.position = new Vector3 (0, 0, -10);
             camera.AddComponent<Camera> ();
-
         }
 
-//[AC] Not choice to use unload scene. I don't wnat it to be async
+        private void ClearConsole () {
+            var assembly = Assembly.GetAssembly (typeof (SceneView));
+            var type = assembly.GetType ("UnityEditor.LogEntries");
+            var method = type.GetMethod ("Clear");
+            method.Invoke (new object (), null);
+        }
+
+        //[AC] Not choice to use unload scene. I don't wnat it to be async
 #pragma warning disable 0618
         void UnloadAllScenesExcept (string sceneName) {
             int c = SceneManager.sceneCount;
@@ -49,7 +56,7 @@ namespace ConstellationEditor {
             }
 
             foreach (var scene in scenesIdToRemove) {
-                
+
                 SceneManager.UnloadScene (scene);
             }
         }

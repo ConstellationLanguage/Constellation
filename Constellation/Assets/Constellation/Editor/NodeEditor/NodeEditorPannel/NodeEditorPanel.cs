@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ConstellationEditor {
-    public class NodeEditorPanel: IVisibleObject {
+    public class NodeEditorPanel : IVisibleObject {
         Vector2 editorScrollPos;
         Vector2 editorScrollSize;
         private const string editorPath = "Assets/Constellation/Editor/EditorAssets/";
@@ -67,7 +67,7 @@ namespace ConstellationEditor {
             OnHelpClicked += onHelpClicked;
             OnLinkRemoved += onLinkRemoved;
             nodeEditorSelection = new NodeEditorSelection (GUI, _editorClipBoard);
-            RequestSetup();
+            RequestSetup ();
         }
 
         public void Initialize () {
@@ -81,7 +81,7 @@ namespace ConstellationEditor {
 
         void LoadConstellation () {
             if (constellationScript == null)
-                return;
+                throw new ConstellationScriptDataDoesNotExist ();
 
             if (NodeEditorLinks == null)
                 Initialize ();
@@ -99,7 +99,7 @@ namespace ConstellationEditor {
 
         public void Update (Constellation.Constellation constellation) {
             foreach (var node in constellation.GetNodes ()) {
-                foreach (var nodeData in NodeEditorNodes.GetNodes()) {
+                foreach (var nodeData in NodeEditorNodes.GetNodes ()) {
                     if (node.Guid == nodeData.node.Guid) {
                         for (var i = 0; i < node.GetAttributes ().Length; i++) {
                             if (!nodeData.IsAttributeValueChanged ()) {
@@ -140,8 +140,7 @@ namespace ConstellationEditor {
             return nodeEditorSelection;
         }
 
-        void RequestSetup()
-        {
+        void RequestSetup () {
             isSetupRequested = true;
         }
 
@@ -168,31 +167,31 @@ namespace ConstellationEditor {
         }
 
         public void DrawNodeEditor (Rect LayoutPosition) {
-            if(isSetupRequested)
-                Setup();
+                if (isSetupRequested)
+                    Setup ();
 
-            panelSize = new Vector2 (LayoutPosition.width, LayoutPosition.height);
+                panelSize = new Vector2 (LayoutPosition.width, LayoutPosition.height);
 
-            editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (LayoutPosition.width), GUILayout.Height (LayoutPosition.height));
-            GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
-            EditorGUILayout.LabelField ("", options);
+                editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (LayoutPosition.width), GUILayout.Height (LayoutPosition.height));
+                GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
+                EditorGUILayout.LabelField ("", options);
 
-            var backgroundTint = Color.white;
-            if (isInstance && constellationScript.IsDifferentThanSource)
-                backgroundTint = Color.yellow;
-            Background.DrawBackgroundGrid (LayoutPosition.width, LayoutPosition.height, GetCurrentScrollPosX (), GetCurrentScrollPosY (), backgroundTint);
-            NodeEditorNodes.DrawEditorNodes (editorScrollPos);
-            NodeEditorLinks.DrawLinks ();
-            if (isInstance)
-                DrawInstancePannel ();
+                var backgroundTint = Color.white;
+                if (isInstance && constellationScript.IsDifferentThanSource)
+                    backgroundTint = Color.yellow;
+                Background.DrawBackgroundGrid (LayoutPosition.width, LayoutPosition.height, GetCurrentScrollPosX (), GetCurrentScrollPosY (), backgroundTint);
+                NodeEditorNodes.DrawEditorNodes (editorScrollPos);
+                NodeEditorLinks.DrawLinks ();
+                if (isInstance)
+                    DrawInstancePannel ();
 
-            EditorGUILayout.EndScrollView ();
-            editorScrollSize = new Vector2 (NodeEditorNodes.GetFarNodeX() + 400, NodeEditorNodes.GetFarNodeY() + 400);
-            nodeEditorSelection.Draw (NodeEditorNodes.GetNodes().ToArray (), GetLinks (), editorScrollPos, LayoutPosition);
+                EditorGUILayout.EndScrollView ();
+                editorScrollSize = new Vector2 (NodeEditorNodes.GetFarNodeX () + 400, NodeEditorNodes.GetFarNodeY () + 400);
+                nodeEditorSelection.Draw (NodeEditorNodes.GetNodes ().ToArray (), GetLinks (), editorScrollPos, LayoutPosition);
         }
 
         private void DrawInstancePannel () {
-            if (!constellationScript.IsDifferentThanSource || NodeEditorNodes.IsTutorial())
+            if (!constellationScript.IsDifferentThanSource || NodeEditorNodes.IsTutorial ())
                 return;
 
             GUI.SetColor (Color.yellow);

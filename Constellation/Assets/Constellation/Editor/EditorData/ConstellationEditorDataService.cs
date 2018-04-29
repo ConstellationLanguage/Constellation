@@ -27,6 +27,10 @@ namespace ConstellationEditor {
             return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath (constellation), typeof (ConstellationScript));
         }
 
+        public void ResetConstellationEditorData() {
+            Setup();
+        }
+
         private ConstellationEditorData Setup () {
             var path = "Assets/Constellation/Editor/EditorData/EditorData.asset";
             EditorData = ScriptableObject.CreateInstance<ConstellationEditorData> ();
@@ -78,11 +82,6 @@ namespace ConstellationEditor {
             var constellationScript = ScriptableObject.CreateInstance<ConstellationScript> ();
             constellationScript.IsInstance = true;
             var path = "Assets/Constellation/Editor/EditorData/Temp/" + constellation.Name + "(Instance).asset";
-
-            if (path == null || path == "") {
-                Script = null;
-                return;
-            }
 
             Script = constellationScript;
             AssetDatabase.CreateAsset (constellationScript, path);
@@ -223,6 +222,8 @@ namespace ConstellationEditor {
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
 
             Script = t;
+            if(Script == null)
+                throw new ScriptNotFoundAtPath(_path);
 
             currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
             if (!currentPath.Contains (path))
@@ -247,7 +248,7 @@ namespace ConstellationEditor {
                 currentPath.Insert (0, _path);
                 return t;
             } else
-                return null;
+                throw new ScriptNotFoundAtPath(_path);
         }
 
         public void SetSliderX (float position) {
