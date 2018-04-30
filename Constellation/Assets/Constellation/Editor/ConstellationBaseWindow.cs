@@ -1,6 +1,7 @@
 ﻿using Constellation;
 using UnityEditor;
 using UnityEngine;
+using System;
 
 namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
@@ -102,6 +103,29 @@ namespace ConstellationEditor {
                 currentConstellationbehavior.RemoveNode (node);
 
             Repaint ();
+        }
+
+        protected virtual void ShowEditorWindow() {}
+
+        
+        protected virtual void ShowError (ConstellationError e = null, Exception exception = null) {
+            var error = e.GetError ();
+            if (error.IsIgnorable ()) {
+                if (EditorUtility.DisplayDialog (error.GetErrorTitle () + " (" + error.GetID () + ") ", error.GetErrorMessage (), "Recover", "Ignore")) {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                }
+            } else {
+                if (EditorUtility.DisplayDialog (error.GetErrorTitle () + " (" + error.GetID () + ") ", error.GetErrorMessage (), "Recover")) {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    scriptDataService.ResetConstellationEditorData ();
+                    ShowEditorWindow ();
+                }
+            }
+
+            if(exception != null && e != null)
+                Debug.LogError (error.GetFormatedError () + exception.StackTrace);
+            else if(e != null)
+                Debug.LogError (error.GetFormatedError ());
         }
     }
 }

@@ -169,6 +169,8 @@ namespace ConstellationEditor {
             if (currentPath != null) {
                 foreach (var path in currentPath) {
                     ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
+                    if(t == null)
+                        throw new ConstellationScriptDataDoesNotExist();
                     if (t.IsInstance) {
                         constellationsToRemove.Add (path);
                     }

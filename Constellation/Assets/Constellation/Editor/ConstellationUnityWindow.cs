@@ -1,4 +1,5 @@
-﻿using Constellation;
+﻿using System;
+using Constellation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,11 @@ namespace ConstellationEditor {
         [MenuItem ("Window/Constellation Editor")]
         public static void ShowWindow () {
             WindowInstance = EditorWindow.GetWindow (typeof (ConstellationUnityWindow), false, "Constellation") as ConstellationUnityWindow;
+        }
+
+        protected override void ShowEditorWindow()
+        {
+            ShowWindow();
         }
 
         void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
@@ -293,25 +299,9 @@ namespace ConstellationEditor {
                 }
             } catch (ConstellationError e) {
                 ShowError (e);
-            } catch {
-                var e = new UnknowError (this.GetType ().Name);
-                ShowError (e);
-            }
-        }
-
-        private void ShowError (ConstellationError e = null) {
-            var error = e.GetError ();
-            Debug.LogError (error.GetFormatedError ());
-            if (error.IsIgnorable ()) {
-                if (EditorUtility.DisplayDialog (error.GetErrorTitle () + " (" + error.GetID () + ") ", error.GetErrorMessage (), "Recover", "Ignore")) {
-                    UnityEditor.EditorApplication.isPlaying = false;
-                }
-            } else {
-                if (EditorUtility.DisplayDialog (error.GetErrorTitle () + " (" + error.GetID () + ") ", error.GetErrorMessage (), "Recover")) {
-                    UnityEditor.EditorApplication.isPlaying = false;
-                    scriptDataService.ResetConstellationEditorData ();
-                    ShowWindow ();
-                }
+            } catch (Exception e) {
+                var unknowError = new UnknowError (this.GetType ().Name);
+                ShowError (unknowError, e);
             }
         }
 

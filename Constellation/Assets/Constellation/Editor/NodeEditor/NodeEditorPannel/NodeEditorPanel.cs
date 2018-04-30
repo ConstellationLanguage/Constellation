@@ -171,21 +171,18 @@ namespace ConstellationEditor {
                 Setup ();
 
             panelSize = new Vector2 (LayoutPosition.width, LayoutPosition.height);
-
             editorScrollPos = EditorGUILayout.BeginScrollView (editorScrollPos, false, false, GUILayout.Width (LayoutPosition.width), GUILayout.Height (LayoutPosition.height));
             GUILayoutOption[] options = { GUILayout.Width (editorScrollSize.x), GUILayout.Height (editorScrollSize.y) };
             EditorGUILayout.LabelField ("", options);
-
             var backgroundTint = Color.white;
             if (isInstance && constellationScript.IsDifferentThanSource)
                 backgroundTint = Color.yellow;
             Background.DrawBackgroundGrid (LayoutPosition.width, LayoutPosition.height, GetCurrentScrollPosX (), GetCurrentScrollPosY (), backgroundTint);
             NodeEditorNodes.DrawEditorNodes (editorScrollPos);
             NodeEditorLinks.DrawLinks ();
+            EditorGUILayout.EndScrollView ();
             if (isInstance)
                 DrawInstancePannel ();
-
-            EditorGUILayout.EndScrollView ();
             editorScrollSize = new Vector2 (NodeEditorNodes.GetFarNodeX () + 400, NodeEditorNodes.GetFarNodeY () + 400);
             nodeEditorSelection.Draw (NodeEditorNodes.GetNodes ().ToArray (), GetLinks (), editorScrollPos, LayoutPosition);
 
@@ -200,10 +197,18 @@ namespace ConstellationEditor {
                 return;
 
             GUI.SetColor (Color.yellow);
-            if (GUI.DrawButton (new Rect (0, 0, 100, 25), "Apply")) {
-                if (isInstance)
-                    constellationScript.IsDifferentThanSource = false;
-                OnApplyInstanceChanges ();
+            Event e = Event.current;
+            var x = 0;
+            var y = 40;
+            var width = 100;
+            var height = 25;
+            if (GUI.DrawButton (new Rect (x, y, width, height), "Apply") || (e.mousePosition.x > x && e.mousePosition.x < x + width && e.mousePosition.y > y && e.mousePosition.y < y + height)) {
+                Debug.Log ("INSIDE AREA" + e.MouseButtonDown (0));
+                if (e.MouseButtonDown (0)) {
+                    if (isInstance)
+                        constellationScript.IsDifferentThanSource = false;
+                    OnApplyInstanceChanges ();
+                }
             }
             GUI.SetColor (Color.white);
         }
