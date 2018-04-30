@@ -8,6 +8,7 @@ namespace Constellation {
         private ConstellationBehaviour constellationBehaviour;
         public TryingToAccessANullCosntellation (ConstellationBehaviour _constellationBehaviour) {
             constellationBehaviour = _constellationBehaviour;
+            constellationBehaviour.HasThrownError(this);
         }
 
         public string GetErrorTitle () {

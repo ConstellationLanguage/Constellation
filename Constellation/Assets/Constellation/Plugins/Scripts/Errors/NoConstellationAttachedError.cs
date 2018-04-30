@@ -8,6 +8,7 @@ namespace Constellation {
         private const int id = 101;
         public NoConstellationAttached (ConstellationBehaviour _constellationBehaviour) {
             constellationBehaviour = _constellationBehaviour;
+            constellationBehaviour.HasThrownError(this);
         }
 
         public string GetErrorTitle () {
