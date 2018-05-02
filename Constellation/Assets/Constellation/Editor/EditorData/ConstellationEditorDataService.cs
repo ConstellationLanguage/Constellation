@@ -27,8 +27,8 @@ namespace ConstellationEditor {
             return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath (constellation), typeof (ConstellationScript));
         }
 
-        public void ResetConstellationEditorData() {
-            Setup();
+        public void ResetConstellationEditorData () {
+            Setup ();
         }
 
         private ConstellationEditorData Setup () {
@@ -137,18 +137,17 @@ namespace ConstellationEditor {
             return true;
         }
 
-        public bool CloseCurrentConstellationInstance ()
-        {
+        public bool CloseCurrentConstellationInstance () {
             if (EditorData.CurrentInstancePath == null)
                 return false;
-            CloseOpenedConstellation(EditorData.CurrentInstancePath[0].InstancePath);
+            CloseOpenedConstellation (EditorData.CurrentInstancePath[0].InstancePath);
             return true;
         }
 
         private void SaveEditorData () {
             EditorData.LastOpenedConstellationPath = new List<string> ();
-            if(currentPath == null)
-                currentPath = new List<string>();
+            if (currentPath == null)
+                currentPath = new List<string> ();
             foreach (var path in currentPath) {
                 if (!EditorData.LastOpenedConstellationPath.Contains (path))
                     EditorData.LastOpenedConstellationPath.Add (path);
@@ -169,8 +168,8 @@ namespace ConstellationEditor {
             if (currentPath != null) {
                 foreach (var path in currentPath) {
                     ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
-                    if(t == null)
-                        throw new ConstellationScriptDataDoesNotExist();
+                    if (t == null)
+                        throw new ConstellationScriptDataDoesNotExist ();
                     if (t.IsInstance) {
                         constellationsToRemove.Add (path);
                     }
@@ -213,9 +212,11 @@ namespace ConstellationEditor {
 
         public ConstellationScript OpenConstellation (string _path = "", bool save = true) {
             var path = "";
-            if (_path == "")
-                path = EditorUtility.OpenFilePanel ("Load constellation", Application.dataPath, "asset");
-            else
+            if (_path == "") {
+                    path = EditorUtility.OpenFilePanel ("Load constellation", Application.dataPath, "asset");
+                    if(path.Length == 0)
+                        return null;
+            } else
                 path = _path;
 
             if (path.StartsWith (Application.dataPath)) {
@@ -224,8 +225,8 @@ namespace ConstellationEditor {
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
 
             Script = t;
-            if(Script == null)
-                throw new ScriptNotFoundAtPath(_path);
+            if (Script == null)
+                throw new ScriptNotFoundAtPath (_path);
 
             currentPath = new List<string> (EditorData.LastOpenedConstellationPath);
             if (!currentPath.Contains (path))
@@ -250,7 +251,7 @@ namespace ConstellationEditor {
                 currentPath.Insert (0, _path);
                 return t;
             } else
-                throw new ScriptNotFoundAtPath(_path);
+                throw new ScriptNotFoundAtPath (_path);
         }
 
         public void SetSliderX (float position) {

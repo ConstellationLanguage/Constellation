@@ -27,7 +27,7 @@ namespace ConstellationEditor {
                 EditorApplication.isPlaying = false;
                 return;
             }
-            behaviour.ConstellationData = exampleConstellation;
+            behaviour.SetConstellationScript(exampleConstellation);
             Selection.activeGameObject = cube;
             cube.gameObject.SetActive (true);
 

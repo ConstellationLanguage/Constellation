@@ -274,7 +274,7 @@ namespace ConstellationEditor {
                 if (Application.isPlaying && IsConstellationSelected ()) {
                     RequestRepaint ();
                     if (nodeEditorPanel != null && previousSelectedGameObject != null && scriptDataService.GetCurrentScript ().IsInstance) {
-                        nodeEditorPanel.Update (currentConstellationbehavior.GetConstellation ());
+                        nodeEditorPanel.Update (currentEditableConstellation.GetConstellation ());
                     }
 
                     var selectedGameObjects = Selection.gameObjects;
@@ -286,12 +286,12 @@ namespace ConstellationEditor {
                         Recover ();
                     }
 
-                    var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationBehaviour> () as ConstellationBehaviour;
+                    var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationEditable> () as ConstellationEditable;
                     if (selectedConstellation != null) {
-                        currentConstellationbehavior = selectedConstellation;
+                        currentEditableConstellation = selectedConstellation;
                         previousSelectedGameObject = selectedGameObjects[0];
-                        OpenConstellationInstance (selectedConstellation.GetConstellation (), AssetDatabase.GetAssetPath (selectedConstellation.ConstellationData));
-                        if (selectedConstellation.ConstellationData == null) {
+                        OpenConstellationInstance (selectedConstellation.GetConstellation (), AssetDatabase.GetAssetPath (selectedConstellation.GetConstellationData()));
+                        if (selectedConstellation.GetConstellation() == null) {
                             return;
                         }
                         selectedConstellation.Initialize ();

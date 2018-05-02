@@ -3,7 +3,6 @@ namespace Constellation.Unity
     public class Vec3 : INode, IReceiver
     {
         public const string NAME = "Vec3";
-        public ConstellationBehaviour galaxy;
         private ISender sender;
         private Attribute valueX;
         private Attribute valueY;

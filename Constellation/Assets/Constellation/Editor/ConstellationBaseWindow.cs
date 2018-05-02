@@ -10,7 +10,7 @@ namespace ConstellationEditor {
         static protected bool canDrawUI = false;
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
         protected GameObject previousSelectedGameObject;
-        protected ConstellationBehaviour currentConstellationbehavior;
+        protected ConstellationEditable currentEditableConstellation;
 
         public void Awake () {
             Setup ();
@@ -58,7 +58,9 @@ namespace ConstellationEditor {
 
         public void Open (string _path = "") {
             scriptDataService = new ConstellationEditorDataService ();
-            scriptDataService.OpenConstellation (_path);
+            var script = scriptDataService.OpenConstellation (_path);
+            if(script == null)
+                return;
             Setup ();
         }
 
@@ -82,25 +84,25 @@ namespace ConstellationEditor {
 
         protected void OnLinkAdded (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                currentConstellationbehavior.AddLink (link);
+                currentEditableConstellation.AddLink (link);
         }
 
         protected void OnLinkRemoved (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                currentConstellationbehavior.RemoveLink (link);
+                currentEditableConstellation.RemoveLink (link);
         }
 
         protected void OnNodeAdded (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject != null) {
-                currentConstellationbehavior.AddNode (node);
-                currentConstellationbehavior.RefreshConstellationEvents ();
+                currentEditableConstellation.AddNode (node);
+                currentEditableConstellation.RefreshConstellationEvents ();
             }
             Repaint ();
         }
 
         protected void OnNodeRemoved (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject)
-                currentConstellationbehavior.RemoveNode (node);
+                currentEditableConstellation.RemoveNode (node);
 
             Repaint ();
         }

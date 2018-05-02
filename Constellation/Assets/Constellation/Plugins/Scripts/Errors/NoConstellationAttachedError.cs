@@ -4,11 +4,12 @@ namespace Constellation {
             "HINT: If you are trying to instantiate the behaviour at runtime disable the gameobject and enable it once the constellation is set on it \n\n" +
             "HOW TO FIX: Attach a Constellation script on this GameObject:";
         private const string errorTitle = "No constellation attached on constellation behaviour";
-        private ConstellationBehaviour constellationBehaviour;
+        private ConstellationComponent constellationComponent;
         private const int id = 101;
-        public NoConstellationAttached (ConstellationBehaviour _constellationBehaviour) {
-            constellationBehaviour = _constellationBehaviour;
-            constellationBehaviour.HasThrownError(this);
+        
+        public NoConstellationAttached (ConstellationComponent _constellationComponent) {
+            constellationComponent = _constellationComponent;
+            constellationComponent.HasThrownError(this);
         }
 
         public string GetErrorTitle () {
@@ -16,12 +17,12 @@ namespace Constellation {
         }
 
         public string GetErrorMessage () {
-            return whatWentWrong + constellationBehaviour.gameObject.name;
+            return whatWentWrong + constellationComponent.gameObject.name;
         }
 
         public string GetFormatedError()
         {
-            return errorTitle + " (" + id + ") " + "\n\n" + whatWentWrong + constellationBehaviour.gameObject.name;
+            return errorTitle + " (" + id + ") " + "\n\n" + whatWentWrong + constellationComponent.gameObject.name;
         }
 
         public bool IsIgnorable () {

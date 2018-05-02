@@ -5,8 +5,8 @@ namespace Constellation {
             "HOW TO FIX: Attach a Constellation script on this GameObject:";
         private const string errorTitle = "Trying to access a null constellation";
         private const int id = 100;
-        private ConstellationBehaviour constellationBehaviour;
-        public TryingToAccessANullCosntellation (ConstellationBehaviour _constellationBehaviour) {
+        private ConstellationComponent constellationBehaviour;
+        public TryingToAccessANullCosntellation (ConstellationComponent _constellationBehaviour) {
             constellationBehaviour = _constellationBehaviour;
             constellationBehaviour.HasThrownError(this);
         }

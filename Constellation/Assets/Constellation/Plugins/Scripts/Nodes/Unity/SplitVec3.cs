@@ -1,7 +1,6 @@
 namespace Constellation.Unity {
     public class SplitVec3 : INode, IReceiver {
         public const string NAME = "SplitVec3";
-        public ConstellationBehaviour galaxy;
         private ISender sender;
         private Attribute valueX;
         private Attribute valueY;
