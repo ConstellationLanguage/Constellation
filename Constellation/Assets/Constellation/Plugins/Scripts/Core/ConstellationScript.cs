@@ -3,10 +3,17 @@ using UnityEngine;
 
 
 namespace Constellation {
+    [CreateAssetMenuAttribute(fileName = "NewConstellation", menuName = "Constellation", order = 3)]
     public class ConstellationScript : ScriptableObject {
         public ConstellationScriptData script;
         public bool IsInstance = false;
         public bool IsDifferentThanSource = false;
+
+        public void InitializeData()
+        {
+            script = new ConstellationScriptData();
+            Set(script);
+        }
 
         public ConstellationScript Set (ConstellationScriptData _script) {
             script.Nodes = new List<NodeData>();

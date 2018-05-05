@@ -1,4 +1,5 @@
-﻿using Constellation;
+﻿using System;
+using Constellation;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace ConstellationEditor {
         static protected bool canDrawUI = false;
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
         protected GameObject previousSelectedGameObject;
-        protected ConstellationBehaviour currentConstellationbehavior;
+        protected ConstellationEditable currentEditableConstellation;
 
         public void Awake () {
             Setup ();
@@ -57,8 +58,11 @@ namespace ConstellationEditor {
 
         public void Open (string _path = "") {
             scriptDataService = new ConstellationEditorDataService ();
-            scriptDataService.OpenConstellation (_path);
+            var script = scriptDataService.OpenConstellation (_path);
+            if (script == null)
+                return;
             Setup ();
+            Repaint();
         }
 
         public void Save () {
@@ -81,27 +85,49 @@ namespace ConstellationEditor {
 
         protected void OnLinkAdded (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                currentConstellationbehavior.AddLink (link);
+                currentEditableConstellation.AddLink (link);
         }
 
         protected void OnLinkRemoved (LinkData link) {
             if (Application.isPlaying && previousSelectedGameObject != null)
-                currentConstellationbehavior.RemoveLink (link);
+                currentEditableConstellation.RemoveLink (link);
         }
 
         protected void OnNodeAdded (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject != null) {
-                currentConstellationbehavior.AddNode (node);
-                currentConstellationbehavior.RefreshConstellationEvents ();
+                currentEditableConstellation.AddNode (node);
+                currentEditableConstellation.RefreshConstellationEvents ();
             }
             Repaint ();
         }
 
         protected void OnNodeRemoved (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject)
-                currentConstellationbehavior.RemoveNode (node);
+                currentEditableConstellation.RemoveNode (node);
 
             Repaint ();
+        }
+
+        protected virtual void ShowEditorWindow () { }
+
+        protected virtual void ShowError (ConstellationError e = null, Exception exception = null) {
+            var error = e.GetError ();
+            if (error.IsIgnorable ()) {
+                if (EditorUtility.DisplayDialog (error.GetErrorTitle () + " (" + error.GetID () + ") ", error.GetErrorMessage (), "Recover", "Ignore")) {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                }
+            } else {
+                if (EditorUtility.DisplayDialog (error.GetErrorTitle () + " (" + error.GetID () + ") ", error.GetErrorMessage (), "Recover")) {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    scriptDataService.ResetConstellationEditorData ();
+                    ShowEditorWindow ();
+                }
+            }
+
+            if (exception != null && e != null)
+                Debug.LogError (error.GetFormatedError () + exception.StackTrace);
+            else if (e != null)
+                Debug.LogError (error.GetFormatedError ());
         }
     }
 }

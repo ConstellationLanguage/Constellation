@@ -3,7 +3,6 @@ namespace Constellation.Unity
     public class Color : INode, IReceiver
     {
         public const string NAME = "Color";
-        public ConstellationBehaviour galaxy;
         private ISender sender;
         private Attribute valueR;
         private Attribute valueG;
