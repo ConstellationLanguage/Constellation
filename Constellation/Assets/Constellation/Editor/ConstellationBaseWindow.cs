@@ -1,7 +1,7 @@
-﻿using Constellation;
+﻿using System;
+using Constellation;
 using UnityEditor;
 using UnityEngine;
-using System;
 
 namespace ConstellationEditor {
     public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable {
@@ -59,9 +59,10 @@ namespace ConstellationEditor {
         public void Open (string _path = "") {
             scriptDataService = new ConstellationEditorDataService ();
             var script = scriptDataService.OpenConstellation (_path);
-            if(script == null)
+            if (script == null)
                 return;
             Setup ();
+            Repaint();
         }
 
         public void Save () {
@@ -107,9 +108,8 @@ namespace ConstellationEditor {
             Repaint ();
         }
 
-        protected virtual void ShowEditorWindow() {}
+        protected virtual void ShowEditorWindow () { }
 
-        
         protected virtual void ShowError (ConstellationError e = null, Exception exception = null) {
             var error = e.GetError ();
             if (error.IsIgnorable ()) {
@@ -124,9 +124,9 @@ namespace ConstellationEditor {
                 }
             }
 
-            if(exception != null && e != null)
+            if (exception != null && e != null)
                 Debug.LogError (error.GetFormatedError () + exception.StackTrace);
-            else if(e != null)
+            else if (e != null)
                 Debug.LogError (error.GetFormatedError ());
         }
     }

@@ -250,7 +250,6 @@ namespace ConstellationEditor {
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
-
             if (Application.isPlaying) {
                 ConstellationUnityWindow.ShowWindow ();
                 WindowInstance.Recover ();
@@ -267,6 +266,7 @@ namespace ConstellationEditor {
             }
 
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
+            WindowInstance.Repaint();
         }
 
         void Update () {

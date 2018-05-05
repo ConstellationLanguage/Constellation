@@ -132,9 +132,13 @@ namespace ConstellationEditor {
                     path = "Assets" + path.Substring (Application.dataPath.Length);
                 }
             }
-
             AssetDatabase.CreateAsset (newScript, path);
-            newScript.script = Script.script;
+            newScript.Set (Script.script);
+
+            if (newScript)
+                EditorUtility.SetDirty (newScript);
+            AssetDatabase.SaveAssets ();
+            AssetDatabase.Refresh ();
             Save ();
         }
 

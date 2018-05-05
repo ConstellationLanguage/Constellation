@@ -12,7 +12,7 @@ namespace Constellation {
         public void Awake () {
             try {
                 if (ConstellationData == null && Application.isPlaying) {
-                 ConstellationData = new ConstellationScript();
+                 ConstellationData = ScriptableObject.CreateInstance<ConstellationScript>();
                  ConstellationData.InitializeData();
                  ConstellationData.IsInstance = true;
                 }
