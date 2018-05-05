@@ -11,6 +11,11 @@ namespace Constellation {
 
         public void Awake () {
             try {
+                if (ConstellationData == null && Application.isPlaying) {
+                 ConstellationData = new ConstellationScript();
+                 ConstellationData.InitializeData();
+                 ConstellationData.IsInstance = true;
+                }
                 Initialize ();
             }catch (ConstellationError e) {
                 Debug.LogError(e.GetError().GetFormatedError());

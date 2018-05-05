@@ -202,13 +202,11 @@ namespace ConstellationEditor {
             var y = 40;
             var width = 100;
             var height = 25;
-            if (GUI.DrawButton (new Rect (x, y, width, height), "Apply") || (e.mousePosition.x > x && e.mousePosition.x < x + width && e.mousePosition.y > y && e.mousePosition.y < y + height)) {
-                Debug.Log ("INSIDE AREA" + e.MouseButtonDown (0));
-                if (e.MouseButtonDown (0)) {
-                    if (isInstance)
-                        constellationScript.IsDifferentThanSource = false;
-                    OnApplyInstanceChanges ();
+            if (GUI.DrawButton (new Rect (x, y, width, height), "Apply")) {
+                if (isInstance) {
+                    constellationScript.IsDifferentThanSource = false;
                 }
+                OnApplyInstanceChanges ();
             }
             GUI.SetColor (Color.white);
         }

@@ -52,7 +52,7 @@ public class ConstellationComponentInpector : Editor {
 		}
 	}
 
-	void DrawInspectorWarning()
+	protected virtual void DrawInspectorWarning()
 	{
 		if(ConstellationComponent.GetConstellationData() == null && ConstellationComponent.isActiveAndEnabled && Application.isPlaying == false)
 			EditorGUILayout.HelpBox("No constellation script is attached. You need to add one or disable this component otherwise you will have an error at runtime", MessageType.Warning);

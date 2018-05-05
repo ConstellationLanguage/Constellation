@@ -148,8 +148,8 @@ namespace Constellation {
             return false;
         }
 
-        public Constellation GetConstellation () {
-            if (constellation == null)
+        public Constellation GetConstellation (bool throwOnNull = true) {
+            if (constellation == null && throwOnNull)
                 throw new TryingToAccessANullCosntellation (this);
 
             return constellation;

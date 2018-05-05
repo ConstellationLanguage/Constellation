@@ -119,13 +119,23 @@ namespace ConstellationEditor {
             var newScript = ScriptableObject.CreateInstance<ConstellationScript> ();
             var path = "";
             foreach (var instancePath in currentInstancePath) {
-                if (instancePath.InstancePath == currentPath[0])
+                if (instancePath.InstancePath == currentPath[0]) {
                     path = instancePath.ScriptPath;
+                }
             }
+            if (path == "") {
+                path = EditorUtility.SaveFilePanel ("Save Constellation", Application.dataPath, "NewConstellation" + ".asset", "asset");
+                if (path.Length == 0)
+                    return;
+
+                if (path.StartsWith (Application.dataPath)) {
+                    path = "Assets" + path.Substring (Application.dataPath.Length);
+                }
+            }
+
             AssetDatabase.CreateAsset (newScript, path);
             newScript.script = Script.script;
             Save ();
-            Script = newScript;
         }
 
         public bool CloseOpenedConstellation (string path) {
@@ -213,9 +223,9 @@ namespace ConstellationEditor {
         public ConstellationScript OpenConstellation (string _path = "", bool save = true) {
             var path = "";
             if (_path == "") {
-                    path = EditorUtility.OpenFilePanel ("Load constellation", Application.dataPath, "asset");
-                    if(path.Length == 0)
-                        return null;
+                path = EditorUtility.OpenFilePanel ("Load constellation", Application.dataPath, "asset");
+                if (path.Length == 0)
+                    return null;
             } else
                 path = _path;
 
