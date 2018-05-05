@@ -32,7 +32,7 @@ namespace ConstellationEditor {
         }
 
         private ConstellationEditorData Setup () {
-            var path = "Assets/Constellation/Editor/EditorData/EditorData.asset";
+            var path = ConstellationEditor.GetEditorPath() + "EditorData/EditorData.asset";
             EditorData = ScriptableObject.CreateInstance<ConstellationEditorData> ();
             AssetDatabase.CreateAsset (EditorData, path);
             return EditorData;
@@ -66,7 +66,7 @@ namespace ConstellationEditor {
         }
 
         public ConstellationEditorData OpenEditorData () {
-            var path = "Assets/Constellation/Editor/EditorData/EditorData.asset";
+            var path = ConstellationEditor.GetEditorPath() + "EditorData/EditorData.asset";
             ConstellationEditorData t = (ConstellationEditorData) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationEditorData));
             if (t == null) {
                 return Setup ();

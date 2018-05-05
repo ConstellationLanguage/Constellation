@@ -225,5 +225,9 @@ namespace ConstellationEditor {
         public float GetHeight () {
             return panelSize.y;
         }
+
+        public Vector2 GetScrollSize () {
+            return editorScrollSize;
+        }
     }
 }
