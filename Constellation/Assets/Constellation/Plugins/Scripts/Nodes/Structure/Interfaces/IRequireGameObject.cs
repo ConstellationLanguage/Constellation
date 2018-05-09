@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace Constellation
 {
-    public interface IGameObject
+    public interface IRequireGameObject
     {
         void Set(GameObject gameObject);
     }

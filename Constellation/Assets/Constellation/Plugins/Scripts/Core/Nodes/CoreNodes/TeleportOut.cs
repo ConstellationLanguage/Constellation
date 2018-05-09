@@ -4,7 +4,7 @@ namespace Constellation.CoreNodes {
         private Attribute eventName;
         private ITeleportIn teleport;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "value to teleport");
             eventName = _node.AddAttribute (new Variable ("event name"), Attribute.AttributeType.Word, "The event name");
         }

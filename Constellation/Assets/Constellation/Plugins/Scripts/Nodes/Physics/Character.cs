@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 namespace Constellation.Physics {
-    public class Character : INode, IReceiver, IGameObject {
+    public class Character : INode, IReceiver, IRequireGameObject {
         UnityEngine.CharacterController controller;
         private Vector3 movingVector;
 
         public const string NAME = "Character";
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Character controller object");
             _nodeParameters.AddInput (this, false, "Vertical");
             _nodeParameters.AddInput (this, false, "Horizontal");

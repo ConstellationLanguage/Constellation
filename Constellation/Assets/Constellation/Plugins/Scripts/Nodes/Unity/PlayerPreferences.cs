@@ -7,7 +7,7 @@ namespace Constellation.Unity {
 		public Variable savedData;
 		public Variable keyValue;
 		private ISender sender;
-		public void Setup (INodeParameters _node, ILogger _logger) {
+		public void Setup (INodeParameters _node) {
 			keyName = new Variable ("");
 			keyValue = new Variable ("");
 			savedData = new Variable ("");

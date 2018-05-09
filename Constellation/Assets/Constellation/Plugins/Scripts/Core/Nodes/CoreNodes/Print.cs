@@ -1,10 +1,11 @@
-﻿namespace Constellation.CoreNodes {
-    public class Print : INode, IReceiver {
-        private ILogger logger;
+﻿using Constellation.Services;
+
+namespace Constellation.CoreNodes {
+    public class Print : INode, IReceiver, IInjectLogger {
+        private Services.ILogger logger;
         public const string NAME = "Print";
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "value to log in console");
-            logger = _logger;
         }
 
         public string NodeName () {
@@ -17,6 +18,11 @@
 
         public void Receive (Variable value, Input _input) {
             logger.Log (value);
+        }
+
+        public void InjectLogger(Services.ILogger _logger)
+        {
+            logger = _logger;
         }
     }
 }

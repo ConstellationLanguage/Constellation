@@ -8,7 +8,7 @@ namespace Constellation.Unity
 		private Attribute name;
         private Variable nameValue;
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             sender = _node.GetSender();
             _node.AddOutput(true, "Object", "Unity object");

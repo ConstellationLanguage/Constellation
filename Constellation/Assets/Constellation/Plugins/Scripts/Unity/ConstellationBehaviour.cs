@@ -27,7 +27,7 @@ namespace Constellation {
             CollisionStayListeners = null;
             CollisionExitListeners = null;
             FixedUpdatables = null;
-            constellation.RefreshConstellationEvents ();
+            constellation.GetInjector().RefreshConstellationEvents ();
             SetConstellationEvents ();
         }
 
@@ -102,8 +102,8 @@ namespace Constellation {
                 System.GC.Collect ();
                 IsGCDone = true;
             }
-
-            constellation.Update ();
+            if(constellation.GetInjector() is IUpdatable)
+                constellation.GetInjector().Update ();
         }
 
         void FixedUpdate () {
@@ -116,7 +116,8 @@ namespace Constellation {
 
         void LateUpdate () {
             IsGCDone = false;
-            constellation.LateUpdate ();
+            if(constellation.GetInjector() is ILateUpdatable)
+                constellation.GetInjector().LateUpdate ();
         }
 
         public void Log (Variable value) {

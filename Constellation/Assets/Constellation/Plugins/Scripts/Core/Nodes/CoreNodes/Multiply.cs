@@ -6,7 +6,7 @@
         private Variable [] varsToAdd;
         private Variable result;
         public const string NAME = "Multiply";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, false, "Multiply factor");
 			_node.AddInput(this, true, "Value to multiply");

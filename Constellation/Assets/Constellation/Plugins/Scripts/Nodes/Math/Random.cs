@@ -5,7 +5,7 @@ public class Random: INode, IReceiver
 		private Variable VarF;
 		private Variable VarP;
         public const string NAME = "Random";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "Start");
 			_node.AddInput(this, true, "End");

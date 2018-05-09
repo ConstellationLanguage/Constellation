@@ -3,7 +3,7 @@ namespace Constellation.CoreNodes {
         public const string NAME = "Sender";
         private Attribute eventName;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "value to send");
             eventName = _node.AddAttribute (new Variable ("event name"), Attribute.AttributeType.Word, "The event name");
 

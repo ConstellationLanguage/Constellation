@@ -1,12 +1,12 @@
 using UnityEngine;
 
 namespace Constellation.Physics {
-    public class AddImpulse : INode, IReceiver, IGameObject, IFixedUpdate {
+    public class AddImpulse : INode, IReceiver, IRequireGameObject, IFixedUpdate {
         public const string NAME = "AddImpulse";
         Rigidbody rigidBody;
         bool requestedImpulse = false;
         Vector3 force;
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false,"Vec3 world relative");
             force = Vector3.zero;
         }

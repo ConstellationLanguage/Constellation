@@ -8,7 +8,7 @@
 
         public const string NAME = "WordAttribute";
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             sender = _node.GetSender(); 
             _node.AddOutput(true, "Current value");

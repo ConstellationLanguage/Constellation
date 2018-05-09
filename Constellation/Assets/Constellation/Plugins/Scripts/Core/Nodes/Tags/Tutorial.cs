@@ -2,7 +2,7 @@ namespace Constellation.Tags {
     public class Tutorial : INode, IReceiver{
         public const string NAME = "Tutorial";
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
 
         }
 

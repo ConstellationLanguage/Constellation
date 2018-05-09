@@ -6,7 +6,7 @@ namespace Constellation.Math
     {
 		private ISender sender;
         public const string NAME = "Ceil";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "a");
             sender = _node.GetSender();

@@ -7,7 +7,7 @@ public class Max: INode, IReceiver
 		private Variable Var1;
 		private Variable Var2;
         public const string NAME = "Max";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "Var1");
 			_node.AddInput(this, true, "Var2");

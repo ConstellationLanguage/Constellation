@@ -3,7 +3,7 @@ namespace Constellation.CoreNodes {
         private Variable switchValue;
         private ISender sender;
         public const string NAME = "Switch";
-        public void Setup (INodeParameters nodeParameters, ILogger logger) {
+        public void Setup (INodeParameters nodeParameters) {
             nodeParameters.AddInput (this, false, "1 = on, 0 = off");
             nodeParameters.AddInput (this, true, "Value to send");
             sender = nodeParameters.GetSender();

@@ -7,7 +7,7 @@ namespace Constellation.Math
         private ISender sender;
         private Variable VarToCompare;
         public const string NAME = "Approx";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, false, "a");
             _node.AddInput(this, true, "b");

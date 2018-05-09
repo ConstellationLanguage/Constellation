@@ -5,7 +5,7 @@ namespace Constellation.Unity
         public const string NAME = "LoadScene";
         private ISender sender;
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "Scene Name to load");
         }

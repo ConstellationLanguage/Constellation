@@ -6,7 +6,7 @@ public class NextPowerOfTwo: INode, IReceiver
 		private ISender sender;
 		private Variable Var1;
         public const string NAME = "NextPowerOfTwo";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "Var");
 			Var1 = new Variable(0);

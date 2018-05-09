@@ -4,7 +4,7 @@
         private Attribute eventName;
         private ISender sender;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddOutput (false, "Value received in the teleport");
             sender = _node.GetSender ();
             eventName = _node.AddAttribute (new Variable ("event name"), Attribute.AttributeType.Word, "The event name");

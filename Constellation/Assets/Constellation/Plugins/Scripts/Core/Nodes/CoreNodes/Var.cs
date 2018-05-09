@@ -4,7 +4,7 @@
         private Attribute attribute; // attributes are setted in the editor.
         public const string NAME = "Var"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             var wordValue = new Variable ();
             _node.AddInput (this, false, "New var"); // setting a cold input
             _node.AddInput (this, true, "Send var"); // setting a warm input

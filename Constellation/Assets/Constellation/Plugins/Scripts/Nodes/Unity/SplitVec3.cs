@@ -6,7 +6,7 @@ namespace Constellation.Unity {
         private Attribute valueY;
         private Attribute valueZ;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "Vec3");
             sender = _node.GetSender();
             _node.AddOutput (false, "X");

@@ -5,7 +5,7 @@ public class Clamp01: INode, IReceiver
     {
 		private ISender sender;
         public const string NAME = "Clamp01";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "a");
             sender = _node.GetSender();

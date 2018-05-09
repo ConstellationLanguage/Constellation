@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
 namespace Constellation.Components {
-    public class AnimatorComponent : INode, IReceiver, IGameObject {
+    public class AnimatorComponent : INode, IReceiver, IRequireGameObject {
         UnityEngine.Animator animator;
         private Variable varName;
         private Variable varValue;
 
         public const string NAME = "AnimatorComponent";
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Animator object");
             _nodeParameters.AddInput (this, false, "Var name");
             _nodeParameters.AddInput (this, false, "Var value");

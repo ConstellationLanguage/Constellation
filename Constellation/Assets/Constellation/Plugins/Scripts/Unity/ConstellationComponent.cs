@@ -61,7 +61,8 @@ namespace Constellation {
             SetUnityObject ();
             SetConstellationEvents ();
             constellation.Initialize (System.Guid.NewGuid ().ToString (), ConstellationData.name);
-            constellation.Awake ();
+            if(constellation.GetInjector() is IAwakable)
+                constellation.GetInjector().OnAwake ();
             isInitialized = true;
         }
 
@@ -110,8 +111,8 @@ namespace Constellation {
         }
 
         public void AddUnityObject (Node<INode> node) {
-            if (node.NodeType as IGameObject != null) {
-                var igameObject = node.NodeType as IGameObject;
+            if (node.NodeType as IRequireGameObject != null) {
+                var igameObject = node.NodeType as IRequireGameObject;
                 igameObject.Set (gameObject);
             }
         }

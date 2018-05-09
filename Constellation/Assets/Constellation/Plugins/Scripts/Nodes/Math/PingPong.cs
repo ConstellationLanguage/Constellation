@@ -7,7 +7,7 @@ public class PingPong: INode, IReceiver
 		private Variable VarT;
 		private Variable VarLenght;
         public const string NAME = "PingPong";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "T");
 			_node.AddInput(this, true, "Lenght");

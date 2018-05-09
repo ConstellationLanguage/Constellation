@@ -7,7 +7,7 @@ public class Pow: INode, IReceiver
 		private Variable VarF;
 		private Variable VarP;
         public const string NAME = "Pow";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "F");
 			_node.AddInput(this, true, "P");

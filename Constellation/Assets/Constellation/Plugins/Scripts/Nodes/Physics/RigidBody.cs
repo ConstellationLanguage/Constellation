@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Constellation.Physics {
-    public class RigidBody : INode, IReceiver, IGameObject {
+    public class RigidBody : INode, IReceiver, IRequireGameObject {
         Rigidbody rigidBody;
         private Variable Mass;
         private Variable Drag;
@@ -11,7 +11,7 @@ namespace Constellation.Physics {
         private Variable RotationConstraints;
         public const string NAME = "RigidBody";
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Rigidbody object");
             _nodeParameters.AddInput (this, false, "Mass");
             _nodeParameters.AddInput (this, false, "Drag");

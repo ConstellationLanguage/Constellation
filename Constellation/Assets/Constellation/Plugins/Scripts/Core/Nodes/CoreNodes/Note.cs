@@ -3,7 +3,7 @@
     public class Note : INode, IReceiver
     {
         public const string NAME = "Note";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddAttribute(new Variable().Set("Your note here"), Attribute.AttributeType.NoteField, "");
         }
