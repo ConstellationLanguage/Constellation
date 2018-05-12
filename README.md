@@ -16,6 +16,9 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - Integration with unity attribute system (Objects, string and number).
 - OSC support with pure data examples.
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=8Td5A-MAb4s" target="_blank"><img src="http://img.youtube.com/vi/8Td5A-MAb4s/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="50%" height="auto" border="10" /></a>
+
 # Want to help? It's easy!
 - Join us on [discord](https://discord.gg/Cx2k7We) and share your experience with us.
 - Follow us on [Twitter](https://twitter.com/ConstellationVS).
