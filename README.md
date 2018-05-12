@@ -22,7 +22,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - Share our [facebook](https://www.facebook.com/ConstellationEditor/) page.
 - Share our [website](https://www.constellationeditor.com/).
 - Post your ideas on [reddit](https://www.reddit.com/r/ConstellationVS/).
-- [Contribution instructions](https://github.com/AntoineCharton/Constellation/wiki/).
+- [Contribution instructions](https://github.com/ConstellationLanguage/Constellation/wiki/Create-a-node).
 - Feel free Report any issues you find.
 
 # Ready to start?
