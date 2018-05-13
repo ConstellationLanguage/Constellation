@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
+using UnityEngine;
+using Constellation.Services;
 
 namespace Constellation
 {
-    public class Injector : IUpdatable, IAwakable, ILateUpdatable, ITeleportIn
+    public class Injector : IUpdatable, IAwakable, ILateUpdatable, ITeleportIn, IFixedUpdate, ICollisionEnter, ICollisionExit, ICollisionStay
     {
         public List<IUpdatable> updatables;
         public List<IAwakable> Awakables;
@@ -10,9 +13,16 @@ namespace Constellation
         private Constellation Constellation;
         public List<ITeleportIn> teleportsIn;
         public List<ITeleportOut> teleportsOut;
+        private List<ICollisionEnter> CollisionEnterListeners;
+        private List<ICollisionStay> CollisionStayListeners;
+        private List<ICollisionExit> CollisionExitListeners;
+        private List<IFixedUpdate> FixedUpdatables;
+        private List<IInjectLogger> LoggersInjectors;
+        private Services.Logger logger;
 
         public Injector(Constellation constellation)
         {
+            logger = new Services.Logger();
             Constellation = constellation;
         }
 
@@ -24,21 +34,57 @@ namespace Constellation
             }
         }
 
-
         public void RefreshConstellationEvents()
         {
             updatables = null;
             Awakables = null;
             lateUpdatables = null;
+            CollisionEnterListeners = null;
+            CollisionStayListeners = null;
+            CollisionExitListeners = null;
+            FixedUpdatables = null;
+            LoggersInjectors = null;
             SetConstellationEvents();
         }
 
         public void SetConstellationEvents()
         {
+            SetCollisionEnter();
+            SetCollisionExit();
+            SetCollisionStay();
+            SetFixedUpdate();
             SetAwakables();
             SetTeleports();
             SetUpdatables();
             SetLateUpdatables();
+            SetInjectLoggers();
+            UpdateLoggers();
+        }
+
+        public void SetInjectLoggers()
+        {
+            if (LoggersInjectors == null)
+                LoggersInjectors = new List<IInjectLogger>();
+
+            foreach (var node in Constellation.GetNodes())
+            {
+                if (node.NodeType as IInjectLogger != null)
+                {
+                    LoggersInjectors.Add(node.NodeType as IInjectLogger);
+                }
+            }
+        }
+
+        public void UpdateLoggers()
+        {
+            logger = new Services.Logger();
+            if (LoggersInjectors == null)
+                return;
+
+            foreach (var loggerRequester in LoggersInjectors)
+            {
+                loggerRequester.InjectLogger(logger);
+            }
         }
 
         public void SetAwakables()
@@ -98,6 +144,69 @@ namespace Constellation
                 if (node.NodeType as ILateUpdatable != null)
                 {
                     lateUpdatables.Add(node.NodeType as ILateUpdatable);
+                }
+            }
+        }
+
+
+        public void SetCollisionStay()
+        {
+            if (CollisionStayListeners == null)
+            {
+                CollisionStayListeners = new List<ICollisionStay>();
+            }
+
+            foreach (var node in Constellation.GetNodes())
+            {
+                if (node.NodeType as ICollisionStay != null)
+                {
+                    CollisionStayListeners.Add(node.NodeType as ICollisionStay);
+                }
+            }
+        }
+
+        public void SetCollisionExit()
+        {
+            if (CollisionExitListeners == null)
+            {
+                CollisionExitListeners = new List<ICollisionExit>();
+            }
+
+            foreach (var node in Constellation.GetNodes())
+            {
+                if (node.NodeType as ICollisionStay != null)
+                {
+                    CollisionExitListeners.Add(node.NodeType as ICollisionExit);
+                }
+            }
+        }
+
+        public void SetCollisionEnter()
+        {
+            if (CollisionEnterListeners == null)
+            {
+                CollisionEnterListeners = new List<ICollisionEnter>();
+            }
+
+            foreach (var node in Constellation.GetNodes())
+            {
+                if (node.NodeType as ICollisionEnter != null)
+                {
+                    CollisionEnterListeners.Add(node.NodeType as ICollisionEnter);
+                }
+            }
+        }
+
+        public void SetFixedUpdate()
+        {
+            if (FixedUpdatables == null)
+                FixedUpdatables = new List<IFixedUpdate>();
+
+            foreach (var node in Constellation.GetNodes())
+            {
+                if (node.NodeType as IFixedUpdate != null)
+                {
+                    FixedUpdatables.Add(node.NodeType as IFixedUpdate);
                 }
             }
         }
@@ -172,6 +281,37 @@ namespace Constellation
             foreach (var teleport in teleportsIn)
             {
                 teleport.OnTeleport(var, id);
+            }
+        }
+
+        public void OnFixedUpdate()
+        {
+            foreach (var fixedUpdate in FixedUpdatables)
+            {
+                fixedUpdate.OnFixedUpdate();
+            }
+        }
+
+        public void OnCollisionEnter(Collision collision)
+        {
+            foreach (var collisions in CollisionEnterListeners)
+            {
+                collisions.OnCollisionEnter(collision);
+            }
+        }
+
+        public void OnCollisionStay(Collision collision)
+        {
+            foreach (var collisions in CollisionStayListeners)
+            {
+                collisions.OnCollisionStay(collision);
+            }
+        }
+        public void OnCollisionExit(Collision collision)
+        {
+            foreach (var collisions in CollisionExitListeners)
+            {
+                collisions.OnCollisionExit(collision);
             }
         }
     }

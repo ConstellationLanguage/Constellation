@@ -11,16 +11,16 @@ namespace Constellation
 
         public override void Initialize(string _guid, string _name)
         {
-            Injector = new Injector(this);
             base.Initialize(_guid, _name);
+            Injector = new Injector(this);
             if (Nodes == null)
                 Nodes = new List<Node<INode>>();
+
+            SetConstellationEvents();
         }
 
         public void SetConstellationEvents()
         {
-            if(Injector == null)
-                Injector = new Injector(this);
             Injector.SetConstellationEvents();
         }
 
@@ -91,6 +91,8 @@ namespace Constellation
                 newNode.YPosition = nodeData.YPosition;
             }
             Nodes.Add(newNode);
+            if(Injector != null)
+                Injector.RefreshConstellationEvents();
             return newNode;
         }
 
@@ -130,6 +132,7 @@ namespace Constellation
                     }
                     node.Destroy();
                     Nodes.Remove(node);
+                    Injector.RefreshConstellationEvents();
                     return;
                 }
             }
