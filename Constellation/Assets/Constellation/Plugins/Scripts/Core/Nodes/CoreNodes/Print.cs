@@ -1,23 +1,33 @@
 ﻿using Constellation.Services;
 
-namespace Constellation.CoreNodes {
-    public class Print : INode, IReceiver, IInjectLogger{
+namespace Constellation.CoreNodes
+{
+    public class Print : INode, IReceiver, IInjectLogger
+    {
         private Services.ILogger logger;
         public const string NAME = "Print";
-        public void Setup (INodeParameters _nodeParameters) {
-            _nodeParameters.AddInput (this, false, "value to log in console");
+        public void Setup(INodeParameters _nodeParameters)
+        {
+            _nodeParameters.AddInput(this, false, "value to log in console");
         }
 
-        public string NodeName () {
+        public string NodeName()
+        {
             return NAME;
         }
 
-        public string NodeNamespace () {
+        public string NodeNamespace()
+        {
             return NameSpace.NAME;
         }
 
-        public void Receive (Variable value, Input _input) {
-            logger.Log (value.GetString());
+        public void Receive(Variable value, Input _input)
+        {
+            if (value.IsFloat() || value.IsString())
+                logger.Log(value.GetString());
+
+             if (value.GetObject() != null)
+                logger.Log(value.GetObject());
         }
 
         public void InjectLogger(Services.ILogger _logger)
