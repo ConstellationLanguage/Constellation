@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Constellation.Unity {
-    public class Transform : INode, IReceiver, IGameObject {
+    public class Transform : INode, IReceiver, IRequireGameObject {
         public const string NAME = "Transform";
         private Transform transform;
         private GameObject gameObject;
@@ -14,7 +14,7 @@ namespace Constellation.Unity {
 
         private Rigidbody rigidBody;
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Transform object");
             _nodeParameters.AddInput (this, false, "Vec3 position");
             _nodeParameters.AddInput (this, false, "Vec3 rotation");

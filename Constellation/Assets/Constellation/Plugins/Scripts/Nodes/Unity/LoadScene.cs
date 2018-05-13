@@ -5,7 +5,7 @@ namespace Constellation.Unity
         public const string NAME = "LoadScene";
         private ISender sender;
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "Scene Name to load");
         }
@@ -20,7 +20,7 @@ namespace Constellation.Unity
 
         public void Receive(Variable _value, Input _input)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(_value.GetString());
+            UnityEngine.SceneManagement.SceneManager.LoadScene(_value.GetString(), UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
     }
 }

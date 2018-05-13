@@ -8,7 +8,7 @@ namespace Constellation.Unity
         private ISender sender;
         private Variable deltaTimeVar;
 
-        public void Setup(INodeParameters _nodeParameters,ILogger _logger)
+        public void Setup(INodeParameters _nodeParameters)
         {
             _nodeParameters.AddInput(this, true, "Value");
             sender = _nodeParameters.GetSender();

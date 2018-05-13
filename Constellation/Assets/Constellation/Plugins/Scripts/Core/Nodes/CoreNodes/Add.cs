@@ -6,7 +6,7 @@
 		private ISender sender;
         private Variable [] varsToAdd;
         private Variable result;
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, false, "value 1");
 			_node.AddInput(this, true, "value 2");

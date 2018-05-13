@@ -12,7 +12,7 @@ namespace Constellation.CoreNodes {
         private ConditionParser conditon;
         public const string NAME = "Condition";
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             var ifValue = new Variable ();
             ifValue.Set("$1==$2");
            

@@ -96,7 +96,6 @@ namespace ConstellationEditor {
         protected void OnNodeAdded (NodeData node) {
             if (Application.isPlaying && previousSelectedGameObject != null) {
                 currentEditableConstellation.AddNode (node);
-                currentEditableConstellation.RefreshConstellationEvents ();
             }
             Repaint ();
         }

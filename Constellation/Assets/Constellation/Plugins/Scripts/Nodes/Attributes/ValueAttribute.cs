@@ -4,7 +4,7 @@
         private Variable Value;
         public const string NAME = "ValueAttribute";
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             sender = _node.GetSender();
             _node.AddOutput (true, "Current value");
             var newValue = new Variable (0);

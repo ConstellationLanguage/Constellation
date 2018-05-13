@@ -9,7 +9,7 @@ namespace Constellation.Unity {
 		private Variable ResultRotation;
 		private ISender sender;
 
-		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false,"Object", "GameObject position");
 			_nodeParameters.AddInput (this, true, "Position to look at");
 			sender = _nodeParameters.GetSender();

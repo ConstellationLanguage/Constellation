@@ -7,7 +7,7 @@
         private Variable XPosition;
         private Variable YPosition;
         private Variable keyState;
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             Sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput (true, "Mouse position X");
             _nodeParameters.AddOutput (true, "Mosue position Y");

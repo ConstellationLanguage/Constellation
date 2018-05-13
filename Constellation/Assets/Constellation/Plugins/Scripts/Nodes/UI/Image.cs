@@ -1,12 +1,12 @@
 using UnityEngine;
 
 namespace Constellation.UI {
-	public class Image : INode, IReceiver, IGameObject {
+	public class Image : INode, IReceiver, IRequireGameObject {
 		UnityEngine.UI.Image image;
 		public const string NAME = "Image";
 		private Variable ColorVar;
 
-		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "Button object");
 			_nodeParameters.AddInput (this, false, "Object", "Image");
 			_nodeParameters.AddInput (this, false, "Color");

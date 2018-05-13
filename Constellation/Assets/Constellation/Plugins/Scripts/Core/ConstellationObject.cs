@@ -6,6 +6,7 @@
         public string Name;
         public string Namespace;
         public string Guid;
+        protected Injector Injector;
 
         public virtual void Initialize(string _guid, string _name)
         {
@@ -22,6 +23,11 @@
         public virtual void OnDestroy()
         {
 
+        }
+
+        public Injector GetInjector()
+        {
+            return Injector;
         }
     }
 }

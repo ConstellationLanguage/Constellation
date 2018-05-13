@@ -10,7 +10,7 @@ namespace Constellation.Unity
         private Attribute valueA;
         private Variable Result;
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, true, "R");
             _node.AddInput(this, true, "G");

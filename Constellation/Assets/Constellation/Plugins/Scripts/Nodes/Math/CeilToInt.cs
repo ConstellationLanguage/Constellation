@@ -4,7 +4,7 @@ namespace Constellation.Math {
     public class CeilToInt : INode, IReceiver {
         private ISender sender;
         public const string NAME = "CeilToInt";
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "a");
             sender = _node.GetSender();
             _node.AddOutput (false, "smallest integer greater to or equal to a");

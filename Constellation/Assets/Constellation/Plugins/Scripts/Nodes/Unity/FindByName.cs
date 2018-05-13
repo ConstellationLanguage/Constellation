@@ -4,7 +4,7 @@ namespace Constellation.Unity {
         private ISender sender;
         public Variable GameObject;
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             sender = _nodeParameters.GetSender ();
             _nodeParameters.AddInput (this, true, "Game Object Name");
             _nodeParameters.AddOutput (false, "Object", "Gameobject");

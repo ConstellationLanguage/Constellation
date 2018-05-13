@@ -4,7 +4,7 @@ namespace Constellation.CoreNodes {
         private Attribute value;
         public const string NAME = "Word";
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             var newValue = new Variable ().Set("your word");
             sender = _node.GetSender();
             _node.AddOutput (true, "The Word");

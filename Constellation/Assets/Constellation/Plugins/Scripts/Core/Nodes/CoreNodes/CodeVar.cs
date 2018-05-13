@@ -13,7 +13,7 @@ namespace Constellation.CoreNodes {
         private object currentReflectedObject;
         private PropertyInfo property;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             var newValue = new Variable ("VarName");
             Sender = _node.GetSender(); 
             _node.AddOutput (false, "The value");

@@ -1,11 +1,11 @@
 using UnityEngine;
 
 namespace Constellation.Sound {
-    public class AudioSource : INode, IReceiver, IGameObject {
+    public class AudioSource : INode, IReceiver, IRequireGameObject {
         public const string NAME = "AudioSource";
         private UnityEngine.AudioSource audioSource;
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "The GameObject that contains the play sound component");
             _nodeParameters.AddInput (this, false, "Play the current sound attached to the audio source");
         }

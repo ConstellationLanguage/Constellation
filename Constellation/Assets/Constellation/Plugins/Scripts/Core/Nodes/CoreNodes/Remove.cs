@@ -4,7 +4,7 @@
         private Variable[] varsToRemove;
         private Variable result;
         public const string NAME = "Remove";
-        public void Setup (INodeParameters node, ILogger logger) {
+        public void Setup (INodeParameters node) {
             node.AddInput (this, false, "Value to remove");
             node.AddInput (this, true, "Remove factor");
             sender = node.GetSender();

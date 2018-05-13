@@ -7,7 +7,7 @@ public class PerlinNoise: INode, IReceiver
 		private Variable VarX;
 		private Variable VarY;
         public const string NAME = "PerlinNoise";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "X");
 			_node.AddInput(this, true, "Y");

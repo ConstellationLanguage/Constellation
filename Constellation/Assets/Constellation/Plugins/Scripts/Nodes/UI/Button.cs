@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
 namespace Constellation.UI {
-	public class Button : INode, IReceiver, IGameObject, IDestroy {
+	public class Button : INode, IReceiver, IRequireGameObject, IDestroy {
 		UnityEngine.UI.Button button;
 		public const string NAME = "Button";
 		private ISender output;
 
-		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "Button object");
 			output = _nodeParameters.GetSender ();
 			_nodeParameters.AddOutput (true, "Mouse Click");

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
 namespace Constellation.UI {
-	public class Slider : INode, IReceiver, IGameObject {
+	public class Slider : INode, IReceiver, IRequireGameObject {
 		UnityEngine.UI.Slider slider;
 		public const string NAME = "Slider";
 		public ISender sender;
 		private Variable sliderValue;
 		private GameObject gameObject;
 
-		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "Slider object");
 			_nodeParameters.AddInput (this, false, "Slider value");
 			_nodeParameters.AddInput (this, true, "Push");

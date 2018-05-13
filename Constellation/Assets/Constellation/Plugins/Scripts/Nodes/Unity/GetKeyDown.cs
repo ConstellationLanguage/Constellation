@@ -7,7 +7,7 @@ namespace Constellation.Unity
 		private Attribute key;
 		private ISender sender;
 		private Variable keyState;
-        public void Setup(INodeParameters _nodeParameters, ILogger _logger)
+        public void Setup(INodeParameters _nodeParameters)
         {
 			var newValue = new Variable();
 			sender = _nodeParameters.GetSender();

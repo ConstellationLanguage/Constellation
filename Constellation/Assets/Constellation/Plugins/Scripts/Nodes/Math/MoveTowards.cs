@@ -8,7 +8,7 @@ public class MoveTowards: INode, IReceiver
 		private Variable Var2;
 		private Variable Var3;
         public const string NAME = "MoveTowards";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "Current");
 			_node.AddInput(this, false, "Target");

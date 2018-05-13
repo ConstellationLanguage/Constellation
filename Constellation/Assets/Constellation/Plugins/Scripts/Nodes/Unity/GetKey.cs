@@ -6,7 +6,7 @@
         public Transform transform;
 		private Attribute key;
 		private ISender sender;
-        public void Setup(INodeParameters _nodeParameters, ILogger _logger)
+        public void Setup(INodeParameters _nodeParameters)
         {
 			var newValue = new Variable();
 			sender = _nodeParameters.GetSender();

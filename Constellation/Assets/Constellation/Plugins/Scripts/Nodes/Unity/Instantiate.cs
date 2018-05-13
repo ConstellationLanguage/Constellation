@@ -6,7 +6,7 @@
         private ISender sender;
         private Variable UnityObject;
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "Object", "GameObject");
             sender = _node.GetSender();
