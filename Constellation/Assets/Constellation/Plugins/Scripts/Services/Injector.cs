@@ -1,11 +1,10 @@
-﻿
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using Constellation.Services;
+using UnityEngine;
 
 namespace Constellation
 {
-    public class Injector : IUpdatable, IAwakable, ILateUpdatable, ITeleportIn, IFixedUpdate, ICollisionEnter, ICollisionExit, ICollisionStay
+    public class Injector : IUpdatable, IAwakable, ILateUpdatable, ITeleportIn, IFixedUpdate, ICollisionEnter, ICollisionExit, ICollisionStay, IDestroy
     {
         public List<IUpdatable> updatables;
         public List<IAwakable> Awakables;
@@ -18,6 +17,7 @@ namespace Constellation
         private List<ICollisionExit> CollisionExitListeners;
         private List<IFixedUpdate> FixedUpdatables;
         private List<IInjectLogger> LoggersInjectors;
+        private List<IDestroy> Destroyable;
         private Services.Logger logger;
 
         public Injector(Constellation constellation)
@@ -58,7 +58,22 @@ namespace Constellation
             SetUpdatables();
             SetLateUpdatables();
             SetInjectLoggers();
+            SetDestroyables();
             UpdateLoggers();
+        }
+
+        public void SetDestroyables()
+        {
+            if (Destroyable == null)
+                Destroyable = new List<IDestroy>();
+
+            foreach (var node in Constellation.GetNodes())
+            {
+                if (node.NodeType as IDestroy != null)
+                {
+                    Destroyable.Add(node.NodeType as IDestroy);
+                }
+            }
         }
 
         public void SetInjectLoggers()
@@ -148,7 +163,6 @@ namespace Constellation
             }
         }
 
-
         public void SetCollisionStay()
         {
             if (CollisionStayListeners == null)
@@ -235,7 +249,18 @@ namespace Constellation
         {
             Update();
         }
+        public void OnDestroy()
+        {
+            Destroy();
+        }
 
+        public void Destroy()
+        {
+            foreach (var destroyable in Destroyable)
+            {
+                destroyable.OnDestroy();
+            }
+        }
 
         public void SetTeleports()
         {
@@ -276,7 +301,8 @@ namespace Constellation
             }
         }
 
-        public void OnTeleport(Variable var, string id)
+        public void OnTeleport(Variable
+            var, string id)
         {
             foreach (var teleport in teleportsIn)
             {

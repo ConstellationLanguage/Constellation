@@ -24,16 +24,8 @@ namespace Constellation
 
         void OnDestroy()
         {
-            if (constellation == null)
-                return;
-
-            foreach (var node in constellation.GetNodes())
-            {
-                if (node.NodeType as IDestroy != null)
-                {
-                    node.OnDestroy();
-                }
-            }
+            if (constellation.GetInjector() is IDestroy)
+                constellation.GetInjector().OnDestroy();
         }
 
         void Update()

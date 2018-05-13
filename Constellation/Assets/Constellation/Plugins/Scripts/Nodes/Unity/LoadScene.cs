@@ -20,7 +20,9 @@ namespace Constellation.Unity
 
         public void Receive(Variable _value, Input _input)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(_value.GetString());
+             
+            UnityEngine.Debug.Log("Load scene");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(_value.GetString(), UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
     }
 }
