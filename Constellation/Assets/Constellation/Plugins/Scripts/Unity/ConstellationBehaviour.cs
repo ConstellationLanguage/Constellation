@@ -30,7 +30,7 @@ namespace Constellation
 
         void Update()
         {
-            if (!IsGCDone)
+            if (!IsGCDone && Time.frameCount % 10 == 0)
             {
                 System.GC.Collect();
                 IsGCDone = true;
