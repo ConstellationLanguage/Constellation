@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 namespace Constellation {
-	public class Node<T> : ConstellationObject, IReceiver, ISender, INodeParameters, ILogger where T : INode {
+	public class Node<T> : ConstellationObject, IReceiver, ISender, INodeParameters where T : INode {
 		public T NodeType;
 		public List<Input> Inputs;
 		public List<Output> Outputs;
@@ -16,7 +16,7 @@ namespace Constellation {
 		/// <param name="_nodeType">The type of your node that will set NodeType</param>   
 		public Node (T _nodeType) {
 			NodeType = _nodeType;
-			NodeType.Setup (this, this);
+			NodeType.Setup (this);
 			SetName (NodeType.NodeName (), NodeType.NodeNamespace ());
 		}
 
@@ -129,16 +129,13 @@ namespace Constellation {
 
 		/// <summary>
 		/// return the node sender
-		/// 
 		/// </summary>
-
 		public ISender GetSender () {
 			return this;
 		}
 
 		/// <summary>
 		/// Use this function if you want to log a variable from your node.
-		/// 
 		/// </summary>
 		public void Log (Variable value) {
 			Debug.Log (value.GetString ());
@@ -165,6 +162,5 @@ namespace Constellation {
 		public virtual void Send (Variable value, int _output) {
 			Outputs[_output].Send (value);
 		}
-
 	}
 }

@@ -7,7 +7,7 @@ public class LerpAngle: INode, IReceiver
 		private Variable startValue;
 		private Variable endValue;
         public const string NAME = "LerpAngle";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "A");
 			_node.AddInput(this, false, "B");

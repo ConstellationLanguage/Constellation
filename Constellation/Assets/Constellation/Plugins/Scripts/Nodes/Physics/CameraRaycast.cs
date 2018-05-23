@@ -13,7 +13,7 @@ namespace Constellation.Physics {
 
         public const string NAME = "CameraRaycast";
 
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Position X");
             _nodeParameters.AddInput (this, false, "Position Y");
             _nodeParameters.AddInput (this, true, "Calculate");

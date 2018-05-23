@@ -1,13 +1,12 @@
 namespace Constellation.Unity {
     public class SplitVec3 : INode, IReceiver {
         public const string NAME = "SplitVec3";
-        public ConstellationBehaviour galaxy;
         private ISender sender;
         private Attribute valueX;
         private Attribute valueY;
         private Attribute valueZ;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "Vec3");
             sender = _node.GetSender();
             _node.AddOutput (false, "X");

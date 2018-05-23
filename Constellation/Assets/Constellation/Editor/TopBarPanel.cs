@@ -1,11 +1,11 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace ConstellationEditor {
     public static class TopBarPanel {
-        public static bool Draw (ILoadable loadable, IUndoable undoable, ICopyable copyable) {
+        public static bool Draw (ILoadable loadable, IUndoable undoable, ICopyable copyable, ICompilable compilable) {
             EditorGUILayout.BeginHorizontal ();
-            if (GUILayout.Button ("File", EditorStyles.toolbarButton, GUILayout.Width(35))) {
+            if (GUILayout.Button ("File", EditorStyles.toolbarButton, GUILayout.Width (35))) {
                 GenericMenu menu = new GenericMenu ();
                 menu.AddItem (new GUIContent ("New: Ctrl+Atl+N "), false, OnNew, loadable);
                 menu.AddItem (new GUIContent ("Load: Ctrl+Atl+L"), false, OnLoad, loadable);
@@ -14,7 +14,7 @@ namespace ConstellationEditor {
                 return true;
             }
 
-            if (GUILayout.Button ("Edit", EditorStyles.toolbarButton, GUILayout.Width(35))) {
+            if (GUILayout.Button ("Edit", EditorStyles.toolbarButton, GUILayout.Width (35))) {
                 GenericMenu menu = new GenericMenu ();
                 menu.AddItem (new GUIContent ("Undo: Ctrl+Atl+Z"), false, OnUndo, undoable);
                 menu.AddItem (new GUIContent ("Redo: Ctrl+Atl+Y"), false, OnRedo, undoable);
@@ -24,17 +24,20 @@ namespace ConstellationEditor {
                 return true;
             }
 
-            if (GUILayout.Button ("View", EditorStyles.toolbarButton, GUILayout.Width(35))) {
-                GenericMenu menu = new GenericMenu ();
-                menu.ShowAsContext ();
+            if (GUILayout.Button ("Refresh", EditorStyles.toolbarButton, GUILayout.Width (70))) {
+                compilable.CompileScripts();
                 return true;
             }
 
+<<<<<<< HEAD
             GUILayout.Label("", EditorStyles.toolbarButton);
             if(GUI.Button(new Rect(new Vector2(Screen.width / 2 - 20, 1), Vector2.one * 14), "", ConstellationStyles.HelpStyle)){
                 Application.OpenURL(ConstellationLinks.Wiki);
             }
 
+=======
+            GUILayout.Label ("", EditorStyles.toolbarButton);
+>>>>>>> e459bba71f871cae96fbb70339d360abf83f682e
             EditorGUILayout.EndHorizontal ();
             return false;
         }

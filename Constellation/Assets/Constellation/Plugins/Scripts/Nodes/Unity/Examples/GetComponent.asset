@@ -1,0 +1,216 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: GetComponent
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      XPosition: 4.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      XPosition: 199.5
+      YPosition: 29
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Allow you to get a component by name.
+          floatValue: 0.000001
+        Type: 2
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: d75ff04e-53b5-40c0-a138-2686ef4a2440
+      XPosition: 760.5
+      YPosition: 156
+      Inputs:
+      - Guid: de437ff7-ba2d-4091-8405-eee278021809
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: CodeVar
+      Namespace: CoreNodes
+      Guid: 918f472e-4cdc-440d-9b2e-5383452a7407
+      XPosition: 599
+      YPosition: 156.5
+      Inputs:
+      - Guid: 74fe4c7e-d1d7-4ee3-a2cf-bbf05a6d7e6d
+        IsWarm: 0
+        Type: Object
+        Description: Object which contains the var
+      - Guid: ab02fb22-ab42-45c6-bf79-428dda351d0d
+        IsWarm: 0
+        Type: 
+        Description: Set Var
+      - Guid: 08673db1-3e25-43d3-b7f4-0e2e0ddc3f05
+        IsWarm: 1
+        Type: 
+        Description: Push var
+      Outputs:
+      - Guid: 4fd2cec5-8d77-49a9-92b2-4267a6e3af93
+        IsWarm: 0
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: intensity
+          floatValue: 0.000001
+        Type: 1
+    - Name: GetComponent
+      Namespace: Unity
+      Guid: e226c4b6-65c9-4438-b766-9c7103943e62
+      XPosition: 415
+      YPosition: 159.5
+      Inputs:
+      - Guid: a7fd9f36-db22-4e2d-bd40-a7ef5c9cb402
+        IsWarm: 1
+        Type: Object
+        Description: Object which contain the component
+      - Guid: 6f72d6f5-ebe2-4351-ba66-35ce8017f8da
+        IsWarm: 1
+        Type: 
+        Description: Send the component
+      Outputs:
+      - Guid: e6511c14-18ce-4a24-9e0e-40f714bef947
+        IsWarm: 0
+        Type: Object
+        Description: The Component
+      AttributesData:
+      - Value:
+          stringValue: Light
+          floatValue: 0.000001
+        Type: 1
+    - Name: FindByName
+      Namespace: Unity
+      Guid: 567252b1-fa3a-498d-9b29-c8626131021f
+      XPosition: 234
+      YPosition: 169.5
+      Inputs:
+      - Guid: 7b5deef4-5eee-4fd2-bafb-ec215210b43d
+        IsWarm: 1
+        Type: 
+        Description: Game Object Name
+      Outputs:
+      - Guid: 191153f6-c0e6-47ef-b3e8-cd0d89fe91a6
+        IsWarm: 0
+        Type: Object
+        Description: Gameobject
+      AttributesData: []
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: a9044553-5318-49af-9686-7bc4fece8079
+      XPosition: 72
+      YPosition: 175.5
+      Inputs: []
+      Outputs:
+      - Guid: aa36ea4c-f048-4ca9-a490-4b752a66e2a6
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: Light
+          floatValue: 0.000001
+        Type: 1
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: a74b1e01-7307-48df-ab8f-dbbfb8a54286
+      XPosition: 413
+      YPosition: 245.5
+      Inputs: []
+      Outputs:
+      - Guid: 28e0a220-f166-48db-9a07-ed8aa9ea96eb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: de437ff7-ba2d-4091-8405-eee278021809
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 4fd2cec5-8d77-49a9-92b2-4267a6e3af93
+        IsWarm: 0
+        Type: 
+        Description: The value
+      outputPositionY: 186
+    - Input:
+        Guid: 74fe4c7e-d1d7-4ee3-a2cf-bbf05a6d7e6d
+        IsWarm: 0
+        Type: Object
+        Description: Object which contains the var
+      Output:
+        Guid: e6511c14-18ce-4a24-9e0e-40f714bef947
+        IsWarm: 0
+        Type: Object
+        Description: The Component
+      outputPositionY: 186.5
+    - Input:
+        Guid: a7fd9f36-db22-4e2d-bd40-a7ef5c9cb402
+        IsWarm: 1
+        Type: Object
+        Description: Object which contain the component
+      Output:
+        Guid: 191153f6-c0e6-47ef-b3e8-cd0d89fe91a6
+        IsWarm: 0
+        Type: Object
+        Description: Gameobject
+      outputPositionY: 189.5
+    - Input:
+        Guid: 7b5deef4-5eee-4fd2-bafb-ec215210b43d
+        IsWarm: 1
+        Type: 
+        Description: Game Object Name
+      Output:
+        Guid: aa36ea4c-f048-4ca9-a490-4b752a66e2a6
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 199.5
+    - Input:
+        Guid: ab02fb22-ab42-45c6-bf79-428dda351d0d
+        IsWarm: 0
+        Type: 
+        Description: Set Var
+      Output:
+        Guid: 28e0a220-f166-48db-9a07-ed8aa9ea96eb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 206.5
+    - Input:
+        Guid: 08673db1-3e25-43d3-b7f4-0e2e0ddc3f05
+        IsWarm: 1
+        Type: 
+        Description: Push var
+      Output:
+        Guid: 28e0a220-f166-48db-9a07-ed8aa9ea96eb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 226.5
+  IsInstance: 0
+  IsDifferentThanSource: 0

@@ -7,7 +7,7 @@ public class Clamp: INode, IReceiver
 		private Variable startValue;
 		private Variable endValue;
         public const string NAME = "Clamp";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "min");
 			_node.AddInput(this, false, "max");

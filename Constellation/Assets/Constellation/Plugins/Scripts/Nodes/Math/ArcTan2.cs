@@ -6,7 +6,7 @@ public class ArcTan2: INode, IReceiver
 		private ISender sender;
 		private Variable Variable;
         public const string NAME = "ArcTan2";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "x");
 			_node.AddInput(this, true, "y");

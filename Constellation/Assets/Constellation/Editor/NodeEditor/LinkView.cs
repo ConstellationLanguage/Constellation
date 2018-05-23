@@ -1,21 +1,30 @@
 using Constellation;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace ConstellationEditor {
     public class LinkView {
         private ConstellationScript constellationScript;
-		private NodeEditorPanel editor;
+        private NodeEditorPanel editor;
         private NodeConfig nodeConfig;
+        private bool dragging;
+        public delegate void LinkRemoved (LinkData link);
+        LinkRemoved OnLinkRemoved;
 
-        public LinkView (IGUI _gui, NodeEditorPanel _editor, ConstellationScript _constellationScript, NodeConfig _nodeConfig) {
+        public LinkView (IGUI _gui, NodeEditorPanel _editor, ConstellationScript _constellationScript, NodeConfig _nodeConfig, LinkRemoved _onLinkRemoved) {
             constellationScript = _constellationScript;
             editor = _editor;
             nodeConfig = _nodeConfig;
+            OnLinkRemoved += _onLinkRemoved;
         }
 
+<<<<<<< HEAD
         public LinkData [] GetLinks () {
             return constellationScript.GetLinks();
+=======
+        public LinkData[] GetLinks () {
+            return constellationScript.GetLinks ();
+>>>>>>> e459bba71f871cae96fbb70339d360abf83f682e
         }
 
         public void DrawLinks () {
@@ -44,7 +53,7 @@ namespace ConstellationEditor {
                             }
 
                             startLink = new Rect (node.XPosition + width,
-                                node.YPosition + (nodeConfig.TopMargin*0.5f) + ((nodeConfig.InputSize) * j),
+                                node.YPosition + (nodeConfig.TopMargin * 0.5f) + ((nodeConfig.InputSize) * j),
                                 0,
                                 0);
                             break;
@@ -52,35 +61,48 @@ namespace ConstellationEditor {
                         j++;
                     }
                 }
-                if (startLink == Rect.zero || endLink == Rect.zero) // the source has been destroyed
+                if (startLink == Rect.zero || endLink == Rect.zero) {
                     constellationScript.RemoveLink (link);
+                    OnLinkRemoved (link);
+                }
 
                 link.outputPositionY = endLink.y;
 
                 var color = Color.gray;
                 if (link.Input.IsWarm == true) {
                     if (link.Input.Type == "Object")
-                        color = new Color(0.2f, 0.6f, 0.55f);
+                        color = nodeConfig.WarmInputObjectColor;
                     else
-                        color = new Color(0.8f, 0.5f, 0.3f);
+                        color = nodeConfig.WarmInputColor;
                 } else {
                     if (link.Input.Type == "Object")
-                        color = new Color(0.2f, 0.3f, 0.6f);
+                        color = nodeConfig.ColdInputObjectColor;
                     else
-                        color = Color.yellow;
+                        color = nodeConfig.ColdInputColor;
                 }
 
                 DrawNodeCurve (startLink, endLink, color);
 
-                if(MouseOverCurve(startLink.position, endLink.position)){
-                    var linkCenter = new Rect((startLink.x + (endLink.x - startLink.x) / 2) - (nodeConfig.TopMargin * 0.5f),
-                    (startLink.y + (endLink.y - startLink.y) / 2) - (nodeConfig.TopMargin * 0.5f),
-                    nodeConfig.LinkButtonSize,
-                    nodeConfig.LinkButtonSize);
+                if (MouseOverCurve (startLink.position, endLink.position)) {
+                    var linkCenter = new Rect ((startLink.x + (endLink.x - startLink.x) / 2) - (nodeConfig.TopMargin * 0.5f),
+                        (startLink.y + (endLink.y - startLink.y) / 2) - (nodeConfig.TopMargin * 0.5f),
+                        nodeConfig.LinkButtonSize,
+                        nodeConfig.LinkButtonSize);
 
-                    UnityEngine.GUI.Box(linkCenter, "", UnityEngine.GUI.skin.GetStyle("flow var 0"));
-                    if (UnityEngine.GUI.Button(linkCenter, "", UnityEngine.GUI.skin.GetStyle("WinBtnClose"))) {
-                        constellationScript.RemoveLink(link);
+                    GUI.Box (linkCenter, "", GUI.skin.GetStyle ("flow var 0"));
+                    if (GUI.Button (linkCenter, "", GUI.skin.GetStyle ("WinBtnClose"))) {
+                        constellationScript.RemoveLink (link);
+                        OnLinkRemoved (link);
+                    } else if (Event.current.IsUsed ()) {
+                        if (!dragging) {
+                            dragging = true;
+                            if (linkCenter.Contains (Event.current.mousePosition)) {
+                                constellationScript.RemoveLink (link);
+                                OnLinkRemoved (link);
+                            }
+                        }
+                    } else if (!Event.current.IsLayoutOrRepaint ()) {
+                        dragging = false;
                     }
                 }
             }
@@ -108,7 +130,7 @@ namespace ConstellationEditor {
                 foreach (OutputData output in node.GetOutputs ()) {
                     if (_output.Guid == output.Guid) {
                         return new Rect (node.XPosition + nodeConfig.NodeWidth,
-                            node.YPosition + (nodeConfig.TopMargin* 0.5f) + ((nodeConfig.InputSize ) * j),
+                            node.YPosition + (nodeConfig.TopMargin * 0.5f) + ((nodeConfig.InputSize) * j),
                             0,
                             0);
                     }
@@ -119,22 +141,22 @@ namespace ConstellationEditor {
         }
 
         public void DrawNodeCurve (Rect start, Rect end) {
-            DrawNodeCurve(start, end, Color.gray);//Color.Lerp(Color.grey, Color.yellow, 0.5f)
+            DrawNodeCurve (start, end, Color.gray);
         }
 
         public void DrawNodeCurve (Rect start, Rect end, Color color) {
             Vector3 startPos = new Vector3 (start.x + start.width, start.y + start.height / 2, 0);
             Vector3 endPos = new Vector3 (end.x, end.y + end.height / 2, 0);
 
-            if (!editor.InView(PointsToRect(startPos, endPos))) 
+            if (!editor.InView (PointsToRect (startPos, endPos)))
                 return;
 
             Vector3 startTan = startPos + Vector3.right * 50;
             Vector3 endTan = endPos + Vector3.left * 50;
 
             //Smoother bezier curve for close distance
-			var distance = Vector3.Distance(startPos, endPos);
-            if(distance < 100) {
+            var distance = Vector3.Distance (startPos, endPos);
+            if (distance < 100) {
                 startTan = startPos + Vector3.right * (distance * 0.5f);
                 endTan = endPos + Vector3.left * (distance * 0.5f);
             }
@@ -142,8 +164,8 @@ namespace ConstellationEditor {
             Handles.DrawBezier (startPos, endPos, startTan, endTan, color, null, 5);
         }
 
-        public bool MouseOverCurve(Vector3 start, Vector3 end) {
-			//Currently creates rect to detect mouse over so it's nowhere near pixel perfect detection
+        public bool MouseOverCurve (Vector3 start, Vector3 end) {
+            //Currently creates rect to detect mouse over so it's nowhere near pixel perfect detection
 
             var mouse = Event.current.mousePosition;
 
@@ -153,24 +175,21 @@ namespace ConstellationEditor {
             var startXFirst = (start.x < end.x);
             var startYFirst = (start.y < end.y);
 
-            var mouseOverX = startXFirst ? 
-				mouse.x > start.x && mouse.x < end.x : 
-                mouse.x > end.x && mouse.x < start.x;
-            
-            var mouseOverY = startYFirst ? 
-                mouse.y + padding > start.y && mouse.y - padding < end.y : 
-                mouse.y + padding > end.y && mouse.y - padding < start.y;
+            var mouseOverX = startXFirst ?
+                mouse.x > start.x && mouse.x<end.x : mouse.x> end.x && mouse.x < start.x;
+
+            var mouseOverY = startYFirst ?
+                mouse.y + padding > start.y && mouse.y - padding<end.y : mouse.y + padding> end.y && mouse.y - padding < start.y;
 
             return (mouseOverX && mouseOverY);
         }
 
-        private Rect PointsToRect(Vector3 start, Vector3 end) {
-            return new Rect
-            {
+        private Rect PointsToRect (Vector3 start, Vector3 end) {
+            return new Rect {
                 x = (start.x < end.x) ? start.x : end.x,
-                y = (start.y < end.y) ? end.y : start.y,
-                width = Mathf.Abs(start.x - end.x),
-                height = Mathf.Abs(start.y - end.y)
+                    y = (start.y < end.y) ? end.y : start.y,
+                    width = Mathf.Abs (start.x - end.x),
+                    height = Mathf.Abs (start.y - end.y)
             };
         }
     }

@@ -5,7 +5,7 @@ public class Exp: INode, IReceiver
     {
 		private ISender sender;
         public const string NAME = "Exp";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "A");
             sender = _node.GetSender();

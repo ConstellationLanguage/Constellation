@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: LerpAngle
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 4.5
+      YPosition: 25
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Same as Lerp but makes sure the values interpolate correctly
+            when they wrap around 360 degrees.
+          floatValue: 0.000001
+        Type: 2
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 227.5
+      YPosition: 98
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 450
+        Type: 0
+    - Name: LerpAngle
+      Namespace: Math
+      Guid: 669e3f88-1d92-4171-a9b3-c560a6b22cdf
+      XPosition: 403.5
+      YPosition: 104
+      Inputs:
+      - Guid: 5f5e7098-ecbb-41e4-b8dd-2007872bf499
+        IsWarm: 0
+        Type: 
+        Description: A
+      - Guid: c69e9d28-e2fd-40c6-9782-6dc664fcd426
+        IsWarm: 0
+        Type: 
+        Description: B
+      - Guid: 23de44db-65f4-4ff2-9f48-6945853a8e16
+        IsWarm: 1
+        Type: 
+        Description: T
+      Outputs:
+      - Guid: fdad1e31-d526-42f4-84f6-1f57f28f3db8
+        IsWarm: 0
+        Type: 
+        Description: Same as lerp but with radians
+      AttributesData: []
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 554.5
+      YPosition: 107
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 29c59079-421d-49b7-8096-c727e1eb89bc
+      XPosition: 224.5
+      YPosition: 141
+      Inputs: []
+      Outputs:
+      - Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 35
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 5a3a166a-1cbd-42c6-884c-441ae9ab2322
+      XPosition: 226.5
+      YPosition: 185
+      Inputs: []
+      Outputs:
+      - Guid: 5ca775b3-4772-4a54-a1df-ded015188958
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0.5
+        Type: 0
+    Links:
+    - Input:
+        Guid: 5f5e7098-ecbb-41e4-b8dd-2007872bf499
+        IsWarm: 0
+        Type: 
+        Description: A
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 134
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: fdad1e31-d526-42f4-84f6-1f57f28f3db8
+        IsWarm: 0
+        Type: 
+        Description: Same as lerp but with radians
+      outputPositionY: 137
+    - Input:
+        Guid: c69e9d28-e2fd-40c6-9782-6dc664fcd426
+        IsWarm: 0
+        Type: 
+        Description: B
+      Output:
+        Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 154
+    - Input:
+        Guid: 23de44db-65f4-4ff2-9f48-6945853a8e16
+        IsWarm: 1
+        Type: 
+        Description: T
+      Output:
+        Guid: 5ca775b3-4772-4a54-a1df-ded015188958
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 174
+  IsInstance: 0
+  IsDifferentThanSource: 0

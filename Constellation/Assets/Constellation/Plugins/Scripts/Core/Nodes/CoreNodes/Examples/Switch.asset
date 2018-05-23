@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Switch
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 7502a22e-2813-4e72-a253-a79a7dd64de4
+      XPosition: 4.5
+      YPosition: 5.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: d2d5feb8-63d3-4ff6-8277-e0aff5579b36
+      XPosition: 355.5
+      YPosition: 10
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Output if first input = 1
+          floatValue: 0.000001
+        Type: 2
+    - Name: Key
+      Namespace: Unity
+      Guid: 65f4546c-c9c5-4f47-8db0-4cdd36429551
+      XPosition: 43.5
+      YPosition: 121
+      Inputs: []
+      Outputs:
+      - Guid: 863eb55d-fea5-4de3-9560-7bba6ff82367
+        IsWarm: 1
+        Type: 
+        Description: Output 1 when key pressed
+      AttributesData:
+      - Value:
+          stringValue: s
+          floatValue: 0.000001
+        Type: 1
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: 9844741c-3329-4458-8c5d-58b732a54046
+      XPosition: 656.5
+      YPosition: 121
+      Inputs:
+      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Switch
+      Namespace: CoreNodes
+      Guid: 1f829511-eb89-4dc0-8bc7-cc360641dade
+      XPosition: 498.5
+      YPosition: 125
+      Inputs:
+      - Guid: 35aebd4c-523f-4666-abc2-80b428bdd41c
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      - Guid: cdad95b7-ce0c-4e1e-997a-a2f3a0178272
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Outputs:
+      - Guid: c6834329-83e5-4ba4-bf2e-c9447f9c11b1
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      AttributesData: []
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: 6727c2a9-58c3-4be3-a4ac-3f62028bd288
+      XPosition: 235.5
+      YPosition: 184
+      Inputs:
+      - Guid: e66d54c1-a94d-46d3-94e8-fbee7d32dc7f
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: c63fc9ca-c751-4166-bde0-8c4dd7752828
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 0b861c87-1c8d-4284-858d-6ea81737423f
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 72770f27-ae54-41f4-b291-8a1c966fd55d
+      XPosition: 33.5
+      YPosition: 192
+      Inputs: []
+      Outputs:
+      - Guid: 043902d7-0920-4b36-8009-4ceb9e81e2fa
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: I'm only sent when s key is pressed
+          floatValue: 0.000001
+        Type: 1
+    - Name: Update
+      Namespace: Unity
+      Guid: a4e4d045-ef76-4114-9f54-7dbe3f5df1ab
+      XPosition: 76.5
+      YPosition: 259
+      Inputs: []
+      Outputs:
+      - Guid: 8071efca-263f-4c12-beab-37c74a583b28
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: c6834329-83e5-4ba4-bf2e-c9447f9c11b1
+        IsWarm: 0
+        Type: 
+        Description: Output if on
+      outputPositionY: 151
+    - Input:
+        Guid: 35aebd4c-523f-4666-abc2-80b428bdd41c
+        IsWarm: 0
+        Type: 
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: 863eb55d-fea5-4de3-9560-7bba6ff82367
+        IsWarm: 1
+        Type: 
+        Description: Output 1 when key pressed
+      outputPositionY: 155
+    - Input:
+        Guid: cdad95b7-ce0c-4e1e-997a-a2f3a0178272
+        IsWarm: 1
+        Type: 
+        Description: Value to send
+      Output:
+        Guid: 0b861c87-1c8d-4284-858d-6ea81737423f
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 175
+    - Input:
+        Guid: e66d54c1-a94d-46d3-94e8-fbee7d32dc7f
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 043902d7-0920-4b36-8009-4ceb9e81e2fa
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 214
+    - Input:
+        Guid: c63fc9ca-c751-4166-bde0-8c4dd7752828
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 8071efca-263f-4c12-beab-37c74a583b28
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 234
+  IsInstance: 0
+  IsDifferentThanSource: 0

@@ -1,14 +1,14 @@
 using UnityEngine;
 
 namespace Constellation.Physics {
-    public class Velocity : INode, IReceiver, IGameObject, IFixedUpdate, IUpdatable {
+    public class Velocity : INode, IReceiver, IRequireGameObject, IFixedUpdate, IUpdatable {
         private Rigidbody rigidBody;
         Vector3 force;
         ISender sender;
         Variable currentVelocity;
         bool isVelocityUpdated;
         public const string NAME = "Velocity";
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Rigidbody affected");
             _nodeParameters.AddInput (this, false, "Vec3 world relative");
             sender = _nodeParameters.GetSender();

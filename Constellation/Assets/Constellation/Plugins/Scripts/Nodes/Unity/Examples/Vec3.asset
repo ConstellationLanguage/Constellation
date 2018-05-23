@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Vec3
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Transform
+      Namespace: Unity
+      Guid: 45ada3d9-aca3-4d5f-bd49-2a5342517c56
+      XPosition: 561.5
+      YPosition: 0
+      Inputs:
+      - Guid: e7045461-e481-4ef6-ae88-745e6a9ac5cc
+        IsWarm: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 684c8c6d-5ec3-4123-9b13-90b12d80ad26
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: c7c4d2ff-48ca-46e9-a1ff-e5295bebe471
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 2ec84da7-3abe-4d5c-8658-d44b04c4966a
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: a733586b-1214-4fac-8e64-4aa71e1292ec
+        IsWarm: 1
+        Type: 
+        Description: Send
+      Outputs:
+      - Guid: 55b84282-301f-418d-8244-de4c284011f1
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      - Guid: da81eab4-59da-4399-9227-d6582a22d643
+        IsWarm: 0
+        Type: 
+        Description: Vec3 rotation
+      - Guid: 946c08ad-5215-4850-aacb-9cb6be5ef07d
+        IsWarm: 0
+        Type: 
+        Description: Vec3 scale
+      - Guid: f04b5cb3-ab29-4775-8c89-2e99acde1329
+        IsWarm: 0
+        Type: Object
+        Description: Transform
+      AttributesData: []
+    - Name: Vec3
+      Namespace: Unity
+      Guid: f8c2423a-18a6-4390-ae6b-a40d246a8208
+      XPosition: 362.5
+      YPosition: 3
+      Inputs:
+      - Guid: b9dc1077-c29e-46d2-9936-6a99efa7ecde
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: 8b59ce33-c8fd-40b3-befa-502d62853dc9
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: 97a9d775-e15e-4664-8473-955ce112fd06
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: ab9138d5-e576-42a1-8b44-c997d511eef7
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: d7097e3a-d1d8-4798-9601-20bc3df64654
+      XPosition: 3.5
+      YPosition: 4
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: b88c22e0-9f89-48bc-bc0e-a3a0fac110a0
+      XPosition: 117.5
+      YPosition: 4
+      Inputs: []
+      Outputs:
+      - Guid: a9fba9c9-9a4b-4ab5-8902-c7370e9090cc
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: b78a9d2f-0e95-4504-856c-ca4d7ee529f2
+      XPosition: 715.5
+      YPosition: 25
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: This example set the position of the transform
+          floatValue: 0.000001
+        Type: 2
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 8be91f9c-6a39-47f9-a9e0-f39085d57210
+      XPosition: 117.5
+      YPosition: 47
+      Inputs: []
+      Outputs:
+      - Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 2
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: bec5a51a-6649-4880-840a-3b144b02dbca
+      XPosition: 117.5
+      YPosition: 91
+      Inputs: []
+      Outputs:
+      - Guid: 3b875138-893d-4909-b211-69108b78872e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 3
+        Type: 0
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: ab9335f7-17d4-4a55-b4d7-f871f689587a
+      XPosition: 366.5
+      YPosition: 102
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: List to store a position or a rotation
+          floatValue: 0.000001
+        Type: 2
+    Links:
+    - Input:
+        Guid: b9dc1077-c29e-46d2-9936-6a99efa7ecde
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: a9fba9c9-9a4b-4ab5-8902-c7370e9090cc
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 33
+    - Input:
+        Guid: 684c8c6d-5ec3-4123-9b13-90b12d80ad26
+        IsWarm: 0
+        Type: 
+        Description: Vec3 position
+      Output:
+        Guid: ab9138d5-e576-42a1-8b44-c997d511eef7
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 50
+    - Input:
+        Guid: 8b59ce33-c8fd-40b3-befa-502d62853dc9
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 53
+    - Input:
+        Guid: 97a9d775-e15e-4664-8473-955ce112fd06
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 3b875138-893d-4909-b211-69108b78872e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 73
+  IsInstance: 0
+  IsDifferentThanSource: 0

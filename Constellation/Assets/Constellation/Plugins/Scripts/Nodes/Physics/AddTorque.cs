@@ -1,11 +1,11 @@
 using UnityEngine;
 
 namespace Constellation.Physics {
-    public class AddTorque : INode, IReceiver, IGameObject, IFixedUpdate {
+    public class AddTorque : INode, IReceiver, IRequireGameObject, IFixedUpdate {
         Rigidbody rigidBody;
         Vector3 torque;
         public const string NAME = "AddTorque";
-        public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+        public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Vec3 World relative");
             torque = Vector3.zero;
         }

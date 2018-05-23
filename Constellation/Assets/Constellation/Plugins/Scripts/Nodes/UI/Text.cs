@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
 namespace Constellation.UI {
-	public class Text : INode, IReceiver, IGameObject {
+	public class Text : INode, IReceiver, IRequireGameObject {
 		UnityEngine.UI.Text text;
 		public const string NAME = "Text";
 
-		public void Setup (INodeParameters _nodeParameters, ILogger _logger) {
+		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "Text object");
 			_nodeParameters.AddInput (this, false, "Text to pass");
 		}

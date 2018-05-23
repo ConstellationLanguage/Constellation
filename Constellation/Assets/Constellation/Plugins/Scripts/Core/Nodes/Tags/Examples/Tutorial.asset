@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 16824274-b82a-4f7a-87e3-1bd5cbf6acb9
+      XPosition: 4.5
+      YPosition: 3
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 2010dc52-3479-49d4-b5b0-e05114ac1cc3
+      XPosition: 6.5
+      YPosition: 31
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Tag used so the instance cannot be applyed at runtime
+          floatValue: 0.000001
+        Type: 2
+    Links: []
+  IsInstance: 0
+  IsDifferentThanSource: 0

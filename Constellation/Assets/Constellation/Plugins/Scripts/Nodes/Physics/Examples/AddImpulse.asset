@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: AddImpulse
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 50e8135a-1aff-4301-9255-e34c9265fbf9
+      XPosition: 3.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4f89f01b-9a30-4ae0-b0e4-f99dd39d3b9e
+      XPosition: 291.5
+      YPosition: 34
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: 'Add an Impulse to the rigidBody.
+
+            Used often for explosions'
+          floatValue: 0.000001
+        Type: 2
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 6ad3ba95-6358-4a1c-a4fb-78d75517f109
+      XPosition: 20.5
+      YPosition: 139
+      Inputs: []
+      Outputs:
+      - Guid: ba51b284-7e03-4b0b-b7a0-beae0d985b0a
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: AddImpulse
+      Namespace: Physics
+      Guid: 4dba3651-8b0f-4a4b-bf9b-a2d1d472642f
+      XPosition: 479.5
+      YPosition: 167
+      Inputs:
+      - Guid: eb8e493d-de41-424d-9866-37ff2e744f82
+        IsWarm: 0
+        Type: 
+        Description: Vec3 world relative
+      Outputs: []
+      AttributesData: []
+    - Name: Vec3
+      Namespace: Unity
+      Guid: cdf00c38-1b9c-4fc9-b9dd-99003dbbff7d
+      XPosition: 280.5
+      YPosition: 174
+      Inputs:
+      - Guid: ff70b649-7e35-4932-80b4-56aedc535a6a
+        IsWarm: 1
+        Type: 
+        Description: X
+      - Guid: d1f3a2ab-e909-4ac6-a3ca-e3a5324866d6
+        IsWarm: 1
+        Type: 
+        Description: Y
+      - Guid: a6e971c7-25cb-4644-8ed9-9348bef7e306
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Outputs:
+      - Guid: ea1d3983-362c-47d2-b265-675e5b320646
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      AttributesData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 99414e82-20af-4563-bf0c-86abb2b45e29
+      XPosition: 41.5
+      YPosition: 225
+      Inputs: []
+      Outputs:
+      - Guid: 2b975ac4-71f4-40a6-9b06-d5177cf34ccb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: eb8e493d-de41-424d-9866-37ff2e744f82
+        IsWarm: 0
+        Type: 
+        Description: Vec3 world relative
+      Output:
+        Guid: ea1d3983-362c-47d2-b265-675e5b320646
+        IsWarm: 0
+        Type: 
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 197
+    - Input:
+        Guid: ff70b649-7e35-4932-80b4-56aedc535a6a
+        IsWarm: 1
+        Type: 
+        Description: X
+      Output:
+        Guid: ba51b284-7e03-4b0b-b7a0-beae0d985b0a
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 204
+    - Input:
+        Guid: d1f3a2ab-e909-4ac6-a3ca-e3a5324866d6
+        IsWarm: 1
+        Type: 
+        Description: Y
+      Output:
+        Guid: 2b975ac4-71f4-40a6-9b06-d5177cf34ccb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 224
+    - Input:
+        Guid: a6e971c7-25cb-4644-8ed9-9348bef7e306
+        IsWarm: 1
+        Type: 
+        Description: Z
+      Output:
+        Guid: 2b975ac4-71f4-40a6-9b06-d5177cf34ccb
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 244
+  IsInstance: 0
+  IsDifferentThanSource: 0

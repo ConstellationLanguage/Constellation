@@ -6,7 +6,7 @@ namespace Constellation.Math {
         private Variable startValue;
         private Variable endValue;
         public const string NAME = "Lerp";
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, false, "A");
             _node.AddInput (this, false, "B");
             _node.AddInput (this, true, "T");

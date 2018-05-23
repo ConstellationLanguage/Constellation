@@ -5,7 +5,7 @@
 		private ISender sender;
 		private Variable value;
 
-		public void Setup (INodeParameters _node, ILogger _logger) {
+		public void Setup (INodeParameters _node) {
 			sender = _node.GetSender();
 			_node.AddOutput (true, "Ray on update");
 			value = new Variable ();

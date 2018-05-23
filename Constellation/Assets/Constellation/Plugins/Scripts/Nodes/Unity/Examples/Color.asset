@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Color
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 5f3d3e58-a943-46e2-86c4-9d80a55dcc8b
+      XPosition: 26.5
+      YPosition: 17.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 49193f73-3f65-413a-809d-2091c0423cf3
+      XPosition: 264.5
+      YPosition: 20
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Store a color
+          floatValue: 0.000001
+        Type: 2
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 7c477b07-2389-438e-9edf-89be0c88a812
+      XPosition: 64
+      YPosition: 122.5
+      Inputs: []
+      Outputs:
+      - Guid: 713eba08-2fb6-4aed-8bbd-4ed1fa8a8e73
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: MaterialColor
+      Namespace: Unity
+      Guid: 4817df56-984c-4c3d-bdaf-a61a112335f0
+      XPosition: 512
+      YPosition: 141.5
+      Inputs:
+      - Guid: fa326c37-d21f-4127-bbf9-be4b58e70d99
+        IsWarm: 0
+        Type: Object
+        Description: Game Object
+      - Guid: 11af3ca4-404b-47dc-885a-f291361b1b6b
+        IsWarm: 1
+        Type: 
+        Description: Color
+      Outputs: []
+      AttributesData: []
+    - Name: Color
+      Namespace: Unity
+      Guid: cf9e5ebb-0168-440c-aa84-cd6cdb7af850
+      XPosition: 250
+      YPosition: 157.5
+      Inputs:
+      - Guid: 2118e2c3-afc0-4d1e-8849-fd4b4477706f
+        IsWarm: 1
+        Type: 
+        Description: R
+      - Guid: 3440c45a-566b-4dfe-a4c8-af831c8514cb
+        IsWarm: 1
+        Type: 
+        Description: G
+      - Guid: 896cdeff-7863-421f-ab99-968594196e70
+        IsWarm: 1
+        Type: 
+        Description: B
+      - Guid: c9e48bb0-b13c-47b1-a26f-694c0c77cde2
+        IsWarm: 1
+        Type: 
+        Description: A
+      Outputs:
+      - Guid: 42766fe4-0b32-4b98-90cf-bbcc99e25d5d
+        IsWarm: 0
+        Type: 
+        Description: Color[R][G][B][A]
+      AttributesData:
+      - Value:
+          stringValue: R
+          floatValue: 0.000001
+        Type: 10
+      - Value:
+          stringValue: G
+          floatValue: 0.000001
+        Type: 11
+      - Value:
+          stringValue: B
+          floatValue: 0.000001
+        Type: 12
+      - Value:
+          stringValue: A
+          floatValue: 0.000001
+        Type: 13
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: a1c033de-9d9f-49bd-b6f4-08ea3c0cdfbc
+      XPosition: 66
+      YPosition: 165.5
+      Inputs: []
+      Outputs:
+      - Guid: 08bbfb94-583d-4126-85d9-3704d67ab232
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0.5
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 0a21a8ac-7329-4648-a1f0-3266f5c0d0c5
+      XPosition: 67
+      YPosition: 212.5
+      Inputs: []
+      Outputs:
+      - Guid: a9c9fdab-8310-4f1e-8f62-2e7e5a1c71c6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 0df347a6-3838-4406-a042-e7fe35538965
+      XPosition: 72
+      YPosition: 262.5
+      Inputs: []
+      Outputs:
+      - Guid: 6471a8ef-acbf-45fe-bb4d-8140d400008a
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0.5
+        Type: 0
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 244890a0-1114-416f-910e-4c4b38f70d04
+      XPosition: 67
+      YPosition: 308.5
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: The alpha channel require a material to support alpha
+          floatValue: 0.000001
+        Type: 2
+    Links:
+    - Input:
+        Guid: 2118e2c3-afc0-4d1e-8849-fd4b4477706f
+        IsWarm: 1
+        Type: 
+        Description: R
+      Output:
+        Guid: 713eba08-2fb6-4aed-8bbd-4ed1fa8a8e73
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 187.5
+    - Input:
+        Guid: 11af3ca4-404b-47dc-885a-f291361b1b6b
+        IsWarm: 1
+        Type: 
+        Description: Color
+      Output:
+        Guid: 42766fe4-0b32-4b98-90cf-bbcc99e25d5d
+        IsWarm: 0
+        Type: 
+        Description: Color[R][G][B][A]
+      outputPositionY: 191.5
+    - Input:
+        Guid: 3440c45a-566b-4dfe-a4c8-af831c8514cb
+        IsWarm: 1
+        Type: 
+        Description: G
+      Output:
+        Guid: 08bbfb94-583d-4126-85d9-3704d67ab232
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 207.5
+    - Input:
+        Guid: 896cdeff-7863-421f-ab99-968594196e70
+        IsWarm: 1
+        Type: 
+        Description: B
+      Output:
+        Guid: a9c9fdab-8310-4f1e-8f62-2e7e5a1c71c6
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 227.5
+    - Input:
+        Guid: c9e48bb0-b13c-47b1-a26f-694c0c77cde2
+        IsWarm: 1
+        Type: 
+        Description: A
+      Output:
+        Guid: 6471a8ef-acbf-45fe-bb4d-8140d400008a
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 247.5
+  IsInstance: 0
+  IsDifferentThanSource: 0

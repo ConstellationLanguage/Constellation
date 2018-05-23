@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: MouseButtonDown
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: a8fdfe0a-dbee-45d5-951e-93ac3c7f2d14
+      XPosition: 3.5
+      YPosition: 1.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 6fab211f-0784-4604-a12f-51d75a30e19d
+      XPosition: 93.5
+      YPosition: 30
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: 'Output 1 on mouse pressed
+
+'
+          floatValue: 0.000001
+        Type: 2
+    - Name: MouseButtonDown
+      Namespace: Unity
+      Guid: 130eb5a3-4f92-4d70-afad-3f4d1741714e
+      XPosition: 62.5
+      YPosition: 179
+      Inputs: []
+      Outputs:
+      - Guid: b8604cc5-adea-4a51-852c-75bc4de6b16b
+        IsWarm: 1
+        Type: 
+        Description: 1 on mouse button down else 0
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: e17f6adc-9593-4777-98d6-b3e4c1b98431
+      XPosition: 254.5
+      YPosition: 179.5
+      Inputs:
+      - Guid: f593b06e-6fa7-45a5-a94e-078194844b65
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: f593b06e-6fa7-45a5-a94e-078194844b65
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: b8604cc5-adea-4a51-852c-75bc4de6b16b
+        IsWarm: 1
+        Type: 
+        Description: 1 on mouse button down else 0
+      outputPositionY: 209.5
+  IsInstance: 0
+  IsDifferentThanSource: 0

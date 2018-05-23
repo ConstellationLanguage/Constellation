@@ -7,7 +7,7 @@ namespace Constellation.Physics
         private ISender sender;
         private Variable variable;
         public const string NAME = "CollisionExit";
-        public void Setup(INodeParameters _nodeParameters, ILogger _logger)
+        public void Setup(INodeParameters _nodeParameters)
         {
             variable = new Variable().Set(null as object);
             sender = _nodeParameters.GetSender();

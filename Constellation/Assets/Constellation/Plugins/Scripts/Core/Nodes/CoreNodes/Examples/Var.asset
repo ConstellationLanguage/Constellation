@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Var
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: ac9d4f86-2718-4091-a28d-40a4a65dcd60
+      XPosition: 7.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 35a9685f-49f8-46d3-9cc0-ecb8d7bfcf6e
+      XPosition: 39.5
+      YPosition: 26
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Use it to store a value
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 31f4732e-7fac-4b6e-a889-4e25a4e67671
+      XPosition: 27.5
+      YPosition: 175
+      Inputs: []
+      Outputs:
+      - Guid: 2457df34-e8bb-4e07-b4df-3afa1007e34a
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: I'm stored word
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: 9409d5d0-3756-43d8-94de-7990826c65a0
+      XPosition: 310.5
+      YPosition: 187
+      Inputs:
+      - Guid: 8407fba2-0651-4820-a038-ca96ae6537aa
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 695b3b4e-4b27-4c64-a7a6-95f86fa5a8f9
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: cedd8cb3-4249-479a-a584-410913d37378
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: fdee7493-2789-4054-b754-ec9e51e3ac7a
+      XPosition: 549.5
+      YPosition: 189
+      Inputs:
+      - Guid: e5fc0655-bdfe-4065-aabe-dc330c5cbca0
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Update
+      Namespace: Unity
+      Guid: 0589b524-a13d-41ca-91b5-11d514649254
+      XPosition: 22.5
+      YPosition: 234
+      Inputs: []
+      Outputs:
+      - Guid: a34b2536-c732-4238-b2ca-dc497e15dff3
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 8407fba2-0651-4820-a038-ca96ae6537aa
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 2457df34-e8bb-4e07-b4df-3afa1007e34a
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 217
+    - Input:
+        Guid: e5fc0655-bdfe-4065-aabe-dc330c5cbca0
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: cedd8cb3-4249-479a-a584-410913d37378
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 219
+    - Input:
+        Guid: 695b3b4e-4b27-4c64-a7a6-95f86fa5a8f9
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: a34b2536-c732-4238-b2ca-dc497e15dff3
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 237
+  IsInstance: 0
+  IsDifferentThanSource: 0

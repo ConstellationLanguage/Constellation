@@ -7,7 +7,7 @@ namespace Constellation.Math
         private ISender sender;
         private Variable variable;
         public const string NAME = "DeltaAngle";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, false, "Angle a");
             _node.AddInput(this, true, "Angle b");

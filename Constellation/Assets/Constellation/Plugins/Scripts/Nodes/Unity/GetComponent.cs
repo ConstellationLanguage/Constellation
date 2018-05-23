@@ -1,13 +1,13 @@
 using UnityEngine;
 namespace Constellation.Unity {
-    public class GetComponent : INode, IReceiver, IGameObject {
+    public class GetComponent : INode, IReceiver, IRequireGameObject {
         private ISender sender;
         private Attribute ComponentName;
         public const string NAME = "GetComponent";
         private GameObject gameObject;
         private Variable componentObject;
 
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             var newValue = new Variable ("ComponentName");
             sender = _node.GetSender();
             _node.AddOutput (false, "Object", "The Component");

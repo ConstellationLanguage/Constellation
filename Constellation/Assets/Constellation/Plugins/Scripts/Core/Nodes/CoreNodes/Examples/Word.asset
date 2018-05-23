@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Word
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 3559c320-d2be-4f80-a2db-5bbd3edf6256
+      XPosition: 6.5
+      YPosition: 7.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: 
+      Guid: a4739233-fef6-4bd8-94e2-50ba8f16f100
+      XPosition: 27.5
+      YPosition: 57
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Word is used to store strings
+          floatValue: 0.000001
+        Type: 2
+    - Name: Note
+      Namespace: 
+      Guid: 4bc7d6c9-fbf8-46a7-9b34-1ac5717e5297
+      XPosition: 550.5
+      YPosition: 66
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: '"I''m containing a string"'
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 7455275f-a1d9-4118-9813-187f8427e8ce
+      XPosition: 205.5
+      YPosition: 87
+      Inputs: []
+      Outputs:
+      - Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: I'm containing a string
+          floatValue: 0.000001
+        Type: 1
+    - Name: Print
+      Namespace: 
+      Guid: 9941254f-3fa3-4af1-8df2-12a6d7eca640
+      XPosition: 411.5
+      YPosition: 92
+      Inputs:
+      - Guid: 
+        IsWarm: 0
+        Type: 
+        Description: 
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 122
+  IsInstance: 0
+  IsDifferentThanSource: 0

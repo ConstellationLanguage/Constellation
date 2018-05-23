@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: MoveTowardsAngle
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 10.5
+      YPosition: 35
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Same as MoveTowards but makes sure the values interpolate correctly
+            when they wrap around 360 degrees.
+          floatValue: 0.000001
+        Type: 2
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 552.5
+      YPosition: 111
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 228.5
+      YPosition: 112
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: MoveTowardsAngle
+      Namespace: Math
+      Guid: c261ae11-908f-424a-a540-dcbe3ae3d821
+      XPosition: 404.5
+      YPosition: 120
+      Inputs:
+      - Guid: 51b98465-8d21-442c-a54a-d4ea9042d22e
+        IsWarm: 0
+        Type: 
+        Description: Current
+      - Guid: 9072bdfe-51f0-4365-b97e-d5a6565b96aa
+        IsWarm: 0
+        Type: 
+        Description: Target
+      - Guid: fc743658-fe3d-42bf-a561-d901be9d481d
+        IsWarm: 1
+        Type: 
+        Description: MaxDelta
+      Outputs:
+      - Guid: 137fab9c-a568-4039-a7ea-2bd39e4b7083
+        IsWarm: 0
+        Type: 
+        Description: Move a value toward target
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: f1da8708-c670-44dd-b614-2e53c4622bf1
+      XPosition: 222.5
+      YPosition: 153
+      Inputs: []
+      Outputs:
+      - Guid: e74e6ccc-4453-4f9d-b4a3-74163e532a4f
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: f6b73759-c2ed-41ce-b70f-6ef951aacfec
+      XPosition: 227.5
+      YPosition: 206
+      Inputs: []
+      Outputs:
+      - Guid: fa7be902-1f8e-4c88-ac6e-7e013823ae32
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    Links:
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 137fab9c-a568-4039-a7ea-2bd39e4b7083
+        IsWarm: 0
+        Type: 
+        Description: Move a value toward target
+      outputPositionY: 141
+    - Input:
+        Guid: 51b98465-8d21-442c-a54a-d4ea9042d22e
+        IsWarm: 0
+        Type: 
+        Description: Current
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 150
+    - Input:
+        Guid: 9072bdfe-51f0-4365-b97e-d5a6565b96aa
+        IsWarm: 0
+        Type: 
+        Description: Target
+      Output:
+        Guid: e74e6ccc-4453-4f9d-b4a3-74163e532a4f
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 170
+    - Input:
+        Guid: fc743658-fe3d-42bf-a561-d901be9d481d
+        IsWarm: 1
+        Type: 
+        Description: MaxDelta
+      Output:
+        Guid: fa7be902-1f8e-4c88-ac6e-7e013823ae32
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 190
+  IsInstance: 0
+  IsDifferentThanSource: 0

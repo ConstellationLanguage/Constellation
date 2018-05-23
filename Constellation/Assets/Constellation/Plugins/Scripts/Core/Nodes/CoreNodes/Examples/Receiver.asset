@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Receiver
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 38208011-a941-47b2-a3cb-3bf262f73d85
+      XPosition: 1.5
+      YPosition: 3.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 0696622c-02a2-4933-b39f-f3649576f88d
+      XPosition: 27.5
+      YPosition: 54
+      Inputs: []
+      Outputs:
+      - Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: sending a string
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: 849f24a3-3c11-42f6-9821-03ba33598bd4
+      XPosition: 207.5
+      YPosition: 61
+      Inputs:
+      - Guid: fcb9c28d-faa2-4e18-ac7b-0fb111d527be
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 3ce4075d-84c5-453d-a75b-5d7a1399bf81
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: a199cb9f-9d1c-45e4-9c4a-ea21e40e9b64
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Sender
+      Namespace: CoreNodes
+      Guid: ccef19a7-7e25-4cb3-827a-2d5ddc064e4a
+      XPosition: 402.5
+      YPosition: 67
+      Inputs:
+      - Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: EventDemo
+          floatValue: 0.000001
+        Type: 1
+    - Name: Update
+      Namespace: Unity
+      Guid: f749fdb7-c2f8-471c-a34c-1061a9935db9
+      XPosition: 27.5
+      YPosition: 120
+      Inputs: []
+      Outputs:
+      - Guid: 91a4f122-ae62-4e28-b793-437a0735cc52
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: cd703c62-243d-4b04-bdb3-599ad00fea6a
+      XPosition: 242.5
+      YPosition: 204
+      Inputs:
+      - Guid: 120b6d5b-d004-4509-be37-15570dfc88c5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Receiver
+      Namespace: CoreNodes
+      Guid: cf36a7a6-0bdb-485b-8cfc-797e4fca3294
+      XPosition: 33.5
+      YPosition: 208
+      Inputs: []
+      Outputs:
+      - Guid: 2a03dbc4-9ede-4956-8f95-f7d636a2ac06
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      AttributesData:
+      - Value:
+          stringValue: EventDemo
+          floatValue: 0.000001
+        Type: 1
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 914fcbc6-10e4-461d-8c2c-384a4f9fac0f
+      XPosition: 36.5
+      YPosition: 259
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Used to receive data from a sender
+          floatValue: 0.000001
+        Type: 2
+    Links:
+    - Input:
+        Guid: fcb9c28d-faa2-4e18-ac7b-0fb111d527be
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 91
+    - Input:
+        Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Output:
+        Guid: a199cb9f-9d1c-45e4-9c4a-ea21e40e9b64
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 97
+    - Input:
+        Guid: 3ce4075d-84c5-453d-a75b-5d7a1399bf81
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 91a4f122-ae62-4e28-b793-437a0735cc52
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 111
+    - Input:
+        Guid: 120b6d5b-d004-4509-be37-15570dfc88c5
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 2a03dbc4-9ede-4956-8f95-f7d636a2ac06
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      outputPositionY: 234
+  IsInstance: 0
+  IsDifferentThanSource: 0

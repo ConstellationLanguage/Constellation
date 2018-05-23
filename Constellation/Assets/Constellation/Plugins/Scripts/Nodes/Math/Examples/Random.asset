@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Random
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      XPosition: 1.5
+      YPosition: 1
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      XPosition: 7.5
+      YPosition: 33
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Random between a and b
+          floatValue: 0.000001
+        Type: 2
+    - Name: Random
+      Namespace: Math
+      Guid: 309f8efb-1a18-458c-b5af-2741922ca0b1
+      XPosition: 410.5
+      YPosition: 109
+      Inputs:
+      - Guid: 1a8e0009-b77a-426a-90c3-e80448d45c73
+        IsWarm: 0
+        Type: 
+        Description: Start
+      - Guid: dfea6e2c-65c5-44b4-b1ea-91832d090cce
+        IsWarm: 1
+        Type: 
+        Description: End
+      Outputs:
+      - Guid: 930341ba-96ea-46e2-9074-ac363083c94d
+        IsWarm: 0
+        Type: 
+        Description: Random Value between Start and End
+      AttributesData: []
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      XPosition: 552.5
+      YPosition: 111
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      XPosition: 228.5
+      YPosition: 112
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: 7f47ce8a-12fb-4338-bb48-ec672788f44c
+      XPosition: 264.5
+      YPosition: 162
+      Inputs:
+      - Guid: d4c54c64-0a6d-4e0d-ae4f-89c80059a267
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 05ecec4b-a957-4958-984b-ff865ea06b7f
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: f85f18f8-1b7a-4927-9c5a-90d8a002e8f4
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: 412c1ae9-8fc0-49c9-8969-33accfb2e64f
+      XPosition: 112.5
+      YPosition: 162
+      Inputs: []
+      Outputs:
+      - Guid: c700fa47-6f07-4e7d-89c4-a48a1cf5cfc0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 5
+        Type: 0
+    - Name: Update
+      Namespace: Unity
+      Guid: 2e75ed74-df5a-43fd-9530-6e9cfad0a7b9
+      XPosition: 124.5
+      YPosition: 208
+      Inputs: []
+      Outputs:
+      - Guid: 298ec055-a2ea-4ae8-bc06-c6cc144d40c4
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 1a8e0009-b77a-426a-90c3-e80448d45c73
+        IsWarm: 0
+        Type: 
+        Description: Start
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 139
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 930341ba-96ea-46e2-9074-ac363083c94d
+        IsWarm: 0
+        Type: 
+        Description: Random Value between Start and End
+      outputPositionY: 141
+    - Input:
+        Guid: dfea6e2c-65c5-44b4-b1ea-91832d090cce
+        IsWarm: 1
+        Type: 
+        Description: End
+      Output:
+        Guid: f85f18f8-1b7a-4927-9c5a-90d8a002e8f4
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 159
+    - Input:
+        Guid: d4c54c64-0a6d-4e0d-ae4f-89c80059a267
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: c700fa47-6f07-4e7d-89c4-a48a1cf5cfc0
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 192
+    - Input:
+        Guid: 05ecec4b-a957-4958-984b-ff865ea06b7f
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 298ec055-a2ea-4ae8-bc06-c6cc144d40c4
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 212
+  IsInstance: 0
+  IsDifferentThanSource: 0

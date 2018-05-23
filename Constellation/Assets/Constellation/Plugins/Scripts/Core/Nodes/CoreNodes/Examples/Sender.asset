@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Sender
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: d04e8f79-d5e9-4b41-aec8-f98265ea219f
+      XPosition: 1.5
+      YPosition: 4.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Note
+      Namespace: CoreNodes
+      Guid: 8ccf9c94-48c3-4533-b620-9996ac88e8b3
+      XPosition: 245.5
+      YPosition: 21
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Used to send var to a sender. Sender and Receiver name should
+            match
+          floatValue: 0.000001
+        Type: 2
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 13333850-00f4-4ae6-98d6-b76cbd8cf406
+      XPosition: 101.5
+      YPosition: 109
+      Inputs: []
+      Outputs:
+      - Guid: 2d8e8f58-ec2d-4816-b55b-5f81b28d11e1
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: Receiving a message
+          floatValue: 0.000001
+        Type: 1
+    - Name: Sender
+      Namespace: CoreNodes
+      Guid: 2bc0d314-e491-437a-878d-11c6a611c3a3
+      XPosition: 461.5
+      YPosition: 135
+      Inputs:
+      - Guid: d0149687-7536-4a20-929c-a88d2bd6b668
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: EventDemo
+          floatValue: 0.000001
+        Type: 1
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: 5ef3ca6d-ceba-4da6-bffb-2926c1f5a42d
+      XPosition: 274.5
+      YPosition: 148
+      Inputs:
+      - Guid: 45ea2769-8b2c-4194-9872-73c45228e817
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 8a0c4b07-7830-43bd-96da-36ec6eeda960
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 2ae320f6-af2d-4173-9568-6b032da3132a
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Update
+      Namespace: Unity
+      Guid: 6b3615ee-bd51-440f-a848-489572ff75c3
+      XPosition: 94.5
+      YPosition: 207
+      Inputs: []
+      Outputs:
+      - Guid: 21136c9c-f63b-466d-8f0b-6b199788ed63
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      AttributesData: []
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: e6da8fd4-dfa1-4476-8ce7-82d6456e4dc2
+      XPosition: 309.5
+      YPosition: 291
+      Inputs:
+      - Guid: e7f354a2-3889-427f-9638-e52ac54e105d
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Name: Receiver
+      Namespace: CoreNodes
+      Guid: baab6cee-d4e4-4b9e-b3c1-407aa7808cc5
+      XPosition: 100.5
+      YPosition: 295
+      Inputs: []
+      Outputs:
+      - Guid: cbe74417-45ef-44bc-9f03-62003cdd696a
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      AttributesData:
+      - Value:
+          stringValue: EventDemo
+          floatValue: 0.000001
+        Type: 1
+    Links:
+    - Input:
+        Guid: d0149687-7536-4a20-929c-a88d2bd6b668
+        IsWarm: 1
+        Type: 
+        Description: value to send
+      Output:
+        Guid: 2ae320f6-af2d-4173-9568-6b032da3132a
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 165
+    - Input:
+        Guid: 45ea2769-8b2c-4194-9872-73c45228e817
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: 2d8e8f58-ec2d-4816-b55b-5f81b28d11e1
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 178
+    - Input:
+        Guid: 8a0c4b07-7830-43bd-96da-36ec6eeda960
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: 21136c9c-f63b-466d-8f0b-6b199788ed63
+        IsWarm: 1
+        Type: 
+        Description: Ray on update
+      outputPositionY: 198
+    - Input:
+        Guid: e7f354a2-3889-427f-9638-e52ac54e105d
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: cbe74417-45ef-44bc-9f03-62003cdd696a
+        IsWarm: 1
+        Type: 
+        Description: Received Value from a sender
+      outputPositionY: 321
+  IsInstance: 0
+  IsDifferentThanSource: 0

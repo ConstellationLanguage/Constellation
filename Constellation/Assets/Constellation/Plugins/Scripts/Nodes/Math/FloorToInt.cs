@@ -5,7 +5,7 @@ namespace Constellation.Math {
         private ISender sender;
         public const string NAME = "FloorToInt";
         
-        public void Setup (INodeParameters _node, ILogger _logger) {
+        public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "A");
             sender = _node.GetSender();
             _node.AddOutput (false, "largest integer smaller to or equal to A");

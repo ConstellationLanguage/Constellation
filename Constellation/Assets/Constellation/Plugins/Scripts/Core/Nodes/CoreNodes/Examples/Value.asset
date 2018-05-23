@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Value
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 415957ee-4bb3-4082-8aa9-2e3c7b876775
+      XPosition: 4.5
+      YPosition: 2.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Value
+      Namespace: CoreNodes
+      Guid: bdd2e8db-d685-4f47-b3d5-b2260954bc90
+      XPosition: 93.5
+      YPosition: 86
+      Inputs: []
+      Outputs:
+      - Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 2
+        Type: 0
+    - Name: Var
+      Namespace: CoreNodes
+      Guid: 9e2cd0f8-d448-4633-b108-5bdf3b844690
+      XPosition: 302.5
+      YPosition: 90
+      Inputs:
+      - Guid: f9381e3d-60c9-426f-8635-9fcd5275d81f
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: 92b6504f-105c-46ed-85d4-2a26fe821cdc
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 813256fd-87ea-42ff-a893-be2e586629a4
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+    - Name: Print
+      Namespace: CoreNodes
+      Guid: 5b8d49dc-8a94-47b0-a076-5151d9eecd90
+      XPosition: 549.5
+      YPosition: 93
+      Inputs:
+      - Guid: bfc579e3-bb44-436d-a097-f7c080569e0b
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: f9381e3d-60c9-426f-8635-9fcd5275d81f
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 120
+    - Input:
+        Guid: bfc579e3-bb44-436d-a097-f7c080569e0b
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 813256fd-87ea-42ff-a893-be2e586629a4
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 123
+    - Input:
+        Guid: 92b6504f-105c-46ed-85d4-2a26fe821cdc
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 140
+  IsInstance: 0
+  IsDifferentThanSource: 0

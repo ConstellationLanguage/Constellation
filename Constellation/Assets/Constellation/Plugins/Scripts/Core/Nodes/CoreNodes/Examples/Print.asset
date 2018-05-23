@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: Print
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Tutorial
+      Namespace: Tags
+      Guid: 477d651a-08a2-4244-b596-2fcec388c907
+      XPosition: 4.5
+      YPosition: 3.5
+      Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Name: Print
+      Namespace: 
+      Guid: 3c54506d-9e56-49d1-9f6f-e0b072b2ab77
+      XPosition: 352.5
+      YPosition: 95
+      Inputs:
+      - Guid: 
+        IsWarm: 0
+        Type: 
+        Description: 
+      Outputs: []
+      AttributesData: []
+    - Name: Word
+      Namespace: CoreNodes
+      Guid: 75f247eb-918a-4ee0-ab2b-fac9abe1c677
+      XPosition: 85.5
+      YPosition: 95
+      Inputs: []
+      Outputs:
+      - Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: printing
+          floatValue: 0.000001
+        Type: 1
+    Links:
+    - Input:
+        Guid: 
+        IsWarm: 0
+        Type: 
+        Description: 
+      Output:
+        Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
+        IsWarm: 1
+        Type: 
+        Description: The Word
+      outputPositionY: 125
+  IsInstance: 0
+  IsDifferentThanSource: 0

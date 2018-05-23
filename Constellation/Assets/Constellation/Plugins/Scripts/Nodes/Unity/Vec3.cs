@@ -3,14 +3,13 @@ namespace Constellation.Unity
     public class Vec3 : INode, IReceiver
     {
         public const string NAME = "Vec3";
-        public ConstellationBehaviour galaxy;
         private ISender sender;
         private Attribute valueX;
         private Attribute valueY;
         private Attribute valueZ;
         private Variable Result;
 
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, true, "X");
             _node.AddInput(this, true, "Y");

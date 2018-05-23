@@ -6,7 +6,7 @@ public class SquareRoot: INode, IReceiver
 		private ISender sender;
 		private Variable VarX;
         public const string NAME = "SquareRoot";
-        public void Setup(INodeParameters _node, ILogger _logger)
+        public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "X");
 			VarX = new Variable(0);
