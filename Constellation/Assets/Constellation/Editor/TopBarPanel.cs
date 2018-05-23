@@ -28,16 +28,8 @@ namespace ConstellationEditor {
                 compilable.CompileScripts();
                 return true;
             }
-
-<<<<<<< HEAD
-            GUILayout.Label("", EditorStyles.toolbarButton);
-            if(GUI.Button(new Rect(new Vector2(Screen.width / 2 - 20, 1), Vector2.one * 14), "", ConstellationStyles.HelpStyle)){
-                Application.OpenURL(ConstellationLinks.Wiki);
-            }
-
-=======
+            
             GUILayout.Label ("", EditorStyles.toolbarButton);
->>>>>>> e459bba71f871cae96fbb70339d360abf83f682e
             EditorGUILayout.EndHorizontal ();
             return false;
         }

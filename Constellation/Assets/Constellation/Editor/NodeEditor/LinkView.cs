@@ -17,14 +17,9 @@ namespace ConstellationEditor {
             nodeConfig = _nodeConfig;
             OnLinkRemoved += _onLinkRemoved;
         }
-
-<<<<<<< HEAD
-        public LinkData [] GetLinks () {
-            return constellationScript.GetLinks();
-=======
+        
         public LinkData[] GetLinks () {
             return constellationScript.GetLinks ();
->>>>>>> e459bba71f871cae96fbb70339d360abf83f682e
         }
 
         public void DrawLinks () {
