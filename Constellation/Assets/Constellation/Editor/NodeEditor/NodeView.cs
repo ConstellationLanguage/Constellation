@@ -46,13 +46,13 @@ namespace ConstellationEditor {
 
             if (DrawDescription)
                 DrawHelp(Description);
-            
-            if (node.Name != "Note") {
-                var nodeStyle = selected ? nodeConfig.NodeHoverStyle : nodeConfig.NodeStyle;
-                Rect = GUI.Window(id, Rect, DrawNodeWindow, "", nodeStyle);
-            } else {
+
+            if (node.Name == Constellation.CoreNodes.Note.NAME) {
                 var noteStyle = selected ? nodeConfig.NoteHoverStyle : nodeConfig.NoteStyle;
                 Rect = GUI.Window(id, new Rect(Rect.x, Rect.y, 120, 120), DrawNodeWindow, "", noteStyle);
+            } else {
+                var nodeStyle = selected ? nodeConfig.NodeHoverStyle : nodeConfig.NodeStyle;
+                Rect = GUI.Window(id, Rect, DrawNodeWindow, "", nodeStyle);
             }
             
             if (node.XPosition != Rect.x || node.YPosition != Rect.y) {
@@ -104,7 +104,8 @@ namespace ConstellationEditor {
 
         private void DrawHelp (string text) {
             Event current = Event.current;
-            GUI.Label(new Rect(current.mousePosition.x + 30, current.mousePosition.y + 20, 30 + Description.Length * 4, 30), text, GUI.skin.GetStyle("AnimationEventTooltip"));
+            var style = GUI.skin.GetStyle("AnimationEventTooltip");
+            GUI.Label(new Rect(current.mousePosition.x + 30, current.mousePosition.y + 20, style.CalcSize(new GUIContent(text)).x, 30), text, style);
             if (CloseOnNextFrame == true) {
                 DrawDescription = false;
                 CloseOnNextFrame = false;
