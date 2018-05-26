@@ -65,6 +65,9 @@ namespace Constellation.Unity {
                 case MaterialColor.NAME:
                     INode materialColor = new MaterialColor()  as INode;
                     return new Node<INode> (materialColor);
+                case Quit.NAME:
+                    INode quit = new Quit() as INode;
+                    return new Node<INode> (quit);
                 default:
                     return null;
             }
