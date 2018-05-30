@@ -11,10 +11,13 @@ namespace ConstellationEditor
         private static bool isDraggable;
         static CopyScriptIcons()
         {
+            
             var source = (Texture2D)AssetDatabase.LoadAssetAtPath(ConstellationEditor.GetEditorAssetPath() + "ConstellationScript.png", typeof(Texture2D));
             var target = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/Gizmos/ConstellationScript Icon.png", typeof(Texture2D));
-            if (source != null && target == null)
+            if (source != null && target == null){
+                AssetDatabase.CreateFolder("Assets", "Gizmos");
                 AssetDatabase.CopyAsset(ConstellationEditor.GetEditorAssetPath() + "ConstellationScript.png", "Assets/Gizmos/ConstellationScript Icon.png");
+            }
         }
     }
 }
