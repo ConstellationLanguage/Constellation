@@ -38,7 +38,7 @@ namespace ConstellationEditor {
                 attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
             }
         }
-
+        
         public void DrawWindow (int id, GUI.WindowFunction DrawNodeWindow, bool isNote) {
             //Only draw visible nodes
             if (!visibleObject.InView(Rect))

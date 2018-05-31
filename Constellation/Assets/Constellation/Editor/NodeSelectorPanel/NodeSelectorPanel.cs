@@ -6,7 +6,6 @@ using UnityEngine;
 namespace ConstellationEditor {
     public class NodeSelectorPanel {
         Vector2 nodeSelectorScrollPos;
-
         public delegate void NodeAdded (string nodeName, string _namespace);
         NodeAdded OnNodeAdded;
         string searchString = "";
@@ -36,8 +35,8 @@ namespace ConstellationEditor {
             DrawSearchField ();
             nodeSelectorScrollPos = EditorGUILayout.BeginScrollView (nodeSelectorScrollPos, GUILayout.Width (_width), GUILayout.Height (_height));
             foreach (NodeNamespacesData nodeNamespace in NodeNamespaceData) {
-                GUILayout.Label (nodeNamespace.namespaceName, GUI.skin.GetStyle ("OL Title"));
-                var selGridInt = GUILayout.SelectionGrid (-1, nodeNamespace.GetNiceNames (), 2);
+                GUILayout.Label (nodeNamespace.namespaceName, GUI.skin.GetStyle ("OL Title"), GUILayout.Width(_width - 20));
+                var selGridInt = GUILayout.SelectionGrid (-1, nodeNamespace.GetNiceNames (), 1 + (int)Mathf.Floor(_width / 255));
                 if (selGridInt >= 0) {
                     OnNodeAdded (nodeNamespace.GetNames () [selGridInt], nodeNamespace.namespaceName);
                 }

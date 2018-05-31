@@ -52,6 +52,7 @@ namespace ConstellationEditor {
             //Deselect all
             if (current.MouseButtonDown (1) && current.isMouse) {
                 UnselectAll ();
+                UnityEngine.GUI.FocusControl(null);
                 GUI.RequestRepaint ();
             }
 

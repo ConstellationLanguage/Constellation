@@ -41,7 +41,6 @@ namespace ConstellationEditor {
         }
 
         private GUIStyle InitNoteHoverStyle () {
-            
             noteHoverStyle = new GUIStyle(NoteStyle);
             noteHoverStyle.normal.background = EditorGUIUtility.Load(ConstellationEditor.GetEditorAssetPath() + "note_on.png") as Texture2D;
             noteHoverStyle.border = new RectOffset(10, 10, 10, 10);

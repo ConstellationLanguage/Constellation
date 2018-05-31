@@ -83,7 +83,6 @@ namespace ConstellationEditor {
                         (startLink.y + (endLink.y - startLink.y) / 2) - (nodeConfig.TopMargin * 0.5f),
                         nodeConfig.LinkButtonSize,
                         nodeConfig.LinkButtonSize);
-
                     GUI.Box (linkCenter, "", GUI.skin.GetStyle ("flow var 0"));
                     if (GUI.Button (linkCenter, "", GUI.skin.GetStyle ("WinBtnClose"))) {
                         constellationScript.RemoveLink (link);

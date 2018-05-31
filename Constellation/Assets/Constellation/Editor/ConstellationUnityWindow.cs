@@ -9,11 +9,12 @@ namespace ConstellationEditor {
     public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable, ICompilable {
         protected NodeEditorPanel nodeEditorPanel;
         protected ConstellationsTabPanel nodeTabPanel;
-        private float nodeSelectorWidht = 270;
+        private float nodeSelectorWidth = 270;
         private NodeSelectorPanel nodeSelector;
         private string currentPath;
         public static ConstellationUnityWindow WindowInstance;
         Constellation.Constellation constellation;
+        private int splitThickness = 5;
 
         [MenuItem("Window/Constellation Editor")]
         public static void ShowWindow () {
@@ -213,10 +214,10 @@ namespace ConstellationEditor {
                     Repaint();
                 }
             } catch (ConstellationError e) {
-                ShowError(e);
+                //ShowError(e);
             } catch {
-                var e = new UnknowError(this.GetType().Name);
-                ShowError(e);
+                //var e = new UnknowError(this.GetType().Name);
+                //ShowError(e);
             }
         }
 
@@ -243,11 +244,21 @@ namespace ConstellationEditor {
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.BeginVertical();
-            nodeEditorPanel.DrawNodeEditor(new Rect(0, 35, position.width - nodeSelectorWidht, position.height - 35));
+            nodeEditorPanel.DrawNodeEditor(new Rect(0, 35, position.width - nodeSelectorWidth - splitThickness, position.height - 35));
             EditorGUILayout.EndVertical();
-            nodeSelector.Draw(nodeSelectorWidht, position.height - 50);
+            DrawVerticalSplit();
+            nodeSelector.Draw(nodeSelectorWidth, position.height - 50);
             EditorGUILayout.EndHorizontal();
             RepaintIfRequested();
+        }
+
+        private void DrawVerticalSplit () {
+            var verticalSplit = new Rect(position.width - nodeSelectorWidth - splitThickness, 30, splitThickness, position.height - 30);
+            var newVertical = EditorUtils.VerticalSplit(verticalSplit);
+            if (newVertical != verticalSplit.x) {
+                NodeSelectorWidth -= verticalSplit.x - newVertical;
+                RequestRepaint();
+            }
         }
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
@@ -310,6 +321,18 @@ namespace ConstellationEditor {
         protected virtual void OnLostFocus () {
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
+        }
+
+        private float NodeSelectorWidth {
+            get {
+                return nodeSelectorWidth;
+            }
+
+            set {
+                if(value > 137 + splitThickness && value < 590) {
+                    nodeSelectorWidth = value;
+                }
+            }
         }
     }
 }
