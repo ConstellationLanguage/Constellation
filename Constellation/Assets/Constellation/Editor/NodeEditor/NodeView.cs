@@ -62,6 +62,7 @@ namespace ConstellationEditor {
                 nodeMovement = Vector2.zero;
                 nodeMoved = false;
             }
+            
             node.XPosition = Rect.x;
             node.YPosition = Rect.y;
         }
@@ -104,7 +105,7 @@ namespace ConstellationEditor {
 
         private void DrawHelp (string text) {
             Event current = Event.current;
-            var style = GUI.skin.GetStyle("AnimationEventTooltip");
+            var style = nodeConfig.Tooltip;
             GUI.Label(new Rect(current.mousePosition.x + 30, current.mousePosition.y + 20, style.CalcSize(new GUIContent(text)).x, 30), text, style);
             if (CloseOnNextFrame == true) {
                 DrawDescription = false;
@@ -172,7 +173,7 @@ namespace ConstellationEditor {
                 var i = 0;
                 foreach (var input in node.Inputs) {
                     if (GUI.Button(new Rect(0, nodeConfig.TopMargin + (nodeConfig.InputSize * i), nodeConfig.InputSize, nodeConfig.InputSize), "",
-                            GetConnectionStyle(input.IsWarm, input.Type))) {
+                            nodeConfig.GetConnectionStyle(input.IsWarm, input.Type))) {
                         Event current = Event.current;
                         if (current.button == 0)
                             linkEditor.AddLinkFromInput(input);
@@ -191,7 +192,7 @@ namespace ConstellationEditor {
                 var i = 0;
                 foreach (var output in node.Outputs) {
                     if (GUI.Button(new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize), "",
-                            GetConnectionStyle(output.IsWarm, output.Type))) {
+                            nodeConfig.GetConnectionStyle(output.IsWarm, output.Type))) {
                         Event current = Event.current;
                         if (current.button == 0){
                             linkEditor.AddLinkFromOutput(output);
@@ -214,8 +215,8 @@ namespace ConstellationEditor {
 
                 //Light gray color for close button
                 GUI.color = new Color(0.8f, 0.8f, 0.8f);
-                UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", UnityEngine.GUI.skin.GetStyle("sv_label_0"));
-                if (GUI.Button(new Rect(Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", UnityEngine.GUI.skin.GetStyle("WinBtnClose")) && Event.current.button == 0) {
+                UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", nodeConfig.RoundButton);
+                if (GUI.Button(new Rect(Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", nodeConfig.CloseButton) && Event.current.button == 0) {
                     DestroyNode();
                 }
 
@@ -225,23 +226,9 @@ namespace ConstellationEditor {
                 }
             }
 
-            GUI.Label(new Rect(10, 0, width, 16), node.Name, UnityEngine.GUI.skin.GetStyle("MiniLabel"));
+            GUI.Label(new Rect(10, 0, width, 16), node.Name, nodeConfig.HeaderLabel);
         }
-
-        private GUIStyle GetConnectionStyle (bool _isWarm, string _type) {
-            if (_isWarm) {
-                if (_type == "Object")
-                    return nodeConfig.WarmInputObjectStyle;
-                else
-                    return nodeConfig.WarmInputStyle;
-            } else {
-                if (_type == "Object")
-                    return nodeConfig.ColdInputObjectStyle;
-                else
-                    return nodeConfig.ColdInputStyle;
-            }
-        }
-
+        
         public NodeData GetData () {
             return node;
         }

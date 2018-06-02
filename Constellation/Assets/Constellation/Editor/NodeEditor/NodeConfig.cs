@@ -31,6 +31,11 @@ namespace ConstellationEditor {
             margin = new RectOffset(0, 0, -5, 0)
         };
         public GUIStyle NoteStyle = GUI.skin.GetStyle("VCS_StickyNote");
+        public GUIStyle RoundButton = GUI.skin.GetStyle("sv_label_0");
+        public GUIStyle HexagonButton = GUI.skin.GetStyle("flow var 0");
+        public GUIStyle CloseButton = GUI.skin.GetStyle("WinBtnClose"); //Node/Connection close 'X'
+        public GUIStyle HeaderLabel = GUI.skin.GetStyle("MiniLabel");
+        public GUIStyle Tooltip = GUI.skin.GetStyle("AnimationEventTooltip");
         private GUIStyle noteHoverStyle;
         private GUIStyle helpStyle;
 
@@ -46,6 +51,34 @@ namespace ConstellationEditor {
             noteHoverStyle.border = new RectOffset(10, 10, 10, 10);
             noteHoverStyle.overflow = new RectOffset(7, 7, 5, 10);
             return noteHoverStyle;
+        }
+
+        public GUIStyle GetConnectionStyle (bool _isWarm, string _type) {
+            if (_isWarm) {
+                if (_type == "Object")
+                    return WarmInputObjectStyle;
+                else
+                    return WarmInputStyle;
+            } else {
+                if (_type == "Object")
+                    return ColdInputObjectStyle;
+                else
+                    return ColdInputStyle;
+            }
+        }
+
+        public Color GetConnectionColor (bool _isWarm, string _type) {
+            if (_isWarm) {
+                if (_type == "Object")
+                    return WarmInputObjectColor;
+                else
+                    return WarmInputColor;
+            } else {
+                if (_type == "Object")
+                    return ColdInputObjectColor;
+                else
+                    return ColdInputColor;
+            }
         }
 
         public GUIStyle HelpStyle {
