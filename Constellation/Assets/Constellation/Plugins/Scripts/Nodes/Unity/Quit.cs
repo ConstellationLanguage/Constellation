@@ -5,7 +5,6 @@ namespace Constellation.Unity {
 		public const string NAME = "Quit";
 		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Quit application");
-			sender = _nodeParameters.GetSender();
 		}
 
 		public string NodeName () {
