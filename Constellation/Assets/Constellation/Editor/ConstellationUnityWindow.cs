@@ -4,9 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ConstellationEditor {
+namespace ConstellationEditor
+{
     [InitializeOnLoadAttribute]
-    public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable, ICompilable {
+    public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable, ICompilable
+    {
         protected NodeEditorPanel nodeEditorPanel;
         protected ConstellationsTabPanel nodeTabPanel;
         private float nodeSelectorWidth = 270;
@@ -18,6 +20,7 @@ namespace ConstellationEditor {
 
         [MenuItem("Window/Constellation Editor")]
         public static void ShowWindow () {
+        	CopyScriptIcons.Copy();
             WindowInstance = EditorWindow.GetWindow(typeof(ConstellationUnityWindow), false, "Constellation") as ConstellationUnityWindow;
         }
 
@@ -125,6 +128,11 @@ namespace ConstellationEditor {
             nodeEditorPanel.SelectNodes(pastedNodes);
         }
 
+        public void Cut()
+        {
+
+        }
+
         public void Cut () {
 
         }
@@ -213,11 +221,15 @@ namespace ConstellationEditor {
                     GUI.Label(new Rect(0, 0, 500, 500), "Loading");
                     Repaint();
                 }
-            } catch (ConstellationError e) {
-                //ShowError(e);
-            } catch {
-                //var e = new UnknowError(this.GetType().Name);
-                //ShowError(e);
+            }
+            catch (ConstellationError e)
+            {
+                ShowError(e);
+            }
+            catch
+            {
+                var e = new UnknowError(this.GetType().Name);
+                ShowError(e);
             }
         }
 
