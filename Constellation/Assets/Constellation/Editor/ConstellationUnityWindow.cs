@@ -133,10 +133,6 @@ namespace ConstellationEditor
 
         }
 
-        public void Cut () {
-
-        }
-
         public void AddAction () {
             scriptDataService.AddAction();
         }

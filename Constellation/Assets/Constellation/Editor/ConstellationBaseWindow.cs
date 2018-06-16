@@ -126,7 +126,7 @@ namespace ConstellationEditor {
             if (exception != null && e != null)
                 Debug.LogError (error.GetFormatedError () + exception.StackTrace);
             else if (e != null)
-                Debug.LogError (error.GetFormatedError ());
+                Debug.LogError (error.GetFormatedError () + exception.StackTrace);
         }
     }
 }

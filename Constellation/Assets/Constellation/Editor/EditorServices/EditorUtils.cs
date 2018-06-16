@@ -34,6 +34,7 @@ namespace ConstellationEditor {
         private static bool dragging = false;
         public static float VerticalSplit(Rect _rect) {
             var color = GUI.backgroundColor;
+            var isMoving = false;
             GUI.backgroundColor = dragging ? new Color(0.173f, 0.169f, 0.173f) : new Color(0.635f, 0.635f, 0.635f);
             EditorGUILayout.BeginVertical(GUILayout.Width(_rect.width));
             EditorGUILayout.BeginHorizontal();
@@ -49,7 +50,7 @@ namespace ConstellationEditor {
                     dragging = true;
             if (dragging) {
                 if (EventUtils.MouseButtonDrag(Event.current, 0))
-                    return _rect.x - Event.current.delta.x;
+                    isMoving = true;
                 if (EventUtils.MouseButtonUp(Event.current, 0))
                     dragging = false;
             }
@@ -57,6 +58,10 @@ namespace ConstellationEditor {
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndVertical();
             GUI.backgroundColor = color;
+
+            if(isMoving)
+                return _rect.x - Event.current.delta.x;
+
             //_rect.x should be left side width.
             //Screen.width - (_rect.x + _rect.width) should be right side width
             return _rect.x; 
