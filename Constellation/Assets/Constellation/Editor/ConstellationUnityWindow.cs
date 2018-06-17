@@ -298,7 +298,7 @@ namespace ConstellationEditor
                     }
 
                     var selectedGameObjects = Selection.gameObjects;
-                    if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject || selectedGameObjects[0].active == false)
+                    if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject || selectedGameObjects[0].activeInHierarchy == false)
                         return;
                     else if (scriptDataService.GetCurrentScript().IsInstance) {
                         scriptDataService.CloseCurrentConstellationInstance();
