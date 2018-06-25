@@ -4,7 +4,7 @@ Constellation is a visual scripting language for unity that gives you the tools 
 ![alt text](https://static.wixstatic.com/media/cbe6c9_062e10c638e3460d905f20f95af1ee42~mv2.png/v1/fill/w_1377,h_716,al_c,usm_0.66_1.00_0.01/cbe6c9_062e10c638e3460d905f20f95af1ee42~mv2.png)
 
 # Who should use it?
-Designers, Artists, programmers... Constellation is easy to use and extendable if you want to use your [custom scripts](https://github.com/AntoineCharton/Constellation/wiki/Create-a-node).
+Designers, Artists, programmers... Constellation is easy to use and extendable if you want to use your [custom scripts](https://github.com/ConstellationLanguage/Constellation/wiki/Create-a-node).
 
 # Why using visual scripting?
 Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constellation_open_source_visual_scripting_editor/) on reddit. I think it gives you downsizes and advantages of it.  
