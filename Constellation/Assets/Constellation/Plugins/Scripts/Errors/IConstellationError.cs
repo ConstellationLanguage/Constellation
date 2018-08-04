@@ -5,5 +5,6 @@ namespace Constellation {
         bool IsIgnorable ();
         string GetFormatedError();
         int GetID ();
+        bool IsReportable();
     }
 }

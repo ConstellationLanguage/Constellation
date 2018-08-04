@@ -1,36 +1,50 @@
-namespace Constellation {
-    public class TryingToAccessANullCosntellation : ConstellationError, IConstellationError {
+namespace Constellation
+{
+    public class TryingToAccessANullCosntellation : ConstellationError, IConstellationError
+    {
         private const string whatWentWrong = "ERROR: You are trying to access a constellation on a Constellation behaviour but none where added\n\n" +
             "HINT: You must make sure a ConstellationBehaviour has a Constellation attached to it\n\n" +
             "HOW TO FIX: Attach a Constellation script on this GameObject:";
         private const string errorTitle = "Trying to access a null constellation";
         private const int id = 100;
         private ConstellationComponent constellationBehaviour;
-        public TryingToAccessANullCosntellation (ConstellationComponent _constellationBehaviour) {
+        public TryingToAccessANullCosntellation(ConstellationComponent _constellationBehaviour)
+        {
             constellationBehaviour = _constellationBehaviour;
             constellationBehaviour.HasThrownError(this);
         }
 
-        public string GetErrorTitle () {
+        public string GetErrorTitle()
+        {
             return errorTitle;
         }
 
-        public string GetErrorMessage () {
+        public string GetErrorMessage()
+        {
             return whatWentWrong + constellationBehaviour.name;
         }
-        public string GetFormatedError () {
+        public string GetFormatedError()
+        {
             return errorTitle + " (" + id + ") " + "\n\n" + whatWentWrong + constellationBehaviour.gameObject.name;
         }
 
-        public bool IsIgnorable () {
+        public bool IsIgnorable()
+        {
             return true;
         }
 
-        public int GetID () {
+        public bool IsReportable()
+        {
+            return false;
+        }
+
+        public int GetID()
+        {
             return id;
         }
 
-        public override IConstellationError GetError () {
+        public override IConstellationError GetError()
+        {
             return this;
         }
     }

@@ -130,7 +130,7 @@ namespace ConstellationEditor
 
         protected virtual void ShowEditorWindow() { }
 
-        protected virtual void ShowError(ConstellationError constellationError = null, Exception exception = null)
+        protected virtual void ShowError(ConstellationError constellationError, Exception exception = null)
         {
             var error = constellationError.GetError();
             if (exception != null && constellationError != null)
@@ -147,10 +147,14 @@ namespace ConstellationEditor
             }
             else
             {
-                if (EditorUtility.DisplayDialog(error.GetErrorTitle() + " (" + error.GetID() + ") ", error.GetErrorMessage(), "Report and recover", "Recover"))
-                {
-                    Application.OpenURL("https://github.com/ConstellationLanguage/Constellation/issues");
-                }
+                if(error.IsReportable()) {
+                    if (EditorUtility.DisplayDialog(error.GetErrorTitle() + " (" + error.GetID() + ") ", error.GetErrorMessage(), "Report and recover", "Recover"))
+                    {
+                        Application.OpenURL("https://github.com/ConstellationLanguage/Constellation/issues");
+                    }
+                } else
+                    EditorUtility.DisplayDialog(error.GetErrorTitle() + " (" + error.GetID() + ") ", error.GetErrorMessage(), "Recover");
+                
                 UnityEditor.EditorApplication.isPlaying = false;
                 scriptDataService.ResetConstellationEditorData();
                 ShowEditorWindow();

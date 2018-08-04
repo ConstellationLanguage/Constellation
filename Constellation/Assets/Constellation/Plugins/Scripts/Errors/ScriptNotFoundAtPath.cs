@@ -23,6 +23,10 @@ namespace Constellation {
             return errorTitle + " (" + id + ") " + "\n\n" + whatWentWrong + "\n\n path: " + path;
         }
 
+        public bool IsReportable() {
+            return false;
+        }
+
         public bool IsIgnorable () {
             return false;
         }
