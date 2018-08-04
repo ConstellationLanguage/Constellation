@@ -217,12 +217,6 @@ namespace ConstellationEditor
                     GUI.Label(new Rect(0, 0, 500, 500), "Loading");
                     Repaint();
                 }
-                if(Event.current.keyCode == (KeyCode.A)){
-                    Debug.Log("Trigger error");
-                    NodeEditorPanel a = null;
-                    a.AddNode("test", "test");
-
-                }
             }
             catch (ConstellationError e)
             {
