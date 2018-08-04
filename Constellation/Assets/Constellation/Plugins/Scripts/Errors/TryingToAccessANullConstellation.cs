@@ -28,6 +28,11 @@ namespace Constellation
             return errorTitle + " (" + id + ") " + "\n\n" + whatWentWrong + constellationBehaviour.gameObject.name;
         }
 
+        public bool IsCloseEditor()
+        {
+            return false;
+        }
+
         public bool IsIgnorable()
         {
             return true;

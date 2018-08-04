@@ -31,6 +31,11 @@ namespace Constellation
             return true;
         }
 
+        public bool IsCloseEditor()
+        {
+            return true;
+        }
+
         public string GetErrorMessage()
         {
             return errorMessage;

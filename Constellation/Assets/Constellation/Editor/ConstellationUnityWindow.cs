@@ -342,5 +342,15 @@ namespace ConstellationEditor
                 }
             }
         }
+
+        protected override void ShowError(ConstellationError constellationError, Exception exception = null)
+        {
+            base.ShowError(constellationError, exception);
+            if(constellationError != null){
+                if(constellationError.GetError().IsCloseEditor())
+                    WindowInstance.Close();
+            }
+
+        }
     }
 }

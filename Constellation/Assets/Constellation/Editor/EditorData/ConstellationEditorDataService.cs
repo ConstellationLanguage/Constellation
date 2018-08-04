@@ -33,6 +33,8 @@ namespace ConstellationEditor {
 
         private ConstellationEditorData Setup () {
             var path = ConstellationEditor.GetEditorPath() + "EditorData/EditorData.asset";
+            AssetDatabase.DeleteAsset(path);
+            AssetDatabase.Refresh();
             EditorData = ScriptableObject.CreateInstance<ConstellationEditorData> ();
             AssetDatabase.CreateAsset (EditorData, path);
             return EditorData;

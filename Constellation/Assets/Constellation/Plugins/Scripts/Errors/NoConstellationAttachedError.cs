@@ -35,6 +35,11 @@ namespace Constellation
             return false;
         }
 
+        public bool IsCloseEditor()
+        {
+            return false;
+        }
+
         public bool IsIgnorable()
         {
             return true;

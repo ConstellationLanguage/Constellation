@@ -6,5 +6,6 @@ namespace Constellation {
         string GetFormatedError();
         int GetID ();
         bool IsReportable();
+        bool IsCloseEditor();
     }
 }

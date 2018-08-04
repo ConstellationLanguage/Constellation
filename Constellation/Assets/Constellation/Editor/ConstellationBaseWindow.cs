@@ -37,19 +37,31 @@ namespace ConstellationEditor
 
         public void Recover()
         {
-            scriptDataService = new ConstellationEditorDataService();
-            ConstellationCompiler = new ConstellationCompiler();
-            if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)
-                return;
-
-            if (scriptDataService.OpenEditorData().LastOpenedConstellationPath.Count != 0)
+            try
             {
-                var scriptData = scriptDataService.Recover(scriptDataService.OpenEditorData().LastOpenedConstellationPath[0]);
-                if (scriptData != null)
-                {
-                    Setup();
+                scriptDataService = new ConstellationEditorDataService();
+                ConstellationCompiler = new ConstellationCompiler();
+                if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)
                     return;
+
+                if (scriptDataService.OpenEditorData().LastOpenedConstellationPath.Count != 0)
+                {
+                    var scriptData = scriptDataService.Recover(scriptDataService.OpenEditorData().LastOpenedConstellationPath[0]);
+                    if (scriptData != null)
+                    {
+                        Setup();
+                        return;
+                    }
                 }
+            }
+           catch (ConstellationError e)
+            {
+                ShowError(e);
+            }
+            catch (Exception e)
+            {
+                var formatedError = new UnknowError(this.GetType().Name);
+                ShowError(formatedError, e);
             }
         }
 
@@ -147,14 +159,16 @@ namespace ConstellationEditor
             }
             else
             {
-                if(error.IsReportable()) {
+                if (error.IsReportable())
+                {
                     if (EditorUtility.DisplayDialog(error.GetErrorTitle() + " (" + error.GetID() + ") ", error.GetErrorMessage(), "Report and recover", "Recover"))
                     {
                         Application.OpenURL("https://github.com/ConstellationLanguage/Constellation/issues");
                     }
-                } else
+                }
+                else
                     EditorUtility.DisplayDialog(error.GetErrorTitle() + " (" + error.GetID() + ") ", error.GetErrorMessage(), "Recover");
-                
+
                 UnityEditor.EditorApplication.isPlaying = false;
                 scriptDataService.ResetConstellationEditorData();
                 ShowEditorWindow();

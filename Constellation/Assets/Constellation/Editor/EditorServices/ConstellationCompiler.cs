@@ -39,43 +39,47 @@ namespace ConstellationEditor
                 {
                     script.RemoveNode(node.Guid);
                     var replacementNode = NodesFactory.GetNode(node.Name, node.Namespace);
-                    if (replacementNode == null)
-                        return;
-
-                    replacementNode.XPosition = node.XPosition;
-                    replacementNode.YPosition = node.YPosition;
-
-                    if (node.Inputs.Count >= replacementNode.Inputs.Count)
+                    if (replacementNode != null)
                     {
-                        for (var i = 0; i < replacementNode.Inputs.Count; i++)
-                        {
-                            replacementNode.Inputs[i].Guid = node.Inputs[i].Guid;
-                        }
-                    }
-                    else
-                    {
-                        for (var i = 0; i < node.Inputs.Count; i++)
-                        {
-                            replacementNode.Inputs[i].Guid = node.Inputs[i].Guid;
-                        }
-                    }
 
 
-                    if (node.Outputs.Count >= replacementNode.Outputs.Count)
-                    {
-                        for (var i = 0; i < replacementNode.Outputs.Count; i++)
+                        replacementNode.XPosition = node.XPosition;
+                        replacementNode.YPosition = node.YPosition;
+
+                        if (node.Inputs.Count >= replacementNode.Inputs.Count)
                         {
-                            replacementNode.Outputs[i].Guid = node.Outputs[i].Guid;
+                            for (var i = 0; i < replacementNode.Inputs.Count; i++)
+                            {
+                                replacementNode.Inputs[i].Guid = node.Inputs[i].Guid;
+                            }
                         }
-                    }
-                    else
-                    {
-                        for (var i = 0; i < node.Outputs.Count; i++)
+                        else
                         {
-                            replacementNode.Outputs[i].Guid = node.Outputs[i].Guid;
+                            for (var i = 0; i < node.Inputs.Count; i++)
+                            {
+                                replacementNode.Inputs[i].Guid = node.Inputs[i].Guid;
+                            }
                         }
+
+
+                        if (node.Outputs.Count >= replacementNode.Outputs.Count)
+                        {
+                            for (var i = 0; i < replacementNode.Outputs.Count; i++)
+                            {
+                                replacementNode.Outputs[i].Guid = node.Outputs[i].Guid;
+                            }
+                        }
+                        else
+                        {
+                            for (var i = 0; i < node.Outputs.Count; i++)
+                            {
+                                replacementNode.Outputs[i].Guid = node.Outputs[i].Guid;
+                            }
+                        }
+                        script.AddNode(new NodeData(replacementNode));
+                    } else {
+                        script.RemoveNode(node.Guid);
                     }
-                    script.AddNode(new NodeData(replacementNode));
                 }
             }
             catch (Exception e)
