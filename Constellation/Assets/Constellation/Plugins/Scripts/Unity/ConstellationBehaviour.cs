@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 namespace Constellation
 {
@@ -19,6 +20,10 @@ namespace Constellation
             catch (ConstellationError e)
             {
                 Debug.LogError(e.GetError().GetFormatedError());
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
             }
         }
 

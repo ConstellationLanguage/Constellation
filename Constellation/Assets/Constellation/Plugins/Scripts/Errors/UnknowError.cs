@@ -1,7 +1,13 @@
 namespace Constellation {
     public class UnknowError : ConstellationError, IConstellationError {
-        private const string errorMessage = "Constellation Error: Something went wrong but we cannot figure out what it is. Please report this error on https://github.com/ConstellationLanguage/Constellation/issues";
-        private const string errorTitle = "Unknow Error from: ";
+        private const string errorMessage = "Constellation Error: An unexpected error happened. You can report this error on https://github.com/ConstellationLanguage/Constellation/ \n"
+            + "Quick tips to help us \n" 
+            + "1. Include the current unity version you are using \n"  
+            + "2. The steps to reproduce \n"
+            + "3. The error displayed in the unity console \n"
+            + "4. Any other infos might be usefull";
+
+        private const string errorTitle = "Unknow error from: ";
         private string errorSource;
         private const int id = 000;
         public int GetID () {
