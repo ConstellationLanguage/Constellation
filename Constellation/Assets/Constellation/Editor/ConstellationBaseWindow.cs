@@ -54,9 +54,9 @@ namespace ConstellationEditor
                     }
                 }
             }
-           catch (ConstellationError e)
+            catch (ConstellationError e)
             {
-                ShowError(e);
+                ShowError(e, e);
             }
             catch (Exception e)
             {
@@ -145,13 +145,7 @@ namespace ConstellationEditor
         protected virtual void ShowError(ConstellationError constellationError, Exception exception = null)
         {
             var error = constellationError.GetError();
-            if (exception != null && constellationError != null)
-                Debug.LogError(error.GetFormatedError() + exception.StackTrace);
-            else if (constellationError != null)
-                Debug.LogError(constellationError.StackTrace);
-            else if (exception != null)
-                Debug.LogError(error.GetFormatedError());
-
+           
             if (error.IsIgnorable())
             {
                 if (EditorUtility.DisplayDialog(error.GetErrorTitle() + " (" + error.GetID() + ") ", error.GetErrorMessage(), "Recover", "Ignore"))
@@ -172,6 +166,19 @@ namespace ConstellationEditor
                 UnityEditor.EditorApplication.isPlaying = false;
                 scriptDataService.ResetConstellationEditorData();
                 ShowEditorWindow();
+            }
+
+            if (exception != null && constellationError != null)
+            {
+                Debug.LogError(error.GetFormatedError() + exception.StackTrace);
+                LogFile.WriteString(constellationError.GetError().GetErrorTitle(), exception.StackTrace);
+            } else if (constellationError != null)
+            {
+                Debug.LogError(constellationError.StackTrace);
+                LogFile.WriteString(constellationError.GetError().GetErrorTitle(), constellationError.StackTrace);
+            } else if (exception != null) {
+                Debug.LogError(exception.StackTrace);
+                LogFile.WriteString("Uknown", exception.StackTrace);
             }
         }
     }
