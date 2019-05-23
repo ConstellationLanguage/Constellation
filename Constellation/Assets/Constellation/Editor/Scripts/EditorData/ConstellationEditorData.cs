@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Constellation;
 namespace ConstellationEditor {
 	public class ConstellationEditorData : ScriptableObject {
 		public List<string> LastOpenedConstellationPath;
@@ -9,5 +10,6 @@ namespace ConstellationEditor {
 		public ClipBoard clipBoard;
 		public List<ConstellationInstanceObject> CurrentInstancePath;
 		public ConstellationExampleData ExampleData;
+        public List<ConstellationScript> ProjectEditorData;
 	}
 }

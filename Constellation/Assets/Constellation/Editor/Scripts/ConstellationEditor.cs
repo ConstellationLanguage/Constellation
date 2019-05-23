@@ -11,15 +11,15 @@ namespace ConstellationEditor {
 
         public static string GetEditorAssetPath () {
             var path = string.IsNullOrEmpty(editorPath) ? InitializeEditorPath() : editorPath;
-            return path + "EditorAssets/";
+            return path.Replace("EditorData", "EditorAssets");
         }
 
         private static string InitializeEditorPath () {
             foreach (var directory in Directory.GetDirectories(Application.dataPath, "*", SearchOption.AllDirectories))
-                if (directory.EndsWith("Constellation\\Editor"))
+                if (directory.EndsWith("Constellation\\Editor\\Scripts"))
                     foreach (var file in Directory.GetFiles(directory))
                         if (file.Replace(directory + "\\", "").Equals("ConstellationEditor.cs"))
-                            return editorPath = directory.Replace(Application.dataPath, "Assets").Replace('\\', '/') + "/";
+                            return editorPath = directory.Replace(Application.dataPath, "Assets").Replace('\\', '/').Replace("Scripts", "EditorData") + "/";
             Debug.Log("Error finding Constellation Editor folder");                
             return null;
         }

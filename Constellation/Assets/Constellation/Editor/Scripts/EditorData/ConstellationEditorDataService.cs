@@ -18,8 +18,21 @@ namespace ConstellationEditor {
             OpenEditorData ();
         }
 
+        public void RefreshConstellationEditorDataList()
+        {
+            Debug.Log("Refresh scripts list");
+            EditorData.ProjectEditorData = new List<ConstellationScript>(SearchAllScriptsInProject());
+        }
+
+        public ConstellationScript[] SearchAllScriptsInProject()
+        {
+            Debug.Log("Search scripts list");
+            return EditorUtils.GetAllInstances<ConstellationScript>();
+        }
+
         public ConstellationScript[] GetAllScriptsInProject () {
-            return EditorUtils.GetAllInstances<ConstellationScript> ();
+            Debug.Log("Get all scripts");
+            return EditorData.ProjectEditorData.ToArray();
         }
 
         public ConstellationScript GetConstellationByName (string scriptName) {
@@ -32,7 +45,8 @@ namespace ConstellationEditor {
         }
 
         private ConstellationEditorData Setup () {
-            var path = ConstellationEditor.GetEditorPath() + "EditorData/EditorData.asset";
+            var path = ConstellationEditor.GetEditorPath() + "EditorData.asset";
+            Debug.Log(ConstellationEditor.GetEditorPath() + "EditorData.asset");
             AssetDatabase.DeleteAsset(path);
             AssetDatabase.Refresh();
             EditorData = ScriptableObject.CreateInstance<ConstellationEditorData> ();
@@ -68,7 +82,7 @@ namespace ConstellationEditor {
         }
 
         public ConstellationEditorData OpenEditorData () {
-            var path = ConstellationEditor.GetEditorPath() + "EditorData/EditorData.asset";
+            var path = ConstellationEditor.GetEditorPath() + "EditorData.asset";
             ConstellationEditorData t = (ConstellationEditorData) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationEditorData));
             if (t == null) {
                 return Setup ();

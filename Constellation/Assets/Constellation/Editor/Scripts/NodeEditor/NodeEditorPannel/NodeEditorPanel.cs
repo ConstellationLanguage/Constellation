@@ -166,6 +166,11 @@ namespace ConstellationEditor {
             return editorScrollPos.y;
         }
 
+        public void DrawBackground()
+        {
+
+        }
+
         public void DrawNodeEditor (Rect LayoutPosition) {
             if (isSetupRequested)
                 Setup ();

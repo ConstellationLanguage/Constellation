@@ -22,6 +22,8 @@ namespace ConstellationEditor
         public static void ShowWindow () {
         	CopyScriptIcons.Copy();
             WindowInstance = EditorWindow.GetWindow(typeof(ConstellationUnityWindow), false, "Constellation") as ConstellationUnityWindow;
+            WindowInstance.scriptDataService = new ConstellationEditorDataService();
+            WindowInstance.CompileScripts();
         }
 
         protected override void ShowEditorWindow () {
@@ -46,7 +48,6 @@ namespace ConstellationEditor
         public void CompileScripts () {
             if (WindowInstance.ConstellationCompiler == null)
                 WindowInstance.ConstellationCompiler = new ConstellationCompiler();
-
             WindowInstance.ConstellationCompiler.UpdateScriptsNodes(WindowInstance.scriptDataService.GetAllScriptsInProject());
             Recover();
         }
@@ -198,6 +199,7 @@ namespace ConstellationEditor
 
         void OnGUI () {
             try {
+
                 if (Event.current.type == EventType.Layout) {
                     canDrawUI = true;
                 }
@@ -214,8 +216,9 @@ namespace ConstellationEditor
                         DrawStartGUI();
                     }
                 } else {
-                    GUI.Label(new Rect(0, 0, 500, 500), "Loading");
                     Repaint();
+                    //nodeEditorPanel.DrawNodeEditor(new Rect(0, 35, position.width - nodeSelectorWidth - splitThickness, position.height - 35));
+                    GUI.Label(new Rect(0, 0, 500, 500), "Loading");
                 }
             }
             catch (ConstellationError e)
@@ -229,6 +232,7 @@ namespace ConstellationEditor
             }
         }
 
+
         protected virtual void DrawStartGUI () {
             StartPanel.Draw(this);
             Recover();
@@ -239,6 +243,7 @@ namespace ConstellationEditor
         }
 
         protected virtual void DrawGUI () {
+            
             TopBarPanel.Draw(this, this, this, this);
             var constellationName = nodeTabPanel.Draw(scriptDataService.currentPath.ToArray(), CurrentEditedInstancesName);
             if (constellationName != null)
@@ -271,9 +276,7 @@ namespace ConstellationEditor
 
         static void OnPlayStateChanged (PlayModeStateChange state) {
             if (Application.isPlaying) {
-                ConstellationUnityWindow.ShowWindow();
                 WindowInstance.Recover();
-                WindowInstance.CompileScripts();
             }
 
             WindowInstance.Recover();
@@ -286,7 +289,7 @@ namespace ConstellationEditor
             }
 
             EditorApplication.playModeStateChanged -= OnPlayStateChanged;
-            WindowInstance.Repaint();
+            WindowInstance.RequestRepaint();
         }
 
         void Update () {

@@ -30,9 +30,10 @@ namespace ConstellationEditor
 
         public void New()
         {
-            scriptDataService = new ConstellationEditorDataService();
             scriptDataService.New();
+            scriptDataService.RefreshConstellationEditorDataList();
             Setup();
+            
         }
 
         public void Recover()
@@ -72,7 +73,6 @@ namespace ConstellationEditor
 
         public void OpenConstellationInstance(Constellation.Constellation constellation, string path)
         {
-            scriptDataService = new ConstellationEditorDataService();
             scriptDataService.OpenConstellationInstance(constellation, path);
             CurrentEditedInstancesName = scriptDataService.currentInstancePath.ToArray();
             Setup();
@@ -80,12 +80,11 @@ namespace ConstellationEditor
 
         public void Open(string _path = "")
         {
-            scriptDataService = new ConstellationEditorDataService();
             var script = scriptDataService.OpenConstellation(_path);
             if (script == null)
                 return;
             Setup();
-            Repaint();
+              
         }
 
         public void Save()
@@ -129,15 +128,12 @@ namespace ConstellationEditor
             {
                 currentEditableConstellation.AddNode(node);
             }
-            Repaint();
         }
 
         protected void OnNodeRemoved(NodeData node)
         {
             if (Application.isPlaying && previousSelectedGameObject)
                 currentEditableConstellation.RemoveNode(node);
-
-            Repaint();
         }
 
         protected virtual void ShowEditorWindow() { }
