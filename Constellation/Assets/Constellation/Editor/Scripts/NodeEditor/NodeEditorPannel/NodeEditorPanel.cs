@@ -101,20 +101,30 @@ namespace ConstellationEditor {
             foreach (var node in constellation.GetNodes ()) {
                 foreach (var nodeData in NodeEditorNodes.GetNodes ()) {
                     if (node.Guid == nodeData.node.Guid) {
-                        for (var i = 0; i < node.GetAttributes ().Length; i++) {
-                            if (!nodeData.IsAttributeValueChanged ()) {
-                                nodeData.GetData ().AttributesData[i].Value.Set (node.GetAttributes () [i].Value.GetString ());
-                                if (node.NodeType is IAttributeUpdate) {
-                                    IAttributeUpdate needAttributeUpdate = node.NodeType as IAttributeUpdate;
-                                    needAttributeUpdate.OnAttributesUpdate ();
-                                }
-                            } else {
+                        if (!nodeData.IsAttributeValueChanged())
+                        {
+                            for (var i = 0; i < node.GetAttributes().Length; i++)
+                            {
+                                nodeData.GetData().AttributesData[i].Value.Set(node.GetAttributes()[i].Value.GetString());
+                            }
+                            
+                        }
+                        else
+                        {
+                            for (var i = 0; i < node.GetAttributes().Length; i++)
+                            {
                                 if (isInstance)
                                     constellationScript.IsDifferentThanSource = true;
-                                node.GetAttributes () [i].Value.Set (nodeData.GetData ().AttributesData[i].Value);
-                                node.NodeType.Receive (nodeData.GetData ().AttributesData[i].Value, new Constellation.Input ("0000-0000-0000-0000", 999, true, "editor", "none"));
+                                node.GetAttributes()[i].Value.Set(nodeData.GetData().AttributesData[i].Value);
+                                node.NodeType.Receive(nodeData.GetData().AttributesData[i].Value, new Constellation.Input("0000-0000-0000-0000", 999, true, "editor", "none"));
+                                if (node.NodeType is IAttributeUpdate)
+                                {
+                                    IAttributeUpdate needAttributeUpdate = node.NodeType as IAttributeUpdate;
+                                    needAttributeUpdate.OnAttributesUpdate();
+                                }
                             }
                         }
+
                     }
                 }
             }

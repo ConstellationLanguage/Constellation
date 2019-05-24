@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Constellation.CoreNodes {
     public class Condition : INode, IReceiver, IAttributeUpdate {
         private ISender sender;
@@ -39,7 +41,7 @@ namespace Constellation.CoreNodes {
         } 
 
         public void OnAttributesUpdate() {
-            conditon = null;
+            Set();
         }
 
         public string NodeName () {

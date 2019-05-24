@@ -24,7 +24,10 @@ namespace Constellation.CoreNodes
         public void Receive(Variable value, Input _input)
         {
             if (value.IsFloat() || value.IsString())
+            {
                 logger.Log(value.GetString());
+                return;
+            }
 
              if (value.GetObject() != null)
                 logger.Log(value.GetObject());

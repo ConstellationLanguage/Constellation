@@ -70,14 +70,25 @@ namespace Constellation {
 			return newAttribute;
 		}
 
-		/// <summary>
-		///Return the Input you created
-		/// In most case this function should only be called inside the setup function of your node.
-		/// </summary>
-		/// <param name="receiver">If called from a node just put this</param>  
-		/// <param name="isWarm">If the input is warm your Receiver should output a value when this is called</param>
-		/// <param name="description">Description of the attribute (Not implemented)</param>
-		public Input AddInput (IReceiver receiver, bool isWarm, string description) {
+        public Attribute AddAttribute(Variable value, Attribute.AttributeType type, string description, Attribute.OnAttributeChanged onAttributeChanged)
+        {
+            if (Attributes == null)
+                Attributes = new List<Attribute>();
+
+            var newAttribute = new Attribute(type);
+            newAttribute.Value = value;
+            Attributes.Add(newAttribute);
+            return newAttribute;
+        }
+
+        /// <summary>
+        ///Return the Input you created
+        /// In most case this function should only be called inside the setup function of your node.
+        /// </summary>
+        /// <param name="receiver">If called from a node just put this</param>  
+        /// <param name="isWarm">If the input is warm your Receiver should output a value when this is called</param>
+        /// <param name="description">Description of the attribute (Not implemented)</param>
+        public Input AddInput (IReceiver receiver, bool isWarm, string description) {
 			return AddInput (receiver, isWarm, "", description);
 		}
 
@@ -162,5 +173,5 @@ namespace Constellation {
 		public virtual void Send (Variable value, int _output) {
 			Outputs[_output].Send (value);
 		}
-	}
+    }
 }

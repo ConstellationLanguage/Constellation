@@ -32,6 +32,10 @@ namespace ConstellationEditor {
 
         public ConstellationScript[] GetAllScriptsInProject () {
             Debug.Log("Get all scripts");
+            if(EditorData.ProjectEditorData == null || EditorData.ProjectEditorData.Count == 0)
+            {
+                EditorData.ProjectEditorData = new List<ConstellationScript>(SearchAllScriptsInProject());
+            }
             return EditorData.ProjectEditorData.ToArray();
         }
 

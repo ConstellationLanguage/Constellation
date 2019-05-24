@@ -8,8 +8,11 @@ namespace Constellation {
                     linkToRemove = link;
                 }
             }
-            linkToRemove.OnDestroy ();
-            constellation.Links.Remove (linkToRemove);
+            if (linkToRemove != null)
+            {
+                linkToRemove.OnDestroy();
+                constellation.Links.Remove(linkToRemove);
+            }
         }
 
         public void AddLink (LinkData link) {
