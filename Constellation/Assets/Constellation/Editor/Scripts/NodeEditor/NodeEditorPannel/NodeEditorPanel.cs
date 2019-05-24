@@ -166,9 +166,9 @@ namespace ConstellationEditor {
             return editorScrollPos.y;
         }
 
-        public void DrawBackground()
+        public void DrawBackground(Color backgroundTint,float width, float height)
         {
-
+            Background.DrawBackgroundGrid(width, height, GetCurrentScrollPosX(), GetCurrentScrollPosY(), backgroundTint);
         }
 
         public void DrawNodeEditor (Rect LayoutPosition) {
@@ -182,7 +182,7 @@ namespace ConstellationEditor {
             var backgroundTint = Color.white;
             if (isInstance && constellationScript.IsDifferentThanSource)
                 backgroundTint = Color.yellow;
-            Background.DrawBackgroundGrid (LayoutPosition.width, LayoutPosition.height, GetCurrentScrollPosX (), GetCurrentScrollPosY (), backgroundTint);
+            DrawBackground(backgroundTint, LayoutPosition.width, LayoutPosition.height);
             NodeEditorNodes.DrawEditorNodes (editorScrollPos);
             NodeEditorLinks.DrawLinks ();
             EditorGUILayout.EndScrollView ();

@@ -217,8 +217,12 @@ namespace ConstellationEditor
                     }
                 } else {
                     Repaint();
-                    //nodeEditorPanel.DrawNodeEditor(new Rect(0, 35, position.width - nodeSelectorWidth - splitThickness, position.height - 35));
-                    GUI.Label(new Rect(0, 0, 500, 500), "Loading");
+                    GUIStyle loadingStyle = new GUIStyle();
+                    loadingStyle.normal.textColor = Color.white;
+                    loadingStyle.fontSize = 50;
+                    loadingStyle.alignment = TextAnchor.MiddleCenter;
+                    nodeEditorPanel.DrawBackground(Color.white, position.width, position.height);
+                    GUI.Label(new Rect(0, 0, position.width, position.height), "Loading...", loadingStyle);
                 }
             }
             catch (ConstellationError e)
