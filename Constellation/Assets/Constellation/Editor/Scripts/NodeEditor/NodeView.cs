@@ -111,9 +111,6 @@ namespace ConstellationEditor {
                 DrawDescription = false;
                 CloseOnNextFrame = false;
             }
-            if (current.isMouse) {
-                CloseOnNextFrame = true;
-            }
         }
 
         public bool IsAttributeValueChanged () {
@@ -140,6 +137,10 @@ namespace ConstellationEditor {
 
         private void Draw (HelpClicked _onHelpClicked) {
             DrawAttributes();
+            if (current.isMouse)
+            {
+                CloseOnNextFrame = true;
+            }
             DrawInputs();
             DrawOutputs();
             DrawHeader(_onHelpClicked);
@@ -171,10 +172,17 @@ namespace ConstellationEditor {
         private void DrawInputs () {
             if (node.Inputs != null) {
                 var i = 0;
+                Event current = Event.current;
                 foreach (var input in node.Inputs) {
-                    if (GUI.Button(new Rect(0, nodeConfig.TopMargin + (nodeConfig.InputSize * i), nodeConfig.InputSize, nodeConfig.InputSize), "",
+                    var buttonPosition = new Rect(0, nodeConfig.TopMargin + (nodeConfig.InputSize * i), nodeConfig.InputSize, nodeConfig.InputSize);
+                    if (buttonPosition.Contains(current.mousePosition))
+                    {
+                        DrawDescription = true;
+                        Description = input.Description;
+                    }
+                    if (GUI.Button(buttonPosition, "",
                             nodeConfig.GetConnectionStyle(input.IsWarm, input.Type))) {
-                        Event current = Event.current;
+                        
                         if (current.button == 0)
                             linkEditor.AddLinkFromInput(input);
                         else {
@@ -190,15 +198,18 @@ namespace ConstellationEditor {
         private void DrawOutputs () {
             if (node.Outputs != null) {
                 var i = 0;
+                Event current = Event.current;
                 foreach (var output in node.Outputs) {
-                    if (GUI.Button(new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize), "",
+                    var buttonPosition = new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize);
+                    if (buttonPosition.Contains(current.mousePosition))
+                    {
+                        DrawDescription = true;
+                        Description = output.Description;
+                    }
+                    if (GUI.Button(buttonPosition, "",
                             nodeConfig.GetConnectionStyle(output.IsWarm, output.Type))) {
-                        Event current = Event.current;
                         if (current.button == 0){
                             linkEditor.AddLinkFromOutput(output);
-                        } else {
-                            DrawDescription = true;
-                            Description = output.Description;
                         }
                     }
                     i++;

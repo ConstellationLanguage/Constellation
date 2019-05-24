@@ -213,6 +213,7 @@ namespace ConstellationEditor
                         DrawGUI();
                     }
                     else if (!IsConstellationSelected()) {
+                        //nodeEditorPanel.DrawBackground(Color.white, position.width, position.height);
                         DrawStartGUI();
                     }
                 } else {
