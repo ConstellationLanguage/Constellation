@@ -203,7 +203,7 @@ namespace ConstellationEditor {
                 var i = 0;
                 Event current = Event.current;
                 foreach (var output in node.Outputs) {
-                    var buttonPosition = new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize * 0.5f);
+                    var buttonPosition = new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize * 0.75f);
                     if (buttonPosition.Contains(current.mousePosition))
                     {
                         DrawDescription = true;
