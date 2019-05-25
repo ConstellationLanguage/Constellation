@@ -34,8 +34,7 @@
             if (_value.IsFloat ()) {
               Value.Set (_value.GetFloat ());
             }
-            if (_input.isWarm)
-                sender.Send (Value, 0);
+            sender.Send (Value, 0);
         }
     }
 }

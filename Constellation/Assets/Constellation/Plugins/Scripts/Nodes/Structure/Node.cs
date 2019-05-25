@@ -163,6 +163,10 @@ namespace Constellation {
 		}
 
 		public virtual void Receive (Variable value, Input _input) {
+            if(Receiver == null)
+            {
+                Receiver = NodeType as IReceiver;
+            }
 			Receiver.Receive (value, _input);
 		}
 

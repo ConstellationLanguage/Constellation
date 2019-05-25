@@ -31,28 +31,71 @@ public class ConstellationComponentInpector : Editor {
 			return;
 		for (var i = 0; i < ConstellationComponent.Attributes.Count; i++) {
 			var attribute = ConstellationComponent.Attributes[i];
-			if (attribute.AttributeType == BehaviourAttribute.Type.Value) {
-				UpdateValueAttribute (attribute, i);
-			} else if (attribute.AttributeType == BehaviourAttribute.Type.Word)
-				attribute.Variable.Set (EditorGUILayout.TextField (ConstellationComponent.Attributes[i].Name, ConstellationComponent.Attributes[i].Variable.GetString ()));
-			else if (attribute.AttributeType == BehaviourAttribute.Type.UnityObject) {
-#pragma warning disable 0618
-				attribute.UnityObject = (EditorGUILayout.ObjectField (ConstellationComponent.Attributes[i].Name, attribute.UnityObject, typeof (Object)));
-#pragma warning restore 0618
-			}
+            if (attribute.AttributeType == BehaviourAttribute.Type.Value)
+                UpdateValueAttribute(attribute, i);
+            else if (attribute.AttributeType == BehaviourAttribute.Type.Word)
+                UpdateWordAttribute(attribute, i);
+            else if (attribute.AttributeType == BehaviourAttribute.Type.UnityObject)
+            {
+                UpdateObjectAttribute(attribute, i);
+
+            }
 		}
 
 		DrawInspectorWarning();
 	}
 	void UpdateValueAttribute (BehaviourAttribute attribute, int attributeId) {
 		var previousVariable = attribute.Variable.GetFloat ();
-		attribute.Variable.Set (EditorGUILayout.FloatField (ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetFloat ()));
-		if (previousVariable != attribute.Variable.GetFloat () && Application.isPlaying) {
-
-		}
+        var newFloat = EditorGUILayout.FloatField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetFloat());
+        if (newFloat != attribute.Variable.GetFloat()) {
+            attribute.Variable.Set(newFloat);
+            if (ConstellationComponent.constellation != null) {
+                Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
+                if (nodeToUpdate != null)
+                    nodeToUpdate.Receive(attribute.Variable, null);
+            }
+        }
 	}
 
-	protected virtual void DrawInspectorWarning()
+    void UpdateWordAttribute(BehaviourAttribute attribute, int attributeId)
+    {
+        var previousVariable = attribute.Variable.GetString();
+        var newString = EditorGUILayout.TextField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetString());
+        if (newString != attribute.Variable.GetString())
+        {
+            attribute.Variable.Set(newString);
+            if (ConstellationComponent.constellation != null)
+            {
+                Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
+                if (nodeToUpdate != null)
+                    nodeToUpdate.Receive(attribute.Variable, null);
+            }
+        }
+    }
+
+    void UpdateObjectAttribute(BehaviourAttribute attribute, int attributeId)
+    {
+        var previousVariable = attribute.Variable.GetObject();
+#pragma warning disable 0618
+        Object newObject = (EditorGUILayout.ObjectField(ConstellationComponent.Attributes[attributeId].Name, attribute.UnityObject, typeof(Object)));
+
+#pragma warning disable CS0253 // Possible unintended reference comparison; right hand side needs cast
+        if (newObject != attribute.Variable.GetObject())
+#pragma warning restore CS0253 // Possible unintended reference comparison; right hand side needs cast
+        {
+            attribute.UnityObject = newObject;
+            attribute.Variable.Set(newObject);
+            if (ConstellationComponent.constellation != null)
+            {
+                Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
+                if (nodeToUpdate != null)
+                    nodeToUpdate.Receive(attribute.Variable, null);
+            }
+        }
+#pragma warning restore 0618
+    }
+
+    protected virtual void DrawInspectorWarning()
 	{
 		if(ConstellationComponent.GetConstellationData() == null && ConstellationComponent.isActiveAndEnabled && Application.isPlaying == false)
 			EditorGUILayout.HelpBox("No constellation script is attached. You need to add one or disable this component otherwise you will have an error at runtime", MessageType.Warning);

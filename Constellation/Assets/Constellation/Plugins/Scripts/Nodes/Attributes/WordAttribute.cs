@@ -37,11 +37,8 @@
 
         public void Receive(Variable _value, Input _input)
         {
-            if(_value.IsFloat()) {
-                defaultValue.Set(_value.GetFloat());
-            }
-            if(_input.isWarm)
-                sender.Send(defaultValue, 0);
+            defaultValue.Set(_value);
+            sender.Send(defaultValue, 0);
         }
     }
 }

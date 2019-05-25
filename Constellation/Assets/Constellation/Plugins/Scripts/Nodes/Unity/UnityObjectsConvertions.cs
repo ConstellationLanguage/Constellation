@@ -3,7 +3,7 @@
 namespace Constellation {
 	public static class UnityObjectsConvertions {
 		public static GameObject ConvertToGameObject (object Object) {
-			GameObject gameObject = null;
+            GameObject gameObject = null;
 			if (Object is GameObject)
 				gameObject = Object as GameObject;
 			else if (Object is Transform)
@@ -13,6 +13,7 @@ namespace Constellation {
 			else if (Object is Collision)
 				gameObject = (Object as Collision).gameObject;
 
+            
 			return gameObject;
 		}
 

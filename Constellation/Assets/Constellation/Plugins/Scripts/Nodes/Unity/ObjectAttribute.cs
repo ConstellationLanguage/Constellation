@@ -37,11 +37,8 @@ namespace Constellation.Unity
 
         public void Receive(Variable _value, Input _input)
         {
-            if(_value.IsFloat()) {
-                UnityObject.Set(_value.GetFloat());
-            }
-            if(_input.isWarm)
-                sender.Send(UnityObject, 0);
+            UnityObject.Set(_value);
+            sender.Send(UnityObject, 0);
         }
     }
 }

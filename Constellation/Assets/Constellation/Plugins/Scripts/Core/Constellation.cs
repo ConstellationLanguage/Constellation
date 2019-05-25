@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using UnityEngine;
 namespace Constellation
 {
     [System.Serializable]
@@ -50,6 +50,22 @@ namespace Constellation
             //Debug.Log(guid + " not found for Input");
             return null;
         }
+
+        public Node<INode> GetNodeByGUID(string guid)
+        {
+            if (Nodes == null)
+                Nodes = new List<Node<INode>>();
+
+            foreach(var node in Nodes)
+            {
+                if(node.Guid == guid)
+                {
+                    return node;
+                }
+            }
+            return null;
+        }
+
 
         public Node<INode>[] GetNodes()
         {

@@ -11,7 +11,7 @@ namespace Constellation
         protected ConstellationError lastConstellationError = null;
         public List<BehaviourAttribute> Attributes;
         public ConstellationScript ConstellationData;
-        protected Constellation constellation;
+        public Constellation constellation;
 
         public ConstellationScript GetConstellationData()
         {
@@ -88,7 +88,7 @@ namespace Constellation
                     if (previousAttribute == null)
                         Attributes.Add(new BehaviourAttribute(new Variable().Set(0),
                             node.AttributesData[0].Value.GetString(),
-                            BehaviourAttribute.Type.Value));
+                            BehaviourAttribute.Type.Value, node.Guid));
                     else
                         Attributes.Add(previousAttribute);
                 }
@@ -98,7 +98,7 @@ namespace Constellation
                     if (previousAttribute == null)
                         Attributes.Add(new BehaviourAttribute(new Variable().Set(0),
                             node.AttributesData[0].Value.GetString(),
-                            BehaviourAttribute.Type.Word));
+                            BehaviourAttribute.Type.Word, node.Guid));
                     else
                         Attributes.Add(previousAttribute);
                 }
@@ -108,7 +108,7 @@ namespace Constellation
                     if (previousAttribute == null)
                         Attributes.Add(new BehaviourAttribute(new Variable().Set(null as object),
                             node.AttributesData[0].Value.GetString(),
-                            BehaviourAttribute.Type.UnityObject));
+                            BehaviourAttribute.Type.UnityObject, node.Guid));
                     else
                         Attributes.Add(previousAttribute);
                 }
