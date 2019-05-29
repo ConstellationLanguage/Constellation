@@ -11,6 +11,7 @@ namespace ConstellationEditor
 
         public void UpdateScriptsNodes(ConstellationScript[] scripts, ConstellationScript[] constellationScripts)
         {
+            Debug.Log("Updating");
             foreach (var script in scripts)
             {
                 UpdateScriptNodes(script.script, constellationScripts);
