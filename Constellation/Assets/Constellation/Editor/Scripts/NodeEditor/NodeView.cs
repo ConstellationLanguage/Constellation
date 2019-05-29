@@ -240,8 +240,14 @@ namespace ConstellationEditor {
                     onHelpClicked(node.Name);
                 }
             }
-
-            GUI.Label(new Rect(10, 0, width, 16), node.Name, nodeConfig.HeaderLabel);
+            if (node.OverrideDisplayedName.Length == 0)
+            {
+                GUI.Label(new Rect(10, 0, width, 16), node.Name, nodeConfig.HeaderLabel);
+            }
+            else
+            {
+                GUI.Label(new Rect(10, 0, width, 16), node.OverrideDisplayedName, nodeConfig.HeaderLabel);
+            }
         }
         
         public NodeData GetData () {

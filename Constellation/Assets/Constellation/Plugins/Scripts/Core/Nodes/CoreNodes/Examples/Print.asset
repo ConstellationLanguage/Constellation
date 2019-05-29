@@ -15,26 +15,16 @@ MonoBehaviour:
     Nodes:
     - Name: Tutorial
       Namespace: Tags
+      OverrideDisplayedName: 
       Guid: 477d651a-08a2-4244-b596-2fcec388c907
       XPosition: 4.5
       YPosition: 3.5
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Print
-      Namespace: 
-      Guid: 3c54506d-9e56-49d1-9f6f-e0b072b2ab77
-      XPosition: 352.5
-      YPosition: 95
-      Inputs:
-      - Guid: 
-        IsWarm: 0
-        Type: 
-        Description: 
-      Outputs: []
-      AttributesData: []
     - Name: Word
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 75f247eb-918a-4ee0-ab2b-fac9abe1c677
       XPosition: 85.5
       YPosition: 95
@@ -49,17 +39,31 @@ MonoBehaviour:
           stringValue: printing
           floatValue: 0.000001
         Type: 1
-    Links:
-    - Input:
-        Guid: 
+    - Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      Guid: 43ebf6e9-c9c0-4c26-ba84-f4c2898b7258
+      XPosition: 307
+      YPosition: 96.5
+      Inputs:
+      - Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
         IsWarm: 0
         Type: 
-        Description: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
       Output:
         Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
         IsWarm: 1
         Type: 
         Description: The Word
-      outputPositionY: 125
+      outputPositionY: 0
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

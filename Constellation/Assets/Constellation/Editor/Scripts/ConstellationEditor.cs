@@ -14,6 +14,13 @@ namespace ConstellationEditor {
             return path.Replace("EditorData", "EditorAssets");
         }
 
+        public static string GetProjectPath ()
+        {
+            var directory = string.IsNullOrEmpty(editorPath) ? InitializeEditorPath() : editorPath;
+            directory = directory.Replace("/Editor/EditorData/", "/");
+            return directory;
+        } 
+
         private static string InitializeEditorPath () {
             foreach (var directory in Directory.GetDirectories(Application.dataPath, "*", SearchOption.AllDirectories))
                 if (directory.EndsWith("Constellation\\Editor\\Scripts"))

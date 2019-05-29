@@ -11,7 +11,8 @@ namespace Constellation {
             Conditionals, Then, Else, 
             ReadOnlyValue, 
             ReadOnlyXValue, ReadOnlyYValue, ReadOnlyZValue, 
-            ReadOnlyValueR, ReadOnlyValueG, ReadOnlyValueB, ReadOnlyValueA
+            ReadOnlyValueR, ReadOnlyValueG, ReadOnlyValueB, ReadOnlyValueA,
+            RenameNodeTitle
         };
 
         public Variable Value;

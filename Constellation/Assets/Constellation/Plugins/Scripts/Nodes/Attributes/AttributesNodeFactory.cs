@@ -1,5 +1,11 @@
 namespace Constellation.Attributes {
     public class AttributesNodeFactory: INodeGetter {
+
+        public string GetNameSpace()
+        {
+            return NameSpace.NAME;
+        }
+
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case ValueAttribute.NAME:

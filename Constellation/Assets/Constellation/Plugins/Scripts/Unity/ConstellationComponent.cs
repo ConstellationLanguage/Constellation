@@ -48,7 +48,7 @@ namespace Constellation
                 eventSystem = new ConstellationEventSystem();
 
             if (NodesFactory.Current == null)
-                nodeFactory = new NodesFactory();
+                nodeFactory = new NodesFactory(ConstellationData.ScriptAssembly.constellationScripts.ToArray());
             else
                 nodeFactory = NodesFactory.Current;
 

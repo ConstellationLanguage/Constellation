@@ -48,8 +48,18 @@ namespace ConstellationEditor
         public void CompileScripts () {
             if (WindowInstance.ConstellationCompiler == null)
                 WindowInstance.ConstellationCompiler = new ConstellationCompiler();
-            WindowInstance.ConstellationCompiler.UpdateScriptsNodes(WindowInstance.scriptDataService.GetAllScriptsInProject());
-            Recover();
+
+            if(WindowInstance.scriptDataService == null)
+            {
+                WindowInstance.scriptDataService = new ConstellationEditorDataService();
+            }
+            //ResetWindow();
+            WindowInstance.ConstellationCompiler.UpdateScriptsNodes(WindowInstance.scriptDataService.GetAllScriptsInProject(), WindowInstance.scriptDataService.GetAllNestableScriptsInProject());
+        }
+
+        public void ResetWindow()
+        {
+            Setup();
         }
 
         [MenuItem("File/Constellation/Save %&s")]
@@ -154,7 +164,8 @@ namespace ConstellationEditor
                     this,
                     scriptDataService.GetEditorData().clipBoard,
                     scriptDataService.GetLastEditorScrollPositionX(), scriptDataService.GetLastEditorScrollPositionY(), // Editor Position
-                    OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, SaveConstellationInstance); // CallBacks 
+                    OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, SaveConstellationInstance,
+                    scriptDataService.GetAllNestableScriptsInProject()); // CallBacks 
                 nodeTabPanel = new ConstellationsTabPanel(this);
             }
         }
@@ -178,6 +189,7 @@ namespace ConstellationEditor
             WindowInstance = this as ConstellationUnityWindow;
             SceneManager.sceneLoaded += OnSceneLoaded;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
+            CompileScripts();
             if (scriptDataService != null) {
                 nodeEditorPanel = new NodeEditorPanel(this,
                     this,
@@ -186,7 +198,8 @@ namespace ConstellationEditor
                     scriptDataService.GetEditorData().clipBoard,
                     scriptDataService.GetLastEditorScrollPositionX(), scriptDataService.GetLastEditorScrollPositionY(), // Saved editor position
                     OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, // callBacks
-                    SaveConstellationInstance);
+                    SaveConstellationInstance,
+                    scriptDataService.GetAllNestableScriptsInProject());
                 nodeTabPanel = new ConstellationsTabPanel(this);
                 if (scriptDataService.GetCurrentScript() != null)
                     WindowInstance.titleContent.text = scriptDataService.GetCurrentScript().name;
@@ -194,7 +207,7 @@ namespace ConstellationEditor
                     WindowInstance.titleContent.text = "Constellation";
                 scriptDataService.ClearActions();
             }
-            nodeSelector = new NodeSelectorPanel(OnNodeAddRequested);
+            nodeSelector = new NodeSelectorPanel(OnNodeAddRequested, scriptDataService.GetAllCustomNodesNames());
         }
 
         void OnGUI () {

@@ -1,6 +1,13 @@
 
 namespace Constellation.Components {
     public class UnityComponentsNodeFactory: INodeGetter {
+
+        public string GetNameSpace()
+        {
+            return NameSpace.NAME;
+        }
+
+
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case AnimatorComponent.NAME:

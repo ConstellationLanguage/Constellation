@@ -6,7 +6,8 @@ namespace ConstellationEditor {
         public List<NodeButtonData> namespaceGroup;
         public string namespaceName;
         List<string> nodesNiceNames = new List<string> ();
-        List<string> nodesNames = new List<string> ();
+        public List<string> nodesNames = new List<string> ();
+
         public NodeNamespacesData (string _namespaceName, string[] _nodes) {
             namespaceGroup = new List<NodeButtonData> ();
             namespaceName = _namespaceName;

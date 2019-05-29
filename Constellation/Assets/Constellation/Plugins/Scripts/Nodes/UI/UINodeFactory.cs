@@ -1,5 +1,11 @@
 namespace Constellation.UI {
     public class UINodeFactory: INodeGetter {
+
+        public string GetNameSpace()
+        {
+            return NameSpace.NAME;
+        }
+
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case Text.NAME:

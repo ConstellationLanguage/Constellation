@@ -1,5 +1,11 @@
 ﻿namespace Constellation.CoreNodes {
     public class ConstellationNodeFactory: INodeGetter{
+
+        public string GetNameSpace()
+        {
+            return NameSpace.NAME;
+        }
+
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case Add.NAME:
@@ -47,6 +53,12 @@
                 case TeleportOut.NAME:
                     INode nodeTeleportOut = new TeleportOut() as INode;
                     return new Node<INode>(nodeTeleportOut);
+                case Exit.NAME:
+                    INode exit = new Exit() as INode;
+                    return new Node<INode>(exit);
+                case Entry.NAME:
+                    INode entry = new Entry() as INode;
+                    return new Node<INode>(entry);
                 default:
                     return null;
             }

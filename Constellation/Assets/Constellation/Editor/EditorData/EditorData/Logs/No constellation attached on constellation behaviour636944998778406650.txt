@@ -1,0 +1,2 @@
+  at Constellation.ConstellationComponent.Initialize () [0x00025] in C:\dev\ConstellationRepos\ConstellationMain\Constellation\Constellation\Assets\Constellation\Plugins\Scripts\Unity\ConstellationComponent.cs:41 
+  at ConstellationEditor.ConstellationUnityWindow.Update () [0x0011e] in C:\dev\ConstellationRepos\ConstellationMain\Constellation\Constellation\Assets\Constellation\Editor\Scripts\ConstellationUnityWindow.cs:326 

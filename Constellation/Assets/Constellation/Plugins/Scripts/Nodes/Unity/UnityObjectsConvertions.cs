@@ -4,14 +4,16 @@ namespace Constellation {
 	public static class UnityObjectsConvertions {
 		public static GameObject ConvertToGameObject (object Object) {
             GameObject gameObject = null;
-			if (Object is GameObject)
-				gameObject = Object as GameObject;
-			else if (Object is Transform)
-				gameObject = (Object as Transform).gameObject;
-			else if (Object is Component)
-				gameObject = (Object as Component).gameObject;
-			else if (Object is Collision)
-				gameObject = (Object as Collision).gameObject;
+            if (Object is GameObject)
+                gameObject = Object as GameObject;
+            else if (Object is Transform)
+                gameObject = (Object as Transform).gameObject;
+            else if (Object is Component)
+                gameObject = (Object as Component).gameObject;
+            else if (Object is Collision)
+                gameObject = (Object as Collision).gameObject;
+            else if (Object is string)
+                gameObject = GameObject.Find(Object.ToString());
 
             
 			return gameObject;

@@ -44,6 +44,9 @@ namespace ConstellationEditor {
                 case Attribute.AttributeType.ReadOnlyValueA:
                     EditorGUI.LabelField (size, Value.GetString ());
                     return Value;
+                case Attribute.AttributeType.RenameNodeTitle:
+                    EditorGUI.LabelField(size, Value.GetString());
+                    return Value;
                 default:
                     return Value;
             }

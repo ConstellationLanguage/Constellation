@@ -15,6 +15,7 @@ MonoBehaviour:
     Nodes:
     - Name: Note
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 873f5284-148b-4d81-a579-92c98e3e5c14
       XPosition: 574.5
       YPosition: 10
@@ -27,6 +28,7 @@ MonoBehaviour:
         Type: 2
     - Name: Tutorial
       Namespace: Tags
+      OverrideDisplayedName: 
       Guid: 73694e21-0978-4cc9-aa8c-3f43f2a75007
       XPosition: 34.5
       YPosition: 32.5
@@ -35,6 +37,7 @@ MonoBehaviour:
       AttributesData: []
     - Name: Word
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: f8acb96f-3b40-45ce-9ea1-e28324fff934
       XPosition: 46
       YPosition: 92.5
@@ -51,6 +54,7 @@ MonoBehaviour:
         Type: 1
     - Name: FindByName
       Namespace: Unity
+      OverrideDisplayedName: 
       Guid: 378a688e-4ecc-434f-9145-95e9b155517e
       XPosition: 225
       YPosition: 97.5
@@ -67,6 +71,7 @@ MonoBehaviour:
       AttributesData: []
     - Name: GetComponent
       Namespace: Unity
+      OverrideDisplayedName: 
       Guid: b9ece74c-0984-4203-a0b9-a039107a09c8
       XPosition: 389
       YPosition: 103.5
@@ -91,6 +96,7 @@ MonoBehaviour:
         Type: 1
     - Name: Print
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 05d40e18-8084-471b-b26b-6e20d959ad43
       XPosition: 738.5
       YPosition: 142
@@ -103,6 +109,7 @@ MonoBehaviour:
       AttributesData: []
     - Name: CodeVar
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 81e892c3-daa1-4148-8c73-31661551899a
       XPosition: 577
       YPosition: 142.5
@@ -131,6 +138,7 @@ MonoBehaviour:
         Type: 1
     - Name: Value
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 6bb416f2-9ecf-4dd7-a74f-6911ade1f8e1
       XPosition: 390
       YPosition: 175.5
@@ -214,3 +222,4 @@ MonoBehaviour:
       outputPositionY: 212.5
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ConstellationEditor
 {
-    public class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable
+    public abstract class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable
     {
         protected ConstellationEditorDataService scriptDataService;
         protected ConstellationCompiler ConstellationCompiler;
@@ -26,7 +26,7 @@ namespace ConstellationEditor
             Application.OpenURL("https://github.com/ConstellationLanguage/Constellation/wiki");
         }
 
-        protected virtual void Setup() { }
+        protected abstract void Setup();
 
         public void New()
         {
@@ -42,6 +42,8 @@ namespace ConstellationEditor
             {
                 scriptDataService = new ConstellationEditorDataService();
                 ConstellationCompiler = new ConstellationCompiler();
+                scriptDataService.RefreshConstellationEditorDataList();
+
                 if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)
                     return;
 

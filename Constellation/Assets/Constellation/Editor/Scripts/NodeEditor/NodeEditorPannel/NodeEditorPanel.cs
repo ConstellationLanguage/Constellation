@@ -31,6 +31,7 @@ namespace ConstellationEditor {
         private NodeEditorBackground Background;
         public NodeEditorLinks NodeEditorLinks;
         private bool isSetupRequested = false;
+        private ConstellationScript [] constellationScripts;
 
         public NodeEditorPanel (IGUI _gui,
             EditorWindow _editorWindow,
@@ -44,7 +45,9 @@ namespace ConstellationEditor {
             NodeEditorNodes.NodeAdded nodeAdded,
             NodeEditorNodes.NodeRemoved nodeRemoved,
             NodeEditorNodes.HelpClicked onHelpClicked,
-            ApplyInstanceChanges applyInstanceChanges) {
+            ApplyInstanceChanges applyInstanceChanges,
+            ConstellationScript[] _constellationScripts) {
+            constellationScripts = _constellationScripts;
             constellationScript = _script;
             undoable = _undoable;
             GUI = _gui;
@@ -70,21 +73,21 @@ namespace ConstellationEditor {
             RequestSetup ();
         }
 
-        public void Initialize () {
+        public void Initialize (ConstellationScript[] constellationScripts) {
             NodeEditorLinks = new NodeEditorLinks (constellationScript, constellationScript.IsInstance, GUI, nodeConfig, AddedLink, RemovedLink, this, undoable);
-            NodeEditorNodes = new NodeEditorNodes (EditorWindow, nodeConfig, constellationScript, undoable, nodeEditorSelection, NodeEditorLinks, GUI, this, OnNodeAdded, OnNodeRemoved, OnHelpClicked);
+            NodeEditorNodes = new NodeEditorNodes (EditorWindow, nodeConfig, constellationScript, undoable, nodeEditorSelection, NodeEditorLinks, GUI, this, OnNodeAdded, OnNodeRemoved, OnHelpClicked, constellationScripts);
         }
 
         void SetNodes () {
 
         }
 
-        void LoadConstellation () {
+        void LoadConstellation (ConstellationScript[] constellationScripts) {
             if (constellationScript == null)
                 throw new ConstellationScriptDataDoesNotExist ();
 
             if (NodeEditorLinks == null)
-                Initialize ();
+                Initialize (constellationScripts);
 
             if (constellationScript.IsInstance) {
                 isInstance = true;
@@ -156,7 +159,7 @@ namespace ConstellationEditor {
 
         void Setup () {
             nodeConfig = new NodeConfig ();
-            LoadConstellation ();
+            LoadConstellation (constellationScripts);
             isSetupRequested = false;
         }
 

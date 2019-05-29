@@ -13,6 +13,7 @@ namespace ConstellationEditor {
         private bool isSaved;
         private string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
         private ExamplePlayer ExamplePlayer;
+        
 
         public ConstellationEditorDataService () {
             OpenEditorData ();
@@ -20,23 +21,59 @@ namespace ConstellationEditor {
 
         public void RefreshConstellationEditorDataList()
         {
-            Debug.Log("Refresh scripts list");
-            EditorData.ProjectEditorData = new List<ConstellationScript>(SearchAllScriptsInProject());
+            EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
+            EditorData.ScriptAssembly.SetScriptAssembly();
+        }
+
+        public NodeNamespacesData [] GetAllCustomNodesNames()
+        {
+            var addedList = new List<NodeNamespacesData>();
+            var nodes = new List<string>();
+            foreach (var constellationScript in EditorData.ScriptAssembly.constellationScripts)
+            {
+                foreach (var node in constellationScript.GetNodes())
+                {
+                    if(node.Name == "Nestable")
+                    {
+                        nodes.Add("Constellation.Custom." + constellationScript.name);
+                        break;
+                    }
+                }
+            }
+            addedList.Add(new NodeNamespacesData("Custom", nodes.ToArray()));
+            return addedList.ToArray();
+        }
+
+        public ConstellationScript[] GetAllNestableScriptsInProject()
+        {
+            var nodes = new List<ConstellationScript>();
+            foreach (var constellationScript in EditorData.ScriptAssembly.constellationScripts)
+            {
+
+                foreach (var node in constellationScript.GetNodes())
+                {
+                    if (node.Name == "Nestable")
+                    {
+                        
+                        nodes.Add(constellationScript);
+                        break;
+                    }
+                }
+            }
+            return nodes.ToArray();
         }
 
         public ConstellationScript[] SearchAllScriptsInProject()
         {
-            Debug.Log("Search scripts list");
             return EditorUtils.GetAllInstances<ConstellationScript>();
         }
 
         public ConstellationScript[] GetAllScriptsInProject () {
-            Debug.Log("Get all scripts");
-            if(EditorData.ProjectEditorData == null || EditorData.ProjectEditorData.Count == 0)
+            if(EditorData.ScriptAssembly.constellationScripts == null || EditorData.ScriptAssembly.constellationScripts.Count == 0)
             {
-                EditorData.ProjectEditorData = new List<ConstellationScript>(SearchAllScriptsInProject());
+                EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
             }
-            return EditorData.ProjectEditorData.ToArray();
+            return EditorData.ScriptAssembly.constellationScripts.ToArray();
         }
 
         public ConstellationScript GetConstellationByName (string scriptName) {
@@ -50,11 +87,14 @@ namespace ConstellationEditor {
 
         private ConstellationEditorData Setup () {
             var path = ConstellationEditor.GetEditorPath() + "EditorData.asset";
-            Debug.Log(ConstellationEditor.GetEditorPath() + "EditorData.asset");
+            var assemblyPath = ConstellationEditor.GetProjectPath() + "ConstellationAssembly.asset";
+            AssetDatabase.DeleteAsset(assemblyPath);
             AssetDatabase.DeleteAsset(path);
             AssetDatabase.Refresh();
             EditorData = ScriptableObject.CreateInstance<ConstellationEditorData> ();
             AssetDatabase.CreateAsset (EditorData, path);
+            EditorData.ScriptAssembly = ScriptableObject.CreateInstance<ConstellationScriptsAssembly>();
+            AssetDatabase.CreateAsset(EditorData.ScriptAssembly, assemblyPath);
             return EditorData;
         }
 

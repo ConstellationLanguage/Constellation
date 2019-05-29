@@ -5,6 +5,7 @@ namespace Constellation {
     public class NodeData {
         public string Name;
         public string Namespace;
+        public string OverrideDisplayedName = "";
         public string Guid;
         public float XPosition;
         public float YPosition;

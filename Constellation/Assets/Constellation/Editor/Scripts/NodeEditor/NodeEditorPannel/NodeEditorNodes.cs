@@ -39,7 +39,8 @@ namespace ConstellationEditor {
             IVisibleObject _visibleObject,
             NodeAdded _nodeAdded,
             NodeRemoved _nodeRemoved,
-            HelpClicked _helpClicked) {
+            HelpClicked _helpClicked,
+            ConstellationScript [] constellationScripts) {
 
             linkEditor = _linkEditor;
             editorWindow = _editorWindow;
@@ -47,7 +48,7 @@ namespace ConstellationEditor {
             nodeConfig = _nodeConfig;
             constellationScript = _constellationScript;
             isInstance = constellationScript.IsInstance;
-            nodesFactory = new NodesFactory ();
+            nodesFactory = new NodesFactory (constellationScripts);
             undoable = _undoable;
             nodeEditorSelection = _nodeEditorSelection;
             GUI = _gui;
@@ -145,6 +146,10 @@ namespace ConstellationEditor {
                 constellationScript.IsDifferentThanSource = true;
 
             var newNode = constellationScript.AddNode (nodesFactory.GetNode (_nodeName, _namespace));
+            if(newNode.Namespace == "Custom")
+            {
+                newNode.OverrideDisplayedName = _nodeName;
+            }
             newNode.XPosition = editorScrollPos.x + (panelSize.x * 0.5f);
             newNode.YPosition = editorScrollPos.y + (panelSize.y * 0.5f);
             var newNodeWindow = new NodeView (newNode, visibleObject, nodeConfig, constellationScript, linkEditor);

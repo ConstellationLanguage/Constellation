@@ -12,15 +12,23 @@ namespace ConstellationEditor {
         private List<NodeNamespacesData> NodeNamespaceData;
         private string[] namespaces;
 
-        public NodeSelectorPanel (NodeAdded _onNodeAdded) {
+        public NodeSelectorPanel (NodeAdded _onNodeAdded, NodeNamespacesData[] customNodes) {
             OnNodeAdded = null;
             OnNodeAdded += _onNodeAdded;
-            var nodes = NodesFactory.GetAllNodes ();
-            namespaces = NodesFactory.GetAllNamespaces (nodes);
+            var nodes = new List<string> (NodesFactory.GetAllNodes ());
+            namespaces = NodesFactory.GetAllNamespaces (nodes.ToArray());
             NodeNamespaceData = new List<NodeNamespacesData> ();
-            foreach (var _namespace in namespaces) {
-                var nodeNamespace = new NodeNamespacesData (_namespace, nodes);
-                NodeNamespaceData.Add (nodeNamespace);
+
+            foreach (var _namespace in namespaces)
+            {
+               
+                var nodeNamespace = new NodeNamespacesData(_namespace, nodes.ToArray());
+                NodeNamespaceData.Add(nodeNamespace);
+            }
+
+            foreach (var node in customNodes)
+            {
+                NodeNamespaceData.Add(node);
             }
         }
 

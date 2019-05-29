@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Constellation
 {
@@ -8,11 +9,31 @@ namespace Constellation
     {
         public static NodesFactory Current;
         public List<INodeGetter> NodeGetters;
+        public List<IRequestAssembly> AssemblyRequester;
 
-        public NodesFactory()
+        public NodesFactory(ConstellationScript [] constellationScript)
         {
             Current = this;
+            SetConstellationAssembly(constellationScript);
             SetInterfaces();
+        }
+
+        public void SetConstellationAssembly(ConstellationScript[] constellationScript)
+        {
+            AssemblyRequester = new List<IRequestAssembly>();
+            var type = typeof(IRequestAssembly);
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(s => s.GetTypes())
+                .Where(p => type.IsAssignableFrom(p));
+            foreach (var t in types)
+            {
+                if (t.FullName != "Constellation.IRequestAssembly")
+                {
+                    var factory = Activator.CreateInstance(t) as IRequestAssembly;
+                    factory.SetConstellationAssembly(constellationScript);
+                    AssemblyRequester.Add(factory);
+                }
+            }
         }
 
         public void SetInterfaces()
@@ -31,14 +52,22 @@ namespace Constellation
                 }
             }
         }
-
+    
         public Node<INode> GetNode(string _nodeName, string _nodenamespaces)
         {
+
             foreach (var nodesGetter in NodeGetters)
             {
-                var node = nodesGetter.GetNode(_nodeName);
-                if (node != null)
-                    return node;
+                if (_nodeName == "Note")
+                {
+                    return nodesGetter.GetNode(_nodeName);
+                }
+                if (nodesGetter.GetNameSpace() == _nodenamespaces)
+                {
+                    var node = nodesGetter.GetNode(_nodeName);
+                    if (node != null)
+                        return node;
+                }
             }
             throw new ConstellationNotAddedToFactory();
         }
@@ -50,11 +79,14 @@ namespace Constellation
                 Node<INode> node = null;
                 foreach (var nodesGetter in NodeGetters)
                 {
-                    var selectedNode = nodesGetter.GetNode(_nodeData.Name);
-                    if (selectedNode != null)
+                    if (nodesGetter.GetNameSpace() == _nodeData.Namespace)
                     {
-                        node = selectedNode;
-                        break;
+                        var selectedNode = nodesGetter.GetNode(_nodeData.Name);
+                        if (selectedNode != null)
+                        {
+                            node = selectedNode;
+                            break;
+                        }
                     }
                 }
 
@@ -92,11 +124,14 @@ namespace Constellation
             Node<INode> node = null;
             foreach (var nodesGetter in NodeGetters)
             {
-                var selectedNode = nodesGetter.GetNode(_nodeData.Name);
-                if (selectedNode != null)
+                if (nodesGetter.GetNameSpace() == _nodeData.Namespace)
                 {
-                    node = selectedNode;
-                    break;
+                    var selectedNode = nodesGetter.GetNode(_nodeData.Name);
+                    if (selectedNode != null)
+                    {
+                        node = selectedNode;
+                        break;
+                    }
                 }
             }
                 

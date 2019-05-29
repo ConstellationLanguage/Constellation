@@ -8,6 +8,7 @@ namespace Constellation {
         public ConstellationScriptData script;
         public bool IsInstance = false;
         public bool IsDifferentThanSource = false;
+        public ConstellationScriptsAssembly ScriptAssembly;
 
         public void InitializeData()
         {

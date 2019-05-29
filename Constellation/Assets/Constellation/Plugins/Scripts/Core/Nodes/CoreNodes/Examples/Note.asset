@@ -15,6 +15,7 @@ MonoBehaviour:
     Nodes:
     - Name: Tutorial
       Namespace: Tags
+      OverrideDisplayedName: 
       Guid: 59500468-aa84-4478-b920-3e573dadc0b1
       XPosition: 2.5
       YPosition: 2.5
@@ -22,17 +23,19 @@ MonoBehaviour:
       Outputs: []
       AttributesData: []
     - Name: Note
-      Namespace: 
-      Guid: 464fc151-fca6-4578-aaa5-22672b092194
-      XPosition: 29.5
-      YPosition: 35
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      Guid: c8c6f8eb-bb17-4a74-adcc-8ad35908a2c8
+      XPosition: 163.5
+      YPosition: 85
       Inputs: []
       Outputs: []
       AttributesData:
       - Value:
-          stringValue: This is used to comment your code
+          stringValue: Allows you to comment your code
           floatValue: 0.000001
         Type: 2
     Links: []
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

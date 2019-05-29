@@ -1,5 +1,11 @@
 namespace Constellation.Unity {
     public class UnityNodeFactory : INodeGetter {
+
+        public string GetNameSpace()
+        {
+            return NameSpace.NAME;
+        }
+
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
                 case DeltaTime.NAME:

@@ -45,7 +45,6 @@ public class ConstellationComponentInpector : Editor {
 		DrawInspectorWarning();
 	}
 	void UpdateValueAttribute (BehaviourAttribute attribute, int attributeId) {
-		var previousVariable = attribute.Variable.GetFloat ();
         var newFloat = EditorGUILayout.FloatField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetFloat());
         if (newFloat != attribute.Variable.GetFloat()) {
             attribute.Variable.Set(newFloat);
@@ -59,7 +58,6 @@ public class ConstellationComponentInpector : Editor {
 
     void UpdateWordAttribute(BehaviourAttribute attribute, int attributeId)
     {
-        var previousVariable = attribute.Variable.GetString();
         var newString = EditorGUILayout.TextField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetString());
         if (newString != attribute.Variable.GetString())
         {
@@ -75,7 +73,6 @@ public class ConstellationComponentInpector : Editor {
 
     void UpdateObjectAttribute(BehaviourAttribute attribute, int attributeId)
     {
-        var previousVariable = attribute.Variable.GetObject();
 #pragma warning disable 0618
         Object newObject = (EditorGUILayout.ObjectField(ConstellationComponent.Attributes[attributeId].Name, attribute.UnityObject, typeof(Object)));
 

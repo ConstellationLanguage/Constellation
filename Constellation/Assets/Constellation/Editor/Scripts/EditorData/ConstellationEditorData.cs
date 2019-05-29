@@ -10,6 +10,6 @@ namespace ConstellationEditor {
 		public ClipBoard clipBoard;
 		public List<ConstellationInstanceObject> CurrentInstancePath;
 		public ConstellationExampleData ExampleData;
-        public List<ConstellationScript> ProjectEditorData;
-	}
+        public ConstellationScriptsAssembly ScriptAssembly;
+    }
 }

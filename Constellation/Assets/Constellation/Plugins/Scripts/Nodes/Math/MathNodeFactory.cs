@@ -2,6 +2,11 @@
 {
     public class MathNodeFactory: INodeGetter
     {
+        public string GetNameSpace()
+        {
+            return NameSpace.NAME;
+        }
+
         public Node<INode> GetNode(string nodeName)
         {
             switch (nodeName)
