@@ -2,7 +2,7 @@
 {
     public class ConstellationNodeFactory : INodeGetter, IRequestAssembly
     {
-        ConstellationScript[] constellationsScripts;
+        ConstellationScriptData[] constellationsScripts;
 
         public string GetNameSpace()
         {
@@ -15,7 +15,7 @@
             return new Node<INode>(customNode);
         }
 
-        public void SetConstellationAssembly(ConstellationScript [] _constellationScripts)
+        public void SetConstellationAssembly(ConstellationScriptData [] _constellationScripts)
         {
             constellationsScripts = _constellationScripts;
         }

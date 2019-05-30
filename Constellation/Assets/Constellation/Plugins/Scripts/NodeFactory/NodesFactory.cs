@@ -11,14 +11,14 @@ namespace Constellation
         public List<INodeGetter> NodeGetters;
         public List<IRequestAssembly> AssemblyRequester;
 
-        public NodesFactory(ConstellationScript [] constellationScript)
+        public NodesFactory(ConstellationScriptData[] constellationScript)
         {
             Current = this;
             SetConstellationAssembly(constellationScript);
             SetInterfaces();
         }
 
-        public void SetConstellationAssembly(ConstellationScript[] constellationScript)
+        public void SetConstellationAssembly(ConstellationScriptData[] constellationScript)
         {
             AssemblyRequester = new List<IRequestAssembly>();
             var type = typeof(IRequestAssembly);

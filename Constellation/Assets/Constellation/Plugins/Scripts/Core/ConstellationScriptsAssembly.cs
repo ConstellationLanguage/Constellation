@@ -15,5 +15,16 @@ namespace Constellation
                 constellationScript.ScriptAssembly = this;
             }
         }
+
+        public ConstellationScriptData [] GetAllScriptData()
+        {
+            var scriptDatas = new List<ConstellationScriptData>();
+            foreach (var constellationScript in constellationScripts)
+            {
+                scriptDatas.Add(constellationScript.script);
+            }
+
+            return scriptDatas.ToArray();
+        }
     }
 }

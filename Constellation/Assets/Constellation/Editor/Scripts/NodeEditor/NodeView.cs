@@ -1,6 +1,7 @@
 using Constellation;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace ConstellationEditor {
     public class NodeView {
@@ -28,6 +29,7 @@ namespace ConstellationEditor {
             if (_node.GetAttributes().Length > 0) {
                 nodeWidth = nodeConfig.NodeWidthAsAttributes;
             }
+
             Rect = new Rect(_node.XPosition, _node.YPosition, nodeWidth, (Mathf.Max(Mathf.Max(_node.Inputs.Count, _node.Outputs.Count), _node.AttributesData.Count) * nodeConfig.InputSize) + nodeConfig.TopMargin);
             node = _node;
             visibleObject = _visibleObject;

@@ -44,9 +44,9 @@ namespace ConstellationEditor {
             return addedList.ToArray();
         }
 
-        public ConstellationScript[] GetAllNestableScriptsInProject()
+        public ConstellationScriptData[] GetAllNestableScriptsInProject()
         {
-            var nodes = new List<ConstellationScript>();
+            var nodes = new List<ConstellationScriptData>();
             foreach (var constellationScript in EditorData.ScriptAssembly.constellationScripts)
             {
 
@@ -55,7 +55,7 @@ namespace ConstellationEditor {
                     if (node.Name == "Nestable")
                     {
                         
-                        nodes.Add(constellationScript);
+                        nodes.Add(constellationScript.script);
                         break;
                     }
                 }

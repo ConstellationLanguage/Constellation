@@ -3,6 +3,6 @@ namespace Constellation
 {
     public interface IRequestAssembly
     {
-        void SetConstellationAssembly(ConstellationScript [] constellationScript);
+        void SetConstellationAssembly(ConstellationScriptData [] constellationScript);
     }
 }

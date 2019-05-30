@@ -31,7 +31,7 @@ namespace ConstellationEditor {
         private NodeEditorBackground Background;
         public NodeEditorLinks NodeEditorLinks;
         private bool isSetupRequested = false;
-        private ConstellationScript [] constellationScripts;
+        private ConstellationScriptData [] constellationScripts;
 
         public NodeEditorPanel (IGUI _gui,
             EditorWindow _editorWindow,
@@ -46,7 +46,7 @@ namespace ConstellationEditor {
             NodeEditorNodes.NodeRemoved nodeRemoved,
             NodeEditorNodes.HelpClicked onHelpClicked,
             ApplyInstanceChanges applyInstanceChanges,
-            ConstellationScript[] _constellationScripts) {
+            ConstellationScriptData[] _constellationScripts) {
             constellationScripts = _constellationScripts;
             constellationScript = _script;
             undoable = _undoable;
@@ -73,7 +73,7 @@ namespace ConstellationEditor {
             RequestSetup ();
         }
 
-        public void Initialize (ConstellationScript[] constellationScripts) {
+        public void Initialize (ConstellationScriptData[] constellationScripts) {
             NodeEditorLinks = new NodeEditorLinks (constellationScript, constellationScript.IsInstance, GUI, nodeConfig, AddedLink, RemovedLink, this, undoable);
             NodeEditorNodes = new NodeEditorNodes (EditorWindow, nodeConfig, constellationScript, undoable, nodeEditorSelection, NodeEditorLinks, GUI, this, OnNodeAdded, OnNodeRemoved, OnHelpClicked, constellationScripts);
         }
@@ -82,7 +82,7 @@ namespace ConstellationEditor {
 
         }
 
-        void LoadConstellation (ConstellationScript[] constellationScripts) {
+        void LoadConstellation (ConstellationScriptData[] constellationScripts) {
             if (constellationScript == null)
                 throw new ConstellationScriptDataDoesNotExist ();
 

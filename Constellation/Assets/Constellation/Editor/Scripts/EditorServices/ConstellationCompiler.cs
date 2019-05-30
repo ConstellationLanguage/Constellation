@@ -9,7 +9,7 @@ namespace ConstellationEditor
     {
         private NodesFactory NodesFactory;
 
-        public void UpdateScriptsNodes(ConstellationScript[] scripts, ConstellationScript[] constellationScripts)
+        public void UpdateScriptsNodes(ConstellationScript[] scripts, ConstellationScriptData[] constellationScripts)
         {
             Debug.Log("Updating");
             foreach (var script in scripts)
@@ -18,7 +18,7 @@ namespace ConstellationEditor
             }
         }
 
-        public void UpdateScriptNodes(ConstellationScriptData script, ConstellationScript [] constellationScripts)
+        public void UpdateScriptNodes(ConstellationScriptData script, ConstellationScriptData [] constellationScripts)
         {
             List<NodeData> nodesToRemove = new List<NodeData>();
             NodesFactory = new NodesFactory(constellationScripts);

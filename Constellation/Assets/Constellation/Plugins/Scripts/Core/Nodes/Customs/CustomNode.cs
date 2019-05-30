@@ -1,6 +1,8 @@
-﻿namespace Constellation.Custom
+﻿using System.Collections.Generic;
+
+namespace Constellation.Custom
 {
-    public class CustomNode : INode, IReceiver
+    public class CustomNode : INode, IReceiver, ICustomNode
     {
         private ISender sender;
         private Attribute attribute; // attributes are setted in the editor.
@@ -10,18 +12,56 @@
         NodesFactory nodesFactory;
         ConstellationEventSystem eventSystem;
         bool isInitialized = false;
+        private List<Variable> NodeAttributes;
+        INodeParameters node;
+
         public void Setup(INodeParameters _node)
         {
+            node = _node;
             var wordValue = new Variable();
             sender = _node.GetSender();
-            //_node.AddOutput(false, "Current setted word"); // setting a cold input
-            attribute = _node.AddAttribute(wordValue.Set("Constellation Name"), Attribute.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
+            //attribute = _node.AddAttribute(wordValue.Set("Constellation Name"), Attribute.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
         }
 
-        public void SetConstellation(ConstellationScript script, ConstellationScript [] constellationScripts)
+        public void SetNode(ConstellationScriptData [] constellations)
+        {
+            NodeAttributes = new List<Variable>();
+            foreach(var constellation in constellations)
+            {
+                foreach (var nestedNode in constellation.Nodes)
+                {
+                    if (nestedNode.Name == CoreNodes.Entry.NAME)
+                    {
+                        node.AddInput(this, false, nestedNode.GetAttributes()[0].Value.GetString());
+                    }
+
+                    if (nestedNode.Name == CoreNodes.Exit.NAME)
+                    {
+                        node.AddOutput(false, nestedNode.GetAttributes()[0].Value.GetString());
+                    }
+
+                    if(nestedNode.Name == Attributes.ValueAttribute.NAME)
+                    {
+                        var attributeVariable = new Variable(0);
+                        node.AddAttribute(attributeVariable, Attribute.AttributeType.Value, "The value");
+                        NodeAttributes.Add(attributeVariable);
+                    }
+
+                    if (nestedNode.Name == Attributes.WordAttribute.NAME)
+                    {
+                        var attributeVariable = new Variable("Word");
+                        node.AddAttribute(attributeVariable, Attribute.AttributeType.Word, "The value");
+                        NodeAttributes.Add(attributeVariable);
+                    }
+                }
+            }
+        }
+
+        public void SetConstellation(ConstellationScript script, ConstellationScriptData[] constellationScripts)
         {
             if (isInitialized) // do not initialize twice
                 return;
+
             constellation = new Constellation();
 
             if (ConstellationComponent.eventSystem == null)

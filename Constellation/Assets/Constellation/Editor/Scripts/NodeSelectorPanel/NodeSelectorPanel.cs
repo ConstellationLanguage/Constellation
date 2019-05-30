@@ -21,7 +21,6 @@ namespace ConstellationEditor {
 
             foreach (var _namespace in namespaces)
             {
-               
                 var nodeNamespace = new NodeNamespacesData(_namespace, nodes.ToArray());
                 NodeNamespaceData.Add(nodeNamespace);
             }

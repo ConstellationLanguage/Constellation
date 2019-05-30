@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using Constellation.CoreNodes;
 
 namespace Constellation {
     [System.Serializable]
     public class ConstellationScriptData {
         public List<NodeData> Nodes;
         public List<LinkData> Links;
+        public string Name;
+        const string EntryNodeName = Entry.NAME;
+        const string ExitNodeName = Exit.NAME;
 
         public ConstellationScriptData Set (ConstellationScriptData script) {
             Nodes = null;
@@ -16,6 +20,34 @@ namespace Constellation {
                 AddLink (link);
             }
             return this;
+        }
+
+        public NodeData [] GetAllEntryNodes()
+        {
+            var entryNodes = new List<NodeData>();
+
+            foreach(var node in Nodes)
+            {
+                if(node.Name == EntryNodeName)
+                {
+                    entryNodes.Add(node);
+                }
+            }
+            return entryNodes.ToArray();
+        }
+
+        public NodeData[] GetAllExitNodes()
+        {
+            var exitNodes = new List<NodeData>();
+
+            foreach (var node in Nodes)
+            {
+                if (node.Name == ExitNodeName)
+                {
+                    exitNodes.Add(node);
+                }
+            }
+            return exitNodes.ToArray();
         }
 
         public void RemoveNode(string guid)

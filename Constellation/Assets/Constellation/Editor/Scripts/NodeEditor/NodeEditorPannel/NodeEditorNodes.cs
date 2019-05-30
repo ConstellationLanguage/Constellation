@@ -28,6 +28,7 @@ namespace ConstellationEditor {
         public delegate void HelpClicked (string NodeName);
         HelpClicked OnHelpClicked;
         private bool isTutorial = false;
+        protected ConstellationScriptData [] constellationScripts;
 
         public NodeEditorNodes (EditorWindow _editorWindow,
             NodeConfig _nodeConfig,
@@ -40,15 +41,15 @@ namespace ConstellationEditor {
             NodeAdded _nodeAdded,
             NodeRemoved _nodeRemoved,
             HelpClicked _helpClicked,
-            ConstellationScript [] constellationScripts) {
-
+            ConstellationScriptData [] _constellationScripts) {
+            constellationScripts = _constellationScripts;
             linkEditor = _linkEditor;
             editorWindow = _editorWindow;
             Nodes = new List<NodeView> ();
             nodeConfig = _nodeConfig;
             constellationScript = _constellationScript;
             isInstance = constellationScript.IsInstance;
-            nodesFactory = new NodesFactory (constellationScripts);
+            nodesFactory = new NodesFactory (_constellationScripts);
             undoable = _undoable;
             nodeEditorSelection = _nodeEditorSelection;
             GUI = _gui;
@@ -105,6 +106,7 @@ namespace ConstellationEditor {
         public NodeView[] GetNodes () {
             return Nodes.ToArray ();
         }
+
         public void DrawNodeWindow (int id) {
             if (id < Nodes.Count) {
                 if (Nodes[id].NodeExist ()) {
@@ -144,13 +146,20 @@ namespace ConstellationEditor {
 
             if (isInstance)
                 constellationScript.IsDifferentThanSource = true;
+            var nodeObject = nodesFactory.GetNode(_nodeName, _namespace);
+           
+            if(nodeObject.Name == Constellation.Custom.CustomNode.NAME)
+            {
+                var customNode = nodeObject.NodeType as ICustomNode;
+                customNode.SetNode(constellationScripts);
+            }
 
-            var newNode = constellationScript.AddNode (nodesFactory.GetNode (_nodeName, _namespace));
-            if(newNode.Namespace == "Custom")
+            var newNode = constellationScript.AddNode(nodeObject);
+            if (nodeObject.Name == Constellation.Custom.CustomNode.NAME)
             {
                 newNode.OverrideDisplayedName = _nodeName;
             }
-            newNode.XPosition = editorScrollPos.x + (panelSize.x * 0.5f);
+                newNode.XPosition = editorScrollPos.x + (panelSize.x * 0.5f);
             newNode.YPosition = editorScrollPos.y + (panelSize.y * 0.5f);
             var newNodeWindow = new NodeView (newNode, visibleObject, nodeConfig, constellationScript, linkEditor);
             Nodes.Add (newNodeWindow);

@@ -31,6 +31,28 @@ namespace Constellation {
             return this;
         }
 
+        public NodeData [] GetAllExitNodes()
+        {
+            var exitNodes = new List<NodeData>();
+            foreach(var node in script.Nodes)
+            {
+                if (node.Name == "Exit")
+                    exitNodes.Add(node);
+            }
+            return exitNodes.ToArray();
+        }
+
+        public NodeData[] GetAllEntryNodes()
+        {
+            var entry = new List<NodeData>();
+            foreach (var node in script.Nodes)
+            {
+                if (node.Name == "Entry")
+                    entry.Add(node);
+            }
+            return entry.ToArray();
+        }
+
         public NodeData AddNode (NodeData _node) {
             if (script.Nodes == null)
                 script.Nodes = new List<NodeData> ();
@@ -38,6 +60,15 @@ namespace Constellation {
             newNode.XPosition = _node.XPosition;
             newNode.YPosition = _node.YPosition;
             script.Nodes.Add (newNode);
+            return newNode;
+        }
+
+        public NodeData AddCustomNode(Node<INode> _node, ConstellationScript constellation)
+        {
+            if (script.Nodes == null)
+                script.Nodes = new List<NodeData>();
+            var newNode = new NodeData(_node);
+            script.Nodes.Add(newNode);
             return newNode;
         }
 
