@@ -147,7 +147,10 @@ namespace ConstellationEditor {
             if (isInstance)
                 constellationScript.IsDifferentThanSource = true;
             var nodeObject = nodesFactory.GetNode(_nodeName, _namespace);
-           
+
+            if (nodeObject == null)
+                throw new ConstellationNotAddedToFactory();
+
             if(nodeObject.Name == Constellation.Custom.CustomNode.NAME)
             {
                 var customNode = nodeObject.NodeType as ICustomNode;

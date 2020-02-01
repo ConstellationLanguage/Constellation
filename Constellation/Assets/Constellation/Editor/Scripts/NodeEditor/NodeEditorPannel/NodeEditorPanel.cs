@@ -134,7 +134,8 @@ namespace ConstellationEditor {
         }
 
         public void SelectNodes (NodeData[] _nodes) {
-            NodeEditorNodes.SelectNodes (_nodes);
+            if(NodeEditorNodes != null)
+                NodeEditorNodes.SelectNodes (_nodes);
         }
 
         public void AddNode (string _nodeName, string _namespace) {

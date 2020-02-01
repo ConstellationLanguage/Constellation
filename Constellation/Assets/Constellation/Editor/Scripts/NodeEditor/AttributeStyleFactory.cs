@@ -5,8 +5,7 @@ using UnityEngine;
 
 namespace ConstellationEditor {
     public static class AttributeStyleFactory {
-        public static Variable Draw (Attribute.AttributeType type, Rect size, Variable Value) {
-
+        public static Variable Draw (Attribute.AttributeType type, Rect size, Variable Value, NodeConfig config) {
             switch (type) {
                 case Attribute.AttributeType.Value:
                     return Value.Set (EditorGUI.FloatField (size, "<>", Value.GetFloat ()));
@@ -19,7 +18,10 @@ namespace ConstellationEditor {
                 case Attribute.AttributeType.Else:
                     return ElseCharacterFilter (size, Value);
                 case Attribute.AttributeType.NoteField:
-                    return Value.Set (EditorGUI.TextArea (new Rect (0, 20, 120, 100), Value.GetString (), GUI.skin.GetStyle ("VCS_StickyNote")));
+                    var noteSkin = new GUIStyle(GUI.skin.GetStyle("flow node 0"));
+                    noteSkin.wordWrap = true;
+                    noteSkin.alignment = TextAnchor.UpperLeft;
+                    return Value.Set (EditorGUI.TextArea (new Rect (0, 20, 120, 100), Value.GetString (), noteSkin));
                 case Attribute.AttributeType.ReadOnlyValue:
                     EditorGUI.LabelField (size, Value.GetString ());
                     return Value;

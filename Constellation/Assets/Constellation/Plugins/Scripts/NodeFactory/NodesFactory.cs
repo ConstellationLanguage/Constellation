@@ -55,13 +55,8 @@ namespace Constellation
     
         public Node<INode> GetNode(string _nodeName, string _nodenamespaces)
         {
-
             foreach (var nodesGetter in NodeGetters)
             {
-                if (_nodeName == "Note")
-                {
-                    return nodesGetter.GetNode(_nodeName);
-                }
                 if (nodesGetter.GetNameSpace() == _nodenamespaces)
                 {
                     var node = nodesGetter.GetNode(_nodeName);

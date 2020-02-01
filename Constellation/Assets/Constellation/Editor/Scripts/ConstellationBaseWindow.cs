@@ -8,7 +8,7 @@ namespace ConstellationEditor
     public abstract class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable
     {
         protected ConstellationEditorDataService scriptDataService;
-        protected ConstellationCompiler ConstellationCompiler;
+        protected ConstellationLinter ConstellationCompiler;
         static protected bool canDrawUI = false;
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
         protected GameObject previousSelectedGameObject;
@@ -41,7 +41,7 @@ namespace ConstellationEditor
             try
             {
                 scriptDataService = new ConstellationEditorDataService();
-                ConstellationCompiler = new ConstellationCompiler();
+                ConstellationCompiler = new ConstellationLinter();
                 scriptDataService.RefreshConstellationEditorDataList();
 
                 if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)

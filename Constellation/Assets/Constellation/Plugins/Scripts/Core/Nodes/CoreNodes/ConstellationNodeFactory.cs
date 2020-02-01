@@ -1,4 +1,6 @@
-﻿namespace Constellation.CoreNodes {
+﻿using UnityEngine;
+
+namespace Constellation.CoreNodes {
     public class ConstellationNodeFactory: INodeGetter{
 
         public string GetNameSpace()

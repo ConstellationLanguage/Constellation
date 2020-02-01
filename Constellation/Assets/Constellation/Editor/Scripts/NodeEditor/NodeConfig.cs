@@ -30,9 +30,9 @@ namespace ConstellationEditor {
             alignment = TextAnchor.UpperRight,
             margin = new RectOffset(0, 0, -5, 0)
         };
-        public GUIStyle NoteStyle = GUI.skin.GetStyle("VCS_StickyNote");
+        public GUIStyle NoteStyle = GUI.skin.GetStyle("flow node 0 on");
         public GUIStyle RoundButton = GUI.skin.GetStyle("sv_label_0");
-        public GUIStyle HexagonButton = GUI.skin.GetStyle("flow var 0");
+        public GUIStyle HexagonButton = GUI.skin.GetStyle("sv_label_0");
         public GUIStyle CloseButton = GUI.skin.GetStyle("WinBtnClose"); //Node/Connection close 'X'
         public GUIStyle HeaderLabel = GUI.skin.GetStyle("MiniLabel");
         public GUIStyle Tooltip = GUI.skin.GetStyle("AnimationEventTooltip");
@@ -47,7 +47,7 @@ namespace ConstellationEditor {
 
         private GUIStyle InitNoteHoverStyle () {
             noteHoverStyle = new GUIStyle(NoteStyle);
-            noteHoverStyle.normal.background = EditorGUIUtility.Load(ConstellationEditor.GetEditorAssetPath() + "note_on.png") as Texture2D;
+            //noteHoverStyle.normal.background = EditorGUIUtility.Load(ConstellationEditor.GetEditorAssetPath() + "note_on.png") as Texture2D;
             noteHoverStyle.border = new RectOffset(10, 10, 10, 10);
             noteHoverStyle.overflow = new RectOffset(7, 7, 5, 10);
             return noteHoverStyle;

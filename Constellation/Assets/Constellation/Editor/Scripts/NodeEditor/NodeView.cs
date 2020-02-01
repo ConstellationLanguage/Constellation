@@ -162,7 +162,7 @@ namespace ConstellationEditor {
                     var attributeRect = new Rect(nodeConfig.AtrributeSize.x, nodeConfig.AtrributeSize.y + (nodeConfig.AtrributeSize.height * i), nodeConfig.AtrributeSize.width, nodeConfig.AtrributeSize.height);
                     if (attribute.Value != null) {
                         var currentAttributeValue = attribute.Value.GetString();
-                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value);
+                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value, nodeConfig);
                         if (attribute.Value != null) {
                             if (currentAttributeValue != attribute.Value.GetString())
                                 AttributeValueChanged();

@@ -49,7 +49,7 @@ namespace ConstellationEditor
 
         public void CompileScripts () {
             if (WindowInstance.ConstellationCompiler == null)
-                WindowInstance.ConstellationCompiler = new ConstellationCompiler();
+                WindowInstance.ConstellationCompiler = new ConstellationLinter();
 
             if(WindowInstance.scriptDataService == null)
             {
@@ -204,7 +204,7 @@ namespace ConstellationEditor
             SceneManager.sceneLoaded += OnSceneLoaded;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
             scriptDataService = new ConstellationEditorDataService();
-            ConstellationCompiler = new ConstellationCompiler();
+            ConstellationCompiler = new ConstellationLinter();
             scriptDataService.RefreshConstellationEditorDataList();
 
             if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)

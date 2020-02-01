@@ -5,13 +5,12 @@ using System;
 
 namespace ConstellationEditor
 {
-    public class ConstellationCompiler
+    public class ConstellationLinter
     {
         private NodesFactory NodesFactory;
 
         public void UpdateScriptsNodes(ConstellationScript[] scripts, ConstellationScriptData[] constellationScripts)
         {
-            Debug.Log("Updating");
             foreach (var script in scripts)
             {
                 UpdateScriptNodes(script.script, constellationScripts);
