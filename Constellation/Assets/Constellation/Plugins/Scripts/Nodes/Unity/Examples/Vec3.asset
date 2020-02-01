@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,6 +16,7 @@ MonoBehaviour:
     Nodes:
     - Name: Transform
       Namespace: Unity
+      OverrideDisplayedName: 
       Guid: 45ada3d9-aca3-4d5f-bd49-2a5342517c56
       XPosition: 561.5
       YPosition: 0
@@ -59,6 +61,7 @@ MonoBehaviour:
       AttributesData: []
     - Name: Vec3
       Namespace: Unity
+      OverrideDisplayedName: 
       Guid: f8c2423a-18a6-4390-ae6b-a40d246a8208
       XPosition: 362.5
       YPosition: 3
@@ -95,6 +98,7 @@ MonoBehaviour:
         Type: 9
     - Name: Tutorial
       Namespace: Tags
+      OverrideDisplayedName: 
       Guid: d7097e3a-d1d8-4798-9601-20bc3df64654
       XPosition: 3.5
       YPosition: 4
@@ -103,6 +107,7 @@ MonoBehaviour:
       AttributesData: []
     - Name: Value
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: b88c22e0-9f89-48bc-bc0e-a3a0fac110a0
       XPosition: 117.5
       YPosition: 4
@@ -119,6 +124,7 @@ MonoBehaviour:
         Type: 0
     - Name: Note
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: b78a9d2f-0e95-4504-856c-ca4d7ee529f2
       XPosition: 715.5
       YPosition: 25
@@ -131,6 +137,7 @@ MonoBehaviour:
         Type: 2
     - Name: Value
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 8be91f9c-6a39-47f9-a9e0-f39085d57210
       XPosition: 117.5
       YPosition: 47
@@ -147,6 +154,7 @@ MonoBehaviour:
         Type: 0
     - Name: Value
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: bec5a51a-6649-4880-840a-3b144b02dbca
       XPosition: 117.5
       YPosition: 91
@@ -163,6 +171,7 @@ MonoBehaviour:
         Type: 0
     - Name: Note
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: ab9335f7-17d4-4a55-b4d7-f871f689587a
       XPosition: 366.5
       YPosition: 102
@@ -218,5 +227,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 73
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
