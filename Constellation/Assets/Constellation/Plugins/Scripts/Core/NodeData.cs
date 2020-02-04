@@ -9,6 +9,8 @@ namespace Constellation {
         public string Guid;
         public float XPosition;
         public float YPosition;
+        public float SizeX;
+        public float SizeY;
         public List<InputData> Inputs;
         public List<OutputData> Outputs;
         public List<AttributeData> AttributesData;

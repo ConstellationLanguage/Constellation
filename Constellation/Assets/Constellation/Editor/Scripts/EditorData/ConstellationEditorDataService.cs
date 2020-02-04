@@ -317,6 +317,7 @@ namespace ConstellationEditor {
         }
 
         public ConstellationScript Recover (string _path) {
+
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (_path, typeof (ConstellationScript));
             Script = t;
             if (t != null) {

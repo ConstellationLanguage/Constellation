@@ -232,13 +232,13 @@ namespace ConstellationEditor {
 
                 //Light gray color for close button
                 GUI.color = new Color(0.8f, 0.8f, 0.8f);
-                UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", nodeConfig.RoundButton);
+                //UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", nodeConfig.RoundButton);
                 if (GUI.Button(new Rect(Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", nodeConfig.CloseButton) && Event.current.button == 0) {
                     DestroyNode();
                 }
 
                 GUI.color = color;
-                if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2 + 5), 1, ButtonSize, ButtonSize), "", nodeConfig.HelpStyle) && Event.current.button == 0) {
+                if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2), 1.5f, ButtonSize, ButtonSize), "", nodeConfig.HelpStyle) && Event.current.button == 0) {
                     onHelpClicked(node.Name);
                 }
             }
