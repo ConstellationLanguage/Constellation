@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: NewConstellation
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: MouseButtonDown
+      Namespace: Unity
+      OverrideDisplayedName: 
+      Guid: 500befe7-75c7-4e74-884d-f39fa69cb1e2
+      XPosition: 141
+      YPosition: 87
+      SizeX: 100
+      SizeY: 100
+      Inputs: []
+      Outputs:
+      - Guid: 4a5f41e6-7351-469e-adf2-d6414dec8726
+        IsWarm: 1
+        Type: 
+        Description: 1 on mouse button down else 0
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Key
+      Namespace: Unity
+      OverrideDisplayedName: 
+      Guid: 2e8bf425-67a2-4459-9a79-e7c1667b12ee
+      XPosition: 381
+      YPosition: 114
+      SizeX: 100
+      SizeY: 100
+      Inputs: []
+      Outputs:
+      - Guid: f4f2113d-c42b-4083-a776-4ed75c35e3a0
+        IsWarm: 1
+        Type: 
+        Description: Output 1 when key pressed
+      AttributesData:
+      - Value:
+          stringValue: 
+          floatValue: 0.000001
+        Type: 1
+    Links: []
+    Name: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

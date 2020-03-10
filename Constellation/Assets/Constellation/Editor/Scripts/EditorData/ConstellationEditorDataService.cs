@@ -5,18 +5,33 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ConstellationEditor {
+    [System.Serializable]
     public class ConstellationEditorDataService {
-        private ConstellationScript Script;
+        [SerializeField]
+        public ConstellationScript Script;
+        [SerializeField]
         protected ConstellationEditorData EditorData;
+        [SerializeField]
         public List<string> currentPath;
+        [SerializeField]
         public List<ConstellationInstanceObject> currentInstancePath;
+        [SerializeField]
         private bool isSaved;
+        [SerializeField]
         private string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
+        [SerializeField]
         private ExamplePlayer ExamplePlayer;
         
 
         public ConstellationEditorDataService () {
-            OpenEditorData ();
+
+        }
+
+        public void Initialize()
+        {
+            Setup();
+            OpenEditorData();
+            RefreshConstellationEditorDataList();
         }
 
         public void RefreshConstellationEditorDataList()
@@ -49,7 +64,6 @@ namespace ConstellationEditor {
             var nodes = new List<ConstellationScriptData>();
             foreach (var constellationScript in EditorData.ScriptAssembly.constellationScripts)
             {
-
                 foreach (var node in constellationScript.GetNodes())
                 {
                     if (node.Name == "Nestable")
@@ -260,7 +274,7 @@ namespace ConstellationEditor {
             SaveEditorData ();
         }
 
-        public void New () {
+        public ConstellationScript New () {
             Script = ScriptableObject.CreateInstance<ConstellationScript> ();
             var path = EditorUtility.SaveFilePanel ("Save Constellation", Application.dataPath, "NewConstellation" + ".asset", "asset");
 
@@ -270,7 +284,7 @@ namespace ConstellationEditor {
 
             if (path == null || path == "") {
                 Script = null;
-                return;
+                return Script;
             }
             AssetDatabase.CreateAsset (Script, path);
             if (currentPath == null)
@@ -278,6 +292,7 @@ namespace ConstellationEditor {
 
             currentPath.Insert (0, path);
             SaveEditorData ();
+            return Script;
         }
 
         public ConstellationScript GetCurrentScript () {
@@ -317,7 +332,7 @@ namespace ConstellationEditor {
         }
 
         public ConstellationScript Recover (string _path) {
-
+            Debug.Log("Recover");
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (_path, typeof (ConstellationScript));
             Script = t;
             if (t != null) {

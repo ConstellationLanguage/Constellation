@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class NodeEditorBackground
 {
+    [SerializeField]
     private Texture2D Background;
 
     public NodeEditorBackground(Texture2D background)

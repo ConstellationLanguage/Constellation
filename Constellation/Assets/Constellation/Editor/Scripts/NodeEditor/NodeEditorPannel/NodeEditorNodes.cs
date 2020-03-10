@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ConstellationEditor {
-
+    [System.Serializable]
     public class NodeEditorNodes {
         private bool isDraggingWindow;
         private float farNodeX;

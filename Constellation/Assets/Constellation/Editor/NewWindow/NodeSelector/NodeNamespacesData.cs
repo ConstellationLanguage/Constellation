@@ -6,14 +6,16 @@ public class NodeNamespacesData
 {
     public List<NodeButtonData> namespaceGroup;
     public string namespaceName;
-    List<string> nodesNiceNames = new List<string>();
+    public string[] nodes;
+    public List<string> nodesNiceNames = new List<string>();
     public List<string> nodesNames = new List<string>();
 
     public NodeNamespacesData(string _namespaceName, string[] _nodes)
     {
+        nodes = _nodes;
         namespaceGroup = new List<NodeButtonData>();
         namespaceName = _namespaceName;
-        foreach (var node in _nodes)
+        foreach (var node in nodes)
         {
             if (_namespaceName == node.Split('.')[1])
             {
@@ -25,6 +27,8 @@ public class NodeNamespacesData
         RefreshNamesList();
         namespaceName = _namespaceName;
     }
+
+    //Cannot be setted in the constructor due to serialization limitation
 
     public void FilterNodes(string _filterName)
     {

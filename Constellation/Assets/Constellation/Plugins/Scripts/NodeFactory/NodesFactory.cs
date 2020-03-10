@@ -5,16 +5,24 @@ using UnityEngine;
 
 namespace Constellation
 {
+    [System.Serializable]
     public class NodesFactory
     {
         public static NodesFactory Current;
         public List<INodeGetter> NodeGetters;
         public List<IRequestAssembly> AssemblyRequester;
+        ConstellationScriptData[] scripts;
 
-        public NodesFactory(ConstellationScriptData[] constellationScript)
+        public NodesFactory(ConstellationScriptData[] constellationScripts)
+        {
+            scripts = constellationScripts;
+            Setup();
+        }
+
+        private void Setup()
         {
             Current = this;
-            SetConstellationAssembly(constellationScript);
+            SetConstellationAssembly(scripts);
             SetInterfaces();
         }
 
@@ -55,6 +63,9 @@ namespace Constellation
     
         public Node<INode> GetNode(string _nodeName, string _nodenamespaces)
         {
+            if (NodeGetters == null)
+                Setup();
+
             foreach (var nodesGetter in NodeGetters)
             {
                 if (nodesGetter.GetNameSpace() == _nodenamespaces)

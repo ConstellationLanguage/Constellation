@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ConstellationEditor {
     public static class EventUtils {
         private static int[] ValidMouseButton = {
             0, //Left
@@ -63,4 +62,3 @@ namespace ConstellationEditor {
             return false;
         }
     }
-}

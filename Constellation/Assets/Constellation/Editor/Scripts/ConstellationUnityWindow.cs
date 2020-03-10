@@ -7,17 +7,28 @@ using UnityEngine.SceneManagement;
 namespace ConstellationEditor
 {
     [InitializeOnLoadAttribute]
+    [Serializable]
     public class ConstellationUnityWindow : ConstellationBaseWindow, IUndoable, ICopyable, ICompilable
     {
+        [SerializeField]
         protected NodeEditorPanel nodeEditorPanel;
+        [SerializeField]
         protected ConstellationsTabPanel nodeTabPanel;
+        [SerializeField]
         private float nodeSelectorWidth = 270;
+        [SerializeField]
         private NodeSelectorPanel nodeSelector;
+        [SerializeField]
         private string currentPath;
+        [SerializeField]
         public static ConstellationUnityWindow WindowInstance;
+        [SerializeField]
         Constellation.Constellation constellation;
+        [SerializeField]
         protected bool requestSetup;
+        [SerializeField]
         protected bool requestCompilation;
+        [SerializeField]
         private int splitThickness = 5;
 
         [MenuItem("Window/Constellation Editor")]
@@ -47,7 +58,7 @@ namespace ConstellationEditor
             }
         }
 
-        public void CompileScripts () {
+        public void ParseScript () {
             if (WindowInstance.ConstellationCompiler == null)
                 WindowInstance.ConstellationCompiler = new ConstellationLinter();
 
@@ -173,7 +184,7 @@ namespace ConstellationEditor
                     scriptDataService.GetLastEditorScrollPositionX(), scriptDataService.GetLastEditorScrollPositionY(), // Editor Position
                     OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, SaveConstellationInstance,
                     scriptDataService.GetAllNestableScriptsInProject()); // CallBacks 
-                nodeTabPanel = new ConstellationsTabPanel(this);
+                nodeTabPanel = new ConstellationsTabPanel();
             }
         }
 
@@ -196,8 +207,8 @@ namespace ConstellationEditor
             requestSetup = true;
         }
 
-        protected override void Setup () {
-
+        protected override void Setup () 
+        {
             wantsMouseMove = true;
             canDrawUI = false;
             WindowInstance = this as ConstellationUnityWindow;
@@ -225,7 +236,7 @@ namespace ConstellationEditor
                     OnLinkAdded, OnLinkRemoved, OnNodeAdded, OnNodeRemoved, OnHelpRequested, // callBacks
                     SaveConstellationInstance,
                     scriptDataService.GetAllNestableScriptsInProject());
-                nodeTabPanel = new ConstellationsTabPanel(this);
+                nodeTabPanel = new ConstellationsTabPanel();
                 if (scriptDataService.GetCurrentScript() != null)
                     WindowInstance.titleContent.text = scriptDataService.GetCurrentScript().name;
                 else
@@ -368,7 +379,7 @@ namespace ConstellationEditor
 
                     if(requestCompilation == true)
                     {
-                        CompileScripts();
+                        ParseScript();
                         requestCompilation = false;
                     }
                 }

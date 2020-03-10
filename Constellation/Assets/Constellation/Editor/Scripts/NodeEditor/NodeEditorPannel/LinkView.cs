@@ -28,7 +28,6 @@ namespace ConstellationEditor
 
         public void DrawLinks()
         {
-
             foreach (LinkData link in constellationScript.GetLinks())
             {
                 Rect startLink = Rect.zero;

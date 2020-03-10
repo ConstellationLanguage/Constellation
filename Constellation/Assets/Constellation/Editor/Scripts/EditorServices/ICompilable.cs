@@ -1,5 +1,5 @@
 namespace ConstellationEditor {
     public interface ICompilable {
-        void CompileScripts ();
+        void ParseScript ();
     }
 }

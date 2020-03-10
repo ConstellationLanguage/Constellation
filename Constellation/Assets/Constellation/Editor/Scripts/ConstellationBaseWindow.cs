@@ -5,13 +5,19 @@ using UnityEngine;
 
 namespace ConstellationEditor
 {
+    [System.Serializable]
     public abstract class ConstellationBaseWindow : ExtendedEditorWindow, ILoadable
     {
+        [SerializeField]
         protected ConstellationEditorDataService scriptDataService;
+        [SerializeField]
         protected ConstellationLinter ConstellationCompiler;
         static protected bool canDrawUI = false;
+        [SerializeField]
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
+        [SerializeField]
         protected GameObject previousSelectedGameObject;
+        [SerializeField]
         protected ConstellationEditable currentEditableConstellation;
 
         public void Awake()
@@ -38,6 +44,7 @@ namespace ConstellationEditor
 
         public void Recover()
         {
+            Debug.Log("Recover");
             try
             {
                 scriptDataService = new ConstellationEditorDataService();

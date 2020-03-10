@@ -18,16 +18,16 @@ public class NodeSelectorPanel
         namespaces = NodesFactory.GetAllNamespaces(nodes.ToArray());
         NodeNamespaceData = new List<NodeNamespacesData>();
 
+    }
+
+    public void SetupNamespaceData()
+    {
         foreach (var _namespace in namespaces)
         {
+            var nodes = new List<string>(NodesFactory.GetAllNodes());
             var nodeNamespace = new NodeNamespacesData(_namespace, nodes.ToArray());
             NodeNamespaceData.Add(nodeNamespace);
         }
-
-        /*foreach (var node in customNodes)
-        {
-            NodeNamespaceData.Add(node);
-        }*/
     }
 
     private void FilterNodes(string _filer)
@@ -50,7 +50,6 @@ public class NodeSelectorPanel
             var selGridInt = GUILayout.SelectionGrid(-1, nodeNamespace.GetNiceNames(), 1 + (int)Mathf.Floor(_width / 255));
             if (selGridInt >= 0)
             {
-                Debug.Log(nodeNamespace.GetNames()[selGridInt]);
                 OnNodeAdded(nodeNamespace.GetNames()[selGridInt], nodeNamespace.namespaceName);
             }
         }

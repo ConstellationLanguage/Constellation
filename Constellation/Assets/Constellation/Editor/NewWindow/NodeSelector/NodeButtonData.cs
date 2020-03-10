@@ -1,4 +1,5 @@
 using UnityEditor;
+[System.Serializable]
 public class NodeButtonData
 {
     public string nodeFullName;
@@ -12,8 +13,8 @@ public class NodeButtonData
         display = true;
         nodeFullName = _nodeName;
         nodeName = nodeFullName.Split('.')[2];
-        nodeNamespace = nodeFullName.Split('.')[1];
         niceNodeName = ObjectNames.NicifyVariableName(nodeFullName.Split('.')[2]);
+        nodeNamespace = nodeFullName.Split('.')[1];
         if (niceNodeName.Length > maxCharacters)
         {
             niceNodeName = niceNodeName.Substring(0, maxCharacters - 3);

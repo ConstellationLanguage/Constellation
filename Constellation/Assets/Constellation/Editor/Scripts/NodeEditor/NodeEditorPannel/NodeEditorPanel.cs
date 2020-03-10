@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ConstellationEditor {
+    [System.Serializable]
     public class NodeEditorPanel : IVisibleObject {
         Vector2 editorScrollPos;
         Vector2 editorScrollSize;

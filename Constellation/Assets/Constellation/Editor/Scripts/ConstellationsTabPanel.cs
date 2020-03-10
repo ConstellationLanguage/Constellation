@@ -1,15 +1,14 @@
 using UnityEngine;
 namespace ConstellationEditor {
+    [System.Serializable]
     public class ConstellationsTabPanel {
-        private IGUI GUI;
         private string removeNode = "";
 
-        public ConstellationsTabPanel (IGUI _gui) {
-            GUI = _gui;
+        public ConstellationsTabPanel () {
         }
 
         public string Draw (string[] constellationsPath, ConstellationInstanceObject[] instancesPath) {
-                GUI.SetColor (Color.white);
+                GUI.color = Color.white;
                 GUILayout.BeginHorizontal();
 
                 foreach (var path in constellationsPath)
@@ -20,7 +19,7 @@ namespace ConstellationEditor {
                         foreach (var instanceName in instancesPath)
                         {
                             if (path == instanceName.InstancePath)
-                                GUI.SetColor(Color.yellow);
+                                GUI.color = Color.yellow;
                         }
 
                     if (GUILayout.Button(name, "MiniToolbarButton", GUILayout.MaxWidth(125), GUILayout.MinWidth(125)))
@@ -32,10 +31,10 @@ namespace ConstellationEditor {
                     {
                         removeNode = path;
                     }
-                    GUI.SetColor(Color.grey);
+                    GUI.color = Color.grey;
                     GUILayout.Space(10);
                 }
-                GUI.SetColor(Color.white);
+                GUI.color = Color.white;
                 GUILayout.EndHorizontal();
             return null;
         }

@@ -2,7 +2,9 @@
 using UnityEngine;
 
 namespace ConstellationEditor {
+    [System.Serializable]
     public static class ConstellationEditor {
+        [SerializeField]
         private static string editorPath = "";
 
         public static string GetEditorPath () {

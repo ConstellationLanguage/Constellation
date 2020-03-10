@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace ConstellationEditor {
+    [System.Serializable]
     public class NodeView {
         private const int ButtonSize = 14;
         private Rect Rect;

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Name: NewConstellation2
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      Guid: cf2830db-5ab1-4e3d-9776-dd4275903c2e
+      XPosition: 280
+      YPosition: 174
+      SizeX: 102
+      SizeY: 50
+      Inputs:
+      - Guid: 87247e55-5199-4b4a-a450-50e7df66c973
+        IsWarm: 0
+        Type: 
+        Description: New var
+      - Guid: a8f526d4-bbfb-47b6-a234-6b3fcef1d8c6
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Outputs:
+      - Guid: 88ef97a3-08fc-4732-b816-8ec04c79823c
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      AttributesData:
+      - Value:
+          stringValue: Var
+          floatValue: 0.000001
+        Type: 6
+    - Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      Guid: cfb4eb4b-3f80-499e-a2c1-61345a564f40
+      XPosition: 44
+      YPosition: 150
+      SizeX: 105
+      SizeY: 52
+      Inputs: []
+      Outputs:
+      - Guid: dee9c341-9bcb-4d3a-91f7-c2a8e9a9c6d5
+        IsWarm: 1
+        Type: 
+        Description: The value
+      AttributesData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+    - Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      Guid: 065f4c68-05f4-473a-8307-84e6f720f62e
+      XPosition: 476
+      YPosition: 182
+      SizeX: 101
+      SizeY: 50
+      Inputs:
+      - Guid: 4994cc30-e4e9-4400-92be-11380dfc5a59
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    Links:
+    - Input:
+        Guid: 87247e55-5199-4b4a-a450-50e7df66c973
+        IsWarm: 0
+        Type: 
+        Description: New var
+      Output:
+        Guid: dee9c341-9bcb-4d3a-91f7-c2a8e9a9c6d5
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 0
+    - Input:
+        Guid: a8f526d4-bbfb-47b6-a234-6b3fcef1d8c6
+        IsWarm: 1
+        Type: 
+        Description: Send var
+      Output:
+        Guid: dee9c341-9bcb-4d3a-91f7-c2a8e9a9c6d5
+        IsWarm: 1
+        Type: 
+        Description: The value
+      outputPositionY: 0
+    - Input:
+        Guid: 4994cc30-e4e9-4400-92be-11380dfc5a59
+        IsWarm: 0
+        Type: 
+        Description: value to log in console
+      Output:
+        Guid: 88ef97a3-08fc-4732-b816-8ec04c79823c
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 0
+    Name: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
