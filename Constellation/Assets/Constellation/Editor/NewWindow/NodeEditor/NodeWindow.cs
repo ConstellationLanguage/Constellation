@@ -17,7 +17,6 @@ public class NodeWindow
     bool mousePressed = false;
     Vector2 mouseClickStartPosition = Vector2.zero;
     public Vector2 ScrollPosition = Vector2.zero;
-    public delegate void RequestRepaint();
 
     private enum EventsScope { Generic, Resizing, Dragging };
     private EventsScope currentEventScope = EventsScope.Generic;
@@ -75,7 +74,7 @@ public class NodeWindow
         }
     }
 
-    public void Draw(RequestRepaint requestRepaint, float windowSizeX, float windowSiseY)
+    public void Draw(ConstellationEditorCallbacks.RequestRepaint requestRepaint, float windowSizeX, float windowSiseY)
     {
         ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX - 300), GUILayout.Height(windowSiseY));
         background.DrawBackgroundGrid(windowSizeX, windowSiseY, 0, 0, Color.white);
@@ -116,7 +115,7 @@ public class NodeWindow
             }
         }
         DrawNodes(e);
-        Links.DrawLinks();
+        Links.DrawLinks(requestRepaint);
         EditorGUILayout.EndScrollView();
     }
 
@@ -129,7 +128,7 @@ public class NodeWindow
         }
     }
 
-    private void UpdateResizeEvents(RequestRepaint requestRepaint, Event e)
+    private void UpdateResizeEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, Event e)
     {
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
@@ -138,7 +137,7 @@ public class NodeWindow
         requestRepaint();
     }
 
-    private void UpdateDragEvents(RequestRepaint requestRepaint, Event e)
+    private void UpdateDragEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, Event e)
     {
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
@@ -147,7 +146,7 @@ public class NodeWindow
         requestRepaint();
     }
 
-    private void UpdateGenericEvents(RequestRepaint requestRepaint, Event e)
+    private void UpdateGenericEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, Event e)
     {
         for (var i = 0; i < Nodes.Count; i++)
         {

@@ -5,7 +5,7 @@
         public const string NAME = "Value";
 
         public void Setup (INodeParameters _node) {
-            var newValue = new Variable ();
+            var newValue = new Variable ().Set(0);
             sender = _node.GetSender();
             _node.AddOutput (true, "The value");
             value = _node.AddAttribute (newValue, Attribute.AttributeType.Value, "Number to set");

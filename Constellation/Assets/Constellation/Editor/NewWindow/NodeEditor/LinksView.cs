@@ -7,12 +7,12 @@ using UnityEditor;
 [System.Serializable]
 public class LinksView
 {
-    private ConstellationScript constellationScript;
-    private bool dragging;
-    private bool isInstance;
+    public ConstellationScript constellationScript;
+    public bool dragging;
+    public bool isInstance;
 
-    private InputData selectedInput;
-    private OutputData selectedOutput;
+    public InputData selectedInput;
+    public OutputData selectedOutput;
 
     public Rect AtrributeSize = new Rect(18, 15, 88, 20);
     public Color WarmInputColor = new Color(0.8f, 0.5f, 0.3f);
@@ -20,7 +20,10 @@ public class LinksView
     public Color WarmInputObjectColor = new Color(0.2f, 0.6f, 0.55f);
     public Color ColdInputObjectColor = new Color(0.2f, 0.3f, 0.6f);
 
-    private delegate void RequestRepaint();
+    //const int topMargin = 30;
+    //const int inputSize = 11;
+    //const int nodeWidth = 100;
+    const int deleteButtonSize = 15;
 
     public LinksView(ConstellationScript _constellationScript)
     {
@@ -32,14 +35,9 @@ public class LinksView
         return constellationScript.GetLinks();
     }
 
-    public void DrawLinks()
+    public void DrawLinks(ConstellationEditorCallbacks.RequestRepaint requestRepaint)
     {
-        var topMargin = 30;
-        var inputSize = 10;
-        var nodeWidth = 100;
-        var nodeButtonSize = 10;
-
-        DrawIncompleteLink();
+        DrawIncompleteLink(requestRepaint);
 
         foreach (LinkData link in constellationScript.GetLinks())
         {
@@ -47,13 +45,14 @@ public class LinksView
             Rect endLink = Rect.zero;
             foreach (NodeData node in constellationScript.GetNodes())
             {
-                var i = 1;
+                var i = 0;
                 foreach (InputData input in node.GetInputs())
                 {
+                    var centerInputPosition = node.YPosition + (NodeView.nodeTitleHeight) + ((NodeView.inputSize + NodeView.spacing) * i) + (NodeView.inputSize *0.5f);
                     if (link.Input.Guid == input.Guid)
                     {
                         endLink = new Rect(node.XPosition,
-                            node.YPosition + (topMargin * 0.5f) + ((inputSize) * i),
+                           centerInputPosition,
                             0,
                             0);
                         break;
@@ -61,19 +60,15 @@ public class LinksView
                     i++;
                 }
 
-                var j = 1;
+                var j = 0;
                 foreach (OutputData output in node.GetOutputs())
                 {
+                    var centerInputPosition = node.YPosition + (NodeView.nodeTitleHeight) + ((NodeView.outputSize + NodeView.spacing) * i) + (NodeView.outputSize * 0.5f);
                     if (link.Output.Guid == output.Guid)
                     {
-                        var width = nodeWidth;
-                        if (node.GetAttributes().Length > 0)
-                        {
-                            width = nodeWidth;
-                        }
-
+                        var width = node.SizeX;
                         startLink = new Rect(node.XPosition + width,
-                            node.YPosition + (topMargin * 0.5f) + ((inputSize) * j),
+                            centerInputPosition,
                             0,
                             0);
                         break;
@@ -91,13 +86,13 @@ public class LinksView
 
             if (MouseOverCurve(startLink.position, endLink.position))
             {
-                var linkCenter = new Rect((startLink.x + (endLink.x - startLink.x) / 2) - (topMargin * 0.5f),
-                    (startLink.y + (endLink.y - startLink.y) / 2) - (topMargin * 0.5f),
-                    nodeButtonSize,
-                    nodeButtonSize);
-                GUI.Box(linkCenter, "");
-                GUI.Button(linkCenter, "");
-
+                
+                var linkCenter = new Rect((startLink.x + (endLink.x - startLink.x) / 2) - (deleteButtonSize * 0.5f),
+                    (startLink.y + (endLink.y - startLink.y) / 2) - (deleteButtonSize * 0.5f),
+                    deleteButtonSize,
+                    deleteButtonSize);
+                GUI.Box(linkCenter, "X");
+                GUI.Button(linkCenter, "X");
                 if (Event.current.IsUsed())
                 {
                     if (Event.current.button == 0)
@@ -118,12 +113,11 @@ public class LinksView
                 }
             }
         }
+        requestRepaint();
     }
 
     public Rect InputPosition(InputData _input)
     {
-        var topMargin = 10;
-        var inputSize = 10;
         foreach (NodeData node in constellationScript.GetNodes())
         {
             var i = 1;
@@ -132,7 +126,7 @@ public class LinksView
                 if (_input.Guid == input.Guid)
                 {
                     return new Rect(node.XPosition,
-                        node.YPosition + (topMargin * 0.5f) + ((inputSize) * i),
+                        node.YPosition + (NodeView.nodeTitleHeight * 0.5f) + ((NodeView.inputSize + NodeView.spacing) * i),
                         0,
                         0);
                 }
@@ -144,9 +138,6 @@ public class LinksView
 
     public Rect OutputPosition(OutputData _output)
     {
-        var topMargin = 10;
-        var inputSize = 10;
-        var nodeWidth = 100;
         foreach (NodeData node in constellationScript.GetNodes())
         {
             var j = 1;
@@ -154,8 +145,8 @@ public class LinksView
             {
                 if (_output.Guid == output.Guid)
                 {
-                    return new Rect(node.XPosition + nodeWidth,
-                        node.YPosition + (topMargin * 0.5f) + ((inputSize) * j),
+                    return new Rect(node.XPosition + node.SizeX,
+                        node.YPosition + (NodeView.nodeTitleHeight * 0.5f) + ((NodeView.inputSize + NodeView.spacing) * j),
                         0,
                         0);
                 }
@@ -276,7 +267,7 @@ public class LinksView
         }
     }
 
-    private void DrawIncompleteLink()
+    private void DrawIncompleteLink(ConstellationEditorCallbacks.RequestRepaint requestRepaint)
     {
         if (selectedInput != null || selectedOutput != null)
         {
@@ -284,12 +275,12 @@ public class LinksView
             if (selectedInput != null)
             {
                 DrawNodeCurve(new Rect(e.mousePosition.x, e.mousePosition.y, 0, 0), InputPosition(selectedInput));
-                //GUI.RequestRepaint();
+                requestRepaint();
             }
             else if (selectedOutput != null)
             {
                 DrawNodeCurve(OutputPosition(selectedOutput), new Rect(e.mousePosition.x, e.mousePosition.y, 0, 0));
-                //GUI.RequestRepaint();
+                requestRepaint();
             }
 
             if (e.button == 1)

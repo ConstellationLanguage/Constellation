@@ -1,6 +1,7 @@
 ﻿using System;
 using Constellation;
 using UnityEngine;
+using UnityEditor;
 
 [System.Serializable]
 public class NodeView
@@ -11,18 +12,28 @@ public class NodeView
     private string nodeName;
     private float previousNodeSizeX;
     private float previousNodeSizeY;
-    const float nodeTitleHeight = 20;
-    const float nodeDeleteSize = 15;
-    const float resizeButtonSize = 8;
-    const float inputSize = 10;
-    const float outputSize = 10;
-    const float spacing = 2;
+    public const float nodeTitleHeight = 20;
+    public const float nodeDeleteSize = 15;
+    public const float resizeButtonSize = 8;
+    public const float inputSize = 10;
+    public const float outputSize = 10;
+    public const float spacing = 8;
+    public const float leftAttributeMargin = 5;
+    public const float rightAttributeMargin = 5;
+    public const float attributeSpacing = 2;
+    Rect AtrributeSize = new Rect(0, 0, 88, 16);
+
     public NodeView(NodeData node)
     {
         NodeData = node;
         nodeName = node.Name;
         LockNodeSize();
         LockNodePosition();
+
+        foreach (var attribute in node.AttributesData)
+        {
+            attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
+        }
     }
 
     public void DrawNode(Event e)
@@ -78,8 +89,9 @@ public class NodeView
                 }
             }
             GUI.Button(GetInputRect(i), "");
-        }
 
+        }
+        DrawAttributes();
         var outputs = NodeData.GetOutputs();
         for (var i = 0; i < outputs.Length; i++)
         {
@@ -122,8 +134,8 @@ public class NodeView
 
     public void UpdateNodeSize(float _x, float _y)
     {
-        NodeData.SizeX = Math.Max(_x, 50);
-        NodeData.SizeY = Math.Max(_y, 50);
+        NodeData.SizeX = Math.Max(_x, MinimumNodeWidth());
+        NodeData.SizeY = Math.Max(_y, MinimumNodeHeight());
     }
 
     public void SetPosition(float _x, float _y)
@@ -132,6 +144,20 @@ public class NodeView
         NodeData.YPosition = _y;
     }
 
+    public float MinimumNodeHeight()
+    {
+        return Math.Max((inputSize + spacing) * NodeData.Inputs.Count + nodeTitleHeight, (inputSize + spacing) * NodeData.Outputs.Count + nodeTitleHeight);
+    }
+
+    public float MinimumNodeWidth()
+    {
+        var minimumWidth = 100;
+        if(NodeData.GetAttributes().Length == 0)
+        {
+            minimumWidth = 50;
+        }
+        return minimumWidth;
+    }
     public void SetName(string _name)
     {
         nodeName = _name;
@@ -230,5 +256,36 @@ public class NodeView
         positionOffsetX = GetSizeX() * 0.5f;
         positionOffsetY = GetSizeY() * 0.5f;
         return rect;
+    }
+
+    private void DrawAttributes()
+    {
+        GUI.color = Color.white;
+        if (NodeData.GetAttributes() != null)
+        {
+            var i = 0;
+            foreach (var attribute in NodeData.AttributesData)
+            {
+                EditorGUIUtility.labelWidth = 25;
+                EditorGUIUtility.fieldWidth = 10;
+                var leftOffset = inputSize + leftAttributeMargin;
+                var rightOffset = rightAttributeMargin + outputSize + leftOffset;
+                var topOffset = 3;
+                var attributeRect = new Rect(NodeData.XPosition + leftOffset, NodeData.YPosition + ((AtrributeSize.height + attributeSpacing) * i) + nodeTitleHeight - topOffset, NodeData.SizeX - rightOffset, AtrributeSize.height);
+                if (attribute.Value != null)
+                {
+                    var currentAttributeValue = attribute.Value.GetString();
+                    attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value);
+                    if (attribute.Value != null)
+                    {
+                        /*if (currentAttributeValue != attribute.Value.GetString())
+                            AttributeValueChanged();*/
+                        
+                    }
+                }
+                i++;
+            }
+
+        }
     }
 }

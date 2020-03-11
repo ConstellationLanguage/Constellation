@@ -14,42 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: MouseButtonDown
+    - Name: ObjectAttribute
       Namespace: Unity
       OverrideDisplayedName: 
-      Guid: 500befe7-75c7-4e74-884d-f39fa69cb1e2
-      XPosition: 141
-      YPosition: 87
-      SizeX: 100
-      SizeY: 100
+      Guid: 7618a04c-e492-4fe7-9546-14b39c677dc7
+      XPosition: 135
+      YPosition: 115
+      SizeX: 166
+      SizeY: 50
       Inputs: []
       Outputs:
-      - Guid: 4a5f41e6-7351-469e-adf2-d6414dec8726
+      - Guid: becdd4c4-4061-49db-8955-eda710a802ca
         IsWarm: 1
-        Type: 
-        Description: 1 on mouse button down else 0
+        Type: Object
+        Description: Unity object
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-    - Name: Key
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 2e8bf425-67a2-4459-9a79-e7c1667b12ee
-      XPosition: 381
-      YPosition: 114
-      SizeX: 100
-      SizeY: 100
-      Inputs: []
-      Outputs:
-      - Guid: f4f2113d-c42b-4083-a776-4ed75c35e3a0
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      AttributesData:
-      - Value:
-          stringValue: 
+          stringValue: Default
           floatValue: 0.000001
         Type: 1
     Links: []
