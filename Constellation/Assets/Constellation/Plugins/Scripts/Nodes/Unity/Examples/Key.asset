@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,17 +16,23 @@ MonoBehaviour:
     Nodes:
     - Name: Tutorial
       Namespace: Tags
+      OverrideDisplayedName: 
       Guid: 45a50f72-0094-4343-94f5-cd35f35565c4
       XPosition: 5.5
       YPosition: 0.5
+      SizeX: 50
+      SizeY: 20
       Inputs: []
       Outputs: []
       AttributesData: []
     - Name: Note
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 1252e421-7e52-4f84-aaa8-d2c22d448d27
-      XPosition: 45.5
-      YPosition: 34
+      XPosition: 137.5
+      YPosition: 33
+      SizeX: 100
+      SizeY: 20
       Inputs: []
       Outputs: []
       AttributesData:
@@ -37,9 +44,12 @@ MonoBehaviour:
         Type: 2
     - Name: Key
       Namespace: Unity
+      OverrideDisplayedName: 
       Guid: 2b020cc5-1f44-4bd9-ac54-6be316bec1ef
       XPosition: 32.5
       YPosition: 175
+      SizeX: 100
+      SizeY: 38
       Inputs: []
       Outputs:
       - Guid: 8de51b79-8728-4230-a6e9-caaa38a8d7a6
@@ -53,9 +63,12 @@ MonoBehaviour:
         Type: 1
     - Name: Switch
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 2e583eeb-6a86-4519-a62d-c2d8219bd300
       XPosition: 472.5
       YPosition: 178
+      SizeX: 50
+      SizeY: 56
       Inputs:
       - Guid: c4b05ec1-1eea-4f2b-94cc-9a5c16996b74
         IsWarm: 0
@@ -73,9 +86,12 @@ MonoBehaviour:
       AttributesData: []
     - Name: Print
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 9f674b1f-c2bc-4dbe-98d3-96d440b3d09e
       XPosition: 622
       YPosition: 179
+      SizeX: 50
+      SizeY: 38
       Inputs:
       - Guid: 41bc6fb5-f507-464c-b7e5-6aa5db08d221
         IsWarm: 0
@@ -85,9 +101,12 @@ MonoBehaviour:
       AttributesData: []
     - Name: Word
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 253ab005-5793-419c-8139-a7034ba71a09
       XPosition: 29.5
       YPosition: 240
+      SizeX: 100
+      SizeY: 38
       Inputs: []
       Outputs:
       - Guid: b8b8d684-3c84-4497-a29d-0ae2813c3927
@@ -101,9 +120,12 @@ MonoBehaviour:
         Type: 1
     - Name: Var
       Namespace: CoreNodes
+      OverrideDisplayedName: 
       Guid: 1bc62db2-3efd-4586-9128-3cbc5b472eb3
       XPosition: 253.5
       YPosition: 243
+      SizeX: 100
+      SizeY: 56
       Inputs:
       - Guid: 5858f092-3ddc-45d1-97d7-3a18bce3d9bf
         IsWarm: 0
@@ -125,9 +147,12 @@ MonoBehaviour:
         Type: 6
     - Name: Update
       Namespace: Unity
+      OverrideDisplayedName: 
       Guid: d2a8524b-6b8b-49e7-b0ce-2989d86dd169
       XPosition: 30.5
       YPosition: 290
+      SizeX: 50
+      SizeY: 38
       Inputs: []
       Outputs:
       - Guid: f34d82c0-3d8f-4b07-ae79-e29ee56a68ad
@@ -191,5 +216,7 @@ MonoBehaviour:
         Type: 
         Description: Ray on update
       outputPositionY: 293
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

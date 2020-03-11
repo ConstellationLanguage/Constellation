@@ -36,7 +36,7 @@ public class NodeWindow
         Nodes = new List<NodeView>();
         ConstellationScript = _constellationScript;
         Links = new LinksView(ConstellationScript);
-        NodeFactory = new NodesFactory(ConstellationScript.ScriptAssembly.GetAllScriptData());
+        NodeFactory = new NodesFactory(ConstellationScript?.ScriptAssembly?.GetAllScriptData());
 
         foreach(var node in _constellationScript.GetNodes())
         {
@@ -46,7 +46,10 @@ public class NodeWindow
 
     public void DisplayNode(NodeData node)
     {
-        Nodes.Add(new NodeView(node));
+        var nodeView = new NodeView(node);
+        if (node.SizeX == 0 || node.SizeY == 0)
+            nodeView.UpdateNodeSize(0, 0);
+        Nodes.Add(nodeView);
     }
 
     public void AddNode(string nodeName, string nodeNamespace)
@@ -59,6 +62,9 @@ public class NodeWindow
         var newNodeView = new NodeView(nodeData);
         Nodes.Add(newNodeView);
         newNodeView.UpdateNodeSize(0, 0);
+        newNodeView.SetPosition(ScrollPosition.x + (windowSizeX * 0.5f), ScrollPosition.y + (windowSizeY * 0.5f));
+        newNodeView.LockNodePosition();
+        SetNodeToFirst(newNodeView);
     }
 
     public void RemoveNode(NodeData node)
@@ -133,6 +139,11 @@ public class NodeWindow
         DrawNodes(e);
         Links.DrawLinks(requestRepaint);
         EditorGUILayout.EndScrollView();
+        if (Event.current.button == 2)
+        {
+            ScrollPosition -= Event.current.delta * 0.5f;
+            requestRepaint();
+        }
     }
 
     private void DrawNodes(Event e)

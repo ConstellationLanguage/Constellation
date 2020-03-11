@@ -16,7 +16,7 @@ public class NodeView
     public const float resizeButtonSize = 8;
     public const float inputSize = 10;
     public const float outputSize = 10;
-    public const float spacing = 8;
+    public const float spacing = 10;
     public const float leftAttributeMargin = 5;
     public const float rightAttributeMargin = 5;
     public const float attributeSpacing = 2;
@@ -48,7 +48,8 @@ public class NodeView
         var deleteRect = GetDeleteRect();
         var questionRect = GetQuestionRect();
         var resizeRect = GetResizeRect();
-        GUI.Box(nodeRect, "", GUI.skin.GetStyle("Button"));
+        var noteSkin = new GUIStyle(GUI.skin.GetStyle("flow node 0"));
+        GUI.Box(nodeRect, "", noteSkin);
         GUI.Label(nodeTitleRect, GetName());
         if (nodeRect.Contains(e.mousePosition))
         {
@@ -139,8 +140,8 @@ public class NodeView
 
     public void SetPosition(float _x, float _y)
     {
-        NodeData.XPosition = _x;
-        NodeData.YPosition = _y;
+        NodeData.XPosition = RoundToNearest(_x);
+        NodeData.YPosition = RoundToNearest(_y);
     }
 
     public float MinimumNodeHeight()
@@ -290,5 +291,10 @@ public class NodeView
         var rightOffset = rightAttributeMargin + outputSize + leftOffset;
         var topOffset = 3;
         return new Rect(NodeData.XPosition + leftOffset, NodeData.YPosition + ((AtrributeSize.height + attributeSpacing) * attributeID) + nodeTitleHeight - topOffset, NodeData.SizeX - rightOffset, AtrributeSize.height);
+    }
+
+    public float RoundToNearest(float a)
+    {
+        return a = a - (a % 5f);
     }
 }
