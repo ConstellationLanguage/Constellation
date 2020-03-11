@@ -91,11 +91,11 @@ public class NodeWindow
     {
         mouseButtonDown = false;
         //scroll bar
-        ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX - 300), GUILayout.Height(windowSizeY));
+        ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX), GUILayout.Height(windowSizeY));
         GUILayoutOption[] options = { GUILayout.Width(editorScrollSize.x), GUILayout.Height(editorScrollSize.y) };
         editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
         EditorGUILayout.LabelField("", options);
-        background.DrawBackgroundGrid(windowSizeX, windowSizeY, 0, 0, Color.white);
+        background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, Color.white);
         Event e = Event.current;
         var mouseJustRelease = false;
         if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)

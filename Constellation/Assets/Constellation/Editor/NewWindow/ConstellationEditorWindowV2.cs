@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 using Constellation;
 using ConstellationEditor;
 
@@ -11,6 +12,8 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public NodesFactory NodesFactory;
     public ConstellationEditorDataService ScriptDataService;
     public ConstellationScript ConstellationScript;
+    public float nodeSelectorWidth = 300;
+    const float splitThickness = 3; 
 
     // Add menu named "My Window" to the Window menu
     [MenuItem("Window/My Window")]
@@ -62,10 +65,23 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             EditorGUILayout.BeginHorizontal();
             if (NodeWindow == null)
                 SetupNodeWindow();
-            NodeWindow.UpdateSize(position.width, position.height - NodeTabPanel.GetHeight());
+            NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
             NodeWindow.Draw(RequestRepaint, OnEditorEvent);
-            NodeSelector.Draw(300, position.height, NodeAdded);
+            DrawVerticalSplit();
+            NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded);
             EditorGUILayout.EndHorizontal();
+        }
+    }
+
+    private void DrawVerticalSplit()
+    {
+        var verticalSplit = new Rect(position.width - nodeSelectorWidth - splitThickness, 30, splitThickness, position.height - 30);
+        var newVertical = EditorUtils.VerticalSplit(verticalSplit);
+        if (newVertical != verticalSplit.x)
+        {
+            nodeSelectorWidth -= verticalSplit.x - newVertical;
+            nodeSelectorWidth = Mathf.Max(150, nodeSelectorWidth);
+            RequestRepaint();
         }
     }
 
