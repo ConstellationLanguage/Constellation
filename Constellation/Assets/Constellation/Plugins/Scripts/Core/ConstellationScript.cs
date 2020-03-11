@@ -16,6 +16,12 @@ namespace Constellation {
             Set(script);
         }
 
+        public void InitializeData(ConstellationScriptData constellationScriptData)
+        {
+            script = constellationScriptData;
+            Set(script);
+        }
+
         public ConstellationScript Set (ConstellationScriptData _script) {
             script.Nodes = new List<NodeData>();
             script.Links = new List<LinkData>();

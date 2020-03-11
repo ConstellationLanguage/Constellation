@@ -13,6 +13,7 @@ namespace ConstellationEditor {
                     menu.AddItem(new GUIContent("New: Ctrl+Alt+N "), false, OnNew, loadable);
                     menu.AddItem(new GUIContent("Load: Ctrl+Alt+L"), false, OnLoad, loadable);
                     menu.AddItem(new GUIContent("Save: Ctrl+Alt+S"), false, OnSave, loadable);
+                    menu.AddItem(new GUIContent("Export as constellation file"), false, OnExportAsCL, loadable);
                     menu.ShowAsContext();
                     return true;
                 }
@@ -75,6 +76,12 @@ namespace ConstellationEditor {
         static void OnSave (object loadable) {
             var iloadable = loadable as ILoadable;
             iloadable.Save ();
+        }
+
+        static void OnExportAsCL(object loadable)
+        {
+            var iloadable = loadable as ILoadable;
+            iloadable.Export ();
         }
 
         static void OnLoad (object loadable) {

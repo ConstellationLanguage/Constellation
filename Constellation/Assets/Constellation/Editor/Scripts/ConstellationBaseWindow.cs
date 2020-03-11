@@ -101,6 +101,11 @@ namespace ConstellationEditor
             scriptDataService.Save();
         }
 
+        public void Export()
+        {
+
+        }
+
         public void SaveInstance()
         {
             scriptDataService.SaveInstance();

@@ -71,7 +71,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     void OnEditorEvent(ConstellationEditorCallbacks.EditorEventType eventType)
     {
-        //ScriptDataService.SaveLite();
+        ScriptDataService.SaveLite();
     }
 
     void SetupNodeWindow()
@@ -149,5 +149,10 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public void ParseScript()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void Export()
+    {
+        ScriptDataService.Export("");
     }
 }

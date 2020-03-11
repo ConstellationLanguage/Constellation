@@ -28,6 +28,8 @@ namespace Constellation
 
         public void SetConstellationAssembly(ConstellationScriptData[] constellationScript)
         {
+            if (constellationScript == null)
+                return;
             AssemblyRequester = new List<IRequestAssembly>();
             var type = typeof(IRequestAssembly);
             var types = AppDomain.CurrentDomain.GetAssemblies()

@@ -331,6 +331,20 @@ namespace ConstellationEditor {
             return t;
         }
 
+        public void Export(string _path)
+        {
+            string exportedConstellation = JsonUtility.ToJson(Script.script);
+            var path = EditorUtility.SaveFilePanel("Export as Constellation file", Application.dataPath, "Constellation" + ".const", "const");
+
+            if (path.StartsWith(Application.dataPath))
+            {
+                //path = "Assets" + path.Substring(Application.dataPath.Length);
+            }
+
+            System.IO.File.WriteAllText(path, exportedConstellation);
+            SaveEditorData();
+        }
+
         public ConstellationScript Recover (string _path) {
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (_path, typeof (ConstellationScript));
             Script = t;

@@ -11,11 +11,12 @@ namespace Constellation
             {
                 if (ConstellationData == null && Application.isPlaying)
                 {
-                    ConstellationData = ScriptableObject.CreateInstance<ConstellationScript>();
-                    ConstellationData.InitializeData();
-                    ConstellationData.IsInstance = true;
+                    this.enabled = false;
                 }
-                Initialize();
+                else
+                {
+                    Initialize();
+                }
             }
             catch (ConstellationError e)
             {
@@ -25,6 +26,15 @@ namespace Constellation
             {
                 Debug.LogError(e);
             }
+        }
+
+        public void SetConstellation(ConstellationScriptData constellationScriptData)
+        {
+            ConstellationData = ScriptableObject.CreateInstance<ConstellationScript>();
+            ConstellationData.script = constellationScriptData;
+            ConstellationData.IsInstance = true;
+            Initialize();
+            this.enabled = true;
         }
 
         void OnDestroy()

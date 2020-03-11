@@ -14,304 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      Guid: ae132d14-7361-422f-9cc9-08a54204f80e
-      XPosition: 51
-      YPosition: 190
-      SizeX: 138
-      SizeY: 38
-      Inputs: []
-      Outputs:
-      - Guid: e7cbc6b6-4542-4d4e-9ff7-a1c478085e8e
-        IsWarm: 1
-        Type: 
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: -0.36
-        Type: 0
     - Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      Guid: 4ae45b94-97a7-4b67-90f6-3f2878a94910
-      XPosition: 296
-      YPosition: 189
-      SizeX: 107
-      SizeY: 50
+      Guid: d87e51cf-bc85-4740-ae7a-0c6f403b29e3
+      XPosition: 649
+      YPosition: 178
+      SizeX: 50
+      SizeY: 38
       Inputs:
-      - Guid: 9c35c9c7-0097-4606-9205-c04c9111c35d
+      - Guid: 2bbdafea-dd5f-4a0c-9907-617fb83d1d0d
         IsWarm: 0
         Type: 
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Color
-      Namespace: Unity
+    - Name: Word
+      Namespace: CoreNodes
       OverrideDisplayedName: 
-      Guid: 7407141f-cb59-4d2c-8dd8-73afe26b0999
-      XPosition: 305
-      YPosition: 48
-      SizeX: 100
-      SizeY: 92
-      Inputs:
-      - Guid: 8f118742-b7aa-4b07-9566-5e04bc8e58ab
-        IsWarm: 1
-        Type: 
-        Description: R
-      - Guid: fedb39d6-6841-49cf-9f77-6562172ecd43
-        IsWarm: 1
-        Type: 
-        Description: G
-      - Guid: 2aaf1394-0778-4227-9dd1-3de09dfaa07f
-        IsWarm: 1
-        Type: 
-        Description: B
-      - Guid: e7bb1248-8ae5-4408-b979-d119198f67c4
-        IsWarm: 1
-        Type: 
-        Description: A
+      Guid: c6581a74-c9f5-4c92-8a56-4f3b0a349efa
+      XPosition: 183
+      YPosition: 176
+      SizeX: 248
+      SizeY: 41
+      Inputs: []
       Outputs:
-      - Guid: 25ba6b98-f5ae-457d-a7af-3714ab1f1dab
-        IsWarm: 0
+      - Guid: a139ca8a-568b-4376-acf6-f68c38f7ef7d
+        IsWarm: 1
         Type: 
-        Description: Color[R][G][B][A]
+        Description: The Word
       AttributesData:
       - Value:
-          stringValue: R
-          floatValue: 0.000001
-        Type: 10
-      - Value:
-          stringValue: G
-          floatValue: 0.000001
-        Type: 11
-      - Value:
-          stringValue: B
-          floatValue: 0.000001
-        Type: 12
-      - Value:
-          stringValue: A
-          floatValue: 0.000001
-        Type: 13
-    - Name: Color
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 74693c8e-ecfb-4eb2-b04d-95b76d75ecd5
-      XPosition: 385
-      YPosition: 305
-      SizeX: 100
-      SizeY: 92
-      Inputs:
-      - Guid: 3d17e6d6-04f1-428f-8f79-aa2c8226e056
-        IsWarm: 1
-        Type: 
-        Description: R
-      - Guid: 7265cf67-49ae-4a10-8f88-2558ec01b10c
-        IsWarm: 1
-        Type: 
-        Description: G
-      - Guid: c2479af8-f465-4527-9012-57646d63c680
-        IsWarm: 1
-        Type: 
-        Description: B
-      - Guid: e89cfb5c-de70-493f-b1c8-689bc187c920
-        IsWarm: 1
-        Type: 
-        Description: A
-      Outputs:
-      - Guid: 1e1d3100-ca86-4338-83e6-74c16278adbb
-        IsWarm: 0
-        Type: 
-        Description: Color[R][G][B][A]
-      AttributesData:
-      - Value:
-          stringValue: R
-          floatValue: 0.000001
-        Type: 10
-      - Value:
-          stringValue: G
-          floatValue: 0.000001
-        Type: 11
-      - Value:
-          stringValue: B
-          floatValue: 0.000001
-        Type: 12
-      - Value:
-          stringValue: A
-          floatValue: 0.000001
-        Type: 13
-    - Name: GetComponent
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: a117216a-d006-4e08-95f7-e63bc68543e9
-      XPosition: 187
-      YPosition: 84
-      SizeX: 100
-      SizeY: 56
-      Inputs:
-      - Guid: ffef6d01-3ab5-4ef7-8b08-3a15aa16ec6b
-        IsWarm: 1
-        Type: Object
-        Description: Object which contain the component
-      - Guid: f0015819-9684-4a11-b221-5e14d0852201
-        IsWarm: 1
-        Type: 
-        Description: Send the component
-      Outputs:
-      - Guid: a3646737-4b37-4e7b-9ead-6a9b2819d149
-        IsWarm: 0
-        Type: Object
-        Description: The Component
-      AttributesData:
-      - Value:
-          stringValue: ComponentName
+          stringValue: I am an exported constellation
           floatValue: 0.000001
         Type: 1
-    - Name: MouseButtonDown
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 9ff9ba20-ba5c-4d48-bccd-14ee90ad63ee
-      XPosition: 185
-      YPosition: 301
-      SizeX: 100
-      SizeY: 38
-      Inputs: []
-      Outputs:
-      - Guid: 3ab121fb-6df8-440a-a298-d85cc303b036
-        IsWarm: 1
-        Type: 
-        Description: 1 on mouse button down else 0
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-    - Name: Update
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 4289580b-ddd5-46c3-819e-990bd990a97c
-      XPosition: 340
-      YPosition: 356
-      SizeX: 50
-      SizeY: 38
-      Inputs: []
-      Outputs:
-      - Guid: 4a267c7b-03fc-4dec-b585-c9555a79e1c6
-        IsWarm: 1
-        Type: 
-        Description: Ray on update
-      AttributesData: []
-    - Name: Quit
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: c85f3fca-3816-4e18-8f9e-72aff74ba349
-      XPosition: 499
-      YPosition: 409
-      SizeX: 50
-      SizeY: 38
-      Inputs:
-      - Guid: 2d89ea04-ead6-418a-901d-c79c32c4953c
-        IsWarm: 0
-        Type: 
-        Description: Quit application
-      Outputs: []
-      AttributesData: []
-    - Name: AddTorque
-      Namespace: Physics
-      OverrideDisplayedName: 
-      Guid: e70623e7-d5b6-4baf-ba3a-882cb9ebb022
-      XPosition: 439
-      YPosition: 433
-      SizeX: 50
-      SizeY: 38
-      Inputs:
-      - Guid: 36b0a49a-6966-4ee9-8171-36b8e256f8a9
-        IsWarm: 0
-        Type: 
-        Description: Vec3 World relative
-      Outputs: []
-      AttributesData: []
-    - Name: ObjectAttribute
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 09c13119-474e-4c9c-83c7-407b3ec89297
-      XPosition: 292
-      YPosition: 254
-      SizeX: 100
-      SizeY: 38
-      Inputs: []
-      Outputs:
-      - Guid: 28719044-c525-4a37-a444-b3473b31cc07
-        IsWarm: 1
-        Type: Object
-        Description: Unity object
-      AttributesData:
-      - Value:
-          stringValue: Default
-          floatValue: 0.000001
-        Type: 1
-    - Name: KeyDown
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 1933ea1d-36d4-43e5-a5af-9f60bda41261
-      XPosition: 504
-      YPosition: 96
-      SizeX: 100
-      SizeY: 38
-      Inputs: []
-      Outputs:
-      - Guid: ce297cf9-00d9-4323-a3f3-d13c25d07a90
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      AttributesData:
-      - Value:
-          stringValue: 
-          floatValue: 0.000001
-        Type: 1
-    - Name: DeltaTime
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: 95832362-9d15-4144-9e40-d33353190cae
-      XPosition: 79
-      YPosition: 89
-      SizeX: 50
-      SizeY: 38
-      Inputs:
-      - Guid: 021b46bb-4a7c-4405-b7c5-ddb6f451685f
-        IsWarm: 1
-        Type: 
-        Description: Value
-      Outputs:
-      - Guid: f49d93ef-da13-40f0-9305-361a76c7bafb
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
-      AttributesData: []
     Links:
     - Input:
-        Guid: 9c35c9c7-0097-4606-9205-c04c9111c35d
+        Guid: 2bbdafea-dd5f-4a0c-9907-617fb83d1d0d
         IsWarm: 0
         Type: 
         Description: value to log in console
       Output:
-        Guid: e7cbc6b6-4542-4d4e-9ff7-a1c478085e8e
+        Guid: a139ca8a-568b-4376-acf6-f68c38f7ef7d
         IsWarm: 1
         Type: 
-        Description: The value
-      outputPositionY: 0
-    - Input:
-        Guid: e7bb1248-8ae5-4408-b979-d119198f67c4
-        IsWarm: 1
-        Type: 
-        Description: A
-      Output:
-        Guid: f49d93ef-da13-40f0-9305-361a76c7bafb
-        IsWarm: 0
-        Type: 
-        Description: Value x Delta time
+        Description: The Word
       outputPositionY: 0
     Name: 
   IsInstance: 0
