@@ -332,7 +332,6 @@ namespace ConstellationEditor {
         }
 
         public ConstellationScript Recover (string _path) {
-            Debug.Log("Recover");
             ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (_path, typeof (ConstellationScript));
             Script = t;
             if (t != null) {
@@ -346,12 +345,10 @@ namespace ConstellationEditor {
 
         public void SetSliderX (float position) {
             EditorData.SliderX = position;
-            SaveEditorData ();
         }
 
         public void SetSliderY (float position) {
             EditorData.SliderY = position;
-            SaveEditorData ();
         }
 
         public float GetLastEditorScrollPositionX () {
@@ -362,9 +359,17 @@ namespace ConstellationEditor {
             return EditorData.SliderY;
         }
 
+        public void SaveLite()
+        {
+            if (Script)
+                EditorUtility.SetDirty(Script);
+        }
+
         public void Save () {
             if (Script)
                 EditorUtility.SetDirty (Script);
+
+            SaveEditorData();
             AssetDatabase.SaveAssets ();
             AssetDatabase.Refresh ();
         }

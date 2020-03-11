@@ -2,6 +2,9 @@ using UnityEngine;
 namespace ConstellationEditor {
     [System.Serializable]
     public class ConstellationsTabPanel {
+
+        const int panelHeight = 35;
+
         private string removeNode = "";
 
         public ConstellationsTabPanel () {
@@ -37,6 +40,11 @@ namespace ConstellationEditor {
                 GUI.color = Color.white;
                 GUILayout.EndHorizontal();
             return null;
+        }
+
+        public int GetHeight()
+        {
+            return panelHeight;
         }
 
         public string ConstellationToRemove () {

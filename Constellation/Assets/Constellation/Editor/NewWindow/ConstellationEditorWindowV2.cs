@@ -43,6 +43,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     void NodeAdded(string _nodeName, string _namespace)
     {
         NodeWindow.AddNode(_nodeName, _namespace);
+        ScriptDataService.SaveLite();
     }
 
     void OnGUI()
@@ -51,8 +52,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         {
             StartPanel.Draw(this);
             return;
-        } else
-        {
+        } else {
             TopBarPanel.Draw(this, this, this, this);
             var constellationName = NodeTabPanel.Draw(ScriptDataService.currentPath.ToArray(), null);
             if (constellationName != null)
@@ -60,10 +60,23 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             var constellationToRemove = NodeTabPanel.ConstellationToRemove();
             ScriptDataService.CloseOpenedConstellation(constellationToRemove);
             EditorGUILayout.BeginHorizontal();
-            NodeWindow.Draw(RequestRepaint, position.width, position.height);
+            if (NodeWindow == null)
+                SetupNodeWindow();
+            NodeWindow.UpdateSize(position.width, position.height - NodeTabPanel.GetHeight());
+            NodeWindow.Draw(RequestRepaint, OnEditorEvent);
             NodeSelector.Draw(300, position.height, NodeAdded);
             EditorGUILayout.EndHorizontal();
         }
+    }
+
+    void OnEditorEvent(ConstellationEditorCallbacks.EditorEventType eventType)
+    {
+        //ScriptDataService.SaveLite();
+    }
+
+    void SetupNodeWindow()
+    {
+        NodeWindow = new NodeWindow(editorPath, ConstellationScript);
     }
 
     void RequestRepaint()
@@ -74,7 +87,8 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public void Open(string _path)
     {
         ConstellationScript = ScriptDataService.OpenConstellation(_path);
-        NodeWindow = new NodeWindow(editorPath, ConstellationScript);
+        SetupNodeWindow();
+        ScriptDataService.Save();
     }
 
     public void Save()
@@ -85,7 +99,8 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public void New()
     {
         ConstellationScript = ScriptDataService.New();
-        NodeWindow = new NodeWindow(editorPath, ConstellationScript);
+        SetupNodeWindow();
+        RequestRepaint();
     }
 
     protected bool IsConstellationSelected()

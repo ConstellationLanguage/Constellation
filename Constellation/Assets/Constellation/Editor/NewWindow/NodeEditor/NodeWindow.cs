@@ -4,7 +4,6 @@ using UnityEngine;
 using Constellation;
 
 
-[System.Serializable]
 public class NodeWindow
 {
     public List<NodeView> Nodes;
@@ -15,10 +14,15 @@ public class NodeWindow
     public ConstellationScript ConstellationScript;
     private NodeView SetOnTop;
     bool mousePressed = false;
+    bool mouseButtonDown = false;
     Vector2 mouseClickStartPosition = Vector2.zero;
     public Vector2 ScrollPosition = Vector2.zero;
-
-    private enum EventsScope { Generic, Resizing, Dragging };
+    public float windowSizeX;
+    public float windowSizeY;
+    public float farNodeX = 0;
+    public float farNodeY = 0;
+    public Vector2 editorScrollSize;
+    private enum EventsScope { Generic, Resizing, Dragging, EditingAttributes };
     private EventsScope currentEventScope = EventsScope.Generic;
     private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
 
@@ -47,17 +51,14 @@ public class NodeWindow
 
     public void AddNode(string nodeName, string nodeNamespace)
     {
-        const float nodeSize = 100;
         var newNode = NodeFactory.GetNode(nodeName, nodeNamespace);
         var nodeData = new NodeData(newNode);
-        nodeData.SizeX = nodeSize;
-        nodeData.SizeY = nodeSize;
         nodeData = ConstellationScript.AddNode(nodeData);
         nodeData.XPosition = 0;
         nodeData.YPosition = 0;
-        nodeData.SizeX = 100;
-        nodeData.SizeY = 100;
-        Nodes.Add(new NodeView(nodeData));
+        var newNodeView = new NodeView(nodeData);
+        Nodes.Add(newNodeView);
+        newNodeView.UpdateNodeSize(0, 0);
     }
 
     public void RemoveNode(NodeData node)
@@ -74,10 +75,21 @@ public class NodeWindow
         }
     }
 
-    public void Draw(ConstellationEditorCallbacks.RequestRepaint requestRepaint, float windowSizeX, float windowSiseY)
+    public void UpdateSize(float _windowSizeX, float _windowSizeY)
     {
-        ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX - 300), GUILayout.Height(windowSiseY));
-        background.DrawBackgroundGrid(windowSizeX, windowSiseY, 0, 0, Color.white);
+        windowSizeX = _windowSizeX;
+        windowSizeY = _windowSizeY;
+    }
+
+    public void Draw(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents callback)
+    {
+        mouseButtonDown = false;
+        //scroll bar
+        ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX - 300), GUILayout.Height(windowSizeY));
+        GUILayoutOption[] options = { GUILayout.Width(editorScrollSize.x), GUILayout.Height(editorScrollSize.y) };
+        editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
+        EditorGUILayout.LabelField("", options);
+        background.DrawBackgroundGrid(windowSizeX, windowSizeY, 0, 0, Color.white);
         Event e = Event.current;
         var mouseJustRelease = false;
         if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)
@@ -89,19 +101,23 @@ public class NodeWindow
         {
             mouseClickStartPosition = e.mousePosition;
             mousePressed = true;
+            mouseButtonDown = true;
         }
 
         switch (currentEventScope)
         {
             case EventsScope.Generic:
-                UpdateGenericEvents(requestRepaint, e);
+                UpdateGenericEvents(requestRepaint, callback, e);
                 break;
             case EventsScope.Resizing:
-                UpdateResizeEvents(requestRepaint, e);
+                UpdateResizeEvents(requestRepaint, callback, e);
                 break;
             case EventsScope.Dragging:
-                UpdateDragEvents(requestRepaint, e);
+                UpdateDragEvents(requestRepaint, callback, e);
                 break;
+            case EventsScope.EditingAttributes:
+                break;
+
         }
 
         //Needs to be called after the event scope otherwise quit button event is overriden by the node drag event
@@ -125,11 +141,14 @@ public class NodeWindow
         for (int i = Nodes.Count - 1; i >= 0; i--)
         {
             Nodes[i].DrawNode(e);
+            farNodeX = Mathf.Max(Nodes[i].GetPositionX(), farNodeX);
+            farNodeY = Mathf.Max(Nodes[i].GetPositionY(), farNodeY);
         }
     }
 
-    private void UpdateResizeEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, Event e)
+    private void UpdateResizeEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
     {
+        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeResized);
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
             SelectedNodes[i].UpdateNodeSize((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodeSizeX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodeSizeY());
@@ -137,8 +156,9 @@ public class NodeWindow
         requestRepaint();
     }
 
-    private void UpdateDragEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, Event e)
+    private void UpdateDragEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
     {
+        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeMoved);
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
             SelectedNodes[i].SetPosition((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodePositionX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodePositionY());
@@ -146,7 +166,7 @@ public class NodeWindow
         requestRepaint();
     }
 
-    private void UpdateGenericEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, Event e)
+    private void UpdateGenericEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
     {
         for (var i = 0; i < Nodes.Count; i++)
         {
@@ -154,6 +174,8 @@ public class NodeWindow
             var deleteRect = Nodes[i].GetDeleteRect();
             var questionRect = Nodes[i].GetQuestionRect();
             var resizeRect = Nodes[i].GetResizeRect();
+
+
 
             if (nodeRect.Contains(e.mousePosition) && mousePressed)
             {
@@ -174,36 +196,49 @@ public class NodeWindow
                 {
                     var inputRect = Nodes[i].GetInputRect(j);
                     if(inputRect.Contains(e.mousePosition))
-                        Links.AddLinkFromInput(Nodes[i].GetInputs()[j]);
+                        Links.AddLinkFromInput(Nodes[i].GetInputs()[j], editorEvents);
                 }
 
                 for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
                 {
                     var outputRect = Nodes[i].GetOuptputRect(j);
                     if(outputRect.Contains(e.mousePosition))
-                        Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j]);
+                        Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j], editorEvents);
                 }
 
-                if (deleteRect.Contains(e.mousePosition))
+                if (deleteRect.Contains(e.mousePosition) && mouseButtonDown)
                 {
+
                     RemoveNode(Nodes[i].NodeData);
                     return;
                 }
 
-                if (questionRect.Contains(e.mousePosition))
+                if (questionRect.Contains(e.mousePosition) && mouseButtonDown)
                 {
                     //Debug.Log("Help");
                     return;
                 }
 
-                if (resizeRect.Contains(e.mousePosition))
+                for(var j = 0; j < Nodes[i].GetAttributeDatas().Length; j++)
                 {
-                    currentEventScope = EventsScope.Resizing;
+                    var attributeRect = Nodes[i].GetAttributeRect(j);
+                    if (attributeRect.Contains(e.mousePosition)) {
+                        currentEventScope = EventsScope.EditingAttributes;
+                        return;
+                    }
+                }
+
+                if (mouseButtonDown)
+                {
+                    if (resizeRect.Contains(e.mousePosition))
+                    {
+                        currentEventScope = EventsScope.Resizing;
+                        return;
+                    }
+                    SetNodeToFirst(Nodes[i]);
+                    currentEventScope = EventsScope.Dragging;
                     return;
                 }
-                SetNodeToFirst(Nodes[i]);
-                currentEventScope = EventsScope.Dragging;
-                return;
             }
         }
         if (mousePressed)

@@ -3,7 +3,6 @@ using Constellation;
 using UnityEngine;
 using UnityEditor;
 
-[System.Serializable]
 public class NodeView
 {
     public NodeData NodeData;
@@ -268,10 +267,7 @@ public class NodeView
             {
                 EditorGUIUtility.labelWidth = 25;
                 EditorGUIUtility.fieldWidth = 10;
-                var leftOffset = inputSize + leftAttributeMargin;
-                var rightOffset = rightAttributeMargin + outputSize + leftOffset;
-                var topOffset = 3;
-                var attributeRect = new Rect(NodeData.XPosition + leftOffset, NodeData.YPosition + ((AtrributeSize.height + attributeSpacing) * i) + nodeTitleHeight - topOffset, NodeData.SizeX - rightOffset, AtrributeSize.height);
+                var attributeRect = GetAttributeRect(i);
                 if (attribute.Value != null)
                 {
                     var currentAttributeValue = attribute.Value.GetString();
@@ -280,12 +276,19 @@ public class NodeView
                     {
                         /*if (currentAttributeValue != attribute.Value.GetString())
                             AttributeValueChanged();*/
-                        
                     }
                 }
                 i++;
             }
 
         }
+    }
+
+    public Rect GetAttributeRect(int attributeID)
+    {
+        var leftOffset = inputSize + leftAttributeMargin;
+        var rightOffset = rightAttributeMargin + outputSize + leftOffset;
+        var topOffset = 3;
+        return new Rect(NodeData.XPosition + leftOffset, NodeData.YPosition + ((AtrributeSize.height + attributeSpacing) * attributeID) + nodeTitleHeight - topOffset, NodeData.SizeX - rightOffset, AtrributeSize.height);
     }
 }

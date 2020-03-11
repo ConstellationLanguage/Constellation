@@ -4,7 +4,6 @@ using UnityEngine;
 using Constellation;
 using UnityEditor;
 
-[System.Serializable]
 public class LinksView
 {
     public ConstellationScript constellationScript;
@@ -48,13 +47,9 @@ public class LinksView
                 var i = 0;
                 foreach (InputData input in node.GetInputs())
                 {
-                    var centerInputPosition = node.YPosition + (NodeView.nodeTitleHeight) + ((NodeView.inputSize + NodeView.spacing) * i) + (NodeView.inputSize *0.5f);
                     if (link.Input.Guid == input.Guid)
                     {
-                        endLink = new Rect(node.XPosition,
-                           centerInputPosition,
-                            0,
-                            0);
+                        endLink = InputPosition(input);
                         break;
                     }
                     i++;
@@ -63,14 +58,10 @@ public class LinksView
                 var j = 0;
                 foreach (OutputData output in node.GetOutputs())
                 {
-                    var centerInputPosition = node.YPosition + (NodeView.nodeTitleHeight) + ((NodeView.outputSize + NodeView.spacing) * i) + (NodeView.outputSize * 0.5f);
                     if (link.Output.Guid == output.Guid)
                     {
                         var width = node.SizeX;
-                        startLink = new Rect(node.XPosition + width,
-                            centerInputPosition,
-                            0,
-                            0);
+                        startLink = OutputPosition(output);
                         break;
                     }
                     j++;
@@ -120,13 +111,13 @@ public class LinksView
     {
         foreach (NodeData node in constellationScript.GetNodes())
         {
-            var i = 1;
+            var i = 0;
             foreach (InputData input in node.GetInputs())
             {
                 if (_input.Guid == input.Guid)
                 {
                     return new Rect(node.XPosition,
-                        node.YPosition + (NodeView.nodeTitleHeight * 0.5f) + ((NodeView.inputSize + NodeView.spacing) * i),
+                        node.YPosition + NodeView.nodeTitleHeight + ((NodeView.inputSize + NodeView.spacing) * i) + (NodeView.inputSize * 0.5f),
                         0,
                         0);
                 }
@@ -140,13 +131,13 @@ public class LinksView
     {
         foreach (NodeData node in constellationScript.GetNodes())
         {
-            var j = 1;
+            var j = 0;
             foreach (OutputData output in node.GetOutputs())
             {
                 if (_output.Guid == output.Guid)
                 {
                     return new Rect(node.XPosition + node.SizeX,
-                        node.YPosition + (NodeView.nodeTitleHeight * 0.5f) + ((NodeView.inputSize + NodeView.spacing) * j),
+                        node.YPosition + NodeView.nodeTitleHeight + ((NodeView.outputSize + NodeView.spacing) * j) + (NodeView.outputSize * 0.5f),
                         0,
                         0);
                 }
@@ -233,24 +224,24 @@ public class LinksView
         }
     }
 
-    public void AddLinkFromOutput(OutputData _output)
+    public void AddLinkFromOutput(OutputData _output, ConstellationEditorCallbacks.EditorEvents editorEvents)
     {
         if (selectedInput != null)
-            CreateLink(selectedInput, _output);
+            CreateLink(selectedInput, _output, editorEvents);
         else if (selectedOutput == null)
             selectedOutput = _output;
 
     }
 
-    public void AddLinkFromInput(InputData _input)
+    public void AddLinkFromInput(InputData _input, ConstellationEditorCallbacks.EditorEvents editorEvents)
     {
         if (selectedOutput != null)
-            CreateLink(_input, selectedOutput);
+            CreateLink(_input, selectedOutput, editorEvents);
         else if (selectedInput == null)
             selectedInput = _input;
     }
 
-    public void CreateLink(InputData _input, OutputData _output)
+    public void CreateLink(InputData _input, OutputData _output, ConstellationEditorCallbacks.EditorEvents editorEvents)
     {
         if (isInstance)
             constellationScript.IsDifferentThanSource = true;
@@ -261,6 +252,7 @@ public class LinksView
         if (constellationScript.IsLinkValid(newLink))
         {
             constellationScript.AddLink(newLink);
+            editorEvents(ConstellationEditorCallbacks.EditorEventType.LinkDeleted);
             //OnLinkAdded(newLink);
             //undoable.AddAction();
             //GUI.RequestRepaint();
