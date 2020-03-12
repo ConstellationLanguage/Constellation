@@ -1,2 +1,0 @@
-  at ConstellationEditor.ConstellationEditorDataService.Recover (System.String _path) [0x00058] in C:\dev\ConstellationRepos\ConstellationMainRepo\Constellation\Assets\Constellation\Editor\Scripts\EditorData\ConstellationEditorDataService.cs:328 
-  at ConstellationEditor.ConstellationBaseWindow.Recover () [0x0004c] in C:\dev\ConstellationRepos\ConstellationMainRepo\Constellation\Assets\Constellation\Editor\Scripts\ConstellationBaseWindow.cs:52 

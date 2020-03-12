@@ -208,11 +208,6 @@ namespace ConstellationEditor {
             }
             AssetDatabase.CreateAsset (newScript, path);
             newScript.Set (Script.script);
-
-            if (newScript)
-                EditorUtility.SetDirty (newScript);
-            AssetDatabase.SaveAssets ();
-            AssetDatabase.Refresh ();
             Save ();
         }
 
@@ -221,7 +216,7 @@ namespace ConstellationEditor {
                 return false;
             EditorData.LastOpenedConstellationPath.Remove (path);
             currentPath.Remove (path);
-            SaveEditorData ();
+            //Script = null;
             return true;
         }
 
@@ -257,10 +252,7 @@ namespace ConstellationEditor {
                 foreach (var path in currentPath) {
                     ConstellationScript t = (ConstellationScript) AssetDatabase.LoadAssetAtPath (path, typeof (ConstellationScript));
                     if (t == null)
-                        throw new ConstellationScriptDataDoesNotExist ();
-                    if (t.IsInstance) {
-                        constellationsToRemove.Add (path);
-                    }
+                        constellationsToRemove.Add(path);
                 }
 
                 foreach (var constellationToRemove in constellationsToRemove) {

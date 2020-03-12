@@ -14,25 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: ObjectAttribute
+    - Name: Quit
       Namespace: Unity
       OverrideDisplayedName: 
-      Guid: 7618a04c-e492-4fe7-9546-14b39c677dc7
-      XPosition: 135
-      YPosition: 115
-      SizeX: 166
-      SizeY: 50
-      Inputs: []
-      Outputs:
-      - Guid: becdd4c4-4061-49db-8955-eda710a802ca
-        IsWarm: 1
-        Type: Object
-        Description: Unity object
-      AttributesData:
-      - Value:
-          stringValue: Default
-          floatValue: 0.000001
-        Type: 1
+      Guid: f533ed8c-a2a2-4531-b67a-d57a258e3872
+      XPosition: 365
+      YPosition: 145
+      SizeX: 50
+      SizeY: 40
+      Inputs:
+      - Guid: bde12620-c555-4315-ae14-5963e4bfe9ce
+        IsWarm: 0
+        Type: 
+        Description: Quit application
+      Outputs: []
+      AttributesData: []
     Links: []
     Name: 
   IsInstance: 0
