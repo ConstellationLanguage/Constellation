@@ -139,6 +139,7 @@ public class NodeWindow
         }
         DrawNodes(e);
         Links.DrawLinks(requestRepaint);
+        DrawDescriptions(e);
         EditorGUILayout.EndScrollView();
         if (Event.current.button == 2)
         {
@@ -215,6 +216,26 @@ public class NodeWindow
         }
     }
 
+    private void DrawDescriptions(Event e)
+    {
+        for (var i = 0; i < Nodes.Count; i++)
+        {
+            for (var j = 0; j < Nodes[i].GetInputs().Length; j++)
+            {
+                var inputRect = Nodes[i].GetInputRect(j);
+                if (inputRect.Contains(e.mousePosition))
+                    GUI.Box(new Rect(e.mousePosition.x - 110, e.mousePosition.y, 100, 20), Nodes[i].GetInputs()[j].Description);
+            }
+
+            for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
+            {
+                var outputRect = Nodes[i].GetOuptputRect(j);
+                if (outputRect.Contains(e.mousePosition))
+                    GUI.Box(new Rect(e.mousePosition.x + 10, e.mousePosition.y, 100, 20), Nodes[i].GetOutputs()[j].Description);
+            }
+        }
+    }
+
     private void UpdateGenericEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
     {
         for (var i = 0; i < Nodes.Count; i++)
@@ -224,71 +245,77 @@ public class NodeWindow
             var questionRect = Nodes[i].GetQuestionRect();
             var resizeRect = Nodes[i].GetResizeRect();
 
-
-
-            if (nodeRect.Contains(e.mousePosition) && mousePressed)
+            if (nodeRect.Contains(e.mousePosition))
             {
-                requestRepaint();
-                if (e.control)
+                if (mousePressed)
                 {
-                    //Debug.Log("Add node to selection");
-                    SelectedNodes.Add(Nodes[i]);
-                    SetNodeToFirst(Nodes[i]);
-                }
-                else
-                {
-                    SelectedNodes.Clear();
-                    SelectedNodes.Add(Nodes[i]);
-                }
-
-                for(var j = 0; j < Nodes[i].GetInputs().Length; j++)
-                {
-                    var inputRect = Nodes[i].GetInputRect(j);
-                    if(inputRect.Contains(e.mousePosition))
-                        Links.AddLinkFromInput(Nodes[i].GetInputs()[j], editorEvents);
-                }
-
-                for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
-                {
-                    var outputRect = Nodes[i].GetOuptputRect(j);
-                    if(outputRect.Contains(e.mousePosition))
-                        Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j], editorEvents);
-                }
-
-                if (deleteRect.Contains(e.mousePosition) && mouseButtonDown)
-                {
-
-                    RemoveNode(Nodes[i].NodeData);
-                    return;
-                }
-
-                if (questionRect.Contains(e.mousePosition) && mouseButtonDown)
-                {
-                    editorEvents(ConstellationEditorCallbacks.EditorEventType.HelpClicked, Nodes[i].GetName());
-                    return;
-                }
-
-                for(var j = 0; j < Nodes[i].GetAttributeDatas().Length; j++)
-                {
-                    var attributeRect = Nodes[i].GetAttributeRect(j);
-                    if (attributeRect.Contains(e.mousePosition)) {
-                        currentEventScope = EventsScope.EditingAttributes;
-                        return;
-                    }
-                }
-
-                if (mouseButtonDown)
-                {
-                    if (resizeRect.Contains(e.mousePosition))
+                    requestRepaint();
+                    if (e.control)
                     {
-                        currentEventScope = EventsScope.Resizing;
+                        //Debug.Log("Add node to selection");
+                        SelectedNodes.Add(Nodes[i]);
+                        SetNodeToFirst(Nodes[i]);
+                    }
+                    else
+                    {
+                        SelectedNodes.Clear();
+                        SelectedNodes.Add(Nodes[i]);
+                    }
+
+                    for (var j = 0; j < Nodes[i].GetInputs().Length; j++)
+                    {
+                        var inputRect = Nodes[i].GetInputRect(j);
+                        if (inputRect.Contains(e.mousePosition))
+                            Links.AddLinkFromInput(Nodes[i].GetInputs()[j], editorEvents);
+                    }
+
+                    for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
+                    {
+                        var outputRect = Nodes[i].GetOuptputRect(j);
+                        if (outputRect.Contains(e.mousePosition))
+                            Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j], editorEvents);
+                    }
+
+                    if (deleteRect.Contains(e.mousePosition) && mouseButtonDown)
+                    {
+
+                        RemoveNode(Nodes[i].NodeData);
                         return;
                     }
-                    SetNodeToFirst(Nodes[i]);
-                    currentEventScope = EventsScope.Dragging;
-                    return;
+
+                    if (questionRect.Contains(e.mousePosition) && mouseButtonDown)
+                    {
+                        editorEvents(ConstellationEditorCallbacks.EditorEventType.HelpClicked, Nodes[i].GetName());
+                        return;
+                    }
+
+                    for (var j = 0; j < Nodes[i].GetAttributeDatas().Length; j++)
+                    {
+                        var attributeRect = Nodes[i].GetAttributeRect(j);
+                        if (attributeRect.Contains(e.mousePosition))
+                        {
+                            currentEventScope = EventsScope.EditingAttributes;
+                            return;
+                        }
+                    }
+
+                    if (mouseButtonDown)
+                    {
+                        if (resizeRect.Contains(e.mousePosition))
+                        {
+                            currentEventScope = EventsScope.Resizing;
+                            return;
+                        }
+                        SetNodeToFirst(Nodes[i]);
+                        currentEventScope = EventsScope.Dragging;
+                        return;
+                    }
                 }
+            } else
+            {
+
             }
+
         }
         if (mousePressed)
         {

@@ -13,22 +13,7 @@ MonoBehaviour:
   m_Name: NewConstellation
   m_EditorClassIdentifier: 
   script:
-    Nodes:
-    - Name: Quit
-      Namespace: Unity
-      OverrideDisplayedName: 
-      Guid: f533ed8c-a2a2-4531-b67a-d57a258e3872
-      XPosition: 365
-      YPosition: 145
-      SizeX: 50
-      SizeY: 40
-      Inputs:
-      - Guid: bde12620-c555-4315-ae14-5963e4bfe9ce
-        IsWarm: 0
-        Type: 
-        Description: Quit application
-      Outputs: []
-      AttributesData: []
+    Nodes: []
     Links: []
     Name: 
   IsInstance: 0
