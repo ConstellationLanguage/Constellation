@@ -13,6 +13,7 @@ public class NodeWindow
     public NodesFactory NodeFactory;
     public ConstellationScript ConstellationScript;
     private NodeView SetOnTop;
+    private bool isInstance;
     bool mousePressed = false;
     bool mouseButtonDown = false;
     Vector2 mouseClickStartPosition = Vector2.zero;
@@ -175,6 +176,43 @@ public class NodeWindow
             SelectedNodes[i].SetPosition((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodePositionX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodePositionY());
         }
         requestRepaint();
+    }
+
+    public void Update(Constellation.Constellation constellation)
+    {
+        foreach (var node in constellation.GetNodes())
+        {
+            foreach (var nodeData in Nodes)
+            {
+                if (node.Guid == nodeData.NodeData.Guid)
+                {
+                    if (!nodeData.IsAttributeValueChanged())
+                    {
+                        for (var i = 0; i < node.GetAttributes().Length; i++)
+                        {
+                            nodeData.NodeData.AttributesData[i].Value.Set(node.GetAttributes()[i].Value.GetString());
+                        }
+
+                    }
+                    else
+                    {
+                        for (var i = 0; i < node.GetAttributes().Length; i++)
+                        {
+                            if (isInstance)
+                                ConstellationScript.IsDifferentThanSource = true;
+                            node.GetAttributes()[i].Value.Set(nodeData.NodeData.AttributesData[i].Value);
+                            node.NodeType.Receive(nodeData.NodeData.AttributesData[i].Value, new Constellation.Input("0000-0000-0000-0000", 999, true, "editor", "none"));
+                            if (node.NodeType is IAttributeUpdate)
+                            {
+                                IAttributeUpdate needAttributeUpdate = node.NodeType as IAttributeUpdate;
+                                needAttributeUpdate.OnAttributesUpdate();
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
     }
 
     private void UpdateGenericEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)

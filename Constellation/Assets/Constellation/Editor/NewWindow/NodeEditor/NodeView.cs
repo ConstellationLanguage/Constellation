@@ -20,6 +20,7 @@ public class NodeView
     public const float leftAttributeMargin = 5;
     public const float rightAttributeMargin = 5;
     public const float attributeSpacing = 2;
+    bool isAttributeValueChanged = false;
     Rect AtrributeSize = new Rect(0, 0, 88, 16);
 
     public NodeView(NodeData node)
@@ -275,8 +276,8 @@ public class NodeView
                     attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value);
                     if (attribute.Value != null)
                     {
-                        /*if (currentAttributeValue != attribute.Value.GetString())
-                            AttributeValueChanged();*/
+                        if (currentAttributeValue != attribute.Value.GetString())
+                            AttributeValueChanged();
                     }
                 }
                 i++;
@@ -296,5 +297,17 @@ public class NodeView
     public float RoundToNearest(float a)
     {
         return a = a - (a % 5f);
+    }
+
+    public bool IsAttributeValueChanged()
+    {
+        var changeState = isAttributeValueChanged;
+        isAttributeValueChanged = false;
+        return changeState;
+    }
+
+    private void AttributeValueChanged()
+    {
+        isAttributeValueChanged = true;
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
-  m_Name: NewConstellation2
+  m_Name: NewConstellation2(Instance)
   m_EditorClassIdentifier: 
   script:
     Nodes:
@@ -21,7 +21,7 @@ MonoBehaviour:
       XPosition: 505
       YPosition: 150
       SizeX: 50
-      SizeY: 38
+      SizeY: 40
       Inputs:
       - Guid: 2bbdafea-dd5f-4a0c-9907-617fb83d1d0d
         IsWarm: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
       Guid: c6581a74-c9f5-4c92-8a56-4f3b0a349efa
       XPosition: 200
       YPosition: 150
-      SizeX: 272
-      SizeY: 38
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: a139ca8a-568b-4376-acf6-f68c38f7ef7d
@@ -54,7 +54,7 @@ MonoBehaviour:
       Guid: 003c2737-4471-40c4-9498-70b75b72ef26
       XPosition: 360
       YPosition: 305
-      SizeX: 103
+      SizeX: 100
       SizeY: 80
       Inputs:
       - Guid: 7f1a3461-3d3a-4a41-a753-10bba68727a6
@@ -93,8 +93,8 @@ MonoBehaviour:
       Guid: 85d05078-451b-4782-9578-225dfb016133
       XPosition: 360
       YPosition: 395
-      SizeX: 103
-      SizeY: 68
+      SizeX: 100
+      SizeY: 60
       Inputs:
       - Guid: 4d9eac4f-4a48-4632-8e10-f6b966f658f2
         IsWarm: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
       XPosition: 210
       YPosition: 320
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 9dcdd4cb-0e5a-4407-a51d-9b367952b80a
@@ -131,7 +131,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: -0.88
         Type: 0
     - Name: Value
       Namespace: CoreNodes
@@ -140,7 +140,7 @@ MonoBehaviour:
       XPosition: 210
       YPosition: 360
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 7a25de59-e7e5-40a7-ba2b-cf142bb37b8a
@@ -186,7 +186,7 @@ MonoBehaviour:
       XPosition: 725
       YPosition: 325
       SizeX: 50
-      SizeY: 38
+      SizeY: 40
       Inputs:
       - Guid: a2d37993-8764-493e-a902-9976c34b3b03
         IsWarm: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
       XPosition: 210
       YPosition: 395
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 411d55c2-4106-4c64-a3c4-18931d935043
@@ -220,7 +220,7 @@ MonoBehaviour:
       XPosition: 210
       YPosition: 430
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: e3738b47-52ce-47e4-b9ed-0cbd0259fcca
@@ -238,7 +238,7 @@ MonoBehaviour:
       Guid: d916da4e-c105-4770-9068-2dbaade7acfb
       XPosition: 570
       YPosition: 465
-      SizeX: 71
+      SizeX: 50
       SizeY: 60
       Inputs:
       - Guid: bb9a2992-4fb6-4f26-983f-96e58557a576
@@ -302,10 +302,10 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: ced9e4d2-7213-4dea-8a65-b0c59d566935
-      XPosition: 295
-      YPosition: 465
+      XPosition: 265
+      YPosition: 475
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 52e29659-ee0f-4230-bb3e-b5ba5cfdcb4e
@@ -315,16 +315,16 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 1.48
+          floatValue: 1
         Type: 0
     - Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: 3b4c23c9-badc-456f-9bd4-335d36a32078
-      XPosition: 55
-      YPosition: 495
+      XPosition: 100
+      YPosition: 490
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 7eaed7c7-aa4d-445b-8e34-55f1351f7b6a
@@ -343,7 +343,7 @@ MonoBehaviour:
       XPosition: 260
       YPosition: 555
       SizeX: 100
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 25e0870e-6f61-4086-8cb1-0168ac6ed48c
@@ -362,7 +362,7 @@ MonoBehaviour:
       XPosition: 260
       YPosition: 495
       SizeX: 100
-      SizeY: 56
+      SizeY: 60
       Inputs:
       - Guid: 14aa56d3-dea1-4b83-94b0-36579904fea8
         IsWarm: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
       XPosition: -6
       YPosition: -138
       SizeX: 50
-      SizeY: 38
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 62518e96-e714-48ae-8b10-e85c2b8f26be
@@ -401,8 +401,8 @@ MonoBehaviour:
       Namespace: Unity
       OverrideDisplayedName: 
       Guid: 20b75c35-cc0e-42d0-9ffa-5f5789ce4c38
-      XPosition: 55
-      YPosition: 335
+      XPosition: 50
+      YPosition: 325
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -582,18 +582,7 @@ MonoBehaviour:
         Type: 
         Description: Current setted word
       outputPositionY: 0
-    - Input:
-        Guid: 14aa56d3-dea1-4b83-94b0-36579904fea8
-        IsWarm: 0
-        Type: 
-        Description: New var
-      Output:
-        Guid: 1737ed09-af7b-4879-b55a-859b0f013841
-        IsWarm: 1
-        Type: 
-        Description: 1 on key down else 0
-      outputPositionY: 0
     Name: 
-  IsInstance: 0
+  IsInstance: 1
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

@@ -13,7 +13,12 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public ConstellationEditorDataService ScriptDataService;
     public ConstellationScript ConstellationScript;
     public float nodeSelectorWidth = 300;
-    const float splitThickness = 3; 
+    const float splitThickness = 3;
+
+    //Runtime
+    public GameObject previousSelectedGameObject;
+    ConstellationEditable currentEditableConstellation;
+    
 
     // Add menu named "My Window" to the Window menu
     [MenuItem("Window/My Window")]
@@ -70,6 +75,56 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             DrawVerticalSplit();
             NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded);
             EditorGUILayout.EndHorizontal();
+        }
+    }
+
+    void Update()
+    {
+            if (Application.isPlaying && IsConstellationSelected())
+            {
+                RequestRepaint();
+                if (NodeWindow != null && previousSelectedGameObject != null && ScriptDataService.GetCurrentScript().IsInstance)
+                {
+                    NodeWindow.Update(currentEditableConstellation.GetConstellation());
+                }
+
+                var selectedGameObjects = Selection.gameObjects;
+                if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject || selectedGameObjects[0].activeInHierarchy == false)
+                    return;
+                else if (ScriptDataService.GetCurrentScript().IsInstance)
+                {
+                    ScriptDataService.CloseCurrentConstellationInstance();
+                    previousSelectedGameObject = selectedGameObjects[0];
+                    //RequestSetup();
+                }
+
+                var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationEditable>() as ConstellationEditable;
+                if (selectedConstellation != null)
+                {
+                    currentEditableConstellation = selectedConstellation;
+                    previousSelectedGameObject = selectedGameObjects[0];
+                    OpenConstellationInstance(selectedConstellation.GetConstellation(), AssetDatabase.GetAssetPath(selectedConstellation.GetConstellationData()));
+                    if (selectedConstellation.GetConstellation() == null)
+                    {
+                        return;
+                    }
+                    selectedConstellation.Initialize();
+                }
+
+                /*if (requestSetup == true)
+                {
+                    Setup();
+                    requestSetup = false;
+                }
+
+                if (requestCompilation == true)
+                {
+                    ParseScript();
+                    requestCompilation = false;
+                }*/
+            }else
+        {
+            previousSelectedGameObject = null;
         }
     }
 
@@ -130,6 +185,13 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         }
         else
             return false;
+    }
+
+    public void OpenConstellationInstance(Constellation.Constellation constellation, string path)
+    {
+        ScriptDataService.OpenConstellationInstance(constellation, path);
+        //CurrentEditedInstancesName = ScriptDataService.currentInstancePath.ToArray();
+        //Setup();
     }
 
     public void AddAction()
