@@ -98,7 +98,7 @@ namespace ConstellationEditor
 
         public void Save()
         {
-            scriptDataService.Save();
+            scriptDataService.SaveAll();
         }
 
         public void Export()

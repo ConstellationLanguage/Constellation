@@ -208,7 +208,7 @@ namespace ConstellationEditor {
             }
             AssetDatabase.CreateAsset (newScript, path);
             newScript.Set (Script.script);
-            Save ();
+            SaveAll ();
         }
 
         public bool CloseOpenedConstellation (string path) {
@@ -237,8 +237,8 @@ namespace ConstellationEditor {
             }
             EditorData.CurrentInstancePath = currentInstancePath;
             EditorUtility.SetDirty (EditorData);
-            AssetDatabase.SaveAssets ();
-            AssetDatabase.Refresh ();
+            //AssetDatabase.SaveAssets ();
+            //AssetDatabase.Refresh ();
         }
 
         public void RessetInstancesPath () {
@@ -365,19 +365,17 @@ namespace ConstellationEditor {
             return EditorData.SliderY;
         }
 
-        public void SaveLite()
+        public void SaveScripts()
         {
             if (Script)
                 EditorUtility.SetDirty(Script);
         }
 
-        public void Save () {
+        public void SaveAll () {
             if (Script)
                 EditorUtility.SetDirty (Script);
 
             SaveEditorData();
-            AssetDatabase.SaveAssets ();
-            AssetDatabase.Refresh ();
         }
     }
 }

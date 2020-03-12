@@ -52,7 +52,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     void NodeAdded(string _nodeName, string _namespace)
     {
         NodeWindow.AddNode(_nodeName, _namespace);
-        ScriptDataService.SaveLite();
+        ScriptDataService.SaveScripts();
     }
 
     void OnGUI()
@@ -154,7 +154,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     void OnEditorEvent(ConstellationEditorCallbacks.EditorEventType eventType)
     {
-        ScriptDataService.SaveLite();
+        ScriptDataService.SaveScripts();
     }
 
     void SetupNodeWindow()
@@ -176,7 +176,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     public void Save()
     {
-        ScriptDataService.SaveLite();
+        ScriptDataService.SaveScripts();
     }
 
     public void New()

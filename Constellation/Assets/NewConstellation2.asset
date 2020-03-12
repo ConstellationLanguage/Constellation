@@ -18,7 +18,7 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: d87e51cf-bc85-4740-ae7a-0c6f403b29e3
-      XPosition: 530
+      XPosition: 495
       YPosition: 150
       SizeX: 50
       SizeY: 38
@@ -33,7 +33,7 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: c6581a74-c9f5-4c92-8a56-4f3b0a349efa
-      XPosition: 160
+      XPosition: 155
       YPosition: 150
       SizeX: 272
       SizeY: 38
@@ -157,7 +157,7 @@ MonoBehaviour:
       OverrideDisplayedName: 
       Guid: 7618be6f-64b1-41f5-b170-abacaddb6cfa
       XPosition: 530
-      YPosition: 350
+      YPosition: 305
       SizeX: 100
       SizeY: 60
       Inputs:
