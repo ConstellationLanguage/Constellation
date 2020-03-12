@@ -160,7 +160,7 @@ public class NodeWindow
 
     private void UpdateResizeEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
     {
-        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeResized);
+        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeResized, "");
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
             SelectedNodes[i].UpdateNodeSize((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodeSizeX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodeSizeY());
@@ -170,7 +170,7 @@ public class NodeWindow
 
     private void UpdateDragEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
     {
-        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeMoved);
+        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeMoved, "");
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
             SelectedNodes[i].SetPosition((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodePositionX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodePositionY());
@@ -178,7 +178,7 @@ public class NodeWindow
         requestRepaint();
     }
 
-    public void Update(Constellation.Constellation constellation)
+    public void Update(Constellation.Constellation constellation, ConstellationEditorCallbacks.EditorEvents editorEvents)
     {
         foreach (var node in constellation.GetNodes())
         {
@@ -264,7 +264,7 @@ public class NodeWindow
 
                 if (questionRect.Contains(e.mousePosition) && mouseButtonDown)
                 {
-                    //Debug.Log("Help");
+                    editorEvents(ConstellationEditorCallbacks.EditorEventType.HelpClicked, Nodes[i].GetName());
                     return;
                 }
 

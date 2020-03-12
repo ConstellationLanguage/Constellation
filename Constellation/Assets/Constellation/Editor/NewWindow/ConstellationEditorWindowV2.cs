@@ -96,7 +96,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             RequestRepaint();
             if (NodeWindow != null && previousSelectedGameObject != null && ScriptDataService.GetCurrentScript().IsInstance)
             {
-                NodeWindow.Update(currentEditableConstellation.GetConstellation());
+                NodeWindow.Update(currentEditableConstellation.GetConstellation(), OnEditorEvent);
             }
 
             var selectedGameObjects = Selection.gameObjects;
@@ -152,9 +152,13 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         }
     }
 
-    void OnEditorEvent(ConstellationEditorCallbacks.EditorEventType eventType)
+    void OnEditorEvent(ConstellationEditorCallbacks.EditorEventType eventType, string eventMessage)
     {
         ScriptDataService.SaveScripts();
+        if(eventType == ConstellationEditorCallbacks.EditorEventType.HelpClicked)
+        {
+            OnHelpRequested(eventMessage);
+        }
     }
 
     void SetupNodeWindow()
@@ -261,19 +265,34 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             ResetInstances();
             Open(ScriptDataService.currentPath[0]);
         }
-        /*if (WindowInstance.scriptDataService.GetEditorData().ExampleData.openExampleConstellation && state == PlayModeStateChange.EnteredPlayMode)
+        if (ScriptDataService.GetEditorData().ExampleData.openExampleConstellation && state == PlayModeStateChange.EnteredPlayMode)
         {
             var nodeExampleLoader = new ExampleSceneLoader();
-            nodeExampleLoader.RunExample(WindowInstance.scriptDataService.GetEditorData().ExampleData.constellationName, WindowInstance.scriptDataService);
-            WindowInstance.scriptDataService.GetEditorData().ExampleData.openExampleConstellation = false;
+            nodeExampleLoader.RunExample(ScriptDataService.GetEditorData().ExampleData.constellationName, ScriptDataService);
+            ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = false;
         }
 
-        EditorApplication.playModeStateChanged -= OnPlayStateChanged;
+        /*EditorApplication.playModeStateChanged -= OnPlayStateChanged;
         WindowInstance.RequestRepaint();*/
     }
 
     private void OnDestroy()
     {
         EditorApplication.playModeStateChanged -= OnPlayStateChanged;
+    }
+
+    private void OnHelpRequested(string nodeName)
+    {
+        if (Application.isPlaying)
+        {
+            if (EditorUtility.DisplayDialog("Exit play mode", "You need to exit play mode in order to open a Constellation help.", "Continue", "Stop Playing"))
+                return;
+
+            EditorApplication.isPlaying = false;
+            return;
+        }
+        ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = true;
+        ScriptDataService.GetEditorData().ExampleData.constellationName = nodeName;
+        EditorApplication.isPlaying = true;
     }
 }

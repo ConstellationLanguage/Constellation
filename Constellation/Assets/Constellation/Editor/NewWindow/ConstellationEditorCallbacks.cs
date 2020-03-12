@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ConstellationEditorCallbacks
 {
-    public enum EditorEventType {NodeAdded, NodeMoved, LinkAdded, NodeDeleted, LinkDeleted, NodeResized}
+    public enum EditorEventType {NodeAdded, NodeMoved, LinkAdded, NodeDeleted, LinkDeleted, NodeResized, HelpClicked}
 
     public delegate void RequestRepaint();
-    public delegate void EditorEvents(EditorEventType editorEventType);
+    public delegate void EditorEvents(EditorEventType editorEventType, string message);
 }

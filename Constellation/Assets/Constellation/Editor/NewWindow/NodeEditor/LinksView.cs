@@ -252,7 +252,7 @@ public class LinksView
         if (constellationScript.IsLinkValid(newLink))
         {
             constellationScript.AddLink(newLink);
-            editorEvents(ConstellationEditorCallbacks.EditorEventType.LinkDeleted);
+            editorEvents(ConstellationEditorCallbacks.EditorEventType.LinkDeleted, "");
             //OnLinkAdded(newLink);
             //undoable.AddAction();
             //GUI.RequestRepaint();
