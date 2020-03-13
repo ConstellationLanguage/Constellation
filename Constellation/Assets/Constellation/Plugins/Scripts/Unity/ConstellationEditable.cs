@@ -1,10 +1,13 @@
 
+using UnityEngine;
 namespace Constellation {
     public class ConstellationEditable: ConstellationComponent {
         public void RemoveLink (LinkData linkData) {
+            
             Link linkToRemove = null;
             foreach (var link in constellation.Links) {
-                if (link.Input.Guid == linkData.Input.Guid && link.Output.Guid == linkData.Output.Guid) {
+                Debug.Log(linkData);
+                if (link.Guid == linkData.GUID) {
                     linkToRemove = link;
                 }
             }

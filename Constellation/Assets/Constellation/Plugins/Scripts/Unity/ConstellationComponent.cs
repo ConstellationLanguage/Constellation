@@ -64,7 +64,7 @@ namespace Constellation
                 if (input != null && output != null)
                     constellation.AddLink(new Link(constellation.GetInput(link.Input.Guid),
                         constellation.GetOutput(link.Output.Guid),
-                        constellation.GetOutput(link.Output.Guid).Type), "none");
+                        constellation.GetOutput(link.Output.Guid).Type, link.GUID));
             }
 
             SetUnityObject();

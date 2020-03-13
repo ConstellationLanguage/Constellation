@@ -4,16 +4,18 @@
 	public class Link: ConstellationObject, IReceiver
 	{
 		public Input Input;
-		public Output Output; 
+		public Output Output;
+		public string GUID;
 		public string Type;
 
-		public Link(Input _input, Output _output, string _type)
+		public Link(Input _input, Output _output, string _type, string _guid)
 		{
 			Type = _type;
 			Input = _input;
 			Output = _output;
 			Output.Register(this);		
-			_input.isConnected = true;	
+			_input.isConnected = true;
+			GUID = _guid;
 		}
 
 		public void Receive(Variable value, Input input){

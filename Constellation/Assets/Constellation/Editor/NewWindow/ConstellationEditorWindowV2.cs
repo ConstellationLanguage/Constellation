@@ -51,7 +51,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     void NodeAdded(string _nodeName, string _namespace)
     {
-        NodeWindow.AddNode(_nodeName, _namespace);
+        NodeWindow.AddNode(_nodeName, _namespace, OnEditorEvent);
         ScriptDataService.SaveScripts();
     }
 
@@ -152,12 +152,28 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         }
     }
 
-    void OnEditorEvent(ConstellationEditorCallbacks.EditorEventType eventType, string eventMessage)
+    void OnEditorEvent(ConstellationEditorEvents.EditorEventType eventType, string eventMessage)
     {
         ScriptDataService.SaveScripts();
-        if(eventType == ConstellationEditorCallbacks.EditorEventType.HelpClicked)
+        if(eventType == ConstellationEditorEvents.EditorEventType.HelpClicked)
         {
             OnHelpRequested(eventMessage);
+        }
+        if(eventType == ConstellationEditorEvents.EditorEventType.LinkAdded)
+        {
+            OnLinkAdded(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
+        }
+        if (eventType == ConstellationEditorEvents.EditorEventType.LinkDeleted)
+        {
+            OnLinkRemoved(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
+        }
+        if (eventType == ConstellationEditorEvents.EditorEventType.NodeAdded)
+        {
+            OnNodeAdded(ScriptDataService.GetCurrentScript().GetNodeByGUID(eventMessage));
+        }
+        if (eventType == ConstellationEditorEvents.EditorEventType.NodeDeleted)
+        {
+            OnNodeRemoved(ScriptDataService.GetCurrentScript().GetNodeByGUID(eventMessage));
         }
     }
 
@@ -294,5 +310,31 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = true;
         ScriptDataService.GetEditorData().ExampleData.constellationName = nodeName;
         EditorApplication.isPlaying = true;
+    }
+
+    protected void OnLinkAdded(LinkData link)
+    {
+        if (Application.isPlaying && previousSelectedGameObject != null)
+            currentEditableConstellation.AddLink(link);
+    }
+
+    protected void OnLinkRemoved(LinkData link)
+    {
+        if (Application.isPlaying && previousSelectedGameObject != null)
+            currentEditableConstellation.RemoveLink(link);
+    }
+
+    protected void OnNodeAdded(NodeData node)
+    {
+        if (Application.isPlaying && previousSelectedGameObject != null)
+        {
+            currentEditableConstellation.AddNode(node);
+        }
+    }
+
+    protected void OnNodeRemoved(NodeData node)
+    {
+        if (Application.isPlaying && previousSelectedGameObject != null)
+            currentEditableConstellation.RemoveNode(node);
     }
 }

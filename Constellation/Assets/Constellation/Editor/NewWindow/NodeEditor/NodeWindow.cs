@@ -27,7 +27,6 @@ public class NodeWindow
     private EventsScope currentEventScope = EventsScope.Generic;
     private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
 
-
     public NodeWindow(string _editorPath, ConstellationScript _constellationScript)
     {
         var backgroundTexture = AssetDatabase.LoadAssetAtPath(editorPath + "background.png", typeof(Texture2D)) as Texture2D;
@@ -53,7 +52,7 @@ public class NodeWindow
         Nodes.Add(nodeView);
     }
 
-    public void AddNode(string nodeName, string nodeNamespace)
+    public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents callback)
     {
         var newNode = NodeFactory.GetNode(nodeName, nodeNamespace);
         var nodeData = new NodeData(newNode);
@@ -65,15 +64,17 @@ public class NodeWindow
         newNodeView.UpdateNodeSize(0, 0);
         newNodeView.SetPosition(ScrollPosition.x + (windowSizeX * 0.5f), ScrollPosition.y + (windowSizeY * 0.5f));
         newNodeView.LockNodePosition();
+        callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
         SetNodeToFirst(newNodeView);
     }
 
-    public void RemoveNode(NodeData node)
+    public void RemoveNode(NodeData node, ConstellationEditorEvents.EditorEvents callback)
     {
         foreach(var nodeView in Nodes)
         {
             if(nodeView.NodeData.Guid == node.Guid)
             {
+                callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
                 SelectedNodes.Remove(nodeView);
                 Nodes.Remove(nodeView);
                 ConstellationScript.RemoveNode(nodeView.NodeData);
@@ -88,7 +89,7 @@ public class NodeWindow
         windowSizeY = _windowSizeY;
     }
 
-    public void Draw(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents callback)
+    public void Draw(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents callback)
     {
         mouseButtonDown = false;
         //scroll bar
@@ -138,7 +139,7 @@ public class NodeWindow
             }
         }
         DrawNodes(e);
-        Links.DrawLinks(requestRepaint);
+        Links.DrawLinks(requestRepaint, callback);
         DrawDescriptions(e);
         EditorGUILayout.EndScrollView();
         if (Event.current.button == 2)
@@ -159,9 +160,9 @@ public class NodeWindow
         }
     }
 
-    private void UpdateResizeEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
+    private void UpdateResizeEvents(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, Event e)
     {
-        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeResized, "");
+        editorEvents(ConstellationEditorEvents.EditorEventType.NodeResized, "");
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
             SelectedNodes[i].UpdateNodeSize((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodeSizeX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodeSizeY());
@@ -169,9 +170,9 @@ public class NodeWindow
         requestRepaint();
     }
 
-    private void UpdateDragEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
+    private void UpdateDragEvents(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, Event e)
     {
-        editorEvents(ConstellationEditorCallbacks.EditorEventType.NodeMoved, "");
+        editorEvents(ConstellationEditorEvents.EditorEventType.NodeMoved, "");
         for (var i = 0; i < SelectedNodes.Count; i++)
         {
             SelectedNodes[i].SetPosition((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodePositionX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodePositionY());
@@ -179,7 +180,7 @@ public class NodeWindow
         requestRepaint();
     }
 
-    public void Update(Constellation.Constellation constellation, ConstellationEditorCallbacks.EditorEvents editorEvents)
+    public void Update(Constellation.Constellation constellation, ConstellationEditorEvents.EditorEvents editorEvents)
     {
         foreach (var node in constellation.GetNodes())
         {
@@ -193,7 +194,6 @@ public class NodeWindow
                         {
                             nodeData.NodeData.AttributesData[i].Value.Set(node.GetAttributes()[i].Value.GetString());
                         }
-
                     }
                     else
                     {
@@ -236,7 +236,7 @@ public class NodeWindow
         }
     }
 
-    private void UpdateGenericEvents(ConstellationEditorCallbacks.RequestRepaint requestRepaint, ConstellationEditorCallbacks.EditorEvents editorEvents, Event e)
+    private void UpdateGenericEvents(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, Event e)
     {
         for (var i = 0; i < Nodes.Count; i++)
         {
@@ -252,7 +252,6 @@ public class NodeWindow
                     requestRepaint();
                     if (e.control)
                     {
-                        //Debug.Log("Add node to selection");
                         SelectedNodes.Add(Nodes[i]);
                         SetNodeToFirst(Nodes[i]);
                     }
@@ -278,14 +277,13 @@ public class NodeWindow
 
                     if (deleteRect.Contains(e.mousePosition) && mouseButtonDown)
                     {
-
-                        RemoveNode(Nodes[i].NodeData);
+                        RemoveNode(Nodes[i].NodeData, editorEvents);
                         return;
                     }
 
                     if (questionRect.Contains(e.mousePosition) && mouseButtonDown)
                     {
-                        editorEvents(ConstellationEditorCallbacks.EditorEventType.HelpClicked, Nodes[i].GetName());
+                        editorEvents(ConstellationEditorEvents.EditorEventType.HelpClicked, Nodes[i].GetName());
                         return;
                     }
 

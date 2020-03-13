@@ -34,7 +34,7 @@ public class LinksView
         return constellationScript.GetLinks();
     }
 
-    public void DrawLinks(ConstellationEditorCallbacks.RequestRepaint requestRepaint)
+    public void DrawLinks(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents)
     {
         DrawIncompleteLink(requestRepaint);
 
@@ -69,38 +69,30 @@ public class LinksView
             }
             if (startLink == Rect.zero || endLink == Rect.zero)
             {
-                constellationScript.RemoveLink(link);
-                //OnLinkRemoved(link);
+                //editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
             }
 
             DrawNodeCurve(startLink, endLink, GetConnectionColor(link.Input.IsWarm, link.Input.Type));
 
             if (MouseOverCurve(startLink.position, endLink.position))
             {
-                
+
                 var linkCenter = new Rect((startLink.x + (endLink.x - startLink.x) / 2) - (deleteButtonSize * 0.5f),
                     (startLink.y + (endLink.y - startLink.y) / 2) - (deleteButtonSize * 0.5f),
                     deleteButtonSize,
                     deleteButtonSize);
-                GUI.Box(linkCenter, "X");
-                GUI.Button(linkCenter, "X");
-                if (Event.current.IsUsed())
+
+                if (GUI.Button(linkCenter, "X"))
                 {
-                    if (Event.current.button == 0)
+                    dragging = true;
+                    if (linkCenter.Contains(Event.current.mousePosition))
                     {
-                        if (!dragging)
-                        {
-                            dragging = true;
-                            if (linkCenter.Contains(Event.current.mousePosition))
-                            {
-                                constellationScript.RemoveLink(link);
-                            }
-                        }
+                        Debug.Log(link.GUID);
+                        editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
+                        constellationScript.RemoveLink(link);
+                        
+                        
                     }
-                }
-                else if (!Event.current.IsLayoutOrRepaint())
-                {
-                    dragging = false;
                 }
             }
         }
@@ -224,7 +216,7 @@ public class LinksView
         }
     }
 
-    public void AddLinkFromOutput(OutputData _output, ConstellationEditorCallbacks.EditorEvents editorEvents)
+    public void AddLinkFromOutput(OutputData _output, ConstellationEditorEvents.EditorEvents editorEvents)
     {
         if (selectedInput != null)
             CreateLink(selectedInput, _output, editorEvents);
@@ -233,7 +225,7 @@ public class LinksView
 
     }
 
-    public void AddLinkFromInput(InputData _input, ConstellationEditorCallbacks.EditorEvents editorEvents)
+    public void AddLinkFromInput(InputData _input, ConstellationEditorEvents.EditorEvents editorEvents)
     {
         if (selectedOutput != null)
             CreateLink(_input, selectedOutput, editorEvents);
@@ -241,7 +233,7 @@ public class LinksView
             selectedInput = _input;
     }
 
-    public void CreateLink(InputData _input, OutputData _output, ConstellationEditorCallbacks.EditorEvents editorEvents)
+    public void CreateLink(InputData _input, OutputData _output, ConstellationEditorEvents.EditorEvents editorEvents)
     {
         if (isInstance)
             constellationScript.IsDifferentThanSource = true;
@@ -252,14 +244,11 @@ public class LinksView
         if (constellationScript.IsLinkValid(newLink))
         {
             constellationScript.AddLink(newLink);
-            editorEvents(ConstellationEditorCallbacks.EditorEventType.LinkDeleted, "");
-            //OnLinkAdded(newLink);
-            //undoable.AddAction();
-            //GUI.RequestRepaint();
+            editorEvents(ConstellationEditorEvents.EditorEventType.LinkAdded, newLink.GUID);
         }
     }
 
-    private void DrawIncompleteLink(ConstellationEditorCallbacks.RequestRepaint requestRepaint)
+    private void DrawIncompleteLink(ConstellationEditorEvents.RequestRepaint requestRepaint)
     {
         if (selectedInput != null || selectedOutput != null)
         {

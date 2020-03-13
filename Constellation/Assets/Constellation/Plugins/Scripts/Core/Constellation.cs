@@ -28,7 +28,7 @@ namespace Constellation
         {
             AddLink(new Link(GetInput(link.Input.Guid),
                 GetOutput(link.Output.Guid),
-                GetOutput(link.Output.Guid).Type), "none");
+                GetOutput(link.Output.Guid).Type, link.GUID));
         }
 
         public Input GetInput(string guid)
@@ -155,13 +155,13 @@ namespace Constellation
             //Debug.LogError("Constellation: Node not found");
         }
 
-        public Link AddLink(Link link, string guid)
+        public Link AddLink(Link link)
         {
             if (Links == null)
                 Links = new List<Link>();
 
             var newLink = link;
-            link.Initialize(guid, guid);
+            link.Initialize(link.GUID, link.GUID);
             Links.Add(link);
 
             return newLink;

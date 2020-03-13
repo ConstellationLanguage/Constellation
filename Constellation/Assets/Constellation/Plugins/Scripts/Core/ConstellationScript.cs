@@ -99,6 +99,30 @@ namespace Constellation {
             }
         }
 
+        public LinkData GetLinkByGUID(string guid)
+        {
+            foreach(var link in script.Links)
+            {
+                if(link.GUID == guid)
+                {
+                    return link;
+                }
+            }
+            return null;
+        }
+
+        public NodeData GetNodeByGUID(string guid)
+        {
+            foreach (NodeData node in script.Nodes)
+            {
+                if (guid == node.Guid)
+                {
+                    return node;
+                }
+            }
+            return null;
+        }
+
         public LinkData[] GetLinks () {
             if (script.Links == null)
                 script.Links = new List<LinkData> ();
