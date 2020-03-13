@@ -6,7 +6,6 @@ namespace Constellation {
             
             Link linkToRemove = null;
             foreach (var link in constellation.Links) {
-                Debug.Log(linkData);
                 if (link.Guid == linkData.GUID) {
                     linkToRemove = link;
                 }

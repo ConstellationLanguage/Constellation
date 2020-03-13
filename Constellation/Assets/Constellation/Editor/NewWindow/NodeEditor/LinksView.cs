@@ -87,7 +87,6 @@ public class LinksView
                     dragging = true;
                     if (linkCenter.Contains(Event.current.mousePosition))
                     {
-                        Debug.Log(link.GUID);
                         editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
                         constellationScript.RemoveLink(link);
                         

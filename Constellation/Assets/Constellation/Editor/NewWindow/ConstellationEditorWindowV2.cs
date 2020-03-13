@@ -13,6 +13,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public ConstellationEditorDataService ScriptDataService;
     public ConstellationScript ConstellationScript;
     public float nodeSelectorWidth = 300;
+    public ConstellationLinter ConstellationCompiler;
     const float splitThickness = 3;
 
     //Runtime
@@ -256,11 +257,6 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         throw new System.NotImplementedException();
     }
 
-    public void ParseScript()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void Export()
     {
         ScriptDataService.Export("");
@@ -336,5 +332,18 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     {
         if (Application.isPlaying && previousSelectedGameObject != null)
             currentEditableConstellation.RemoveNode(node);
+    }
+
+    public void ParseScript()
+    {
+        if (ConstellationCompiler == null)
+            ConstellationCompiler = new ConstellationLinter();
+
+        if (ScriptDataService == null)
+        {
+            ScriptDataService = new ConstellationEditorDataService();
+        }
+        //ResetWindow();
+        ConstellationCompiler.UpdateScriptsNodes(ScriptDataService.GetAllScriptsInProject(), ScriptDataService.GetAllNestableScriptsInProject());
     }
 }
