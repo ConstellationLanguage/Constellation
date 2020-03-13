@@ -31,7 +31,6 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     public void OnEnable()
     {
-        Debug.Log("Enabling");
         EditorApplication.playModeStateChanged += OnPlayStateChanged;
         if (NodeSelector == null)
         {
@@ -268,7 +267,6 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     void OnPlayStateChanged(PlayModeStateChange state)
     {
-        Debug.Log("Play changed");
         /*WindowInstance.RequestSetup();
         WindowInstance.previousSelectedGameObject = null;*/
         previousSelectedGameObject = null;
@@ -342,7 +340,6 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     public bool ParseScript()
     {
-        Debug.Log("Parsing scripts");
         if (ConstellationParser == null)
             ConstellationParser = new ConstellationParser();
 

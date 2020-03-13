@@ -77,7 +77,8 @@ namespace Constellation
                         return node;
                 }
             }
-            throw new ConstellationNotAddedToFactory();
+            return null;
+            //throw new ConstellationNotAddedToFactory();
         }
 
         public Node<INode> GetNodeSafeMode(NodeData _nodeData)
