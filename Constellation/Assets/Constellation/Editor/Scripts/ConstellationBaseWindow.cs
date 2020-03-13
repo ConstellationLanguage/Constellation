@@ -11,7 +11,7 @@ namespace ConstellationEditor
         [SerializeField]
         protected ConstellationEditorDataService scriptDataService;
         [SerializeField]
-        protected ConstellationLinter ConstellationCompiler;
+        protected ConstellationParser ConstellationCompiler;
         static protected bool canDrawUI = false;
         [SerializeField]
         protected ConstellationInstanceObject[] CurrentEditedInstancesName;
@@ -48,7 +48,7 @@ namespace ConstellationEditor
             try
             {
                 scriptDataService = new ConstellationEditorDataService();
-                ConstellationCompiler = new ConstellationLinter();
+                ConstellationCompiler = new ConstellationParser();
                 scriptDataService.RefreshConstellationEditorDataList();
 
                 if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)

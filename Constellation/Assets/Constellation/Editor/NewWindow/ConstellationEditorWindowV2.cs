@@ -13,16 +13,15 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     public ConstellationEditorDataService ScriptDataService;
     public ConstellationScript ConstellationScript;
     public float nodeSelectorWidth = 300;
-    public ConstellationLinter ConstellationCompiler;
+    public ConstellationParser ConstellationParser;
     const float splitThickness = 3;
-
     //Runtime
     public GameObject previousSelectedGameObject;
     ConstellationEditable currentEditableConstellation;
 
 
     // Add menu named "My Window" to the Window menu
-    [MenuItem("Window/My Window")]
+    [MenuItem("Window/Constellation Editor")]
     static void Init()
     {
         // Get existing open window or if none, make a new one:
@@ -32,6 +31,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     public void OnEnable()
     {
+        Debug.Log("Enabling");
         EditorApplication.playModeStateChanged += OnPlayStateChanged;
         if (NodeSelector == null)
         {
@@ -48,7 +48,6 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         if (NodeTabPanel == null)
             NodeTabPanel = new ConstellationsTabPanel();
     }
-
 
     void NodeAdded(string _nodeName, string _namespace)
     {
@@ -71,7 +70,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             var constellationToRemove = NodeTabPanel.ConstellationToRemove();
             EditorGUILayout.BeginHorizontal();
             if (NodeWindow == null)
-                SetupNodeWindow();
+                ParseScript();
             NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
             NodeWindow.Draw(RequestRepaint, OnEditorEvent);
             DrawVerticalSplit();
@@ -269,6 +268,7 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
 
     void OnPlayStateChanged(PlayModeStateChange state)
     {
+        Debug.Log("Play changed");
         /*WindowInstance.RequestSetup();
         WindowInstance.previousSelectedGameObject = null;*/
         previousSelectedGameObject = null;
@@ -277,6 +277,12 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             ResetInstances();
             Open(ScriptDataService.currentPath[0]);
         }
+
+        if(state == PlayModeStateChange.ExitingEditMode && !ScriptDataService.GetEditorData().ExampleData.openExampleConstellation)
+        {
+            ParseScript();
+        }
+
         if (ScriptDataService.GetEditorData().ExampleData.openExampleConstellation && state == PlayModeStateChange.EnteredPlayMode)
         {
             var nodeExampleLoader = new ExampleSceneLoader();
@@ -334,16 +340,20 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
             currentEditableConstellation.RemoveNode(node);
     }
 
-    public void ParseScript()
+    public bool ParseScript()
     {
-        if (ConstellationCompiler == null)
-            ConstellationCompiler = new ConstellationLinter();
+        Debug.Log("Parsing scripts");
+        if (ConstellationParser == null)
+            ConstellationParser = new ConstellationParser();
 
         if (ScriptDataService == null)
         {
             ScriptDataService = new ConstellationEditorDataService();
+            ScriptDataService.Initialize();
         }
-        //ResetWindow();
-        ConstellationCompiler.UpdateScriptsNodes(ScriptDataService.GetAllScriptsInProject(), ScriptDataService.GetAllNestableScriptsInProject());
+
+        ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllScriptsInProject(), ScriptDataService.GetAllNestableScriptsInProject());
+        SetupNodeWindow();
+        return true;
     }
 }

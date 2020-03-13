@@ -31,7 +31,7 @@ namespace ConstellationEditor
         [SerializeField]
         private int splitThickness = 5;
 
-        [MenuItem("Window/Constellation Editor")]
+        //[MenuItem("Window/Constellation Editor")]
         public static void ShowWindow () {
         	CopyScriptIcons.Copy();
             WindowInstance = EditorWindow.GetWindow(typeof(ConstellationUnityWindow), false, "Constellation") as ConstellationUnityWindow;
@@ -58,9 +58,9 @@ namespace ConstellationEditor
             }
         }
 
-        public void ParseScript () {
+        public bool ParseScript () {
             if (WindowInstance.ConstellationCompiler == null)
-                WindowInstance.ConstellationCompiler = new ConstellationLinter();
+                WindowInstance.ConstellationCompiler = new ConstellationParser();
 
             if(WindowInstance.scriptDataService == null)
             {
@@ -68,6 +68,7 @@ namespace ConstellationEditor
             }
             //ResetWindow();
             WindowInstance.ConstellationCompiler.UpdateScriptsNodes(WindowInstance.scriptDataService.GetAllScriptsInProject(), WindowInstance.scriptDataService.GetAllNestableScriptsInProject());
+            return false;
         }
 
         public void ResetWindow()
@@ -215,7 +216,7 @@ namespace ConstellationEditor
             SceneManager.sceneLoaded += OnSceneLoaded;
             EditorApplication.playModeStateChanged += OnPlayStateChanged;
             scriptDataService = new ConstellationEditorDataService();
-            ConstellationCompiler = new ConstellationLinter();
+            ConstellationCompiler = new ConstellationParser();
             scriptDataService.RefreshConstellationEditorDataList();
 
             if (scriptDataService.OpenEditorData().LastOpenedConstellationPath == null)

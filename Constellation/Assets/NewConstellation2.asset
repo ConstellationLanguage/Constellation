@@ -91,8 +91,8 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: 85d05078-451b-4782-9578-225dfb016133
-      XPosition: 360
-      YPosition: 395
+      XPosition: 375
+      YPosition: 390
       SizeX: 103
       SizeY: 68
       Inputs:
@@ -183,10 +183,10 @@ MonoBehaviour:
       Namespace: Physics
       OverrideDisplayedName: 
       Guid: e95c49b5-8986-436b-84cc-610cfa150eda
-      XPosition: 690
-      YPosition: 245
-      SizeX: 50
-      SizeY: 38
+      XPosition: 685
+      YPosition: 290
+      SizeX: 61
+      SizeY: 40
       Inputs:
       - Guid: a2d37993-8764-493e-a902-9976c34b3b03
         IsWarm: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
       Namespace: Unity
       OverrideDisplayedName: 
       Guid: d916da4e-c105-4770-9068-2dbaade7acfb
-      XPosition: 580
-      YPosition: 465
+      XPosition: 590
+      YPosition: 490
       SizeX: 71
       SizeY: 60
       Inputs:
@@ -256,7 +256,7 @@ MonoBehaviour:
       OverrideDisplayedName: 
       Guid: 73eca89f-954b-4096-9347-c58c08cd3cc3
       XPosition: 440
-      YPosition: 485
+      YPosition: 510
       SizeX: 100
       SizeY: 100
       Inputs:
@@ -302,8 +302,8 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: ced9e4d2-7213-4dea-8a65-b0c59d566935
-      XPosition: 295
-      YPosition: 465
+      XPosition: 260
+      YPosition: 485
       SizeX: 100
       SizeY: 38
       Inputs: []
@@ -321,8 +321,8 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       Guid: 3b4c23c9-badc-456f-9bd4-335d36a32078
-      XPosition: 55
-      YPosition: 495
+      XPosition: 130
+      YPosition: 525
       SizeX: 100
       SizeY: 38
       Inputs: []
@@ -341,7 +341,7 @@ MonoBehaviour:
       OverrideDisplayedName: 
       Guid: b6b589e1-6ecf-49ac-95c4-a5cd622a4d12
       XPosition: 260
-      YPosition: 555
+      YPosition: 590
       SizeX: 100
       SizeY: 38
       Inputs: []
@@ -360,7 +360,7 @@ MonoBehaviour:
       OverrideDisplayedName: 
       Guid: 45bb94a8-f9ec-43cb-b4c7-bae7dc83b4d9
       XPosition: 260
-      YPosition: 495
+      YPosition: 525
       SizeX: 100
       SizeY: 56
       Inputs:
@@ -462,6 +462,25 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
+    - Name: Logarithm
+      Namespace: Math
+      OverrideDisplayedName: 
+      Guid: d7260d51-155e-48d3-8f6e-77439a1e9f9e
+      XPosition: 485
+      YPosition: 625
+      SizeX: 50
+      SizeY: 40
+      Inputs:
+      - Guid: 27b997a0-d0f5-46b4-8f06-0e10573a3b02
+        IsWarm: 1
+        Type: 
+        Description: A
+      Outputs:
+      - Guid: 9b749226-b7ec-421e-8587-51f19eed8453
+        IsWarm: 0
+        Type: 
+        Description: Log(A)
+      AttributesData: []
     Links:
     - Input:
         Guid: 4d1e629b-f955-4829-b80e-f6477ce28edf
@@ -485,18 +504,6 @@ MonoBehaviour:
         IsWarm: 1
         Type: 
         Description: The value
-      outputPositionY: 0
-      GUID: 
-    - Input:
-        Guid: a2d37993-8764-493e-a902-9976c34b3b03
-        IsWarm: 0
-        Type: 
-        Description: Vec3 world relative
-      Output:
-        Guid: 391b33f6-87b7-496d-ab4f-db3e9d16077c
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
       outputPositionY: 0
       GUID: 
     - Input:
@@ -643,6 +650,18 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 5441c6ae-7b4b-42b1-aca8-c4241bf8ac0d
+    - Input:
+        Guid: a2d37993-8764-493e-a902-9976c34b3b03
+        IsWarm: 0
+        Type: 
+        Description: Vec3 world relative
+      Output:
+        Guid: 391b33f6-87b7-496d-ab4f-db3e9d16077c
+        IsWarm: 0
+        Type: 
+        Description: Current setted word
+      outputPositionY: 0
+      GUID: 124e7659-c91a-4d60-b302-047274e7ac83
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0

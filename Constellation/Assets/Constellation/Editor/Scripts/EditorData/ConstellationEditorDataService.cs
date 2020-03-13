@@ -38,6 +38,7 @@ namespace ConstellationEditor {
         {
             EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
             EditorData.ScriptAssembly.SetScriptAssembly();
+            
         }
 
         public NodeNamespacesData [] GetAllCustomNodesNames()
@@ -237,6 +238,7 @@ namespace ConstellationEditor {
             }
             EditorData.CurrentInstancePath = currentInstancePath;
             EditorUtility.SetDirty (EditorData);
+            EditorUtility.SetDirty(EditorData.ScriptAssembly);
             //AssetDatabase.SaveAssets ();
             //AssetDatabase.Refresh ();
         }

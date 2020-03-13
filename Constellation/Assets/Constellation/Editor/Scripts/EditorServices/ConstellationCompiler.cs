@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConstellationEditor
 {
-    public class ConstellationLinter
+    public class ConstellationParser
     {
         private NodesFactory NodesFactory;
 
@@ -40,8 +40,7 @@ namespace ConstellationEditor
 
                 foreach (var node in nodesToRemove)
                 {
-                try
-                {
+                //try {
                     script.RemoveNode(node.Guid);
                     var replacementNode = NodesFactory.GetNode(node.Name, node.Namespace);
                     if (replacementNode != null)
@@ -88,12 +87,12 @@ namespace ConstellationEditor
                     } else {
                         script.RemoveNode(node.Guid);
                     }
+                    /*}
+                    catch (Exception e)
+                    {
+                        Debug.LogError(e + e.StackTrace);
+                    }*/
                 }
-                catch (Exception e)
-                {
-                    Debug.LogError(e + e.StackTrace);
-                }
-            }
 
         }
     }
