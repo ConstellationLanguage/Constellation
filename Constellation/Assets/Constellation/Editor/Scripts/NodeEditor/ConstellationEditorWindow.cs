@@ -3,7 +3,7 @@ using UnityEngine;
 using Constellation;
 using ConstellationEditor;
 
-public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, ICopyable, ICompilable
+public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICopyable, ICompilable
 {
     public NodeWindow NodeWindow;
     public NodeSelectorPanel NodeSelector;
@@ -18,15 +18,16 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     //Runtime
     public GameObject previousSelectedGameObject;
     ConstellationEditable currentEditableConstellation;
-
+    public static ConstellationEditorWindow ConstellationEditorWindowInstance;
 
     // Add menu named "My Window" to the Window menu
     [MenuItem("Window/Constellation Editor")]
-    static void Init()
+    public static void Init()
     {
         // Get existing open window or if none, make a new one:
-        ConstellationEditorWindowV2 window = (ConstellationEditorWindowV2)EditorWindow.GetWindow(typeof(ConstellationEditorWindowV2));
+        ConstellationEditorWindow window = (ConstellationEditorWindow)EditorWindow.GetWindow(typeof(ConstellationEditorWindow));
         window.Show();
+        ConstellationEditorWindowInstance = window;
     }
 
     public void OnEnable()

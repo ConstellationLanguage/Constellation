@@ -8,7 +8,7 @@ namespace ConstellationEditor {
         public List<LinkData> links;
 
         public void AddSelection (NodeView[] _nodes, LinkData[] _links) {
-            nodes = new List<NodeData> ();
+            /*nodes = new List<NodeData> ();
             links = new List<LinkData> ();
             foreach (var view in _nodes) {
                 var newNode = new NodeData (view.GetData ());
@@ -45,7 +45,7 @@ namespace ConstellationEditor {
                 if (input != null && output != null) {
                     links.Add (new LinkData (input, output));
                 }
-            }
+            }*/
         }
 
         public NodeData[] PasteClipBoard (ConstellationScript constellation) {

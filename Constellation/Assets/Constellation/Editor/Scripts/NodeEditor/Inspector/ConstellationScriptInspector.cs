@@ -11,9 +11,9 @@ namespace ConstellationEditor
         {
             if (GUILayout.Button("Open in Node Editor"))
             {
-                if (ConstellationUnityWindow.WindowInstance == null)
-                    ConstellationUnityWindow.ShowWindow();
-                ConstellationUnityWindow.WindowInstance.Open(AssetDatabase.GetAssetPath(target));
+                if (ConstellationEditorWindow.ConstellationEditorWindowInstance == null)
+                    ConstellationEditorWindow.Init();
+                ConstellationEditorWindow.ConstellationEditorWindowInstance.Open(AssetDatabase.GetAssetPath(target));
             }
             base.OnInspectorGUI();
         }

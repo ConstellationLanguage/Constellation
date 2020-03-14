@@ -1,270 +1,318 @@
+﻿using System;
 using Constellation;
-using UnityEditor;
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEditor;
 
-namespace ConstellationEditor {
-    [System.Serializable]
-    public class NodeView {
-        private const int ButtonSize = 14;
-        private Rect Rect;
-        public NodeData node;
-        private NodeConfig nodeConfig;
-        private ConstellationScript constellationScript;
-        private bool isDestroyed = false;
-        private bool selected = false;
-        private bool nodeMoved = false;
-        private Vector2 nodeMovement = Vector2.zero;
-        private bool DrawDescription = false;
-        private string Description = "";
-        private bool CloseOnNextFrame = false;
-        private bool isAttributeValueChanged = false;
-        public delegate void HelpClicked (string _nodeName);
-        private ILinkEditor linkEditor;
-        private IVisibleObject visibleObject;
-        private Rect HelpPosition;
-        
-        public NodeView (NodeData _node, IVisibleObject _visibleObject, NodeConfig _nodeConfig, ConstellationScript _constellation, ILinkEditor _linkEditor) {
-            nodeConfig = _nodeConfig;
-            var nodeWidth = nodeConfig.NodeWidth;
-            if (_node.GetAttributes().Length > 0) {
-                nodeWidth = nodeConfig.NodeWidthAsAttributes;
-            }
+namespace ConstellationEditor
+{
+    public class NodeView
+    {
+        public NodeData NodeData;
+        private float previousNodePositionX;
+        private float previousNodePositionY;
+        private string nodeName;
+        private float previousNodeSizeX;
+        private float previousNodeSizeY;
+        public const float nodeTitleHeight = 20;
+        public const float nodeDeleteSize = 15;
+        public const float resizeButtonSize = 8;
+        public const float inputSize = 10;
+        public const float outputSize = 10;
+        public const float spacing = 10;
+        public const float leftAttributeMargin = 5;
+        public const float rightAttributeMargin = 5;
+        public const float attributeSpacing = 2;
+        bool isAttributeValueChanged = false;
+        Rect AtrributeSize = new Rect(0, 0, 88, 16);
 
-            Rect = new Rect(_node.XPosition, _node.YPosition, nodeWidth, (Mathf.Max(Mathf.Max(_node.Inputs.Count, _node.Outputs.Count), _node.AttributesData.Count) * nodeConfig.InputSize) + nodeConfig.TopMargin);
-            node = _node;
-            visibleObject = _visibleObject;
-            constellationScript = _constellation;
-            linkEditor = _linkEditor;
+        public NodeView(NodeData node)
+        {
+            NodeData = node;
+            nodeName = node.Name;
+            LockNodeSize();
+            LockNodePosition();
 
-            
-            foreach (var attribute in node.AttributesData) {
+            foreach (var attribute in node.AttributesData)
+            {
                 attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
             }
         }
-        
-        public void DrawWindow (int id, GUI.WindowFunction DrawNodeWindow, bool isNote) {
-            //Only draw visible nodes
-            if (Event.current.isMouse)
+
+        public void DrawNode(Event e)
+        {
+            var nodeSizeX = GetSizeX();
+            var nodeSizeY = GetSizeY();
+            var nodePositionX = GetPositionX();
+            var nodePositionY = GetPositionY();
+            float positionOffsetX = nodeSizeX * 0.5f;
+            float positionOffsetY = nodeSizeY * 0.5f;
+            var nodeRect = new Rect(nodePositionX, nodePositionY, nodeSizeX, nodeSizeY);
+            var nodeTitleRect = new Rect(nodePositionX, nodePositionY, nodeSizeX, nodeTitleHeight);
+            var deleteRect = GetDeleteRect();
+            var questionRect = GetQuestionRect();
+            var resizeRect = GetResizeRect();
+            var noteSkin = new GUIStyle(GUI.skin.GetStyle("flow node 0"));
+            GUI.Box(nodeRect, "", noteSkin);
+            GUI.Label(nodeTitleRect, GetName());
+            if (nodeRect.Contains(e.mousePosition))
             {
-                CloseOnNextFrame = true;
+                GUI.color = new Color(0.75f, 0.75f, 0.75f);
+                GUI.Button(deleteRect, "X");
+                GUI.color = new Color(0.75f, 0.75f, 0.75f);
+                GUI.Button(questionRect, "?");
+                GUI.color = Color.gray;
+                GUI.Button(resizeRect, "");
             }
-            if (!visibleObject.InView(Rect))
-                return;
+            GUI.color = Color.white;
 
-            if (DrawDescription)
-                DrawHelp(Description);
+            var inputs = NodeData.GetInputs();
+            var coldColor = new Color(1f, 0.9f, 0.1f);
+            var warmColor = new Color(1f, 0.6f, 0.1f);
+            var coldObjectColor = new Color(0.5f, 0.5f, 1f);
+            for (var i = 0; i < inputs.Length; i++)
+            {
+                if (inputs[i].Type == "Object")
+                {
+                    if (inputs[i].IsWarm == true)
+                    {
+                        GUI.color = Color.cyan;
+                    }
+                    else
+                    {
+                        GUI.color = coldObjectColor;
+                    }
+                }
+                else
+                {
+                    if (inputs[i].IsWarm == true)
+                    {
+                        GUI.color = warmColor;
+                    }
+                    else
+                    {
+                        GUI.color = coldColor;
+                    }
+                }
+                GUI.Button(GetInputRect(i), "");
 
-            if (node.Name == Constellation.CoreNodes.Note.NAME) {
-                var noteStyle = selected ? nodeConfig.NoteHoverStyle : nodeConfig.NoteStyle;
-                Rect = GUI.Window(id, new Rect(Rect.x, Rect.y, 120, 120), DrawNodeWindow, "", noteStyle);
-            } else {
-                var nodeStyle = selected ? nodeConfig.NodeHoverStyle : nodeConfig.NodeStyle;
-                Rect = GUI.Window(id, Rect, DrawNodeWindow, "", nodeStyle);
             }
-            
-            if (node.XPosition != Rect.x || node.YPosition != Rect.y) {
-                nodeMovement = new Vector2(node.XPosition - Rect.x, node.YPosition - Rect.y);
-                nodeMoved = true;
-            } else {
-                nodeMovement = Vector2.zero;
-                nodeMoved = false;
+            DrawAttributes();
+            var outputs = NodeData.GetOutputs();
+            for (var i = 0; i < outputs.Length; i++)
+            {
+                if (outputs[i].Type == "Object")
+                {
+                    if (outputs[i].IsWarm == true)
+                    {
+                        GUI.color = Color.cyan;
+                    }
+                    else
+                    {
+                        GUI.color = coldObjectColor;
+                    }
+                }
+                else
+                {
+                    if (outputs[i].IsWarm == true)
+                    {
+                        GUI.color = warmColor;
+                    }
+                    else
+                    {
+                        GUI.color = coldColor;
+                    }
+                }
+                GUI.Button(GetOuptputRect(i), "");
             }
-            
-            node.XPosition = Rect.x;
-            node.YPosition = Rect.y;
+            GUI.color = Color.white;
         }
 
-        public bool IsDragged () {
-            return nodeMoved;
+        public Rect GetInputRect(int InputID)
+        {
+            return new Rect(GetPositionX(), GetPositionY() + (InputID * (inputSize + spacing)) + nodeTitleHeight, inputSize, inputSize);
         }
 
-        public Vector2 DragVector () {
-            return nodeMovement;
+        public Rect GetOuptputRect(int InputID)
+        {
+            return new Rect(GetPositionX() + GetSizeX() - outputSize, GetPositionY() + (InputID * (outputSize + spacing)) + nodeTitleHeight, outputSize, outputSize);
         }
 
-        public void DragNode (Vector2 vector) {
-            Rect = new Rect(Rect.x - vector.x, Rect.y - vector.y, Rect.width, Rect.height);
-            node.XPosition = Rect.x;
-            node.YPosition = Rect.y;
+        public void UpdateNodeSize(float _x, float _y)
+        {
+            NodeData.SizeX = Math.Max(_x, MinimumNodeWidth());
+            NodeData.SizeY = Math.Max(_y, MinimumNodeHeight());
         }
 
-        public void ClearDrag () {
-            nodeMoved = false;
-            nodeMovement = Vector2.zero;
+        public void SetPosition(float _x, float _y)
+        {
+            NodeData.XPosition = RoundToNearest(_x);
+            NodeData.YPosition = RoundToNearest(_y);
         }
 
-        public void SelectNode () {
-            selected = true;
+        public float MinimumNodeHeight()
+        {
+            return Math.Max((inputSize + spacing) * NodeData.Inputs.Count + nodeTitleHeight, (inputSize + spacing) * NodeData.Outputs.Count + nodeTitleHeight);
         }
 
-        public void DeselectNode () {
-            selected = false;
+        public float MinimumNodeWidth()
+        {
+            var minimumWidth = 100;
+            if (NodeData.GetAttributes().Length == 0)
+            {
+                minimumWidth = 50;
+            }
+            return minimumWidth;
+        }
+        public void SetName(string _name)
+        {
+            nodeName = _name;
         }
 
-        public void DestroyNode () {
-            constellationScript.RemoveNode(node);
-            isDestroyed = true;
+        public string GetName()
+        {
+            return nodeName;
         }
 
-        public bool NodeExist () {
-            return !isDestroyed;
+        public float GetPositionX()
+        {
+            return NodeData.XPosition;
         }
 
-        private void DrawHelp (string text) {
-            Event current = Event.current;
-            var style = nodeConfig.Tooltip;
-            GUI.Label(new Rect(HelpPosition.x, HelpPosition.y, style.CalcSize(new GUIContent(text)).x, 30), text, style);
-            if (CloseOnNextFrame == true) {
-                DrawDescription = false;
-                CloseOnNextFrame = false;
+        public float GetPositionY()
+        {
+            return NodeData.YPosition;
+        }
+
+        public float GetSizeX()
+        {
+            return NodeData.SizeX;
+        }
+
+        public float GetSizeY()
+        {
+            return NodeData.SizeY;
+        }
+
+        public void LockNodeSize()
+        {
+            previousNodeSizeX = NodeData.SizeX;
+            previousNodeSizeY = NodeData.SizeY;
+        }
+
+        public InputData[] GetInputs()
+        {
+            return NodeData.GetInputs();
+        }
+
+        public OutputData[] GetOutputs()
+        {
+            return NodeData.GetOutputs();
+        }
+
+        public AttributeData[] GetAttributeDatas()
+        {
+            return NodeData.GetAttributes();
+        }
+
+        public void LockNodePosition()
+        {
+            previousNodePositionX = NodeData.XPosition;
+            previousNodePositionY = NodeData.YPosition;
+        }
+
+        public float GetPreviousNodePositionX()
+        {
+            return previousNodePositionX;
+        }
+
+        public float GetPreviousNodePositionY()
+        {
+            return previousNodePositionY;
+        }
+
+        public float GetPreviousNodeSizeX()
+        {
+            return previousNodeSizeX;
+        }
+
+        public float GetPreviousNodeSizeY()
+        {
+            return previousNodeSizeY;
+        }
+
+        public Rect GetDeleteRect()
+        {
+            return new Rect(GetPositionX() + (GetSizeX() - nodeDeleteSize), GetPositionY(), nodeDeleteSize, nodeDeleteSize);
+        }
+
+        public Rect GetQuestionRect()
+        {
+            return new Rect(GetPositionX() + (GetSizeX() - nodeDeleteSize - nodeDeleteSize), GetPositionY(), nodeDeleteSize, nodeDeleteSize);
+        }
+
+        public Rect GetResizeRect()
+        {
+            return new Rect(GetPositionX() + GetSizeX() - resizeButtonSize, GetPositionY() + GetSizeY() - resizeButtonSize, resizeButtonSize, resizeButtonSize);
+        }
+
+        public Rect GetNodeRect(out float positionOffsetX, out float positionOffsetY)
+        {
+            var rect = new Rect(GetPositionX(), GetPositionY(), GetSizeX(), GetSizeY());
+            positionOffsetX = GetSizeX() * 0.5f;
+            positionOffsetY = GetSizeY() * 0.5f;
+            return rect;
+        }
+
+        private void DrawAttributes()
+        {
+            GUI.color = Color.white;
+            if (NodeData.GetAttributes() != null)
+            {
+                var i = 0;
+                foreach (var attribute in NodeData.AttributesData)
+                {
+                    EditorGUIUtility.labelWidth = 25;
+                    EditorGUIUtility.fieldWidth = 10;
+                    var attributeRect = GetAttributeRect(i);
+                    if (attribute.Value != null)
+                    {
+                        var currentAttributeValue = attribute.Value.GetString();
+                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value);
+                        if (attribute.Value != null)
+                        {
+                            if (currentAttributeValue != attribute.Value.GetString())
+                                AttributeValueChanged();
+                        }
+                    }
+                    i++;
+                }
+
             }
         }
 
-        public bool IsAttributeValueChanged () {
+        public Rect GetAttributeRect(int attributeID)
+        {
+            var leftOffset = inputSize + leftAttributeMargin;
+            var rightOffset = rightAttributeMargin + outputSize + leftOffset;
+            var topOffset = 3;
+            return new Rect(NodeData.XPosition + leftOffset, NodeData.YPosition + ((AtrributeSize.height + attributeSpacing) * attributeID) + nodeTitleHeight - topOffset, NodeData.SizeX - rightOffset, AtrributeSize.height);
+        }
+
+        public float RoundToNearest(float a)
+        {
+            return a = a - (a % 5f);
+        }
+
+        public bool IsAttributeValueChanged()
+        {
             var changeState = isAttributeValueChanged;
             isAttributeValueChanged = false;
             return changeState;
         }
 
-        private void AttributeValueChanged () {
+        private void AttributeValueChanged()
+        {
             isAttributeValueChanged = true;
-        }
-
-        public void DrawContent (HelpClicked _onHelpClicked) {
-            var current = Event.current;
-
-            //Only draw node on Repaint if it's not selected
-            if (current.IsRepaint())
-                Draw(_onHelpClicked);
-
-            //Draw on multiple events for buttons to work
-            if (selected && !current.IsRepaint())
-                Draw(_onHelpClicked);
-        }
-
-        private void Draw (HelpClicked _onHelpClicked) {
-            DrawAttributes();
-            var current = Event.current;
-            DrawInputs();
-            DrawOutputs();
-            DrawHeader(_onHelpClicked);
-
-            if (DrawDescription)
-                DrawHelp(Description);
-        }
-
-        private void DrawAttributes () {
-            if (node.GetAttributes() != null) {
-                var i = 0;
-                foreach (var attribute in node.AttributesData) {
-                    EditorGUIUtility.labelWidth = 25;
-                    EditorGUIUtility.fieldWidth = 10;
-                    var attributeRect = new Rect(nodeConfig.AtrributeSize.x, nodeConfig.AtrributeSize.y + (nodeConfig.AtrributeSize.height * i), nodeConfig.AtrributeSize.width, nodeConfig.AtrributeSize.height);
-                    if (attribute.Value != null) {
-                        var currentAttributeValue = attribute.Value.GetString();
-                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value, nodeConfig);
-                        if (attribute.Value != null) {
-                            if (currentAttributeValue != attribute.Value.GetString())
-                                AttributeValueChanged();
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void DrawInputs () {
-            if (node.Inputs != null) {
-                var i = 0;
-                Event current = Event.current;
-                foreach (var input in node.Inputs) {
-                    var buttonPosition = new Rect(0, nodeConfig.TopMargin + (nodeConfig.InputSize * i), nodeConfig.InputSize, nodeConfig.InputSize * 0.5f);
-                    if (buttonPosition.Contains(current.mousePosition))
-                    {
-                        DrawDescription = true;
-                        Description = input.Description;
-                        HelpPosition = new Rect(node.XPosition + 30, node.YPosition - 30, 0, 0);
-                    }
-                    if (GUI.Button(buttonPosition, "",
-                            nodeConfig.GetConnectionStyle(input.IsWarm, input.Type))) {
-                        
-                        if (current.button == 0)
-                            linkEditor.AddLinkFromInput(input);
-                        else {
-                            DrawDescription = true;
-                            Description = input.Description;
-                        }
-                    }
-                    i++;
-                }
-            }
-        }
-
-        private void DrawOutputs () {
-            if (node.Outputs != null) {
-                var i = 0;
-                Event current = Event.current;
-                foreach (var output in node.Outputs) {
-                    var buttonPosition = new Rect(Rect.width - nodeConfig.OutputSize, nodeConfig.TopMargin + ((nodeConfig.OutputSize) * i), nodeConfig.OutputSize, nodeConfig.OutputSize * 0.75f);
-                    if (buttonPosition.Contains(current.mousePosition))
-                    {
-                        DrawDescription = true;
-                        Description = output.Description;
-                        HelpPosition = new Rect(node.XPosition + 30 + nodeConfig.NodeWidth, node.YPosition - 30, 0, 0);
-                    }
-                    if (GUI.Button(buttonPosition, "",
-                            nodeConfig.GetConnectionStyle(output.IsWarm, output.Type))) {
-                        if (current.button == 0){
-                            linkEditor.AddLinkFromOutput(output);
-                        }
-                    }
-                    i++;
-                }
-            }
-        }
-
-        public void DrawHeader (HelpClicked onHelpClicked) {
-            var width = Rect.width - 10;
-
-            if (selected) {
-                var color = GUI.color;
-                width -= ButtonSize * 2 + 7;
-
-                //Light gray color for close button
-                GUI.color = new Color(0.8f, 0.8f, 0.8f);
-                //UnityEngine.GUI.Box(new Rect(Rect.width - (ButtonSize + 2), 1, ButtonSize, ButtonSize), "", nodeConfig.RoundButton);
-                if (GUI.Button(new Rect(Rect.width - (ButtonSize + 1), 1, ButtonSize - 2, ButtonSize), "", nodeConfig.CloseButton) && Event.current.button == 0) {
-                    DestroyNode();
-                }
-
-                GUI.color = color;
-                if (GUI.Button(new Rect(Rect.width - (ButtonSize * 2), 1.5f, ButtonSize, ButtonSize), "", nodeConfig.HelpStyle) && Event.current.button == 0) {
-                    onHelpClicked(node.Name);
-                }
-            }
-            if (node.OverrideDisplayedName.Length == 0)
-            {
-                GUI.Label(new Rect(10, 0, width, 16), node.Name, nodeConfig.HeaderLabel);
-            }
-            else
-            {
-                GUI.Label(new Rect(10, 0, width, 16), node.OverrideDisplayedName, nodeConfig.HeaderLabel);
-            }
-        }
-        
-        public NodeData GetData () {
-            return node;
-        }
-
-        public Rect GetRect () {
-            return Rect;
-        }
-
-        public bool Selected {
-            get {
-                return selected;
-            }
         }
     }
 }
