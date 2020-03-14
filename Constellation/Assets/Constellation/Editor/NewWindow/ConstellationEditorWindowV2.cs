@@ -80,12 +80,32 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
                 if (ScriptDataService.currentPath.Count > 0)
                 {
                     Open(ScriptDataService.currentPath[0]);
-                }else
-                {
-
                 }
             }
+            DrawInstancePannel();
         }
+    }
+
+    private void DrawInstancePannel()
+    {
+        if (!ConstellationScript.IsDifferentThanSource /*|| NodeEditorNodes.IsTutorial()*/)
+            return;
+
+        GUI.color = Color.yellow;
+        Event e = Event.current;
+        var x = 0;
+        var y = 40;
+        var width = 100;
+        var height = 25;
+        if (GUI.Button(new Rect(x, y, width, height), "Apply"))
+        {
+            if (ConstellationScript.IsInstance)
+            {
+                ConstellationScript.IsDifferentThanSource = false;
+            }
+            ScriptDataService.SaveInstance();
+        }
+        GUI.color = Color.white;
     }
 
     void Update()
@@ -315,13 +335,19 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
     protected void OnLinkAdded(LinkData link)
     {
         if (Application.isPlaying && previousSelectedGameObject != null)
+        {
             currentEditableConstellation.AddLink(link);
+            ConstellationScript.IsDifferentThanSource = true;
+        }
     }
 
     protected void OnLinkRemoved(LinkData link)
     {
         if (Application.isPlaying && previousSelectedGameObject != null)
+        {
             currentEditableConstellation.RemoveLink(link);
+            ConstellationScript.IsDifferentThanSource = true;
+        }
     }
 
     protected void OnNodeAdded(NodeData node)
@@ -329,13 +355,17 @@ public class ConstellationEditorWindowV2 : EditorWindow, ILoadable, IUndoable, I
         if (Application.isPlaying && previousSelectedGameObject != null)
         {
             currentEditableConstellation.AddNode(node);
+            ConstellationScript.IsDifferentThanSource = true;
         }
     }
 
     protected void OnNodeRemoved(NodeData node)
     {
         if (Application.isPlaying && previousSelectedGameObject != null)
+        {
             currentEditableConstellation.RemoveNode(node);
+            ConstellationScript.IsDifferentThanSource = true;
+        }
     }
 
     public bool ParseScript()

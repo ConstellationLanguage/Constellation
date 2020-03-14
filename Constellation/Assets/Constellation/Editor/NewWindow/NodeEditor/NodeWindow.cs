@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using Constellation;
-
+using System.Linq;
 
 public class NodeWindow
 {
@@ -13,7 +13,7 @@ public class NodeWindow
     public NodesFactory NodeFactory;
     public ConstellationScript ConstellationScript;
     private NodeView SetOnTop;
-    private bool isInstance;
+    //private bool isInstance;
     bool mousePressed = false;
     bool mouseButtonDown = false;
     Vector2 mouseClickStartPosition = Vector2.zero;
@@ -97,7 +97,10 @@ public class NodeWindow
         GUILayoutOption[] options = { GUILayout.Width(editorScrollSize.x), GUILayout.Height(editorScrollSize.y) };
         editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
         EditorGUILayout.LabelField("", options);
-        background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, Color.white);
+        var backgroundTint = Color.white;
+        if (ConstellationScript.IsInstance && ConstellationScript.IsDifferentThanSource)
+            backgroundTint = Color.yellow;
+        background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, backgroundTint);
         Event e = Event.current;
         var mouseJustRelease = false;
         if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)
@@ -147,6 +150,13 @@ public class NodeWindow
             ScrollPosition -= Event.current.delta * 0.5f;
             requestRepaint();
         }
+
+        var script = ConstellationScript.script;
+
+        if (script.Nodes != null)
+            script.Nodes = script.Nodes.OrderBy(x => x.YPosition).ToList();
+        if (script.Links != null)
+            script.Links = script.Links.OrderBy(x => x.outputPositionY).ToList();
     }
 
     private void DrawNodes(Event e)
@@ -199,7 +209,7 @@ public class NodeWindow
                     {
                         for (var i = 0; i < node.GetAttributes().Length; i++)
                         {
-                            if (isInstance)
+                            if (ConstellationScript.IsInstance)
                                 ConstellationScript.IsDifferentThanSource = true;
                             node.GetAttributes()[i].Value.Set(nodeData.NodeData.AttributesData[i].Value);
                             node.NodeType.Receive(nodeData.NodeData.AttributesData[i].Value, new Constellation.Input("0000-0000-0000-0000", 999, true, "editor", "none"));
