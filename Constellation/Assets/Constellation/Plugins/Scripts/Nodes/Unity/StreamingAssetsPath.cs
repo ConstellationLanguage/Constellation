@@ -30,7 +30,8 @@ namespace Constellation.Unity
 
         public void OnAwake()
         {
-            sender.Send(new Variable(Application.streamingAssetsPath), 0);
+            string filePath = Application.streamingAssetsPath;
+            sender.Send(new Variable(filePath), 0);
         }
     }
 }

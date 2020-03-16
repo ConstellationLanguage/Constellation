@@ -71,7 +71,8 @@ namespace ConstellationEditor
                 }
                 if (startLink == Rect.zero || endLink == Rect.zero)
                 {
-                    //editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
+                    editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
+                    constellationScript.RemoveLink(link);
                 }
 
                 DrawNodeCurve(startLink, endLink, GetConnectionColor(link.Input.IsWarm, link.Input.Type));

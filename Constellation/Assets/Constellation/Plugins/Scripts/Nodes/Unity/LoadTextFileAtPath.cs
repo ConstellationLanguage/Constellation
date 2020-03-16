@@ -29,8 +29,14 @@ namespace Constellation.Unity
         {
             if (_input.InputId == 0)
             {
-                var dataAsJson = File.ReadAllText(_value.GetString());
-                sender.Send(new Variable().Set(dataAsJson), 0);
+                //
+                UnityEngine.Networking.UnityWebRequest www = UnityEngine.Networking.UnityWebRequest.Get(_value.GetString());
+                www.SendWebRequest();
+                while (!www.isDone)
+                {
+                }
+                string jsonString = www.downloadHandler.text;
+                sender.Send(new Variable().Set(jsonString), 0);
             }
         }
     }

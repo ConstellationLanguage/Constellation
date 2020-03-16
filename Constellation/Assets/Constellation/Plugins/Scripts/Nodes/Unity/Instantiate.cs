@@ -1,4 +1,6 @@
-﻿namespace Constellation.Unity
+﻿using UnityEngine;
+
+namespace Constellation.Unity
 {
     public class Instantiate : INode, IReceiver
     {
@@ -24,11 +26,8 @@
 
         public void Receive(Variable _value, Input _input)
         {
-            if(_value.IsFloat()) {
-                UnityObject.Set(_value.GetFloat());
-            }
-            if(_input.isWarm)
-                sender.Send(UnityObject, 0);
+            UnityObject.Set(_value.GetObject());
+            sender.Send(new Variable().Set(GameObject.Instantiate(_value.GetObject() as GameObject)), 0);
         }
     }
 }

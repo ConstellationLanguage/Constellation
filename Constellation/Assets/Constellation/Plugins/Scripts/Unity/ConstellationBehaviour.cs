@@ -47,7 +47,7 @@ namespace Constellation
         {
             if (!IsGCDone && Time.frameCount % 10 == 0)
             {
-                System.GC.Collect();
+                //System.GC.Collect();
                 IsGCDone = true;
             }
             if (constellation.GetInjector() is IUpdatable)

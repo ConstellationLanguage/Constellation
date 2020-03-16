@@ -28,6 +28,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
         ConstellationEditorWindow window = (ConstellationEditorWindow)EditorWindow.GetWindow(typeof(ConstellationEditorWindow));
         window.Show();
         ConstellationEditorWindowInstance = window;
+        
     }
 
     public void OnEnable()
@@ -378,10 +379,14 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
         {
             ScriptDataService = new ConstellationEditorDataService();
             ScriptDataService.Initialize();
+            ScriptDataService.ResetConstellationEditorData();
+            if (ScriptDataService.currentPath.ToArray().Length > 0)
+                Open(ScriptDataService.currentPath.ToArray()[0]);
         }
 
         ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllScriptsInProject(), ScriptDataService.GetAllNestableScriptsInProject());
         SetupNodeWindow();
+
         return true;
     }
 }
