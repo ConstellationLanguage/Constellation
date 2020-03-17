@@ -38,6 +38,8 @@ namespace Constellation {
 
             XPosition =_node.XPosition;
             YPosition =_node.YPosition;
+            SizeX = _node.XSize;
+            SizeY = _node.YSize;
             Name = _node.Name;
             Namespace = _node.Namespace;
             Guid = _node.GetGuid ();

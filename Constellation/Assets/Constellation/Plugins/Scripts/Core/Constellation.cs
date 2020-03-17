@@ -105,6 +105,8 @@ namespace Constellation
             {
                 newNode.XPosition = nodeData.XPosition;
                 newNode.YPosition = nodeData.YPosition;
+                newNode.XSize = nodeData.SizeX;
+                newNode.YSize = nodeData.SizeY;
             }
             Nodes.Add(newNode);
             if(Injector != null)

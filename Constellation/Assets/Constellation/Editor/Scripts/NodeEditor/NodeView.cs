@@ -159,7 +159,8 @@ namespace ConstellationEditor
 
         public float MinimumNodeHeight()
         {
-            return Math.Max((inputSize + spacing) * NodeData.Inputs.Count + nodeTitleHeight, (inputSize + spacing) * NodeData.Outputs.Count + nodeTitleHeight);
+            var minimumHeight = 30;
+            return Mathf.Max(Math.Max((inputSize + spacing) * NodeData.Inputs.Count + nodeTitleHeight, (inputSize + spacing) * NodeData.Outputs.Count + nodeTitleHeight), minimumHeight);
         }
 
         public float MinimumNodeWidth()

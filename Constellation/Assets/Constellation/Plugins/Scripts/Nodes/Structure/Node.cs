@@ -9,6 +9,8 @@ namespace Constellation {
 		public IReceiver Receiver;
 		public float XPosition = 0;
 		public float YPosition = 0;
+		public float XSize = 0;
+		public float YSize = 0;
 
 		/// <summary>
 		///Create a new node that implements INode. 

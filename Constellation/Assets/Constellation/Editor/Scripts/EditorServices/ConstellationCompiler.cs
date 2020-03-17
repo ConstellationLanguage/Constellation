@@ -47,8 +47,10 @@ namespace ConstellationEditor
                     {
                         replacementNode.XPosition = node.XPosition;
                         replacementNode.YPosition = node.YPosition;
+                        replacementNode.XSize = node.SizeX;
+                        replacementNode.YSize = node.SizeY;
 
-                        if (node.Inputs != null && replacementNode.Inputs != null)
+                    if (node.Inputs != null && replacementNode.Inputs != null)
                         {
                             if (node.Inputs.Count >= replacementNode.Inputs.Count)
                             {
