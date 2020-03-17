@@ -23,10 +23,12 @@ namespace ConstellationEditor
         public const float rightAttributeMargin = 5;
         public const float attributeSpacing = 2;
         bool isAttributeValueChanged = false;
+        bool wasMouseOverNode = false;
         Rect AtrributeSize = new Rect(0, 0, 88, 16);
 
         public NodeView(NodeData node)
         {
+            isAttributeValueChanged = false;
             NodeData = node;
             nodeName = node.Name;
             LockNodeSize();
@@ -62,7 +64,13 @@ namespace ConstellationEditor
                 GUI.Button(questionRect, "?");
                 GUI.color = Color.gray;
                 GUI.Button(resizeRect, "");
+                wasMouseOverNode = true;
+            } else if(wasMouseOverNode)
+            {
+                wasMouseOverNode = false;
+                GUI.FocusControl(null);
             }
+
             GUI.color = Color.white;
 
             var inputs = NodeData.GetInputs();
@@ -286,7 +294,6 @@ namespace ConstellationEditor
                     }
                     i++;
                 }
-
             }
         }
 

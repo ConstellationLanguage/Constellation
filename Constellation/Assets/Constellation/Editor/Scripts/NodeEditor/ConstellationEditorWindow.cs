@@ -114,7 +114,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
     {
         if (Application.isPlaying && IsConstellationSelected())
         {
-            RequestRepaint();
             if (NodeWindow != null && previousSelectedGameObject != null && ScriptDataService.GetCurrentScript().IsInstance)
             {
                 NodeWindow.Update(currentEditableConstellation.GetConstellation(), OnEditorEvent);
@@ -142,18 +141,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
                 }
                 selectedConstellation.Initialize();
             }
-
-            /*if (requestSetup == true)
-            {
-                Setup();
-                requestSetup = false;
-            }
-
-            if (requestCompilation == true)
-            {
-                ParseScript();
-                requestCompilation = false;
-            }*/
         }
         else
         {

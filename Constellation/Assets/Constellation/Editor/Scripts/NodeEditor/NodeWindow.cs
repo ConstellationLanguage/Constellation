@@ -28,7 +28,7 @@ namespace ConstellationEditor
         private enum EventsScope { Generic, Resizing, Dragging, EditingAttributes };
         private EventsScope currentEventScope = EventsScope.Generic;
         private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
-
+        private Vector2 LocalMousePosition;
         public NodeWindow(string _editorPath, ConstellationScript _constellationScript)
         {
             var backgroundTexture = AssetDatabase.LoadAssetAtPath(editorPath + "background.png", typeof(Texture2D)) as Texture2D;
@@ -94,58 +94,62 @@ namespace ConstellationEditor
         public void Draw(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents callback)
         {
             mouseButtonDown = false;
+            LocalMousePosition = Event.current.mousePosition;
             //scroll bar
             ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX), GUILayout.Height(windowSizeY));
             GUILayoutOption[] options = { GUILayout.Width(editorScrollSize.x), GUILayout.Height(editorScrollSize.y) };
             editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
             EditorGUILayout.LabelField("", options);
-            var backgroundTint = Color.white;
-            if (ConstellationScript.IsInstance && ConstellationScript.IsDifferentThanSource)
-                backgroundTint = Color.yellow;
-            background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, backgroundTint);
-            Event e = Event.current;
-            var mouseJustRelease = false;
-            if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)
+            if (LocalMousePosition != Event.current.mousePosition) // fixes issue of window behing drawn twice
             {
-                mouseJustRelease = true;
-                mousePressed = false;
-            }
-            else if (e.type == EventType.MouseDown && Event.current.button == 0)
-            {
-                mouseClickStartPosition = e.mousePosition;
-                mousePressed = true;
-                mouseButtonDown = true;
-            }
-
-            switch (currentEventScope)
-            {
-                case EventsScope.Generic:
-                    UpdateGenericEvents(requestRepaint, callback, e);
-                    break;
-                case EventsScope.Resizing:
-                    UpdateResizeEvents(requestRepaint, callback, e);
-                    break;
-                case EventsScope.Dragging:
-                    UpdateDragEvents(requestRepaint, callback, e);
-                    break;
-                case EventsScope.EditingAttributes:
-                    break;
-
-            }
-
-            //Needs to be called after the event scope otherwise quit button event is overriden by the node drag event
-            if (mouseJustRelease)
-            {
-                currentEventScope = EventsScope.Generic;
-                for (var i = 0; i < Nodes.Count; i++)
+                var backgroundTint = Color.white;
+                if (ConstellationScript.IsInstance && ConstellationScript.IsDifferentThanSource)
+                    backgroundTint = Color.yellow;
+                background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, backgroundTint);
+                Event e = Event.current;
+                var mouseJustRelease = false;
+                if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)
                 {
-                    Nodes[i].LockNodeSize();
-                    Nodes[i].LockNodePosition();
+                    mouseJustRelease = true;
+                    mousePressed = false;
                 }
+                else if (e.type == EventType.MouseDown && Event.current.button == 0)
+                {
+                    mouseClickStartPosition = e.mousePosition;
+                    mousePressed = true;
+                    mouseButtonDown = true;
+                }
+
+                switch (currentEventScope)
+                {
+                    case EventsScope.Generic:
+                        UpdateGenericEvents(requestRepaint, callback, e);
+                        break;
+                    case EventsScope.Resizing:
+                        UpdateResizeEvents(requestRepaint, callback, e);
+                        break;
+                    case EventsScope.Dragging:
+                        UpdateDragEvents(requestRepaint, callback, e);
+                        break;
+                    case EventsScope.EditingAttributes:
+                        break;
+
+                }
+
+                //Needs to be called after the event scope otherwise quit button event is overriden by the node drag event
+                if (mouseJustRelease)
+                {
+                    currentEventScope = EventsScope.Generic;
+                    for (var i = 0; i < Nodes.Count; i++)
+                    {
+                        Nodes[i].LockNodeSize();
+                        Nodes[i].LockNodePosition();
+                    }
+                }
+                DrawNodes(e);
+                Links.DrawLinks(requestRepaint, callback);
+                DrawDescriptions(e);
             }
-            DrawNodes(e);
-            Links.DrawLinks(requestRepaint, callback);
-            DrawDescriptions(e);
             EditorGUILayout.EndScrollView();
             if (Event.current.button == 2)
             {
@@ -154,7 +158,6 @@ namespace ConstellationEditor
             }
 
             var script = ConstellationScript.script;
-
             if (script.Nodes != null)
                 script.Nodes = script.Nodes.OrderBy(x => x.YPosition).ToList();
             if (script.Links != null)
@@ -222,7 +225,6 @@ namespace ConstellationEditor
                                 }
                             }
                         }
-
                     }
                 }
             }
@@ -322,11 +324,7 @@ namespace ConstellationEditor
                         }
                     }
                 }
-                else
-                {
-
-                }
-
+       
             }
             if (mousePressed)
             {

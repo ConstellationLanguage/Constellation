@@ -79,7 +79,6 @@ namespace ConstellationEditor
 
                 if (MouseOverCurve(startLink.position, endLink.position))
                 {
-
                     var linkCenter = new Rect((startLink.x + (endLink.x - startLink.x) / 2) - (deleteButtonSize * 0.5f),
                         (startLink.y + (endLink.y - startLink.y) / 2) - (deleteButtonSize * 0.5f),
                         deleteButtonSize,
