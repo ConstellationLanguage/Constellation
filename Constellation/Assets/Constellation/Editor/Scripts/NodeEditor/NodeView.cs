@@ -67,8 +67,8 @@ namespace ConstellationEditor
                 wasMouseOverNode = true;
             } else if(wasMouseOverNode)
             {
-                wasMouseOverNode = false;
                 GUI.FocusControl(null);
+                wasMouseOverNode = false;
             }
 
             GUI.color = Color.white;
@@ -282,10 +282,11 @@ namespace ConstellationEditor
                     EditorGUIUtility.labelWidth = 25;
                     EditorGUIUtility.fieldWidth = 10;
                     var attributeRect = GetAttributeRect(i);
+                    var nodeAttributeRect = new Rect(NodeData.XPosition + 10, NodeData.YPosition + nodeTitleHeight, NodeData.SizeX - 20, NodeData.SizeY - nodeTitleHeight - 10);
                     if (attribute.Value != null)
                     {
                         var currentAttributeValue = attribute.Value.GetString();
-                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, attribute.Value);
+                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, nodeAttributeRect, attribute.Value);
                         if (attribute.Value != null)
                         {
                             if (currentAttributeValue != attribute.Value.GetString())

@@ -7,7 +7,7 @@ namespace ConstellationEditor
 {
     public static class AttributeStyleFactory
     {
-        public static Variable Draw(Attribute.AttributeType type, Rect size, Variable Value)
+        public static Variable Draw(Attribute.AttributeType type, Rect size, Rect attributeArea, Variable Value)
         {
             switch (type)
             {
@@ -22,10 +22,11 @@ namespace ConstellationEditor
                 case Attribute.AttributeType.Else:
                     return ElseCharacterFilter(size, Value);
                 case Attribute.AttributeType.NoteField:
-                    var noteSkin = new GUIStyle(GUI.skin.GetStyle("flow node 0"));
-                    noteSkin.wordWrap = true;
-                    noteSkin.alignment = TextAnchor.UpperLeft;
-                    return Value.Set(EditorGUI.TextArea(new Rect(0, 20, 120, 100), Value.GetString(), noteSkin));
+                    GUI.color = Color.yellow;
+                    var textAreaValue = Value.Set(EditorGUI.TextArea(attributeArea, Value.GetString()));
+                    GUI.color = Color.white;
+                    //noteSkin.alignment = TextAnchor.UpperLeft;
+                    return textAreaValue;
                 case Attribute.AttributeType.ReadOnlyValue:
                     EditorGUI.LabelField(size, Value.GetString());
                     return Value;

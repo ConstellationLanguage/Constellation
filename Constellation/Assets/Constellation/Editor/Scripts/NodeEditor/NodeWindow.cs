@@ -232,20 +232,29 @@ namespace ConstellationEditor
 
         private void DrawDescriptions(Event e)
         {
+            var predictedCharacterSize = 8;
+            var minimumSize = 10;
+            var spacing = 10;
             for (var i = 0; i < Nodes.Count; i++)
             {
                 for (var j = 0; j < Nodes[i].GetInputs().Length; j++)
                 {
                     var inputRect = Nodes[i].GetInputRect(j);
                     if (inputRect.Contains(e.mousePosition))
-                        GUI.Box(new Rect(e.mousePosition.x - 110, e.mousePosition.y, 100, 20), Nodes[i].GetInputs()[j].Description);
+                    {
+                        var size = Nodes[i].GetInputs()[j].Description.Length * predictedCharacterSize + minimumSize;
+                        GUI.Box(new Rect(e.mousePosition.x - size - spacing, e.mousePosition.y, size, 20), Nodes[i].GetInputs()[j].Description);
+                    }
                 }
 
                 for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
                 {
                     var outputRect = Nodes[i].GetOuptputRect(j);
                     if (outputRect.Contains(e.mousePosition))
-                        GUI.Box(new Rect(e.mousePosition.x + 10, e.mousePosition.y, 100, 20), Nodes[i].GetOutputs()[j].Description);
+                    {
+                        var size = Nodes[i].GetOutputs()[j].Description.Length * predictedCharacterSize + minimumSize;
+                        GUI.Box(new Rect(e.mousePosition.x + spacing, e.mousePosition.y, size, 20), Nodes[i].GetOutputs()[j].Description);
+                    }
                 }
             }
         }
