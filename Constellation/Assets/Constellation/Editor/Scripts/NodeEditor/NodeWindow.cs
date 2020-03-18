@@ -14,6 +14,7 @@ namespace ConstellationEditor
         public NodeEditorBackground background;
         public NodesFactory NodeFactory;
         public ConstellationScript ConstellationScript;
+        public ConstellationEditorDataService EditorData;
         private NodeView SetOnTop;
         //private bool isInstance;
         bool mousePressed = false;
@@ -29,18 +30,19 @@ namespace ConstellationEditor
         private EventsScope currentEventScope = EventsScope.Generic;
         private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
         private Vector2 LocalMousePosition;
-        public NodeWindow(string _editorPath, ConstellationScript _constellationScript)
+        public NodeWindow(string _editorPath, ConstellationEditorDataService _constellationEditorData)
         {
             var backgroundTexture = AssetDatabase.LoadAssetAtPath(editorPath + "background.png", typeof(Texture2D)) as Texture2D;
             background = new NodeEditorBackground(backgroundTexture);
             editorPath = _editorPath;
             SelectedNodes = new List<NodeView>();
             Nodes = new List<NodeView>();
-            ConstellationScript = _constellationScript;
+            EditorData = _constellationEditorData;
+            ConstellationScript = EditorData.Script;
             Links = new LinksView(ConstellationScript);
             NodeFactory = new NodesFactory(ConstellationScript?.ScriptAssembly?.GetAllScriptData());
 
-            foreach (var node in _constellationScript.GetNodes())
+            foreach (var node in ConstellationScript.GetNodes())
             {
                 DisplayNode(node);
             }
@@ -169,7 +171,7 @@ namespace ConstellationEditor
             //Read in reverse so first element in in front;
             for (int i = Nodes.Count - 1; i >= 0; i--)
             {
-                Nodes[i].DrawNode(e);
+                Nodes[i].DrawNode(e, EditorData.GetConstellationEditorConfig());
                 farNodeX = Mathf.Max(Nodes[i].GetPositionX(), farNodeX);
                 farNodeY = Mathf.Max(Nodes[i].GetPositionY(), farNodeY);
             }

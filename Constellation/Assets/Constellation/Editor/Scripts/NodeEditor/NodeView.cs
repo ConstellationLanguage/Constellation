@@ -15,10 +15,12 @@ namespace ConstellationEditor
         private float previousNodeSizeY;
         public const float nodeTitleHeight = 20;
         public const float nodeDeleteSize = 15;
-        public const float resizeButtonSize = 8;
+        public const float resizeButtonSize = 10;
         public const float inputSize = 10;
         public const float outputSize = 10;
         public const float spacing = 10;
+        public const float titleLeftMargin = 5;
+        public const float titleRightMargin = 5;
         public const float leftAttributeMargin = 5;
         public const float rightAttributeMargin = 5;
         public const float attributeSpacing = 2;
@@ -40,8 +42,9 @@ namespace ConstellationEditor
             }
         }
 
-        public void DrawNode(Event e)
+        public void DrawNode(Event e, ConstellationEditorStyles constellationEditorStyle)
         {
+            var editorConfig = constellationEditorStyle;
             var nodeSizeX = GetSizeX();
             var nodeSizeY = GetSizeY();
             var nodePositionX = GetPositionX();
@@ -49,21 +52,23 @@ namespace ConstellationEditor
             float positionOffsetX = nodeSizeX * 0.5f;
             float positionOffsetY = nodeSizeY * 0.5f;
             var nodeRect = new Rect(nodePositionX, nodePositionY, nodeSizeX, nodeSizeY);
-            var nodeTitleRect = new Rect(nodePositionX, nodePositionY, nodeSizeX, nodeTitleHeight);
+            var nodeTitleRect = new Rect(nodePositionX + titleLeftMargin, nodePositionY, nodeSizeX - titleLeftMargin - titleRightMargin, nodeTitleHeight);
             var deleteRect = GetDeleteRect();
             var questionRect = GetQuestionRect();
             var resizeRect = GetResizeRect();
-            var noteSkin = new GUIStyle(GUI.skin.GetStyle("flow node 0"));
-            GUI.Box(nodeRect, "", noteSkin);
-            GUI.Label(nodeTitleRect, GetName());
+            var nodeSkin = editorConfig.NodeStyle;
+            var nodeTitleSkin = editorConfig.NodeTitleStyle;
+            var nodeResizeSkin = editorConfig.NodeResizeButtonStyle;
+            GUI.Box(nodeRect, "", nodeSkin);
+            GUI.Label(nodeTitleRect, GetName(), nodeTitleSkin);
             if (nodeRect.Contains(e.mousePosition))
             {
                 GUI.color = new Color(0.75f, 0.75f, 0.75f);
                 GUI.Button(deleteRect, "X");
                 GUI.color = new Color(0.75f, 0.75f, 0.75f);
                 GUI.Button(questionRect, "?");
-                GUI.color = Color.gray;
-                GUI.Button(resizeRect, "");
+                GUI.color = Color.white;
+                GUI.Button(resizeRect, "", nodeResizeSkin);
                 wasMouseOverNode = true;
             } else if(wasMouseOverNode)
             {
@@ -101,10 +106,9 @@ namespace ConstellationEditor
                         GUI.color = coldColor;
                     }
                 }
-                GUI.Button(GetInputRect(i), "");
-
+                GUI.Button(GetInputRect(i), "", editorConfig.NodeInputStyle);
             }
-            DrawAttributes();
+            DrawAttributes(constellationEditorStyle);
             var outputs = NodeData.GetOutputs();
             for (var i = 0; i < outputs.Length; i++)
             {
@@ -130,19 +134,19 @@ namespace ConstellationEditor
                         GUI.color = coldColor;
                     }
                 }
-                GUI.Button(GetOuptputRect(i), "");
+                GUI.Button(GetOuptputRect(i), "", editorConfig.NodeOutputStyle);
             }
             GUI.color = Color.white;
         }
 
         public Rect GetInputRect(int InputID)
         {
-            return new Rect(GetPositionX(), GetPositionY() + (InputID * (inputSize + spacing)) + nodeTitleHeight, inputSize, inputSize);
+            return new Rect(GetPositionX() - (inputSize * 0.25f), GetPositionY() + (InputID * (inputSize + spacing)) + nodeTitleHeight, inputSize, inputSize);
         }
 
         public Rect GetOuptputRect(int InputID)
         {
-            return new Rect(GetPositionX() + GetSizeX() - outputSize, GetPositionY() + (InputID * (outputSize + spacing)) + nodeTitleHeight, outputSize, outputSize);
+            return new Rect(GetPositionX() + GetSizeX() - (outputSize * 0.75f), GetPositionY() + (InputID * (outputSize + spacing)) + nodeTitleHeight, outputSize, outputSize);
         }
 
         public void UpdateNodeSize(float _x, float _y)
@@ -272,7 +276,7 @@ namespace ConstellationEditor
             return rect;
         }
 
-        private void DrawAttributes()
+        private void DrawAttributes(ConstellationEditorStyles editorStyles)
         {
             GUI.color = Color.white;
             if (NodeData.GetAttributes() != null)
@@ -287,7 +291,7 @@ namespace ConstellationEditor
                     if (attribute.Value != null)
                     {
                         var currentAttributeValue = attribute.Value.GetString();
-                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, nodeAttributeRect, attribute.Value);
+                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, nodeAttributeRect, attribute.Value, editorStyles);
                         if (attribute.Value != null)
                         {
                             if (currentAttributeValue != attribute.Value.GetString())

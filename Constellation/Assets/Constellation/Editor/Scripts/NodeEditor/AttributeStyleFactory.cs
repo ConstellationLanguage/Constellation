@@ -7,14 +7,15 @@ namespace ConstellationEditor
 {
     public static class AttributeStyleFactory
     {
-        public static Variable Draw(Attribute.AttributeType type, Rect size, Rect attributeArea, Variable Value)
+        public static Variable Draw(Attribute.AttributeType type, Rect size, Rect attributeArea, Variable Value, ConstellationEditorStyles editorStyles)
         {
             switch (type)
             {
                 case Attribute.AttributeType.Value:
-                    return Value.Set(EditorGUI.FloatField(size, "<>", Value.GetFloat()));
+                    EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "<>", editorStyles.NodeValueAttributeLabelStyle);
+                    return Value.Set(EditorGUI.FloatField(size, " ", Value.GetFloat(), editorStyles.NodeValueAttributeStyle));
                 case Attribute.AttributeType.Word:
-                    return Value.Set(EditorGUI.TextField(size, "", Value.GetString()));
+                    return Value.Set(EditorGUI.TextField(size, "", Value.GetString(), editorStyles.NodeWordAttributeStyle));
                 case Attribute.AttributeType.Conditionals:
                     return IfCharacterFilter(size, Value);
                 case Attribute.AttributeType.Then:
@@ -22,7 +23,7 @@ namespace ConstellationEditor
                 case Attribute.AttributeType.Else:
                     return ElseCharacterFilter(size, Value);
                 case Attribute.AttributeType.NoteField:
-                    GUI.color = Color.yellow;
+                    GUI.color = new Color(0.9f, 0.85f, 0.25f);
                     var textAreaValue = Value.Set(EditorGUI.TextArea(attributeArea, Value.GetString()));
                     GUI.color = Color.white;
                     //noteSkin.alignment = TextAnchor.UpperLeft;
@@ -31,25 +32,25 @@ namespace ConstellationEditor
                     EditorGUI.LabelField(size, Value.GetString());
                     return Value;
                 case Attribute.AttributeType.ReadOnlyXValue:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeXAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyYValue:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeYAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyZValue:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeZAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyValueR:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeRAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyValueG:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeGAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyValueB:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeBAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyValueA:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeAAtrributeStyle);
                     return Value;
                 case Attribute.AttributeType.RenameNodeTitle:
                     EditorGUI.LabelField(size, Value.GetString());

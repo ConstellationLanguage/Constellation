@@ -99,6 +99,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
         var y = 40;
         var width = 100;
         var height = 25;
+
         if (GUI.Button(new Rect(x, y, width, height), "Apply"))
         {
             if (ConstellationScript.IsInstance)
@@ -187,7 +188,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
 
     void SetupNodeWindow()
     {
-        NodeWindow = new NodeWindow(editorPath, ConstellationScript);
+        NodeWindow = new NodeWindow(editorPath, ScriptDataService);
     }
 
     void RequestRepaint()

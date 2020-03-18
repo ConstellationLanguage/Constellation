@@ -18,11 +18,10 @@ namespace ConstellationEditor {
         [SerializeField]
         private bool isSaved;
         [SerializeField]
-        private string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
+        private const string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
         [SerializeField]
-        private ExamplePlayer ExamplePlayer;
+        public ConstellationEditorStyles ConstellationEditorStyles;
         
-
         public ConstellationEditorDataService () {
 
         }
@@ -32,6 +31,14 @@ namespace ConstellationEditor {
             Setup();
             OpenEditorData();
             RefreshConstellationEditorDataList();
+        }
+
+        public ConstellationEditorStyles GetConstellationEditorConfig()
+        {
+            if(ConstellationEditorStyles == null)
+                ConstellationEditorStyles = (ConstellationEditorStyles)AssetDatabase.LoadAssetAtPath(ConstellationEditor.GetEditorPath() + "ConstellationStyle.Asset", typeof(ConstellationEditorStyles));
+            
+            return ConstellationEditorStyles;
         }
 
         public void RefreshConstellationEditorDataList()
