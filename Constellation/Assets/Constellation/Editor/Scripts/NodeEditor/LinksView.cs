@@ -75,7 +75,7 @@ namespace ConstellationEditor
                     constellationScript.RemoveLink(link);
                 }
 
-                DrawNodeCurve(startLink, endLink, GetConnectionColor(link.Input.IsWarm, link.Input.Type, styles));
+                DrawNodeCurve(startLink, endLink, GetConnectionColor(link.Input.IsWarm, link.Output.Type, styles));
 
                 if (MouseOverCurve(startLink.position, endLink.position))
                 {

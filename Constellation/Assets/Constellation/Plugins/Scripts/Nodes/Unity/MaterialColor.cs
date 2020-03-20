@@ -9,7 +9,7 @@ namespace Constellation.Unity {
 
         public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Game Object");
-            _nodeParameters.AddInput (this, true, "Color");
+            _nodeParameters.AddInput (this, false, "Color", "Color");
             color = UnityEngine.Color.black;
         }
 

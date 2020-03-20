@@ -17,7 +17,7 @@ namespace Constellation.Unity
             _node.AddInput(this, true, "B");
             _node.AddInput(this, true, "A");
             sender = _node.GetSender();
-            _node.AddOutput(false, "Color[R][G][B][A]");
+            _node.AddOutput(false, "Color", "Color[R][G][B][A]");
             valueR = _node.AddAttribute(new Variable().Set(1), Attribute.AttributeType.ReadOnlyValueR, "R");
             valueG = _node.AddAttribute(new Variable().Set(1), Attribute.AttributeType.ReadOnlyValueG, "G");
             valueB = _node.AddAttribute(new Variable().Set(1), Attribute.AttributeType.ReadOnlyValueB, "B");

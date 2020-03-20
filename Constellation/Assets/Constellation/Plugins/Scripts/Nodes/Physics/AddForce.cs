@@ -7,7 +7,7 @@ namespace Constellation.Physics {
         Vector3 force;
         bool requestedForce = false;
         public void Setup (INodeParameters _nodeParameters) {
-            _nodeParameters.AddInput (this, false,"Vec3 world relative");
+            _nodeParameters.AddInput (this, false,"Vec3" ,"Vec3 world relative");
             force = Vector3.zero;
         }
 

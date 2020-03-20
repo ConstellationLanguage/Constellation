@@ -16,9 +16,9 @@ namespace ConstellationEditor
         public const float nodeTitleHeight = 20;
         public const float nodeDeleteSize = 15;
         public const float resizeButtonSize = 10;
-        public const float inputSize = 10;
-        public const float outputSize = 10;
-        public const float spacing = 10;
+        public const float inputSize = 13;
+        public const float outputSize = 13;
+        public const float spacing = 7;
         public const float titleLeftMargin = 5;
         public const float titleRightMargin = 5;
         public const float leftAttributeMargin = 5;

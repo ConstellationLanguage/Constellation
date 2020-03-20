@@ -15,7 +15,7 @@ namespace Constellation.Unity
             _node.AddInput(this, true, "Y");
             _node.AddInput(this, true, "Z");
             sender = _node.GetSender();
-            _node.AddOutput(false, "Vec3[X][Y][Z]");
+            _node.AddOutput(false, "Vec3", "Vec3[X][Y][Z]");
             valueX = _node.AddAttribute(new Variable().Set(0), Attribute.AttributeType.ReadOnlyXValue, "X");
             valueY = _node.AddAttribute(new Variable().Set(0), Attribute.AttributeType.ReadOnlyYValue, "Y");
             valueZ = _node.AddAttribute(new Variable().Set(0), Attribute.AttributeType.ReadOnlyZValue, "Z");

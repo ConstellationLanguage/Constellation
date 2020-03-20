@@ -7,7 +7,7 @@ namespace Constellation.Unity {
         private Attribute valueZ;
 
         public void Setup (INodeParameters _node) {
-            _node.AddInput (this, true, "Vec3");
+            _node.AddInput (this, true, "Vec3", "Vec3");
             sender = _node.GetSender();
             _node.AddOutput (false, "X");
             _node.AddOutput (false, "Y");

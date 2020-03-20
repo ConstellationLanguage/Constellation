@@ -16,15 +16,15 @@ namespace Constellation.Unity {
 
         public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Transform object");
-            _nodeParameters.AddInput (this, false, "Vec3 position");
-            _nodeParameters.AddInput (this, false, "Vec3 rotation");
-            _nodeParameters.AddInput (this, false, "Vec3 scale");
-            _nodeParameters.AddInput (this, true, "Send");
+            _nodeParameters.AddInput (this, false, "Vec3", "Vec3 position");
+            _nodeParameters.AddInput (this, false, "Vec3", "Vec3 rotation");
+            _nodeParameters.AddInput (this, false, "Vec3", "Vec3 scale");
+            _nodeParameters.AddInput (this, true, "Any", "Send");
 
              sender =  _nodeParameters.GetSender();
-            _nodeParameters.AddOutput (false, "Vec3 position");
-            _nodeParameters.AddOutput (false, "Vec3 rotation");
-            _nodeParameters.AddOutput (false, "Vec3 scale");
+            _nodeParameters.AddOutput (false, "Vec3", "Vec3 position");
+            _nodeParameters.AddOutput (false, "Vec3", "Vec3 rotation");
+            _nodeParameters.AddOutput (false, "Vec3", "Vec3 scale");
             _nodeParameters.AddOutput(false, "Object", "Transform");
 
             GameObject = new Variable ().Set (null as object);
