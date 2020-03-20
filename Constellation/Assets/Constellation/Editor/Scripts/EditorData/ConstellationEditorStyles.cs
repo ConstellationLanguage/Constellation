@@ -23,7 +23,22 @@ namespace ConstellationEditor
         public GUIStyle NodeGAtrributeStyle;
         public GUIStyle NodeBAtrributeStyle;
         public GUIStyle NodeAAtrributeStyle;
+        public GUIStyle NodeReadOnlyAttributeStyle;
         public GUIStyle GenericDeleteStyle;
+        public GUIStyle GenericQuestionStyle;
+        public float nodeTitleHeight = 20;
+        public float nodeDeleteSize = 15;
+        public float resizeButtonSize = 10;
+        public float inputSize = 13;
+        public float outputSize = 13;
+        public float spacing = 7;
+        public float titleLeftMargin = 5;
+        public float titleRightMargin = 5;
+        public float leftAttributeMargin = 5;
+        public float rightAttributeMargin = 5;
+        public float attributeSpacing = 2;
+        public float nodeButtonsTopMargin = 1;
+        public float nodeButtonsSpacing = 5;
 
         public ConstellationIOStyles GetConstellationIOStylesByType(string name)
         {

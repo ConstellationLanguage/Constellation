@@ -6,7 +6,7 @@ namespace Constellation.Physics {
         Vector3 torque;
         public const string NAME = "AddTorque";
         public void Setup (INodeParameters _nodeParameters) {
-            _nodeParameters.AddInput (this, false, "Vec3 World relative");
+            _nodeParameters.AddInput (this, false,"Vec3", "Vec3 World relative");
             torque = Vector3.zero;
         }
 

@@ -37,7 +37,7 @@ namespace ConstellationEditor
                     //noteSkin.alignment = TextAnchor.UpperLeft;
                     return textAreaValue;
                 case Attribute.AttributeType.ReadOnlyValue:
-                    EditorGUI.LabelField(size, Value.GetString());
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeReadOnlyAttributeStyle);
                     return Value;
                 case Attribute.AttributeType.ReadOnlyXValue:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeXAtrributeStyle);

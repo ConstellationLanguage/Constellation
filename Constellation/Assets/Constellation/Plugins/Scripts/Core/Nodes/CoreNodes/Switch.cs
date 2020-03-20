@@ -1,13 +1,14 @@
 namespace Constellation.CoreNodes {
-    public class Switch : INode, IReceiver {
+    public class Switch : INode, IReceiver, IGenericNode
+    {
         private Variable switchValue;
         private ISender sender;
         public const string NAME = "Switch";
         public void Setup (INodeParameters nodeParameters) {
             nodeParameters.AddInput (this, false, "1 = on, 0 = off");
-            nodeParameters.AddInput (this, true, "Value to send");
+            nodeParameters.AddInput (this, true, "Any", "Value to send");
             sender = nodeParameters.GetSender();
-            nodeParameters.AddOutput (false, "Output if on");
+            nodeParameters.AddOutput (false, "Any", "Output if on");
             switchValue = new Variable (0);
         }
 
@@ -25,6 +26,41 @@ namespace Constellation.CoreNodes {
             else if (!_input.isWarm)
                 switchValue.Set (value.GetFloat ());
 
+        }
+
+        public int[] GetGenericOutputByLinkedInput(int inputID)
+        {
+            if (inputID == 1)
+            {
+                return new int[1] { 0 };
+            }
+            return new int[0];
+        }
+
+        public bool IsGenericInput(int inputID)
+        {
+            if(inputID == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public int[] GetGenericInputByLinkedOutput(int outputID)
+        {
+            if (outputID == 0)
+            {
+                return new int[1] { 1 };
+            }
+            return new int[0];
+        }
+
+        public bool IsGenericOutput(int outputID)
+        {
+            if (outputID == 0)
+                return true;
+
+            return false;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace ConstellationEditor {
 		public List<ConstellationInstanceObject> CurrentInstancePath;
 		public ConstellationExampleData ExampleData;
         public ConstellationScriptsAssembly ScriptAssembly;
+		public bool IsSafeProgramming = false;
     }
 }

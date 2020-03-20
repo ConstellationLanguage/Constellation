@@ -38,7 +38,7 @@ namespace ConstellationEditor
 
         public void DrawLinks(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, ConstellationEditorStyles styles)
         {
-            DrawIncompleteLink(requestRepaint);
+            DrawIncompleteLink(requestRepaint, styles);
 
             foreach (LinkData link in constellationScript.GetLinks())
             {
@@ -51,7 +51,7 @@ namespace ConstellationEditor
                     {
                         if (link.Input.Guid == input.Guid)
                         {
-                            endLink = InputPosition(input);
+                            endLink = InputPosition(input, styles);
                             break;
                         }
                         i++;
@@ -63,7 +63,7 @@ namespace ConstellationEditor
                         if (link.Output.Guid == output.Guid)
                         {
                             var width = node.SizeX;
-                            startLink = OutputPosition(output);
+                            startLink = OutputPosition(output, styles);
                             break;
                         }
                         j++;
@@ -100,7 +100,7 @@ namespace ConstellationEditor
             requestRepaint();
         }
 
-        public Rect InputPosition(InputData _input)
+        public Rect InputPosition(InputData _input, ConstellationEditorStyles constellationEditorStyles)
         {
             foreach (NodeData node in constellationScript.GetNodes())
             {
@@ -110,7 +110,7 @@ namespace ConstellationEditor
                     if (_input.Guid == input.Guid)
                     {
                         return new Rect(node.XPosition,
-                            node.YPosition + NodeView.nodeTitleHeight + ((NodeView.inputSize + NodeView.spacing) * i) + (NodeView.inputSize * 0.5f),
+                            node.YPosition + constellationEditorStyles.nodeTitleHeight + ((constellationEditorStyles.inputSize + constellationEditorStyles.spacing) * i) + (constellationEditorStyles.inputSize * 0.5f),
                             0,
                             0);
                     }
@@ -120,7 +120,7 @@ namespace ConstellationEditor
             return Rect.zero;
         }
 
-        public Rect OutputPosition(OutputData _output)
+        public Rect OutputPosition(OutputData _output, ConstellationEditorStyles constellationEditorStyles)
         {
             foreach (NodeData node in constellationScript.GetNodes())
             {
@@ -130,7 +130,7 @@ namespace ConstellationEditor
                     if (_output.Guid == output.Guid)
                     {
                         return new Rect(node.XPosition + node.SizeX,
-                            node.YPosition + NodeView.nodeTitleHeight + ((NodeView.outputSize + NodeView.spacing) * j) + (NodeView.outputSize * 0.5f),
+                            node.YPosition + constellationEditorStyles.nodeTitleHeight + ((constellationEditorStyles.outputSize + constellationEditorStyles.spacing) * j) + (constellationEditorStyles.outputSize * 0.5f),
                             0,
                             0);
                     }
@@ -245,19 +245,19 @@ namespace ConstellationEditor
             }
         }
 
-        private void DrawIncompleteLink(ConstellationEditorEvents.RequestRepaint requestRepaint)
+        private void DrawIncompleteLink(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorStyles styles)
         {
             if (selectedInput != null || selectedOutput != null)
             {
                 var e = Event.current;
                 if (selectedInput != null)
                 {
-                    DrawNodeCurve(new Rect(e.mousePosition.x, e.mousePosition.y, 0, 0), InputPosition(selectedInput));
+                    DrawNodeCurve(new Rect(e.mousePosition.x, e.mousePosition.y, 0, 0), InputPosition(selectedInput, styles));
                     requestRepaint();
                 }
                 else if (selectedOutput != null)
                 {
-                    DrawNodeCurve(OutputPosition(selectedOutput), new Rect(e.mousePosition.x, e.mousePosition.y, 0, 0));
+                    DrawNodeCurve(OutputPosition(selectedOutput, styles), new Rect(e.mousePosition.x, e.mousePosition.y, 0, 0));
                     requestRepaint();
                 }
 

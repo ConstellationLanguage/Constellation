@@ -54,7 +54,7 @@ namespace ConstellationEditor
         {
             var nodeView = new NodeView(node);
             if (node.SizeX == 0 || node.SizeY == 0)
-                nodeView.UpdateNodeSize(0, 0);
+                nodeView.UpdateNodeSize(0, 0, EditorData.GetConstellationEditorConfig());
             Nodes.Add(nodeView);
         }
 
@@ -80,7 +80,7 @@ namespace ConstellationEditor
             nodeData.YPosition = 0;
             var newNodeView = new NodeView(nodeData);
             Nodes.Add(newNodeView);
-            newNodeView.UpdateNodeSize(0, 0);
+            newNodeView.UpdateNodeSize(0, 0, EditorData.GetConstellationEditorConfig());
             newNodeView.SetPosition(ScrollPosition.x + (windowSizeX * 0.5f), ScrollPosition.y + (windowSizeY * 0.5f));
             newNodeView.LockNodePosition();
             callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
@@ -210,7 +210,7 @@ namespace ConstellationEditor
             editorEvents(ConstellationEditorEvents.EditorEventType.NodeResized, "");
             for (var i = 0; i < SelectedNodes.Count; i++)
             {
-                SelectedNodes[i].UpdateNodeSize((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodeSizeX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodeSizeY());
+                SelectedNodes[i].UpdateNodeSize((e.mousePosition.x - mouseClickStartPosition.x) + SelectedNodes[i].GetPreviousNodeSizeX(), (e.mousePosition.y - mouseClickStartPosition.y) + SelectedNodes[i].GetPreviousNodeSizeY(), EditorData.GetConstellationEditorConfig());
             }
             requestRepaint();
         }
@@ -269,7 +269,7 @@ namespace ConstellationEditor
             {
                 for (var j = 0; j < Nodes[i].GetInputs().Length; j++)
                 {
-                    var inputRect = Nodes[i].GetInputRect(j);
+                    var inputRect = Nodes[i].GetInputRect(j, EditorData.GetConstellationEditorConfig());
                     if (inputRect.Contains(e.mousePosition))
                     {
                         var size = Nodes[i].GetInputs()[j].Description.Length * predictedCharacterSize + minimumSize;
@@ -279,7 +279,7 @@ namespace ConstellationEditor
 
                 for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
                 {
-                    var outputRect = Nodes[i].GetOuptputRect(j);
+                    var outputRect = Nodes[i].GetOuptputRect(j, EditorData.GetConstellationEditorConfig());
                     if (outputRect.Contains(e.mousePosition))
                     {
                         var size = Nodes[i].GetOutputs()[j].Description.Length * predictedCharacterSize + minimumSize;
@@ -294,9 +294,9 @@ namespace ConstellationEditor
             for (var i = 0; i < Nodes.Count; i++)
             {
                 var nodeRect = Nodes[i].GetNodeRect(out float positionOffsetX, out float positionOffsetY);
-                var deleteRect = Nodes[i].GetDeleteRect();
-                var questionRect = Nodes[i].GetQuestionRect();
-                var resizeRect = Nodes[i].GetResizeRect();
+                var deleteRect = Nodes[i].GetDeleteRect(EditorData.GetConstellationEditorConfig());
+                var questionRect = Nodes[i].GetQuestionRect(EditorData.GetConstellationEditorConfig());
+                var resizeRect = Nodes[i].GetResizeRect(EditorData.GetConstellationEditorConfig());
 
                 if (nodeRect.Contains(e.mousePosition))
                 {
@@ -316,7 +316,7 @@ namespace ConstellationEditor
 
                         for (var j = 0; j < Nodes[i].GetInputs().Length; j++)
                         {
-                            var inputRect = Nodes[i].GetInputRect(j);
+                            var inputRect = Nodes[i].GetInputRect(j, EditorData.GetConstellationEditorConfig());
                             if (inputRect.Contains(e.mousePosition))
                                 Links.AddLinkFromInput(Nodes[i].GetInputs()[j], 
                                     (ConstellationEditorEvents.EditorEventType editorEventType, string message) => {
@@ -330,7 +330,7 @@ namespace ConstellationEditor
 
                         for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
                         {
-                            var outputRect = Nodes[i].GetOuptputRect(j);
+                            var outputRect = Nodes[i].GetOuptputRect(j, EditorData.GetConstellationEditorConfig());
                             if (outputRect.Contains(e.mousePosition))
                                 Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j], 
                                     (ConstellationEditorEvents.EditorEventType editorEventType, string message) => {
@@ -354,7 +354,7 @@ namespace ConstellationEditor
 
                         for (var j = 0; j < Nodes[i].GetAttributeDatas().Length; j++)
                         {
-                            var attributeRect = Nodes[i].GetAttributeRect(j);
+                            var attributeRect = Nodes[i].GetAttributeRect(j, EditorData.GetConstellationEditorConfig());
                             if (attributeRect.Contains(e.mousePosition))
                             {
                                 currentEventScope = EventsScope.EditingAttributes;
@@ -393,7 +393,7 @@ namespace ConstellationEditor
             var inputNodeScript = NodeFactory.GetNode(inputNode).NodeType as IGenericNode;
             if (inputNodeScript != null)
             {
-                var inputsID = inputNodeScript.GetGenericInputByLinkedOutput(linkedinputID);
+                var inputsID = inputNodeScript.GetGenericInputByLinkedOutput(linkedOutputID);
 
                 for (var k = 0; k < inputNode.GetInputs().Length; k++)
                 {
