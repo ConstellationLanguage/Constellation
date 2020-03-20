@@ -36,7 +36,7 @@ namespace ConstellationEditor
             return constellationScript.GetLinks();
         }
 
-        public void DrawLinks(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents)
+        public void DrawLinks(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, ConstellationEditorStyles styles)
         {
             DrawIncompleteLink(requestRepaint);
 
@@ -75,7 +75,7 @@ namespace ConstellationEditor
                     constellationScript.RemoveLink(link);
                 }
 
-                DrawNodeCurve(startLink, endLink, GetConnectionColor(link.Input.IsWarm, link.Input.Type));
+                DrawNodeCurve(startLink, endLink, GetConnectionColor(link.Input.IsWarm, link.Input.Type, styles));
 
                 if (MouseOverCurve(startLink.position, endLink.position))
                 {
@@ -83,8 +83,8 @@ namespace ConstellationEditor
                         (startLink.y + (endLink.y - startLink.y) / 2) - (deleteButtonSize * 0.5f),
                         deleteButtonSize,
                         deleteButtonSize);
-
-                    if (GUI.Button(linkCenter, "X"))
+                    var deleteButtonStyle = styles.GenericDeleteStyle;
+                    if (GUI.Button(linkCenter, "", deleteButtonStyle))
                     {
                         dragging = true;
                         if (linkCenter.Contains(Event.current.mousePosition))
@@ -199,27 +199,20 @@ namespace ConstellationEditor
             };
         }
 
-        public Color GetConnectionColor(bool _isWarm, string _type)
+        public Color GetConnectionColor(bool _isWarm, string _type, ConstellationEditorStyles styles)
         {
             if (_isWarm)
-            {
-                if (_type == "Object")
-                    return WarmInputObjectColor;
-                else
-                    return WarmInputColor;
-            }
+                return styles.GetConstellationIOStylesByType(_type).WarmColor;
             else
-            {
-                if (_type == "Object")
-                    return ColdInputObjectColor;
-                else
-                    return ColdInputColor;
-            }
+                return styles.GetConstellationIOStylesByType(_type).ColdColor;
         }
 
         public void AddLinkFromOutput(OutputData _output, ConstellationEditorEvents.EditorEvents editorEvents)
         {
-            if (selectedInput != null)
+            if (_output.Type == "Undefined")
+                return;
+
+            if (selectedInput != null && (selectedInput.Type == _output.Type || selectedInput.Type == "Any" || _output.Type == "Any"))
                 CreateLink(selectedInput, _output, editorEvents);
             else if (selectedOutput == null)
                 selectedOutput = _output;
@@ -228,7 +221,10 @@ namespace ConstellationEditor
 
         public void AddLinkFromInput(InputData _input, ConstellationEditorEvents.EditorEvents editorEvents)
         {
-            if (selectedOutput != null)
+            if (_input.Type == "Undefined")
+                return;
+
+            if (selectedOutput != null && (selectedOutput.Type == _input.Type || selectedOutput.Type == "Any" || _input.Type == "Any"))
                 CreateLink(_input, selectedOutput, editorEvents);
             else if (selectedInput == null)
                 selectedInput = _input;

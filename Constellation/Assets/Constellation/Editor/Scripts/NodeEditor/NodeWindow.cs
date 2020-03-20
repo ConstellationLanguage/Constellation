@@ -30,6 +30,8 @@ namespace ConstellationEditor
         private EventsScope currentEventScope = EventsScope.Generic;
         private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
         private Vector2 LocalMousePosition;
+        private string focusedNode = "";
+
         public NodeWindow(string _editorPath, ConstellationEditorDataService _constellationEditorData)
         {
             var backgroundTexture = AssetDatabase.LoadAssetAtPath(editorPath + "background.png", typeof(Texture2D)) as Texture2D;
@@ -60,6 +62,19 @@ namespace ConstellationEditor
         {
             var newNode = NodeFactory.GetNode(nodeName, nodeNamespace);
             var nodeData = new NodeData(newNode);
+            var genericNode = newNode.NodeType as IGenericNode;
+            if(genericNode as IGenericNode != null)
+            {
+                for (var i = 0; i < newNode.Inputs.Count; i++)
+                {
+                    var genericOutputsID = genericNode.GetGenericOutputByLinkedInput(i);
+                    for(var j = 0; j < genericOutputsID.Length; j++)
+                    {
+                        nodeData.Outputs[genericOutputsID[j]].Type = "Undefined";
+                    }
+                }
+            }
+
             nodeData = ConstellationScript.AddNode(nodeData);
             nodeData.XPosition = 0;
             nodeData.YPosition = 0;
@@ -78,6 +93,7 @@ namespace ConstellationEditor
             {
                 if (nodeView.NodeData.Guid == node.Guid)
                 {
+                    ReleaseFocus();
                     callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
@@ -93,7 +109,7 @@ namespace ConstellationEditor
             windowSizeY = _windowSizeY;
         }
 
-        public void Draw(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents callback)
+        public void Draw(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents callback, ConstellationEditorStyles constellationEditorStyles)
         {
             mouseButtonDown = false;
             LocalMousePosition = Event.current.mousePosition;
@@ -149,7 +165,9 @@ namespace ConstellationEditor
                     }
                 }
                 DrawNodes(e);
-                Links.DrawLinks(requestRepaint, callback);
+                Links.DrawLinks(requestRepaint, 
+                callback, 
+                constellationEditorStyles);
                 DrawDescriptions(e);
             }
             EditorGUILayout.EndScrollView();
@@ -171,10 +189,20 @@ namespace ConstellationEditor
             //Read in reverse so first element in in front;
             for (int i = Nodes.Count - 1; i >= 0; i--)
             {
-                Nodes[i].DrawNode(e, EditorData.GetConstellationEditorConfig());
+                Nodes[i].DrawNode(e, EditorData.GetConstellationEditorConfig(), LockFocus, ReleaseFocus, focusedNode);
                 farNodeX = Mathf.Max(Nodes[i].GetPositionX(), farNodeX);
                 farNodeY = Mathf.Max(Nodes[i].GetPositionY(), farNodeY);
             }
+        }
+
+        void LockFocus(string nodeGUID)
+        {
+            focusedNode = nodeGUID;
+        }
+
+        void ReleaseFocus()
+        {
+            focusedNode = "";
         }
 
         private void UpdateResizeEvents(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, Event e)
@@ -290,14 +318,26 @@ namespace ConstellationEditor
                         {
                             var inputRect = Nodes[i].GetInputRect(j);
                             if (inputRect.Contains(e.mousePosition))
-                                Links.AddLinkFromInput(Nodes[i].GetInputs()[j], editorEvents);
+                                Links.AddLinkFromInput(Nodes[i].GetInputs()[j], 
+                                    (ConstellationEditorEvents.EditorEventType editorEventType, string message) => {
+                                        editorEvents(editorEventType, message);
+                                        if (editorEventType == ConstellationEditorEvents.EditorEventType.LinkAdded)
+                                        {
+                                            UpdateGenericNodeByLinkGUID(message);
+                                        }
+                                });
                         }
 
                         for (var j = 0; j < Nodes[i].GetOutputs().Length; j++)
                         {
                             var outputRect = Nodes[i].GetOuptputRect(j);
                             if (outputRect.Contains(e.mousePosition))
-                                Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j], editorEvents);
+                                Links.AddLinkFromOutput(Nodes[i].GetOutputs()[j], 
+                                    (ConstellationEditorEvents.EditorEventType editorEventType, string message) => {
+                                    editorEvents(editorEventType, message);
+                                    if (editorEventType == ConstellationEditorEvents.EditorEventType.LinkAdded)
+                                        UpdateGenericNodeByLinkGUID(message);
+                                });
                         }
 
                         if (deleteRect.Contains(e.mousePosition) && mouseButtonDown)
@@ -341,6 +381,59 @@ namespace ConstellationEditor
             {
                 SelectedNodes.Clear();
             }
+        }
+
+        private void UpdateGenericNodeByLinkGUID(string guid)
+        {
+            var linkedinputID = 0;
+            var linkedOutputID = 0;
+            var connectedNodes = ConstellationScript.GetNodesWithLinkGUID(guid, out linkedinputID, out linkedOutputID);
+            var outputNode = connectedNodes[0];
+            var inputNode = connectedNodes[1];
+            var inputNodeScript = NodeFactory.GetNode(inputNode).NodeType as IGenericNode;
+            if (inputNodeScript != null)
+            {
+                var inputsID = inputNodeScript.GetGenericInputByLinkedOutput(linkedinputID);
+
+                for (var k = 0; k < inputNode.GetInputs().Length; k++)
+                {
+                    for (var l = 0; l < inputsID.Length; l++)
+                    {
+                        if (k == inputsID[l])
+                        {
+                            inputNode.Inputs[k].Type = outputNode.Outputs[linkedOutputID].Type;
+                        }
+                    }
+                }
+
+                var outputID = inputNodeScript.GetGenericOutputByLinkedInput(linkedinputID);
+                for (var k = 0; k < inputNode.GetOutputs().Length; k++)
+                {
+                    for (var l = 0; l < outputID.Length; l++)
+                    {
+                        if (k == outputID[l])
+                        {
+                            inputNode.Outputs[k].Type = outputNode.Outputs[linkedOutputID].Type;
+                        }
+                    }
+                }
+            }
+
+            /*var inputNodeScript = NodeFactory.GetNode(inputNode).NodeType as IGenericNode;
+            if (inputNodeScript != null)
+            {
+                var outputsID = inputNodeScript.GetGenericOutputByLinkedInput(0);
+                for (var k = 0; k < outputNode.GetOutputs().Length; k++)
+                {
+                    for (var l = 0; l < outputsID.Length; l++)
+                    {
+                        if (k == outputsID[l])
+                        {
+                            outputNode.Outputs[k].Type = inputNode.Inputs[outputsID[l]].Type;
+                        }
+                    }
+                }
+            }*/
         }
 
         private void SetNodeToFirst(NodeView node)

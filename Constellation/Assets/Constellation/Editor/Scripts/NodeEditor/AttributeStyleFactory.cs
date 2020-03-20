@@ -7,22 +7,30 @@ namespace ConstellationEditor
 {
     public static class AttributeStyleFactory
     {
-        public static Variable Draw(Attribute.AttributeType type, Rect size, Rect attributeArea, Variable Value, ConstellationEditorStyles editorStyles)
+        public static Variable Draw(Attribute.AttributeType type, Rect size, Rect attributeArea, Variable Value, ConstellationEditorStyles editorStyles, out bool canBeFocused)
         {
+            canBeFocused = false;
             switch (type)
             {
                 case Attribute.AttributeType.Value:
+                    canBeFocused = true;
+                    var valueToReturn = Value.Set(EditorGUI.FloatField(size, " ", Value.GetFloat(), editorStyles.NodeValueAttributeStyle));
                     EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "<>", editorStyles.NodeValueAttributeLabelStyle);
-                    return Value.Set(EditorGUI.FloatField(size, " ", Value.GetFloat(), editorStyles.NodeValueAttributeStyle));
+                    return valueToReturn;
                 case Attribute.AttributeType.Word:
+                    canBeFocused = true;
                     return Value.Set(EditorGUI.TextField(size, "", Value.GetString(), editorStyles.NodeWordAttributeStyle));
                 case Attribute.AttributeType.Conditionals:
+                    canBeFocused = true;
                     return IfCharacterFilter(size, Value);
                 case Attribute.AttributeType.Then:
+                    canBeFocused = true;
                     return ThenCharacterFilter(size, Value);
                 case Attribute.AttributeType.Else:
+                    canBeFocused = true;
                     return ElseCharacterFilter(size, Value);
                 case Attribute.AttributeType.NoteField:
+                    canBeFocused = true;
                     GUI.color = new Color(0.9f, 0.85f, 0.25f);
                     var textAreaValue = Value.Set(EditorGUI.TextArea(attributeArea, Value.GetString()));
                     GUI.color = Color.white;

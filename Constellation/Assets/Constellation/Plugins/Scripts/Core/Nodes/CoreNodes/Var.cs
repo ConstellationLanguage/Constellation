@@ -1,15 +1,16 @@
 ﻿namespace Constellation.CoreNodes {
-    public class Var : INode, IReceiver{
+    public class Var : INode, IReceiver, IGenericNode
+    {
         private ISender sender;
         private Attribute attribute; // attributes are setted in the editor.
         public const string NAME = "Var"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
 
         public void Setup (INodeParameters _node) {
             var wordValue = new Variable ();
-            _node.AddInput (this, false, "New var"); // setting a cold input
-            _node.AddInput (this, true, "Send var"); // setting a warm input
+            _node.AddInput (this, false, "Any", "New var"); // setting a cold input
+            _node.AddInput (this, true, "Any", "Send var"); // setting a warm input
             sender = _node.GetSender();
-            _node.AddOutput (false, "Current setted word"); // setting a cold input
+            _node.AddOutput (false, "Any", "Current setted word"); // setting a cold input
             attribute = _node.AddAttribute (wordValue.Set("Var"), Attribute.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
         }
 
@@ -30,6 +31,40 @@
 
             if (_input.InputId == 1)
                 sender.Send (attribute.Value, 0);
+        }
+
+        public int [] GetGenericOutputByLinkedInput(int inputID)
+        {
+            if(inputID == 0)
+            {
+                return new int[1] { 0 };
+            }
+            return new int[0];
+        }
+
+        public bool IsGenericOutput(int inputID)
+        {
+            if (inputID == 0)
+                return true;
+
+            return false;
+        }
+
+        public bool IsGenericInput(int outputID)
+        {
+            if (outputID == 0)
+                return true;
+
+            return false;
+        }
+
+        public int [] GetGenericInputByLinkedOutput(int outputID)
+        {
+            if(outputID == 0)
+            {
+                return new int[1] { 0 };
+            }
+            return new int[0];
         }
     }
 }

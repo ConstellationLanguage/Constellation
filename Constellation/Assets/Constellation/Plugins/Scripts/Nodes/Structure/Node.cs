@@ -91,7 +91,7 @@ namespace Constellation {
         /// <param name="isWarm">If the input is warm your Receiver should output a value when this is called</param>
         /// <param name="description">Description of the attribute (Not implemented)</param>
         public Input AddInput (IReceiver receiver, bool isWarm, string description) {
-			return AddInput (receiver, isWarm, "", description);
+			return AddInput (receiver, isWarm, "Var", description);
 		}
 
 		/// <summary>
@@ -121,7 +121,7 @@ namespace Constellation {
 		/// <param name="isWarm">If called from a node just set this parameter to this</param>  
 		/// <param name="description">Is the input is warm your Receiver should output a value when this is called</param>
 		public void AddOutput (bool isWarm, string description) {
-			AddOutput (isWarm, "", description);
+			AddOutput (isWarm, "Var", description);
 		}
 
 		/// <summary>

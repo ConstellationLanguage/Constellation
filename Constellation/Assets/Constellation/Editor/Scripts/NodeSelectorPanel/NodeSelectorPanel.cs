@@ -81,7 +81,7 @@ public class NodeSelectorPanel
         if (GUILayout.Button("", GUI.skin.FindStyle("ToolbarSeachCancelButton")))
         {
             ClearSerachField();
-            GUI.FocusControl(null);
+            //GUI.FocusControl(null);
         }
 
         GUILayout.EndHorizontal();

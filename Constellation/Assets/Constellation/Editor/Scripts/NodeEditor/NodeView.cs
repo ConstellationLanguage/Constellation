@@ -27,6 +27,7 @@ namespace ConstellationEditor
         bool isAttributeValueChanged = false;
         bool wasMouseOverNode = false;
         Rect AtrributeSize = new Rect(0, 0, 88, 16);
+        private string LastFocusedAttribute;
 
         public NodeView(NodeData node)
         {
@@ -42,7 +43,7 @@ namespace ConstellationEditor
             }
         }
 
-        public void DrawNode(Event e, ConstellationEditorStyles constellationEditorStyle)
+        public void DrawNode(Event e, ConstellationEditorStyles constellationEditorStyle, System.Action<string> lockFocus, System.Action releaseFocus, string focusedNode)
         {
             var editorConfig = constellationEditorStyle;
             var nodeSizeX = GetSizeX();
@@ -61,17 +62,31 @@ namespace ConstellationEditor
             var nodeResizeSkin = editorConfig.NodeResizeButtonStyle;
             GUI.Box(nodeRect, "", nodeSkin);
             GUI.Label(nodeTitleRect, GetName(), nodeTitleSkin);
-            if (nodeRect.Contains(e.mousePosition))
+            if (nodeRect.Contains(e.mousePosition) || (GUI.GetNameOfFocusedControl() == LastFocusedAttribute)) // check if mouse inside node or mouse focus attribute
             {
-                GUI.color = new Color(0.75f, 0.75f, 0.75f);
-                GUI.Button(deleteRect, "X");
-                GUI.color = new Color(0.75f, 0.75f, 0.75f);
-                GUI.Button(questionRect, "?");
-                GUI.color = Color.white;
-                GUI.Button(resizeRect, "", nodeResizeSkin);
-                wasMouseOverNode = true;
+                if (focusedNode == NodeData.Guid || focusedNode == "")
+                {
+                    GUI.SetNextControlName(NodeData.Guid + "-" + "Delete rect");
+                    GUI.color = new Color(0.75f, 0.75f, 0.75f);
+                    GUI.Button(deleteRect, "X");
+                    GUI.SetNextControlName(NodeData.Guid + "-" + "Question rect");
+                    GUI.color = new Color(0.75f, 0.75f, 0.75f);
+                    GUI.Button(questionRect, "?");
+                    GUI.SetNextControlName(NodeData.Guid + "-" + "Resize rect");
+                    GUI.color = Color.white;
+                    GUI.Button(resizeRect, "", nodeResizeSkin);
+                    lockFocus(NodeData.Guid);
+                    wasMouseOverNode = true;
+                }
+                if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                {
+                    releaseFocus();
+                    GUI.FocusControl(null);
+                    wasMouseOverNode = false;
+                }
             } else if(wasMouseOverNode)
             {
+                releaseFocus();
                 GUI.FocusControl(null);
                 wasMouseOverNode = false;
             }
@@ -84,57 +99,24 @@ namespace ConstellationEditor
             var coldObjectColor = new Color(0.5f, 0.5f, 1f);
             for (var i = 0; i < inputs.Length; i++)
             {
-                if (inputs[i].Type == "Object")
-                {
-                    if (inputs[i].IsWarm == true)
-                    {
-                        GUI.color = Color.cyan;
-                    }
-                    else
-                    {
-                        GUI.color = coldObjectColor;
-                    }
-                }
+                if (inputs[i].IsWarm == true)
+                    GUI.color = editorConfig.GetConstellationIOStylesByType(inputs[i].Type).WarmColor;
                 else
-                {
-                    if (inputs[i].IsWarm == true)
-                    {
-                        GUI.color = warmColor;
-                    }
-                    else
-                    {
-                        GUI.color = coldColor;
-                    }
-                }
-                GUI.Button(GetInputRect(i), "", editorConfig.NodeInputStyle);
+                    GUI.color = editorConfig.GetConstellationIOStylesByType(inputs[i].Type).ColdColor;
+                    
+                GUI.Button(GetInputRect(i), "", editorConfig.GetConstellationIOStylesByType(inputs[i].Type).InputStyle);
             }
+
             DrawAttributes(constellationEditorStyle);
             var outputs = NodeData.GetOutputs();
             for (var i = 0; i < outputs.Length; i++)
             {
-                if (outputs[i].Type == "Object")
-                {
-                    if (outputs[i].IsWarm == true)
-                    {
-                        GUI.color = Color.cyan;
-                    }
-                    else
-                    {
-                        GUI.color = coldObjectColor;
-                    }
-                }
+                if (outputs[i].IsWarm == true)
+                    GUI.color = editorConfig.GetConstellationIOStylesByType(outputs[i].Type).WarmColor;
                 else
-                {
-                    if (outputs[i].IsWarm == true)
-                    {
-                        GUI.color = warmColor;
-                    }
-                    else
-                    {
-                        GUI.color = coldColor;
-                    }
-                }
-                GUI.Button(GetOuptputRect(i), "", editorConfig.NodeOutputStyle);
+                    GUI.color = editorConfig.GetConstellationIOStylesByType(outputs[i].Type).ColdColor;
+
+                GUI.Button(GetOuptputRect(i), "", editorConfig.GetConstellationIOStylesByType(outputs[i].Type).InputStyle);
             }
             GUI.color = Color.white;
         }
@@ -284,19 +266,26 @@ namespace ConstellationEditor
                 var i = 0;
                 foreach (var attribute in NodeData.AttributesData)
                 {
+                    var attributeControleName = NodeData.Guid + "-" + i;
+                    var isFocusable = false;
                     EditorGUIUtility.labelWidth = 25;
                     EditorGUIUtility.fieldWidth = 10;
                     var attributeRect = GetAttributeRect(i);
                     var nodeAttributeRect = new Rect(NodeData.XPosition + 10, NodeData.YPosition + nodeTitleHeight, NodeData.SizeX - 20, NodeData.SizeY - nodeTitleHeight - 10);
                     if (attribute.Value != null)
                     {
+                        GUI.SetNextControlName(attributeControleName);
                         var currentAttributeValue = attribute.Value.GetString();
-                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, nodeAttributeRect, attribute.Value, editorStyles);
+                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, nodeAttributeRect, attribute.Value, editorStyles,out isFocusable);
                         if (attribute.Value != null)
                         {
                             if (currentAttributeValue != attribute.Value.GetString())
                                 AttributeValueChanged();
                         }
+                    }
+                    if (GUI.GetNameOfFocusedControl() == attributeControleName && isFocusable)
+                    {
+                        LastFocusedAttribute = attributeControleName;
                     }
                     i++;
                 }

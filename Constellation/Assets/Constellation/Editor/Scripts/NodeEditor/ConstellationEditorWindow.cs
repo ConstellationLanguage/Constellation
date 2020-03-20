@@ -73,7 +73,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
             if (NodeWindow == null)
                 ParseScript();
             NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
-            NodeWindow.Draw(RequestRepaint, OnEditorEvent);
+            NodeWindow.Draw(RequestRepaint, OnEditorEvent,ScriptDataService.GetConstellationEditorConfig());
             DrawVerticalSplit();
             NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded);
             EditorGUILayout.EndHorizontal();
@@ -277,8 +277,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
 
     void OnPlayStateChanged(PlayModeStateChange state)
     {
-        /*WindowInstance.RequestSetup();
-        WindowInstance.previousSelectedGameObject = null;*/
         previousSelectedGameObject = null;
         if (state == PlayModeStateChange.EnteredEditMode)
         {
@@ -297,9 +295,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
             nodeExampleLoader.RunExample(ScriptDataService.GetEditorData().ExampleData.constellationName, ScriptDataService);
             ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = false;
         }
-
-        /*EditorApplication.playModeStateChanged -= OnPlayStateChanged;
-        WindowInstance.RequestRepaint();*/
     }
 
     private void OnDestroy()
