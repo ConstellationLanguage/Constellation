@@ -10,9 +10,9 @@ namespace Constellation.Physics {
         public const string NAME = "Velocity";
         public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Object", "Rigidbody affected");
-            _nodeParameters.AddInput (this, false, "Vec3 world relative");
+            _nodeParameters.AddInput (this, false, "Vec3", "Vec3 world relative");
             sender = _nodeParameters.GetSender();
-            _nodeParameters.AddOutput (true, "The current velocity of the rigidBody");
+            _nodeParameters.AddOutput (true,"Vec3", "The current velocity of the rigidBody");
 
             force = Vector3.zero;
             Variable[] positions = new Variable[3];
@@ -43,7 +43,6 @@ namespace Constellation.Physics {
                 rigidBody.velocity = force;
                 isVelocityUpdated = true;
             }
-
             force = Vector3.zero;
         }
 

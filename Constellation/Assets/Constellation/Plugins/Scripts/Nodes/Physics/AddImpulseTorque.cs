@@ -1,9 +1,12 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Constellation.Physics {
-    public class AddForce :RigidBodyUtils, INode {
-        public const string NAME = "AddForce";
-
+namespace Constellation.Physics
+{
+    public class AddImpulseTorque : RigidBodyUtils, INode
+    {
+        public const string NAME = "AddImpulseTorque";
         public override string NodeName()
         {
             return NAME;
@@ -16,7 +19,7 @@ namespace Constellation.Physics {
 
         protected override void UpdatePhysics()
         {
-            rigidBody.AddForce(force);
+            rigidBody.AddRelativeTorque(force, ForceMode.Impulse);
         }
     }
 }

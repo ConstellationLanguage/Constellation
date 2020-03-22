@@ -7,6 +7,7 @@ namespace ConstellationEditor
     public class ConstellationEditorStyles : ScriptableObject
     {
         public GUIStyle NodeStyle;
+        public GUIStyle NodeSelectedStyle;
         public GUIStyle NodeTitleStyle;
         public GUIStyle NodeResizeButtonStyle;
         public ConstellationIOStyles IOAnyStyle;

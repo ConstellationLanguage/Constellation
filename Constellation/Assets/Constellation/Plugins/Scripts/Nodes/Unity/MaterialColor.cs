@@ -43,7 +43,7 @@ namespace Constellation.Unity {
                 return;
             }
 
-            if (_input.isWarm) {
+            if (_input.InputId == 1) {
                 color = new UnityEngine.Color (value.GetArrayVariable (0).GetFloat(), value.GetArrayVariable (1).GetFloat(), value.GetArrayVariable (2).GetFloat(), value.GetArrayVariable (3).GetFloat());
                 renderer.material.color = color;
             }

@@ -7,7 +7,7 @@
 
 		public void Setup (INodeParameters _node) {
 			sender = _node.GetSender();
-			_node.AddOutput (true, "Ray on update");
+			_node.AddOutput (true, "Ray", "Ray on update");
 			value = new Variable ();
 			value.Set ("Ray");
 		}

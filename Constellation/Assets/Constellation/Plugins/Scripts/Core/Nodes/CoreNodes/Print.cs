@@ -8,7 +8,7 @@ namespace Constellation.CoreNodes
         public const string NAME = "Print";
         public void Setup(INodeParameters _nodeParameters)
         {
-            _nodeParameters.AddInput(this, false, "value to log in console");
+            _nodeParameters.AddInput(this, false, "Any", "value to log in console");
         }
 
         public string NodeName()

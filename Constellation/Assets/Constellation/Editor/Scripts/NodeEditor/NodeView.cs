@@ -13,21 +13,12 @@ namespace ConstellationEditor
         private string nodeName;
         private float previousNodeSizeX;
         private float previousNodeSizeY;
-        //public const float nodeTitleHeight = 20;
-        //public const float nodeDeleteSize = 15;
-        //public const float resizeButtonSize = 10;
-        //public const float inputSize = 13;
-        //public const float outputSize = 13;
-        //public const float spacing = 7;
-        //public const float titleLeftMargin = 5;
-        //public const float titleRightMargin = 5;
-        //public const float leftAttributeMargin = 5;
-        //public const float rightAttributeMargin = 5;
-        //public const float attributeSpacing = 2;
         bool isAttributeValueChanged = false;
         bool wasMouseOverNode = false;
         Rect AtrributeSize = new Rect(0, 0, 88, 16);
         private string LastFocusedAttribute;
+        private bool isSelected = false;
+        private Vector2 mousePosition;
 
         public NodeView(NodeData node)
         {
@@ -58,11 +49,17 @@ namespace ConstellationEditor
             var questionRect = GetQuestionRect(constellationEditorStyle);
             var resizeRect = GetResizeRect(constellationEditorStyle);
             var nodeSkin = editorConfig.NodeStyle;
+            if (isSelected)
+                nodeSkin = editorConfig.NodeSelectedStyle;
             var nodeTitleSkin = editorConfig.NodeTitleStyle;
             var nodeResizeSkin = editorConfig.NodeResizeButtonStyle;
             GUI.Box(nodeRect, "", nodeSkin);
             GUI.Label(nodeTitleRect, GetName(), nodeTitleSkin);
-            if (nodeRect.Contains(e.mousePosition) || (GUI.GetNameOfFocusedControl() == LastFocusedAttribute)) // check if mouse inside node or mouse focus attribute
+
+            if (e.type == EventType.Repaint)
+                mousePosition = e.mousePosition;
+
+            if (nodeRect.Contains(mousePosition) || (GUI.GetNameOfFocusedControl() == LastFocusedAttribute)) // check if mouse inside node or mouse focus attribute
             {
                 if (focusedNode == NodeData.Guid || focusedNode == "")
                 {
@@ -156,7 +153,7 @@ namespace ConstellationEditor
             var minimumWidth = 100;
             if (NodeData.GetAttributes().Length == 0)
             {
-                minimumWidth = 50;
+                minimumWidth = 75;
             }
             return minimumWidth;
         }
@@ -312,6 +309,16 @@ namespace ConstellationEditor
             var changeState = isAttributeValueChanged;
             isAttributeValueChanged = false;
             return changeState;
+        }
+
+        public void SelectedNode()
+        {
+            isSelected = true;
+        }
+
+        public void UnselectNode()
+        {
+            isSelected = false;
         }
 
         private void AttributeValueChanged()

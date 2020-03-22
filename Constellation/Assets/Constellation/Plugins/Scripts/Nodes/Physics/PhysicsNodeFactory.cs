@@ -24,16 +24,16 @@ namespace Constellation.Physics {
                     INode nodeCollisionEnter = new CollisionEnter () as INode;
                     return new Node<INode> (nodeCollisionEnter);
                 case CollisionStay.NAME:
-                    INode nodeCollisionStay = new CollisionEnter () as INode;
+                    INode nodeCollisionStay = new CollisionStay () as INode;
                     return new Node<INode> (nodeCollisionStay);
                 case CollisionExit.NAME:
-                    INode nodeCollisionExit = new CollisionEnter () as INode;
+                    INode nodeCollisionExit = new CollisionExit () as INode;
                     return new Node<INode> (nodeCollisionExit);
                 case FixedUpdate.NAME:
                     INode nodeFixedUpdate = new FixedUpdate () as INode;
                     return new Node<INode> (nodeFixedUpdate);
-                case AddImpulse.NAME:
-                    INode nodeImpulse = new AddImpulse () as INode;
+                case AddImpulseForce.NAME:
+                    INode nodeImpulse = new AddImpulseForce () as INode;
                     return new Node<INode> (nodeImpulse);
                 case Character.NAME:
                     var nodeCharacter = new Character () as INode;
@@ -44,7 +44,10 @@ namespace Constellation.Physics {
                 case CameraRaycast.NAME:
                     var nodeCameraRayCast = new CameraRaycast() as INode;
                     return new Node<INode> (nodeCameraRayCast);
-                default:
+                case AddImpulseTorque.NAME:
+                    var nodeAddImpulseTorque = new AddImpulseTorque() as INode;
+                    return new Node<INode>(nodeAddImpulseTorque);
+                default: 
                     return null;
             }
         }

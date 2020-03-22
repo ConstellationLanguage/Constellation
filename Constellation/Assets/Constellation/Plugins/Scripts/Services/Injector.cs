@@ -10,6 +10,7 @@ namespace Constellation
         public List<IAwakable> Awakables;
         public List<ILateUpdatable> lateUpdatables;
         private Constellation Constellation;
+
         public List<ITeleportIn> teleportsIn;
         public List<ITeleportOut> teleportsOut;
         private List<ICollisionEnter> CollisionEnterListeners;
@@ -188,7 +189,7 @@ namespace Constellation
 
             foreach (var node in Constellation.GetNodes())
             {
-                if (node.NodeType as ICollisionStay != null)
+                if (node.NodeType as ICollisionExit != null)
                 {
                     CollisionExitListeners.Add(node.NodeType as ICollisionExit);
                 }

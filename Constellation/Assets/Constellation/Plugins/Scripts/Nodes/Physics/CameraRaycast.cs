@@ -16,10 +16,10 @@ namespace Constellation.Physics {
         public void Setup (INodeParameters _nodeParameters) {
             _nodeParameters.AddInput (this, false, "Position X");
             _nodeParameters.AddInput (this, false, "Position Y");
-            _nodeParameters.AddInput (this, true, "Calculate");
+            _nodeParameters.AddInput (this, true, "Any", "Calculate");
             Sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput (false,"Object", "The object that was hit");
-           _nodeParameters.AddOutput (false, "The hit position");
+           _nodeParameters.AddOutput (false, "Vec3", "The hit position");
 
             valueX = new Variable ().Set (0);
             valueY = new Variable ().Set (0);
