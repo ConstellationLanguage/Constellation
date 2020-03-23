@@ -3,7 +3,7 @@ using UnityEngine;
 using Constellation;
 using ConstellationEditor;
 
-public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICopyable, ICompilable
+public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICompilable
 {
     public NodeWindow NodeWindow;
     public NodeSelectorPanel NodeSelector;
@@ -34,7 +34,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
     public static void Init()
     {
         // Get existing open window or if none, make a new one:
-        ConstellationEditorWindow window = (ConstellationEditorWindow)EditorWindow.GetWindow(typeof(ConstellationEditorWindow));
+        ConstellationEditorWindow window = (ConstellationEditorWindow)EditorWindow.GetWindow(typeof(ConstellationEditorWindow), false, "Constellation");
         window.Show();
         ConstellationEditorWindowInstance = window;
 
@@ -43,9 +43,10 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
     public void OnEnable()
     {
         EditorApplication.playModeStateChanged += OnPlayStateChanged;
+        UnityEditor.Undo.undoRedoPerformed += OnUndoPerformed;
         if (NodeSelector == null)
         {
-            NodeSelector = new NodeSelectorPanel(/*, scriptDataService.GetAllCustomNodesNames()*/);
+            NodeSelector = new NodeSelectorPanel();
             NodeSelector.SetupNamespaceData();
         }
 
@@ -74,7 +75,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
         }
         else
         {
-            TopBarPanel.Draw(this, this, this, this);
+            TopBarPanel.Draw(this, this, this);
             var constellationName = NodeTabPanel.Draw(ScriptDataService.currentPath.ToArray(), null);
             if (constellationName != null)
                 Open(constellationName);
@@ -83,7 +84,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
             if (NodeWindow == null)
                 ParseScript();
             NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
-            NodeWindow.Draw(RequestRepaint, OnEditorEvent, ScriptDataService.GetConstellationEditorConfig());
+            NodeWindow.Draw(RequestRepaint, OnEditorEvent, ScriptDataService.GetConstellationEditorConfig(), out nodeWindowSize, out nodeWindowScrollPosition);
             DrawVerticalSplit();
             NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded);
             EditorGUILayout.EndHorizontal();
@@ -184,18 +185,26 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
         if (eventType == ConstellationEditorEvents.EditorEventType.LinkAdded)
         {
             OnLinkAdded(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
+            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.LinkDeleted)
         {
             OnLinkRemoved(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
+            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.NodeAdded)
         {
             OnNodeAdded(ScriptDataService.GetCurrentScript().GetNodeByGUID(eventMessage));
+            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.NodeDeleted)
         {
             OnNodeRemoved(ScriptDataService.GetCurrentScript().GetNodeByGUID(eventMessage));
+            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
+        }
+        if (eventType == ConstellationEditorEvents.EditorEventType.NodeMoved)
+        {
+            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
     }
 
@@ -249,21 +258,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
         SetupNodeWindow();
     }
 
-    public void AddAction()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Undo()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Redo()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void Copy()
     {
         throw new System.NotImplementedException();
@@ -287,6 +281,12 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
     public void ResetInstances()
     {
         ScriptDataService.RessetInstancesPath();
+    }
+
+    void OnUndoPerformed()
+    {
+        
+        Open(ScriptDataService.currentPath.ToArray()[0]);
     }
 
     void OnPlayStateChanged(PlayModeStateChange state)
@@ -314,6 +314,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, IUndoable, ICo
     private void OnDestroy()
     {
         EditorApplication.playModeStateChanged -= OnPlayStateChanged;
+        UnityEditor.Undo.undoRedoPerformed -= OnUndoPerformed;
     }
 
     private void OnHelpRequested(string nodeName)

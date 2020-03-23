@@ -37,6 +37,7 @@ namespace ConstellationEditor
             farNodeX = windowSize.x;
             farNodeY = windowSize.y;
             editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
+            ScrollPosition = scrollPosition;
             var backgroundTexture = AssetDatabase.LoadAssetAtPath(editorPath + "background.png", typeof(Texture2D)) as Texture2D;
             background = new NodeEditorBackground(backgroundTexture);
             editorPath = _editorPath;
@@ -86,8 +87,8 @@ namespace ConstellationEditor
             newNodeView.UpdateNodeSize(0, 0, EditorData.GetConstellationEditorConfig());
             newNodeView.SetPosition(ScrollPosition.x + (windowSizeX * 0.5f), ScrollPosition.y + (windowSizeY * 0.5f));
             newNodeView.LockNodePosition();
-            callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
             SetNodeToFirst(newNodeView);
+            callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
         }
 
         public void RemoveNode(NodeData node, ConstellationEditorEvents.EditorEvents callback)
@@ -97,10 +98,10 @@ namespace ConstellationEditor
                 if (nodeView.NodeData.Guid == node.Guid)
                 {
                     ReleaseFocus();
-                    callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
                     ConstellationScript.RemoveNode(nodeView.NodeData);
+                    callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
                     return;
                 }
             }
@@ -112,13 +113,15 @@ namespace ConstellationEditor
             windowSizeY = _windowSizeY;
         }
 
-        public void Draw(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents callback, ConstellationEditorStyles constellationEditorStyles)
+        public void Draw(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents callback, ConstellationEditorStyles constellationEditorStyles, out Vector2 windowSize, out Vector2 scrollPosition)
         {
             mouseButtonDown = false;
             //scroll bar
             ScrollPosition = EditorGUILayout.BeginScrollView(ScrollPosition, GUILayout.Width(windowSizeX), GUILayout.Height(windowSizeY));
             GUILayoutOption[] options = { GUILayout.Width(editorScrollSize.x), GUILayout.Height(editorScrollSize.y) };
             editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
+            windowSize = editorScrollSize;
+            scrollPosition = ScrollPosition;
             EditorGUILayout.LabelField("", options);
             var backgroundTint = Color.white;
             if (ConstellationScript.IsInstance && ConstellationScript.IsDifferentThanSource)
@@ -126,8 +129,12 @@ namespace ConstellationEditor
             background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, backgroundTint);
             Event e = Event.current;
             var mouseJustRelease = false;
+            var wasDragging = false;
             if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)
             {
+                if (currentEventScope == EventsScope.Dragging)
+                    wasDragging = true;
+
                 mouseJustRelease = true;
                 mousePressed = false;
             }
@@ -180,8 +187,9 @@ namespace ConstellationEditor
             if (script.Links != null)
                 script.Links = script.Links.OrderBy(x => x.outputPositionY).ToList();
 
-            //_windowSize = new Vector2(farNodeX, farNodeY);
-            //_scrollPosition = new Vector2(ScrollPosition.x, ScrollPosition.y);
+            if (wasDragging)
+                callback(ConstellationEditorEvents.EditorEventType.NodeMoved, "Node moved");
+
         }
 
         private void DrawNodes(Event e)

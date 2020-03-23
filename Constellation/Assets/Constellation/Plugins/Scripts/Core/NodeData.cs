@@ -3,10 +3,10 @@ using System.Collections.Generic;
 namespace Constellation {
     [System.Serializable]
     public class NodeData {
+        public string Guid;
         public string Name;
         public string Namespace;
         public string OverrideDisplayedName = "";
-        public string Guid;
         public float XPosition;
         public float YPosition;
         public float SizeX;
