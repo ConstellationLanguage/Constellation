@@ -178,6 +178,11 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
     void OnEditorEvent(ConstellationEditorEvents.EditorEventType eventType, string eventMessage)
     {
         ScriptDataService.SaveScripts();
+        if(eventType == ConstellationEditorEvents.EditorEventType.AddToUndo)
+        {
+            UnityEditor.Undo.RecordObject(ConstellationScript, eventMessage);
+        }
+
         if (eventType == ConstellationEditorEvents.EditorEventType.HelpClicked)
         {
             OnHelpRequested(eventMessage);
@@ -185,26 +190,22 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (eventType == ConstellationEditorEvents.EditorEventType.LinkAdded)
         {
             OnLinkAdded(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
-            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
+            
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.LinkDeleted)
         {
             OnLinkRemoved(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
-            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.NodeAdded)
         {
             OnNodeAdded(ScriptDataService.GetCurrentScript().GetNodeByGUID(eventMessage));
-            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.NodeDeleted)
         {
             OnNodeRemoved(ScriptDataService.GetCurrentScript().GetNodeByGUID(eventMessage));
-            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.NodeMoved)
         {
-            UnityEditor.Undo.RecordObject(ConstellationScript, "Record");
         }
     }
 

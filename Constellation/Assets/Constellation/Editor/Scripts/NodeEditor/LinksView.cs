@@ -20,10 +20,6 @@ namespace ConstellationEditor
         public Color ColdInputColor = Color.yellow;
         public Color WarmInputObjectColor = new Color(0.2f, 0.6f, 0.55f);
         public Color ColdInputObjectColor = new Color(0.2f, 0.3f, 0.6f);
-
-        //const int topMargin = 30;
-        //const int inputSize = 11;
-        //const int nodeWidth = 100;
         const int deleteButtonSize = 15;
 
         public LinksView(ConstellationScript _constellationScript)
@@ -71,6 +67,7 @@ namespace ConstellationEditor
                 }
                 if (startLink == Rect.zero || endLink == Rect.zero)
                 {
+                    editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Delete Link");
                     editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
                     constellationScript.RemoveLink(link);
                 }
@@ -240,6 +237,7 @@ namespace ConstellationEditor
             var newLink = new LinkData(_input, _output);
             if (constellationScript.IsLinkValid(newLink))
             {
+                editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Added link");
                 constellationScript.AddLink(newLink);
                 editorEvents(ConstellationEditorEvents.EditorEventType.LinkAdded, newLink.GUID);
             }

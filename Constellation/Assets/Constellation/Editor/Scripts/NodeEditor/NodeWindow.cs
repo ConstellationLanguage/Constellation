@@ -64,6 +64,7 @@ namespace ConstellationEditor
 
         public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents callback)
         {
+            callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Add node");
             var newNode = NodeFactory.GetNode(nodeName, nodeNamespace);
             var nodeData = new NodeData(newNode);
             var genericNode = newNode.NodeType as IGenericNode;
@@ -97,6 +98,7 @@ namespace ConstellationEditor
             {
                 if (nodeView.NodeData.Guid == node.Guid)
                 {
+                    callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Delete node");
                     ReleaseFocus();
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
@@ -180,16 +182,16 @@ namespace ConstellationEditor
                 ScrollPosition -= Event.current.delta * 0.5f;
                 requestRepaint();
             }
-
+            if (wasDragging)
+            {
+                callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Node moved");
+                callback(ConstellationEditorEvents.EditorEventType.NodeMoved, "Node moved");
+            }
             var script = ConstellationScript.script;
             if (script.Nodes != null)
                 script.Nodes = script.Nodes.OrderBy(x => x.YPosition).ToList();
             if (script.Links != null)
                 script.Links = script.Links.OrderBy(x => x.outputPositionY).ToList();
-
-            if (wasDragging)
-                callback(ConstellationEditorEvents.EditorEventType.NodeMoved, "Node moved");
-
         }
 
         private void DrawNodes(Event e)
