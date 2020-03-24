@@ -197,6 +197,8 @@ namespace ConstellationEditor
         private void DrawNodes(Event e)
         {
             //Read in reverse so first element in in front;
+            farNodeX = 0;
+            farNodeY = 0;
             for (int i = Nodes.Count - 1; i >= 0; i--)
             {
                 Nodes[i].DrawNode(e, EditorData.GetConstellationEditorConfig(), LockFocus, ReleaseFocus, focusedNode);
@@ -310,6 +312,15 @@ namespace ConstellationEditor
             if (e.type == EventType.Repaint)
                 mousePosition = e.mousePosition;
 
+            if (Event.current.keyCode == KeyCode.Delete)
+            {
+                for(var i = 0; i < SelectedNodes.Count; i++)
+                {
+                    RemoveNode(SelectedNodes[SelectedNodes.Count -1].NodeData, editorEvents);
+                    break;
+                }
+            }
+
             for (var i = 0; i < Nodes.Count; i++)
             {
                 var nodeRect = Nodes[i].GetNodeRect(out float positionOffsetX, out float positionOffsetY);
@@ -403,7 +414,7 @@ namespace ConstellationEditor
                 }
             }
 
-            if (e.MouseUp())
+            if (e.MouseUp() && e.button != 2)
             {
                 foreach (var node in SelectedNodes)
                 {
