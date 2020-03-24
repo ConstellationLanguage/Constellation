@@ -10,9 +10,9 @@ namespace ConstellationEditor {
                 if (GUILayout.Button("File", EditorStyles.toolbarButton, GUILayout.Width(35)))
                 {
                     GenericMenu menu = new GenericMenu();
-                    menu.AddItem(new GUIContent("New: Ctrl+Alt+N "), false, OnNew, loadable);
-                    menu.AddItem(new GUIContent("Load: Ctrl+Alt+L"), false, OnLoad, loadable);
-                    menu.AddItem(new GUIContent("Save: Ctrl+Alt+S"), false, OnSave, loadable);
+                    menu.AddItem(new GUIContent("New "), false, OnNew, loadable);
+                    menu.AddItem(new GUIContent("Load"), false, OnLoad, loadable);
+                    menu.AddItem(new GUIContent("Save"), false, OnSave, loadable);
                     menu.AddItem(new GUIContent("Export as constellation file"), false, OnExportAsCL, loadable);
                     menu.ShowAsContext();
                     return true;
@@ -21,8 +21,8 @@ namespace ConstellationEditor {
                 if (GUILayout.Button("Edit", EditorStyles.toolbarButton, GUILayout.Width(35)))
                 {
                     GenericMenu menu = new GenericMenu();
-                    menu.AddItem(new GUIContent("Copy: Ctrl+Alt+C"), false, Copy, copyable);
-                    menu.AddItem(new GUIContent("Past: Ctrl+Alt+V"), false, Paste, copyable);
+                    menu.AddItem(new GUIContent("Copy"), false, Copy, copyable);
+                    menu.AddItem(new GUIContent("Past"), false, Paste, copyable);
                     menu.ShowAsContext();
                     return true;
                 }

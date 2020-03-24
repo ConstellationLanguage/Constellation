@@ -11,7 +11,7 @@ namespace Constellation.Unity {
 
 		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false,"Object", "GameObject position");
-			_nodeParameters.AddInput (this, true, "Position to look at");
+			_nodeParameters.AddInput (this, true, "Vec3", "Position to look at");
 			sender = _nodeParameters.GetSender();
 			_nodeParameters.AddOutput (false, "Target rotation");
 		}

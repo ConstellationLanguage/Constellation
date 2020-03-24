@@ -261,12 +261,16 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
 
     public void Copy()
     {
-        throw new System.NotImplementedException();
+        ScriptDataService.GetEditorData().clipBoard.AddSelection(NodeWindow.GetSelectedNodes(), ConstellationScript.GetLinks());
     }
 
     public void Paste()
     {
-        throw new System.NotImplementedException();
+        var nodes = ScriptDataService.GetEditorData().clipBoard.PasteClipBoard(ConstellationScript);
+        if (nodes == null)
+            return;
+        Open(ScriptDataService.currentPath.ToArray()[0]);
+        NodeWindow.SelectNodes(nodes);
     }
 
     public void Cut()
@@ -286,7 +290,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
 
     void OnUndoPerformed()
     {
-        
         Open(ScriptDataService.currentPath.ToArray()[0]);
     }
 

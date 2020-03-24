@@ -54,6 +54,41 @@ namespace ConstellationEditor
             }
         }
 
+        public void SelectNodes(NodeData [] nodes)
+        {
+            
+            ClearSelectedNodes();
+            foreach (var windowNode in Nodes)
+            {
+                foreach (var node in nodes)
+                {
+                    if(node.Guid == windowNode.NodeData.Guid)
+                    {
+                        SelectedNodes.Add(windowNode);
+                        windowNode.SelectedNode();
+                    }
+                }
+            }
+            foreach (var selectedNode in SelectedNodes)
+            {
+                SetNodeToFirst(selectedNode);
+            }
+        }
+
+        void ClearSelectedNodes()
+        {
+            foreach(var selectedNode in SelectedNodes)
+            {
+                selectedNode.UnselectNode();
+            }
+            SelectedNodes.Clear();
+        }
+
+        public NodeView [] GetSelectedNodes()
+        {
+            return SelectedNodes.ToArray();
+        }
+
         public void DisplayNode(NodeData node)
         {
             var nodeView = new NodeView(node);
@@ -90,6 +125,27 @@ namespace ConstellationEditor
             newNodeView.LockNodePosition();
             SetNodeToFirst(newNodeView);
             callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
+        }
+
+        public NodeData [] GetSelectionCopy()
+        {
+            List<NodeData> selectedNodesData = new List<NodeData>();
+            foreach(var nodeView in SelectedNodes)
+            {
+                var newNode = new NodeData(nodeView.NodeData);
+                newNode.Guid = new System.Guid().ToString();
+                selectedNodesData.Add(newNode);
+            }
+
+            return selectedNodesData.ToArray();
+        }
+
+        public void AddNodes(NodeData[] NodesToAdd)
+        {
+            foreach(var node in NodesToAdd)
+            {
+                Nodes.Add(new NodeView(node));
+            }
         }
 
         public void RemoveNode(NodeData node, ConstellationEditorEvents.EditorEvents callback)
@@ -196,15 +252,20 @@ namespace ConstellationEditor
 
         private void DrawNodes(Event e)
         {
+            if (e.type != EventType.MouseDown && e.button != 0)
+            {
+                farNodeX = 
+                    0;
+                farNodeY = 0;
+            }
             //Read in reverse so first element in in front;
-            farNodeX = 0;
-            farNodeY = 0;
             for (int i = Nodes.Count - 1; i >= 0; i--)
             {
                 Nodes[i].DrawNode(e, EditorData.GetConstellationEditorConfig(), LockFocus, ReleaseFocus, focusedNode);
                 farNodeX = Mathf.Max(Nodes[i].GetPositionX(), farNodeX);
                 farNodeY = Mathf.Max(Nodes[i].GetPositionY(), farNodeY);
             }
+
         }
 
         public void GetFarNode(out float _farNodeX, out float _farNodeY)
@@ -314,9 +375,9 @@ namespace ConstellationEditor
 
             if (Event.current.keyCode == KeyCode.Delete)
             {
-                for(var i = 0; i < SelectedNodes.Count; i++)
+                for (var i = 0; i < SelectedNodes.Count; i++)
                 {
-                    RemoveNode(SelectedNodes[SelectedNodes.Count -1].NodeData, editorEvents);
+                    RemoveNode(SelectedNodes[SelectedNodes.Count - 1].NodeData, editorEvents);
                     break;
                 }
             }

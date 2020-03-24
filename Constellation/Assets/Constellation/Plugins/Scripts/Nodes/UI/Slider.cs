@@ -11,7 +11,7 @@ namespace Constellation.UI {
 		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "Slider object");
 			_nodeParameters.AddInput (this, false, "Slider value");
-			_nodeParameters.AddInput (this, true, "Push");
+			_nodeParameters.AddInput (this, true, "Any", "Push");
 			_nodeParameters.AddOutput (false, "Slider Value");
 			sender = _nodeParameters.GetSender ();
 			sliderValue = new Variable (0);
