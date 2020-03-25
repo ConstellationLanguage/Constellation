@@ -26,7 +26,7 @@ namespace ConstellationEditor
         public float farNodeX = 0;
         public float farNodeY = 0;
         public Vector2 editorScrollSize;
-        private enum EventsScope { Generic, Resizing, Dragging, EditingAttributes };
+        private enum EventsScope { Generic, Resizing, Dragging, EditingAttributes, Selecting };
         private EventsScope currentEventScope = EventsScope.Generic;
         private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
         private string focusedNode = "";
@@ -54,15 +54,15 @@ namespace ConstellationEditor
             }
         }
 
-        public void SelectNodes(NodeData [] nodes)
+        public void SelectNodes(NodeData[] nodes)
         {
-            
+
             ClearSelectedNodes();
             foreach (var windowNode in Nodes)
             {
                 foreach (var node in nodes)
                 {
-                    if(node.Guid == windowNode.NodeData.Guid)
+                    if (node.Guid == windowNode.NodeData.Guid)
                     {
                         SelectedNodes.Add(windowNode);
                         windowNode.SelectedNode();
@@ -77,14 +77,14 @@ namespace ConstellationEditor
 
         void ClearSelectedNodes()
         {
-            foreach(var selectedNode in SelectedNodes)
+            foreach (var selectedNode in SelectedNodes)
             {
                 selectedNode.UnselectNode();
             }
             SelectedNodes.Clear();
         }
 
-        public NodeView [] GetSelectedNodes()
+        public NodeView[] GetSelectedNodes()
         {
             return SelectedNodes.ToArray();
         }
@@ -127,10 +127,10 @@ namespace ConstellationEditor
             callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
         }
 
-        public NodeData [] GetSelectionCopy()
+        public NodeData[] GetSelectionCopy()
         {
             List<NodeData> selectedNodesData = new List<NodeData>();
-            foreach(var nodeView in SelectedNodes)
+            foreach (var nodeView in SelectedNodes)
             {
                 var newNode = new NodeData(nodeView.NodeData);
                 newNode.Guid = new System.Guid().ToString();
@@ -142,7 +142,7 @@ namespace ConstellationEditor
 
         public void AddNodes(NodeData[] NodesToAdd)
         {
-            foreach(var node in NodesToAdd)
+            foreach (var node in NodesToAdd)
             {
                 Nodes.Add(new NodeView(node));
             }
@@ -216,6 +216,10 @@ namespace ConstellationEditor
                     break;
                 case EventsScope.EditingAttributes:
                     break;
+                case EventsScope.Selecting:
+                    UpdateSelectEvent(requestRepaint);
+                    break;
+
             }
             //Needs to be called after the event scope otherwise quit button event is overriden by the node drag event
             if (mouseJustRelease)
@@ -254,7 +258,7 @@ namespace ConstellationEditor
         {
             if (e.type != EventType.MouseDown && e.button != 0)
             {
-                farNodeX = 
+                farNodeX =
                     0;
                 farNodeY = 0;
             }
@@ -282,6 +286,28 @@ namespace ConstellationEditor
         void ReleaseFocus()
         {
             focusedNode = "";
+        }
+
+        private void UpdateSelectEvent(ConstellationEditorEvents.RequestRepaint requestRepaint)
+        {
+            var sizeX = Event.current.mousePosition.x - mouseClickStartPosition.x;
+            var sizeY = Event.current.mousePosition.y - mouseClickStartPosition.y;
+            var SelectionSize = new Rect(mouseClickStartPosition.x, mouseClickStartPosition.y, sizeX, sizeY);
+            GUI.Box(SelectionSize, "");
+            if(Event.current.type == EventType.MouseUp)
+            {
+                if(!Event.current.control) 
+                    ClearSelectedNodes();
+
+                foreach(var node in Nodes)
+                {
+                    if (SelectionSize.Contains(new Vector2(node.GetPositionX(), node.GetPositionY()))) {
+                        node.SelectedNode();
+                        SelectedNodes.Add(node);
+                    }
+                }
+            }
+            requestRepaint();
         }
 
         private void UpdateResizeEvents(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, Event e)
@@ -472,7 +498,10 @@ namespace ConstellationEditor
                             return;
                         }
                     }
-                }
+                } else if(mousePressed)
+                {
+                    currentEventScope = EventsScope.Selecting;
+                } 
             }
 
             if (e.MouseUp() && e.button != 2)
