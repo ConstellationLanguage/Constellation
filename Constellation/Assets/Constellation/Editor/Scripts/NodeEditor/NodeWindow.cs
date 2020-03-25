@@ -292,7 +292,7 @@ namespace ConstellationEditor
         {
             var sizeX = Event.current.mousePosition.x - mouseClickStartPosition.x;
             var sizeY = Event.current.mousePosition.y - mouseClickStartPosition.y;
-            var SelectionSize = new Rect(mouseClickStartPosition.x, mouseClickStartPosition.y, sizeX, sizeY);
+            var SelectionSize = FixNegativeSize(new Rect(mouseClickStartPosition.x, mouseClickStartPosition.y, sizeX, sizeY));
             GUI.Box(SelectionSize, "");
             if(Event.current.type == EventType.MouseUp)
             {
@@ -301,13 +301,32 @@ namespace ConstellationEditor
 
                 foreach(var node in Nodes)
                 {
-                    if (SelectionSize.Contains(new Vector2(node.GetPositionX(), node.GetPositionY()))) {
+                    if (SelectionSize.Contains(new Vector2(node.GetPositionX() + (node.GetSizeX() * 0.5f), node.GetPositionY() + (node.GetSizeY() * 0.5f)))) {
                         node.SelectedNode();
                         SelectedNodes.Add(node);
                     }
                 }
             }
             requestRepaint();
+        }
+
+        private Rect FixNegativeSize(Rect rectOld)
+        {
+            var rect = new Rect(rectOld);
+
+            if (rect.width < 0)
+            {
+                rect.x += rect.width;
+                rect.width = Mathf.Abs(rect.width);
+            }
+
+            if (rect.height < 0)
+            {
+                rect.y += rect.height;
+                rect.height = Mathf.Abs(rect.height);
+            }
+
+            return rect;
         }
 
         private void UpdateResizeEvents(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorEvents.EditorEvents editorEvents, Event e)
