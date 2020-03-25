@@ -6,6 +6,7 @@ namespace ConstellationEditor
     [CreateAssetMenu(fileName = "ConstellationStyle", menuName = "Constellation Editor/Editor style", order = 1)]
     public class ConstellationEditorStyles : ScriptableObject
     {
+        //Nodes
         public GUIStyle NodeStyle;
         public GUIStyle NodeSelectedStyle;
         public GUIStyle NodeTitleStyle;
@@ -40,6 +41,9 @@ namespace ConstellationEditor
         public float attributeSpacing = 2;
         public float nodeButtonsTopMargin = 1;
         public float nodeButtonsSpacing = 5;
+
+        //Node editor
+        public GUIStyle SelectionAreaStyle;
 
         public ConstellationIOStyles GetConstellationIOStylesByType(string name)
         {

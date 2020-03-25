@@ -217,7 +217,7 @@ namespace ConstellationEditor
                 case EventsScope.EditingAttributes:
                     break;
                 case EventsScope.Selecting:
-                    UpdateSelectEvent(requestRepaint);
+                    UpdateSelectEvent(requestRepaint, constellationEditorStyles);
                     break;
 
             }
@@ -288,12 +288,12 @@ namespace ConstellationEditor
             focusedNode = "";
         }
 
-        private void UpdateSelectEvent(ConstellationEditorEvents.RequestRepaint requestRepaint)
+        private void UpdateSelectEvent(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorStyles constellationEditorStyles)
         {
             var sizeX = Event.current.mousePosition.x - mouseClickStartPosition.x;
             var sizeY = Event.current.mousePosition.y - mouseClickStartPosition.y;
             var SelectionSize = FixNegativeSize(new Rect(mouseClickStartPosition.x, mouseClickStartPosition.y, sizeX, sizeY));
-            GUI.Box(SelectionSize, "");
+            GUI.Box(SelectionSize, "", constellationEditorStyles.SelectionAreaStyle);
             if(Event.current.type == EventType.MouseUp)
             {
                 if(!Event.current.control) 
