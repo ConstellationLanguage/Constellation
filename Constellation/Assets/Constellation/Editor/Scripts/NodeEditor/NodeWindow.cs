@@ -517,7 +517,7 @@ namespace ConstellationEditor
                             return;
                         }
                     }
-                } else if(mousePressed)
+                } else if(mousePressed && e.mousePosition.x != mouseClickStartPosition.x && e.mousePosition.y != mouseClickStartPosition.y)
                 {
                     currentEventScope = EventsScope.Selecting;
                 } 
