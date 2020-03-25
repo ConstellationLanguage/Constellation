@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: a72aec90-2877-426f-8fc3-f8099c147b34
+      Name: Tutorial
       Namespace: Tags
-      Guid: a72aec90-2877-426f-8fc3-f8099c147b34
+      OverrideDisplayedName: 
       XPosition: 7.5
       YPosition: 6.5
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: 820f1df3-ba12-4a92-9b9b-cbed53a45d47
+      Name: Value
       Namespace: CoreNodes
-      Guid: 820f1df3-ba12-4a92-9b9b-cbed53a45d47
+      OverrideDisplayedName: 
       XPosition: 82.5
       YPosition: 76
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c14e426c-1ce2-4cef-a9e8-8a727b9fa3d6
@@ -37,11 +44,14 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 1
         Type: 0
-    - Name: Add
+    - Guid: dc3ea85c-ea94-43d9-8e8f-a23969dfa45a
+      Name: Add
       Namespace: CoreNodes
-      Guid: dc3ea85c-ea94-43d9-8e8f-a23969dfa45a
+      OverrideDisplayedName: 
       XPosition: 322.5
       YPosition: 77
+      SizeX: 75
+      SizeY: 60
       Inputs:
       - Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
         IsWarm: 0
@@ -57,11 +67,14 @@ MonoBehaviour:
         Type: 
         Description: value 1 + value 2
       AttributesData: []
-    - Name: Print
+    - Guid: f5e2caae-55cd-410f-a624-57f7e22b9d4d
+      Name: Print
       Namespace: CoreNodes
-      Guid: f5e2caae-55cd-410f-a624-57f7e22b9d4d
+      OverrideDisplayedName: 
       XPosition: 511.5
       YPosition: 80
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
         IsWarm: 0
@@ -69,11 +82,14 @@ MonoBehaviour:
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: ef3bf0e4-f816-4bf7-a368-b68a82d6d6d3
+      Name: Value
       Namespace: CoreNodes
-      Guid: ef3bf0e4-f816-4bf7-a368-b68a82d6d6d3
+      OverrideDisplayedName: 
       XPosition: 85.5
       YPosition: 139
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 683518e2-c036-4ac9-9a12-9c95b28b2d40
@@ -85,11 +101,14 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 1
         Type: 0
-    - Name: Print
+    - Guid: c1e643e8-b086-4573-b70b-7e01baf48842
+      Name: Print
       Namespace: CoreNodes
-      Guid: c1e643e8-b086-4573-b70b-7e01baf48842
+      OverrideDisplayedName: 
       XPosition: 527.5
       YPosition: 223
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 63de6d21-c920-4317-8c9e-7c9642431724
         IsWarm: 0
@@ -97,11 +116,14 @@ MonoBehaviour:
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Word
+    - Guid: 48231b09-68e8-4c1c-9a68-625dca386464
+      Name: Word
       Namespace: CoreNodes
-      Guid: 48231b09-68e8-4c1c-9a68-625dca386464
+      OverrideDisplayedName: 
       XPosition: 101.5
       YPosition: 226
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c5b802d6-3845-4886-8ae8-84d57555ff9b
@@ -113,11 +135,14 @@ MonoBehaviour:
           stringValue: I'm
           floatValue: 0.000001
         Type: 1
-    - Name: Add
+    - Guid: 8bc8c7ef-24c2-41c6-abea-b2c1d778890f
+      Name: Add
       Namespace: CoreNodes
-      Guid: 8bc8c7ef-24c2-41c6-abea-b2c1d778890f
+      OverrideDisplayedName: 
       XPosition: 308.5
       YPosition: 234
+      SizeX: 75
+      SizeY: 60
       Inputs:
       - Guid: d1888c5e-7055-4557-933a-1a0481907c5a
         IsWarm: 0
@@ -133,11 +158,14 @@ MonoBehaviour:
         Type: 
         Description: value 1 + value 2
       AttributesData: []
-    - Name: Word
+    - Guid: 2d229bc2-4114-491d-9a33-0550b2029961
+      Name: Word
       Namespace: CoreNodes
-      Guid: 2d229bc2-4114-491d-9a33-0550b2029961
+      OverrideDisplayedName: 
       XPosition: 101.5
       YPosition: 292
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: a8f3b015-3303-4a18-875b-aa4fce95e927
@@ -149,11 +177,14 @@ MonoBehaviour:
           stringValue: a word
           floatValue: 0.000001
         Type: 1
-    - Name: Word
+    - Guid: 4ad054e2-87e4-4c06-865f-f1ca971f68fc
+      Name: Word
       Namespace: CoreNodes
-      Guid: 4ad054e2-87e4-4c06-865f-f1ca971f68fc
+      OverrideDisplayedName: 
       XPosition: 101.5
       YPosition: 365
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: e0a60224-fdab-4ba4-b6a2-82d34e60a2e1
@@ -165,11 +196,14 @@ MonoBehaviour:
           stringValue: 'six: '
           floatValue: 0.000001
         Type: 1
-    - Name: Add
+    - Guid: b68e194a-9b0e-4e33-b982-53ba808e7e9c
+      Name: Add
       Namespace: CoreNodes
-      Guid: b68e194a-9b0e-4e33-b982-53ba808e7e9c
+      OverrideDisplayedName: 
       XPosition: 325.5
       YPosition: 378
+      SizeX: 75
+      SizeY: 60
       Inputs:
       - Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
         IsWarm: 0
@@ -185,11 +219,14 @@ MonoBehaviour:
         Type: 
         Description: value 1 + value 2
       AttributesData: []
-    - Name: Print
+    - Guid: 471d0088-5179-49d4-8661-f192f1ef7887
+      Name: Print
       Namespace: CoreNodes
-      Guid: 471d0088-5179-49d4-8661-f192f1ef7887
+      OverrideDisplayedName: 
       XPosition: 557.5
       YPosition: 379
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
         IsWarm: 0
@@ -197,11 +234,14 @@ MonoBehaviour:
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: 3b748853-15e6-48a0-9f87-c73bf0cd4857
+      Name: Value
       Namespace: CoreNodes
-      Guid: 3b748853-15e6-48a0-9f87-c73bf0cd4857
+      OverrideDisplayedName: 
       XPosition: 94.5
       YPosition: 443
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 5e837ed2-956c-414d-93f9-9f34f236a492
@@ -225,6 +265,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 107
+      GUID: 
     - Input:
         Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
         IsWarm: 0
@@ -236,6 +277,7 @@ MonoBehaviour:
         Type: 
         Description: value 1 + value 2
       outputPositionY: 110
+      GUID: 
     - Input:
         Guid: 9c4759aa-0eef-462f-89b2-03a16383ddea
         IsWarm: 1
@@ -247,6 +289,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 127
+      GUID: 
     - Input:
         Guid: 63de6d21-c920-4317-8c9e-7c9642431724
         IsWarm: 0
@@ -258,6 +301,7 @@ MonoBehaviour:
         Type: 
         Description: value 1 + value 2
       outputPositionY: 253
+      GUID: 
     - Input:
         Guid: d1888c5e-7055-4557-933a-1a0481907c5a
         IsWarm: 0
@@ -269,6 +313,7 @@ MonoBehaviour:
         Type: 
         Description: The Word
       outputPositionY: 264
+      GUID: 
     - Input:
         Guid: 47ad52d1-01ad-4451-a36e-9b2c93beb0b9
         IsWarm: 1
@@ -280,6 +325,7 @@ MonoBehaviour:
         Type: 
         Description: The Word
       outputPositionY: 284
+      GUID: 
     - Input:
         Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
         IsWarm: 0
@@ -291,6 +337,7 @@ MonoBehaviour:
         Type: 
         Description: The Word
       outputPositionY: 408
+      GUID: 
     - Input:
         Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
         IsWarm: 0
@@ -302,6 +349,7 @@ MonoBehaviour:
         Type: 
         Description: value 1 + value 2
       outputPositionY: 409
+      GUID: 
     - Input:
         Guid: 18d3ca0a-03b2-44e4-b891-41a2cc5d4ad7
         IsWarm: 1
@@ -313,5 +361,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 428
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}
