@@ -8,7 +8,7 @@ namespace Constellation.Custom
         private Attribute attribute; // attributes are setted in the editor.
         public const string NAME = "Custom Node"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
         Constellation constellation;
-        ConstellationScript ConstellationData;
+        ConstellationScriptData ConstellationData;
         NodesFactory nodesFactory;
         ConstellationEventSystem eventSystem;
         bool isInitialized = false;
@@ -57,15 +57,12 @@ namespace Constellation.Custom
             }
         }
 
-        public void SetConstellation(ConstellationScript script, ConstellationScriptData[] constellationScripts)
+        public void SetConstellation(ConstellationScriptData script, ConstellationScriptData[] constellationScripts)
         {
             if (isInitialized) // do not initialize twice
                 return;
 
             constellation = new Constellation();
-
-            if (ConstellationComponent.eventSystem == null)
-                eventSystem = new ConstellationEventSystem();
 
             if (NodesFactory.Current == null)
                 nodesFactory = new NodesFactory(constellationScripts);
@@ -88,7 +85,7 @@ namespace Constellation.Custom
             }
 
             //SetUnityObject();
-            constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.name);
+            constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.Name);
             if (constellation.GetInjector() is IAwakable)
                 constellation.GetInjector().OnAwake();
 

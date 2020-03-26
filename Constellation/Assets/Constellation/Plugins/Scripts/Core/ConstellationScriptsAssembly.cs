@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-namespace Constellation
+using Constellation;
+
+namespace Constellation.Unity3D
 {
     [CreateAssetMenuAttribute(fileName = "New Script Assembly", menuName = "Constellation Script Assembly", order = 4)]
     public class ConstellationScriptsAssembly : ScriptableObject

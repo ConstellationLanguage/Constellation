@@ -45,7 +45,7 @@ namespace Constellation {
             Guid = _node.GetGuid ();
         }
 
-        public NodeData(Node<INode> _node, ConstellationScript ConstellationNode)
+        public NodeData(Node<INode> _node, ConstellationScriptData ConstellationNode)
         {
             AttributesData = new List<AttributeData>();
             Inputs = new List<InputData>();

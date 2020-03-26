@@ -7,11 +7,11 @@ namespace ConstellationEditor
     {
         private NodesFactory NodesFactory;
 
-        public void UpdateScriptsNodes(ConstellationScript[] scripts, ConstellationScriptData[] constellationScripts)
+        public void UpdateScriptsNodes(ConstellationScriptData[] scripts, ConstellationScriptData[] constellationScripts)
         {
             foreach (var script in scripts)
             {
-                UpdateScriptNodes(script.script, constellationScripts);
+                UpdateScriptNodes(script, constellationScripts);
             }
         }
 

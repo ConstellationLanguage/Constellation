@@ -7,8 +7,8 @@ namespace Constellation.CoreNodes {
             sender = _node.GetSender();
             _node.AddOutput (true, "Received Value from a sender");
             eventName = _node.AddAttribute (new Variable ("event name"), Attribute.AttributeType.Word, "The event name");
-            if (ConstellationComponent.eventSystem != null)
-                ConstellationComponent.eventSystem.Register (OnConstellationEvent);
+            if (Constellation.eventSystem != null)
+                Constellation.eventSystem.Register (OnConstellationEvent);
         }
 
         public void OnConstellationEvent (string _eventName, Variable _value) {
@@ -19,7 +19,7 @@ namespace Constellation.CoreNodes {
 
         public void OnDestroy()
         {
-            ConstellationComponent.eventSystem.Unregister(OnConstellationEvent);
+            Constellation.eventSystem.Unregister(OnConstellationEvent);
         }
 
         public string NodeName () {

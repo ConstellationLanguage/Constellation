@@ -3,6 +3,7 @@ using System.IO;
 using Constellation;
 using UnityEditor;
 using UnityEngine;
+using Constellation.Unity3D;
 
 namespace ConstellationEditor {
     [System.Serializable]
@@ -96,6 +97,15 @@ namespace ConstellationEditor {
                 EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
             }
             return EditorData.ScriptAssembly.constellationScripts.ToArray();
+        }
+
+        public ConstellationScriptData[] GetAllScriptDataInProject()
+        {
+            if (EditorData.ScriptAssembly.constellationScripts == null || EditorData.ScriptAssembly.constellationScripts.Count == 0)
+            {
+                EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
+            }
+            return EditorData.ScriptAssembly.GetAllScriptData();
         }
 
         public void SetAllScriptsDirty()

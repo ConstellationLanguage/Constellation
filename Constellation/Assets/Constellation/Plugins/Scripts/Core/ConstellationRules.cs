@@ -4,7 +4,7 @@
     {
         const string UndefinedName = "Undefined";
 
-        public static NodeData AddNode(NodesFactory nodesFactory, string nodeName, string nodeNamespace, ConstellationScript constellationScript)
+        public static NodeData AddNode(NodesFactory nodesFactory, string nodeName, string nodeNamespace, ConstellationScriptData constellationScript)
         {
             var newNode = nodesFactory.GetNode(nodeName, nodeNamespace);
             var nodeData = new NodeData(newNode);
@@ -28,7 +28,7 @@
             return nodeData;
         }
 
-        public static void UpdateGenericNodeByLinkGUID(ConstellationScript constellationScript, NodesFactory nodesFactory, string guid)
+        public static void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid)
         {
             var linkedinputID = 0;
             var linkedOutputID = 0;
@@ -67,9 +67,9 @@
             }
         }
 
-        public static void RemoveNode(NodeData node, ConstellationScript constellationScript)
+        public static void RemoveNode(NodeData node, ConstellationScriptData constellationScript)
         {
-            constellationScript.RemoveNode(node);
+            constellationScript.RemoveNode(node.Guid);
         }
     }
 }

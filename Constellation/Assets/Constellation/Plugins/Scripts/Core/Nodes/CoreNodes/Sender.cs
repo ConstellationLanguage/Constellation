@@ -19,7 +19,7 @@ namespace Constellation.CoreNodes {
 
         public void Receive (Variable value, Input _input) {
             if (_input.isWarm)
-                ConstellationComponent.eventSystem.SendEvent (eventName.Value.GetString(), value);
+                Constellation.eventSystem.SendEvent (eventName.Value.GetString(), value);
         }
     }
 }

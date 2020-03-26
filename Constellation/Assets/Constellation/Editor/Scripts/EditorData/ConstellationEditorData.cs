@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Constellation;
+using Constellation.Unity3D;
+
 namespace ConstellationEditor {
 	public class ConstellationEditorData : ScriptableObject {
 		public List<string> LastOpenedConstellationPath;

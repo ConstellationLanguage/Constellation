@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-namespace Constellation
+namespace Constellation.Unity3D
 {
     public class ConstellationComponent : MonoBehaviour
     {
-        public static ConstellationEventSystem eventSystem;
         public static bool IsGCDone = false;
         protected NodesFactory nodeFactory;
         protected bool isInitialized = false;
@@ -43,9 +42,6 @@ namespace Constellation
 
             if (isInitialized) // do not initialize twice
                 return;
-
-            if (ConstellationComponent.eventSystem == null)
-                eventSystem = new ConstellationEventSystem();
 
             if (NodesFactory.Current == null)
                 nodeFactory = new NodesFactory(ConstellationData?.ScriptAssembly?.GetAllScriptData());

@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+
 namespace Constellation
 {
     [System.Serializable]
     public class Constellation : ConstellationObject
     {
+        public static ConstellationEventSystem eventSystem;
         private List<Node<INode>> Nodes;
         public List<Link> Links;
 
 
         public override void Initialize(string _guid, string _name)
         {
+            if (Constellation.eventSystem == null)
+                eventSystem = new ConstellationEventSystem();
             base.Initialize(_guid, _name);
             Injector = new Injector(this);
             if (Nodes == null)

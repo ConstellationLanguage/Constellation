@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-namespace Constellation
+namespace Constellation.Unity3D
 {
     public class ConstellationBehaviour : ConstellationEditable
     {

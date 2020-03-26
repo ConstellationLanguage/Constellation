@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using Constellation;
 using System.Linq;
+using Constellation.Unity3D;
 
 namespace ConstellationEditor
 {
@@ -100,7 +101,7 @@ namespace ConstellationEditor
         public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents callback)
         {
             callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Add node");
-            var nodeData = ConstellationRules.AddNode(NodeFactory, nodeName, nodeNamespace, ConstellationScript);
+            var nodeData = ConstellationRules.AddNode(NodeFactory, nodeName, nodeNamespace, ConstellationScript.script);
             var newNodeView = new NodeView(nodeData);
             Nodes.Add(newNodeView);
             newNodeView.UpdateNodeSize(0, 0, EditorData.GetConstellationEditorConfig());
@@ -141,7 +142,7 @@ namespace ConstellationEditor
                     ReleaseFocus();
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
-                    ConstellationRules.RemoveNode(nodeView.NodeData, ConstellationScript);
+                    ConstellationRules.RemoveNode(nodeView.NodeData, ConstellationScript.script);
                     callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
                     return;
                 }
@@ -517,7 +518,7 @@ namespace ConstellationEditor
 
         private void UpdateGenericNodeByLinkGUID(string guid)
         {
-            ConstellationRules.UpdateGenericNodeByLinkGUID(ConstellationScript, NodeFactory, guid);
+            ConstellationRules.UpdateGenericNodeByLinkGUID(ConstellationScript.script, NodeFactory, guid);
         }
 
         private void SetNodeToFirst(NodeView node)

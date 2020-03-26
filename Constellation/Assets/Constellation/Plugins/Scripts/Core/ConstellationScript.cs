@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Constellation {
+namespace Constellation.Unity3D
+{
     [CreateAssetMenuAttribute(fileName = "NewConstellation", menuName = "Constellation", order = 3)]
     public class ConstellationScript : ScriptableObject {
         public ConstellationScriptData script;

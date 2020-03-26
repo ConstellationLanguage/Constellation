@@ -115,5 +115,61 @@ namespace Constellation {
                 Links = new List<LinkData> ();
             Links.Add (_link);
         }
+
+        public NodeData[] GetNodes()
+        {
+            if (Nodes == null)
+                Nodes = new List<NodeData>();
+
+            return Nodes.ToArray();
+        }
+
+        public LinkData[] GetLinks()
+        {
+            if (Links == null)
+                Links = new List<LinkData>();
+
+            return Links.ToArray();
+        }
+
+        public NodeData[] GetNodesWithLinkGUID(string guid, out int inputId, out int outputId)
+        {
+            NodeData InputNode = null;
+            NodeData OutputNode = null;
+            inputId = 0;
+            outputId = 0;
+            foreach (var link in GetLinks())
+            {
+                if (link.GUID == guid)
+                {
+                    foreach (var node in GetNodes())
+                    {
+                        var inputCounter = 0;
+                        foreach (var input in node.Inputs)
+                        {
+                            if (link.Input.Guid == input.Guid)
+                            {
+                                InputNode = node;
+                                inputId = inputCounter;
+                            }
+                            inputCounter++;
+                        }
+
+                        var outputCounter = 0;
+                        foreach (var output in node.Outputs)
+                        {
+                            if (link.Output.Guid == output.Guid)
+                            {
+                                outputId = outputCounter;
+                                OutputNode = node;
+                            }
+                            outputCounter++;
+                        }
+                    }
+                }
+            }
+
+            return new NodeData[2] { OutputNode, InputNode };
+        }
     }
 }

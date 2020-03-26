@@ -1,6 +1,6 @@
 ﻿
 using UnityEngine;
-using Constellation;
+using Constellation.Unity3D;
 
 namespace Constellation.Unity
 {

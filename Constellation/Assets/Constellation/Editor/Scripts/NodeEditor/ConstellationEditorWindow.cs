@@ -2,6 +2,7 @@
 using UnityEngine;
 using Constellation;
 using ConstellationEditor;
+using Constellation.Unity3D;
 
 public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICompilable
 {
@@ -393,7 +394,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
             return true;
         }
 
-        ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllScriptsInProject(), ScriptDataService.GetAllNestableScriptsInProject());
+        ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllScriptDataInProject(), ScriptDataService.GetAllNestableScriptsInProject());
         ScriptDataService.SetAllScriptsDirty();
         SetupNodeWindow();
 

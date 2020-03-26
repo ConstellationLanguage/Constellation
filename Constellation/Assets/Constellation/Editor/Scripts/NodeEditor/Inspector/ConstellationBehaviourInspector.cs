@@ -1,4 +1,4 @@
-﻿using Constellation;
+﻿using Constellation.Unity3D;
 using UnityEditor;
 
 [CustomEditor (typeof (ConstellationBehaviour))]

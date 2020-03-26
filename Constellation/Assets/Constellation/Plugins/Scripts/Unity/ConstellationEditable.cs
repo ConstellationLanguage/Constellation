@@ -1,6 +1,4 @@
-
-using UnityEngine;
-namespace Constellation {
+namespace Constellation.Unity3D {
     public class ConstellationEditable: ConstellationComponent {
         public void RemoveLink (LinkData linkData) {
             

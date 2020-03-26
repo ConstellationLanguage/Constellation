@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Constellation;
 using UnityEditor;
+using Constellation.Unity3D;
 
 namespace ConstellationEditor
 {

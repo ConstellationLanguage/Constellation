@@ -1,4 +1,4 @@
-namespace Constellation
+namespace Constellation.Unity3D
 {
     public class NoConstellationAttached : ConstellationError, IConstellationError
     {
