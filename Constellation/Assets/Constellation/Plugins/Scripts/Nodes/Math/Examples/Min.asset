@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,85 +14,107 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      Name: Tutorial
       Namespace: Tags
-      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      OverrideDisplayedName: 
       XPosition: 1.5
       YPosition: 1
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      Name: Note
       Namespace: CoreNodes
-      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 25
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
       - Value:
-          stringValue: "Abs(float f);\r\nDescription\r\nReturns the absolute value
-            of f."
+          stringValue: 'Abs(float f);
+
+            Description
+
+            Returns
+            the absolute value of f.'
           floatValue: 0.000001
         Type: 2
-    - Name: Print
+    - Guid: d2c2e532-a4fa-4d71-b485-1546273fcd00
+      Name: Print
       Namespace: CoreNodes
-      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      OverrideDisplayedName: 
       XPosition: 552.5
       YPosition: 111
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: 4e346f55-1ba3-4301-aaff-0be09a73ece0
+      Name: Value
       Namespace: CoreNodes
-      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      OverrideDisplayedName: 
       XPosition: 228.5
       YPosition: 112
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Name: Min
+    - Guid: ef5f9b6e-1f44-4454-8c48-ad59007430bb
+      Name: Min
       Namespace: Math
-      Guid: 1b1cb3ee-af99-4571-81dc-b29ccecf376d
+      OverrideDisplayedName: 
       XPosition: 404.5
       YPosition: 114
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 5471771a-771f-4754-a649-aa1de1b4262a
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Var1
       - Guid: 236a83c2-0bfb-4141-a090-f97a6a38ce4f
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Var2
       Outputs:
       - Guid: 7d367c2d-ff69-4a52-a42c-cbec2ab2a07d
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Min value
       AttributesData: []
-    - Name: Value
+    - Guid: 58b759fb-1822-456b-be06-b94adfdbc9e2
+      Name: Value
       Namespace: CoreNodes
-      Guid: 7069006b-0ffb-4c41-b47e-01ff684085b4
+      OverrideDisplayedName: 
       XPosition: 230.5
       YPosition: 156
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 4d3829db-284f-4066-b5af-61db81a07009
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
@@ -110,6 +133,7 @@ MonoBehaviour:
         Type: 
         Description: Min value
       outputPositionY: 141
+      GUID: 
     - Input:
         Guid: 5471771a-771f-4754-a649-aa1de1b4262a
         IsWarm: 0
@@ -121,6 +145,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 144
+      GUID: 
     - Input:
         Guid: 236a83c2-0bfb-4141-a090-f97a6a38ce4f
         IsWarm: 1
@@ -132,5 +157,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 164
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

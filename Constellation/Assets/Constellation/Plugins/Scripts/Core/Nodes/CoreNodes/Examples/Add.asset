@@ -25,7 +25,7 @@ MonoBehaviour:
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Guid: 820f1df3-ba12-4a92-9b9b-cbed53a45d47
+    - Guid: abd5c92c-f08a-4413-925e-ad19bd94a4a0
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -37,14 +37,14 @@ MonoBehaviour:
       Outputs:
       - Guid: c14e426c-1ce2-4cef-a9e8-8a727b9fa3d6
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 1
+          floatValue: 0
         Type: 0
-    - Guid: dc3ea85c-ea94-43d9-8e8f-a23969dfa45a
+    - Guid: 921ad582-fadb-4da7-ad80-44b4d6c391b7
       Name: Add
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -55,19 +55,19 @@ MonoBehaviour:
       Inputs:
       - Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1
       - Guid: 9c4759aa-0eef-462f-89b2-03a16383ddea
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: value 2
       Outputs:
       - Guid: a5885a10-5079-412e-874d-d1a23f93e4b8
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1 + value 2
       AttributesData: []
-    - Guid: f5e2caae-55cd-410f-a624-57f7e22b9d4d
+    - Guid: 0abbeccf-2fb9-45d1-8f90-f1dd5a30fc62
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -78,11 +78,11 @@ MonoBehaviour:
       Inputs:
       - Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Guid: ef3bf0e4-f816-4bf7-a368-b68a82d6d6d3
+    - Guid: 94b30d09-4fe6-4633-bb2a-3aef50caa742
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -94,14 +94,14 @@ MonoBehaviour:
       Outputs:
       - Guid: 683518e2-c036-4ac9-9a12-9c95b28b2d40
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 1
+          floatValue: 0
         Type: 0
-    - Guid: c1e643e8-b086-4573-b70b-7e01baf48842
+    - Guid: 7019bbc2-e1ba-475f-ab8e-2bb3c9118a25
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -112,11 +112,11 @@ MonoBehaviour:
       Inputs:
       - Guid: 63de6d21-c920-4317-8c9e-7c9642431724
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Guid: 48231b09-68e8-4c1c-9a68-625dca386464
+    - Guid: e6e37895-da9c-4643-b670-ed6fd2546697
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -128,14 +128,14 @@ MonoBehaviour:
       Outputs:
       - Guid: c5b802d6-3845-4886-8ae8-84d57555ff9b
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: I'm
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
-    - Guid: 8bc8c7ef-24c2-41c6-abea-b2c1d778890f
+    - Guid: ce30f870-9701-4cce-a897-6fab28481b37
       Name: Add
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -146,19 +146,19 @@ MonoBehaviour:
       Inputs:
       - Guid: d1888c5e-7055-4557-933a-1a0481907c5a
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1
       - Guid: 47ad52d1-01ad-4451-a36e-9b2c93beb0b9
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: value 2
       Outputs:
       - Guid: 469d6ec5-4f7a-402e-9b16-2294f053b1f1
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1 + value 2
       AttributesData: []
-    - Guid: 2d229bc2-4114-491d-9a33-0550b2029961
+    - Guid: 8e42995a-4760-43b9-b236-ca51f4c7ad36
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -170,14 +170,14 @@ MonoBehaviour:
       Outputs:
       - Guid: a8f3b015-3303-4a18-875b-aa4fce95e927
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: a word
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
-    - Guid: 4ad054e2-87e4-4c06-865f-f1ca971f68fc
+    - Guid: fabf0ff4-b23d-4188-9fe9-127092ba18e5
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -189,14 +189,14 @@ MonoBehaviour:
       Outputs:
       - Guid: e0a60224-fdab-4ba4-b6a2-82d34e60a2e1
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: 'six: '
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
-    - Guid: b68e194a-9b0e-4e33-b982-53ba808e7e9c
+    - Guid: f199e562-374b-4992-88ea-fab9ee4f1e10
       Name: Add
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -207,19 +207,19 @@ MonoBehaviour:
       Inputs:
       - Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1
       - Guid: 18d3ca0a-03b2-44e4-b891-41a2cc5d4ad7
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: value 2
       Outputs:
       - Guid: 7dba2295-6ad5-4ad9-bb39-ad52a1f46355
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1 + value 2
       AttributesData: []
-    - Guid: 471d0088-5179-49d4-8661-f192f1ef7887
+    - Guid: 18f98c8d-0b9c-4193-a1d5-4f96d1042083
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -230,11 +230,11 @@ MonoBehaviour:
       Inputs:
       - Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Guid: 3b748853-15e6-48a0-9f87-c73bf0cd4857
+    - Guid: c203e79d-5ee3-4cac-adc1-6eae3c7cd3ea
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -246,12 +246,12 @@ MonoBehaviour:
       Outputs:
       - Guid: 5e837ed2-956c-414d-93f9-9f34f236a492
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 6
+          floatValue: 0
         Type: 0
     Links:
     - Input:

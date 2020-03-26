@@ -93,9 +93,6 @@ namespace ConstellationEditor
             GUI.color = Color.white;
 
             var inputs = NodeData.GetInputs();
-            var coldColor = new Color(1f, 0.9f, 0.1f);
-            var warmColor = new Color(1f, 0.6f, 0.1f);
-            var coldObjectColor = new Color(0.5f, 0.5f, 1f);
             for (var i = 0; i < inputs.Length; i++)
             {
                 if (inputs[i].IsWarm == true)

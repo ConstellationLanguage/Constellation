@@ -190,7 +190,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (eventType == ConstellationEditorEvents.EditorEventType.LinkAdded)
         {
             OnLinkAdded(ScriptDataService.GetCurrentScript().GetLinkByGUID(eventMessage));
-            
         }
         if (eventType == ConstellationEditorEvents.EditorEventType.LinkDeleted)
         {
@@ -395,6 +394,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         }
 
         ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllScriptsInProject(), ScriptDataService.GetAllNestableScriptsInProject());
+        ScriptDataService.SetAllScriptsDirty();
         SetupNodeWindow();
 
         return true;

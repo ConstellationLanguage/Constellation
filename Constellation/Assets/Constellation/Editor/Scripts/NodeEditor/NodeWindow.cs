@@ -100,24 +100,7 @@ namespace ConstellationEditor
         public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents callback)
         {
             callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Add node");
-            var newNode = NodeFactory.GetNode(nodeName, nodeNamespace);
-            var nodeData = new NodeData(newNode);
-            var genericNode = newNode.NodeType as IGenericNode;
-            if (genericNode as IGenericNode != null)
-            {
-                for (var i = 0; i < newNode.Inputs.Count; i++)
-                {
-                    var genericOutputsID = genericNode.GetGenericOutputByLinkedInput(i);
-                    for (var j = 0; j < genericOutputsID.Length; j++)
-                    {
-                        nodeData.Outputs[genericOutputsID[j]].Type = "Undefined";
-                    }
-                }
-            }
-
-            nodeData = ConstellationScript.AddNode(nodeData);
-            nodeData.XPosition = 0;
-            nodeData.YPosition = 0;
+            var nodeData = ConstellationRules.AddNode(NodeFactory, nodeName, nodeNamespace, ConstellationScript);
             var newNodeView = new NodeView(nodeData);
             Nodes.Add(newNodeView);
             newNodeView.UpdateNodeSize(0, 0, EditorData.GetConstellationEditorConfig());
@@ -158,7 +141,7 @@ namespace ConstellationEditor
                     ReleaseFocus();
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
-                    ConstellationScript.RemoveNode(nodeView.NodeData);
+                    ConstellationRules.RemoveNode(nodeView.NodeData, ConstellationScript);
                     callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
                     return;
                 }

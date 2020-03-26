@@ -98,6 +98,15 @@ namespace ConstellationEditor {
             return EditorData.ScriptAssembly.constellationScripts.ToArray();
         }
 
+        public void SetAllScriptsDirty()
+        {
+
+            foreach (var constellationScript in GetAllScriptsInProject())
+            {
+                EditorUtility.SetDirty(constellationScript);
+            }
+        }
+
         public ConstellationScript GetConstellationByName (string scriptName) {
             var constellation = EditorUtils.GetInstanceByName<ConstellationScript> (scriptName);
             return (ConstellationScript) AssetDatabase.LoadAssetAtPath (AssetDatabase.GetAssetPath (constellation), typeof (ConstellationScript));

@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      Name: Tutorial
       Namespace: Tags
-      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 2.5
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      Name: Note
       Namespace: CoreNodes
-      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      OverrideDisplayedName: 
       XPosition: 173.5
       YPosition: 11
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -33,31 +40,37 @@ MonoBehaviour:
           stringValue: Find a game object by name
           floatValue: 0.000001
         Type: 2
-    - Name: Word
+    - Guid: 410b5997-2697-4af9-9411-82ced29b44aa
+      Name: Word
       Namespace: CoreNodes
-      Guid: a881d504-232b-46cc-a2a5-df40327ab74a
+      OverrideDisplayedName: 
       XPosition: 20
       YPosition: 142.5
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 636e6c53-f2cf-4952-a5a6-40d901eded32
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: Light
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
-    - Name: FindByName
+    - Guid: 4f29778a-bf7d-469b-8c07-4ee20e6d2740
+      Name: FindByName
       Namespace: Unity
-      Guid: c7062cf3-f30b-4590-bba6-b5d6f51602aa
+      OverrideDisplayedName: 
       XPosition: 195
       YPosition: 144.5
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: baa342e2-227f-4878-bff4-4d766f4dc21f
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Game Object Name
       Outputs:
       - Guid: dc4c01e9-9590-4bba-8670-8ac02079a9a8
@@ -65,11 +78,14 @@ MonoBehaviour:
         Type: Object
         Description: Gameobject
       AttributesData: []
-    - Name: Transform
+    - Guid: d9a7c03d-fe53-41df-820b-f532d8787a5b
+      Name: Transform
       Namespace: Unity
-      Guid: c0d1a002-338f-4112-8379-205d60428da9
+      OverrideDisplayedName: 
       XPosition: 375
       YPosition: 148.5
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 0c165c60-2d23-4ebb-b4b9-70f56e71f30a
         IsWarm: 0
@@ -77,84 +93,90 @@ MonoBehaviour:
         Description: Transform object
       - Guid: c23f0586-5008-4a46-a668-aae37989e6f5
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3 position
       - Guid: 3b130f7d-3338-4777-afbb-dc5ac4c80ba4
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3 rotation
       - Guid: ee3f6ae4-df5b-4a4e-80c8-2f329c520663
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3 scale
       - Guid: c1e52a1a-2ce3-4588-be4d-26df9dc0635f
         IsWarm: 1
-        Type: 
+        Type: Any
         Description: Send
       Outputs:
       - Guid: 61b27e92-8100-4304-99ab-8718c8fba564
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3 position
       - Guid: a81dc87e-0333-4b63-97cb-8276b187511b
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3 rotation
       - Guid: 75953246-e6fb-43af-8108-ed7c4d53a6fc
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3 scale
       - Guid: 783523a8-5953-4403-92c8-6a18e64f2c68
         IsWarm: 0
         Type: Object
         Description: Transform
       AttributesData: []
-    - Name: Vec3
+    - Guid: 905153f4-ce8d-46fd-9e4f-7b8e96ec53ab
+      Name: Vec3
       Namespace: Unity
-      Guid: 80ec28a2-f63b-4d7e-8a89-05c595376333
+      OverrideDisplayedName: 
       XPosition: 174
       YPosition: 205.5
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: a6fd2334-0b5e-4732-95e8-6380a8200c63
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: X
       - Guid: 440e8647-f52c-489e-9e9e-63a297311d1e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Y
       - Guid: 06e9eba3-0a53-4ce0-982d-eccb9f017d30
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Z
       Outputs:
       - Guid: 0c62cd27-cc82-40af-b075-246f136e386c
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3[X][Y][Z]
       AttributesData:
       - Value:
-          stringValue: X
+          stringValue: 0
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: 0
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
-    - Name: Value
+    - Guid: f20ccc8e-d005-430d-8d40-dc7c5a8a17b5
+      Name: Value
       Namespace: CoreNodes
-      Guid: b520899d-fe97-4281-8b30-d65f3fe9915f
+      OverrideDisplayedName: 
       XPosition: 15
       YPosition: 208.5
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 053a9698-a43f-4141-9687-0a73ea10d291
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
@@ -173,6 +195,7 @@ MonoBehaviour:
         Type: 
         Description: The Word
       outputPositionY: 174.5
+      GUID: 
     - Input:
         Guid: 0c165c60-2d23-4ebb-b4b9-70f56e71f30a
         IsWarm: 0
@@ -184,6 +207,7 @@ MonoBehaviour:
         Type: Object
         Description: Gameobject
       outputPositionY: 178.5
+      GUID: 
     - Input:
         Guid: 3b130f7d-3338-4777-afbb-dc5ac4c80ba4
         IsWarm: 0
@@ -195,6 +219,7 @@ MonoBehaviour:
         Type: 
         Description: Vec3[X][Y][Z]
       outputPositionY: 218.5
+      GUID: 
     - Input:
         Guid: a6fd2334-0b5e-4732-95e8-6380a8200c63
         IsWarm: 1
@@ -206,5 +231,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 235.5
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

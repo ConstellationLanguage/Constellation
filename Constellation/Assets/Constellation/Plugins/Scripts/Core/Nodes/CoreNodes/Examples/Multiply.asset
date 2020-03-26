@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,69 +14,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Value
+    - Guid: 9ede0e47-f834-4012-9158-ed495050171e
+      Name: Value
       Namespace: CoreNodes
-      Guid: 5c7e0e72-abb9-4369-9f5f-c641bc5b6b9e
+      OverrideDisplayedName: 
       XPosition: 29.5
       YPosition: 95
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 2
+          floatValue: 0
         Type: 0
-    - Name: Multiply
+    - Guid: 8ff3ad1d-835f-420a-9964-6ed376d5b642
+      Name: Multiply
       Namespace: CoreNodes
-      Guid: 2f741397-c255-466f-bdcd-2d167f59ebc0
+      OverrideDisplayedName: 
       XPosition: 239.5
       YPosition: 96
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 7f5596bb-308f-4dd8-92b3-1e7a379b1b10
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Multiply factor
       - Guid: 7bc4ea98-2d1f-4622-95c2-6e56c2ab7275
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Value to multiply
       Outputs:
       - Guid: 543e02ae-ac65-483b-8dab-615163ecdeb6
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Result $1 x $2
       AttributesData: []
-    - Name: Print
+    - Guid: 0c198543-8909-4d64-86ad-76b4358d0b92
+      Name: Print
       Namespace: CoreNodes
-      Guid: 79894679-f790-43fc-b54f-3113cf7e9a21
+      OverrideDisplayedName: 
       XPosition: 435.5
       YPosition: 97
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: 4350c2d3-974c-4817-b448-cfdf6aae21c5
+      Name: Value
       Namespace: CoreNodes
-      Guid: ec61e46a-8e19-4015-81c2-f1f2203a02a1
+      OverrideDisplayedName: 
       XPosition: 25.5
       YPosition: 162
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 2
+          floatValue: 0
         Type: 0
     Links:
     - Input:
@@ -89,6 +102,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 126
+      GUID: 
     - Input:
         Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
         IsWarm: 0
@@ -100,6 +114,7 @@ MonoBehaviour:
         Type: 
         Description: Result $1 x $2
       outputPositionY: 127
+      GUID: 
     - Input:
         Guid: 7bc4ea98-2d1f-4622-95c2-6e56c2ab7275
         IsWarm: 1
@@ -111,5 +126,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 146
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

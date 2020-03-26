@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      Name: Tutorial
       Namespace: Tags
-      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      OverrideDisplayedName: 
       XPosition: 1.5
       YPosition: 1
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      Name: Note
       Namespace: CoreNodes
-      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 25
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -34,64 +41,76 @@ MonoBehaviour:
             given in degrees..
           floatValue: 0.000001
         Type: 2
-    - Name: Print
+    - Guid: a29d3d55-d2f1-4c61-aaaf-48686fc75541
+      Name: Print
       Namespace: CoreNodes
-      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      OverrideDisplayedName: 
       XPosition: 552.5
       YPosition: 111
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: 252b949e-2fea-4338-8d50-b4a71b45a0a8
+      Name: Value
       Namespace: CoreNodes
-      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      OverrideDisplayedName: 
       XPosition: 228.5
       YPosition: 112
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Name: DeltaAngle
+    - Guid: d0bc6e7e-dc76-4040-b7c8-77ba0d95df6c
+      Name: DeltaAngle
       Namespace: Math
-      Guid: 2a08fb56-bd72-40f3-9ca8-a5aeeb490350
+      OverrideDisplayedName: 
       XPosition: 406.5
       YPosition: 113
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 11fc0d57-1a7c-405b-bd64-445f568d0688
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Angle a
       - Guid: f1f3a22c-fa73-433a-aa7f-01c7e363b456
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Angle b
       Outputs:
       - Guid: c4977e18-2860-40e2-8f70-20b67156cf78
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Sortest difference between a and b
       AttributesData: []
-    - Name: Value
+    - Guid: ebfdfd38-5302-4805-b3f6-95b50b3e34f9
+      Name: Value
       Namespace: CoreNodes
-      Guid: c3acd5d2-e992-43e6-9008-1b16426aae03
+      OverrideDisplayedName: 
       XPosition: 231.5
       YPosition: 153
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: eb52b2b5-0cb6-4f98-aa71-874dc1a81bf6
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
@@ -110,6 +129,7 @@ MonoBehaviour:
         Type: 
         Description: Sortest difference between a and b
       outputPositionY: 141
+      GUID: 
     - Input:
         Guid: 11fc0d57-1a7c-405b-bd64-445f568d0688
         IsWarm: 0
@@ -121,6 +141,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 143
+      GUID: 
     - Input:
         Guid: f1f3a22c-fa73-433a-aa7f-01c7e363b456
         IsWarm: 1
@@ -132,5 +153,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 163
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

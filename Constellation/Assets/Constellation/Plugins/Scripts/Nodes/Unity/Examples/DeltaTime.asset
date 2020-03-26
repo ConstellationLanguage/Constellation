@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      Name: Tutorial
       Namespace: Tags
-      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 2.5
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      Name: Note
       Namespace: CoreNodes
-      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      OverrideDisplayedName: 
       XPosition: 257.5
       YPosition: 57
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -33,84 +40,99 @@ MonoBehaviour:
           stringValue: Delta time between frames
           floatValue: 0.000001
         Type: 2
-    - Name: Value
+    - Guid: 1adc2b58-ca97-41ab-8e00-9f8a8fccd284
+      Name: Value
       Namespace: CoreNodes
-      Guid: 0fa7f05c-9a59-4fa4-b7b4-b4655f3c5320
+      OverrideDisplayedName: 
       XPosition: 16.5
       YPosition: 173
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 6579597f-d594-4ede-b8b5-0fa534c10a88
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 1
+          floatValue: 0
         Type: 0
-    - Name: Var
+    - Guid: 5c7ad491-64a4-48bb-941a-d8265a1850a1
+      Name: Var
       Namespace: CoreNodes
-      Guid: c5745069-3e3a-4185-9eaa-09f41a08c3d9
+      OverrideDisplayedName: 
       XPosition: 247.5
       YPosition: 191
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: ff5f7b44-96f4-42cd-9037-444f242b5faa
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: New var
       - Guid: 5642b352-2e33-4b79-b7c8-3dd1583ded7b
         IsWarm: 1
-        Type: 
+        Type: Any
         Description: Send var
       Outputs:
       - Guid: 3c778727-fa98-42cd-a950-06ec47ebf2d5
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: Current setted word
       AttributesData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
+          stringValue: Var
+          floatValue: 0.000001
         Type: 6
-    - Name: DeltaTime
+    - Guid: ad2c40b7-bee7-465e-8ca6-f38b5e0d036f
+      Name: DeltaTime
       Namespace: Unity
-      Guid: 8c0d8c42-fcce-4d52-8cb9-dd3033766293
+      OverrideDisplayedName: 
       XPosition: 429.5
       YPosition: 196
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 9b932b9d-257f-4b7b-8c54-12e9ae691bf5
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Value
       Outputs:
       - Guid: b7150fe9-4e15-4d2c-ba85-bb0135137b76
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Value x Delta time
       AttributesData: []
-    - Name: Print
+    - Guid: bbc06f22-1b50-4725-964a-6f8e44ea5ff4
+      Name: Print
       Namespace: CoreNodes
-      Guid: d75ff04e-53b5-40c0-a138-2686ef4a2440
+      OverrideDisplayedName: 
       XPosition: 572.5
       YPosition: 197
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: de437ff7-ba2d-4091-8405-eee278021809
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Update
+    - Guid: 3f12fbe9-7aee-4039-a93b-d03889f86300
+      Name: Update
       Namespace: Unity
-      Guid: 1784d429-d22d-42f2-a558-4571f7fa340d
+      OverrideDisplayedName: 
       XPosition: 55.5
       YPosition: 230
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 246fad75-79e3-4800-8b34-3a15a5fd3087
         IsWarm: 1
-        Type: 
+        Type: Ray
         Description: Ray on update
       AttributesData: []
     Links:
@@ -125,6 +147,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 221
+      GUID: 
     - Input:
         Guid: 9b932b9d-257f-4b7b-8c54-12e9ae691bf5
         IsWarm: 1
@@ -136,6 +159,7 @@ MonoBehaviour:
         Type: 
         Description: Current setted word
       outputPositionY: 226
+      GUID: 
     - Input:
         Guid: de437ff7-ba2d-4091-8405-eee278021809
         IsWarm: 0
@@ -147,6 +171,7 @@ MonoBehaviour:
         Type: 
         Description: Value x Delta time
       outputPositionY: 227
+      GUID: 
     - Input:
         Guid: 5642b352-2e33-4b79-b7c8-3dd1583ded7b
         IsWarm: 1
@@ -158,5 +183,8 @@ MonoBehaviour:
         Type: 
         Description: Ray on update
       outputPositionY: 241
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

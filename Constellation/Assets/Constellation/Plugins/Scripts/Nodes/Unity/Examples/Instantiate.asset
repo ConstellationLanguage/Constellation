@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      Name: Tutorial
       Namespace: Tags
-      Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 2.5
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      Name: Note
       Namespace: CoreNodes
-      Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      OverrideDisplayedName: 
       XPosition: 257.5
       YPosition: 57
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -33,11 +40,14 @@ MonoBehaviour:
           stringValue: Instantiate a gameObject
           floatValue: 0.000001
         Type: 2
-    - Name: Instantiate
+    - Guid: fadd47ef-36a2-4136-ab1c-ff016ebc5cbf
+      Name: Instantiate
       Namespace: Unity
-      Guid: fadd47ef-36a2-4136-ab1c-ff016ebc5cbf
+      OverrideDisplayedName: 
       XPosition: 273
       YPosition: 192.5
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 87a5f949-bc8b-40b4-aa5c-21bdbcd094e3
         IsWarm: 1
@@ -50,5 +60,7 @@ MonoBehaviour:
         Description: Instantiated GameObject
       AttributesData: []
     Links: []
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

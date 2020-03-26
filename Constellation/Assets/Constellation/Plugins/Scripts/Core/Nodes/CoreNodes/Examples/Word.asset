@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,21 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: 3559c320-d2be-4f80-a2db-5bbd3edf6256
+      Name: Tutorial
       Namespace: Tags
       OverrideDisplayedName: 
-      Guid: 3559c320-d2be-4f80-a2db-5bbd3edf6256
       XPosition: 6.5
       YPosition: 7.5
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 1bcbaf0c-892b-4cc8-a874-0c32b816721d
+      Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      Guid: 1bcbaf0c-892b-4cc8-a874-0c32b816721d
       XPosition: 39.5
       YPosition: 62
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -35,33 +40,37 @@ MonoBehaviour:
           stringValue: Triggered on first frame
           floatValue: 0.000001
         Type: 2
-    - Name: Word
+    - Guid: 07e09b2d-a1e0-49ec-b87a-fd8dc67e5463
+      Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      Guid: 7455275f-a1d9-4118-9813-187f8427e8ce
       XPosition: 205.5
       YPosition: 87
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: I'm containing a string
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
-    - Name: Print
+    - Guid: 56090df3-b345-4a00-ba58-03631965fd9a
+      Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      Guid: ead18538-800c-40d9-918f-c77151762884
       XPosition: 423
       YPosition: 93.5
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: d32b6bb0-e3fb-4934-a197-68c5494c09b8
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
@@ -77,6 +86,8 @@ MonoBehaviour:
         Type: 
         Description: The Word
       outputPositionY: 0
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
   ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

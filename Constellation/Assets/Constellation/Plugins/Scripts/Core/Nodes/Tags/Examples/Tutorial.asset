@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: 16824274-b82a-4f7a-87e3-1bd5cbf6acb9
+      Name: Tutorial
       Namespace: Tags
-      Guid: 16824274-b82a-4f7a-87e3-1bd5cbf6acb9
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 3
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 2010dc52-3479-49d4-b5b0-e05114ac1cc3
+      Name: Note
       Namespace: CoreNodes
-      Guid: 2010dc52-3479-49d4-b5b0-e05114ac1cc3
+      OverrideDisplayedName: 
       XPosition: 6.5
       YPosition: 31
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -34,5 +41,7 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
     Links: []
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

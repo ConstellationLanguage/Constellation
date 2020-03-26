@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,65 +14,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      Name: Tutorial
       Namespace: Tags
-      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      OverrideDisplayedName: 
       XPosition: 1.5
       YPosition: 1
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      Name: Note
       Namespace: CoreNodes
-      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 25
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
       - Value:
-          stringValue: "Abs(float f);\r\nDescription\r\nReturns the absolute value
-            of f."
+          stringValue: 'Abs(float f);
+
+            Description
+
+            Returns
+            the absolute value of f.'
           floatValue: 0.000001
         Type: 2
-    - Name: Absolute
+    - Guid: 9a964073-5a06-461d-9150-01b3400b2aad
+      Name: Absolute
       Namespace: Math
-      Guid: 7d5d3301-1869-496d-9f68-9c8325afc1a0
+      OverrideDisplayedName: 
       XPosition: 418.5
       YPosition: 111
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 92d84c5f-e1b9-4822-8034-a6dc7a1035e0
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: Value abs
       Outputs:
       - Guid: 9ce8f48a-b3e8-4e67-8bc9-a8b4db97e4cb
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Absolute value
       AttributesData: []
-    - Name: Print
+    - Guid: 322f9e10-eb70-4db1-b3f9-fb089a4a798c
+      Name: Print
       Namespace: CoreNodes
-      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      OverrideDisplayedName: 
       XPosition: 552.5
       YPosition: 111
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: Value
+    - Guid: 5c457890-1405-45c0-a8ca-16c6ce71d586
+      Name: Value
       Namespace: CoreNodes
-      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      OverrideDisplayedName: 
       XPosition: 228.5
       YPosition: 112
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
@@ -90,6 +110,7 @@ MonoBehaviour:
         Type: 
         Description: Absolute value
       outputPositionY: 141
+      GUID: 
     - Input:
         Guid: 92d84c5f-e1b9-4822-8034-a6dc7a1035e0
         IsWarm: 1
@@ -101,5 +122,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 141
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

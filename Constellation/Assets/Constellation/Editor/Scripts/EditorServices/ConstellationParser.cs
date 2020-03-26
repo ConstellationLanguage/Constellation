@@ -118,6 +118,10 @@ namespace ConstellationEditor
                 }
             }
 
+            foreach(var link in script.Links)
+            {
+                //if()
+            }
         }
     }
 }

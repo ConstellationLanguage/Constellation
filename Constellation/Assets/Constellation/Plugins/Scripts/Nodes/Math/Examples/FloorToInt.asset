@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      Name: Tutorial
       Namespace: Tags
-      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      OverrideDisplayedName: 
       XPosition: 1.5
       YPosition: 1
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      Name: Note
       Namespace: CoreNodes
-      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 25
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -33,47 +40,56 @@ MonoBehaviour:
           stringValue: Returns the largest integer smaller to or equal to f.
           floatValue: 0.000001
         Type: 2
-    - Name: Value
+    - Guid: 90ea0455-fbf6-4d8b-a08c-e59f91117235
+      Name: Value
       Namespace: CoreNodes
-      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      OverrideDisplayedName: 
       XPosition: 228.5
       YPosition: 112
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Name: FloorToInt
+    - Guid: abb8c357-2bb6-49fd-9a07-b03a8509f0f1
+      Name: FloorToInt
       Namespace: Math
-      Guid: ed4bb18b-e6ea-4da1-b727-7dd1a908e655
+      OverrideDisplayedName: 
       XPosition: 399.5
       YPosition: 113
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 06ec4bf7-f689-476a-8434-454c5e360a75
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: A
       Outputs:
       - Guid: a771f38b-1986-4e93-bf78-871d0a2fd6f9
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: largest integer smaller to or equal to A
       AttributesData: []
-    - Name: Print
+    - Guid: 3da4339c-9685-4f7e-850b-838fa4b2e143
+      Name: Print
       Namespace: CoreNodes
-      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      OverrideDisplayedName: 
       XPosition: 550.5
       YPosition: 115
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
@@ -89,6 +105,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 143
+      GUID: 
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
         IsWarm: 0
@@ -100,5 +117,8 @@ MonoBehaviour:
         Type: 
         Description: largest integer smaller to or equal to A
       outputPositionY: 145
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

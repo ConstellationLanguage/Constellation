@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,19 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Name: Tutorial
+    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      Name: Tutorial
       Namespace: Tags
-      Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+      OverrideDisplayedName: 
       XPosition: 1.5
       YPosition: 1
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData: []
-    - Name: Note
+    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      Name: Note
       Namespace: CoreNodes
-      Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
+      OverrideDisplayedName: 
       XPosition: 4.5
       YPosition: 25
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
       AttributesData:
@@ -33,84 +40,99 @@ MonoBehaviour:
           stringValue: Moves a value current towards target.
           floatValue: 0.000001
         Type: 2
-    - Name: Value
+    - Guid: 7b8f2d60-4d3d-4fba-b3ba-aa77bd1150fb
+      Name: Value
       Namespace: CoreNodes
-      Guid: 92ef6d5d-1c10-4642-ae3f-b3b85e15a793
+      OverrideDisplayedName: 
       XPosition: 228.5
       YPosition: 112
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Name: Print
+    - Guid: aa5b26e2-6408-4b48-94d0-c17929805fbb
+      Name: Print
       Namespace: CoreNodes
-      Guid: ceb02e93-0b05-4149-b4ba-d0977a13f5de
+      OverrideDisplayedName: 
       XPosition: 550.5
       YPosition: 116
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
         IsWarm: 0
-        Type: 
+        Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Name: MoveTowards
+    - Guid: 6763b379-bffa-42aa-b24e-b5710de51ac4
+      Name: MoveTowards
       Namespace: Math
-      Guid: d8db8af6-2719-4c20-ad62-d5ada554055a
+      OverrideDisplayedName: 
       XPosition: 399.5
       YPosition: 116
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 1d776b4c-83d4-4bd0-af09-123a37aad013
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Current
       - Guid: 06d6425e-df44-4af1-9014-f00c8648418f
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Target
       - Guid: 56f71edb-ea19-4274-8143-14dd316a4663
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: MaxDelta
       Outputs:
       - Guid: a6be1578-1aea-4390-80fc-6d2aee705b34
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Move a value toward target
       AttributesData: []
-    - Name: Value
+    - Guid: 882ea8b3-e286-46c3-8a02-64d1f7b43d96
+      Name: Value
       Namespace: CoreNodes
-      Guid: ab4124f4-5374-4e47-8d5c-51449499d7f6
+      OverrideDisplayedName: 
       XPosition: 228.5
       YPosition: 159
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: e524355a-31af-4f51-b86b-2e1da34b66cc
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Name: Value
+    - Guid: 6e534684-3682-4f9b-b3aa-7f54d3b53f4b
+      Name: Value
       Namespace: CoreNodes
-      Guid: b3a637c0-9f89-44e7-855c-123c3960c1a1
+      OverrideDisplayedName: 
       XPosition: 233.5
       YPosition: 207
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 6ba67840-6231-4a2d-8848-31f7a5bf5ff4
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
       AttributesData:
       - Value:
@@ -129,6 +151,7 @@ MonoBehaviour:
         Type: 
         Description: Move a value toward target
       outputPositionY: 146
+      GUID: 
     - Input:
         Guid: 1d776b4c-83d4-4bd0-af09-123a37aad013
         IsWarm: 0
@@ -140,6 +163,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 146
+      GUID: 
     - Input:
         Guid: 06d6425e-df44-4af1-9014-f00c8648418f
         IsWarm: 0
@@ -151,6 +175,7 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 166
+      GUID: 
     - Input:
         Guid: 56f71edb-ea19-4274-8143-14dd316a4663
         IsWarm: 1
@@ -162,5 +187,8 @@ MonoBehaviour:
         Type: 
         Description: The value
       outputPositionY: 186
+      GUID: 
+    Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
+  ScriptAssembly: {fileID: 0}

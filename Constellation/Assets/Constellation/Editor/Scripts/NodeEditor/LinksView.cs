@@ -88,8 +88,6 @@ namespace ConstellationEditor
                         {
                             editorEvents(ConstellationEditorEvents.EditorEventType.LinkDeleted, link.GUID);
                             constellationScript.RemoveLink(link);
-
-
                         }
                     }
                 }
