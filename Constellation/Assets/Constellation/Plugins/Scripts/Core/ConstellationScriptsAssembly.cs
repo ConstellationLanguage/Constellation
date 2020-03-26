@@ -8,6 +8,7 @@ namespace Constellation.Unity3D
     public class ConstellationScriptsAssembly : ScriptableObject
     {
         public List<ConstellationScript> constellationScripts;
+        public List<ConstellationExampleScript> constellationExamples;
 
         public void SetScriptAssembly()
         {

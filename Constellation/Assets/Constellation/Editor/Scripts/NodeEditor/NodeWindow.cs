@@ -171,12 +171,8 @@ namespace ConstellationEditor
             background.DrawBackgroundGrid(windowSizeX, windowSizeY, ScrollPosition.x, ScrollPosition.y, backgroundTint);
             Event e = Event.current;
             var mouseJustRelease = false;
-            var wasDragging = false;
             if (e.type == EventType.MouseUp && Event.current.button == 0 && mousePressed == true)
             {
-                if (currentEventScope == EventsScope.Dragging)
-                    wasDragging = true;
-
                 mouseJustRelease = true;
                 mousePressed = false;
             }
@@ -225,11 +221,6 @@ namespace ConstellationEditor
             {
                 ScrollPosition -= Event.current.delta * 0.5f;
                 requestRepaint();
-            }
-            if (wasDragging)
-            {
-                callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Node moved");
-                callback(ConstellationEditorEvents.EditorEventType.NodeMoved, "Node moved");
             }
             var script = ConstellationScript.script;
             if (script.Nodes != null)
@@ -483,6 +474,7 @@ namespace ConstellationEditor
                             var attributeRect = Nodes[i].GetAttributeRect(j, EditorData.GetConstellationEditorConfig());
                             if (attributeRect.Contains(mousePosition))
                             {
+                                editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Attribute edited");
                                 currentEventScope = EventsScope.EditingAttributes;
                                 return;
                             }
@@ -495,6 +487,7 @@ namespace ConstellationEditor
                                 currentEventScope = EventsScope.Resizing;
                                 return;
                             }
+                            editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Node moved");
                             SetNodeToFirst(Nodes[i]);
                             currentEventScope = EventsScope.Dragging;
                             return;

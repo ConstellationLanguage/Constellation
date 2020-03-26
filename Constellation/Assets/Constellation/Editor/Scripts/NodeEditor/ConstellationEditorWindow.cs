@@ -181,7 +181,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         ScriptDataService.SaveScripts();
         if(eventType == ConstellationEditorEvents.EditorEventType.AddToUndo)
         {
-            UnityEditor.Undo.RecordObject(ConstellationScript, eventMessage);
+            Undo.RegisterCompleteObjectUndo(ConstellationScript, eventMessage);
         }
 
         if (eventType == ConstellationEditorEvents.EditorEventType.HelpClicked)

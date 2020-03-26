@@ -139,29 +139,6 @@ namespace ConstellationEditor {
             return EditorData;
         }
 
-        public void AddAction () {
-            EditorData.EditorUndoService.AddAction (Script.script);
-        }
-
-        public void Undo () {
-            var previous = EditorData.EditorUndoService.Undo ();
-            if (previous == null)
-                return;
-
-            Script.Set (previous);
-        }
-
-        public void Redo () {
-            var redo = EditorData.EditorUndoService.Redo ();
-            if (redo == null)
-                return;
-            Script.Set (redo);
-        }
-
-        public void ClearActions () {
-            EditorData.EditorUndoService.ClearActions ();
-        }
-
         public ConstellationEditorData GetEditorData () {
             return EditorData;
         }
