@@ -45,25 +45,6 @@ MonoBehaviour:
             the absolute value of f.'
           floatValue: 0.000001
         Type: 2
-    - Guid: 9a964073-5a06-461d-9150-01b3400b2aad
-      Name: Absolute
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 418.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 92d84c5f-e1b9-4822-8034-a6dc7a1035e0
-        IsWarm: 1
-        Type: Var
-        Description: Value abs
-      Outputs:
-      - Guid: 9ce8f48a-b3e8-4e67-8bc9-a8b4db97e4cb
-        IsWarm: 0
-        Type: Var
-        Description: Absolute value
-      AttributesData: []
     - Guid: 322f9e10-eb70-4db1-b3f9-fb089a4a798c
       Name: Print
       Namespace: CoreNodes
@@ -98,6 +79,25 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 0936e955-38c1-4fb9-9595-30c75339fe84
+      Name: Absolute
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 418.5
+      YPosition: 111
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: 279fce41-9ee3-427c-bec7-0dc9c752847a
+        IsWarm: 1
+        Type: Var
+        Description: Value abs
+      Outputs:
+      - Guid: 9ce8f48a-b3e8-4e67-8bc9-a8b4db97e4cb
+        IsWarm: 0
+        Type: Var
+        Description: Absolute value
+      AttributesData: []
     Links:
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
@@ -126,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

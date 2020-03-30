@@ -47,10 +47,10 @@ MonoBehaviour:
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Border:
-      m_Left: 35
-      m_Right: 35
-      m_Top: 35
-      m_Bottom: 35
+      m_Left: 20
+      m_Right: 20
+      m_Top: 20
+      m_Bottom: 20
     m_Margin:
       m_Left: 0
       m_Right: 0
@@ -114,10 +114,10 @@ MonoBehaviour:
       m_ScaledBackgrounds: []
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Border:
-      m_Left: 35
-      m_Right: 35
-      m_Top: 35
-      m_Bottom: 35
+      m_Left: 20
+      m_Right: 20
+      m_Top: 20
+      m_Bottom: 20
     m_Margin:
       m_Left: 0
       m_Right: 0

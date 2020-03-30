@@ -1,8 +1,11 @@
-public interface ILoadable
+namespace ConstellationEditor
 {
-    void Open(string _path);
-    void Save();
-    void New();
-    void Export();
+    public interface ILoadable
+    {
+        void Open(ConstellationScriptInfos _path);
+        void Save();
+        void New();
+        void Export();
 
+    }
 }

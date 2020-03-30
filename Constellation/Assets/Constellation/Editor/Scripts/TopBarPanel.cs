@@ -74,7 +74,7 @@ namespace ConstellationEditor {
 
         static void OnLoad (object loadable) {
             var iloadable = loadable as ILoadable;
-            iloadable.Open ("");
+            iloadable.Open (null);
         }
     }
 }

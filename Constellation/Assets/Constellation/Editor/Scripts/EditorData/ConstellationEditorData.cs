@@ -4,11 +4,11 @@ using Constellation.Unity3D;
 
 namespace ConstellationEditor {
 	public class ConstellationEditorData : ScriptableObject {
-		public List<string> LastOpenedConstellationPath;
+		public List<ConstellationScriptInfos> LastOpenedConstellationPath;
 		public float SliderX;
 		public float SliderY;
 		public ClipBoard clipBoard;
-		public List<ConstellationInstanceObject> CurrentInstancePath;
+		public List<ConstellationScriptInfos> CurrentInstancePath;
 		public ConstellationExampleData ExampleData;
         public ConstellationScriptsAssembly ScriptAssembly;
 		public bool IsSafeProgramming = false;

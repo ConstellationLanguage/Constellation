@@ -77,7 +77,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         else
         {
             TopBarPanel.Draw(this, this, this);
-            var constellationName = NodeTabPanel.Draw(ScriptDataService.currentPath.ToArray(), null);
+            var constellationName = NodeTabPanel.Draw(ScriptDataService.currentPath.ToArray());
             if (constellationName != null)
                 Open(constellationName);
             var constellationToRemove = NodeTabPanel.ConstellationToRemove();
@@ -98,6 +98,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
             }
             DrawInstancePannel();
         }
+
 
         if (requestRepaint)
             Repaint();
@@ -155,7 +156,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
                 {
                     return;
                 }
-                selectedConstellation.Initialize();
+                //selectedConstellation.Initialize();
             }
         }
         else
@@ -179,7 +180,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
     void OnEditorEvent(ConstellationEditorEvents.EditorEventType eventType, string eventMessage)
     {
         ScriptDataService.SaveScripts();
-        if(eventType == ConstellationEditorEvents.EditorEventType.AddToUndo)
+        if (eventType == ConstellationEditorEvents.EditorEventType.AddToUndo)
         {
             Undo.RegisterCompleteObjectUndo(ConstellationScript, eventMessage);
         }
@@ -220,7 +221,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
 
     }
 
-    public void Open(string _path)
+    public void Open(ConstellationScriptInfos _path)
     {
         ConstellationScript = ScriptDataService.OpenConstellation(_path);
         SetupNodeWindow();
@@ -372,6 +373,13 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         }
     }
 
+    private void SetupScriptDataService()
+    {
+        ScriptDataService = new ConstellationEditorDataService();
+        ScriptDataService.Initialize();
+        ScriptDataService.ResetConstellationEditorData();
+    }
+
     public bool ParseScript()
     {
 
@@ -380,9 +388,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
 
         if (ScriptDataService == null)
         {
-            ScriptDataService = new ConstellationEditorDataService();
-            ScriptDataService.Initialize();
-            ScriptDataService.ResetConstellationEditorData();
+            SetupScriptDataService();
             if (ScriptDataService.currentPath.ToArray().Length > 0)
                 Open(ScriptDataService.currentPath.ToArray()[0]);
         }

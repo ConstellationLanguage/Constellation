@@ -30,26 +30,26 @@ namespace Constellation.UI {
 		}
 
 		public void Set (GameObject _gameObject) {
-			gameObject = _gameObject;
-			var slider = _gameObject.GetComponent<UnityEngine.UI.Slider> ();
-			if (slider == null) {
-				AddSlider();
-			} else
+			this.slider = null;
+			if (_gameObject != null)
+			{
+				gameObject = _gameObject;
+				var slider = _gameObject.GetComponent<UnityEngine.UI.Slider>();
 				this.slider = slider;
-		}
-
-		private void AddSlider()
-		{
-			slider = gameObject.AddComponent<UnityEngine.UI.Slider>();
+			}
 		}
 
 		public void Receive (Variable value, Input _input) {
 			if (_input.InputId == 0)
 				Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 
+			if (slider == null)
+			{
+				Debug.LogWarning("No slider found could not update");
+				return;
+			}
+
 			if (_input.InputId == 1) {
-				if(slider == null)
-					AddSlider();
 				slider.value = value.GetFloat ();
 			}
 

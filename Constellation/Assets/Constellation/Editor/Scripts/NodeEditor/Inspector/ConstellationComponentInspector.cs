@@ -6,9 +6,10 @@ using UnityEngine;
 [CustomEditor (typeof (ConstellationComponent))]
 public class ConstellationComponentInpector : Editor {
 	private Object source;
+    private bool isSetup = false;
 	ConstellationComponent ConstellationComponent;
 
-	public override void OnInspectorGUI () {
+    public override void OnInspectorGUI () {
 		ConstellationComponent = (ConstellationComponent) target;
 
 		if (ConstellationComponent == null)
@@ -44,14 +45,16 @@ public class ConstellationComponentInpector : Editor {
 		}
 
 		DrawInspectorWarning();
-	}
+        isSetup = true;
+
+    }
 	void UpdateValueAttribute (BehaviourAttribute attribute, int attributeId) {
         var newFloat = EditorGUILayout.FloatField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetFloat());
         if (newFloat != attribute.Variable.GetFloat()) {
             attribute.Variable.Set(newFloat);
             if (ConstellationComponent.constellation != null) {
                 Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
-                if (nodeToUpdate != null)
+                if (nodeToUpdate != null && isSetup)
                     nodeToUpdate.Receive(attribute.Variable, null);
             }
         }
@@ -66,7 +69,7 @@ public class ConstellationComponentInpector : Editor {
             if (ConstellationComponent.constellation != null)
             {
                 Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
-                if (nodeToUpdate != null)
+                if (nodeToUpdate != null && isSetup)
                     nodeToUpdate.Receive(attribute.Variable, null);
             }
         }
@@ -86,7 +89,7 @@ public class ConstellationComponentInpector : Editor {
             if (ConstellationComponent.constellation != null)
             {
                 Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
-                if (nodeToUpdate != null)
+                if (nodeToUpdate != null && isSetup)
                     nodeToUpdate.Receive(attribute.Variable, null);
             }
         }

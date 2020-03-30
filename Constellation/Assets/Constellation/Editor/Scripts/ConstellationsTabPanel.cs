@@ -1,44 +1,44 @@
 using UnityEngine;
-namespace ConstellationEditor {
+namespace ConstellationEditor
+{
     [System.Serializable]
-    public class ConstellationsTabPanel {
+    public class ConstellationsTabPanel
+    {
 
         const int panelHeight = 35;
 
-        private string removeNode = "";
+        private ConstellationScriptInfos removeNode;
 
-        public ConstellationsTabPanel () {
+        public ConstellationsTabPanel()
+        {
         }
 
-        public string Draw (string[] constellationsPath, ConstellationInstanceObject[] instancesPath) {
-                GUI.color = Color.white;
-                GUILayout.BeginHorizontal();
+        public ConstellationScriptInfos Draw(ConstellationScriptInfos[] scriptsInfos)
+        {
+            GUI.color = Color.white;
+            GUILayout.BeginHorizontal();
 
-                foreach (var path in constellationsPath)
+            foreach (var scriptInfos in scriptsInfos)
+            {
+                var constellationPath = scriptInfos.ScriptPath.Split('/');
+                var name = constellationPath[constellationPath.Length - 1].Split('.')[0];
+                if (scriptInfos.IsIstance == true)
+                    GUI.color = Color.yellow;
+
+                if (GUILayout.Button(name, "MiniToolbarButton", GUILayout.MaxWidth(125), GUILayout.MinWidth(125)))
                 {
-                    var constellationPath = path.Split('/');
-                    var name = constellationPath[constellationPath.Length - 1].Split('.')[0];
-                    if (instancesPath != null)
-                        foreach (var instanceName in instancesPath)
-                        {
-                            if (path == instanceName.InstancePath)
-                                GUI.color = Color.yellow;
-                        }
-
-                    if (GUILayout.Button(name, "MiniToolbarButton", GUILayout.MaxWidth(125), GUILayout.MinWidth(125)))
-                    {
-                        return path;
-                    }
-
-                    if (GUILayout.Button("X", "MiniToolbarButton", GUILayout.MaxWidth(20), GUILayout.MinWidth(20)))
-                    {
-                        removeNode = path;
-                    }
-                    GUI.color = Color.grey;
-                    GUILayout.Space(10);
+                    return scriptInfos;
                 }
-                GUI.color = Color.white;
-                GUILayout.EndHorizontal();
+
+                if (GUILayout.Button("X", "MiniToolbarButton", GUILayout.MaxWidth(20), GUILayout.MinWidth(20)))
+                {
+                    removeNode = scriptInfos;
+                }
+                GUI.color = Color.grey;
+                GUILayout.Space(10);
+            }
+            GUI.color = Color.white;
+            GUILayout.EndHorizontal();
             return null;
         }
 
@@ -47,7 +47,8 @@ namespace ConstellationEditor {
             return panelHeight;
         }
 
-        public string ConstellationToRemove () {
+        public ConstellationScriptInfos ConstellationToRemove()
+        {
             var nodeToRemove = removeNode;
             removeNode = null;
             return nodeToRemove;

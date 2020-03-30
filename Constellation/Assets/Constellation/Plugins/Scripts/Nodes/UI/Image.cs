@@ -1,58 +1,88 @@
 using UnityEngine;
 
-namespace Constellation.UI {
-	public class Image : INode, IReceiver, IRequireGameObject {
-		UnityEngine.UI.Image image;
-		public const string NAME = "Image";
-		private Variable ColorVar;
+namespace Constellation.UI
+{
+    public class Image : INode, IReceiver, IRequireGameObject
+    {
+        UnityEngine.UI.Image image;
+        public const string NAME = "Image";
+        private Variable ColorVar;
+        ISender sender;
 
-		public void Setup (INodeParameters _nodeParameters) {
-			_nodeParameters.AddInput (this, false, "Object", "Button object");
-			_nodeParameters.AddInput (this, false, "Object", "Image");
-			_nodeParameters.AddInput (this, false, "Color");
+        public void Setup(INodeParameters _nodeParameters)
+        {
+            sender = _nodeParameters.GetSender();
 
-			Variable[] newColorVar = new Variable[4];
-			newColorVar[0] = new Variable ().Set (0);
-			newColorVar[1] = new Variable ().Set (0);
-			newColorVar[2] = new Variable ().Set (0);
-			newColorVar[3] = new Variable ().Set (0);
-			ColorVar = new Variable ().Set (newColorVar);
-		}
+            _nodeParameters.AddInput(this, false, "Object", "Image component");
+            _nodeParameters.AddInput(this, false, "Object", "Sprite");
+            _nodeParameters.AddInput(this, false, "Color", "Image tint");
+            _nodeParameters.AddInput(this, true, "Any", "Get imageValues");
 
-		void UpdateImage () {
+            Variable[] newColorVar = new Variable[4];
+            newColorVar[0] = new Variable().Set(0);
+            newColorVar[1] = new Variable().Set(0);
+            newColorVar[2] = new Variable().Set(0);
+            newColorVar[3] = new Variable().Set(0);
+            ColorVar = new Variable().Set(newColorVar);
 
-		}
+            _nodeParameters.AddOutput(false, "Object", "Sprite");
+            _nodeParameters.AddOutput(false, "Color", "Image tint");
+        }
 
-		public string NodeName () {
-			return NAME;
-		}
+        void UpdateImage()
+        {
 
-		public string NodeNamespace () {
-			return NameSpace.NAME;
-		}
+        }
 
-		public void Set (GameObject _gameObject) {
-			var image = _gameObject.GetComponent<UnityEngine.UI.Image> ();
-			if (image != null) {
-				this.image = image;
-			}
-		}
+        public string NodeName()
+        {
+            return NAME;
+        }
 
-		public void Receive (Variable value, Input _input) {
-			if (_input.InputId == 0)
-				Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
+        public string NodeNamespace()
+        {
+            return NameSpace.NAME;
+        }
 
-			if(_input.InputId == 1){
-				var sprite = UnityObjectsConvertions.ConvertToSprite(value);
-				if(sprite != null){
-					image.sprite = sprite;
-				}
-			}
+        public void Set(GameObject _gameObject)
+        {
+            var newImage = _gameObject.GetComponent<UnityEngine.UI.Image>();
+            if (newImage != null)
+            {
+                image = newImage;
+            }
+        }
 
-			if (_input.InputId == 2) {
-				ColorVar.Set (value.GetArray ());
-				image.color = new Color (ColorVar.GetArrayVariable (0).GetFloat () * 0.01f, ColorVar.GetArrayVariable (1).GetFloat ()* 0.01f, ColorVar.GetArrayVariable (2).GetFloat ()* 0.01f, ColorVar.GetArrayVariable (3).GetFloat ()* 0.01f);
-			}
-		}
-	}
+        public void Receive(Variable value, Input _input)
+        {
+            if (_input.InputId == 0)
+            {
+                Set(UnityObjectsConvertions.ConvertToGameObject(value.GetObject()));
+
+            }
+            else if (_input.InputId == 1 && image != null)
+            {
+                var sprite = UnityObjectsConvertions.ConvertToSprite(value);
+                if (sprite != null && image != null)
+                {
+                    image.sprite = sprite;
+                }
+            }
+            else if (_input.InputId == 2 && image != null)
+            {
+                ColorVar.Set(value.GetArray());
+                image.color = new Color(ColorVar.GetArrayVariable(0).GetFloat(), ColorVar.GetArrayVariable(1).GetFloat(), ColorVar.GetArrayVariable(2).GetFloat(), ColorVar.GetArrayVariable(3).GetFloat());
+            }
+            else if (_input.isWarm && image != null)
+            {
+                Variable[] newVar = new Variable[4];
+                newVar[0] = new Variable().Set(image.color.r);
+                newVar[1] = new Variable().Set(image.color.g);
+                newVar[2] = new Variable().Set(image.color.b);
+                newVar[3] = new Variable().Set(image.color.a);
+                sender.Send(new Variable().Set(image.sprite), 0);
+                sender.Send(new Variable().Set(new Variable().Set(newVar)), 1);
+            }
+        }
+    }
 }

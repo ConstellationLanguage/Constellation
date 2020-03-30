@@ -7,7 +7,7 @@ namespace ConstellationEditor {
             }
 
             if(GUILayout.Button("Load")) {
-                loadable.Open("");
+                loadable.Open(null);
             }
 
             if (GUILayout.Button("Wiki")) {

@@ -13,7 +13,9 @@ namespace ConstellationEditor
             {
                 if (ConstellationEditorWindow.ConstellationEditorWindowInstance == null)
                     ConstellationEditorWindow.Init();
-                ConstellationEditorWindow.ConstellationEditorWindowInstance.Open(AssetDatabase.GetAssetPath(target));
+                ConstellationEditorWindow.ConstellationEditorWindowInstance.Open(new ConstellationScriptInfos(AssetDatabase.GetAssetPath(target), 
+                    ConstellationScriptInfos.ConstellationScriptTag.NoTag,
+                    false));
             }
             base.OnInspectorGUI();
         }

@@ -142,8 +142,8 @@ namespace ConstellationEditor
                     ReleaseFocus();
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
-                    ConstellationRules.RemoveNode(nodeView.NodeData, ConstellationScript.script);
                     callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
+                    ConstellationRules.RemoveNode(nodeView.NodeData, ConstellationScript.script);
                     return;
                 }
             }
@@ -201,6 +201,7 @@ namespace ConstellationEditor
                     break;
 
             }
+            
             //Needs to be called after the event scope otherwise quit button event is overriden by the node drag event
             if (mouseJustRelease)
             {
