@@ -23,7 +23,11 @@ namespace ConstellationEditor
                 var constellationPath = scriptInfos.ScriptPath.Split('/');
                 var name = constellationPath[constellationPath.Length - 1].Split('.')[0];
                 if (scriptInfos.IsIstance == true)
+                {
                     GUI.color = Color.yellow;
+                    constellationPath = scriptInfos.InstancePath.Split('/');
+                    name = constellationPath[constellationPath.Length - 1].Split('.')[0];
+                }
 
                 if (GUILayout.Button(name, "MiniToolbarButton", GUILayout.MaxWidth(125), GUILayout.MinWidth(125)))
                 {

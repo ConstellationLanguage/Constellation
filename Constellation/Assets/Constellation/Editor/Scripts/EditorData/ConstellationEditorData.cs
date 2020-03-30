@@ -8,7 +8,6 @@ namespace ConstellationEditor {
 		public float SliderX;
 		public float SliderY;
 		public ClipBoard clipBoard;
-		public List<ConstellationScriptInfos> CurrentInstancePath;
 		public ConstellationExampleData ExampleData;
         public ConstellationScriptsAssembly ScriptAssembly;
 		public bool IsSafeProgramming = false;

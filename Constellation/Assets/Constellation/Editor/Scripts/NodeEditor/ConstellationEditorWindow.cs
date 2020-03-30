@@ -77,7 +77,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         else
         {
             TopBarPanel.Draw(this, this, this);
-            var constellationName = NodeTabPanel.Draw(ScriptDataService.currentPath.ToArray());
+            var constellationName = NodeTabPanel.Draw(ScriptDataService.OpenedScripts.ToArray());
             if (constellationName != null)
                 Open(constellationName);
             var constellationToRemove = NodeTabPanel.ConstellationToRemove();
@@ -91,9 +91,9 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
             EditorGUILayout.EndHorizontal();
             if (ScriptDataService.CloseOpenedConstellation(constellationToRemove))
             {
-                if (ScriptDataService.currentPath.Count > 0)
+                if (ScriptDataService.OpenedScripts.Count > 0)
                 {
-                    Open(ScriptDataService.currentPath[0]);
+                    Open(ScriptDataService.OpenedScripts[0]);
                 }
             }
             DrawInstancePannel();
@@ -270,7 +270,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         var nodes = ScriptDataService.GetEditorData().clipBoard.PasteClipBoard(ConstellationScript);
         if (nodes == null)
             return;
-        Open(ScriptDataService.currentPath.ToArray()[0]);
+        Open(ScriptDataService.OpenedScripts.ToArray()[0]);
         NodeWindow.SelectNodes(nodes);
     }
 
@@ -291,7 +291,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
 
     void OnUndoPerformed()
     {
-        Open(ScriptDataService.currentPath.ToArray()[0]);
+        Open(ScriptDataService.OpenedScripts.ToArray()[0]);
     }
 
     void OnPlayStateChanged(PlayModeStateChange state)
@@ -300,7 +300,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (state == PlayModeStateChange.EnteredEditMode)
         {
             ResetInstances();
-            Open(ScriptDataService.currentPath[0]);
+            Open(ScriptDataService.OpenedScripts[0]);
         }
 
         if (state == PlayModeStateChange.ExitingEditMode)
@@ -389,8 +389,8 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (ScriptDataService == null)
         {
             SetupScriptDataService();
-            if (ScriptDataService.currentPath.ToArray().Length > 0)
-                Open(ScriptDataService.currentPath.ToArray()[0]);
+            if (ScriptDataService.OpenedScripts.ToArray().Length > 0)
+                Open(ScriptDataService.OpenedScripts.ToArray()[0]);
         }
 
         if (SkipNextScriptsParsing)
