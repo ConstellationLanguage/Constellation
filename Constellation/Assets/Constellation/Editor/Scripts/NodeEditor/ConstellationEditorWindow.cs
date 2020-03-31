@@ -38,7 +38,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         ConstellationEditorWindow window = (ConstellationEditorWindow)EditorWindow.GetWindow(typeof(ConstellationEditorWindow), false, "Constellation");
         window.Show();
         ConstellationEditorWindowInstance = window;
-
     }
 
     public void OnEnable()
@@ -300,6 +299,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (state == PlayModeStateChange.EnteredEditMode)
         {
             ResetInstances();
+            ScriptDataService.CloseCurrentConstellationInstance();
             Open(ScriptDataService.OpenedScripts[0]);
         }
 
