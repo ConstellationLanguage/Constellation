@@ -5,11 +5,11 @@ namespace Constellation.Unity {
         public const string NAME = "Transform";
         private Transform transform;
         private GameObject gameObject;
-        private Variable GameObject;
-        private Variable Position;
-        private Variable Rotation;
-        private Variable Scale;
-        private Variable Name;
+        private Ray GameObject;
+        private Ray Position;
+        private Ray Rotation;
+        private Ray Scale;
+        private Ray Name;
         private ISender sender;
 
         private Rigidbody rigidBody;
@@ -27,24 +27,24 @@ namespace Constellation.Unity {
             _nodeParameters.AddOutput (false, "Vec3", "Vec3 scale");
             _nodeParameters.AddOutput(false, "Object", "Transform");
 
-            GameObject = new Variable ().Set (null as object);
-            Variable[] newPositionVar = new Variable[3];
-            newPositionVar[0] = new Variable ().Set (0);
-            newPositionVar[1] = new Variable ().Set (0);
-            newPositionVar[2] = new Variable ().Set (0);
-            Position = new Variable ().Set (newPositionVar);
-            Variable[] newRotationVar = new Variable[3];
+            GameObject = new Ray ().Set (null as object);
+            Ray[] newPositionVar = new Ray[3];
+            newPositionVar[0] = new Ray ().Set (0);
+            newPositionVar[1] = new Ray ().Set (0);
+            newPositionVar[2] = new Ray ().Set (0);
+            Position = new Ray ().Set (newPositionVar);
+            Ray[] newRotationVar = new Ray[3];
             
-            newRotationVar[0] = new Variable ().Set (0);
-            newRotationVar[1] = new Variable ().Set (0);
-            newRotationVar[2] = new Variable ().Set (0);
-            Rotation = new Variable ().Set (newRotationVar);
+            newRotationVar[0] = new Ray ().Set (0);
+            newRotationVar[1] = new Ray ().Set (0);
+            newRotationVar[2] = new Ray ().Set (0);
+            Rotation = new Ray ().Set (newRotationVar);
 
-            Variable[] newScaleVar = new Variable[3];
-            newScaleVar[0] = new Variable ().Set (0);
-            newScaleVar[1] = new Variable ().Set (0);
-            newScaleVar[2] = new Variable ().Set (0);
-            Scale = new Variable ().Set (newScaleVar);
+            Ray[] newScaleVar = new Ray[3];
+            newScaleVar[0] = new Ray ().Set (0);
+            newScaleVar[1] = new Ray ().Set (0);
+            newScaleVar[2] = new Ray ().Set (0);
+            Scale = new Ray ().Set (newScaleVar);
         }
 
         public string NodeName () {
@@ -77,7 +77,7 @@ namespace Constellation.Unity {
             Scale.SetAtIndex (gameObject.transform.localScale.z, 2);
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 1) {
                 Position.Set (value.GetArray ());
                 if(rigidBody == null || gameObject.activeInHierarchy == false)

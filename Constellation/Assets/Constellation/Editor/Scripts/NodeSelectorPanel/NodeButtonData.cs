@@ -7,7 +7,7 @@ public class NodeButtonData
     public string nodeNamespace;
     public string niceNodeName;
     public bool display = true;
-    private int maxCharacters = 16;
+    const int maxCharacters = 18;
     public NodeButtonData(string _nodeName)
     {
         display = true;

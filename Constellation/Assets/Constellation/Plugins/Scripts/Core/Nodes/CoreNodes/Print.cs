@@ -21,7 +21,7 @@ namespace Constellation.CoreNodes
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable value, Input _input)
+        public void Receive(Ray value, Input _input)
         {
             if (value.IsFloat() || value.IsString())
             {

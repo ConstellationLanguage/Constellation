@@ -4,18 +4,18 @@ namespace Constellation.Math {
 public class MoveTowards: INode, IReceiver
     {
 		private ISender sender;
-		private Variable Var1;
-		private Variable Var2;
-		private Variable Var3;
+		private Ray Var1;
+		private Ray Var2;
+		private Ray Var3;
         public const string NAME = "MoveTowards";
         public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "Current");
 			_node.AddInput(this, false, "Target");
 			_node.AddInput(this, true, "MaxDelta");
-			Var1 = new Variable(0);
-			Var2 = new Variable(0);
-			Var3 = new Variable(0);
+			Var1 = new Ray(0);
+			Var2 = new Ray(0);
+			Var3 = new Ray(0);
             sender = _node.GetSender();
             _node.AddOutput(false, "Move a value toward target");
         }
@@ -28,7 +28,7 @@ public class MoveTowards: INode, IReceiver
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
 			if(_input.InputId == 0)
 				Var1.Set(_value.GetFloat());
@@ -38,7 +38,7 @@ public class MoveTowards: INode, IReceiver
 				Var3.Set(_value.GetFloat());
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.MoveTowards(Var1.GetFloat(), Var2.GetFloat(), Var3.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.MoveTowards(Var1.GetFloat(), Var2.GetFloat(), Var3.GetFloat())), 0);
         }
     }
 }

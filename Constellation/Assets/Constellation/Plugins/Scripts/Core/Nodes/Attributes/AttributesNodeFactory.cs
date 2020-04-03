@@ -8,11 +8,11 @@ namespace Constellation.Attributes {
 
         public Node<INode> GetNode (string nodeName) {
             switch (nodeName) {
-                case ValueAttribute.NAME:
-                    INode nodeValueAttribute = new ValueAttribute () as INode;
+                case ValueParameter.NAME:
+                    INode nodeValueAttribute = new ValueParameter () as INode;
                     return new Node<INode> (nodeValueAttribute);
-                case WordAttribute.NAME:
-                    INode nodeWordAttribute = new WordAttribute() as INode;
+                case WordParameter.NAME:
+                    INode nodeWordAttribute = new WordParameter() as INode;
                     return new Node<INode> (nodeWordAttribute);
                 default:
                     return null;

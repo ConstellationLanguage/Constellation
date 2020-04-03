@@ -113,7 +113,7 @@ namespace Constellation
                 }
 
                 var a = 0;
-                foreach (Attribute attribute in node.GetAttributes())
+                foreach (Parameter attribute in node.GetAttributes())
                 {
                     if (_nodeData.GetAttributes()[a].Value.IsFloat())
                         attribute.Value.Set(_nodeData.GetAttributes()[a].Value.GetFloat());
@@ -158,7 +158,7 @@ namespace Constellation
             }
 
             var a = 0;
-            foreach (Attribute attribute in node.GetAttributes())
+            foreach (Parameter attribute in node.GetAttributes())
             {
                 if (_nodeData.GetAttributes()[a].Value.IsFloat())
                     attribute.Value.Set(_nodeData.GetAttributes()[a].Value.GetFloat());

@@ -1,20 +1,20 @@
 namespace Constellation.Unity
 {
-    public class ObjectAttribute : INode, IReceiver, IAwakable, IAttribute
+    public class ObjectParameter : INode, IReceiver, IAwakable, IAttribute
     {
-        public const string NAME = "ObjectAttribute";
+        public const string NAME = "ObjectParameter";
         private ISender sender;
-        private Variable UnityObject;
-		private Attribute name;
-        private Variable nameValue;
+        private Ray UnityObject;
+		private Parameter name;
+        private Ray nameValue;
 
         public void Setup(INodeParameters _node)
         {
             sender = _node.GetSender();
             _node.AddOutput(true, "Object", "Unity object");
-            UnityObject = new Variable().Set(null as object);
-            nameValue = new Variable().Set("Default");
-			_node.AddAttribute(nameValue, Attribute.AttributeType.Word, "Name in inspector");
+            UnityObject = new Ray().Set(null as object);
+            nameValue = new Ray().Set("Default");
+			_node.AddAttribute(nameValue, Parameter.AttributeType.Word, "Name in inspector");
         }
 
         public string NodeName () {
@@ -25,7 +25,7 @@ namespace Constellation.Unity
             return NameSpace.NAME;
         }
 
-        public void SetAttribute (Variable var) {
+        public void SetAttribute (Ray var) {
             UnityObject.Set(var.GetObject());
         }
 
@@ -35,7 +35,7 @@ namespace Constellation.Unity
                 sender.Send(UnityObject, 0);
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             UnityObject.Set(_value);
             sender.Send(UnityObject, 0);

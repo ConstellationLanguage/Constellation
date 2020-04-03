@@ -4,24 +4,24 @@ namespace Constellation
     [System.Serializable]
     public class AttributeData
     {
-        public Variable Value;
-        public Attribute.AttributeType Type;
+        public Ray Value;
+        public Parameter.AttributeType Type;
 
-        public AttributeData(Attribute.AttributeType _type)
+        public AttributeData(Parameter.AttributeType _type)
         {
-            Value = new Variable();
+            Value = new Ray();
             Value.Set(0);
             Type = _type;
         }
 
-        public AttributeData(Attribute.AttributeType _type, Variable variable)
+        public AttributeData(Parameter.AttributeType _type, Ray variable)
         {
-            if(_type == Attribute.AttributeType.Value)
-                Value = new Variable().Set(variable.GetFloat());
-            else if(_type == Attribute.AttributeType.Word)
-                 Value = new Variable().Set(variable.GetString());
+            if(_type == Parameter.AttributeType.Value)
+                Value = new Ray().Set(variable.GetFloat());
+            else if(_type == Parameter.AttributeType.Word)
+                 Value = new Ray().Set(variable.GetString());
             else 
-                Value = new Variable().Set(variable.GetString());
+                Value = new Ray().Set(variable.GetString());
                 
             Type = _type;
         }

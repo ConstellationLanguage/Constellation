@@ -19,9 +19,9 @@ namespace ConstellationEditor
         {
             List<NodeData> nodesToRemove = new List<NodeData>();
             NodesFactory = new NodesFactory(constellationScripts);
-
-             foreach (var node in script.Nodes)
+            foreach (var node in script.Nodes)
             {
+                
                 var nodeObject = NodesFactory.GetNodeSafeMode(node);
                 if (nodeObject == null)
                 {
@@ -37,7 +37,7 @@ namespace ConstellationEditor
                     var i = 0;
                     foreach(var input in node.GetInputs())
                     {
-                        if (input.Type != nodeObject.Inputs[i].Type || input.IsWarm != nodeObject.Inputs[i].isWarm)
+                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != "Any") || input.IsBright != nodeObject.Inputs[i].isWarm)
                         {
                             nodesToRemove.Add(node);
                             foundDifference = true;
@@ -50,7 +50,7 @@ namespace ConstellationEditor
                         i = 0;
                         foreach (var output in node.GetOutputs())
                         {
-                            if (output.Type != nodeObject.Outputs[i].Type || output.IsWarm != nodeObject.Outputs[i].IsWarm)
+                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != "Any") || output.IsWarm != nodeObject.Outputs[i].IsWarm)
                             {
                                 nodesToRemove.Add(node);
                                 break;

@@ -28,7 +28,7 @@ namespace Constellation.Sound {
         }
 
         //Receive from inputs.
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             if (_input.InputId == 0) {
                 var newGameObject = UnityObjectsConvertions.ConvertToGameObject (_value.GetObject ());
                 if (newGameObject != null) {

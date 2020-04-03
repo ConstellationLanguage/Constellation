@@ -5,11 +5,11 @@ namespace Constellation.Physics
     public class CollisionStay : INode, IReceiver, ICollisionStay
     {
         private ISender sender;
-        private Variable variable;
+        private Ray variable;
         public const string NAME = "CollisionStay";
         public void Setup(INodeParameters _nodeParameters)
         {
-            variable = new Variable().Set(null as object);
+            variable = new Ray().Set(null as object);
             sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(true, "Object", "Unity collision object");
         }
@@ -27,7 +27,7 @@ namespace Constellation.Physics
             sender.Send(variable, 0);
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             
         }

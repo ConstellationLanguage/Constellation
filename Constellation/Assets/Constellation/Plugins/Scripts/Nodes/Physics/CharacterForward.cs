@@ -31,7 +31,7 @@ namespace Constellation.Physics {
                 controller = _gameObject.AddComponent<CharacterController> () as CharacterController;
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 0)
                 Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 

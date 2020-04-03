@@ -3,14 +3,14 @@
     public class Exit : INode, IReceiver
     {
         private ISender sender;
-        private Attribute attribute; // attributes are setted in the editor.
+        private Parameter attribute; // attributes are setted in the editor.
         public const string NAME = "Exit"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
 
         public void Setup(INodeParameters _node)
         {
-            var wordValue = new Variable();
+            var wordValue = new Ray();
             _node.AddInput(this, true, "Output the entry received"); // setting a cold input
-            attribute = _node.AddAttribute(wordValue.Set("Var"), Attribute.AttributeType.Word, "The default word");// setting an attribute (Used only for the editor)
+            attribute = _node.AddAttribute(wordValue.Set("Var"), Parameter.AttributeType.Word, "The default word");// setting an attribute (Used only for the editor)
         }
 
         //return the node name (used in the factory).
@@ -26,7 +26,7 @@
         }
 
         //Receive from inputs.
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
            
         }

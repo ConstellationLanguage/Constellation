@@ -9,28 +9,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Add
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: a72aec90-2877-426f-8fc3-f8099c147b34
-      Name: Tutorial
-      Namespace: Tags
+    - Guid: 84222354-3e67-42b7-bdb9-4e8f05d1f331
+      Name: Note
+      Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 7.5
-      YPosition: 6.5
-      SizeX: 75
-      SizeY: 30
+      XPosition: 95
+      YPosition: 50
+      SizeX: 103
+      SizeY: 48
       Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Value + Value
+          floatValue: 0.000001
+        Type: 2
+    - Guid: 0abbeccf-2fb9-45d1-8f90-f1dd5a30fc62
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 550
+      YPosition: 110
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
       Outputs: []
       AttributesData: []
     - Guid: abd5c92c-f08a-4413-925e-ad19bd94a4a0
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 82.5
-      YPosition: 76
+      XPosition: 100
+      YPosition: 110
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -42,23 +61,23 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
-    - Guid: 921ad582-fadb-4da7-ad80-44b4d6c391b7
+    - Guid: b33fbcf0-0561-414a-815c-243135ad9fce
       Name: Add
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 322.5
-      YPosition: 77
+      XPosition: 320
+      YPosition: 125
       SizeX: 75
       SizeY: 60
       Inputs:
       - Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: value 1
       - Guid: 9c4759aa-0eef-462f-89b2-03a16383ddea
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: value 2
       Outputs:
@@ -67,27 +86,12 @@ MonoBehaviour:
         Type: Var
         Description: value 1 + value 2
       AttributesData: []
-    - Guid: 0abbeccf-2fb9-45d1-8f90-f1dd5a30fc62
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 511.5
-      YPosition: 80
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: 94b30d09-4fe6-4633-bb2a-3aef50caa742
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 85.5
-      YPosition: 139
+      XPosition: 100
+      YPosition: 155
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -99,29 +103,29 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 5.22
         Type: 0
-    - Guid: 7019bbc2-e1ba-475f-ab8e-2bb3c9118a25
-      Name: Print
+    - Guid: 4b6b576c-0fff-4735-b02f-ce3ec824e55e
+      Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 527.5
-      YPosition: 223
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 63de6d21-c920-4317-8c9e-7c9642431724
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
+      XPosition: 95
+      YPosition: 250
+      SizeX: 106
+      SizeY: 49
+      Inputs: []
       Outputs: []
-      AttributesData: []
+      AttributesData:
+      - Value:
+          stringValue: Word + Word
+          floatValue: 0.000001
+        Type: 2
     - Guid: e6e37895-da9c-4643-b670-ed6fd2546697
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 101.5
-      YPosition: 226
+      XPosition: 100
+      YPosition: 305
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -132,24 +136,39 @@ MonoBehaviour:
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: your word
+          stringValue: A word
           floatValue: 0.000001
         Type: 1
-    - Guid: ce30f870-9701-4cce-a897-6fab28481b37
+    - Guid: 7019bbc2-e1ba-475f-ab8e-2bb3c9118a25
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 550
+      YPosition: 305
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 63de6d21-c920-4317-8c9e-7c9642431724
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Guid: cef8b36f-5b72-4294-9cd7-e8f79a17d765
       Name: Add
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 308.5
-      YPosition: 234
+      XPosition: 350
+      YPosition: 305
       SizeX: 75
       SizeY: 60
       Inputs:
       - Guid: d1888c5e-7055-4557-933a-1a0481907c5a
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: value 1
       - Guid: 47ad52d1-01ad-4451-a36e-9b2c93beb0b9
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: value 2
       Outputs:
@@ -162,9 +181,9 @@ MonoBehaviour:
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 101.5
-      YPosition: 292
-      SizeX: 100
+      XPosition: 75
+      YPosition: 350
+      SizeX: 124
       SizeY: 40
       Inputs: []
       Outputs:
@@ -174,15 +193,30 @@ MonoBehaviour:
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: your word
+          stringValue: Another word
           floatValue: 0.000001
         Type: 1
+    - Guid: b0404dcc-7697-4591-a489-f783df846afe
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 90
+      YPosition: 450
+      SizeX: 112
+      SizeY: 47
+      Inputs: []
+      Outputs: []
+      AttributesData:
+      - Value:
+          stringValue: Word + Value
+          floatValue: 0.000001
+        Type: 2
     - Guid: fabf0ff4-b23d-4188-9fe9-127092ba18e5
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 101.5
-      YPosition: 365
+      XPosition: 100
+      YPosition: 500
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -193,24 +227,39 @@ MonoBehaviour:
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: your word
+          stringValue: A word
           floatValue: 0.000001
         Type: 1
-    - Guid: f199e562-374b-4992-88ea-fab9ee4f1e10
+    - Guid: 18f98c8d-0b9c-4193-a1d5-4f96d1042083
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 550
+      YPosition: 500
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Guid: a422df8e-5d52-4cbd-85b6-3600aba6a611
       Name: Add
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 325.5
-      YPosition: 378
+      XPosition: 350
+      YPosition: 500
       SizeX: 75
       SizeY: 60
       Inputs:
       - Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: value 1
       - Guid: 18d3ca0a-03b2-44e4-b891-41a2cc5d4ad7
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: value 2
       Outputs:
@@ -219,27 +268,12 @@ MonoBehaviour:
         Type: Var
         Description: value 1 + value 2
       AttributesData: []
-    - Guid: 18f98c8d-0b9c-4193-a1d5-4f96d1042083
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 557.5
-      YPosition: 379
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: c203e79d-5ee3-4cac-adc1-6eae3c7cd3ea
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 94.5
-      YPosition: 443
+      XPosition: 100
+      YPosition: 545
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -251,118 +285,129 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
+    - Guid: d53666cc-b070-4ac7-9d21-38beea88e1a6
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 295
+      YPosition: 220
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
         Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: value 1
       Output:
         Guid: c14e426c-1ce2-4cef-a9e8-8a727b9fa3d6
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 107
-      GUID: 
-    - Input:
-        Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: a5885a10-5079-412e-874d-d1a23f93e4b8
-        IsWarm: 0
-        Type: 
-        Description: value 1 + value 2
-      outputPositionY: 110
-      GUID: 
+      outputPositionY: 0
+      GUID: 56daec69-5cfe-4be2-a4a6-2c693678169a
     - Input:
         Guid: 9c4759aa-0eef-462f-89b2-03a16383ddea
-        IsWarm: 1
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: value 2
       Output:
         Guid: 683518e2-c036-4ac9-9a12-9c95b28b2d40
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 127
-      GUID: 
+      outputPositionY: 0
+      GUID: f850d247-e01e-4273-b290-aff277ba06e4
+    - Input:
+        Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: a5885a10-5079-412e-874d-d1a23f93e4b8
+        IsWarm: 0
+        Type: Var
+        Description: value 1 + value 2
+      outputPositionY: 0
+      GUID: 24f6c75d-5cc4-4492-88fa-b02ae56114b2
     - Input:
         Guid: 63de6d21-c920-4317-8c9e-7c9642431724
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
         Guid: 469d6ec5-4f7a-402e-9b16-2294f053b1f1
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: value 1 + value 2
-      outputPositionY: 253
-      GUID: 
+      outputPositionY: 0
+      GUID: dd9e47e6-4d29-4ac8-8a2b-a675e6dbc1a1
     - Input:
         Guid: d1888c5e-7055-4557-933a-1a0481907c5a
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: value 1
       Output:
         Guid: c5b802d6-3845-4886-8ae8-84d57555ff9b
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
-      outputPositionY: 264
-      GUID: 
+      outputPositionY: 0
+      GUID: f24d47a6-6acb-4ddc-a44e-a845b919775e
     - Input:
         Guid: 47ad52d1-01ad-4451-a36e-9b2c93beb0b9
-        IsWarm: 1
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: value 2
       Output:
         Guid: a8f3b015-3303-4a18-875b-aa4fce95e927
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
-      outputPositionY: 284
-      GUID: 
+      outputPositionY: 0
+      GUID: 374bd1de-1836-4434-aac3-ca7ddb6af96a
     - Input:
         Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: value 1
       Output:
         Guid: e0a60224-fdab-4ba4-b6a2-82d34e60a2e1
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
-      outputPositionY: 408
-      GUID: 
-    - Input:
-        Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 7dba2295-6ad5-4ad9-bb39-ad52a1f46355
-        IsWarm: 0
-        Type: 
-        Description: value 1 + value 2
-      outputPositionY: 409
-      GUID: 
+      outputPositionY: 0
+      GUID: beb32e0d-57fb-4a76-9051-f917a05753b0
     - Input:
         Guid: 18d3ca0a-03b2-44e4-b891-41a2cc5d4ad7
-        IsWarm: 1
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: value 2
       Output:
         Guid: 5e837ed2-956c-414d-93f9-9f34f236a492
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 428
-      GUID: 
+      outputPositionY: 0
+      GUID: abdfe28b-3cac-4679-8808-76f5452a3b67
+    - Input:
+        Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 7dba2295-6ad5-4ad9-bb39-ad52a1f46355
+        IsWarm: 0
+        Type: Var
+        Description: value 1 + value 2
+      outputPositionY: 0
+      GUID: 88be5711-b283-48fb-ab69-18bbe65ce7fb
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

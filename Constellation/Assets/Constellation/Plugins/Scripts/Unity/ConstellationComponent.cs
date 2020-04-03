@@ -82,7 +82,7 @@ namespace Constellation.Unity3D
                 {
                     var previousAttribute = GetAttributeByName(node.AttributesData[0].Value.GetString(), previousAttributes.ToArray());
                     if (previousAttribute == null)
-                        Attributes.Add(new BehaviourAttribute(new Variable().Set(0),
+                        Attributes.Add(new BehaviourAttribute(new Ray().Set(0),
                             node.AttributesData[0].Value.GetString(),
                             BehaviourAttribute.Type.Value, node.Guid));
                     else
@@ -92,7 +92,7 @@ namespace Constellation.Unity3D
                 {
                     var previousAttribute = GetAttributeByName(node.AttributesData[0].Value.GetString(), previousAttributes.ToArray());
                     if (previousAttribute == null)
-                        Attributes.Add(new BehaviourAttribute(new Variable().Set(0),
+                        Attributes.Add(new BehaviourAttribute(new Ray().Set(0),
                             node.AttributesData[0].Value.GetString(),
                             BehaviourAttribute.Type.Word, node.Guid));
                     else
@@ -102,7 +102,7 @@ namespace Constellation.Unity3D
                 {
                     var previousAttribute = GetAttributeByName(node.AttributesData[0].Value.GetString(), previousAttributes.ToArray());
                     if (previousAttribute == null)
-                        Attributes.Add(new BehaviourAttribute(new Variable().Set(null as object),
+                        Attributes.Add(new BehaviourAttribute(new Ray().Set(null as object),
                             node.AttributesData[0].Value.GetString(),
                             BehaviourAttribute.Type.UnityObject, node.Guid));
                     else
@@ -151,7 +151,7 @@ namespace Constellation.Unity3D
                     if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
                         nodeAttribute.SetAttribute(Attributes[attributesCounter].Variable);
                     else if (attributesCounter < Attributes.Count)
-                        nodeAttribute.SetAttribute(new Variable().Set(Attributes[attributesCounter].UnityObject as object));
+                        nodeAttribute.SetAttribute(new Ray().Set(Attributes[attributesCounter].UnityObject as object));
 
                     attributesCounter++;
                 }

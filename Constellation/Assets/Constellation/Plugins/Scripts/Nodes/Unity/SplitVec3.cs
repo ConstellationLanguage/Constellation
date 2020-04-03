@@ -2,9 +2,9 @@ namespace Constellation.Unity {
     public class SplitVec3 : INode, IReceiver {
         public const string NAME = "SplitVec3";
         private ISender sender;
-        private Attribute valueX;
-        private Attribute valueY;
-        private Attribute valueZ;
+        private Parameter valueX;
+        private Parameter valueY;
+        private Parameter valueZ;
 
         public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "Vec3", "Vec3");
@@ -12,10 +12,10 @@ namespace Constellation.Unity {
             _node.AddOutput (false, "X");
             _node.AddOutput (false, "Y");
             _node.AddOutput (false, "Z");
-            valueX = _node.AddAttribute (new Variable ().Set ("X"), Attribute.AttributeType.ReadOnlyXValue, "X");
-            valueY = _node.AddAttribute (new Variable ().Set ("Y"), Attribute.AttributeType.ReadOnlyYValue, "Y");
-            valueZ = _node.AddAttribute (new Variable ().Set ("Z"), Attribute.AttributeType.ReadOnlyZValue, "Z");
-            Variable[] newVar = new Variable[3];
+            valueX = _node.AddAttribute (new Ray ().Set ("X"), Parameter.AttributeType.ReadOnlyXValue, "X");
+            valueY = _node.AddAttribute (new Ray ().Set ("Y"), Parameter.AttributeType.ReadOnlyYValue, "Y");
+            valueZ = _node.AddAttribute (new Ray ().Set ("Z"), Parameter.AttributeType.ReadOnlyZValue, "Z");
+            Ray[] newVar = new Ray[3];
             newVar[0] = valueX.Value;
             newVar[1] = valueY.Value;
             newVar[2] = valueZ.Value;
@@ -29,7 +29,7 @@ namespace Constellation.Unity {
             return NameSpace.NAME;
         }
 
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             if (_input.InputId == 0) {
                 if(_value.GetObject() == null) {
                     valueX.Value.Set (_value.GetFloat (0));

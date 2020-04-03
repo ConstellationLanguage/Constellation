@@ -7,60 +7,60 @@ namespace ConstellationEditor
 {
     public static class AttributeStyleFactory
     {
-        public static Variable Draw(Attribute.AttributeType type, Rect size, Rect attributeArea, Variable Value, ConstellationEditorStyles editorStyles, out bool canBeFocused)
+        public static Ray Draw(Parameter.AttributeType type, Rect size, Rect attributeArea, Ray Value, ConstellationEditorStyles editorStyles, out bool canBeFocused)
         {
             canBeFocused = false;
             switch (type)
             {
-                case Attribute.AttributeType.Value:
+                case Parameter.AttributeType.Value:
                     canBeFocused = true;
                     var valueToReturn = Value.Set(EditorGUI.FloatField(size, " ", Value.GetFloat(), editorStyles.NodeValueAttributeStyle));
                     EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "<>", editorStyles.NodeValueAttributeLabelStyle);
                     return valueToReturn;
-                case Attribute.AttributeType.Word:
+                case Parameter.AttributeType.Word:
                     canBeFocused = true;
                     return Value.Set(EditorGUI.TextField(size, "", Value.GetString(), editorStyles.NodeWordAttributeStyle));
-                case Attribute.AttributeType.Conditionals:
+                case Parameter.AttributeType.Conditionals:
                     canBeFocused = true;
                     return IfCharacterFilter(size, Value);
-                case Attribute.AttributeType.Then:
+                case Parameter.AttributeType.Then:
                     canBeFocused = true;
                     return ThenCharacterFilter(size, Value);
-                case Attribute.AttributeType.Else:
+                case Parameter.AttributeType.Else:
                     canBeFocused = true;
                     return ElseCharacterFilter(size, Value);
-                case Attribute.AttributeType.NoteField:
+                case Parameter.AttributeType.NoteField:
                     canBeFocused = true;
                     GUI.color = new Color(0.9f, 0.85f, 0.25f);
                     var textAreaValue = Value.Set(EditorGUI.TextArea(attributeArea, Value.GetString()));
                     GUI.color = Color.white;
                     //noteSkin.alignment = TextAnchor.UpperLeft;
                     return textAreaValue;
-                case Attribute.AttributeType.ReadOnlyValue:
+                case Parameter.AttributeType.ReadOnlyValue:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeReadOnlyAttributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyXValue:
+                case Parameter.AttributeType.ReadOnlyXValue:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeXAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyYValue:
+                case Parameter.AttributeType.ReadOnlyYValue:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeYAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyZValue:
+                case Parameter.AttributeType.ReadOnlyZValue:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeZAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueR:
+                case Parameter.AttributeType.ReadOnlyValueR:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeRAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueG:
+                case Parameter.AttributeType.ReadOnlyValueG:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeGAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueB:
+                case Parameter.AttributeType.ReadOnlyValueB:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeBAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueA:
+                case Parameter.AttributeType.ReadOnlyValueA:
                     EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeAAtrributeStyle);
                     return Value;
-                case Attribute.AttributeType.RenameNodeTitle:
+                case Parameter.AttributeType.RenameNodeTitle:
                     EditorGUI.LabelField(size, Value.GetString());
                     return Value;
                 default:
@@ -68,45 +68,45 @@ namespace ConstellationEditor
             }
         }
 
-        public static Variable Reset(Attribute.AttributeType type, Variable Value)
+        public static Ray Reset(Parameter.AttributeType type, Ray Value)
         {
 
             switch (type)
             {
-                case Attribute.AttributeType.Value:
+                case Parameter.AttributeType.Value:
                     return Value;
-                case Attribute.AttributeType.Word:
+                case Parameter.AttributeType.Word:
                     return Value.Set(Value.GetString());
-                case Attribute.AttributeType.Conditionals:
+                case Parameter.AttributeType.Conditionals:
                     return Value.Set(Value.GetString());
-                case Attribute.AttributeType.Then:
+                case Parameter.AttributeType.Then:
                     return Value.Set(Value.GetString());
-                case Attribute.AttributeType.Else:
+                case Parameter.AttributeType.Else:
                     return Value.Set(Value.GetString());
-                case Attribute.AttributeType.NoteField:
+                case Parameter.AttributeType.NoteField:
                     return Value.Set(Value.GetString());
-                case Attribute.AttributeType.ReadOnlyValue:
+                case Parameter.AttributeType.ReadOnlyValue:
                     Value.Set(0);
                     return Value;
-                case Attribute.AttributeType.ReadOnlyXValue:
+                case Parameter.AttributeType.ReadOnlyXValue:
                     Value.Set("X");
                     return Value;
-                case Attribute.AttributeType.ReadOnlyYValue:
+                case Parameter.AttributeType.ReadOnlyYValue:
                     Value.Set("Y");
                     return Value;
-                case Attribute.AttributeType.ReadOnlyZValue:
+                case Parameter.AttributeType.ReadOnlyZValue:
                     Value.Set("Z");
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueR:
+                case Parameter.AttributeType.ReadOnlyValueR:
                     Value.Set("R");
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueG:
+                case Parameter.AttributeType.ReadOnlyValueG:
                     Value.Set("G");
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueB:
+                case Parameter.AttributeType.ReadOnlyValueB:
                     Value.Set("B");
                     return Value;
-                case Attribute.AttributeType.ReadOnlyValueA:
+                case Parameter.AttributeType.ReadOnlyValueA:
                     Value.Set("A");
                     return Value;
                 default:
@@ -114,17 +114,17 @@ namespace ConstellationEditor
             }
         }
 
-        private static Variable IfCharacterFilter(Rect size, Variable Value)
+        private static Ray IfCharacterFilter(Rect size, Ray Value)
         {
             return Value.Set(Regex.Replace(EditorGUI.TextField(size, "if", Value.GetString()), "[a-zA-Z ]", ""));
         }
 
-        private static Variable ThenCharacterFilter(Rect size, Variable Value)
+        private static Ray ThenCharacterFilter(Rect size, Ray Value)
         {
             return Value.Set(Regex.Replace(EditorGUI.TextField(size, "then", Value.GetString()), "[a-zA-Z ]", ""));
         }
 
-        private static Variable ElseCharacterFilter(Rect size, Variable Value)
+        private static Ray ElseCharacterFilter(Rect size, Ray Value)
         {
             return Value.Set(Regex.Replace(EditorGUI.TextField(size, "else", Value.GetString()), "[a-zA-Z ]", ""));
         }

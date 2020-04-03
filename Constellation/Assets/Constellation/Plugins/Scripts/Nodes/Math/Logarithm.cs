@@ -20,11 +20,11 @@ public class Logarithm: INode, IReceiver
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.Log(_value.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.Log(_value.GetFloat())), 0);
         }
     }
 }

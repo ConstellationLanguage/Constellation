@@ -4,15 +4,15 @@ namespace Constellation.Math {
 public class Pow: INode, IReceiver
     {
 		private ISender sender;
-		private Variable VarF;
-		private Variable VarP;
+		private Ray VarF;
+		private Ray VarP;
         public const string NAME = "Pow";
         public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, false, "F");
 			_node.AddInput(this, true, "P");
-			VarF = new Variable(0);
-			VarP = new Variable(0);
+			VarF = new Ray(0);
+			VarP = new Ray(0);
             sender = _node.GetSender();
             _node.AddOutput(false, "F raised to power P");
         }
@@ -25,7 +25,7 @@ public class Pow: INode, IReceiver
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
 			if(_input.InputId == 0)
 				VarF.Set(_value.GetFloat());
@@ -34,7 +34,7 @@ public class Pow: INode, IReceiver
 				VarP.Set(_value.GetFloat());
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.Pow(VarF.GetFloat(), VarP.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.Pow(VarF.GetFloat(), VarP.GetFloat())), 0);
         }
     }
 }

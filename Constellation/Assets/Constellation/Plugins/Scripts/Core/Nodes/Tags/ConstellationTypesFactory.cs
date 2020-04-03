@@ -1,5 +1,5 @@
-namespace Constellation.Tags {
-    public class TagsNodeFactory: INodeGetter {
+namespace Constellation.ConstellationTypes {
+    public class ConstellationTypesFactory: INodeGetter {
 
         public string GetNameSpace()
         {
@@ -11,8 +11,8 @@ namespace Constellation.Tags {
                 case Tutorial.NAME:
                     INode nodeTutorial = new Tutorial () as INode;
                     return new Node<INode> (nodeTutorial);
-                case Nestable.NAME:
-                    INode nodeNestable = new Nestable() as INode;
+                case ConstellationNode.NAME:
+                    INode nodeNestable = new ConstellationNode() as INode;
                     return new Node<INode>(nodeNestable);
                 default:
                     return null;

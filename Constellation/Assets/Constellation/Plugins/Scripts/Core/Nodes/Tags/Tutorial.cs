@@ -1,4 +1,4 @@
-namespace Constellation.Tags {
+namespace Constellation.ConstellationTypes {
     public class Tutorial : INode, IReceiver{
         public const string NAME = "Tutorial";
 
@@ -17,7 +17,7 @@ namespace Constellation.Tags {
         }
 
         //Receive from inputs.
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
         }
     }
 }

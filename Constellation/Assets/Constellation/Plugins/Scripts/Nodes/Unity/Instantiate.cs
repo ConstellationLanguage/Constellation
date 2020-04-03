@@ -6,14 +6,14 @@ namespace Constellation.Unity
     {
         public const string NAME = "Instantiate";
         private ISender sender;
-        private Variable UnityObject;
+        private Ray UnityObject;
 
         public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "Object", "GameObject");
             sender = _node.GetSender();
             _node.AddOutput(true, "Object", "Instantiated GameObject");
-            UnityObject = new Variable().Set(null as object);
+            UnityObject = new Ray().Set(null as object);
         }
 
         public string NodeName () {
@@ -24,10 +24,10 @@ namespace Constellation.Unity
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             UnityObject.Set(_value.GetObject());
-            sender.Send(new Variable().Set(GameObject.Instantiate(_value.GetObject() as GameObject)), 0);
+            sender.Send(new Ray().Set(GameObject.Instantiate(_value.GetObject() as GameObject)), 0);
         }
     }
 }

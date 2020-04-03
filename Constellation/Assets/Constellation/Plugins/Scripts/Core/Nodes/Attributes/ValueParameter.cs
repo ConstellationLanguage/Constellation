@@ -1,16 +1,16 @@
 ﻿namespace Constellation.Attributes {
-    public class ValueAttribute : INode, IReceiver, IAwakable, IAttribute{
+    public class ValueParameter : INode, IReceiver, IAwakable, IAttribute{
         private ISender sender;
-        private Variable Value;
-        public const string NAME = "ValueAttribute";
+        private Ray Value;
+        public const string NAME = "ValueParameter";
 
         public void Setup (INodeParameters _node) {
             sender = _node.GetSender();
             _node.AddOutput (true, "Current value");
-            var newValue = new Variable (0);
-            var nameValue = new Variable ("AttributeName");
+            var newValue = new Ray (0);
+            var nameValue = new Ray ("AttributeName");
             Value = newValue;
-            _node.AddAttribute (nameValue, Attribute.AttributeType.Word, "Attribute name");
+            _node.AddAttribute (nameValue, Parameter.AttributeType.Word, "Attribute name");
 
         }
 
@@ -22,7 +22,7 @@
             return NameSpace.NAME;
         }
 
-        public void SetAttribute (Variable var) {
+        public void SetAttribute (Ray var) {
             Value.Set (var.GetFloat ());
         }
 
@@ -30,7 +30,7 @@
             sender.Send (Value, 0);
         }
 
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             if (_value.IsFloat ()) {
               Value.Set (_value.GetFloat ());
             }

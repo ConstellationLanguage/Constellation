@@ -6,14 +6,14 @@ namespace Constellation.Unity
     {
         public const string NAME = "DeltaTime";
         private ISender sender;
-        private Variable deltaTimeVar;
+        private Ray deltaTimeVar;
 
         public void Setup(INodeParameters _nodeParameters)
         {
             _nodeParameters.AddInput(this, true, "Value");
             sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(false, "Value x Delta time");
-            deltaTimeVar = new Variable().Set(0);
+            deltaTimeVar = new Ray().Set(0);
         }
 
         public string NodeName() {
@@ -25,7 +25,7 @@ namespace Constellation.Unity
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             deltaTimeVar.Set(_value.GetFloat() * Time.deltaTime);
             sender.Send(deltaTimeVar, 0);

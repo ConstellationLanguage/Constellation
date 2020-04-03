@@ -6,10 +6,10 @@ namespace Constellation.Unity {
         private ISender sender;
         private Vector3 hitPosition;
 
-        private Variable valueX;
-        private Variable valueY;
-        private Variable valueZ;
-        private Variable Result;
+        private Ray valueX;
+        private Ray valueY;
+        private Ray valueZ;
+        private Ray Result;
 
         public const string NAME = "ScreenToWorld";
 
@@ -21,9 +21,9 @@ namespace Constellation.Unity {
             sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput (false, "The hit position");
 
-            valueX = new Variable ().Set (0);
-            valueY = new Variable ().Set (0);
-            valueZ = new Variable ().Set (0);
+            valueX = new Ray ().Set (0);
+            valueY = new Ray ().Set (0);
+            valueZ = new Ray ().Set (0);
 
         }
 
@@ -35,7 +35,7 @@ namespace Constellation.Unity {
             return NameSpace.NAME;
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 0)
                 valueX.Set (value.GetFloat ());
 
@@ -47,11 +47,11 @@ namespace Constellation.Unity {
 
             if (_input.InputId == 3) {
                 hitPosition = Camera.main.ScreenToWorldPoint (new Vector3 (valueX.GetFloat (), valueY.GetFloat (), valueZ.GetFloat ()));
-                Variable[] newVar = new Variable[3];
-                newVar[0] = new Variable().Set(hitPosition.x);
-                newVar[1] = new Variable().Set(hitPosition.y);
-                newVar[2] =new Variable().Set(hitPosition.z);
-                Result = new Variable ().Set (newVar);
+                Ray[] newVar = new Ray[3];
+                newVar[0] = new Ray().Set(hitPosition.x);
+                newVar[1] = new Ray().Set(hitPosition.y);
+                newVar[2] =new Ray().Set(hitPosition.z);
+                Result = new Ray ().Set (newVar);
                 sender.Send(Result, 0);
             }
         }

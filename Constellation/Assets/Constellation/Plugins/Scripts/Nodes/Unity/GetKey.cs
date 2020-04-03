@@ -4,14 +4,14 @@
     {
 		public const string NAME = "Key";
         public Transform transform;
-		private Attribute key;
+		private Parameter key;
 		private ISender sender;
         public void Setup(INodeParameters _nodeParameters)
         {
-			var newValue = new Variable();
+			var newValue = new Ray();
 			sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(true, "Output 1 when key pressed");
-			key = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "The key");
+			key = _nodeParameters.AddAttribute(newValue, Parameter.AttributeType.Word, "The key");
         }
         
         public string NodeName () {
@@ -25,13 +25,13 @@
 		public void OnUpdate()
 		{
 			if(UnityEngine.Input.GetKey(key.Value.GetString()))
-				sender.Send(new Variable().Set(1), 0);
+				sender.Send(new Ray().Set(1), 0);
 			else if(UnityEngine.Input.GetKeyUp(key.Value.GetString())) {
-				sender.Send(new Variable().Set(0), 0);
+				sender.Send(new Ray().Set(0), 0);
 			}
 		}
 
-        public void Receive(Variable value, Input _input)
+        public void Receive(Ray value, Input _input)
         {
         }
     }

@@ -3,6 +3,6 @@
 
     public interface IReceiver
     {
-        void Receive(Variable value, Input input);
+        void Receive(Ray value, Input input);
     }
 }

@@ -33,12 +33,12 @@ namespace Constellation
 				Receivers.Remove(_receiver);
 		}
 
-		public void Receive(Variable Value, Input input)
+		public void Receive(Ray Value, Input input)
 		{
 			Send (Value);
 		}
 		
-		public void Send(Variable value)
+		public void Send(Ray value)
 		{
 			if(Receivers == null)
 				return;

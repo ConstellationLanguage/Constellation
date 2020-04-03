@@ -3,8 +3,8 @@
     public class Multiply : INode, IReceiver
     {
 		private ISender sender;
-        private Variable [] varsToAdd;
-        private Variable result;
+        private Ray [] varsToAdd;
+        private Ray result;
         public const string NAME = "Multiply";
         public void Setup(INodeParameters _node)
         {
@@ -12,10 +12,10 @@
 			_node.AddInput(this, true, "Value to multiply");
             sender = _node.GetSender();
             _node.AddOutput(false, "Result $1 x $2");
-            varsToAdd = new Variable[2];
-            varsToAdd[0] = new Variable().Set(0);
-            varsToAdd[1] = new Variable().Set(0);
-            result = new Variable().Set(0);
+            varsToAdd = new Ray[2];
+            varsToAdd[0] = new Ray().Set(0);
+            varsToAdd[1] = new Ray().Set(0);
+            result = new Ray().Set(0);
         }
 
 
@@ -27,7 +27,7 @@
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             if(_value.IsFloat())
                 varsToAdd[_input.InputId].Set(_value.GetFloat());

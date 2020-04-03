@@ -7,6 +7,7 @@ namespace Constellation {
         public List<NodeData> Nodes;
         public List<LinkData> Links;
         public string Name;
+
         const string EntryNodeName = Entry.NAME;
         const string ExitNodeName = Exit.NAME;
 

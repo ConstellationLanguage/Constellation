@@ -3,12 +3,12 @@
 namespace Constellation.Physics {
     public class RigidBody : INode, IReceiver, IRequireGameObject {
         Rigidbody rigidBody;
-        private Variable Mass;
-        private Variable Drag;
-        private Variable UseGravity;
-        private Variable IsKinematic;
-        private Variable PositionConstraints;
-        private Variable RotationConstraints;
+        private Ray Mass;
+        private Ray Drag;
+        private Ray UseGravity;
+        private Ray IsKinematic;
+        private Ray PositionConstraints;
+        private Ray RotationConstraints;
         public const string NAME = "RigidBody";
 
         public void Setup (INodeParameters _nodeParameters) {
@@ -34,7 +34,7 @@ namespace Constellation.Physics {
                 rigidBody = body;
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 0)
                 Set(UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
             else if (_input.InputId == 1)

@@ -2,6 +2,7 @@ using Constellation;
 using Constellation.Unity3D;
 using UnityEditor;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 [CustomEditor (typeof (ConstellationComponent))]
 public class ConstellationComponentInpector : Editor {
@@ -20,7 +21,16 @@ public class ConstellationComponentInpector : Editor {
 
 		EditorGUILayout.BeginHorizontal ();
 		EditorGUILayout.LabelField ("Script", GUILayout.MaxWidth (100));
-		source = EditorGUILayout.ObjectField (source, typeof (ConstellationScript), true);
+
+        var currentSource = source;
+		source = EditorGUILayout.ObjectField (source, typeof (ConstellationBehaviourScript), true);
+
+        if(currentSource != source && !Application.isPlaying)
+        {
+            var scene = EditorSceneManager.GetActiveScene();
+            EditorSceneManager.MarkSceneDirty(scene);
+        }
+
 		ConstellationComponent.SetConstellationScript(source as ConstellationScript);
 		NodeData[] nodes = null;
 		if (ConstellationComponent.GetConstellationData() != null) {
@@ -51,6 +61,11 @@ public class ConstellationComponentInpector : Editor {
 	void UpdateValueAttribute (BehaviourAttribute attribute, int attributeId) {
         var newFloat = EditorGUILayout.FloatField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetFloat());
         if (newFloat != attribute.Variable.GetFloat()) {
+            if (!Application.isPlaying)
+            {
+                var scene = EditorSceneManager.GetActiveScene();
+                EditorSceneManager.MarkSceneDirty(scene);
+            }
             attribute.Variable.Set(newFloat);
             if (ConstellationComponent.constellation != null) {
                 Node<INode> nodeToUpdate = ConstellationComponent.constellation.GetNodeByGUID(attribute.NodeGUID);
@@ -65,6 +80,11 @@ public class ConstellationComponentInpector : Editor {
         var newString = EditorGUILayout.TextField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetString());
         if (newString != attribute.Variable.GetString())
         {
+            if (!Application.isPlaying)
+            {
+                var scene = EditorSceneManager.GetActiveScene();
+                EditorSceneManager.MarkSceneDirty(scene);
+            }
             attribute.Variable.Set(newString);
             if (ConstellationComponent.constellation != null)
             {
@@ -84,6 +104,11 @@ public class ConstellationComponentInpector : Editor {
         if (newObject != attribute.Variable.GetObject())
 #pragma warning restore CS0253 // Possible unintended reference comparison; right hand side needs cast
         {
+            if (!Application.isPlaying)
+            {
+                var scene = EditorSceneManager.GetActiveScene();
+                EditorSceneManager.MarkSceneDirty(scene);
+            }
             attribute.UnityObject = newObject;
             attribute.Variable.Set(newObject);
             if (ConstellationComponent.constellation != null)

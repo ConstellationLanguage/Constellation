@@ -32,7 +32,7 @@ namespace Constellation
 			receiver = null;
 		}
 
-		public void Receive(Variable value, Input input)
+		public void Receive(Ray value, Input input)
 		{	
 			receiver.Receive (value, this);
 		}

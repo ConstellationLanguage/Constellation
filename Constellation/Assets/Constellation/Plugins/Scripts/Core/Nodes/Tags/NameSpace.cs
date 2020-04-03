@@ -1,6 +1,6 @@
-namespace Constellation.Tags {
+namespace Constellation.ConstellationTypes {
     public class NameSpace {
-        public const string NAME = "Tags";
+        public const string NAME = "ConstellationTypes";
         
     }
 }

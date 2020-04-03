@@ -1,14 +1,14 @@
 ﻿namespace Constellation.CoreNodes {
     public class Value : INode, IReceiver, IAwakable {
         private ISender sender;
-        private Attribute value;
+        private Parameter value;
         public const string NAME = "Value";
 
         public void Setup (INodeParameters _node) {
-            var newValue = new Variable ().Set(0);
+            var newValue = new Ray ().Set(0);
             sender = _node.GetSender();
             _node.AddOutput (true, "The value");
-            value = _node.AddAttribute (newValue, Attribute.AttributeType.Value, "Number to set");
+            value = _node.AddAttribute (newValue, Parameter.AttributeType.Value, "Number to set");
         }
 
         public string NodeName () {
@@ -23,7 +23,7 @@
             sender.Send (value.Value, 0);
         }
 
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             if (_value.IsFloat ()) {
                 value.Value.Set (_value.GetFloat ());
             }

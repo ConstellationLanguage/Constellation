@@ -1,10 +1,10 @@
 ﻿namespace Constellation.Attributes
 {
-    public class WordAttribute : INode, IReceiver, IAwakable, IAttribute
+    public class WordParameter : INode, IReceiver, IAwakable, IAttribute
     {
         private ISender sender;
-        private Variable defaultValue;
-        private Variable Word;
+        private Ray defaultValue;
+        private Ray Word;
 
         public const string NAME = "WordAttribute";
 
@@ -12,9 +12,9 @@
         {
             sender = _node.GetSender(); 
             _node.AddOutput(true, "Current value");
-            defaultValue = new Variable().Set("Default");
-			var nameValue = new Variable().Set("AttributeName");
-			_node.AddAttribute(nameValue, Attribute.AttributeType.Word, "Attribute Name");
+            defaultValue = new Ray().Set("Default");
+			var nameValue = new Ray().Set("AttributeName");
+			_node.AddAttribute(nameValue, Parameter.AttributeType.Word, "Attribute Name");
         }
 
         public string NodeName () {
@@ -26,7 +26,7 @@
         }
 
 
-        public void SetAttribute (Variable var) {
+        public void SetAttribute (Ray var) {
             defaultValue.Set(var.GetString());
         }
 
@@ -35,7 +35,7 @@
             sender.Send(defaultValue, 0);
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             defaultValue.Set(_value);
             sender.Send(defaultValue, 0);

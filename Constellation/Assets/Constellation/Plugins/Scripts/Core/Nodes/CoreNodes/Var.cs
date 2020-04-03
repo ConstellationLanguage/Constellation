@@ -2,16 +2,16 @@
     public class Var : INode, IReceiver, IGenericNode
     {
         private ISender sender;
-        private Attribute attribute; // attributes are setted in the editor.
+        private Parameter attribute; // attributes are setted in the editor.
         public const string NAME = "Var"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
 
         public void Setup (INodeParameters _node) {
-            var wordValue = new Variable ();
+            var wordValue = new Ray();
             _node.AddInput (this, false, "Any", "New var"); // setting a cold input
             _node.AddInput (this, true, "Any", "Send var"); // setting a warm input
             sender = _node.GetSender();
-            _node.AddOutput (false, "Any", "Current setted word"); // setting a cold input
-            attribute = _node.AddAttribute (wordValue.Set("Var"), Attribute.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
+            _node.AddOutput (false, "Any", "Output var"); // setting a cold input
+            attribute = _node.AddAttribute (wordValue.Set("Var"), Parameter.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
         }
 
         //return the node name (used in the factory).
@@ -25,7 +25,7 @@
         }
 
         //Receive from inputs.
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             if (_input.InputId == 0)
                 attribute.Value.Set (_value);
 

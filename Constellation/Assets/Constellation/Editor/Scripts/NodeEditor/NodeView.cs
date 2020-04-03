@@ -95,7 +95,7 @@ namespace ConstellationEditor
             var inputs = NodeData.GetInputs();
             for (var i = 0; i < inputs.Length; i++)
             {
-                if (inputs[i].IsWarm == true)
+                if (inputs[i].IsBright == true)
                     GUI.color = editorConfig.GetConstellationIOStylesByType(inputs[i].Type).WarmColor;
                 else
                     GUI.color = editorConfig.GetConstellationIOStylesByType(inputs[i].Type).ColdColor;

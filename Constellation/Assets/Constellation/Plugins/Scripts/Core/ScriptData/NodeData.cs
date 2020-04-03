@@ -28,7 +28,7 @@ namespace Constellation {
                 Outputs.Add (new OutputData (output.Guid, output.IsWarm, output.Type, output.Description));
             }
 
-            foreach (Attribute attribute in _node.GetAttributes ()) {
+            foreach (Parameter attribute in _node.GetAttributes ()) {
                 AttributesData.Add (new AttributeData (attribute.Type, attribute.Value));
             }
 
@@ -61,7 +61,7 @@ namespace Constellation {
                 Outputs.Add(new OutputData(output.Guid, output.IsWarm, output.Type, output.Description));
             }
 
-            foreach (Attribute attribute in _node.GetAttributes())
+            foreach (Parameter attribute in _node.GetAttributes())
             {
                 AttributesData.Add(new AttributeData(attribute.Type, attribute.Value));
             }
@@ -84,7 +84,7 @@ namespace Constellation {
             Outputs = new List<OutputData> ();
 
             foreach (var input in _node.Inputs) {
-                Inputs.Add (new InputData(input.Guid, input.IsWarm, input.Type, input.Description));
+                Inputs.Add (new InputData(input.Guid, input.IsBright, input.Type, input.Description));
             }
 
             foreach (var output in _node.Outputs) {

@@ -24,14 +24,14 @@ namespace Constellation.Unity
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
         }
 
         public void OnAwake()
         {
             string filePath = Application.streamingAssetsPath;
-            sender.Send(new Variable(filePath), 0);
+            sender.Send(new Ray(filePath), 0);
         }
     }
 }

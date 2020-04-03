@@ -4,15 +4,15 @@
         public Transform transform;
         private ISender Sender;
         private ISender YPositionSender;
-        private Variable XPosition;
-        private Variable YPosition;
-        private Variable keyState;
+        private Ray XPosition;
+        private Ray YPosition;
+        private Ray keyState;
         public void Setup (INodeParameters _nodeParameters) {
             Sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput (true, "Mouse position X");
             _nodeParameters.AddOutput (true, "Mosue position Y");
-            XPosition = new Variable(UnityEngine.Input.mousePosition.x);
-            YPosition = new Variable(UnityEngine.Input.mousePosition.y);
+            XPosition = new Ray(UnityEngine.Input.mousePosition.x);
+            YPosition = new Ray(UnityEngine.Input.mousePosition.y);
         }
 
         public string NodeName () {
@@ -28,6 +28,6 @@
             Sender.Send (YPosition.Set (UnityEngine.Input.mousePosition.y), 1);
         }
 
-        public void Receive (Variable value, Input _input) { }
+        public void Receive (Ray value, Input _input) { }
     }
 }

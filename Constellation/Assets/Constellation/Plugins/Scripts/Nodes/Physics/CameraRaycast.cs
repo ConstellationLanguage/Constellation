@@ -7,9 +7,9 @@ namespace Constellation.Physics {
         private ISender ObjectHit;
         private Vector3 hitPosition;
 
-        private Variable valueX;
-        private Variable valueY;
-        private Variable Result;
+        private Ray valueX;
+        private Ray valueY;
+        private Ray Result;
 
         public const string NAME = "CameraRaycast";
 
@@ -21,8 +21,8 @@ namespace Constellation.Physics {
             _nodeParameters.AddOutput (false,"Object", "The object that was hit");
            _nodeParameters.AddOutput (false, "Vec3", "The hit position");
 
-            valueX = new Variable ().Set (0);
-            valueY = new Variable ().Set (0);
+            valueX = new Ray ().Set (0);
+            valueY = new Ray ().Set (0);
 
         }
 
@@ -34,7 +34,7 @@ namespace Constellation.Physics {
             return NameSpace.NAME;
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 0)
                 valueX.Set (value.GetFloat ());
 
@@ -43,15 +43,15 @@ namespace Constellation.Physics {
 
             if (_input.InputId == 2) {
                 RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay (new Vector2 (valueX.GetFloat (), valueY.GetFloat ()));
+                UnityEngine.Ray ray = Camera.main.ScreenPointToRay (new Vector2(valueX.GetFloat (), valueY.GetFloat ()));
 
                 if (UnityEngine.Physics.Raycast (ray, out hit)) {
-                    Variable[] newVar = new Variable[3];
-                    newVar[0] = new Variable ().Set (hit.point.x);
-                    newVar[1] = new Variable ().Set (hit.point.y);
-                    newVar[2] = new Variable ().Set (hit.point.z);
-                    Result = new Variable ().Set (newVar);
-                    Sender.Send(new Variable(hit.transform.gameObject),0);
+                    Ray[] newVar = new Ray[3];
+                    newVar[0] = new Ray ().Set (hit.point.x);
+                    newVar[1] = new Ray ().Set (hit.point.y);
+                    newVar[2] = new Ray ().Set (hit.point.z);
+                    Result = new Ray ().Set (newVar);
+                    Sender.Send(new Ray(hit.transform.gameObject),0);
                     Sender.Send (Result, 1);
                 }
 

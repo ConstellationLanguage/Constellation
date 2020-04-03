@@ -22,10 +22,10 @@ namespace Constellation.Math
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.Acos(_value.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.Acos(_value.GetFloat())), 0);
         }
     }
 }

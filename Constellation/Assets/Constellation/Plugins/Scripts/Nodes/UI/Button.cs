@@ -30,7 +30,7 @@ namespace Constellation.UI {
 
 		private void ButtonClicked()
 		{
-			output.Send(new Variable(button.gameObject.name), 0);
+			output.Send(new Ray(button.gameObject.name), 0);
 		}
 
 		public void OnDestroy()
@@ -39,7 +39,7 @@ namespace Constellation.UI {
 			
 		}
 
-		public void Receive (Variable value, Input _input) {
+		public void Receive (Ray value, Input _input) {
 			if (_input.InputId == 0)
 				Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 		}

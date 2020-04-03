@@ -5,7 +5,7 @@ namespace Constellation.Physics {
         private Rigidbody rigidBody;
         Vector3 force;
         ISender sender;
-        Variable currentVelocity;
+        Ray currentVelocity;
         bool isVelocityUpdated;
         public const string NAME = "Velocity";
         public void Setup (INodeParameters _nodeParameters) {
@@ -15,11 +15,11 @@ namespace Constellation.Physics {
             _nodeParameters.AddOutput (true,"Vec3", "The current velocity of the rigidBody");
 
             force = Vector3.zero;
-            Variable[] positions = new Variable[3];
-            positions[0] = new Variable ().Set (0);
-            positions[1] = new Variable ().Set (0);
-            positions[2] = new Variable ().Set (0);
-            currentVelocity = new Variable ();
+            Ray[] positions = new Ray[3];
+            positions[0] = new Ray ().Set (0);
+            positions[1] = new Ray ().Set (0);
+            positions[2] = new Ray ().Set (0);
+            currentVelocity = new Ray ();
             currentVelocity.Set (positions);
         }
 
@@ -53,7 +53,7 @@ namespace Constellation.Physics {
             sender.Send (currentVelocity, 0);
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 0)
                 rigidBody = UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()).GetComponent<UnityEngine.Rigidbody> () as UnityEngine.Rigidbody;
 

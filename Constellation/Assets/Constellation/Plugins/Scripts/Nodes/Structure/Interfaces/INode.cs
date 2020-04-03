@@ -6,6 +6,6 @@ namespace Constellation
         void Setup(INodeParameters _node);
         string NodeName();
         string NodeNamespace();
-        void Receive(Variable value, Input _input);
+        void Receive(Ray value, Input _input);
     }
 }

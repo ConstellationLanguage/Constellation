@@ -67,7 +67,7 @@ namespace Constellation.Unity3D
                 constellation.GetInjector().LateUpdate();
         }
 
-        public void Log(Variable value)
+        public void Log(Ray value)
         {
             Debug.Log(value.GetString());
         }

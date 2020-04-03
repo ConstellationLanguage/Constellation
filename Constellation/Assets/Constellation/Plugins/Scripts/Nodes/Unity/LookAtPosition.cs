@@ -6,7 +6,7 @@ namespace Constellation.Unity {
 		public const string NAME = "LookAtPosition";
 		private Vector3 gameobjectPosition;
 		private Vector3 targetPosition;
-		private Variable ResultRotation;
+		private Ray ResultRotation;
 		private ISender sender;
 
 		public void Setup (INodeParameters _nodeParameters) {
@@ -24,7 +24,7 @@ namespace Constellation.Unity {
 			return NameSpace.NAME;
 		}
 
-		public void Receive (Variable value, Input _input) {
+		public void Receive (Ray value, Input _input) {
 			if (_input.InputId == 0) {
 				if (value.GetObject () == null) {
 					var vector = new Vector3 (value.GetFloat (0), value.GetFloat (1), value.GetFloat (2));
@@ -47,11 +47,11 @@ namespace Constellation.Unity {
 
 			if (_input.isWarm) {
 				var targetRotation = Quaternion.LookRotation (targetPosition - gameobjectPosition).eulerAngles;
-				Variable[] newVar = new Variable[3];
-				newVar[0] = new Variable(targetRotation.x);
-				newVar[1] = new Variable(targetRotation.y);
-				newVar[2] =new Variable(targetRotation.z);
-				ResultRotation = new Variable ().Set (newVar);
+				Ray[] newVar = new Ray[3];
+				newVar[0] = new Ray(targetRotation.x);
+				newVar[1] = new Ray(targetRotation.y);
+				newVar[2] =new Ray(targetRotation.z);
+				ResultRotation = new Ray ().Set (newVar);
 				sender.Send(ResultRotation, 0);
 			}
 		}

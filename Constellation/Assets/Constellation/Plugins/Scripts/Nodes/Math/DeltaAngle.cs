@@ -5,7 +5,7 @@ namespace Constellation.Math
     public class DeltaAngle : INode, IReceiver
     {
         private ISender sender;
-        private Variable variable;
+        private Ray variable;
         public const string NAME = "DeltaAngle";
         public void Setup(INodeParameters _node)
         {
@@ -13,7 +13,7 @@ namespace Constellation.Math
             _node.AddInput(this, true, "Angle b");
             sender = _node.GetSender();
             _node.AddOutput(false, "Sortest difference between a and b");
-            variable = new Variable().Set(0);
+            variable = new Ray().Set(0);
         }
 
         public string NodeName () {
@@ -24,7 +24,7 @@ namespace Constellation.Math
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             if (_input.InputId == 0)
             {
@@ -32,7 +32,7 @@ namespace Constellation.Math
             }
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.DeltaAngle(_value.GetFloat(), variable.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.DeltaAngle(_value.GetFloat(), variable.GetFloat())), 0);
         }
     }
 }

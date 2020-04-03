@@ -5,16 +5,17 @@ namespace Constellation.UI {
 		UnityEngine.UI.Slider slider;
 		public const string NAME = "Slider";
 		public ISender sender;
-		private Variable sliderValue;
+		private Ray sliderValue;
 		private GameObject gameObject;
 
 		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "Slider object");
 			_nodeParameters.AddInput (this, false, "Slider value");
 			_nodeParameters.AddInput (this, true, "Any", "Push");
+			_nodeParameters.AddOutput(false,"Object", "Slider object");
 			_nodeParameters.AddOutput (false, "Slider Value");
 			sender = _nodeParameters.GetSender ();
-			sliderValue = new Variable (0);
+			sliderValue = new Ray (0);
 		}
 
 		void UpdateImage () {
@@ -39,7 +40,7 @@ namespace Constellation.UI {
 			}
 		}
 
-		public void Receive (Variable value, Input _input) {
+		public void Receive (Ray value, Input _input) {
 			if (_input.InputId == 0)
 				Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 
@@ -54,8 +55,9 @@ namespace Constellation.UI {
 			}
 
 			if (_input.isWarm) {
-				sliderValue = new Variable (slider.value);
-				sender.Send (sliderValue, 0);
+				sliderValue = new Ray (slider.value);
+				sender.Send(new Ray().Set(slider), 0);
+				sender.Send (sliderValue, 1);
 			}
 		}
 	}

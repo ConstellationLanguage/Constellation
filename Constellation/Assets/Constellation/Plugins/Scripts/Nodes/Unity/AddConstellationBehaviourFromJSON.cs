@@ -9,14 +9,14 @@ namespace Constellation.Unity
         public const string NAME = "AddConstellationBehaviourFromJSON";
         private ISender sender;
         private GameObject gameObject;
-        private Variable GameObject;
+        private Ray GameObject;
 
         public void Setup(INodeParameters _node)
         {
             sender = _node.GetSender();
             _node.AddInput(this, false, "Object", "Constellation JSON");
             _node.AddInput(this, false, "Const JSON");
-            GameObject = new Variable().Set(null as object);
+            GameObject = new Ray().Set(null as object);
         }
 
         public string NodeName()
@@ -29,7 +29,7 @@ namespace Constellation.Unity
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable value, Input _input)
+        public void Receive(Ray value, Input _input)
         {
             if (_input.InputId == 0)
             {

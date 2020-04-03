@@ -1,48 +1,48 @@
 ﻿[System.Serializable]
-public class Variable {
+public class Ray {
     public string stringValue;
     public const float nullValue = 0.000001f;
     public float floatValue;
 
     [System.NonSerialized]
-    private Variable[] Variables;
+    private Ray[] Variables;
     private object Object;
 
-    public Variable () { }
+    public Ray () { }
 
-    public Variable (string value) {
+    public Ray (string value) {
         Set (value);
     }
 
-    public Variable (float value) {
+    public Ray (float value) {
         Set (value);
     }
 
-    public Variable (Variable variable) {
+    public Ray (Ray variable) {
         Set (variable);
     }
 
-    public Variable (Variable[] variables) {
+    public Ray (Ray[] variables) {
         Set (variables);
     }
 
-    public Variable (object value) {
+    public Ray (object value) {
         Set (value);
     }
 
-    public Variable Set (string value) {
+    public Ray Set (string value) {
         UnsetAll ();
         stringValue = value;
         return this;
     }
 
-    public Variable Set (float value) {
+    public Ray Set (float value) {
         UnsetAll ();
         floatValue = value;
         return this;
     }
 
-    public Variable Set (Variable variable) {
+    public Ray Set (Ray variable) {
         UnsetAll ();
         if (variable.IsFloat ())
             Set (variable.GetFloat ());
@@ -56,20 +56,20 @@ public class Variable {
         return this;
     }
 
-    public Variable Set (Variable[] variables) {
+    public Ray Set (Ray[] variables) {
         UnsetAll ();
         if (variables != null)
-            Variables = new Variable[variables.Length];
+            Variables = new Ray[variables.Length];
         else 
             return this;
 
         for (var i = 0; i < variables.Length; i++) {
-            Variables[i] = new Variable (variables[i]);
+            Variables[i] = new Ray (variables[i]);
         }
         return this;
     }
 
-    public Variable Set (object _object) {
+    public Ray Set (object _object) {
         UnsetAll ();
         Object = _object;
         return this;
@@ -97,7 +97,7 @@ public class Variable {
         return null;
     }
 
-    public Variable[] GetArray () {
+    public Ray[] GetArray () {
         if (Variables == null) {
             return null;
         }
@@ -105,7 +105,7 @@ public class Variable {
         return Variables;
     }
 
-    public Variable GetArrayVariable (int index) {
+    public Ray GetArrayVariable (int index) {
         if (Variables == null)
             return this;
 

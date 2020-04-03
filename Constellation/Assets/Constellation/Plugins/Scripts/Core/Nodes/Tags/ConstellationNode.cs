@@ -1,8 +1,8 @@
-﻿namespace Constellation.Tags
+﻿namespace Constellation.ConstellationTypes
 {
-    public class Nestable : INode, IReceiver
+    public class ConstellationNode : INode, IReceiver
     {
-        public const string NAME = "Nestable";
+        public const string NAME = "ConstellationNode";
 
         public void Setup(INodeParameters _node)
         {
@@ -22,7 +22,7 @@
         }
 
         //Receive from inputs.
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
         }
     }

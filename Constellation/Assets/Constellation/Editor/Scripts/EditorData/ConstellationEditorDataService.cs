@@ -45,16 +45,15 @@ namespace ConstellationEditor
 
         public void RefreshConstellationEditorDataList()
         {
-            EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
+            SetupScriptAssembly();
             EditorData.ScriptAssembly.SetScriptAssembly();
-
         }
 
         public NodeNamespacesData[] GetAllCustomNodesNames()
         {
             var addedList = new List<NodeNamespacesData>();
             var nodes = new List<string>();
-            foreach (var constellationScript in EditorData.ScriptAssembly.constellationScripts)
+            foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationScripts)
             {
                 foreach (var node in constellationScript.GetNodes())
                 {
@@ -72,7 +71,7 @@ namespace ConstellationEditor
         public ConstellationScriptData[] GetAllNestableScriptsInProject()
         {
             var nodes = new List<ConstellationScriptData>();
-            foreach (var constellationScript in EditorData.ScriptAssembly.constellationScripts)
+            foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationScripts)
             {
                 foreach (var node in constellationScript.GetNodes())
                 {
@@ -87,27 +86,38 @@ namespace ConstellationEditor
             return nodes.ToArray();
         }
 
-        public ConstellationScript[] SearchAllScriptsInProject()
+        public ConstellationBehaviourScript[] SearchAllConstellationBehaviourScriptsInProject()
         {
-            return EditorUtils.GetAllInstances<ConstellationScript>();
+            return EditorUtils.GetAllInstances<ConstellationBehaviourScript>();
+        }
+
+        public ConstellationTutorialScript[] SearchAllConstellationTutorialScriptsInProject()
+        {
+            return EditorUtils.GetAllInstances<ConstellationTutorialScript>();
         }
 
         public ConstellationScript[] GetAllScriptsInProject()
         {
-            if (EditorData.ScriptAssembly.constellationScripts == null || EditorData.ScriptAssembly.constellationScripts.Count == 0)
+            if (EditorData.ScriptAssembly.ConstellationScripts == null || EditorData.ScriptAssembly.ConstellationScripts.Count == 0)
             {
-                EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
+                SetupScriptAssembly();
             }
-            return EditorData.ScriptAssembly.constellationScripts.ToArray();
+            return EditorData.ScriptAssembly.ConstellationScripts.ToArray();
         }
 
         public ConstellationScriptData[] GetAllScriptDataInProject()
         {
-            if (EditorData.ScriptAssembly.constellationScripts == null || EditorData.ScriptAssembly.constellationScripts.Count == 0)
+            if (EditorData.ScriptAssembly.ConstellationScripts == null || EditorData.ScriptAssembly.ConstellationScripts.Count == 0)
             {
-                EditorData.ScriptAssembly.constellationScripts = new List<ConstellationScript>(SearchAllScriptsInProject());
+                SetupScriptAssembly();
             }
             return EditorData.ScriptAssembly.GetAllScriptData();
+        }
+
+        public void SetupScriptAssembly()
+        {
+            EditorData.ScriptAssembly.ConstellationScripts = new List<ConstellationBehaviourScript>(SearchAllConstellationBehaviourScriptsInProject());
+            EditorData.ScriptAssembly.ConstellationTutorials = new List<ConstellationTutorialScript>(SearchAllConstellationTutorialScriptsInProject());
         }
 
         public void SetAllScriptsDirty()
@@ -164,9 +174,9 @@ namespace ConstellationEditor
             return EditorData;
         }
 
-        public void OpenConstellationInstance(Constellation.Constellation constellation, string instanceSourcePath)
+        public void OpenConstellationInstance<T> (Constellation.Constellation constellation, string instanceSourcePath) where T : ConstellationScript
         {
-            var constellationScript = ScriptableObject.CreateInstance<ConstellationScript>();
+            var constellationScript = ScriptableObject.CreateInstance<T>();
             constellationScript.IsInstance = true;
             var path = "Assets/Constellation/Editor/EditorData/Temp/" + constellation.Name + "(Instance).asset";
 
@@ -200,17 +210,18 @@ namespace ConstellationEditor
             SaveEditorData();
         }
 
-        public void SaveInstance()
+        public void SaveInstance(ConstellationScriptInfos scriptInfos)
         {
-            var newScript = ScriptableObject.CreateInstance<ConstellationScript>();
+            var newScript = ScriptableObject.CreateInstance<ConstellationBehaviourScript>();
             var path = "";
-            //foreach (var instancePath in currentInstancePath)
-            //{
-            //    if (instancePath == currentPath[0])
-            //    {
-            //        path = instancePath.ScriptPath;
-            //    }
-            //}
+
+            if (scriptInfos.IsIstance)
+            {
+                path = scriptInfos.ScriptPath;
+            }else
+            {
+                return;
+            }
             if (path == "")
             {
                 path = EditorUtility.SaveFilePanel("Save Constellation", Application.dataPath, "NewConstellation" + ".asset", "asset");
@@ -249,6 +260,7 @@ namespace ConstellationEditor
                 if (script.IsIstance)
                 {
                     CloseOpenedConstellation(script);
+
                     return true;
                 }
             }
@@ -303,7 +315,7 @@ namespace ConstellationEditor
 
         public ConstellationScript New()
         {
-            Script = ScriptableObject.CreateInstance<ConstellationScript>();
+            Script = ScriptableObject.CreateInstance<ConstellationBehaviourScript>();
             var path = EditorUtility.SaveFilePanel("Save Constellation", Application.dataPath, "NewConstellation" + ".asset", "asset");
 
             if (path.StartsWith(Application.dataPath))
@@ -322,6 +334,8 @@ namespace ConstellationEditor
 
             OpenedScripts.Insert(0, new ConstellationScriptInfos(path, ConstellationScriptInfos.ConstellationScriptTag.NoTag, false));
             SaveEditorData();
+            SaveScripts();
+            RefreshConstellationEditorDataList();
             return Script;
         }
 
@@ -436,6 +450,30 @@ namespace ConstellationEditor
         {
             if (Script)
                 EditorUtility.SetDirty(Script);
+        }
+
+        public ConstellationScript ConvertCurrentConstellationToTutorial()
+        {
+            OpenedScripts[0].ScriptTag = ConstellationScriptInfos.ConstellationScriptTag.Tutorial;
+            var scriptPath = OpenedScripts[0].ScriptPath;
+            var tutorialAsset = ScriptableObject.CreateInstance<ConstellationTutorialScript>();
+            tutorialAsset.script = Script.script;
+            AssetDatabase.DeleteAsset(scriptPath);
+            AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
+            Script = tutorialAsset;
+            return Script;
+        }
+
+        public ConstellationScript ConvertToConstellationScript()
+        {
+            OpenedScripts[0].ScriptTag = ConstellationScriptInfos.ConstellationScriptTag.Tutorial;
+            var scriptPath = OpenedScripts[0].ScriptPath;
+            var tutorialAsset = ScriptableObject.CreateInstance<ConstellationBehaviourScript>();
+            tutorialAsset.script = Script.script;
+            AssetDatabase.DeleteAsset(scriptPath);
+            AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
+            Script = tutorialAsset;
+            return Script;
         }
 
         public void SaveAll()

@@ -17,6 +17,7 @@ namespace ConstellationEditor
         public ConstellationScript ConstellationScript;
         public ConstellationEditorDataService EditorData;
         private NodeView SetOnTop;
+
         //private bool isInstance;
         bool mousePressed = false;
         bool mouseButtonDown = false;

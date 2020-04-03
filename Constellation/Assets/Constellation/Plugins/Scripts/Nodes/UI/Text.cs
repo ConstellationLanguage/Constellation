@@ -24,7 +24,7 @@ namespace Constellation.UI {
 				text = body;
 		}
 
-		public void Receive (Variable value, Input _input) {
+		public void Receive (Ray value, Input _input) {
 			if (_input.InputId == 0)
                 Set(UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 			if (_input.InputId == 1)

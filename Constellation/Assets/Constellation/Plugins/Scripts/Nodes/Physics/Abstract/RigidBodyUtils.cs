@@ -35,7 +35,7 @@ namespace Constellation.Physics
             }
         }
 
-        public void Receive(Variable value, Input _input)
+        public void Receive(Ray value, Input _input)
         {
             if (_input.InputId == 1)
             {

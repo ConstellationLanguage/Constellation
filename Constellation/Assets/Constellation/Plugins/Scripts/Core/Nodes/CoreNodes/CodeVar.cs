@@ -5,24 +5,24 @@ using UnityEngine;
 namespace Constellation.CoreNodes {
     public class CodeVar : INode, IReceiver {
         private ISender Sender;
-        private Attribute VarName;
+        private Parameter VarName;
         public const string NAME = "CodeVar";
-        private Variable currentVar;
-        private Variable currentInstance;
+        private Ray currentVar;
+        private Ray currentInstance;
         private object currentReflectedVar;
         private object currentReflectedObject;
         private PropertyInfo property;
 
         public void Setup (INodeParameters _node) {
-            var newValue = new Variable ("VarName");
+            var newValue = new Ray ("VarName");
             Sender = _node.GetSender(); 
             _node.AddOutput (false, "The value");
             _node.AddInput (this, false, "Object", "Object which contains the var");
             _node.AddInput (this, false, "Set Var");
             _node.AddInput (this, true, "Push var");
-            VarName = _node.AddAttribute (newValue, Attribute.AttributeType.Word, "VarName");
-            currentVar = new Variable ();
-            currentInstance = new Variable ();
+            VarName = _node.AddAttribute (newValue, Parameter.AttributeType.Word, "VarName");
+            currentVar = new Ray ();
+            currentInstance = new Ray ();
         }
 
         public string NodeName () {
@@ -33,7 +33,7 @@ namespace Constellation.CoreNodes {
             return NameSpace.NAME;
         }
 
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             try {
                 if (_input.InputId == 0) {
                     currentReflectedVar = _value.GetObject ().GetType ().GetProperty (VarName.Value.GetString ()).GetValue (_value.GetObject (), null);
@@ -56,7 +56,7 @@ namespace Constellation.CoreNodes {
             };
         }
 
-        private void SetVarInCurrentObject (Variable variable) {
+        private void SetVarInCurrentObject (Ray variable) {
             property.SetValue (currentReflectedObject, variable.GetObject (), null);
         }
 
@@ -76,10 +76,10 @@ namespace Constellation.CoreNodes {
                         currentVar.Set (0);
                 } else if (currentReflectedVar is Vector3) {
                     var vec3 = (Vector3) currentReflectedVar;
-                    Variable[] newVar = new Variable[3];
-                    newVar[0] = new Variable ().Set (vec3.x);
-                    newVar[1] = new Variable ().Set (vec3.y);
-                    newVar[2] = new Variable ().Set (vec3.z);
+                    Ray[] newVar = new Ray[3];
+                    newVar[0] = new Ray ().Set (vec3.x);
+                    newVar[1] = new Ray ().Set (vec3.y);
+                    newVar[2] = new Ray ().Set (vec3.z);
                     currentVar.Set (newVar);
                 } else
                     currentVar.Set (currentVar);

@@ -3,8 +3,8 @@
 namespace Constellation.Components {
     public class AnimatorComponent : INode, IReceiver, IRequireGameObject {
         UnityEngine.Animator animator;
-        private Variable varName;
-        private Variable varValue;
+        private Ray varName;
+        private Ray varValue;
 
         public const string NAME = "AnimatorComponent";
 
@@ -12,8 +12,8 @@ namespace Constellation.Components {
             _nodeParameters.AddInput (this, false, "Object", "Animator object");
             _nodeParameters.AddInput (this, false, "Var name");
             _nodeParameters.AddInput (this, false, "Var value");
-            varName = new Variable ().Set ("");
-            varValue = new Variable ().Set (0);
+            varName = new Ray ().Set ("");
+            varValue = new Ray ().Set (0);
         }
 
         public string NodeName () {
@@ -30,7 +30,7 @@ namespace Constellation.Components {
                 animator = anim;
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.InputId == 0)
                 Set (UnityObjectsConvertions.ConvertToGameObject (value.GetObject ()));
 

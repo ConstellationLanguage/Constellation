@@ -56,25 +56,6 @@ MonoBehaviour:
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Guid: dc68f9a5-1d72-479d-8f6e-a6ff932c3a54
-      Name: Logarithm
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 361.5
-      YPosition: 70
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: a7ff1fe5-27d2-453a-9302-a63e7432634a
-        IsWarm: 1
-        Type: Var
-        Description: A
-      Outputs:
-      - Guid: 76ed4edf-20b0-4f90-91bd-92544f13ad99
-        IsWarm: 0
-        Type: Var
-        Description: Log(A)
-      AttributesData: []
     - Guid: 1dd8716c-9202-4acf-8b62-ad89b5469d6a
       Name: Value
       Namespace: CoreNodes
@@ -94,6 +75,25 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 99832899-26c5-48a8-ad58-f0876a54b424
+      Name: Logarithm
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 361.5
+      YPosition: 70
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: a7ff1fe5-27d2-453a-9302-a63e7432634a
+        IsWarm: 1
+        Type: Var
+        Description: A
+      Outputs:
+      - Guid: 18f6207a-f16a-4a9f-9781-b305c90d5640
+        IsWarm: 0
+        Type: Var
+        Description: Log(A)
+      AttributesData: []
     Links:
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9

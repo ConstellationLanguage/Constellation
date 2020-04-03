@@ -20,11 +20,11 @@ public class Clamp01: INode, IReceiver
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.Clamp01(_value.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.Clamp01(_value.GetFloat())), 0);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Constellation {
 			return vector3;
 		}
 
-		public static Sprite ConvertToSprite (Variable variable) {
+		public static Sprite ConvertToSprite (Ray variable) {
 			var obj = variable.GetObject ();
 			if (obj == null)
 				return null;
@@ -52,7 +52,7 @@ namespace Constellation {
 			return null;
 		}
 
-		public static Vector3 ConvertToVector3 (Variable variable) {
+		public static Vector3 ConvertToVector3 (Ray variable) {
 			var array = variable.GetArray ();
 			if (array.Length >= 3)
 				return new Vector3 (array[0].GetFloat (), array[1].GetFloat (), array[2].GetFloat ());

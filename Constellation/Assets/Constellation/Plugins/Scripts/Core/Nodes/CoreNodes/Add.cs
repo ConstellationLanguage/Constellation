@@ -4,18 +4,18 @@
     {
         public const string NAME = "Add";
 		private ISender sender;
-        private Variable [] varsToAdd;
-        private Variable result;
+        private Ray [] varsToAdd;
+        private Ray result;
         public void Setup(INodeParameters _node)
         {
             _node.AddInput(this, false, "value 1");
 			_node.AddInput(this, true, "value 2");
             sender = _node.GetSender();
             _node.AddOutput(false, "value 1 + value 2");
-            varsToAdd = new Variable[2];
-            varsToAdd[0] = new Variable().Set(0);
-            varsToAdd[1] = new Variable().Set(0);
-            result = new Variable().Set(0);
+            varsToAdd = new Ray[2];
+            varsToAdd[0] = new Ray().Set(0);
+            varsToAdd[1] = new Ray().Set(0);
+            result = new Ray().Set(0);
         }
 
         public string NodeName() 
@@ -28,7 +28,7 @@
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             if(_value.IsFloat())
                 varsToAdd[_input.InputId].Set(_value.GetFloat());

@@ -4,8 +4,8 @@ namespace Constellation.Math {
 public class Clamp: INode, IReceiver
     {
 		private ISender sender;
-		private Variable startValue;
-		private Variable endValue;
+		private Ray startValue;
+		private Ray endValue;
         public const string NAME = "Clamp";
         public void Setup(INodeParameters _node)
         {
@@ -14,8 +14,8 @@ public class Clamp: INode, IReceiver
 			_node.AddInput(this, true, "t");
             sender = _node.GetSender();
             _node.AddOutput(false, "Clamps a value between a minimum value and maximum value");
-			startValue = new Variable().Set(0);
-			endValue = new Variable().Set(0);
+			startValue = new Ray().Set(0);
+			endValue = new Ray().Set(0);
         }
 
         public string NodeName () {
@@ -26,7 +26,7 @@ public class Clamp: INode, IReceiver
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
 			if(_input.InputId == 0)
 				startValue.Set(_value.GetFloat());
@@ -34,7 +34,7 @@ public class Clamp: INode, IReceiver
 				endValue.Set(_value.GetFloat());
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.Clamp(_value.GetFloat(), startValue.GetFloat(), endValue.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.Clamp(_value.GetFloat(), startValue.GetFloat(), endValue.GetFloat())), 0);
         }
     }
 }

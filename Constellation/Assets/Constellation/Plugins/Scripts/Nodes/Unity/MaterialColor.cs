@@ -31,7 +31,7 @@ namespace Constellation.Unity {
 
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
 
             if (_input.InputId == 0) {
                 var gameObject = UnityObjectsConvertions.ConvertToGameObject (value.GetObject ());

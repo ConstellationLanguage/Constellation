@@ -4,16 +4,16 @@ namespace Constellation.Unity
     {
 		public const string NAME = "KeyDown";
         public Transform transform;
-		private Attribute key;
+		private Parameter key;
 		private ISender sender;
-		private Variable keyState;
+		private Ray keyState;
         public void Setup(INodeParameters _nodeParameters)
         {
-			var newValue = new Variable();
+			var newValue = new Ray();
 			sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(true, "1 on key down else 0");
-			key = _nodeParameters.AddAttribute(newValue, Attribute.AttributeType.Word, "Key code");
-			keyState = new Variable().Set(0);
+			key = _nodeParameters.AddAttribute(newValue, Parameter.AttributeType.Word, "Key code");
+			keyState = new Ray().Set(0);
         }
 
         public string NodeName () {
@@ -33,7 +33,7 @@ namespace Constellation.Unity
 			}
 		}
 
-        public void Receive(Variable value, Input _input)
+        public void Receive(Ray value, Input _input)
         {
         }
     }

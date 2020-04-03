@@ -5,7 +5,7 @@
         public const string NAME = "Note";
         public void Setup(INodeParameters _node)
         {
-            _node.AddAttribute(new Variable().Set("Your note here"), Attribute.AttributeType.NoteField, "");
+            _node.AddAttribute(new Ray().Set("Your note here"), Parameter.AttributeType.NoteField, "");
         }
 
         public string NodeName()
@@ -19,7 +19,7 @@
         }
 
         
-		public void Receive(Variable _value, Input _input)
+		public void Receive(Ray _value, Input _input)
 		{
 
 		}

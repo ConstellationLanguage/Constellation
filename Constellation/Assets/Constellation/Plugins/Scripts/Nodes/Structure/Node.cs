@@ -5,7 +5,7 @@ namespace Constellation {
 		public T NodeType;
 		public List<Input> Inputs;
 		public List<Output> Outputs;
-		public List<Attribute> Attributes;
+		public List<Parameter> Attributes;
 		public IReceiver Receiver;
 		public float XPosition = 0;
 		public float YPosition = 0;
@@ -48,9 +48,9 @@ namespace Constellation {
 		/// <summary>
 		///Return the attributes of the node
 		/// </summary>
-		public Attribute[] GetAttributes () {
+		public Parameter[] GetAttributes () {
 			if (Attributes == null)
-				Attributes = new List<Attribute> ();
+				Attributes = new List<Parameter> ();
 
 			return Attributes.ToArray ();
 		}
@@ -62,22 +62,22 @@ namespace Constellation {
 		/// <param name="value">the default value of the attribute</param>  
 		/// <param name="type">The attribute type displayed in editor</param>
 		/// <param name="description">Description of the attribute (Not implemented)</param>
-		public Attribute AddAttribute (Variable value, Attribute.AttributeType type, string description) {
+		public Parameter AddAttribute (Ray value, Parameter.AttributeType type, string description) {
 			if (Attributes == null)
-				Attributes = new List<Attribute> ();
+				Attributes = new List<Parameter> ();
 
-			var newAttribute = new Attribute (type);
+			var newAttribute = new Parameter (type);
 			newAttribute.Value = value;
 			Attributes.Add (newAttribute);
 			return newAttribute;
 		}
 
-        public Attribute AddAttribute(Variable value, Attribute.AttributeType type, string description, Attribute.OnAttributeChanged onAttributeChanged)
+        public Parameter AddAttribute(Ray value, Parameter.AttributeType type, string description, Parameter.OnAttributeChanged onAttributeChanged)
         {
             if (Attributes == null)
-                Attributes = new List<Attribute>();
+                Attributes = new List<Parameter>();
 
-            var newAttribute = new Attribute(type);
+            var newAttribute = new Parameter(type);
             newAttribute.Value = value;
             Attributes.Add(newAttribute);
             return newAttribute;
@@ -150,7 +150,7 @@ namespace Constellation {
 		/// <summary>
 		/// Use this function if you want to log a variable from your node.
 		/// </summary>
-		public void Log (Variable value) {
+		public void Log (Ray value) {
 			Debug.Log (value.GetString ());
 		}
 
@@ -164,7 +164,7 @@ namespace Constellation {
 			Receiver = null;
 		}
 
-		public virtual void Receive (Variable value, Input _input) {
+		public virtual void Receive (Ray value, Input _input) {
             if(Receiver == null)
             {
                 Receiver = NodeType as IReceiver;
@@ -172,11 +172,11 @@ namespace Constellation {
 			Receiver.Receive (value, _input);
 		}
 
-		public virtual void Send (Variable value, Output _output) {
+		public virtual void Send (Ray value, Output _output) {
 			_output.Send (value);
 		}
 
-		public virtual void Send (Variable value, int _output) {
+		public virtual void Send (Ray value, int _output) {
 			Outputs[_output].Send (value);
 		}
     }

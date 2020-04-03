@@ -4,24 +4,24 @@ namespace Constellation.CoreNodes {
     public class Condition : INode, IReceiver, IAttributeUpdate {
         private ISender sender;
         
-        private Variable var1;
-        private Variable var2;
-        private Variable var3;
+        private Ray var1;
+        private Ray var2;
+        private Ray var3;
 
-        private Attribute conditionAttribute;
-        private Attribute thenAttribute;
-        private Attribute elseAttribute;
+        private Parameter conditionAttribute;
+        private Parameter thenAttribute;
+        private Parameter elseAttribute;
         private ConditionParser conditon;
         public const string NAME = "Condition";
 
         public void Setup (INodeParameters _node) {
-            var ifValue = new Variable ();
+            var ifValue = new Ray ();
             ifValue.Set("$1==$2");
            
-            var thenValue = new Variable ();
+            var thenValue = new Ray ();
             thenValue.Set("$1");
 
-            var elseValue = new Variable();
+            var elseValue = new Ray();
             elseValue.Set("$2");
 
             _node.AddInput (this, false, "$1");
@@ -32,12 +32,12 @@ namespace Constellation.CoreNodes {
             _node.AddOutput(false, "else");
             _node.AddOutput(false, "any");
 
-            conditionAttribute = _node.AddAttribute (ifValue, Attribute.AttributeType.Conditionals, "ex: $1>$2");
-            thenAttribute = _node.AddAttribute (thenValue, Attribute.AttributeType.Then, "ex: $2");
-            elseAttribute = _node.AddAttribute (elseValue, Attribute.AttributeType.Else, "ex: $3");
-            var1 = new Variable();
-            var2 = new Variable();
-            var3 = new Variable();
+            conditionAttribute = _node.AddAttribute (ifValue, Parameter.AttributeType.Conditionals, "ex: $1>$2");
+            thenAttribute = _node.AddAttribute (thenValue, Parameter.AttributeType.Then, "ex: $2");
+            elseAttribute = _node.AddAttribute (elseValue, Parameter.AttributeType.Else, "ex: $3");
+            var1 = new Ray();
+            var2 = new Ray();
+            var3 = new Ray();
         } 
 
         public void OnAttributesUpdate() {
@@ -56,7 +56,7 @@ namespace Constellation.CoreNodes {
             conditon = new ConditionParser(conditionAttribute.Value.GetString (), thenAttribute.Value.GetString(), elseAttribute.Value.GetString(), var1, var2, var3);
         }
 
-        public void Receive (Variable _value, Input _input) {
+        public void Receive (Ray _value, Input _input) {
             if(conditon == null)
                 Set();
 

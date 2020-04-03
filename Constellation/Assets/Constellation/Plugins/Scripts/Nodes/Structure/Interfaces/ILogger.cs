@@ -2,6 +2,6 @@ namespace Constellation
 {
     public interface ILogger
     {
-        void Log(global::Variable Value);
+        void Log(global::Ray Value);
     }
 }

@@ -1,7 +1,7 @@
 namespace Constellation {
 
     [System.Serializable]
-    public class Attribute {
+    public class Parameter {
         public delegate void OnAttributeChanged();
 
         public enum AttributeType {
@@ -15,11 +15,11 @@ namespace Constellation {
             RenameNodeTitle
         };
 
-        public Variable Value;
+        public Ray Value;
         public AttributeType Type;
 
-        public Attribute (AttributeType _type) {
-            Value = new Variable ();
+        public Parameter (AttributeType _type) {
+            Value = new Ray ();
             Value.Set (0);
             Type = _type;
         }

@@ -26,8 +26,8 @@ namespace Constellation.Unity {
                 case FindByName.NAME:
                     INode nodeFindByName = new FindByName () as INode;
                     return new Node<INode> (nodeFindByName);
-                case ObjectAttribute.NAME:
-                    INode nodeObjectAttribute = new ObjectAttribute () as INode;
+                case ObjectParameter.NAME:
+                    INode nodeObjectAttribute = new ObjectParameter () as INode;
                     return new Node<INode> (nodeObjectAttribute);
                 case SplitVec3.NAME:
                     INode nodeSplitVec3 = new SplitVec3 () as INode;

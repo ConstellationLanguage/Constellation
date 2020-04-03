@@ -18,7 +18,7 @@ namespace Constellation.Unity
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(_value.GetString(), UnityEngine.SceneManagement.LoadSceneMode.Single);
         }

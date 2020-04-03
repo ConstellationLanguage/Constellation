@@ -1,5 +1,5 @@
 namespace Constellation {
     public interface ITeleportIn {
-        void OnTeleport (Variable var, string id);
+        void OnTeleport (Ray var, string id);
     }
 }

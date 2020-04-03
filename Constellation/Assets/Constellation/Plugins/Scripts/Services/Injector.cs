@@ -302,7 +302,7 @@ namespace Constellation
             }
         }
 
-        public void OnTeleport(Variable
+        public void OnTeleport(Ray
             var, string id)
         {
             foreach (var teleport in teleportsIn)

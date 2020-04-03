@@ -2,7 +2,7 @@
 {
 	public interface ISender
 	{
-		void Send (Variable value, Output _output);
-		void Send(Variable value, int _output);
+		void Send (Ray value, Output _output);
+		void Send(Ray value, int _output);
 	}
 }

@@ -26,12 +26,12 @@ namespace Constellation.Unity {
 			GameObject = _gameObject;
 		}
 
-		public void Receive (Variable _value, Input _input) { 
+		public void Receive (Ray _value, Input _input) { 
 			if(_input.isWarm){
 				if(GameObject.activeSelf == true)
-					sender.Send(new Variable(1), 0);
+					sender.Send(new Ray(1), 0);
 				else
-					sender.Send(new Variable(0), 0);
+					sender.Send(new Ray(0), 0);
 			}
 
 			if(_input.InputId == 0)

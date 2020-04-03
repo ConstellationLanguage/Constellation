@@ -2,7 +2,7 @@ namespace Constellation.Unity {
     public class FindByName : INode, IReceiver, IAwakable {
         public const string NAME = "FindByName";
         private ISender sender;
-        public Variable GameObject;
+        public Ray GameObject;
 
         public void Setup (INodeParameters _nodeParameters) {
             sender = _nodeParameters.GetSender ();
@@ -22,9 +22,9 @@ namespace Constellation.Unity {
 
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (_input.isWarm){
-                GameObject = new Variable ().Set (UnityEngine.GameObject.Find (value.GetString ()));
+                GameObject = new Ray ().Set (UnityEngine.GameObject.Find (value.GetString ()));
                 sender.Send (GameObject, 0);
             }
         }

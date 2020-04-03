@@ -3,12 +3,12 @@
 	public class LateUpdate : INode, ILateUpdatable {
 		public const string NAME = "LateUpdate";
 		private ISender sender;
-		private Variable value;
+		private Ray value;
 
 		public void Setup (INodeParameters _node) {
 			sender = _node.GetSender();
 			_node.AddOutput (true, "Ray", "Ray on lateUpdate");
-			value = new Variable ();
+			value = new Ray ();
 			value.Set ("Ray");
 		}
 
@@ -20,7 +20,7 @@
             return NameSpace.NAME;
         }
 
-		public void Receive (Variable _value, Input _input) {
+		public void Receive (Ray _value, Input _input) {
 
 		}
 

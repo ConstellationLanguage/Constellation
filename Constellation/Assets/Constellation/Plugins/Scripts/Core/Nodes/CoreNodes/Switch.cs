@@ -1,7 +1,7 @@
 namespace Constellation.CoreNodes {
     public class Switch : INode, IReceiver, IGenericNode
     {
-        private Variable switchValue;
+        private Ray switchValue;
         private ISender sender;
         public const string NAME = "Switch";
         public void Setup (INodeParameters nodeParameters) {
@@ -9,7 +9,7 @@ namespace Constellation.CoreNodes {
             nodeParameters.AddInput (this, true, "Any", "Value to send");
             sender = nodeParameters.GetSender();
             nodeParameters.AddOutput (false, "Any", "Output if on");
-            switchValue = new Variable (0);
+            switchValue = new Ray (0);
         }
 
         public string NodeName () {
@@ -20,7 +20,7 @@ namespace Constellation.CoreNodes {
             return NameSpace.NAME;
         }
 
-        public void Receive (Variable value, Input _input) {
+        public void Receive (Ray value, Input _input) {
             if (switchValue.GetFloat () == 1 && _input.isWarm)
                 sender.Send (value, 0);
             else if (!_input.isWarm)

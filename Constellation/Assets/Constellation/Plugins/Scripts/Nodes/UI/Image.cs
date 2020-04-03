@@ -6,7 +6,7 @@ namespace Constellation.UI
     {
         UnityEngine.UI.Image image;
         public const string NAME = "Image";
-        private Variable ColorVar;
+        private Ray ColorVar;
         ISender sender;
 
         public void Setup(INodeParameters _nodeParameters)
@@ -18,12 +18,12 @@ namespace Constellation.UI
             _nodeParameters.AddInput(this, false, "Color", "Image tint");
             _nodeParameters.AddInput(this, true, "Any", "Get imageValues");
 
-            Variable[] newColorVar = new Variable[4];
-            newColorVar[0] = new Variable().Set(0);
-            newColorVar[1] = new Variable().Set(0);
-            newColorVar[2] = new Variable().Set(0);
-            newColorVar[3] = new Variable().Set(0);
-            ColorVar = new Variable().Set(newColorVar);
+            Ray[] newColorVar = new Ray[4];
+            newColorVar[0] = new Ray().Set(0);
+            newColorVar[1] = new Ray().Set(0);
+            newColorVar[2] = new Ray().Set(0);
+            newColorVar[3] = new Ray().Set(0);
+            ColorVar = new Ray().Set(newColorVar);
 
             _nodeParameters.AddOutput(false, "Object", "Sprite");
             _nodeParameters.AddOutput(false, "Color", "Image tint");
@@ -53,7 +53,7 @@ namespace Constellation.UI
             }
         }
 
-        public void Receive(Variable value, Input _input)
+        public void Receive(Ray value, Input _input)
         {
             if (_input.InputId == 0)
             {
@@ -75,13 +75,13 @@ namespace Constellation.UI
             }
             else if (_input.isWarm && image != null)
             {
-                Variable[] newVar = new Variable[4];
-                newVar[0] = new Variable().Set(image.color.r);
-                newVar[1] = new Variable().Set(image.color.g);
-                newVar[2] = new Variable().Set(image.color.b);
-                newVar[3] = new Variable().Set(image.color.a);
-                sender.Send(new Variable().Set(image.sprite), 0);
-                sender.Send(new Variable().Set(new Variable().Set(newVar)), 1);
+                Ray[] newVar = new Ray[4];
+                newVar[0] = new Ray().Set(image.color.r);
+                newVar[1] = new Ray().Set(image.color.g);
+                newVar[2] = new Ray().Set(image.color.b);
+                newVar[3] = new Ray().Set(image.color.a);
+                sender.Send(new Ray().Set(image.sprite), 0);
+                sender.Send(new Ray().Set(new Ray().Set(newVar)), 1);
             }
         }
     }

@@ -3,14 +3,14 @@
 namespace Constellation.Unity {
 	public class PlayerPreferences : INode, IReceiver {
 		public const string NAME = "PlayerPreferences";
-		public Variable keyName;
-		public Variable savedData;
-		public Variable keyValue;
+		public Ray keyName;
+		public Ray savedData;
+		public Ray keyValue;
 		private ISender sender;
 		public void Setup (INodeParameters _node) {
-			keyName = new Variable ("");
-			keyValue = new Variable ("");
-			savedData = new Variable ("");
+			keyName = new Ray ("");
+			keyValue = new Ray ("");
+			savedData = new Ray ("");
 			_node.AddInput (this, false, "key Name");
 			_node.AddInput (this, false, "key Data");
 			_node.AddInput (this, false, "Save data");
@@ -28,7 +28,7 @@ namespace Constellation.Unity {
 			return NameSpace.NAME;
 		}
 
-		public void Receive (Variable value, Input _input) {
+		public void Receive (Ray value, Input _input) {
 			if (_input.InputId == 0) {
 				keyName.Set (value.GetString ());
 			}

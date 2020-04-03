@@ -4,12 +4,12 @@ namespace Constellation.Math {
 public class SquareRoot: INode, IReceiver
     {
 		private ISender sender;
-		private Variable VarX;
+		private Ray VarX;
         public const string NAME = "SquareRoot";
         public void Setup(INodeParameters _node)
         {
 			_node.AddInput(this, true, "X");
-			VarX = new Variable(0);
+			VarX = new Ray(0);
             sender = _node.GetSender();
             _node.AddOutput(false, "Square Root of X");
         }
@@ -22,13 +22,13 @@ public class SquareRoot: INode, IReceiver
             return NameSpace.NAME;
         }
 
-        public void Receive(Variable _value, Input _input)
+        public void Receive(Ray _value, Input _input)
         {
 			if(_input.InputId == 0)
 				VarX.Set(_value.GetFloat());
 
             if (_input.isWarm)
-                sender.Send(new Variable().Set(Mathf.Sqrt(VarX.GetFloat())), 0);
+                sender.Send(new Ray().Set(Mathf.Sqrt(VarX.GetFloat())), 0);
         }
     }
 }
