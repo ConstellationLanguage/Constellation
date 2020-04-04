@@ -14,6 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Guid: d53666cc-b070-4ac7-9d21-38beea88e1a6
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Guid: 84222354-3e67-42b7-bdb9-4e8f05d1f331
       Name: Note
       Namespace: CoreNodes
@@ -287,17 +298,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 1
         Type: 0
-    - Guid: d53666cc-b070-4ac7-9d21-38beea88e1a6
-      Name: Tutorial
-      Namespace: ConstellationTypes
-      OverrideDisplayedName: 
-      XPosition: 295
-      YPosition: 220
-      SizeX: 75
-      SizeY: 30
-      Inputs: []
-      Outputs: []
-      AttributesData: []
     Links:
     - Input:
         Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
@@ -410,4 +410,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: PerlinNoise
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: be5912ac-6ff3-4410-ae58-52282313940a
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 55
+      SizeX: 178
+      SizeY: 53
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,52 +40,14 @@ MonoBehaviour:
           stringValue: Generate 2D Perlin noise.
           floatValue: 0.000001
         Type: 2
-    - Guid: b577f475-c277-4f74-8503-089a0e5d7a90
-      Name: PerlinNoise
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 388.5
-      YPosition: 109
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 7b0bcb94-7b15-482a-a795-a5d3bdf1b5e9
-        IsWarm: 0
-        Type: Var
-        Description: X
-      - Guid: 4af64899-9dce-43e3-8297-66f19bfcc327
-        IsWarm: 1
-        Type: Var
-        Description: Y
-      Outputs:
-      - Guid: fb0dd903-e861-431a-bf61-82b4845cb14d
-        IsWarm: 0
-        Type: Var
-        Description: Next power of two
-      AttributesData: []
-    - Guid: 8e4c80c8-e731-4642-8be5-988dcd54b14f
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: 3ac5eb14-b54c-4ab8-b53f-ba426fbf7b28
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 135
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -97,14 +59,52 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 8e4c80c8-e731-4642-8be5-988dcd54b14f
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 345
+      YPosition: 135
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Guid: e7c8c493-1245-4a3c-9c7d-b86000680c56
+      Name: PerlinNoise
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 180
+      YPosition: 135
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: fc4ceb6f-cfeb-40bf-998f-d7408986f5fb
+        IsBright: 0
+        Type: Var
+        Description: X
+      - Guid: a413a0db-3776-40c4-8d48-e1bdf43de8c7
+        IsBright: 1
+        Type: Var
+        Description: Y
+      Outputs:
+      - Guid: cb83f3de-3853-453e-9e4f-8b050f01735e
+        IsWarm: 0
+        Type: Var
+        Description: Next power of two
+      AttributesData: []
     - Guid: 2680036d-3de9-4c7e-a043-75f14eff6124
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 230.5
-      YPosition: 160
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 185
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
@@ -118,42 +118,42 @@ MonoBehaviour:
         Type: 0
     Links:
     - Input:
-        Guid: 7b0bcb94-7b15-482a-a795-a5d3bdf1b5e9
-        IsWarm: 0
-        Type: 
+        Guid: fc4ceb6f-cfeb-40bf-998f-d7408986f5fb
+        IsBright: 0
+        Type: Var
         Description: X
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 139
-      GUID: 
+      outputPositionY: 0
+      GUID: cb4583b0-d164-4c41-aba4-4c746e9b3bba
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
-        Guid: fb0dd903-e861-431a-bf61-82b4845cb14d
+        Guid: cb83f3de-3853-453e-9e4f-8b050f01735e
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Next power of two
-      outputPositionY: 141
-      GUID: 
+      outputPositionY: 0
+      GUID: 87b95570-6b40-4004-b411-513255d22c5a
     - Input:
-        Guid: 4af64899-9dce-43e3-8297-66f19bfcc327
-        IsWarm: 1
-        Type: 
+        Guid: a413a0db-3776-40c4-8d48-e1bdf43de8c7
+        IsBright: 1
+        Type: Var
         Description: Y
       Output:
         Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 159
-      GUID: 
+      outputPositionY: 0
+      GUID: 4cae788a-9a20-48d0-8a00-b5b6d32bd7c6
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

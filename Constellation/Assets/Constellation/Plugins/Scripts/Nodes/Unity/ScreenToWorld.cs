@@ -17,9 +17,9 @@ namespace Constellation.Unity {
             _nodeParameters.AddInput (this, false, "Position X");
             _nodeParameters.AddInput (this, false, "Position Y");
             _nodeParameters.AddInput (this, false, "Distance");
-            _nodeParameters.AddInput (this, true, "Calculate");
+            _nodeParameters.AddInput (this, true, "Any", "Calculate");
             sender = _nodeParameters.GetSender();
-            _nodeParameters.AddOutput (false, "The hit position");
+            _nodeParameters.AddOutput (false,"Vec3", "The hit position");
 
             valueX = new Ray ().Set (0);
             valueY = new Ray ().Set (0);

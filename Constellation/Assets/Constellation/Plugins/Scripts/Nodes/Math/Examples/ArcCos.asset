@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: ArcCos
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: c8ba2fcf-d36f-4bbf-939e-f6855409a2cf
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 5
+      YPosition: 5
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 225
+      YPosition: 20
+      SizeX: 428
+      SizeY: 82
       Inputs: []
       Outputs: []
       AttributesData:
@@ -49,10 +49,10 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 225
+      YPosition: 110
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -64,66 +64,66 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 823d5130-069b-457e-9c4c-31a96cb94a7f
+      Name: ArcCos
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 395
+      YPosition: 110
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 0919e607-fa48-498c-885a-38c9a4547903
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 67863753-d558-48c1-952d-1fb1e724e8bb
+        IsWarm: 0
+        Type: Var
+        Description: arc-cosine of a
+      AttributesData: []
     - Guid: 6ade2cf1-b2ea-4ae3-aa05-2c106167ea7e
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 113
-      SizeX: 0
-      SizeY: 0
+      XPosition: 550
+      YPosition: 110
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
+        IsBright: 0
         Type: Any
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Guid: 02fcbabf-d0ae-4a88-bd36-5c5b3232589e
-      Name: ArcCos
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 397.5
-      YPosition: 113
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 5c49388e-d807-44c3-b9eb-c445c1605962
-        IsWarm: 1
-        Type: Var
-        Description: a
-      Outputs:
-      - Guid: 4237b103-57b5-4bb8-89e5-8a153ac146ea
-        IsWarm: 0
-        Type: Var
-        Description: arc-cosine of a
-      AttributesData: []
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 4237b103-57b5-4bb8-89e5-8a153ac146ea
-        IsWarm: 0
-        Type: 
-        Description: arc-cosine of a
-      outputPositionY: 143
-      GUID: 
-    - Input:
-        Guid: 5c49388e-d807-44c3-b9eb-c445c1605962
-        IsWarm: 1
-        Type: 
+        Guid: 0919e607-fa48-498c-885a-38c9a4547903
+        IsBright: 1
+        Type: Var
         Description: a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 143
-      GUID: 
+      outputPositionY: 0
+      GUID: b3634e9b-9805-4665-9343-44da9175b9a8
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 67863753-d558-48c1-952d-1fb1e724e8bb
+        IsWarm: 0
+        Type: Var
+        Description: arc-cosine of a
+      outputPositionY: 0
+      GUID: 6d43eb30-a81b-4112-9abd-1751665aac2b
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

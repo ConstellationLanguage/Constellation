@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Absolute
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: fbd28c37-f294-4a0e-9342-7d98eb1f9b1a
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 10
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 15
+      YPosition: 55
+      SizeX: 213
+      SizeY: 79
       Inputs: []
       Outputs: []
       AttributesData:
@@ -49,25 +49,44 @@ MonoBehaviour:
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
+      XPosition: 340
+      YPosition: 145
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
+        IsBright: 0
         Type: Any
         Description: value to log in console
       Outputs: []
+      AttributesData: []
+    - Guid: bd45d5a8-c9cf-4230-97ab-be1b67612dc7
+      Name: Absolute
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 185
+      YPosition: 145
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: e8849df3-1a52-4e42-83f5-4f0066df36f1
+        IsBright: 1
+        Type: Var
+        Description: Value abs
+      Outputs:
+      - Guid: ae259d60-d64b-4664-9adc-f9740fda4c58
+        IsWarm: 0
+        Type: Var
+        Description: Absolute value
       AttributesData: []
     - Guid: 5c457890-1405-45c0-a8ca-16c6ce71d586
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 15
+      YPosition: 145
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -79,51 +98,32 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 0936e955-38c1-4fb9-9595-30c75339fe84
-      Name: Absolute
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 418.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 279fce41-9ee3-427c-bec7-0dc9c752847a
-        IsWarm: 1
-        Type: Var
-        Description: Value abs
-      Outputs:
-      - Guid: 9ce8f48a-b3e8-4e67-8bc9-a8b4db97e4cb
-        IsWarm: 0
-        Type: Var
-        Description: Absolute value
-      AttributesData: []
     Links:
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
-        Guid: 9ce8f48a-b3e8-4e67-8bc9-a8b4db97e4cb
+        Guid: ae259d60-d64b-4664-9adc-f9740fda4c58
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Absolute value
-      outputPositionY: 141
-      GUID: 
+      outputPositionY: 0
+      GUID: 5715943f-cf85-4bc5-b0d6-76c793cc6a35
     - Input:
-        Guid: 92d84c5f-e1b9-4822-8034-a6dc7a1035e0
-        IsWarm: 1
-        Type: 
+        Guid: e8849df3-1a52-4e42-83f5-4f0066df36f1
+        IsBright: 1
+        Type: Var
         Description: Value abs
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 141
-      GUID: 
+      outputPositionY: 0
+      GUID: 3d8f696c-c33b-40c9-9fbd-6f8f0985bf44
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

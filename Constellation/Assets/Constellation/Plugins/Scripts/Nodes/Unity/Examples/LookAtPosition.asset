@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: LookAtPosition
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: 1552de80-5eb5-422e-b76d-683043c7d485
+    - Guid: f2c4c3eb-2a65-4633-8b1f-924573ec26c6
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 2.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 0
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,163 +29,125 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 203.5
-      YPosition: 38
-      SizeX: 0
-      SizeY: 0
+      XPosition: 200
+      YPosition: 35
+      SizeX: 185
+      SizeY: 48
       Inputs: []
       Outputs: []
       AttributesData:
       - Value:
-          stringValue: Delta time between frames
+          stringValue: Look at postion
           floatValue: 0.000001
         Type: 2
-    - Guid: 5d8bdfa1-5eae-4abc-b2dd-4a906503726a
+    - Guid: 5131d7ff-e2f6-427e-970c-278ca67429ed
       Name: Transform
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 224.5
-      YPosition: 187.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 230
+      YPosition: 195
+      SizeX: 75
+      SizeY: 120
       Inputs:
-      - Guid: b4c29a43-668d-4208-9c44-56e8ce191f3a
-        IsWarm: 0
+      - Guid: fc2a2d27-ef6e-46dd-a682-5a0f3d5fcb4a
+        IsBright: 0
         Type: Object
         Description: Transform object
-      - Guid: 561339f5-c198-4fda-9abc-141b0f8812a4
-        IsWarm: 0
+      - Guid: ab79f031-6b3b-4234-b0f3-fd6f2ff8daea
+        IsBright: 0
         Type: Vec3
         Description: Vec3 position
-      - Guid: d4e05982-5cef-458e-bef6-dbacc1f8610d
-        IsWarm: 0
+      - Guid: 9897b1c9-8da1-480a-9cee-09b0c994e476
+        IsBright: 0
         Type: Vec3
         Description: Vec3 rotation
-      - Guid: ed1eba78-4bee-4fee-b0ce-24cddd6a197f
-        IsWarm: 0
+      - Guid: 286f6327-345e-4834-be55-1cd210766688
+        IsBright: 0
         Type: Vec3
         Description: Vec3 scale
-      - Guid: d0ade951-1dd4-4620-89dd-ae0520a971d1
-        IsWarm: 1
+      - Guid: 84fe57bc-3a94-4ca3-b9bb-dd74146d7688
+        IsBright: 1
         Type: Any
         Description: Send
       Outputs:
-      - Guid: a9b37d48-2934-46a5-8eec-0d5f3cd5f2f8
+      - Guid: 61ce132f-e141-4d0d-8b98-cd126e7a224c
         IsWarm: 0
         Type: Vec3
         Description: Vec3 position
-      - Guid: f50d36a0-d8dc-4d64-98eb-0b170bccc2cf
+      - Guid: 88ecc535-629e-4752-8018-7dffba1c4051
         IsWarm: 0
         Type: Vec3
         Description: Vec3 rotation
-      - Guid: 1a11d265-3ea2-489d-a4cc-9e7ec1c2a16e
+      - Guid: 0f59eccb-ee84-4755-b6b0-660569877f1b
         IsWarm: 0
         Type: Vec3
         Description: Vec3 scale
-      - Guid: 879a5024-c953-4356-804e-278bb18c595d
+      - Guid: e1af93d0-129e-4d6c-a0f4-2e40fa7ef2c2
         IsWarm: 0
         Type: Object
         Description: Transform
       AttributesData: []
-    - Guid: 40bb9e35-9674-42df-a034-49991021330e
-      Name: TeleportIn
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 40.5
-      YPosition: 206.5
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: cd60196b-5c7d-4718-8a81-84161e1bc1c1
-        IsWarm: 0
-        Type: Var
-        Description: Value received in the teleport
-      AttributesData:
-      - Value:
-          stringValue: event name
-          floatValue: 0.000001
-        Type: 1
-    - Guid: d93a2f43-0bb3-4330-8fe2-25639f0a5bf5
-      Name: TeleportOut
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 572.5
-      YPosition: 248.5
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: a07a7584-4ce3-474c-8540-c697140083f4
-        IsWarm: 1
-        Type: Var
-        Description: value to teleport
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: event name
-          floatValue: 0.000001
-        Type: 1
-    - Guid: d40449b9-aed2-4dde-b12e-bb618c04a4d9
+    - Guid: 69352f2d-577a-4b26-b0d3-2d7ef5acd3bd
       Name: LookAtPosition
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 396.5
-      YPosition: 248.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 370
+      YPosition: 270
+      SizeX: 75
+      SizeY: 60
       Inputs:
-      - Guid: e1449d0e-8051-4e71-82d8-435194dd6051
-        IsWarm: 0
+      - Guid: 24c2b0fe-c619-459c-bd40-5268f2481819
+        IsBright: 0
         Type: Object
         Description: GameObject position
-      - Guid: ef457e9e-5a48-4e60-b7f4-c5a3460c300e
-        IsWarm: 1
+      - Guid: e7f67c5f-ddb3-4721-8f12-8d2dfb2169ed
+        IsBright: 1
         Type: Vec3
         Description: Position to look at
       Outputs:
-      - Guid: cf1bc3ba-f797-4122-9da0-7cccb766c674
+      - Guid: 786a61ef-706b-4e85-a6d0-cb169823bfa8
         IsWarm: 0
-        Type: Var
+        Type: Vec3
         Description: Target rotation
       AttributesData: []
-    - Guid: 47672f56-61fa-446e-9102-a500ee7fd5f5
-      Name: Word
+    - Guid: 5df78755-1e40-454d-a25d-e7a1d23f2925
+      Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 35.5
-      YPosition: 272.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 295
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
-      - Guid: cf05714c-f42c-4eab-9cc6-20c8c50d5515
+      - Guid: e75b15b9-d6f1-48db-9862-bc08a19694e2
         IsWarm: 1
         Type: Var
-        Description: The Word
+        Description: The value
       AttributesData:
       - Value:
-          stringValue: your word
-          floatValue: 0.000001
-        Type: 1
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
     - Guid: 61455459-106a-4d7f-ba59-16495c0bf9a7
       Name: Vec3
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 214.5
-      YPosition: 322.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 210
+      YPosition: 320
+      SizeX: 100
+      SizeY: 80
       Inputs:
       - Guid: 1e2b221e-1c0b-429a-9a8b-9fdf79657b3a
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: X
       - Guid: 24b1b168-cfe5-4ccc-8de4-69130aaaf134
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: Y
       - Guid: 199837df-1d00-4924-8296-6901b3b13efb
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: Z
       Outputs:
@@ -195,28 +157,28 @@ MonoBehaviour:
         Description: Vec3[X][Y][Z]
       AttributesData:
       - Value:
-          stringValue: 0
+          stringValue: X
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: 0
+          stringValue: Y
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: 0
+          stringValue: Z
           floatValue: 0.000001
         Type: 9
-    - Guid: 8b97f5ba-8dc6-428f-b2b7-ee51b2351328
+    - Guid: 44f7ba6e-313d-48cf-bf1e-5e3fb0193e9d
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 35.5
-      YPosition: 338.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 340
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
-      - Guid: 57971ac3-5c73-47ae-ae2d-a655deefc646
+      - Guid: 446540b4-af90-4f18-b59d-1ad85633d92c
         IsWarm: 1
         Type: Var
         Description: The value
@@ -225,36 +187,17 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 30d95d55-6f92-4230-ba8f-e67487a2f93c
+    - Guid: 26b86124-d09d-46a9-a538-044ddc0685eb
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 43.5
-      YPosition: 376.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 380
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
-      - Guid: 796fa9a4-e77d-4a38-a962-0f8d4041011c
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-    - Guid: 546470dc-39ca-41df-82c0-ac87f900100b
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 42.5
-      YPosition: 427.5
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: 3373895f-14ce-4646-b82f-810a9ed515f8
+      - Guid: 7807f1e8-37b1-4e71-9861-ecb284778d91
         IsWarm: 1
         Type: Var
         Description: The value
@@ -265,102 +208,66 @@ MonoBehaviour:
         Type: 0
     Links:
     - Input:
-        Guid: d4e05982-5cef-458e-bef6-dbacc1f8610d
-        IsWarm: 0
-        Type: 
-        Description: Vec3 rotation
-      Output:
-        Guid: cd60196b-5c7d-4718-8a81-84161e1bc1c1
-        IsWarm: 0
-        Type: 
-        Description: Value received in the teleport
-      outputPositionY: 257.5
-      GUID: 
-    - Input:
-        Guid: a07a7584-4ce3-474c-8540-c697140083f4
-        IsWarm: 1
-        Type: 
-        Description: value to teleport
-      Output:
-        Guid: cf1bc3ba-f797-4122-9da0-7cccb766c674
-        IsWarm: 0
-        Type: 
-        Description: Target rotation
-      outputPositionY: 278.5
-      GUID: 
-    - Input:
-        Guid: e1449d0e-8051-4e71-82d8-435194dd6051
-        IsWarm: 0
-        Type: Object
-        Description: GameObject position
-      Output:
-        Guid: 879a5024-c953-4356-804e-278bb18c595d
-        IsWarm: 0
-        Type: Object
-        Description: Transform
-      outputPositionY: 278.5
-      GUID: 
-    - Input:
-        Guid: d0ade951-1dd4-4620-89dd-ae0520a971d1
-        IsWarm: 1
-        Type: 
-        Description: Send
-      Output:
-        Guid: cf05714c-f42c-4eab-9cc6-20c8c50d5515
-        IsWarm: 1
-        Type: 
-        Description: The Word
-      outputPositionY: 297.5
-      GUID: 
-    - Input:
-        Guid: ef457e9e-5a48-4e60-b7f4-c5a3460c300e
-        IsWarm: 1
-        Type: 
+        Guid: e7f67c5f-ddb3-4721-8f12-8d2dfb2169ed
+        IsBright: 1
+        Type: Vec3
         Description: Position to look at
       Output:
         Guid: a85c77eb-628e-4466-b04c-4d6cf3fe347f
         IsWarm: 0
-        Type: 
+        Type: Vec3
         Description: Vec3[X][Y][Z]
-      outputPositionY: 298.5
-      GUID: 
+      outputPositionY: 0
+      GUID: 88589089-86d6-496b-a0c1-1950c010785d
     - Input:
-        Guid: 1e2b221e-1c0b-429a-9a8b-9fdf79657b3a
-        IsWarm: 1
-        Type: 
-        Description: X
+        Guid: 9897b1c9-8da1-480a-9cee-09b0c994e476
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 rotation
       Output:
-        Guid: 57971ac3-5c73-47ae-ae2d-a655deefc646
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 352.5
-      GUID: 
+        Guid: 786a61ef-706b-4e85-a6d0-cb169823bfa8
+        IsWarm: 0
+        Type: Vec3
+        Description: Target rotation
+      outputPositionY: 0
+      GUID: 94e1bd62-54c4-44aa-b258-fd7a4e83d11a
     - Input:
         Guid: 24b1b168-cfe5-4ccc-8de4-69130aaaf134
-        IsWarm: 1
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: Y
       Output:
-        Guid: 796fa9a4-e77d-4a38-a962-0f8d4041011c
+        Guid: 446540b4-af90-4f18-b59d-1ad85633d92c
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 372.5
-      GUID: 
+      outputPositionY: 0
+      GUID: b4d33a28-8950-4839-a5ee-f91fd724ae52
     - Input:
         Guid: 199837df-1d00-4924-8296-6901b3b13efb
-        IsWarm: 1
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: Z
       Output:
-        Guid: 3373895f-14ce-4646-b82f-810a9ed515f8
+        Guid: 7807f1e8-37b1-4e71-9861-ecb284778d91
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 392.5
-      GUID: 
+      outputPositionY: 0
+      GUID: 60d6fb2e-6503-45ae-a7a8-25e3c6282c9e
+    - Input:
+        Guid: 1e2b221e-1c0b-429a-9a8b-9fdf79657b3a
+        IsBright: 0
+        Type: Var
+        Description: X
+      Output:
+        Guid: e75b15b9-d6f1-48db-9862-bc08a19694e2
+        IsWarm: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: bc3ab9b0-2412-4522-a484-216fd446dbaa
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

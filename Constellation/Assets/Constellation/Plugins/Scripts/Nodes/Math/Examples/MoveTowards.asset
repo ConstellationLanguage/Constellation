@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: MoveTowards
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: c24ed6f0-51ae-450c-8192-a55f7913706c
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 10
+      YPosition: 5
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 115
+      YPosition: 45
+      SizeX: 246
+      SizeY: 50
       Inputs: []
       Outputs: []
       AttributesData:
@@ -44,10 +44,10 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 40
+      YPosition: 125
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -59,56 +59,56 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 7ec00232-0185-48e9-84b5-4cda3d11b8ad
+      Name: MoveTowards
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 180
+      YPosition: 125
+      SizeX: 75
+      SizeY: 80
+      Inputs:
+      - Guid: c335eccb-07fa-44df-9409-c06e7ce7694f
+        IsBright: 0
+        Type: Var
+        Description: Current
+      - Guid: 398e506c-7bcd-4309-b7e2-2150a0ea159a
+        IsBright: 0
+        Type: Var
+        Description: Target
+      - Guid: 236fc706-9b2e-40c8-9947-bc014fc337ac
+        IsBright: 1
+        Type: Var
+        Description: MaxDelta
+      Outputs:
+      - Guid: b4885023-5fc5-4c3d-839c-3164da2aa5ed
+        IsWarm: 0
+        Type: Var
+        Description: Move a value toward target
+      AttributesData: []
     - Guid: aa5b26e2-6408-4b48-94d0-c17929805fbb
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 550.5
-      YPosition: 116
-      SizeX: 0
-      SizeY: 0
+      XPosition: 350
+      YPosition: 125
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
+        IsBright: 0
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: 6763b379-bffa-42aa-b24e-b5710de51ac4
-      Name: MoveTowards
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 399.5
-      YPosition: 116
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 1d776b4c-83d4-4bd0-af09-123a37aad013
-        IsWarm: 0
-        Type: Var
-        Description: Current
-      - Guid: 06d6425e-df44-4af1-9014-f00c8648418f
-        IsWarm: 0
-        Type: Var
-        Description: Target
-      - Guid: 56f71edb-ea19-4274-8143-14dd316a4663
-        IsWarm: 1
-        Type: Var
-        Description: MaxDelta
-      Outputs:
-      - Guid: a6be1578-1aea-4390-80fc-6d2aee705b34
-        IsWarm: 0
-        Type: Var
-        Description: Move a value toward target
       AttributesData: []
     - Guid: 882ea8b3-e286-46c3-8a02-64d1f7b43d96
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 159
-      SizeX: 0
-      SizeY: 0
+      XPosition: 40
+      YPosition: 170
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: e524355a-31af-4f51-b86b-2e1da34b66cc
@@ -124,10 +124,10 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 233.5
-      YPosition: 207
-      SizeX: 0
-      SizeY: 0
+      XPosition: 40
+      YPosition: 215
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 6ba67840-6231-4a2d-8848-31f7a5bf5ff4
@@ -141,54 +141,54 @@ MonoBehaviour:
         Type: 0
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: a6be1578-1aea-4390-80fc-6d2aee705b34
-        IsWarm: 0
-        Type: 
-        Description: Move a value toward target
-      outputPositionY: 146
-      GUID: 
-    - Input:
-        Guid: 1d776b4c-83d4-4bd0-af09-123a37aad013
-        IsWarm: 0
-        Type: 
+        Guid: c335eccb-07fa-44df-9409-c06e7ce7694f
+        IsBright: 0
+        Type: Var
         Description: Current
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 146
-      GUID: 
+      outputPositionY: 0
+      GUID: a5ac60c7-191a-41fb-bf08-c4ddb8deefda
     - Input:
-        Guid: 06d6425e-df44-4af1-9014-f00c8648418f
-        IsWarm: 0
-        Type: 
+        Guid: 398e506c-7bcd-4309-b7e2-2150a0ea159a
+        IsBright: 0
+        Type: Var
         Description: Target
       Output:
         Guid: e524355a-31af-4f51-b86b-2e1da34b66cc
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 166
-      GUID: 
+      outputPositionY: 0
+      GUID: 1fb2be02-d4be-49f5-a733-f20d8a9b629d
     - Input:
-        Guid: 56f71edb-ea19-4274-8143-14dd316a4663
-        IsWarm: 1
-        Type: 
+        Guid: 236fc706-9b2e-40c8-9947-bc014fc337ac
+        IsBright: 1
+        Type: Var
         Description: MaxDelta
       Output:
         Guid: 6ba67840-6231-4a2d-8848-31f7a5bf5ff4
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 186
-      GUID: 
+      outputPositionY: 0
+      GUID: 195bf1e5-30bb-4270-98ea-2236742ff0cb
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: b4885023-5fc5-4c3d-839c-3164da2aa5ed
+        IsWarm: 0
+        Type: Var
+        Description: Move a value toward target
+      outputPositionY: 0
+      GUID: b596437c-efe6-4bdd-8384-546f63a702bf
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: 45a50f72-0094-4343-94f5-cd35f35565c4
+    - Guid: 23d51713-037f-45a1-baf5-4887e1e0df36
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 5.5
-      YPosition: 0.5
-      SizeX: 50
-      SizeY: 20
+      XPosition: 10
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -31,8 +31,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 137.5
       YPosition: 33
-      SizeX: 100
-      SizeY: 20
+      SizeX: 169
+      SizeY: 64
       Inputs: []
       Outputs: []
       AttributesData:
@@ -42,71 +42,71 @@ MonoBehaviour:
             Output 0 when released'
           floatValue: 0.000001
         Type: 2
-    - Guid: 2450b998-dc22-4130-ae42-c37a31288b7a
+    - Guid: 872a3d43-9336-45c9-8d99-a26849992bd7
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 620
+      YPosition: 175
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 41bc6fb5-f507-464c-b7e5-6aa5db08d221
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Guid: 9b298f1f-fdf9-4709-8be7-b85bf635f9ef
+      Name: Switch
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 380
+      YPosition: 180
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 1adb3c24-acb8-4057-94e9-4ee9ad49e74b
+        IsBright: 0
+        Type: Var
+        Description: 1 = on, 0 = off
+      - Guid: 9b367c26-14f8-4bfb-a650-2e50e0522efe
+        IsBright: 1
+        Type: Var
+        Description: Value to send
+      Outputs:
+      - Guid: f3494012-5fb2-48f7-b100-f406f253a587
+        IsWarm: 0
+        Type: Var
+        Description: Output if on
+      AttributesData: []
+    - Guid: 6877b465-05e7-4bdb-85bb-50083b280845
       Name: Key
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 32.5
-      YPosition: 175
-      SizeX: 0
-      SizeY: 0
+      XPosition: 30
+      YPosition: 180
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
-      - Guid: 8de51b79-8728-4230-a6e9-caaa38a8d7a6
+      - Guid: 29c3c917-901e-4a7a-8bf1-6b9d01dc287b
         IsWarm: 1
         Type: Var
         Description: Output 1 when key pressed
       AttributesData:
       - Value:
-          stringValue: 
+          stringValue: w
           floatValue: 0.000001
         Type: 1
-    - Guid: fc936b97-74c1-4ff2-a749-dbc9d9f51250
-      Name: Switch
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 472.5
-      YPosition: 178
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: c4b05ec1-1eea-4f2b-94cc-9a5c16996b74
-        IsWarm: 0
-        Type: Var
-        Description: 1 = on, 0 = off
-      - Guid: 7704cb68-2559-485d-8bf6-7f1954b5afd6
-        IsWarm: 1
-        Type: Any
-        Description: Value to send
-      Outputs:
-      - Guid: 157858ff-9fec-4cd3-88b8-e5ffea012087
-        IsWarm: 0
-        Type: Any
-        Description: Output if on
-      AttributesData: []
-    - Guid: 872a3d43-9336-45c9-8d99-a26849992bd7
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 622
-      YPosition: 179
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 41bc6fb5-f507-464c-b7e5-6aa5db08d221
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: 73f8712a-6d38-4648-998d-d06ddb025d4a
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 29.5
-      YPosition: 240
-      SizeX: 0
-      SizeY: 0
+      XPosition: 30
+      YPosition: 230
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: b8b8d684-3c84-4497-a29d-0ae2813c3927
@@ -115,44 +115,44 @@ MonoBehaviour:
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: your word
+          stringValue: Print
           floatValue: 0.000001
         Type: 1
-    - Guid: 6bd9b1f4-4ca5-4bb7-b4ff-8117344a5591
+    - Guid: c78e584f-6d43-4422-b067-2bc9f38cf5be
       Name: Var
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 253.5
-      YPosition: 243
-      SizeX: 0
-      SizeY: 0
+      XPosition: 195
+      YPosition: 230
+      SizeX: 100
+      SizeY: 60
       Inputs:
-      - Guid: 5858f092-3ddc-45d1-97d7-3a18bce3d9bf
-        IsWarm: 0
-        Type: Any
+      - Guid: 449fcecc-8b91-4d3c-b136-99c0ec51a26a
+        IsBright: 0
+        Type: Var
         Description: New var
-      - Guid: a5713a83-e494-482a-86c1-a1711d3e3d39
-        IsWarm: 1
+      - Guid: df753b4c-9551-4bdd-9265-b8ca0b1120c1
+        IsBright: 1
         Type: Any
         Description: Send var
       Outputs:
-      - Guid: a0ce2819-60a6-4bb8-89dd-24974459366b
+      - Guid: 4c9bc188-e837-4b02-90c8-1443e3ff480c
         IsWarm: 0
-        Type: Any
-        Description: Current setted word
+        Type: Var
+        Description: Output var
       AttributesData:
       - Value:
-          stringValue: Var
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 6
     - Guid: d530641b-53d4-403a-8cc8-72138bdcecb2
       Name: Update
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 30.5
-      YPosition: 290
-      SizeX: 0
-      SizeY: 0
+      XPosition: 55
+      YPosition: 280
+      SizeX: 75
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: f34d82c0-3d8f-4b07-ae79-e29ee56a68ad
@@ -162,66 +162,66 @@ MonoBehaviour:
       AttributesData: []
     Links:
     - Input:
-        Guid: c4b05ec1-1eea-4f2b-94cc-9a5c16996b74
-        IsWarm: 0
-        Type: 
-        Description: 1 = on, 0 = off
-      Output:
-        Guid: 8de51b79-8728-4230-a6e9-caaa38a8d7a6
-        IsWarm: 1
-        Type: 
-        Description: Output 1 when key pressed
-      outputPositionY: 208
-      GUID: 
-    - Input:
-        Guid: 41bc6fb5-f507-464c-b7e5-6aa5db08d221
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 157858ff-9fec-4cd3-88b8-e5ffea012087
-        IsWarm: 0
-        Type: 
-        Description: Output if on
-      outputPositionY: 209
-      GUID: 
-    - Input:
-        Guid: 7704cb68-2559-485d-8bf6-7f1954b5afd6
-        IsWarm: 1
-        Type: 
-        Description: Value to send
-      Output:
-        Guid: a0ce2819-60a6-4bb8-89dd-24974459366b
-        IsWarm: 0
-        Type: 
-        Description: Current setted word
-      outputPositionY: 228
-      GUID: 
-    - Input:
-        Guid: 5858f092-3ddc-45d1-97d7-3a18bce3d9bf
-        IsWarm: 0
-        Type: 
+        Guid: 449fcecc-8b91-4d3c-b136-99c0ec51a26a
+        IsBright: 0
+        Type: Var
         Description: New var
       Output:
         Guid: b8b8d684-3c84-4497-a29d-0ae2813c3927
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
-      outputPositionY: 273
-      GUID: 
+      outputPositionY: 0
+      GUID: 01d0a3b2-5a88-41de-a2fd-379e00d5bfd5
     - Input:
-        Guid: a5713a83-e494-482a-86c1-a1711d3e3d39
-        IsWarm: 1
-        Type: 
+        Guid: df753b4c-9551-4bdd-9265-b8ca0b1120c1
+        IsBright: 1
+        Type: Any
         Description: Send var
       Output:
         Guid: f34d82c0-3d8f-4b07-ae79-e29ee56a68ad
         IsWarm: 1
-        Type: 
+        Type: Ray
         Description: Ray on update
-      outputPositionY: 293
-      GUID: 
+      outputPositionY: 0
+      GUID: 6cfbc897-7c8f-43ba-b63a-5be8d3c04381
+    - Input:
+        Guid: 1adb3c24-acb8-4057-94e9-4ee9ad49e74b
+        IsBright: 0
+        Type: Var
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: 29c3c917-901e-4a7a-8bf1-6b9d01dc287b
+        IsWarm: 1
+        Type: Var
+        Description: Output 1 when key pressed
+      outputPositionY: 0
+      GUID: d5e6ad6b-7813-484c-abe4-9b3f74cf17aa
+    - Input:
+        Guid: 9b367c26-14f8-4bfb-a650-2e50e0522efe
+        IsBright: 1
+        Type: Var
+        Description: Value to send
+      Output:
+        Guid: 4c9bc188-e837-4b02-90c8-1443e3ff480c
+        IsWarm: 0
+        Type: Var
+        Description: Output var
+      outputPositionY: 0
+      GUID: d1311414-5b42-487b-be17-45b327530498
+    - Input:
+        Guid: 41bc6fb5-f507-464c-b7e5-6aa5db08d221
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: f3494012-5fb2-48f7-b100-f406f253a587
+        IsWarm: 0
+        Type: Var
+        Description: Output if on
+      outputPositionY: 0
+      GUID: 0de9dca8-60c9-46d6-a51e-3de33fa7f93e
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

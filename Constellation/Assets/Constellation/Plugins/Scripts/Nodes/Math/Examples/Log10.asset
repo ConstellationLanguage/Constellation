@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Log10
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: 8bec8a58-d96c-439e-b300-0a7a97824cc3
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 10
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 100
+      SizeX: 321
+      SizeY: 51
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,48 +40,14 @@ MonoBehaviour:
           stringValue: Returns the base 10 logarithm of a specified number.
           floatValue: 0.000001
         Type: 2
-    - Guid: f18ca534-dc3d-4757-a5e5-25c2f85f9a26
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
-    - Guid: 5ade0168-6a65-4c8a-82d6-1681b503fe91
-      Name: Log10
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 404.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 5d9bbf4a-ce79-4cd7-bd16-4f8867356c17
-        IsWarm: 1
-        Type: Var
-        Description: A
-      Outputs:
-      - Guid: c1b67bd7-684f-4264-9bdb-7b2df5244e3c
-        IsWarm: 0
-        Type: Var
-        Description: base 10 logarithm of A
-      AttributesData: []
     - Guid: 8745f33e-a48c-4291-95f6-b5d9ae295a79
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 165
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -93,32 +59,66 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: d29887cc-adb8-440a-8899-6c6b1d685a87
+      Name: Log10
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 220
+      YPosition: 165
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: d4514648-db9b-41dd-86e1-e9f42eb6eacb
+        IsBright: 1
+        Type: Var
+        Description: A
+      Outputs:
+      - Guid: d60eb55d-4f9c-4dc7-a842-35bd57dfdb30
+        IsWarm: 0
+        Type: Var
+        Description: base 10 logarithm of A
+      AttributesData: []
+    - Guid: f18ca534-dc3d-4757-a5e5-25c2f85f9a26
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 375
+      YPosition: 165
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: c1b67bd7-684f-4264-9bdb-7b2df5244e3c
-        IsWarm: 0
-        Type: 
-        Description: base 10 logarithm of A
-      outputPositionY: 141
-      GUID: 
-    - Input:
-        Guid: 5d9bbf4a-ce79-4cd7-bd16-4f8867356c17
-        IsWarm: 1
-        Type: 
+        Guid: d4514648-db9b-41dd-86e1-e9f42eb6eacb
+        IsBright: 1
+        Type: Var
         Description: A
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 141
-      GUID: 
+      outputPositionY: 0
+      GUID: 27b6948d-d623-4d96-a1af-3b484214c019
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: d60eb55d-4f9c-4dc7-a842-35bd57dfdb30
+        IsWarm: 0
+        Type: Var
+        Description: base 10 logarithm of A
+      outputPositionY: 0
+      GUID: 76d8a413-5192-45cd-8878-0a4f1bf7c5a2
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

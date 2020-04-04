@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 15fbfb0892e200c4b900f8f3c6626ba1, type: 3}
   m_Name: Tan
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: e53e362c-9d1d-4a83-a1cd-06574c592719
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 65
+      SizeX: 260
+      SizeY: 50
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,17 +40,36 @@ MonoBehaviour:
           stringValue: Returns the tangent of angle f in radians.
           floatValue: 0.000001
         Type: 2
+    - Guid: b78de301-d9b8-4497-9913-98e7da776213
+      Name: Tan
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 210
+      YPosition: 130
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 61f56dc5-1655-4c67-8d2a-9e79a4b0bf50
+        IsBright: 1
+        Type: Var
+        Description: X
+      Outputs:
+      - Guid: 31074be5-60c6-4f9c-979a-c6f67ee14175
+        IsWarm: 0
+        Type: Var
+        Description: Tan of X
+      AttributesData: []
     - Guid: 64a46ef6-e4a2-4a82-8bd0-67939806039a
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
+      XPosition: 370
+      YPosition: 130
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
+        IsBright: 0
         Type: Any
         Description: value to log in console
       Outputs: []
@@ -59,10 +78,10 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 130
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -74,50 +93,31 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 6c542174-306f-43f6-b544-5df37aa0e5b9
-      Name: Tan
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 387.5
-      YPosition: 115
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 83397bec-1fba-40d6-87a9-13c7354fa561
-        IsWarm: 1
-        Type: Var
-        Description: X
-      Outputs:
-      - Guid: a55b600e-d58b-4805-8f75-82a13b8147c1
-        IsWarm: 0
-        Type: Var
-        Description: Tan of X
-      AttributesData: []
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: a55b600e-d58b-4805-8f75-82a13b8147c1
-        IsWarm: 0
-        Type: 
-        Description: Tan of X
-      outputPositionY: 141
-      GUID: 
-    - Input:
-        Guid: 83397bec-1fba-40d6-87a9-13c7354fa561
-        IsWarm: 1
-        Type: 
+        Guid: 61f56dc5-1655-4c67-8d2a-9e79a4b0bf50
+        IsBright: 1
+        Type: Var
         Description: X
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 145
-      GUID: 
+      outputPositionY: 0
+      GUID: c228b00b-c6f1-49a8-a43e-1898029ff20c
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 31074be5-60c6-4f9c-979a-c6f67ee14175
+        IsWarm: 0
+        Type: Var
+        Description: Tan of X
+      outputPositionY: 0
+      GUID: ebc21236-d607-486c-807e-c647a3f37bae
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0

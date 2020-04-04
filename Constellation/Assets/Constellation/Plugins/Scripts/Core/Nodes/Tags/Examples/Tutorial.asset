@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: 16824274-b82a-4f7a-87e3-1bd5cbf6acb9
+    - Guid: d086e43a-96ee-44df-bafb-64d9af01a694
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 3
-      SizeX: 0
-      SizeY: 0
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,19 +29,20 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 6.5
-      YPosition: 31
-      SizeX: 0
-      SizeY: 0
+      XPosition: 0
+      YPosition: 55
+      SizeX: 426
+      SizeY: 53
       Inputs: []
       Outputs: []
       AttributesData:
       - Value:
-          stringValue: Tag used so the instance cannot be applyed at runtime
+          stringValue: Constellation type used so the instance cannot be applyed
+            at runtime
           floatValue: 0.000001
         Type: 2
     Links: []
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

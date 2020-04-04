@@ -98,7 +98,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
             DrawInstancePannel();
         }
 
-
         if (requestRepaint)
             Repaint();
     }
@@ -372,8 +371,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (node.Name == Constellation.ConstellationTypes.Tutorial.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertCurrentConstellationToTutorial();
-            //ScriptDataService.RefreshConstellationEditorDataList();
-            //ParseScript();
         }
         if (Application.isPlaying && previousSelectedGameObject != null)
         {

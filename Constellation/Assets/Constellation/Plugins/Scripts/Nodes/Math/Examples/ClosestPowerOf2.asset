@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: ClosestPowerOf2
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: be7b02a2-6b27-4e59-a5c3-7427fc7d8ee2
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 10
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 90
+      SizeX: 247
+      SizeY: 50
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,29 +40,14 @@ MonoBehaviour:
           stringValue: Returns the closest power of two value.
           floatValue: 0.000001
         Type: 2
-    - Guid: 1d661460-6f69-4521-9acf-b0f347844554
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 555.5
-      YPosition: 110
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: fe2c8f63-5c36-4eab-b204-2fc4ef8af97d
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 155
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -74,51 +59,66 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 4767a653-be3f-4b9d-9d66-333864a1107e
+    - Guid: 1d661460-6f69-4521-9acf-b0f347844554
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 340
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Guid: cf03eaf7-e73b-422c-8075-9f35d5988adf
       Name: ClosestPowerOf2
       Namespace: Math
       OverrideDisplayedName: 
-      XPosition: 394.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 210
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
       Inputs:
-      - Guid: 83278099-1c94-488f-a16e-585e0ed09fb8
-        IsWarm: 1
+      - Guid: a910cfc0-b731-4097-89fb-254fb0547ba1
+        IsBright: 1
         Type: Var
         Description: a
       Outputs:
-      - Guid: 2efb3388-ea92-4ac7-b7d2-de3d00debbc8
+      - Guid: 4efa78fa-a4fe-41b6-a49d-711b589fa9d7
         IsWarm: 0
         Type: Var
         Description: Closest power of two
       AttributesData: []
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 2efb3388-ea92-4ac7-b7d2-de3d00debbc8
-        IsWarm: 0
-        Type: 
-        Description: Closest power of two
-      outputPositionY: 140
-      GUID: 
-    - Input:
-        Guid: 83278099-1c94-488f-a16e-585e0ed09fb8
-        IsWarm: 1
-        Type: 
+        Guid: a910cfc0-b731-4097-89fb-254fb0547ba1
+        IsBright: 1
+        Type: Var
         Description: a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 142
-      GUID: 
+      outputPositionY: 0
+      GUID: 43c1adb8-f3b7-44cb-be2f-dcf46b86b7ab
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 4efa78fa-a4fe-41b6-a49d-711b589fa9d7
+        IsWarm: 0
+        Type: Var
+        Description: Closest power of two
+      outputPositionY: 0
+      GUID: fca79903-1ed7-4d23-81fa-317f65b1454c
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

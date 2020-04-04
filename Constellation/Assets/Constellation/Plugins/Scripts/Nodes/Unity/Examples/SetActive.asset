@@ -9,30 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: SetActive
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: a6ec208b-ab09-4ebf-a561-77711747638b
-      Name: Tutorial
-      Namespace: Tags
-      OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 4.5
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      AttributesData: []
     - Guid: 635b980e-d069-4503-8277-706632d49359
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 295.5
       YPosition: 22
-      SizeX: 0
-      SizeY: 0
+      SizeX: 204
+      SizeY: 49
       Inputs: []
       Outputs: []
       AttributesData:
@@ -44,10 +33,10 @@ MonoBehaviour:
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 112.5
-      YPosition: 156.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 155
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
@@ -56,51 +45,51 @@ MonoBehaviour:
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: your word
+          stringValue: Cube
           floatValue: 0.000001
         Type: 1
-    - Guid: 99c96b77-fb0a-4d02-80ef-4237fd55c52f
+    - Guid: 5713588b-8885-44dc-adba-fbc40d6a8318
       Name: FindByName
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 293.5
-      YPosition: 158.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 190
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
       Inputs:
-      - Guid: 9814965a-3bba-4546-a652-6156f9b2b70d
-        IsWarm: 1
+      - Guid: 41b57a35-fdc1-4e23-b21b-df6891733318
+        IsBright: 1
         Type: Var
         Description: Game Object Name
       Outputs:
-      - Guid: b4ef776b-fa6f-4163-86ac-c5554dcddaef
+      - Guid: f9a1a6f5-b65b-4ffd-a3eb-fbbe160e6a2b
         IsWarm: 0
         Type: Object
         Description: Gameobject
       AttributesData: []
-    - Guid: 29d4a2fe-652b-477c-8991-9c7f16d3a39b
+    - Guid: b1404f6b-cc46-4457-a32c-203905d2ef46
       Name: SetActive
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 441.5
-      YPosition: 160
-      SizeX: 0
-      SizeY: 0
+      XPosition: 405
+      YPosition: 180
+      SizeX: 75
+      SizeY: 80
       Inputs:
-      - Guid: c14968f0-b3f2-42cd-b696-5e64f3e1fd33
-        IsWarm: 0
+      - Guid: 1ce5b566-6755-4923-8cf9-09eb950fe4d3
+        IsBright: 0
         Type: Object
         Description: The gameobject to activate
-      - Guid: 4ea788b8-74e4-4502-bc69-5d174072098e
-        IsWarm: 0
+      - Guid: d0871da0-3222-45da-a293-ab7bf4d37bbe
+        IsBright: 0
         Type: Var
         Description: 1 = activate; 0 = disable
-      - Guid: fbc95557-8f13-4c90-8f4d-a989bae980fe
-        IsWarm: 1
+      - Guid: 2348bf64-8186-465c-a8ae-a294a3ba4fef
+        IsBright: 1
         Type: Var
         Description: send currend enabled state
       Outputs:
-      - Guid: ea8c9108-7898-4d9e-a0e8-ab5253ce9847
+      - Guid: 297186dc-dc8d-4e69-b9ed-c5823406a978
         IsWarm: 0
         Type: Var
         Description: get the current state
@@ -109,10 +98,10 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 262.5
-      YPosition: 216
-      SizeX: 0
-      SizeY: 0
+      XPosition: 180
+      YPosition: 200
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
@@ -124,44 +113,55 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: f800e6d2-e958-4cac-9962-b406241bf742
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 370
+      YPosition: 265
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
-        Guid: 9814965a-3bba-4546-a652-6156f9b2b70d
-        IsWarm: 1
-        Type: 
+        Guid: 41b57a35-fdc1-4e23-b21b-df6891733318
+        IsBright: 1
+        Type: Var
         Description: Game Object Name
       Output:
         Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
-      outputPositionY: 188.5
-      GUID: 
+      outputPositionY: 0
+      GUID: bcbaa85f-33b9-4272-9f1e-538a378968c4
     - Input:
-        Guid: c14968f0-b3f2-42cd-b696-5e64f3e1fd33
-        IsWarm: 0
+        Guid: 1ce5b566-6755-4923-8cf9-09eb950fe4d3
+        IsBright: 0
         Type: Object
         Description: The gameobject to activate
       Output:
-        Guid: b4ef776b-fa6f-4163-86ac-c5554dcddaef
+        Guid: f9a1a6f5-b65b-4ffd-a3eb-fbbe160e6a2b
         IsWarm: 0
         Type: Object
         Description: Gameobject
-      outputPositionY: 190
-      GUID: 
+      outputPositionY: 0
+      GUID: 7214d215-b19d-4287-b5b0-9357c3db6da0
     - Input:
-        Guid: 4ea788b8-74e4-4502-bc69-5d174072098e
-        IsWarm: 0
-        Type: 
+        Guid: d0871da0-3222-45da-a293-ab7bf4d37bbe
+        IsBright: 0
+        Type: Var
         Description: 1 = activate; 0 = disable
       Output:
         Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 210
-      GUID: 
+      outputPositionY: 0
+      GUID: 8ce17131-ad63-46cb-b38c-c1f4a55d8011
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

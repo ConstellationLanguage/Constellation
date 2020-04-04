@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Note
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: 59500468-aa84-4478-b920-3e573dadc0b1
+    - Guid: 999d8763-50f4-4cd3-ab48-799866d37caa
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 2.5
-      YPosition: 2.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 10
+      YPosition: 10
+      SizeX: 80
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 163.5
-      YPosition: 85
-      SizeX: 0
-      SizeY: 0
+      XPosition: 180
+      YPosition: 110
+      SizeX: 251
+      SizeY: 58
       Inputs: []
       Outputs: []
       AttributesData:

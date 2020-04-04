@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Clamp01
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: c595ed11-9474-472c-88f8-7d5808fdb4d3
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 65
+      SizeX: 340
+      SizeY: 65
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,48 +40,14 @@ MonoBehaviour:
           stringValue: Clamps value between 0 and 1 and returns value.
           floatValue: 0.000001
         Type: 2
-    - Guid: 30b32f4a-ec69-459c-bf75-bdacda5e2ce3
-      Name: Clamp01
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 393.5
-      YPosition: 110
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: a5c11923-c46f-4a27-bd17-823d928f87b6
-        IsWarm: 1
-        Type: Var
-        Description: a
-      Outputs:
-      - Guid: 08be79bc-bf3b-4624-b9a4-7365116c4d06
-        IsWarm: 0
-        Type: Var
-        Description: Clamps value between 0 and 1 and returns value.
-      AttributesData: []
-    - Guid: 38c22978-01ab-4a91-8149-f8315c76dc12
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: 83ac9bb2-0709-4680-99dc-706cc7caa4a0
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 145
+      SizeX: 100
+      SizeY: 43
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -93,32 +59,66 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 0f5dd8d4-9696-4121-8680-1a9e6a28525e
+      Name: Clamp01
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 215
+      YPosition: 145
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: be2c2e8d-1640-419f-8316-0901116bed39
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 96419bec-14ab-4a69-9af0-d7cd10e12d8c
+        IsWarm: 0
+        Type: Var
+        Description: Clamps value between 0 and 1 and returns value.
+      AttributesData: []
+    - Guid: 38c22978-01ab-4a91-8149-f8315c76dc12
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 360
+      YPosition: 145
+      SizeX: 75
+      SizeY: 43
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
-        Guid: a5c11923-c46f-4a27-bd17-823d928f87b6
-        IsWarm: 1
-        Type: 
+        Guid: be2c2e8d-1640-419f-8316-0901116bed39
+        IsBright: 1
+        Type: Var
         Description: a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 140
-      GUID: 
+      outputPositionY: 0
+      GUID: 13c8bc72-efeb-4267-b2f1-95f97143fcd6
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
-        Guid: 08be79bc-bf3b-4624-b9a4-7365116c4d06
+        Guid: 96419bec-14ab-4a69-9af0-d7cd10e12d8c
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Clamps value between 0 and 1 and returns value.
-      outputPositionY: 141
-      GUID: 
+      outputPositionY: 0
+      GUID: 5d68dad5-7ac6-4c18-8465-dd7841038eaa
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

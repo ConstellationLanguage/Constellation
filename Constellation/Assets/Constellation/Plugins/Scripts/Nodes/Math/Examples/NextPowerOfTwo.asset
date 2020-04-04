@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: NextPowerOfTwo
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: bc497736-15b8-4ed9-b9d5-0affb6b2f5a1
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 0
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 75
+      SizeX: 237
+      SizeY: 51
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,48 +40,14 @@ MonoBehaviour:
           stringValue: Returns the next power of two value.
           floatValue: 0.000001
         Type: 2
-    - Guid: 2d843c0a-cfda-4c26-9528-59386224b8e8
-      Name: NextPowerOfTwo
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 386.5
-      YPosition: 109
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 3e9daa8f-0e32-4df3-91ba-021a99b1ca79
-        IsWarm: 1
-        Type: Var
-        Description: Var
-      Outputs:
-      - Guid: 636cc23a-7659-48f8-b89e-5b6660c398e0
-        IsWarm: 0
-        Type: Var
-        Description: Next power of two
-      AttributesData: []
-    - Guid: cee56bc2-9c75-40ba-a4bf-41da6cb3617f
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     - Guid: baa646c0-331d-4e32-81d1-495c9a48308f
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 150
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -93,32 +59,66 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 6dceaba1-bfb1-45bd-be92-0e9dde75badf
+      Name: NextPowerOfTwo
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 180
+      YPosition: 150
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: bd25bd9c-3362-4436-b18f-e07b5e49e535
+        IsBright: 1
+        Type: Var
+        Description: Var
+      Outputs:
+      - Guid: 7d116c94-554e-4191-bad9-54a70257d10f
+        IsWarm: 0
+        Type: Var
+        Description: Next power of two
+      AttributesData: []
+    - Guid: cee56bc2-9c75-40ba-a4bf-41da6cb3617f
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 345
+      YPosition: 150
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
-        Guid: 3e9daa8f-0e32-4df3-91ba-021a99b1ca79
-        IsWarm: 1
-        Type: 
+        Guid: bd25bd9c-3362-4436-b18f-e07b5e49e535
+        IsBright: 1
+        Type: Var
         Description: Var
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 139
-      GUID: 
+      outputPositionY: 0
+      GUID: 09bd45db-b9bb-406f-94ce-1c1b20062afa
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
-        Guid: 636cc23a-7659-48f8-b89e-5b6660c398e0
+        Guid: 7d116c94-554e-4191-bad9-54a70257d10f
         IsWarm: 0
-        Type: 
+        Type: Var
         Description: Next power of two
-      outputPositionY: 141
-      GUID: 
+      outputPositionY: 0
+      GUID: 6570480c-4383-4d90-bcde-083180c9acec
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

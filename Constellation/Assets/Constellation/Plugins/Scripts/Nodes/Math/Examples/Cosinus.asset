@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Cosinus
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: 49ba6c6f-828c-4721-8869-404a5d00ccf0
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 10
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 85
+      SizeX: 209
+      SizeY: 48
       Inputs: []
       Outputs: []
       AttributesData:
@@ -40,48 +40,14 @@ MonoBehaviour:
           stringValue: Returns the cosine of angle f.
           floatValue: 0.000001
         Type: 2
-    - Guid: b59132da-abbc-4764-b008-60cd334e79ba
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
-    - Guid: f59daa0e-5e37-4d71-bbc3-34323d6a9560
-      Name: Cosinus
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 408.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 5b222fd9-1b55-49c1-9f4f-436d34866314
-        IsWarm: 1
-        Type: Var
-        Description: a
-      Outputs:
-      - Guid: 40fd4410-86ad-455e-8882-1ffd62705c1e
-        IsWarm: 0
-        Type: Var
-        Description: Cos(a)
-      AttributesData: []
     - Guid: 6579f71b-266f-496f-8e03-3266da128e51
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 228.5
-      YPosition: 112
-      SizeX: 0
-      SizeY: 0
+      XPosition: 20
+      YPosition: 155
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -93,32 +59,66 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 2c29c699-b3b4-42f0-a47e-bd8fb7855d45
+      Name: Cosinus
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 160
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 24094890-f392-4295-8277-751991f834a8
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 93924b9e-820f-4b2f-88b3-9195dab1ec21
+        IsWarm: 0
+        Type: Var
+        Description: Cos(a)
+      AttributesData: []
+    - Guid: b59132da-abbc-4764-b008-60cd334e79ba
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 290
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 40fd4410-86ad-455e-8882-1ffd62705c1e
-        IsWarm: 0
-        Type: 
-        Description: Cos(a)
-      outputPositionY: 141
-      GUID: 
-    - Input:
-        Guid: 5b222fd9-1b55-49c1-9f4f-436d34866314
-        IsWarm: 1
-        Type: 
+        Guid: 24094890-f392-4295-8277-751991f834a8
+        IsBright: 1
+        Type: Var
         Description: a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 142
-      GUID: 
+      outputPositionY: 0
+      GUID: a7337d51-22c4-4c25-803e-2ec41b9ad7ca
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 93924b9e-820f-4b2f-88b3-9195dab1ec21
+        IsWarm: 0
+        Type: Var
+        Description: Cos(a)
+      outputPositionY: 0
+      GUID: 61c33f65-60b3-4930-814f-581c28e068bb
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

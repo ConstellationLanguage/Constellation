@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: CodeVar
   m_EditorClassIdentifier: 
   script:
@@ -20,8 +20,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 574.5
       YPosition: 10
-      SizeX: 100
-      SizeY: 30
+      SizeX: 196
+      SizeY: 52
       Inputs: []
       Outputs: []
       AttributesData:
@@ -29,12 +29,12 @@ MonoBehaviour:
           stringValue: Allow you to set a variable
           floatValue: 0.000001
         Type: 2
-    - Guid: 73694e21-0978-4cc9-aa8c-3f43f2a75007
+    - Guid: 6464db48-4c86-474a-aee1-4611922c5c83
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 34.5
-      YPosition: 32.5
+      XPosition: 20
+      YPosition: 20
       SizeX: 75
       SizeY: 30
       Inputs: []
@@ -44,8 +44,8 @@ MonoBehaviour:
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 46
-      YPosition: 92.5
+      XPosition: 45
+      YPosition: 90
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -59,17 +59,32 @@ MonoBehaviour:
           stringValue: your word
           floatValue: 0.000001
         Type: 1
-    - Guid: c614e93b-a5e8-464c-8b15-e2b3b2445288
+    - Guid: 9a90ced0-3986-47b5-b765-4134e8995c2a
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 735
+      YPosition: 90
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 3b6761da-2fbb-4658-b338-55ac48c6aee5
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      AttributesData: []
+    - Guid: f4f3024e-78d7-4fa4-849d-f5a310304e88
       Name: FindByName
       Namespace: Unity
       OverrideDisplayedName: 
       XPosition: 225
-      YPosition: 97.5
+      YPosition: 90
       SizeX: 75
       SizeY: 40
       Inputs:
       - Guid: 0e986731-8f71-459c-8d40-7b655d6eaad3
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: Game Object Name
       Outputs:
@@ -78,21 +93,21 @@ MonoBehaviour:
         Type: Object
         Description: Gameobject
       AttributesData: []
-    - Guid: 25f74dfd-0977-4ddf-9fe1-742d561aef63
+    - Guid: 16d69fc4-7fca-4c4c-b4b7-a2f205c9cd12
       Name: GetComponent
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 389
-      YPosition: 103.5
+      XPosition: 370
+      YPosition: 90
       SizeX: 100
       SizeY: 60
       Inputs:
       - Guid: c7cec4a4-9f92-4062-b3c2-37e62e286503
-        IsWarm: 1
+        IsBright: 1
         Type: Object
         Description: Object which contain the component
       - Guid: ce9eef85-81d2-4344-bb82-030f097d485e
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: Send the component
       Outputs:
@@ -105,40 +120,25 @@ MonoBehaviour:
           stringValue: ComponentName
           floatValue: 0.000001
         Type: 1
-    - Guid: 9a90ced0-3986-47b5-b765-4134e8995c2a
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 738.5
-      YPosition: 142
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 3b6761da-2fbb-4658-b338-55ac48c6aee5
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
-    - Guid: e4d89e95-b8d5-4645-8260-fe51e335c6bc
+    - Guid: ebad92fe-629f-4b96-baa7-ff6715506dcf
       Name: CodeVar
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 577
-      YPosition: 142.5
+      XPosition: 575
+      YPosition: 90
       SizeX: 100
       SizeY: 80
       Inputs:
       - Guid: 871eb923-20d8-4f7e-bd12-c882b6c17f11
-        IsWarm: 0
+        IsBright: 0
         Type: Object
         Description: Object which contains the var
       - Guid: e04424e1-f63a-4065-9f97-567e90832bfe
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Set Var
       - Guid: 52ef9142-0d0e-46e2-8ee8-09a5e358bba6
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: Push var
       Outputs:
@@ -155,8 +155,8 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 390
-      YPosition: 175.5
+      XPosition: 425
+      YPosition: 155
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -173,19 +173,55 @@ MonoBehaviour:
     Links:
     - Input:
         Guid: 0e986731-8f71-459c-8d40-7b655d6eaad3
-        IsWarm: 1
-        Type: 
+        IsBright: 0
+        Type: Var
         Description: Game Object Name
       Output:
         Guid: bc28fbd9-35d8-4c23-9122-d659abe69b7e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
-      outputPositionY: 127.5
-      GUID: 
+      outputPositionY: 0
+      GUID: 6eb71628-5436-4c09-a621-9a514628e9af
+    - Input:
+        Guid: 52ef9142-0d0e-46e2-8ee8-09a5e358bba6
+        IsBright: 0
+        Type: Var
+        Description: Push var
+      Output:
+        Guid: f00895a4-fed3-416c-b546-04c3341d0f24
+        IsWarm: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 05a9aa8d-1701-4588-b0c2-f4b698439da7
+    - Input:
+        Guid: e04424e1-f63a-4065-9f97-567e90832bfe
+        IsBright: 0
+        Type: Var
+        Description: Set Var
+      Output:
+        Guid: f00895a4-fed3-416c-b546-04c3341d0f24
+        IsWarm: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 91c239b4-2ee7-4e91-a03a-f2aa49693db8
+    - Input:
+        Guid: 3b6761da-2fbb-4658-b338-55ac48c6aee5
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 0963e40d-e220-478d-92ac-2c29167b6b48
+        IsWarm: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 358243f8-189a-456c-869a-7ecaa1483bbd
     - Input:
         Guid: c7cec4a4-9f92-4062-b3c2-37e62e286503
-        IsWarm: 1
+        IsBright: 0
         Type: Object
         Description: Object which contain the component
       Output:
@@ -196,20 +232,8 @@ MonoBehaviour:
       outputPositionY: 133.5
       GUID: 
     - Input:
-        Guid: 3b6761da-2fbb-4658-b338-55ac48c6aee5
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 0963e40d-e220-478d-92ac-2c29167b6b48
-        IsWarm: 0
-        Type: 
-        Description: The value
-      outputPositionY: 172
-      GUID: 
-    - Input:
         Guid: 871eb923-20d8-4f7e-bd12-c882b6c17f11
-        IsWarm: 0
+        IsBright: 0
         Type: Object
         Description: Object which contains the var
       Output:
@@ -218,30 +242,6 @@ MonoBehaviour:
         Type: Object
         Description: The Component
       outputPositionY: 172.5
-      GUID: 
-    - Input:
-        Guid: e04424e1-f63a-4065-9f97-567e90832bfe
-        IsWarm: 0
-        Type: 
-        Description: Set Var
-      Output:
-        Guid: f00895a4-fed3-416c-b546-04c3341d0f24
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 192.5
-      GUID: 
-    - Input:
-        Guid: 52ef9142-0d0e-46e2-8ee8-09a5e358bba6
-        IsWarm: 1
-        Type: 
-        Description: Push var
-      Output:
-        Guid: f00895a4-fed3-416c-b546-04c3341d0f24
-        IsWarm: 1
-        Type: 
-        Description: The value
-      outputPositionY: 212.5
       GUID: 
     Name: 
   IsInstance: 0

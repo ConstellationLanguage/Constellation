@@ -9,30 +9,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: Print
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: 477d651a-08a2-4244-b596-2fcec388c907
+    - Guid: 9d1c897f-c0cd-4270-b79d-7119d272f382
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 3.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
+      Outputs: []
+      AttributesData: []
+    - Guid: 48189c32-d69e-4862-86fb-5e78c4a60e6b
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 305
+      YPosition: 95
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
       Outputs: []
       AttributesData: []
     - Guid: b5223a37-5db3-427e-ba76-ba6aee765424
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 85.5
+      XPosition: 85
       YPosition: 95
-      SizeX: 0
-      SizeY: 0
+      SizeX: 134
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
@@ -41,37 +56,22 @@ MonoBehaviour:
         Description: The Word
       AttributesData:
       - Value:
-          stringValue: your word
+          stringValue: 'Print something '
           floatValue: 0.000001
         Type: 1
-    - Guid: 48189c32-d69e-4862-86fb-5e78c4a60e6b
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 307
-      YPosition: 96.5
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
-        IsWarm: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      AttributesData: []
     Links:
     - Input:
         Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
         Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The Word
       outputPositionY: 0
-      GUID: 
+      GUID: 16c78191-80ca-4145-8d36-677aee64d6c7
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0

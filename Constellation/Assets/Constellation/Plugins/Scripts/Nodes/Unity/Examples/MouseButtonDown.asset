@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: MouseButtonDown
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: a8fdfe0a-dbee-45d5-951e-93ac3c7f2d14
+    - Guid: f3ab9366-a732-44a1-9df7-4366cdec7f11
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 3.5
-      YPosition: 1.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 15
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 93.5
-      YPosition: 30
-      SizeX: 0
-      SizeY: 0
+      XPosition: 70
+      YPosition: 125
+      SizeX: 189
+      SizeY: 49
       Inputs: []
       Outputs: []
       AttributesData:
@@ -42,17 +42,17 @@ MonoBehaviour:
 '
           floatValue: 0.000001
         Type: 2
-    - Guid: 26bd0c05-f6cb-4b17-9737-357134bc7434
+    - Guid: 2d44615e-0041-44bc-a015-7bddb9a3a17d
       Name: MouseButtonDown
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 62.5
-      YPosition: 179
-      SizeX: 0
-      SizeY: 0
+      XPosition: 70
+      YPosition: 180
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
-      - Guid: b8604cc5-adea-4a51-852c-75bc4de6b16b
+      - Guid: f338930b-58ea-41d7-b08c-d01188ffe6fc
         IsWarm: 1
         Type: Var
         Description: 1 on mouse button down else 0
@@ -65,13 +65,13 @@ MonoBehaviour:
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 254.5
-      YPosition: 179.5
-      SizeX: 0
-      SizeY: 0
+      XPosition: 250
+      YPosition: 180
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: f593b06e-6fa7-45a5-a94e-078194844b65
-        IsWarm: 0
+        IsBright: 0
         Type: Any
         Description: value to log in console
       Outputs: []
@@ -79,17 +79,17 @@ MonoBehaviour:
     Links:
     - Input:
         Guid: f593b06e-6fa7-45a5-a94e-078194844b65
-        IsWarm: 0
-        Type: 
+        IsBright: 0
+        Type: Any
         Description: value to log in console
       Output:
-        Guid: b8604cc5-adea-4a51-852c-75bc4de6b16b
+        Guid: f338930b-58ea-41d7-b08c-d01188ffe6fc
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: 1 on mouse button down else 0
-      outputPositionY: 209.5
-      GUID: 
+      outputPositionY: 0
+      GUID: d36cbc73-ecad-4e70-8320-ada84d772879
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

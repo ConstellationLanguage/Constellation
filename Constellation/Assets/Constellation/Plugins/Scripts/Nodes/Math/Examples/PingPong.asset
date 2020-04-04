@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c77f50463c44499d5ecf8ea343754, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
   m_Name: PingPong
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: e3301737-654b-4637-aa09-f9c1c6a6c9b5
+    - Guid: 53e42474-edd9-4140-8727-e91515ad9f45
       Name: Tutorial
-      Namespace: Tags
+      Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 1.5
-      YPosition: 1
-      SizeX: 0
-      SizeY: 0
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
       Inputs: []
       Outputs: []
       AttributesData: []
@@ -29,10 +29,10 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 4.5
-      YPosition: 25
-      SizeX: 0
-      SizeY: 0
+      XPosition: 40
+      YPosition: 75
+      SizeX: 519
+      SizeY: 53
       Inputs: []
       Outputs: []
       AttributesData:
@@ -41,52 +41,52 @@ MonoBehaviour:
             and never smaller than 0.
           floatValue: 0.000001
         Type: 2
+    - Guid: b46adf47-d445-42a7-b50b-fa826a7cab05
+      Name: PingPong
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 235
+      YPosition: 145
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: f824bf87-2e3f-4f41-8b6e-d9ad77d4e4d6
+        IsBright: 0
+        Type: Var
+        Description: T
+      - Guid: 7510d8f3-6a2d-4d48-a8ca-b7e5851466fc
+        IsBright: 1
+        Type: Var
+        Description: Lenght
+      Outputs:
+      - Guid: 6d98e3f9-0438-4f66-8f58-2787a8d6a877
+        IsWarm: 0
+        Type: Var
+        Description: Ping Pong T value
+      AttributesData: []
     - Guid: 3b09010d-02fa-4c97-b7a7-6949e5fdb672
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 552.5
-      YPosition: 111
-      SizeX: 0
-      SizeY: 0
+      XPosition: 365
+      YPosition: 145
+      SizeX: 75
+      SizeY: 40
       Inputs:
       - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
+        IsBright: 0
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: 51ec4369-bb7e-45b7-b84f-2faf8fc3c0dd
-      Name: PingPong
-      Namespace: Math
-      OverrideDisplayedName: 
-      XPosition: 393.5
-      YPosition: 118
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 93fc91b0-3cfd-4893-bff3-07b03aa5a035
-        IsWarm: 0
-        Type: Var
-        Description: T
-      - Guid: 9534baa0-08fd-4517-804e-57b681845e94
-        IsWarm: 1
-        Type: Var
-        Description: Lenght
-      Outputs:
-      - Guid: 27d0a6d4-9753-4aaf-9d8b-7ba1cf622a39
-        IsWarm: 0
-        Type: Var
-        Description: Ping Pong T value
       AttributesData: []
     - Guid: d59f0bb6-ae3a-4c4d-a9e6-a7e51b728149
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 220.5
-      YPosition: 121
-      SizeX: 0
-      SizeY: 0
+      XPosition: 45
+      YPosition: 145
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -102,10 +102,10 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 221.5
-      YPosition: 168
-      SizeX: 0
-      SizeY: 0
+      XPosition: 45
+      YPosition: 185
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: fc68dfd7-ca3c-4332-bd2b-c4f1213ad35a
@@ -119,42 +119,42 @@ MonoBehaviour:
         Type: 0
     Links:
     - Input:
-        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsWarm: 0
-        Type: 
-        Description: value to log in console
-      Output:
-        Guid: 27d0a6d4-9753-4aaf-9d8b-7ba1cf622a39
-        IsWarm: 0
-        Type: 
-        Description: Ping Pong T value
-      outputPositionY: 141
-      GUID: 
-    - Input:
-        Guid: 93fc91b0-3cfd-4893-bff3-07b03aa5a035
-        IsWarm: 0
-        Type: 
+        Guid: f824bf87-2e3f-4f41-8b6e-d9ad77d4e4d6
+        IsBright: 0
+        Type: Var
         Description: T
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 148
-      GUID: 
+      outputPositionY: 0
+      GUID: 33ff1151-d010-4b93-aac8-fc9c530c9b2d
     - Input:
-        Guid: 9534baa0-08fd-4517-804e-57b681845e94
-        IsWarm: 1
-        Type: 
+        Guid: 7510d8f3-6a2d-4d48-a8ca-b7e5851466fc
+        IsBright: 1
+        Type: Var
         Description: Lenght
       Output:
         Guid: fc68dfd7-ca3c-4332-bd2b-c4f1213ad35a
         IsWarm: 1
-        Type: 
+        Type: Var
         Description: The value
-      outputPositionY: 168
-      GUID: 
+      outputPositionY: 0
+      GUID: 4df5d557-5c48-4ade-abe5-b4bac01e46b9
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 6d98e3f9-0438-4f66-8f58-2787a8d6a877
+        IsWarm: 0
+        Type: Var
+        Description: Ping Pong T value
+      outputPositionY: 0
+      GUID: f7737fc1-74df-4831-a9d9-2e9dca72421c
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
+  ScriptAssembly: {fileID: 0}

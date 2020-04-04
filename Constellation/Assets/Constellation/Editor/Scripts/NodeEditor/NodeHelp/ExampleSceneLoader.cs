@@ -33,6 +33,7 @@ namespace ConstellationEditor {
 
             GameObject camera = new GameObject ("Camera");
             camera.transform.position = new Vector3 (0, 0, -10);
+            camera.tag = "MainCamera";
             camera.AddComponent<Camera> ();
         }
 
