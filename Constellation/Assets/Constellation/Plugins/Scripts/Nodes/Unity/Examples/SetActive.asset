@@ -14,12 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Guid: f800e6d2-e958-4cac-9962-b406241bf742
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 20
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Guid: 635b980e-d069-4503-8277-706632d49359
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 295.5
-      YPosition: 22
+      XPosition: 165
+      YPosition: 35
       SizeX: 204
       SizeY: 49
       Inputs: []
@@ -29,31 +40,12 @@ MonoBehaviour:
           stringValue: Deactivate a gameobject
           floatValue: 0.000001
         Type: 2
-    - Guid: 71d19ea7-9cf0-4719-842f-b78831a73975
-      Name: Word
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 155
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
-        IsWarm: 1
-        Type: Var
-        Description: The Word
-      AttributesData:
-      - Value:
-          stringValue: Cube
-          floatValue: 0.000001
-        Type: 1
     - Guid: 5713588b-8885-44dc-adba-fbc40d6a8318
       Name: FindByName
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 190
-      YPosition: 155
+      XPosition: 175
+      YPosition: 100
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -67,12 +59,31 @@ MonoBehaviour:
         Type: Object
         Description: Gameobject
       AttributesData: []
+    - Guid: 71d19ea7-9cf0-4719-842f-b78831a73975
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 100
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
+        IsWarm: 1
+        Type: Var
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: Cube
+          floatValue: 0.000001
+        Type: 1
     - Guid: b1404f6b-cc46-4457-a32c-203905d2ef46
       Name: SetActive
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 405
-      YPosition: 180
+      XPosition: 300
+      YPosition: 100
       SizeX: 75
       SizeY: 80
       Inputs:
@@ -98,8 +109,8 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 180
-      YPosition: 200
+      XPosition: 150
+      YPosition: 145
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -111,19 +122,8 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
-    - Guid: f800e6d2-e958-4cac-9962-b406241bf742
-      Name: Tutorial
-      Namespace: ConstellationTypes
-      OverrideDisplayedName: 
-      XPosition: 370
-      YPosition: 265
-      SizeX: 75
-      SizeY: 30
-      Inputs: []
-      Outputs: []
-      AttributesData: []
     Links:
     - Input:
         Guid: 41b57a35-fdc1-4e23-b21b-df6891733318
@@ -161,6 +161,18 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 8ce17131-ad63-46cb-b38c-c1f4a55d8011
+    - Input:
+        Guid: 2348bf64-8186-465c-a8ae-a294a3ba4fef
+        IsBright: 1
+        Type: Var
+        Description: send currend enabled state
+      Output:
+        Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
+        IsWarm: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: d98dee99-5cb6-48c0-a21d-957b51c7f148
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0

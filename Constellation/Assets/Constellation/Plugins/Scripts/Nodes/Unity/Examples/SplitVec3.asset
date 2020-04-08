@@ -14,12 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Guid: 499dfc25-1144-4a46-b5b5-88e85e7cc144
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Guid: 43b4092b-dfb3-4789-b3e5-2470456c2d9e
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 5
-      YPosition: 45
+      XPosition: 50
+      YPosition: 100
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -37,8 +48,8 @@ MonoBehaviour:
       Name: Vec3
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 155
-      YPosition: 45
+      XPosition: 200
+      YPosition: 100
       SizeX: 100
       SizeY: 80
       Inputs:
@@ -76,8 +87,8 @@ MonoBehaviour:
       Name: SplitVec3
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 340
-      YPosition: 45
+      XPosition: 385
+      YPosition: 100
       SizeX: 100
       SizeY: 80
       Inputs:
@@ -115,8 +126,8 @@ MonoBehaviour:
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 550
-      YPosition: 65
+      XPosition: 595
+      YPosition: 120
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -130,8 +141,8 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 5
-      YPosition: 90
+      XPosition: 50
+      YPosition: 145
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -149,8 +160,8 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 5
-      YPosition: 135
+      XPosition: 50
+      YPosition: 190
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -164,17 +175,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 499dfc25-1144-4a46-b5b5-88e85e7cc144
-      Name: Tutorial
-      Namespace: ConstellationTypes
-      OverrideDisplayedName: 
-      XPosition: 370
-      YPosition: 265
-      SizeX: 75
-      SizeY: 30
-      Inputs: []
-      Outputs: []
-      AttributesData: []
     Links:
     - Input:
         Guid: 81525fdc-4572-42d1-a0b8-308fccda6058

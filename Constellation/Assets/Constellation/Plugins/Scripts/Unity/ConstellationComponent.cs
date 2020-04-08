@@ -5,12 +5,13 @@ namespace Constellation.Unity3D
     public class ConstellationComponent : MonoBehaviour
     {
         public static bool IsGCDone = false;
-        protected NodesFactory nodeFactory;
+        //protected NodesFactory nodeFactory;
         protected bool isInitialized = false;
         protected ConstellationError lastConstellationError = null;
         public List<BehaviourAttribute> Attributes;
         public ConstellationScript ConstellationData;
         public Constellation constellation;
+        protected NodesFactory nodeFactory;
 
         public ConstellationScript GetConstellationData()
         {
@@ -49,19 +50,22 @@ namespace Constellation.Unity3D
                 nodeFactory = NodesFactory.Current;
 
             var nodes = ConstellationData.GetNodes();
-            constellation = new Constellation();
-            SetNodes(nodes);
+            constellation = new Constellation(ConstellationData.script,
+                nodeFactory,
+                (newNode, node) =>
+                {
+                    var attributesCounter = 0;
+                    if (IsAttribute(node) && Attributes != null)
+                    {
+                        IAttribute nodeAttribute = newNode.NodeType as IAttribute;
+                        if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
+                            nodeAttribute.SetAttribute(Attributes[attributesCounter].Variable);
+                        else if (attributesCounter < Attributes.Count)
+                            nodeAttribute.SetAttribute(new Ray().Set(Attributes[attributesCounter].UnityObject as object));
 
-            var links = ConstellationData.GetLinks();
-            foreach (LinkData link in links)
-            {
-                var input = constellation.GetInput(link.Input.Guid);
-                var output = constellation.GetOutput(link.Output.Guid);
-                if (input != null && output != null)
-                    constellation.AddLink(new Link(constellation.GetInput(link.Input.Guid),
-                        constellation.GetOutput(link.Output.Guid),
-                        constellation.GetOutput(link.Output.Guid).Type, link.GUID));
-            }
+                        attributesCounter++;
+                    }
+                });
 
             SetUnityObject();
             constellation.Initialize(System.Guid.NewGuid().ToString(), ConstellationData.name);
@@ -136,26 +140,6 @@ namespace Constellation.Unity3D
                     return attribute;
             }
             return null;
-        }
-
-        void SetNodes(NodeData[] nodes)
-        {
-            var attributesCounter = 0;
-            foreach (NodeData node in nodes)
-            {
-                var newNode = nodeFactory.GetNode(node);
-                constellation.AddNode(newNode, node.Guid, node);
-                if (IsAttribute(node) && Attributes != null)
-                {
-                    IAttribute nodeAttribute = newNode.NodeType as IAttribute;
-                    if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
-                        nodeAttribute.SetAttribute(Attributes[attributesCounter].Variable);
-                    else if (attributesCounter < Attributes.Count)
-                        nodeAttribute.SetAttribute(new Ray().Set(Attributes[attributesCounter].UnityObject as object));
-
-                    attributesCounter++;
-                }
-            }
         }
 
         bool IsAttribute(NodeData node)

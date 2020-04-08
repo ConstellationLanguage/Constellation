@@ -182,17 +182,6 @@ namespace ConstellationEditor
             return (mouseOverX && mouseOverY);
         }
 
-        private Rect PointsToRect(Vector3 start, Vector3 end)
-        {
-            return new Rect
-            {
-                x = (start.x < end.x) ? start.x : end.x,
-                y = (start.y < end.y) ? end.y : start.y,
-                width = Mathf.Abs(start.x - end.x),
-                height = Mathf.Abs(start.y - end.y)
-            };
-        }
-
         public Color GetConnectionColor(bool _isWarm, string _type, ConstellationEditorStyles styles)
         {
             if (_isWarm)
@@ -203,41 +192,42 @@ namespace ConstellationEditor
 
         public void AddLinkFromOutput(OutputData _output, ConstellationEditorEvents.EditorEvents editorEvents)
         {
-            if (_output.Type == "Undefined")
-                return;
-
-            if (selectedInput != null && (selectedInput.Type == _output.Type || selectedInput.Type == "Any" || _output.Type == "Any"))
-                CreateLink(selectedInput, _output, editorEvents);
-            else if (selectedOutput == null)
+            if (TypeConst.CreateLink(selectedInput, _output, constellationScript.script, () =>
+            {
+                editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Added link");
+            }, (string linkGUID) =>
+            {
+                editorEvents(ConstellationEditorEvents.EditorEventType.LinkAdded, linkGUID);
+            }))
+            {
+                if (isInstance)
+                    constellationScript.IsDifferentThanSource = true;
+                
+                selectedInput = null;
+                selectedOutput = null;
+            } else if (selectedOutput == null)
                 selectedOutput = _output;
 
         }
 
         public void AddLinkFromInput(InputData _input, ConstellationEditorEvents.EditorEvents editorEvents)
         {
-            if (_input.Type == "Undefined")
-                return;
-
-            if (selectedOutput != null && (selectedOutput.Type == _input.Type || selectedOutput.Type == "Any" || _input.Type == "Any"))
-                CreateLink(_input, selectedOutput, editorEvents);
-            else if (selectedInput == null)
-                selectedInput = _input;
-        }
-
-        public void CreateLink(InputData _input, OutputData _output, ConstellationEditorEvents.EditorEvents editorEvents)
-        {
-            if (isInstance)
-                constellationScript.IsDifferentThanSource = true;
-
-            selectedInput = null;
-            selectedOutput = null;
-            var newLink = new LinkData(_input, _output);
-            if (constellationScript.IsLinkValid(newLink))
+            if (TypeConst.CreateLink(_input, selectedOutput, constellationScript.script, () =>
             {
                 editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Added link");
-                constellationScript.AddLink(newLink);
-                editorEvents(ConstellationEditorEvents.EditorEventType.LinkAdded, newLink.GUID);
+            }, (string linkGUID) =>
+            {
+                editorEvents(ConstellationEditorEvents.EditorEventType.LinkAdded, linkGUID);
+            }))
+            {
+                if (isInstance)
+                    constellationScript.IsDifferentThanSource = true;
+
+                selectedInput = null;
+                selectedOutput = null;
             }
+            else if (selectedInput == null)
+                selectedInput = _input;
         }
 
         private void DrawIncompleteLink(ConstellationEditorEvents.RequestRepaint requestRepaint, ConstellationEditorStyles styles)

@@ -9,6 +9,7 @@ namespace Constellation.Unity3D
     {
         public List<ConstellationBehaviourScript> ConstellationScripts;
         public List<ConstellationTutorialScript> ConstellationTutorials;
+        public List<ConstellationNodeScript> ConstellationNodes;
 
         public void SetScriptAssembly()
         {

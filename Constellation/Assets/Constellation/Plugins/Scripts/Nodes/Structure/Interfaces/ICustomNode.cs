@@ -2,6 +2,6 @@
 {
     public interface ICustomNode
     {
-        void SetNode(ConstellationScriptData [] constellation);
+        void SetNode(ConstellationScriptData constellation);
     }
 }

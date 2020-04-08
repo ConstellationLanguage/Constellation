@@ -18,7 +18,7 @@ MonoBehaviour:
       Name: Tutorial
       Namespace: ConstellationTypes
       OverrideDisplayedName: 
-      XPosition: 0
+      XPosition: 15
       YPosition: 15
       SizeX: 75
       SizeY: 30
@@ -44,8 +44,8 @@ MonoBehaviour:
       Name: Transform
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 230
-      YPosition: 195
+      XPosition: 500
+      YPosition: 260
       SizeX: 75
       SizeY: 120
       Inputs:
@@ -87,29 +87,6 @@ MonoBehaviour:
         Type: Object
         Description: Transform
       AttributesData: []
-    - Guid: 69352f2d-577a-4b26-b0d3-2d7ef5acd3bd
-      Name: LookAtPosition
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 370
-      YPosition: 270
-      SizeX: 75
-      SizeY: 60
-      Inputs:
-      - Guid: 24c2b0fe-c619-459c-bd40-5268f2481819
-        IsBright: 0
-        Type: Object
-        Description: GameObject position
-      - Guid: e7f67c5f-ddb3-4721-8f12-8d2dfb2169ed
-        IsBright: 1
-        Type: Vec3
-        Description: Position to look at
-      Outputs:
-      - Guid: 786a61ef-706b-4e85-a6d0-cb169823bfa8
-        IsWarm: 0
-        Type: Vec3
-        Description: Target rotation
-      AttributesData: []
     - Guid: 5df78755-1e40-454d-a25d-e7a1d23f2925
       Name: Value
       Namespace: CoreNodes
@@ -129,6 +106,29 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+    - Guid: 69352f2d-577a-4b26-b0d3-2d7ef5acd3bd
+      Name: LookAtPosition
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 375
+      YPosition: 300
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 24c2b0fe-c619-459c-bd40-5268f2481819
+        IsBright: 0
+        Type: Object
+        Description: GameObject position
+      - Guid: e7f67c5f-ddb3-4721-8f12-8d2dfb2169ed
+        IsBright: 1
+        Type: Vec3
+        Description: Position to look at
+      Outputs:
+      - Guid: 786a61ef-706b-4e85-a6d0-cb169823bfa8
+        IsWarm: 0
+        Type: Vec3
+        Description: Target rotation
+      AttributesData: []
     - Guid: 61455459-106a-4d7f-ba59-16495c0bf9a7
       Name: Vec3
       Namespace: Unity

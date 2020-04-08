@@ -8,7 +8,40 @@ namespace Constellation
         public static ConstellationEventSystem eventSystem;
         private List<Node<INode>> Nodes;
         public List<Link> Links;
+        public delegate void NodeAdded(Node<INode> node, NodeData nodeData);
+        protected NodesFactory NodesFactory;
 
+        public Constellation(ConstellationScriptData constellationScriptData, 
+            NodesFactory nodesFactory, 
+            NodeAdded onNodeAdded = null)
+        {
+            NodesFactory = nodesFactory;
+            SetNodes(constellationScriptData.GetNodes(), onNodeAdded);
+            SetLinks(constellationScriptData.GetLinks());
+        }
+
+        void SetNodes(NodeData[] nodes, NodeAdded onNodeAdded)
+        {
+            foreach (NodeData node in nodes)
+            {
+                var newNode = NodesFactory.GetNode(node);
+                AddNode(newNode, node.Guid, node);
+                onNodeAdded(newNode, node);
+            }
+        }
+
+        void SetLinks(LinkData [] links)
+        {
+            foreach (LinkData link in links)
+            {
+                var input = GetInput(link.Input.Guid);
+                var output = GetOutput(link.Output.Guid);
+                if (input != null && output != null)
+                    AddLink(new Link(GetInput(link.Input.Guid),
+                        GetOutput(link.Output.Guid),
+                        GetOutput(link.Output.Guid).Type, link.GUID));
+            }
+        }
 
         public override void Initialize(string _guid, string _name)
         {

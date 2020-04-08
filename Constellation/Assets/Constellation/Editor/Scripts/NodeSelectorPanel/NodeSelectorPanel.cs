@@ -42,7 +42,7 @@ public class NodeSelectorPanel
     {
         GUILayout.BeginVertical();
         DrawSearchField();
-        const int SearchFieldSize = 20; 
+        const int SearchFieldSize = 55; //Has to be fixed but for now it's the only way to keep the margins right
         nodeSelectorScrollPos = EditorGUILayout.BeginScrollView(nodeSelectorScrollPos, GUILayout.Width(_width), GUILayout.Height(_height - SearchFieldSize));
         foreach (NodeNamespacesData nodeNamespace in NodeNamespaceData)
         {

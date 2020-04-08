@@ -1,6 +1,6 @@
 ﻿namespace Constellation.CoreNodes
 {
-    public class Entry : INode, IReceiver
+    public class Entry : INode, IReceiver, IMirrorNode
     {
         private ISender sender;
         private Parameter attribute; // attributes are setted in the editor.
@@ -9,7 +9,7 @@
         public void Setup(INodeParameters _node)
         {
             var wordValue = new Ray();
-            _node.AddOutput(false, "Output the entry received"); // setting a cold input
+            _node.AddOutput(false, "Any", "Output the entry received"); // setting a cold input
             attribute = _node.AddAttribute(wordValue.Set("Var"), Parameter.AttributeType.Word, "The default word");// setting an attribute (Used only for the editor)
         }
 

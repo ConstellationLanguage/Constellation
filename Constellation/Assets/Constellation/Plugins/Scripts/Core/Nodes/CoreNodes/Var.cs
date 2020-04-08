@@ -7,10 +7,10 @@
 
         public void Setup (INodeParameters _node) {
             var wordValue = new Ray();
-            _node.AddInput (this, false, "Any", "New var"); // setting a cold input
+            _node.AddInput (this, false, "Generic", "New var"); // setting a cold input
             _node.AddInput (this, true, "Any", "Send var"); // setting a warm input
             sender = _node.GetSender();
-            _node.AddOutput (false, "Any", "Output var"); // setting a cold input
+            _node.AddOutput (false, "Generic", "Output var"); // setting a cold input
             attribute = _node.AddAttribute (wordValue.Set("Var"), Parameter.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
         }
 

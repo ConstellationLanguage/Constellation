@@ -1,4 +1,4 @@
-﻿namespace Constellation.Custom
+﻿namespace Constellation.ConstellationNodes
 {
     public class ConstellationNodeFactory : INodeGetter, IRequestAssembly
     {
@@ -11,7 +11,7 @@
 
         public Node<INode> GetNode(string nodeName)
         {
-            INode customNode = new CustomNode() as INode;
+            INode customNode = new StaticConstellation() as INode;
             return new Node<INode>(customNode);
         }
 

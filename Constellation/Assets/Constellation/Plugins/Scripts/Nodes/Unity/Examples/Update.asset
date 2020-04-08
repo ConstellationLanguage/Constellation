@@ -14,6 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Guid: ec8b22a8-1bd0-42a1-a5d7-5ea1aefeabaf
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 25
+      YPosition: 20
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Guid: 2496c01a-1884-4422-bbeb-7cf969f47c13
       Name: Var
       Namespace: CoreNodes
@@ -41,11 +52,30 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 6
+    - Guid: 6b184325-6e7e-45c7-9a6c-866113cedce9
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 110
+      SizeX: 122
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: fff5780d-595c-4a5c-aee7-2346afc9e4cb
+        IsWarm: 1
+        Type: Var
+        Description: The Word
+      AttributesData:
+      - Value:
+          stringValue: Updated word
+          floatValue: 0.000001
+        Type: 1
     - Guid: 4be78166-1647-4d8d-b0aa-a9e1c922fdce
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 470
+      XPosition: 345
       YPosition: 110
       SizeX: 75
       SizeY: 40
@@ -56,30 +86,11 @@ MonoBehaviour:
         Description: value to log in console
       Outputs: []
       AttributesData: []
-    - Guid: 6b184325-6e7e-45c7-9a6c-866113cedce9
-      Name: Word
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 110
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: fff5780d-595c-4a5c-aee7-2346afc9e4cb
-        IsWarm: 1
-        Type: Var
-        Description: The Word
-      AttributesData:
-      - Value:
-          stringValue: your word
-          floatValue: 0.000001
-        Type: 1
     - Guid: a0cdc3a6-7944-44d9-ac44-08d52cf7598d
       Name: Update
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 70
+      XPosition: 95
       YPosition: 155
       SizeX: 75
       SizeY: 40
@@ -89,17 +100,6 @@ MonoBehaviour:
         IsWarm: 1
         Type: Ray
         Description: Ray on update
-      AttributesData: []
-    - Guid: ec8b22a8-1bd0-42a1-a5d7-5ea1aefeabaf
-      Name: Tutorial
-      Namespace: ConstellationTypes
-      OverrideDisplayedName: 
-      XPosition: 370
-      YPosition: 265
-      SizeX: 75
-      SizeY: 30
-      Inputs: []
-      Outputs: []
       AttributesData: []
     Links:
     - Input:

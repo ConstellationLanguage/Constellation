@@ -138,16 +138,6 @@ namespace Constellation.Unity3D
             return script.Nodes.ToArray ();
         }
 
-        public bool IsLinkValid (LinkData _link) {
-            foreach (LinkData link in script.Links) {
-                if (_link.Input.Guid == link.Input.Guid && _link.Output.Guid == link.Output.Guid) {
-                    Debug.LogError ("Cannot add a link that already exist");
-                    return false;
-                }
-            }
-            return true;
-        }
-
         public void AddLink (LinkData _link) {
             if (script.Links == null)
                 script.Links = new List<LinkData> ();

@@ -371,7 +371,11 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
         if (node.Name == Constellation.ConstellationTypes.Tutorial.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertCurrentConstellationToTutorial();
+        } else if(node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
+        {
+            ConstellationScript = ScriptDataService.ConvertToConstellationNodeScript();
         }
+
         if (Application.isPlaying && previousSelectedGameObject != null)
         {
             currentEditableConstellation.AddNode(node);
@@ -382,6 +386,10 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, ICo
     protected void OnNodeRemoved(NodeData node)
     {
         if (node.Name == Constellation.ConstellationTypes.Tutorial.NAME)
+        {
+            ConstellationScript = ScriptDataService.ConvertToConstellationScript();
+        }
+        else if (node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertToConstellationScript();
         }

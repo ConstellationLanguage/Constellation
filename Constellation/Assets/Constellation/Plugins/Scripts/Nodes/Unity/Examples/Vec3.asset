@@ -14,11 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
+    - Guid: 6a1b8e49-9572-4198-b80a-294f855a40aa
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      AttributesData: []
     - Guid: 262e1a28-ed2e-4906-ae08-334471b4e750
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 110
+      XPosition: 230
       YPosition: 125
       SizeX: 100
       SizeY: 40
@@ -37,7 +48,7 @@ MonoBehaviour:
       Name: Transform
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 565
+      XPosition: 495
       YPosition: 130
       SizeX: 75
       SizeY: 120
@@ -123,7 +134,7 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 110
+      XPosition: 230
       YPosition: 170
       SizeX: 100
       SizeY: 40
@@ -142,7 +153,7 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 110
+      XPosition: 230
       YPosition: 215
       SizeX: 100
       SizeY: 40
@@ -157,17 +168,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 6a1b8e49-9572-4198-b80a-294f855a40aa
-      Name: Tutorial
-      Namespace: ConstellationTypes
-      OverrideDisplayedName: 
-      XPosition: 370
-      YPosition: 265
-      SizeX: 75
-      SizeY: 30
-      Inputs: []
-      Outputs: []
-      AttributesData: []
     Links:
     - Input:
         Guid: 97a9d775-e15e-4664-8473-955ce112fd06

@@ -96,6 +96,11 @@ namespace ConstellationEditor
             return EditorUtils.GetAllInstances<ConstellationTutorialScript>();
         }
 
+        public ConstellationNodeScript[] SearchAllConstellationNodeScriptsInProject()
+        {
+            return EditorUtils.GetAllInstances<ConstellationNodeScript>();
+        }
+
         public ConstellationScript[] GetAllScriptsInProject()
         {
             if (EditorData.ScriptAssembly.ConstellationScripts == null || EditorData.ScriptAssembly.ConstellationScripts.Count == 0)
@@ -118,6 +123,7 @@ namespace ConstellationEditor
         {
             EditorData.ScriptAssembly.ConstellationScripts = new List<ConstellationBehaviourScript>(SearchAllConstellationBehaviourScriptsInProject());
             EditorData.ScriptAssembly.ConstellationTutorials = new List<ConstellationTutorialScript>(SearchAllConstellationTutorialScriptsInProject());
+            EditorData.ScriptAssembly.ConstellationNodes = new List<ConstellationNodeScript>(SearchAllConstellationNodeScriptsInProject());
         }
 
         public void SetAllScriptsDirty()
@@ -469,6 +475,18 @@ namespace ConstellationEditor
             OpenedScripts[0].ScriptTag = ConstellationScriptInfos.ConstellationScriptTag.Tutorial;
             var scriptPath = OpenedScripts[0].ScriptPath;
             var tutorialAsset = ScriptableObject.CreateInstance<ConstellationBehaviourScript>();
+            tutorialAsset.script = Script.script;
+            AssetDatabase.DeleteAsset(scriptPath);
+            AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
+            Script = tutorialAsset;
+            return Script;
+        }
+
+        public ConstellationScript ConvertToConstellationNodeScript()
+        {
+            OpenedScripts[0].ScriptTag = ConstellationScriptInfos.ConstellationScriptTag.Tutorial;
+            var scriptPath = OpenedScripts[0].ScriptPath;
+            var tutorialAsset = ScriptableObject.CreateInstance<ConstellationNodeScript>();
             tutorialAsset.script = Script.script;
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);

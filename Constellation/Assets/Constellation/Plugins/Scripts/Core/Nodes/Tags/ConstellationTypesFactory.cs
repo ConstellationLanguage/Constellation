@@ -11,8 +11,8 @@ namespace Constellation.ConstellationTypes {
                 case Tutorial.NAME:
                     INode nodeTutorial = new Tutorial () as INode;
                     return new Node<INode> (nodeTutorial);
-                case ConstellationNode.NAME:
-                    INode nodeNestable = new ConstellationNode() as INode;
+                case StaticConstellationNode.NAME:
+                    INode nodeNestable = new StaticConstellationNode() as INode;
                     return new Node<INode>(nodeNestable);
                 default:
                     return null;

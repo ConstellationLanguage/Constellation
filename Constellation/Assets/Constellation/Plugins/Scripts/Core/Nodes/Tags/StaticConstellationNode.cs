@@ -1,8 +1,8 @@
 ﻿namespace Constellation.ConstellationTypes
 {
-    public class ConstellationNode : INode, IReceiver
+    public class StaticConstellationNode : INode, IReceiver
     {
-        public const string NAME = "ConstellationNode";
+        public const string NAME = "StaticConstellationNode";
 
         public void Setup(INodeParameters _node)
         {

@@ -1,4 +1,4 @@
-﻿namespace Constellation.Custom
+﻿namespace Constellation.ConstellationNodes
 {
     public class NameSpace
     {

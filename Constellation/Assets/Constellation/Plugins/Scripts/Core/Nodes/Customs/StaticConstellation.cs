@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace Constellation.Custom
+namespace Constellation.ConstellationNodes
 {
-    public class CustomNode : INode, IReceiver, ICustomNode
+    public class StaticConstellation : INode, IReceiver, ICustomNode
     {
         private ISender sender;
         private Parameter attribute; // attributes are setted in the editor.
-        public const string NAME = "Custom Node"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
+        public const string NAME = "StaticConstellation"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
         Constellation constellation;
         ConstellationScriptData ConstellationData;
         NodesFactory nodesFactory;
@@ -23,36 +23,33 @@ namespace Constellation.Custom
             //attribute = _node.AddAttribute(wordValue.Set("Constellation Name"), Attribute.AttributeType.ReadOnlyValue, "The default word");// setting an attribute (Used only for the editor)
         }
 
-        public void SetNode(ConstellationScriptData [] constellations)
+        public void SetNode(ConstellationScriptData constellation)
         {
             NodeAttributes = new List<Ray>();
-            foreach(var constellation in constellations)
+            foreach (var nestedNode in constellation.Nodes)
             {
-                foreach (var nestedNode in constellation.Nodes)
+                if (nestedNode.Name == CoreNodes.Entry.NAME)
                 {
-                    if (nestedNode.Name == CoreNodes.Entry.NAME)
-                    {
-                        node.AddInput(this, false, nestedNode.GetAttributes()[0].Value.GetString());
-                    }
+                    node.AddInput(this, false, nestedNode.GetAttributes()[0].Value.GetString());
+                }
 
-                    if (nestedNode.Name == CoreNodes.Exit.NAME)
-                    {
-                        node.AddOutput(false, nestedNode.GetAttributes()[0].Value.GetString());
-                    }
+                if (nestedNode.Name == CoreNodes.Exit.NAME)
+                {
+                    node.AddOutput(false, nestedNode.GetAttributes()[0].Value.GetString());
+                }
 
-                    if(nestedNode.Name == Attributes.ValueParameter.NAME)
-                    {
-                        var attributeVariable = new Ray(0);
-                        node.AddAttribute(attributeVariable, Parameter.AttributeType.Value, "The value");
-                        NodeAttributes.Add(attributeVariable);
-                    }
+                if (nestedNode.Name == Attributes.ValueParameter.NAME)
+                {
+                    var attributeVariable = new Ray(0);
+                    node.AddAttribute(attributeVariable, Parameter.AttributeType.Value, "The value");
+                    NodeAttributes.Add(attributeVariable);
+                }
 
-                    if (nestedNode.Name == Attributes.WordParameter.NAME)
-                    {
-                        var attributeVariable = new Ray("Word");
-                        node.AddAttribute(attributeVariable, Parameter.AttributeType.Word, "The value");
-                        NodeAttributes.Add(attributeVariable);
-                    }
+                if (nestedNode.Name == Attributes.WordParameter.NAME)
+                {
+                    var attributeVariable = new Ray("Word");
+                    node.AddAttribute(attributeVariable, Parameter.AttributeType.Word, "The value");
+                    NodeAttributes.Add(attributeVariable);
                 }
             }
         }
@@ -62,7 +59,7 @@ namespace Constellation.Custom
             if (isInitialized) // do not initialize twice
                 return;
 
-            constellation = new Constellation();
+            //constellation = new Constellation();
 
             if (NodesFactory.Current == null)
                 nodesFactory = new NodesFactory(constellationScripts);
@@ -70,7 +67,7 @@ namespace Constellation.Custom
                 nodesFactory = NodesFactory.Current;
 
             var nodes = ConstellationData.GetNodes();
-            constellation = new Constellation();
+            //constellation = new Constellation();
             //SetNodes(nodes);
 
             var links = ConstellationData.GetLinks();
