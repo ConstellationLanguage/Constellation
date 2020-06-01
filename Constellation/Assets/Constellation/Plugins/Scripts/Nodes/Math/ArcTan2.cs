@@ -28,7 +28,7 @@ public class ArcTan2: INode, IReceiver
 			if(_input.InputId == 0)
 				Variable.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.Atan2(_value.GetFloat(), Variable.GetFloat())), 0);
         }
     }

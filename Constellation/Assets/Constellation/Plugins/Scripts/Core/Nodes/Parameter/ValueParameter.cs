@@ -1,5 +1,5 @@
-﻿namespace Constellation.Attributes {
-    public class ValueParameter : INode, IReceiver, IAwakable, IAttribute{
+﻿namespace Constellation.Parameters {
+    public class ValueParameter : INode, IReceiver, IAwakable, IParameter{
         private ISender sender;
         private Ray Value;
         public const string NAME = "ValueParameter";
@@ -8,9 +8,9 @@
             sender = _node.GetSender();
             _node.AddOutput (true, "Current value");
             var newValue = new Ray (0);
-            var nameValue = new Ray ("AttributeName");
+            var nameValue = new Ray ("ParameterName");
             Value = newValue;
-            _node.AddAttribute (nameValue, Parameter.AttributeType.Word, "Attribute name");
+            _node.AddParameter (nameValue, Parameter.ParameterType.Word, "Parameter name");
 
         }
 
@@ -22,7 +22,7 @@
             return NameSpace.NAME;
         }
 
-        public void SetAttribute (Ray var) {
+        public void SetParameter (Ray var) {
             Value.Set (var.GetFloat ());
         }
 

@@ -19,7 +19,7 @@ namespace Constellation.Math {
         }
 
         public void Receive (Ray _value, Input _input) {
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send (new Ray ().Set (Mathf.CeilToInt (_value.GetFloat ())), 0);
         }
     }

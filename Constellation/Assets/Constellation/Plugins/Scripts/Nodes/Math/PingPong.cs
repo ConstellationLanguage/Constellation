@@ -33,7 +33,7 @@ public class PingPong: INode, IReceiver
 			if(_input.InputId == 1)
 				VarLenght.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.PingPong(VarT.GetFloat(), VarLenght.GetFloat())), 0);
         }
     }

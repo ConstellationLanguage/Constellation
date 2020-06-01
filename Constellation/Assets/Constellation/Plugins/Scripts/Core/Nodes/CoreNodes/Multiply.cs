@@ -37,7 +37,7 @@
             if( varsToAdd[0].IsFloat() &&  varsToAdd[1].IsFloat())
                 result.Set(varsToAdd[0].GetFloat() * varsToAdd[1].GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(result, 0);
         }
 	}

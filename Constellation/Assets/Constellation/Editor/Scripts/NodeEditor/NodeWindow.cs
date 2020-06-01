@@ -48,7 +48,7 @@ namespace ConstellationEditor
             EditorData = _constellationEditorData;
             ConstellationScript = EditorData.Script;
             Links = new LinksView(ConstellationScript);
-            NodeFactory = new NodesFactory(ConstellationScript?.ScriptAssembly?.GetAllScriptData());
+            NodeFactory = new NodesFactory(ConstellationScript.ScriptAssembly.GetAllStaticScriptData());
 
             foreach (var node in ConstellationScript.GetNodes())
             {
@@ -98,9 +98,9 @@ namespace ConstellationEditor
             Nodes.Add(nodeView);
         }
 
-        public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents callback)
+        public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents editorEvent)
         {
-            callback(ConstellationEditorEvents.EditorEventType.AddToUndo, "Add node");
+            editorEvent(ConstellationEditorEvents.EditorEventType.AddToUndo, "Add node");
             var nodeData = TypeConst.AddNode(NodeFactory, nodeName, nodeNamespace, ConstellationScript.script);
             var newNodeView = new NodeView(nodeData);
             Nodes.Add(newNodeView);
@@ -108,7 +108,7 @@ namespace ConstellationEditor
             newNodeView.SetPosition(ScrollPosition.x + (windowSizeX * 0.5f), ScrollPosition.y + (windowSizeY * 0.5f));
             newNodeView.LockNodePosition();
             SetNodeToFirst(newNodeView);
-            callback(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
+            editorEvent(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
         }
 
         public NodeData[] GetSelectionCopy()
@@ -333,25 +333,32 @@ namespace ConstellationEditor
                 {
                     if (node.Guid == nodeData.NodeData.Guid)
                     {
-                        if (!nodeData.IsAttributeValueChanged())
+                        var changedParameters = nodeData.IsParameterValueChanged();
+                        if (changedParameters.Length == 0)
                         {
-                            for (var i = 0; i < node.GetAttributes().Length; i++)
+                            for (var i = 0; i < node.GetParameters().Length; i++)
                             {
-                                nodeData.NodeData.AttributesData[i].Value.Set(node.GetAttributes()[i].Value.GetString());
+                                nodeData.NodeData.ParametersData[i].Value.Set(node.GetParameters()[i].Value.GetString());
                             }
+                            node.XPosition = nodeData.GetPositionX();
+                            node.YPosition = nodeData.GetPositionY();
+                            node.XSize = nodeData.GetSizeX();
+                            node.YSize = nodeData.GetSizeY();
                         }
                         else
                         {
-                            for (var i = 0; i < node.GetAttributes().Length; i++)
+                            for (var i = 0; i < node.GetParameters().Length; i++)
                             {
-                                if (ConstellationScript.IsInstance)
-                                    ConstellationScript.IsDifferentThanSource = true;
-                                node.GetAttributes()[i].Value.Set(nodeData.NodeData.AttributesData[i].Value);
-                                node.NodeType.Receive(nodeData.NodeData.AttributesData[i].Value, new Constellation.Input("0000-0000-0000-0000", 999, true, "editor", "none"));
-                                if (node.NodeType is IAttributeUpdate)
-                                {
-                                    IAttributeUpdate needAttributeUpdate = node.NodeType as IAttributeUpdate;
-                                    needAttributeUpdate.OnAttributesUpdate();
+                                if (changedParameters.Contains(i)) {
+                                    if (ConstellationScript.IsInstance)
+                                        ConstellationScript.IsDifferentThanSource = true;
+                                    node.GetParameters()[i].Value.Set(nodeData.NodeData.ParametersData[i].Value);
+                                    node.NodeType.Receive(nodeData.NodeData.ParametersData[i].Value, new Constellation.Input("0000-0000-0000-0000", Parameter.ParameterInputID + i, true, "editor", "none"));
+                                    if (node.NodeType is IParameterUpdate)
+                                    {
+                                        IParameterUpdate needAttributeUpdate = node.NodeType as IParameterUpdate;
+                                        needAttributeUpdate.OnParametersUpdate();
+                                    }
                                 }
                             }
                         }
@@ -472,7 +479,7 @@ namespace ConstellationEditor
 
                         for (var j = 0; j < Nodes[i].GetAttributeDatas().Length; j++)
                         {
-                            var attributeRect = Nodes[i].GetAttributeRect(j, EditorData.GetConstellationEditorConfig());
+                            var attributeRect = Nodes[i].GetParameterRect(j, EditorData.GetConstellationEditorConfig());
                             if (attributeRect.Contains(mousePosition))
                             {
                                 editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Attribute edited");

@@ -7,7 +7,7 @@
         public void Setup (INodeParameters _node) {
             _node.AddOutput (false, "Value received in the teleport");
             sender = _node.GetSender ();
-            eventName = _node.AddAttribute (new Ray ("event name"), Parameter.AttributeType.Word, "The event name");
+            eventName = _node.AddParameter (new Ray ("event name"), Parameter.ParameterType.Word, "The event name");
         }
 
         public void OnTeleport (Ray variable, string id) {

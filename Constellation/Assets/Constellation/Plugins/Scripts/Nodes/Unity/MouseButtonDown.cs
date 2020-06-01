@@ -12,7 +12,7 @@ namespace Constellation.Unity
 			var newValue = new Ray();
 			sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(true, "1 on mouse button down else 0");
-			key = _nodeParameters.AddAttribute(newValue, Parameter.AttributeType.Value, "mouse button code");
+			key = _nodeParameters.AddParameter(newValue, Parameter.ParameterType.Value, "mouse button code");
 			keyState = new Ray().Set(0);
         }
 

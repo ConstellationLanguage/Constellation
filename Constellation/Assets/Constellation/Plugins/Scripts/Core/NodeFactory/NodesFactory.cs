@@ -10,43 +10,29 @@ namespace Constellation
         public static NodesFactory Current;
         public List<INodeGetter> NodeGetters;
         public List<IRequestAssembly> AssemblyRequester;
-        ConstellationScriptData[] scripts;
+        ConstellationScriptData[] staticConstellationScripts;
 
-        public NodesFactory(ConstellationScriptData[] constellationScripts)
+        public NodesFactory(ConstellationScriptData[] staticConstellationScripts)
         {
-            scripts = constellationScripts;
+            this.staticConstellationScripts = staticConstellationScripts;
             Setup();
+        }
+
+        public ConstellationScriptData[] GetStaticConstellationScripts()
+        {
+            return staticConstellationScripts;
         }
 
         private void Setup()
         {
             Current = this;
-            SetConstellationAssembly(scripts);
-            SetInterfaces();
+            //SetConstellationAssembly();
+            SetInterfaces(staticConstellationScripts);
         }
 
-        public void SetConstellationAssembly(ConstellationScriptData[] constellationScript)
+        public void SetInterfaces(ConstellationScriptData[] constellationScript)
         {
-            if (constellationScript == null)
-                return;
             AssemblyRequester = new List<IRequestAssembly>();
-            var type = typeof(IRequestAssembly);
-            var types = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(s => s.GetTypes())
-                .Where(p => type.IsAssignableFrom(p));
-            foreach (var t in types)
-            {
-                if (t.FullName != "Constellation.IRequestAssembly")
-                {
-                    var factory = Activator.CreateInstance(t) as IRequestAssembly;
-                    factory.SetConstellationAssembly(constellationScript);
-                    AssemblyRequester.Add(factory);
-                }
-            }
-        }
-
-        public void SetInterfaces()
-        {
             NodeGetters = new List<INodeGetter>();
             var type = typeof(INodeGetter);
             var types = AppDomain.CurrentDomain.GetAssemblies()
@@ -57,6 +43,12 @@ namespace Constellation
                 if (t.FullName != "Constellation.INodeGetter")
                 {
                     var factory = Activator.CreateInstance(t) as INodeGetter;
+                    if(factory is IRequestAssembly)
+                    {
+                        (factory as IRequestAssembly).SetConstellationAssembly(constellationScript);
+                        AssemblyRequester.Add(factory as IRequestAssembly);
+                    }
+
                     NodeGetters.Add(factory);
                 }
             }
@@ -77,7 +69,6 @@ namespace Constellation
                 }
             }
             return null;
-            //throw new ConstellationNotAddedToFactory();
         }
 
         public Node<INode> GetNodeSafeMode(NodeData _nodeData)
@@ -113,12 +104,12 @@ namespace Constellation
                 }
 
                 var a = 0;
-                foreach (Parameter attribute in node.GetAttributes())
+                foreach (Parameter attribute in node.GetParameters())
                 {
-                    if (_nodeData.GetAttributes()[a].Value.IsFloat())
-                        attribute.Value.Set(_nodeData.GetAttributes()[a].Value.GetFloat());
+                    if (_nodeData.GetParameters()[a].Value.IsFloat())
+                        attribute.Value.Set(_nodeData.GetParameters()[a].Value.GetFloat());
                     else
-                        attribute.Value.Set(_nodeData.GetAttributes()[a].Value.GetString());
+                        attribute.Value.Set(_nodeData.GetParameters()[a].Value.GetString());
                     a++;
                 }
                 return node;
@@ -158,12 +149,12 @@ namespace Constellation
             }
 
             var a = 0;
-            foreach (Parameter attribute in node.GetAttributes())
+            foreach (Parameter paramerter in node.GetParameters())
             {
-                if (_nodeData.GetAttributes()[a].Value.IsFloat())
-                    attribute.Value.Set(_nodeData.GetAttributes()[a].Value.GetFloat());
+                if (_nodeData.GetParameters()[a].Value.IsFloat())
+                    paramerter.Value.Set(_nodeData.GetParameters()[a].Value.GetFloat());
                 else
-                    attribute.Value.Set(_nodeData.GetAttributes()[a].Value.GetString());
+                    paramerter.Value.Set(_nodeData.GetParameters()[a].Value.GetString());
                 a++;
             }
             return node;
@@ -182,9 +173,9 @@ namespace Constellation
             return allNamespaces.ToArray();
         }
 
-        public static string[] GetAllNodes()
+        public static string[] GetAllNodesExcludeDiscretes()
         {
-            List<string> allNodes = new List<string>(GenericNodeFactory.GetNodesType());
+            List<string> allNodes = new List<string>(GenericNodeFactory.GetNodesTypeExcludeDiscretes());
             return allNodes.ToArray();
         }
     }

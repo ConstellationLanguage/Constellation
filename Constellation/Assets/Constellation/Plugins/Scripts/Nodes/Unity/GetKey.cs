@@ -11,7 +11,7 @@
 			var newValue = new Ray();
 			sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(true, "Output 1 when key pressed");
-			key = _nodeParameters.AddAttribute(newValue, Parameter.AttributeType.Word, "The key");
+			key = _nodeParameters.AddParameter(newValue, Parameter.ParameterType.Word, "The key");
         }
         
         public string NodeName () {

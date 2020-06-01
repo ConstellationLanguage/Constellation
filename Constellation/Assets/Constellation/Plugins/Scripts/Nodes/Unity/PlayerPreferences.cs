@@ -49,7 +49,7 @@ namespace Constellation.Unity {
 				savedData.Set (PlayerPrefs.GetString (value.GetString ()));
 			}
 
-			if (_input.isWarm) {
+			if (_input.isBright) {
 				sender.Send (value, 0);
 				sender.Send (savedData, 1);
 			}

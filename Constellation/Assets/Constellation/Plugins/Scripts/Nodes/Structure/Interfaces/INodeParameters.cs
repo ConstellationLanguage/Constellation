@@ -6,7 +6,8 @@ namespace Constellation
         Input AddInput(IReceiver receiver, bool isWarm, string type, string description);
         void AddOutput(bool isWarm, string description);
         void AddOutput(bool isWarm, string type, string description);
-        Parameter AddAttribute(Ray value, Parameter.AttributeType _type, string description);
+        Parameter AddParameter(Ray value, Parameter.ParameterType _type, string description);
+        Parameter AddDiscreteParameter(Ray value, Parameter.ParameterType _type, string description);
         ISender GetSender();
     }
 }

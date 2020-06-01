@@ -100,7 +100,7 @@ namespace Constellation.Unity {
                 }
             }
 
-            if (_input.isWarm) {
+            if (_input.isBright) {
                 UpdateTransform ();
                 sender.Send (Position, 0);
                 sender.Send (Rotation, 1);

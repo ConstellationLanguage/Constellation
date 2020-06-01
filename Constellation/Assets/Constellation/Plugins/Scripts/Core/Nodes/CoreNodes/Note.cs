@@ -5,7 +5,7 @@
         public const string NAME = "Note";
         public void Setup(INodeParameters _node)
         {
-            _node.AddAttribute(new Ray().Set("Your note here"), Parameter.AttributeType.NoteField, "");
+            _node.AddParameter(new Ray().Set("Your note here"), Parameter.ParameterType.NoteField, "");
         }
 
         public string NodeName()

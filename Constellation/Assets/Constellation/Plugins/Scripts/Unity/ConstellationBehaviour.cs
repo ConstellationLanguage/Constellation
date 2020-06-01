@@ -7,8 +7,8 @@ namespace Constellation.Unity3D
     {
         public void Awake()
         {
-            try
-            {
+            /*try
+            {*/
                 if (ConstellationData == null && Application.isPlaying)
                 {
                     this.enabled = false;
@@ -17,7 +17,7 @@ namespace Constellation.Unity3D
                 {
                     Initialize();
                 }
-            }
+            /*}
             catch (ConstellationError e)
             {
                 Debug.LogError(e.GetError().GetFormatedError());
@@ -25,7 +25,7 @@ namespace Constellation.Unity3D
             catch (Exception e)
             {
                 Debug.LogError(e);
-            }
+            }*/
         }
 
         public void SetConstellation(ConstellationScriptData constellationScriptData)

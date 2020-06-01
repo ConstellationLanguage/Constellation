@@ -16,9 +16,9 @@ namespace Constellation.Unity
             _node.AddInput(this, true, "Z");
             sender = _node.GetSender();
             _node.AddOutput(false, "Vec3", "Vec3[X][Y][Z]");
-            valueX = _node.AddAttribute(new Ray().Set(0), Parameter.AttributeType.ReadOnlyXValue, "X");
-            valueY = _node.AddAttribute(new Ray().Set(0), Parameter.AttributeType.ReadOnlyYValue, "Y");
-            valueZ = _node.AddAttribute(new Ray().Set(0), Parameter.AttributeType.ReadOnlyZValue, "Z");
+            valueX = _node.AddParameter(new Ray().Set(0), Parameter.ParameterType.ReadOnlyXValue, "X");
+            valueY = _node.AddParameter(new Ray().Set(0), Parameter.ParameterType.ReadOnlyYValue, "Y");
+            valueZ = _node.AddParameter(new Ray().Set(0), Parameter.ParameterType.ReadOnlyZValue, "Z");
             Ray[] newVar = new Ray[3];
             newVar[0] = valueX.Value;
             newVar[1] = valueY.Value;
@@ -52,7 +52,7 @@ namespace Constellation.Unity
                 Result.GetArrayVariable(_input.InputId).Set(_value.GetFloat());
             }
 
-            if (_input.isWarm){
+            if (_input.isBright){
                 if(valueX.Value.GetFloat() ==  Ray.nullValue){
                     valueX.Value.Set(0);
                     Result.GetArrayVariable(0).Set(valueX.Value.GetFloat());

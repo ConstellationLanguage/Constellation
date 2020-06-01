@@ -23,7 +23,7 @@ public class Logarithm: INode, IReceiver
         public void Receive(Ray _value, Input _input)
         {
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.Log(_value.GetFloat())), 0);
         }
     }

@@ -8,7 +8,7 @@ namespace Constellation.CoreNodes {
             var newValue = new Ray ().Set("your word");
             sender = _node.GetSender();
             _node.AddOutput (true, "The Word");
-            value = _node.AddAttribute (newValue, Parameter.AttributeType.Word, "Word to set");
+            value = _node.AddParameter (newValue, Parameter.ParameterType.Word, "Word to set");
         }
 
         public string NodeName () {
@@ -25,7 +25,7 @@ namespace Constellation.CoreNodes {
 
         public void Receive (Ray _value, Input _input) {
             value.Value.Set (_value.GetString ());
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send (value.Value, 0);
         }
     }

@@ -35,12 +35,12 @@
             else 
                 varsToAdd[_input.InputId].Set(_value.GetString());
 
-            if( varsToAdd[0].IsFloat() &&  varsToAdd[1].IsFloat() && _input.isWarm)
+            if( varsToAdd[0].IsFloat() &&  varsToAdd[1].IsFloat() && _input.isBright)
                 result.Set(varsToAdd[0].GetFloat() + varsToAdd[1].GetFloat());
-            else if(_input.isWarm)
+            else if(_input.isBright)
                 result.Set(varsToAdd[0].GetString() + varsToAdd[1].GetString());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(result, 0);
         }
     }

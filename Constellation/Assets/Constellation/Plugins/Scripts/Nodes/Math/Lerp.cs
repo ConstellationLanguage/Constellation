@@ -31,7 +31,7 @@ namespace Constellation.Math {
                 endValue.Set (_value);
 
             try {
-            if (_input.isWarm && startValue != null && endValue != null) {
+            if (_input.isBright && startValue != null && endValue != null) {
                 if (startValue.GetArray () == null)
                     sender.Send (new Ray ().Set (Mathf.Lerp (startValue.GetFloat (), endValue.GetFloat (), _value.GetFloat ())), 0);
                 else if(startValue.GetArray() != null && endValue.GetArray() != null){

@@ -7,7 +7,7 @@ namespace Constellation
 	{
 		protected IReceiver receiver;
 		public string Guid;
-		public bool isWarm;
+		public bool isBright;
 		public int InputId;
 		public string Type;
 		public bool isConnected;
@@ -16,7 +16,7 @@ namespace Constellation
 		public Input (string _guid, int _inputId, bool _isWarm, string _type, string _description)
 		{
 			Guid = _guid;
-			isWarm = _isWarm;
+			isBright = _isWarm;
 			InputId = _inputId;
 			Type = _type;
 			Description = _description;

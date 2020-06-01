@@ -4,7 +4,7 @@ namespace Constellation {
     public class Parameter {
         public delegate void OnAttributeChanged();
 
-        public enum AttributeType {
+        public enum ParameterType {
             Value, 
             Word, 
             NoteField, 
@@ -16,9 +16,9 @@ namespace Constellation {
         };
 
         public Ray Value;
-        public AttributeType Type;
-
-        public Parameter (AttributeType _type) {
+        public ParameterType Type;
+        public const int ParameterInputID = 1000;
+        public Parameter (ParameterType _type) {
             Value = new Ray ();
             Value.Set (0);
             Type = _type;

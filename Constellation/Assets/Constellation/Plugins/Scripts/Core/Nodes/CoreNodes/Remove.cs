@@ -29,12 +29,12 @@
             else
                 varsToRemove[_input.InputId].Set (_value.GetString ());
 
-            if (varsToRemove[0].IsFloat () && varsToRemove[1].IsFloat () && _input.isWarm)
+            if (varsToRemove[0].IsFloat () && varsToRemove[1].IsFloat () && _input.isBright)
                 result.Set (varsToRemove[0].GetFloat () - varsToRemove[1].GetFloat ());
-            else if (_input.isWarm)
+            else if (_input.isBright)
                 result.Set (varsToRemove[0].GetString ().Replace (varsToRemove[1].GetString (), ""));
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send (result, 0);
         }
     }

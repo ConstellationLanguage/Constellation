@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ConstellationEditor {
     public static class TopBarPanel {
-        public static bool Draw (ILoadable loadable, ICopyable copyable, ICompilable compilable) {
+        public static bool Draw (ILoadable loadable, ICopyable copyable, IParsable compilable) {
             try
             {
                 EditorGUILayout.BeginHorizontal();
@@ -29,7 +29,7 @@ namespace ConstellationEditor {
 
                 if (GUILayout.Button("Refresh", EditorStyles.toolbarButton, GUILayout.Width(70)))
                 {
-                    compilable.ParseScript();
+                    compilable.ParseScript(true);
                     return true;
                 }
 

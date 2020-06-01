@@ -2,6 +2,7 @@
 using Constellation;
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 namespace ConstellationEditor
 {
@@ -13,7 +14,7 @@ namespace ConstellationEditor
         private string nodeName;
         private float previousNodeSizeX;
         private float previousNodeSizeY;
-        bool isAttributeValueChanged = false;
+        List<int> changedParameters;
         bool wasMouseOverNode = false;
         Rect AtrributeSize = new Rect(0, 0, 88, 16);
         private string LastFocusedAttribute;
@@ -22,13 +23,19 @@ namespace ConstellationEditor
 
         public NodeView(NodeData node)
         {
-            isAttributeValueChanged = false;
+            changedParameters = new List<int>();
             NodeData = node;
-            nodeName = node.Name;
+            if (node.OverrideDisplayedName == "")
+            {
+                nodeName = node.Name;
+            }else
+            {
+                nodeName = node.OverrideDisplayedName;
+            }
             LockNodeSize();
             LockNodePosition();
 
-            foreach (var attribute in node.AttributesData)
+            foreach (var attribute in node.ParametersData)
             {
                 attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
             }
@@ -103,11 +110,11 @@ namespace ConstellationEditor
                 GUI.Button(GetInputRect(i, constellationEditorStyle), "", editorConfig.GetConstellationIOStylesByType(inputs[i].Type).InputStyle);
             }
 
-            DrawAttributes(constellationEditorStyle);
+            DrawParameters(constellationEditorStyle);
             var outputs = NodeData.GetOutputs();
             for (var i = 0; i < outputs.Length; i++)
             {
-                if (outputs[i].IsWarm == true)
+                if (outputs[i].IsBright == true)
                     GUI.color = editorConfig.GetConstellationIOStylesByType(outputs[i].Type).WarmColor;
                 else
                     GUI.color = editorConfig.GetConstellationIOStylesByType(outputs[i].Type).ColdColor;
@@ -148,7 +155,7 @@ namespace ConstellationEditor
         public float MinimumNodeWidth()
         {
             var minimumWidth = 100;
-            if (NodeData.GetAttributes().Length == 0)
+            if (NodeData.GetParameters().Length == 0)
             {
                 minimumWidth = 75;
             }
@@ -200,9 +207,9 @@ namespace ConstellationEditor
             return NodeData.GetOutputs();
         }
 
-        public AttributeData[] GetAttributeDatas()
+        public ParameterData[] GetAttributeDatas()
         {
-            return NodeData.GetAttributes();
+            return NodeData.GetParameters();
         }
 
         public void LockNodePosition()
@@ -254,41 +261,41 @@ namespace ConstellationEditor
             return rect;
         }
 
-        private void DrawAttributes(ConstellationEditorStyles editorStyles)
+        private void DrawParameters(ConstellationEditorStyles editorStyles)
         {
             GUI.color = Color.white;
-            if (NodeData.GetAttributes() != null)
+            if (NodeData.GetParameters() != null)
             {
                 var i = 0;
-                foreach (var attribute in NodeData.AttributesData)
+                foreach (var parameter in NodeData.ParametersData)
                 {
-                    var attributeControleName = NodeData.Guid + "-" + i;
+                    var parameterControleName = NodeData.Guid + "-" + i;
                     var isFocusable = false;
                     EditorGUIUtility.labelWidth = 25;
                     EditorGUIUtility.fieldWidth = 10;
-                    var attributeRect = GetAttributeRect(i, editorStyles);
+                    var parameterRect = GetParameterRect(i, editorStyles);
                     var nodeAttributeRect = new Rect(NodeData.XPosition + 10, NodeData.YPosition + editorStyles.nodeTitleHeight, NodeData.SizeX - 20, NodeData.SizeY - editorStyles.nodeTitleHeight - 10);
-                    if (attribute.Value != null)
+                    if (parameter.Value != null)
                     {
-                        GUI.SetNextControlName(attributeControleName);
-                        var currentAttributeValue = attribute.Value.GetString();
-                        attribute.Value = AttributeStyleFactory.Draw(attribute.Type, attributeRect, nodeAttributeRect, attribute.Value, editorStyles,out isFocusable);
-                        if (attribute.Value != null)
+                        GUI.SetNextControlName(parameterControleName);
+                        var currentParameterValue = parameter.Value.GetString();
+                        parameter.Value = AttributeStyleFactory.Draw(parameter.Type, parameterRect, nodeAttributeRect, parameter.Value, editorStyles,out isFocusable);
+                        if (parameter.Value != null)
                         {
-                            if (currentAttributeValue != attribute.Value.GetString())
-                                AttributeValueChanged();
+                            if (currentParameterValue != parameter.Value.GetString())
+                                ParameterValueChanged(i);
                         }
                     }
-                    if (GUI.GetNameOfFocusedControl() == attributeControleName && isFocusable)
+                    if (GUI.GetNameOfFocusedControl() == parameterControleName && isFocusable)
                     {
-                        LastFocusedAttribute = attributeControleName;
+                        LastFocusedAttribute = parameterControleName;
                     }
                     i++;
                 }
             }
         }
 
-        public Rect GetAttributeRect(int attributeID, ConstellationEditorStyles constellationEditorStyles)
+        public Rect GetParameterRect(int attributeID, ConstellationEditorStyles constellationEditorStyles)
         {
             var leftOffset = constellationEditorStyles.inputSize + constellationEditorStyles.leftAttributeMargin;
             var rightOffset = constellationEditorStyles.rightAttributeMargin + constellationEditorStyles.outputSize + leftOffset;
@@ -301,10 +308,10 @@ namespace ConstellationEditor
             return a = a - (a % 5f);
         }
 
-        public bool IsAttributeValueChanged()
+        public int [] IsParameterValueChanged()
         {
-            var changeState = isAttributeValueChanged;
-            isAttributeValueChanged = false;
+            var changeState = changedParameters.ToArray();
+            changedParameters.Clear();
             return changeState;
         }
 
@@ -318,9 +325,9 @@ namespace ConstellationEditor
             isSelected = false;
         }
 
-        private void AttributeValueChanged()
+        private void ParameterValueChanged(int id)
         {
-            isAttributeValueChanged = true;
+            changedParameters.Add(id);
         }
     }
 }

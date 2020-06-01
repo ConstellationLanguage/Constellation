@@ -13,7 +13,7 @@ namespace Constellation.Unity {
             _node.AddOutput (false, "Object", "The Component");
             _node.AddInput (this, true, "Object", "Object which contain the component");
             _node.AddInput (this, true, "Send the component");
-            ComponentName = _node.AddAttribute (newValue, Parameter.AttributeType.Word, "ComponentName");
+            ComponentName = _node.AddParameter (newValue, Parameter.ParameterType.Word, "ComponentName");
             componentObject = new Ray (null as object);
         }
 
@@ -35,7 +35,7 @@ namespace Constellation.Unity {
                 gameObject = UnityObjectsConvertions.ConvertToGameObject (_value.GetObject ());
             }
 
-            if (_input.isWarm) {
+            if (_input.isBright) {
                 var component = gameObject.GetComponent (ComponentName.Value.GetString ());
                 componentObject.Set (component);
                 sender.Send (componentObject, 0);

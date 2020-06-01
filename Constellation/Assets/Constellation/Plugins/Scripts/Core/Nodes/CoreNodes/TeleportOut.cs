@@ -6,7 +6,7 @@ namespace Constellation.CoreNodes {
 
         public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "value to teleport");
-            eventName = _node.AddAttribute (new Ray ("event name"), Parameter.AttributeType.Word, "The event name");
+            eventName = _node.AddParameter (new Ray ("event name"), Parameter.ParameterType.Word, "The event name");
         }
 
         public void Set (ITeleportIn teleporter) {

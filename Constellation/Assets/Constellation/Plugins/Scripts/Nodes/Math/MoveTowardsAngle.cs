@@ -37,7 +37,7 @@ public class MoveTowardsAngle: INode, IReceiver
 			else if(_input.InputId == 2)
 				Var3.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.MoveTowardsAngle(Var1.GetFloat(), Var2.GetFloat(), Var3.GetFloat())), 0);
         }
     }

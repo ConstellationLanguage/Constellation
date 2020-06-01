@@ -20,7 +20,7 @@ namespace Constellation.CoreNodes {
             _node.AddInput (this, false, "Object", "Object which contains the var");
             _node.AddInput (this, false, "Set Var");
             _node.AddInput (this, true, "Push var");
-            VarName = _node.AddAttribute (newValue, Parameter.AttributeType.Word, "VarName");
+            VarName = _node.AddParameter (newValue, Parameter.ParameterType.Word, "VarName");
             currentVar = new Ray ();
             currentInstance = new Ray ();
         }
@@ -48,7 +48,7 @@ namespace Constellation.CoreNodes {
                     SetVarInCurrentObject (_value);
                 }
 
-                if (_input.isWarm) {
+                if (_input.isBright) {
                     Sender.Send (currentVar, 0);
                 }
             } catch {

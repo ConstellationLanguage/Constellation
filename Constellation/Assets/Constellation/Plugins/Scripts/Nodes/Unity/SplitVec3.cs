@@ -12,9 +12,9 @@ namespace Constellation.Unity {
             _node.AddOutput (false, "X");
             _node.AddOutput (false, "Y");
             _node.AddOutput (false, "Z");
-            valueX = _node.AddAttribute (new Ray ().Set ("X"), Parameter.AttributeType.ReadOnlyXValue, "X");
-            valueY = _node.AddAttribute (new Ray ().Set ("Y"), Parameter.AttributeType.ReadOnlyYValue, "Y");
-            valueZ = _node.AddAttribute (new Ray ().Set ("Z"), Parameter.AttributeType.ReadOnlyZValue, "Z");
+            valueX = _node.AddParameter (new Ray ().Set ("X"), Parameter.ParameterType.ReadOnlyXValue, "X");
+            valueY = _node.AddParameter (new Ray ().Set ("Y"), Parameter.ParameterType.ReadOnlyYValue, "Y");
+            valueZ = _node.AddParameter (new Ray ().Set ("Z"), Parameter.ParameterType.ReadOnlyZValue, "Z");
             Ray[] newVar = new Ray[3];
             newVar[0] = valueX.Value;
             newVar[1] = valueY.Value;
@@ -43,7 +43,7 @@ namespace Constellation.Unity {
                 }
             }
 
-            if (_input.isWarm) {
+            if (_input.isBright) {
                 sender.Send (valueX.Value, 0);
                 sender.Send (valueY.Value, 1);
                 sender.Send (valueZ.Value, 2);

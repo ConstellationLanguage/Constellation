@@ -27,7 +27,7 @@ public class NextPowerOfTwo: INode, IReceiver
 			if(_input.InputId == 0)
 				Var1.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set((float) Mathf.NextPowerOfTwo((int)Var1.GetFloat())), 0);
         }
     }

@@ -5,7 +5,7 @@ namespace Constellation.CoreNodes {
 
         public void Setup (INodeParameters _node) {
             _node.AddInput (this, true, "value to send");
-            eventName = _node.AddAttribute (new Ray ("event name"), Parameter.AttributeType.Word, "The event name");
+            eventName = _node.AddParameter (new Ray ("event name"), Parameter.ParameterType.Word, "The event name");
 
         }
 
@@ -18,7 +18,7 @@ namespace Constellation.CoreNodes {
         }
 
         public void Receive (Ray value, Input _input) {
-            if (_input.isWarm)
+            if (_input.isBright)
                 Constellation.eventSystem.SendEvent (eventName.Value.GetString(), value);
         }
     }

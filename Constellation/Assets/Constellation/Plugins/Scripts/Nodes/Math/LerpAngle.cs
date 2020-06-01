@@ -33,7 +33,7 @@ public class LerpAngle: INode, IReceiver
 			else if(_input.InputId == 1)
 				endValue.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.LerpAngle(_value.GetFloat(), startValue.GetFloat(), endValue.GetFloat())), 0);
         }
     }

@@ -5,6 +5,7 @@ using Constellation.Unity3D;
 namespace Constellation.Unity
 {
     public class AddConstellationBehaviourFromJSON : INode, IReceiver, IRequireGameObject
+
     {
         public const string NAME = "AddConstellationBehaviourFromJSON";
         private ISender sender;

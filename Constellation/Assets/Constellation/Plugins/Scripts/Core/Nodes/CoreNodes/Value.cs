@@ -8,7 +8,7 @@
             var newValue = new Ray ().Set(0);
             sender = _node.GetSender();
             _node.AddOutput (true, "The value");
-            value = _node.AddAttribute (newValue, Parameter.AttributeType.Value, "Number to set");
+            value = _node.AddParameter (newValue, Parameter.ParameterType.Value, "Number to set");
         }
 
         public string NodeName () {
@@ -27,7 +27,7 @@
             if (_value.IsFloat ()) {
                 value.Value.Set (_value.GetFloat ());
             }
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send (value.Value, 0);
         }
     }

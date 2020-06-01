@@ -2,6 +2,9 @@
 {
     public interface ICustomNode
     {
-        void SetNode(ConstellationScriptData constellation);
+        void UpdateNode(ConstellationScriptData constellation);
+        void SetupNodeIO();
+        string GetDisplayName();
+        void InitializeConstellation(ConstellationScriptData[] constellationScripts);
     }
 }

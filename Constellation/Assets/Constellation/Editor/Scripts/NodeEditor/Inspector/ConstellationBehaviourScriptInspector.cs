@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace ConstellationEditor
 {
-    [CustomEditor(typeof(ConstellationScript))]
-    public class ConstellationScriptInspector : Editor
+    [CustomEditor(typeof(ConstellationBehaviourScript))]
+    public class ConstellationBehaviourScriptInspector : Editor
     {
         public override void OnInspectorGUI()
         {
+            GUILayout.Label("Behaviour node");
             if (GUILayout.Button("Open in Node Editor"))
             {
                 if (ConstellationEditorWindow.ConstellationEditorWindowInstance == null)

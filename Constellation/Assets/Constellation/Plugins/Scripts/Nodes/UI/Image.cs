@@ -73,7 +73,7 @@ namespace Constellation.UI
                 ColorVar.Set(value.GetArray());
                 image.color = new Color(ColorVar.GetArrayVariable(0).GetFloat(), ColorVar.GetArrayVariable(1).GetFloat(), ColorVar.GetArrayVariable(2).GetFloat(), ColorVar.GetArrayVariable(3).GetFloat());
             }
-            else if (_input.isWarm && image != null)
+            else if (_input.isBright && image != null)
             {
                 Ray[] newVar = new Ray[4];
                 newVar[0] = new Ray().Set(image.color.r);

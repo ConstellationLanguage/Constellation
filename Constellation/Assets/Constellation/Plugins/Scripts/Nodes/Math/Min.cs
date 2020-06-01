@@ -32,7 +32,7 @@ public class Min: INode, IReceiver
 			else if(_input.InputId == 1)
 				Var2.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.Min(Var1.GetFloat(), Var2.GetFloat())), 0);
         }
     }

@@ -31,7 +31,7 @@ namespace Constellation.Math
                 variable.Set(_value.GetFloat());
             }
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.DeltaAngle(_value.GetFloat(), variable.GetFloat())), 0);
         }
     }

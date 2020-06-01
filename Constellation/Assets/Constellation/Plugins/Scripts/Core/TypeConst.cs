@@ -12,6 +12,7 @@
         public static NodeData AddNode(NodesFactory nodesFactory, string nodeName, string nodeNamespace, ConstellationScriptData constellationScript)
         {
             var newNode = nodesFactory.GetNode(nodeName, nodeNamespace);
+            
             var nodeData = new NodeData(newNode);
             var genericNode = newNode.NodeType as IGenericNode;
             if (genericNode as IGenericNode != null)
@@ -52,26 +53,26 @@
                 {
                     inputNode.Inputs[k].Type = outputNode.Outputs[linkedOutputID].Type;
                 }
-            } else if(mirrorOutputNodeScript != null)
+            }
+            else if (mirrorOutputNodeScript != null)
             {
                 for (var k = 0; k < outputNode.GetOutputs().Length; k++)
                 {
                     outputNode.Outputs[k].Type = inputNode.Inputs[linkedinputID].Type;
                 }
-            } else
+            }
+            else
             {
                 if (inputGenericNodeScript != null && inputGenericNodeScript.IsGenericInput(linkedinputID))
                 {
-                    var inputsID = inputGenericNodeScript.GetGenericInputByLinkedOutput(linkedOutputID);
+                    var inputsID = linkedinputID;
 
                     for (var k = 0; k < inputNode.GetInputs().Length; k++)
                     {
-                        for (var l = 0; l < inputsID.Length; l++)
+                        if (k == linkedinputID)
                         {
-                            if (k == inputsID[l])
-                            {
-                                inputNode.Inputs[k].Type = outputNode.Outputs[linkedOutputID].Type;
-                            }
+                            inputNode.Inputs[k].Type = outputNode.Outputs[linkedOutputID].Type;
+                            break;
                         }
                     }
                     if (inputGenericNodeScript.IsGenericInput(linkedinputID))

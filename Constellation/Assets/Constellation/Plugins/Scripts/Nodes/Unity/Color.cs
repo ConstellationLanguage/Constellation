@@ -18,10 +18,10 @@ namespace Constellation.Unity
             _node.AddInput(this, true, "A");
             sender = _node.GetSender();
             _node.AddOutput(false, "Color", "Color[R][G][B][A]");
-            valueR = _node.AddAttribute(new Ray().Set(1), Parameter.AttributeType.ReadOnlyValueR, "R");
-            valueG = _node.AddAttribute(new Ray().Set(1), Parameter.AttributeType.ReadOnlyValueG, "G");
-            valueB = _node.AddAttribute(new Ray().Set(1), Parameter.AttributeType.ReadOnlyValueB, "B");
-            valueA = _node.AddAttribute(new Ray().Set(1), Parameter.AttributeType.ReadOnlyValueA, "A");
+            valueR = _node.AddParameter(new Ray().Set(1), Parameter.ParameterType.ReadOnlyValueR, "R");
+            valueG = _node.AddParameter(new Ray().Set(1), Parameter.ParameterType.ReadOnlyValueG, "G");
+            valueB = _node.AddParameter(new Ray().Set(1), Parameter.ParameterType.ReadOnlyValueB, "B");
+            valueA = _node.AddParameter(new Ray().Set(1), Parameter.ParameterType.ReadOnlyValueA, "A");
             Ray[] newVar = new Ray[4];
             newVar[0] = valueR.Value;
             newVar[1] = valueG.Value;
@@ -60,7 +60,7 @@ namespace Constellation.Unity
                 Result.GetArrayVariable(_input.InputId).Set(_value.GetFloat());
             }
 
-            if (_input.isWarm){
+            if (_input.isBright){
                 if(valueR.Value.GetFloat() ==  Ray.nullValue){
                     valueR.Value.Set(0);
                     Result.GetArrayVariable(0).Set(valueR.Value.GetFloat());

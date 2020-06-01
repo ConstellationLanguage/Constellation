@@ -21,9 +21,9 @@ namespace Constellation.CoreNodes {
         }
 
         public void Receive (Ray value, Input _input) {
-            if (switchValue.GetFloat () == 1 && _input.isWarm)
+            if (switchValue.GetFloat () == 1 && _input.isBright)
                 sender.Send (value, 0);
-            else if (!_input.isWarm)
+            else if (!_input.isBright)
                 switchValue.Set (value.GetFloat ());
 
         }

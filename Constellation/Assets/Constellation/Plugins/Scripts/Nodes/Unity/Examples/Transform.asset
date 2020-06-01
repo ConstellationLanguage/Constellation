@@ -106,7 +106,7 @@ MonoBehaviour:
       AttributesData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: -0.19
         Type: 0
     - Guid: 001c0a2d-2fad-4912-aa60-de95bf9cd4dd
       Name: SplitVec3

@@ -6,7 +6,7 @@ namespace Constellation.CoreNodes {
         public void Setup (INodeParameters _node) {
             sender = _node.GetSender();
             _node.AddOutput (true, "Received Value from a sender");
-            eventName = _node.AddAttribute (new Ray ("event name"), Parameter.AttributeType.Word, "The event name");
+            eventName = _node.AddParameter (new Ray ("event name"), Parameter.ParameterType.Word, "The event name");
             if (Constellation.eventSystem != null)
                 Constellation.eventSystem.Register (OnConstellationEvent);
         }

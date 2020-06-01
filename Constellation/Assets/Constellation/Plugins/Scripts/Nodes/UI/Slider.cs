@@ -54,7 +54,7 @@ namespace Constellation.UI {
 				slider.value = value.GetFloat ();
 			}
 
-			if (_input.isWarm) {
+			if (_input.isBright) {
 				sliderValue = new Ray (slider.value);
 				sender.Send(new Ray().Set(slider), 0);
 				sender.Send (sliderValue, 1);

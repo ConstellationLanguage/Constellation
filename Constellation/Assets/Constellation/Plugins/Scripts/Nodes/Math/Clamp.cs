@@ -33,7 +33,7 @@ public class Clamp: INode, IReceiver
 			else if(_input.InputId == 1)
 				endValue.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.Clamp(_value.GetFloat(), startValue.GetFloat(), endValue.GetFloat())), 0);
         }
     }

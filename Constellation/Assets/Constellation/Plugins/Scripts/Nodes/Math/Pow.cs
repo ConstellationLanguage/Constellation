@@ -33,7 +33,7 @@ public class Pow: INode, IReceiver
 			if(_input.InputId == 1)
 				VarP.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.Pow(VarF.GetFloat(), VarP.GetFloat())), 0);
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Constellation;
+//using UnityEngine;
 
 namespace ConstellationEditor
 {
@@ -7,28 +8,34 @@ namespace ConstellationEditor
     {
         private NodesFactory NodesFactory;
 
-        public void UpdateScriptsNodes(ConstellationScriptData[] scripts, ConstellationScriptData[] constellationScripts)
+        public void UpdateScriptsNodes(ConstellationScriptData[] staticConstellationNodes, ConstellationScriptData[] constellationScripts)
         {
-            foreach (var script in scripts)
+            foreach (var script in staticConstellationNodes)
             {
-                UpdateScriptNodes(script, constellationScripts);
+                UpdateScriptNodes(script, staticConstellationNodes);
+            }
+
+            foreach (var script in constellationScripts)
+            {
+                UpdateScriptNodes(script, staticConstellationNodes);
             }
         }
 
         public void UpdateScriptNodes(ConstellationScriptData script, ConstellationScriptData[] constellationScripts)
         {
+
             List<NodeData> nodesToRemove = new List<NodeData>();
             NodesFactory = new NodesFactory(constellationScripts);
             foreach (var node in script.Nodes)
             {
-                
                 var nodeObject = NodesFactory.GetNodeSafeMode(node);
                 if (nodeObject == null)
                 {
                     nodesToRemove.Add(node);
                 }
-                else if (node.Inputs.Count != nodeObject.Inputs.Count || node.Outputs.Count != nodeObject.Outputs.Count)
+                else if (node.Inputs.Count != nodeObject.Inputs.Count || node.Outputs.Count != nodeObject.Outputs.Count || node.GetParameters().Length != nodeObject.GetParameters().Length)
                 {
+                    
                     nodesToRemove.Add(node);
                 }
                 else
@@ -37,7 +44,7 @@ namespace ConstellationEditor
                     var i = 0;
                     foreach(var input in node.GetInputs())
                     {
-                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != "Any") || input.IsBright != nodeObject.Inputs[i].isWarm)
+                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != "Any") || input.IsBright != nodeObject.Inputs[i].isBright)
                         {
                             nodesToRemove.Add(node);
                             foundDifference = true;
@@ -45,12 +52,27 @@ namespace ConstellationEditor
                         }
                         i++;
                     }
+                    
                     if (!foundDifference)
                     {
                         i = 0;
                         foreach (var output in node.GetOutputs())
                         {
-                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != "Any") || output.IsWarm != nodeObject.Outputs[i].IsWarm)
+                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != "Any") || output.IsBright != nodeObject.Outputs[i].IsWarm)
+                            {
+                                nodesToRemove.Add(node);
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+
+                    if(!foundDifference)
+                    {
+                        i = 0;
+                        foreach (var parameter in node.GetParameters())
+                        {
+                            if (parameter.Type != nodeObject.GetParameters()[i].Type)
                             {
                                 nodesToRemove.Add(node);
                                 break;

@@ -4,6 +4,8 @@ using Constellation;
 using UnityEditor;
 using UnityEngine;
 using Constellation.Unity3D;
+using Constellation.ConstellationTypes;
+using System.Linq;
 
 namespace ConstellationEditor
 {
@@ -22,11 +24,6 @@ namespace ConstellationEditor
         private const string tempPath = "Assets/Constellation/Editor/EditorData/Temp/";
         [SerializeField]
         public ConstellationEditorStyles ConstellationEditorStyles;
-
-        public ConstellationEditorDataService()
-        {
-
-        }
 
         public void Initialize()
         {
@@ -49,36 +46,44 @@ namespace ConstellationEditor
             EditorData.ScriptAssembly.SetScriptAssembly();
         }
 
-        public NodeNamespacesData[] GetAllCustomNodesNames()
+        public void UpdateStaticConstellationNodesNames()
         {
-            var addedList = new List<NodeNamespacesData>();
-            var nodes = new List<string>();
-            foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationScripts)
+            var nodes = new List<ConstellationScriptData>();
+            foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationStaticNodes)
+            {
+                string assetPath = AssetDatabase.GetAssetPath(constellationScript.GetInstanceID());
+                var name = Path.GetFileNameWithoutExtension(assetPath.Split('/').Last());
+                constellationScript.script.Name = name;
+            }
+        }
+
+        public ConstellationScriptData[] GetAllStaticScriptsInProject()
+        {
+            var nodes = new List<ConstellationScriptData>();
+            foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationStaticNodes)
             {
                 foreach (var node in constellationScript.GetNodes())
                 {
-                    if (node.Name == "Nestable")
+                    if (node.Name == StaticConstellationNode.NAME)
                     {
-                        nodes.Add("Constellation.Custom." + constellationScript.name);
+                        nodes.Add(constellationScript.script);
                         break;
                     }
                 }
             }
-            addedList.Add(new NodeNamespacesData("Custom", nodes.ToArray()));
-            return addedList.ToArray();
+            return nodes.ToArray();
         }
 
-        public ConstellationScriptData[] GetAllNestableScriptsInProject()
+        public ConstellationScriptData[] GetAllTutorialScriptsInProject()
         {
             var nodes = new List<ConstellationScriptData>();
-            foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationScripts)
+            foreach (var constellationTutorialScript in EditorData.ScriptAssembly.ConstellationTutorials)
             {
-                foreach (var node in constellationScript.GetNodes())
+                foreach (var node in constellationTutorialScript.GetNodes())
                 {
-                    if (node.Name == "Nestable")
+                    if (node.Name == StaticConstellationNode.NAME)
                     {
-
-                        nodes.Add(constellationScript.script);
+                        nodes.Add(constellationTutorialScript.script);
                         break;
                     }
                 }
@@ -96,9 +101,9 @@ namespace ConstellationEditor
             return EditorUtils.GetAllInstances<ConstellationTutorialScript>();
         }
 
-        public ConstellationNodeScript[] SearchAllConstellationNodeScriptsInProject()
+        public ConstellationStaticNodeScript[] SearchAllConstellationNodeScriptsInProject()
         {
-            return EditorUtils.GetAllInstances<ConstellationNodeScript>();
+            return EditorUtils.GetAllInstances<ConstellationStaticNodeScript>();
         }
 
         public ConstellationScript[] GetAllScriptsInProject()
@@ -123,7 +128,7 @@ namespace ConstellationEditor
         {
             EditorData.ScriptAssembly.ConstellationScripts = new List<ConstellationBehaviourScript>(SearchAllConstellationBehaviourScriptsInProject());
             EditorData.ScriptAssembly.ConstellationTutorials = new List<ConstellationTutorialScript>(SearchAllConstellationTutorialScriptsInProject());
-            EditorData.ScriptAssembly.ConstellationNodes = new List<ConstellationNodeScript>(SearchAllConstellationNodeScriptsInProject());
+            EditorData.ScriptAssembly.ConstellationStaticNodes = new List<ConstellationStaticNodeScript>(SearchAllConstellationNodeScriptsInProject());
         }
 
         public void SetAllScriptsDirty()
@@ -240,7 +245,6 @@ namespace ConstellationEditor
                 }
             }
             AssetDatabase.CreateAsset(newScript, path);
-            newScript.Set(Script.script);
             SaveAll();
         }
 
@@ -254,11 +258,6 @@ namespace ConstellationEditor
             return true;
         }
 
-        public void CloseAllOpenedConstellation()
-        {
-            EditorData.LastOpenedConstellationPath.Clear();
-        }
-
         public bool CloseCurrentConstellationInstance()
         {
             foreach (var script in EditorData.LastOpenedConstellationPath)
@@ -266,7 +265,6 @@ namespace ConstellationEditor
                 if (script.IsIstance)
                 {
                     CloseOpenedConstellation(script);
-
                     return true;
                 }
             }
@@ -283,11 +281,8 @@ namespace ConstellationEditor
                 if (!EditorData.LastOpenedConstellationPath.Contains(path))
                     EditorData.LastOpenedConstellationPath.Add(path);
             }
-            //EditorData.CurrentInstancePath = currentInstancePath;
             EditorUtility.SetDirty(EditorData);
             EditorUtility.SetDirty(EditorData.ScriptAssembly);
-            //AssetDatabase.SaveAssets ();
-            //AssetDatabase.Refresh ();
         }
 
         public void RessetInstancesPath()
@@ -331,14 +326,15 @@ namespace ConstellationEditor
 
             if (path == null || path == "")
             {
-                Script = null;
-                return Script;
+                return null;
             }
             AssetDatabase.CreateAsset(Script, path);
             if (OpenedScripts == null)
                 OpenedScripts = new List<ConstellationScriptInfos>(EditorData.LastOpenedConstellationPath.ToArray());
 
             OpenedScripts.Insert(0, new ConstellationScriptInfos(path, ConstellationScriptInfos.ConstellationScriptTag.NoTag, false));
+            var name = Path.GetFileNameWithoutExtension(path.Split('/').Last());
+            Script.script.Name = name;
             SaveEditorData();
             SaveScripts();
             RefreshConstellationEditorDataList();
@@ -397,6 +393,9 @@ namespace ConstellationEditor
                 OpenedScripts.Insert(0, newScriptInfos);
             }
 
+            var name = Path.GetFileNameWithoutExtension(newScriptInfos.ScriptPath.Split('/').Last());
+            Script.script.Name = name;
+
             if (save)
                 SaveEditorData();
 
@@ -407,12 +406,6 @@ namespace ConstellationEditor
         {
             string exportedConstellation = JsonUtility.ToJson(Script.script);
             var path = EditorUtility.SaveFilePanel("Export as Constellation file", Application.dataPath, "Constellation" + ".const", "const");
-
-            if (path.StartsWith(Application.dataPath))
-            {
-                //path = "Assets" + path.Substring(Application.dataPath.Length);
-            }
-
             System.IO.File.WriteAllText(path, exportedConstellation);
             SaveEditorData();
         }
@@ -432,26 +425,6 @@ namespace ConstellationEditor
                 throw new ScriptNotFoundAtPath(_scriptInfos.ScriptPath);
         }
 
-        public void SetSliderX(float position)
-        {
-            EditorData.SliderX = position;
-        }
-
-        public void SetSliderY(float position)
-        {
-            EditorData.SliderY = position;
-        }
-
-        public float GetLastEditorScrollPositionX()
-        {
-            return EditorData.SliderX;
-        }
-
-        public float GetLastEditorScrollPositionY()
-        {
-            return EditorData.SliderY;
-        }
-
         public void SaveScripts()
         {
             if (Script)
@@ -467,6 +440,7 @@ namespace ConstellationEditor
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
             Script = tutorialAsset;
+            RefreshConstellationEditorDataList();
             return Script;
         }
 
@@ -479,6 +453,7 @@ namespace ConstellationEditor
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
             Script = tutorialAsset;
+            RefreshConstellationEditorDataList();
             return Script;
         }
 
@@ -486,11 +461,12 @@ namespace ConstellationEditor
         {
             OpenedScripts[0].ScriptTag = ConstellationScriptInfos.ConstellationScriptTag.Tutorial;
             var scriptPath = OpenedScripts[0].ScriptPath;
-            var tutorialAsset = ScriptableObject.CreateInstance<ConstellationNodeScript>();
+            var tutorialAsset = ScriptableObject.CreateInstance<ConstellationStaticNodeScript>();
             tutorialAsset.script = Script.script;
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
             Script = tutorialAsset;
+            RefreshConstellationEditorDataList();
             return Script;
         }
 

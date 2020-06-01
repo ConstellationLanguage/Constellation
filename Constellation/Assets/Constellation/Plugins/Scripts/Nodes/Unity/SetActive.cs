@@ -27,7 +27,7 @@ namespace Constellation.Unity {
 		}
 
 		public void Receive (Ray _value, Input _input) { 
-			if(_input.isWarm){
+			if(_input.isBright){
 				if(GameObject.activeSelf == true)
 					sender.Send(new Ray(1), 0);
 				else

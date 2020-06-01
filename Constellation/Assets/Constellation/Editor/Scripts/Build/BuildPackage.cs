@@ -6,5 +6,4 @@ public class BuildPackage {
 	{
 		AssetDatabase.ExportPackage("Assets", "../../Package/Constellation.unitypackage", ExportPackageOptions.Recurse);
 	}
-
 }

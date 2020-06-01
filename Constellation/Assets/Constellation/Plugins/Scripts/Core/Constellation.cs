@@ -26,7 +26,8 @@ namespace Constellation
             {
                 var newNode = NodesFactory.GetNode(node);
                 AddNode(newNode, node.Guid, node);
-                onNodeAdded(newNode, node);
+                if(onNodeAdded != null)
+                    onNodeAdded(newNode, node);
             }
         }
 
@@ -147,6 +148,11 @@ namespace Constellation
             Nodes.Add(newNode);
             if(Injector != null)
                 Injector.RefreshConstellationEvents();
+
+            if (newNode.NodeType is ICustomNode)
+            {
+                (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts());
+            }
             return newNode;
         }
 

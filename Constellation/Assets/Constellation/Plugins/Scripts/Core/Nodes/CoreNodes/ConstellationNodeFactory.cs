@@ -61,6 +61,12 @@ namespace Constellation.CoreNodes {
                 case Entry.NAME:
                     INode entry = new Entry() as INode;
                     return new Node<INode>(entry);
+                case BrightEntry.NAME:
+                    INode brightEntry = new BrightEntry() as INode;
+                    return new Node<INode>(brightEntry);
+                case BrightExit.NAME:
+                    INode brightExit = new BrightExit() as INode;
+                    return new Node<INode>(brightExit);
                 default:
                     return null;
             }

@@ -12,19 +12,28 @@ public class NodeSelectorPanel
     public List<NodeNamespacesData> NodeNamespaceData;
     private string[] namespaces;
 
-    public NodeSelectorPanel(/*, NodeNamespacesData[] customNodes*/)
+    public NodeSelectorPanel(ConstellationScriptData[] customNodes)
     {
-        var nodes = new List<string>(NodesFactory.GetAllNodes());
+        
+        var nodes = new List<string>(NodesFactory.GetAllNodesExcludeDiscretes());
+        foreach (var customNode in customNodes)
+        {
+            nodes.Add("Constellation.Custom." + customNode.Name);
+        }
         namespaces = NodesFactory.GetAllNamespaces(nodes.ToArray());
         NodeNamespaceData = new List<NodeNamespacesData>();
 
     }
 
-    public void SetupNamespaceData()
+    public void SetupNamespaceData(ConstellationScriptData[] customNodes)
     {
         foreach (var _namespace in namespaces)
         {
-            var nodes = new List<string>(NodesFactory.GetAllNodes());
+            var nodes = new List<string>(NodesFactory.GetAllNodesExcludeDiscretes());
+            foreach (var customNode in customNodes)
+            {
+                nodes.Add("Constellation.Custom." + customNode.Name);
+            }
             var nodeNamespace = new NodeNamespacesData(_namespace, nodes.ToArray());
             NodeNamespaceData.Add(nodeNamespace);
         }

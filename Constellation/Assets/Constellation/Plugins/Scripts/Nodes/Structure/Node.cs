@@ -5,7 +5,8 @@ namespace Constellation {
 		public T NodeType;
 		public List<Input> Inputs;
 		public List<Output> Outputs;
-		public List<Parameter> Attributes;
+		public List<Parameter> NodeParameters;
+		public List<Parameter> DiscretParameters;
 		public IReceiver Receiver;
 		public float XPosition = 0;
 		public float YPosition = 0;
@@ -46,13 +47,24 @@ namespace Constellation {
 		}
 
 		/// <summary>
-		///Return the attributes of the node
+		///Return the parameters of the node
 		/// </summary>
-		public Parameter[] GetAttributes () {
-			if (Attributes == null)
-				Attributes = new List<Parameter> ();
+		public Parameter[] GetParameters () {
+			if (NodeParameters == null)
+				NodeParameters = new List<Parameter> ();
 
-			return Attributes.ToArray ();
+			return NodeParameters.ToArray ();
+		}
+
+		/// <summary>
+		///Return the parameters of the node
+		/// </summary>
+		public Parameter[] GetDiscreteParameters()
+		{
+			if (DiscretParameters == null)
+				DiscretParameters = new List<Parameter>();
+
+			return DiscretParameters.ToArray();
 		}
 
 		/// <summary>
@@ -62,35 +74,65 @@ namespace Constellation {
 		/// <param name="value">the default value of the attribute</param>  
 		/// <param name="type">The attribute type displayed in editor</param>
 		/// <param name="description">Description of the attribute (Not implemented)</param>
-		public Parameter AddAttribute (Ray value, Parameter.AttributeType type, string description) {
-			if (Attributes == null)
-				Attributes = new List<Parameter> ();
+		public Parameter AddParameter (Ray value, Parameter.ParameterType type, string description) {
+			if (NodeParameters == null)
+				NodeParameters = new List<Parameter> ();
 
-			var newAttribute = new Parameter (type);
-			newAttribute.Value = value;
-			Attributes.Add (newAttribute);
-			return newAttribute;
+			var newParameter = new Parameter (type);
+			newParameter.Value = value;
+			NodeParameters.Add (newParameter);
+			return newParameter;
 		}
 
-        public Parameter AddAttribute(Ray value, Parameter.AttributeType type, string description, Parameter.OnAttributeChanged onAttributeChanged)
+        public Parameter AddParameter(Ray value, Parameter.ParameterType type, string description, Parameter.OnAttributeChanged onAttributeChanged)
         {
-            if (Attributes == null)
-                Attributes = new List<Parameter>();
+            if (NodeParameters == null)
+                NodeParameters = new List<Parameter>();
 
-            var newAttribute = new Parameter(type);
-            newAttribute.Value = value;
-            Attributes.Add(newAttribute);
-            return newAttribute;
+            var newParameter = new Parameter(type);
+            newParameter.Value = value;
+            NodeParameters.Add(newParameter);
+            return newParameter;
         }
 
-        /// <summary>
-        ///Return the Input you created
-        /// In most case this function should only be called inside the setup function of your node.
-        /// </summary>
-        /// <param name="receiver">If called from a node just put this</param>  
-        /// <param name="isWarm">If the input is warm your Receiver should output a value when this is called</param>
-        /// <param name="description">Description of the attribute (Not implemented)</param>
-        public Input AddInput (IReceiver receiver, bool isWarm, string description) {
+		/// <summary>
+		///Return the attribute you created
+		/// In most case this function should only be called inside the setup function of your node.
+		/// </summary>
+		/// <param name="value">the default value of the attribute</param>  
+		/// <param name="type">The attribute type displayed in editor</param>
+		/// <param name="description">Description of the attribute (Not implemented)</param>
+		public Parameter AddDiscreteParameter(Ray value, Parameter.ParameterType type, string description)
+		{
+			if (DiscretParameters == null)
+				DiscretParameters = new List<Parameter>();
+
+			var newParameter = new Parameter(type);
+			newParameter.Value = value;
+			DiscretParameters.Add(newParameter);
+			return newParameter;
+		}
+
+		public Parameter AddDiscreteParameter(Ray value, Parameter.ParameterType type, string description, Parameter.OnAttributeChanged onAttributeChanged)
+		{
+			if (DiscretParameters == null)
+				DiscretParameters = new List<Parameter>();
+
+			var newParameter = new Parameter(type);
+			newParameter.Value = value;
+			DiscretParameters.Add(newParameter);
+			return newParameter;
+		}
+
+
+		/// <summary>
+		///Return the Input you created
+		/// In most case this function should only be called inside the setup function of your node.
+		/// </summary>
+		/// <param name="receiver">If called from a node just put this</param>  
+		/// <param name="isWarm">If the input is warm your Receiver should output a value when this is called</param>
+		/// <param name="description">Description of the attribute (Not implemented)</param>
+		public Input AddInput (IReceiver receiver, bool isWarm, string description) {
 			return AddInput (receiver, isWarm, "Var", description);
 		}
 

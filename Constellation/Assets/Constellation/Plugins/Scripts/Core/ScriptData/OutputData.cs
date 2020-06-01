@@ -4,14 +4,14 @@ namespace Constellation
     public class OutputData
     {
         public string Guid;
-        public bool IsWarm;
+        public bool IsBright;
         public string Type;
         public string Description;
 
         public OutputData(string _guid, bool _isWarm, string _type, string _description)
         {
             Guid = _guid;
-            IsWarm = _isWarm;
+            IsBright = _isWarm;
             Type = _type;
             Description = _description;
         }

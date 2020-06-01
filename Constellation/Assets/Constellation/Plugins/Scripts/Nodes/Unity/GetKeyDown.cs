@@ -12,7 +12,7 @@ namespace Constellation.Unity
 			var newValue = new Ray();
 			sender = _nodeParameters.GetSender();
             _nodeParameters.AddOutput(true, "1 on key down else 0");
-			key = _nodeParameters.AddAttribute(newValue, Parameter.AttributeType.Word, "Key code");
+			key = _nodeParameters.AddParameter(newValue, Parameter.ParameterType.Word, "Key code");
 			keyState = new Ray().Set(0);
         }
 

@@ -33,7 +33,7 @@ public class PerlinNoise: INode, IReceiver
 			if(_input.InputId == 1)
 				VarY.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.PerlinNoise(VarX.GetFloat(), VarY.GetFloat())), 0);
         }
     }

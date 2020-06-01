@@ -32,7 +32,7 @@ namespace Constellation.Math
                 VarToCompare.Set(_value.GetFloat());
             }
             
-            if (!_input.isWarm)
+            if (!_input.isBright)
                 return;
             if(Mathf.Approximately(_value.GetFloat(), VarToCompare.GetFloat()))
                 sender.Send(new Ray().Set(1), 0);

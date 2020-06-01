@@ -35,19 +35,19 @@ public class ConstellationComponentInpector : Editor {
 		NodeData[] nodes = null;
 		if (ConstellationComponent.GetConstellationData() != null) {
 			nodes = ConstellationComponent.GetConstellationData().GetNodes ();
-			ConstellationComponent.UpdateAttributes (nodes);
+			ConstellationComponent.UpdateParameters (nodes);
 		}
 		EditorGUILayout.EndHorizontal ();
 
-		if (ConstellationComponent.Attributes == null)
+		if (ConstellationComponent.Parameters == null)
 			return;
-		for (var i = 0; i < ConstellationComponent.Attributes.Count; i++) {
-			var attribute = ConstellationComponent.Attributes[i];
-            if (attribute.AttributeType == BehaviourAttribute.Type.Value)
+		for (var i = 0; i < ConstellationComponent.Parameters.Count; i++) {
+			var attribute = ConstellationComponent.Parameters[i];
+            if (attribute.AttributeType == ConstellationParameter.Type.Value)
                 UpdateValueAttribute(attribute, i);
-            else if (attribute.AttributeType == BehaviourAttribute.Type.Word)
+            else if (attribute.AttributeType == ConstellationParameter.Type.Word)
                 UpdateWordAttribute(attribute, i);
-            else if (attribute.AttributeType == BehaviourAttribute.Type.UnityObject)
+            else if (attribute.AttributeType == ConstellationParameter.Type.UnityObject)
             {
                 UpdateObjectAttribute(attribute, i);
 
@@ -58,8 +58,8 @@ public class ConstellationComponentInpector : Editor {
         isSetup = true;
 
     }
-	void UpdateValueAttribute (BehaviourAttribute attribute, int attributeId) {
-        var newFloat = EditorGUILayout.FloatField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetFloat());
+	void UpdateValueAttribute (ConstellationParameter attribute, int attributeId) {
+        var newFloat = EditorGUILayout.FloatField(ConstellationComponent.Parameters[attributeId].Name, ConstellationComponent.Parameters[attributeId].Variable.GetFloat());
         if (newFloat != attribute.Variable.GetFloat()) {
             if (!Application.isPlaying)
             {
@@ -75,9 +75,9 @@ public class ConstellationComponentInpector : Editor {
         }
 	}
 
-    void UpdateWordAttribute(BehaviourAttribute attribute, int attributeId)
+    void UpdateWordAttribute(ConstellationParameter attribute, int attributeId)
     {
-        var newString = EditorGUILayout.TextField(ConstellationComponent.Attributes[attributeId].Name, ConstellationComponent.Attributes[attributeId].Variable.GetString());
+        var newString = EditorGUILayout.TextField(ConstellationComponent.Parameters[attributeId].Name, ConstellationComponent.Parameters[attributeId].Variable.GetString());
         if (newString != attribute.Variable.GetString())
         {
             if (!Application.isPlaying)
@@ -95,10 +95,10 @@ public class ConstellationComponentInpector : Editor {
         }
     }
 
-    void UpdateObjectAttribute(BehaviourAttribute attribute, int attributeId)
+    void UpdateObjectAttribute(ConstellationParameter attribute, int attributeId)
     {
 #pragma warning disable 0618
-        Object newObject = (EditorGUILayout.ObjectField(ConstellationComponent.Attributes[attributeId].Name, attribute.UnityObject, typeof(Object)));
+        Object newObject = (EditorGUILayout.ObjectField(ConstellationComponent.Parameters[attributeId].Name, attribute.UnityObject, typeof(Object)));
 
 #pragma warning disable CS0253 // Possible unintended reference comparison; right hand side needs cast
         if (newObject != attribute.Variable.GetObject())

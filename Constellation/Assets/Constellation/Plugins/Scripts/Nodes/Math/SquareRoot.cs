@@ -27,7 +27,7 @@ public class SquareRoot: INode, IReceiver
 			if(_input.InputId == 0)
 				VarX.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(Mathf.Sqrt(VarX.GetFloat())), 0);
         }
     }

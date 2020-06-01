@@ -1,5 +1,5 @@
-namespace Constellation.Attributes {
-    public class AttributesNodeFactory: INodeGetter {
+namespace Constellation.Parameters {
+    public class ParametersNodeFactory: INodeGetter {
 
         public string GetNameSpace()
         {

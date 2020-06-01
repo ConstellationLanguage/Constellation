@@ -31,7 +31,7 @@ public class Random: INode, IReceiver
 			if(_input.InputId == 1)
 				VarP.Set(_value.GetFloat());
 
-            if (_input.isWarm)
+            if (_input.isBright)
                 sender.Send(new Ray().Set(UnityEngine.Random.Range(VarF.GetFloat(), VarP.GetFloat())), 0);
         }
     }

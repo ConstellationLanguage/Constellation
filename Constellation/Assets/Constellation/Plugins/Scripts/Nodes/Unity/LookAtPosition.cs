@@ -45,7 +45,7 @@ namespace Constellation.Unity {
 				}
 			}
 
-			if (_input.isWarm) {
+			if (_input.isBright) {
 				var targetRotation = Quaternion.LookRotation (targetPosition - gameobjectPosition).eulerAngles;
 				Ray[] newVar = new Ray[3];
 				newVar[0] = new Ray(targetRotation.x);

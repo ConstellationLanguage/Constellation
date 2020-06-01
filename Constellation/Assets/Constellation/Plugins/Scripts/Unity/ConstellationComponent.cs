@@ -8,7 +8,7 @@ namespace Constellation.Unity3D
         //protected NodesFactory nodeFactory;
         protected bool isInitialized = false;
         protected ConstellationError lastConstellationError = null;
-        public List<BehaviourAttribute> Attributes;
+        public List<ConstellationParameter> Parameters;
         public ConstellationScript ConstellationData;
         public Constellation constellation;
         protected NodesFactory nodeFactory;
@@ -44,10 +44,7 @@ namespace Constellation.Unity3D
             if (isInitialized) // do not initialize twice
                 return;
 
-            if (NodesFactory.Current == null)
-                nodeFactory = new NodesFactory(ConstellationData?.ScriptAssembly?.GetAllScriptData());
-            else
-                nodeFactory = NodesFactory.Current;
+            nodeFactory = new NodesFactory(ConstellationData.ScriptAssembly.GetAllStaticScriptData());
 
             var nodes = ConstellationData.GetNodes();
             constellation = new Constellation(ConstellationData.script,
@@ -55,13 +52,13 @@ namespace Constellation.Unity3D
                 (newNode, node) =>
                 {
                     var attributesCounter = 0;
-                    if (IsAttribute(node) && Attributes != null)
+                    if (IsAttribute(node) && Parameters != null)
                     {
-                        IAttribute nodeAttribute = newNode.NodeType as IAttribute;
-                        if (node.Name != "ObjectAttribute" && attributesCounter < Attributes.Count)
-                            nodeAttribute.SetAttribute(Attributes[attributesCounter].Variable);
-                        else if (attributesCounter < Attributes.Count)
-                            nodeAttribute.SetAttribute(new Ray().Set(Attributes[attributesCounter].UnityObject as object));
+                        IParameter nodeParameter = newNode.NodeType as IParameter;
+                        if (node.Name != "ObjectParameter" && attributesCounter < Parameters.Count)
+                            nodeParameter.SetParameter(Parameters[attributesCounter].Variable);
+                        else if (attributesCounter < Parameters.Count)
+                            nodeParameter.SetParameter(new Ray().Set(Parameters[attributesCounter].UnityObject as object));
 
                         attributesCounter++;
                     }
@@ -74,43 +71,43 @@ namespace Constellation.Unity3D
             isInitialized = true;
         }
 
-        public void UpdateAttributes(NodeData[] nodes)
+        public void UpdateParameters(NodeData[] nodes)
         {
-            var previousAttributes = Attributes;
-            Attributes = new List<BehaviourAttribute>();
+            var previousParameters = Parameters;
+            Parameters = new List<ConstellationParameter>();
             foreach (NodeData node in nodes)
             {
-                if (node == null || previousAttributes == null)
+                if (node == null || previousParameters == null)
                     return;
-                if (node.Name == "ValueAttribute")
+                if (node.Name == "ValueParameter")
                 {
-                    var previousAttribute = GetAttributeByName(node.AttributesData[0].Value.GetString(), previousAttributes.ToArray());
+                    var previousAttribute = GetParameterByName(node.ParametersData[0].Value.GetString(), previousParameters.ToArray());
                     if (previousAttribute == null)
-                        Attributes.Add(new BehaviourAttribute(new Ray().Set(0),
-                            node.AttributesData[0].Value.GetString(),
-                            BehaviourAttribute.Type.Value, node.Guid));
+                        Parameters.Add(new ConstellationParameter(new Ray().Set(0),
+                            node.ParametersData[0].Value.GetString(),
+                            ConstellationParameter.Type.Value, node.Guid));
                     else
-                        Attributes.Add(previousAttribute);
+                        Parameters.Add(previousAttribute);
                 }
-                else if (node.Name == "WordAttribute")
+                else if (node.Name == "WordParameter")
                 {
-                    var previousAttribute = GetAttributeByName(node.AttributesData[0].Value.GetString(), previousAttributes.ToArray());
+                    var previousAttribute = GetParameterByName(node.ParametersData[0].Value.GetString(), previousParameters.ToArray());
                     if (previousAttribute == null)
-                        Attributes.Add(new BehaviourAttribute(new Ray().Set(0),
-                            node.AttributesData[0].Value.GetString(),
-                            BehaviourAttribute.Type.Word, node.Guid));
+                        Parameters.Add(new ConstellationParameter(new Ray().Set(0),
+                            node.ParametersData[0].Value.GetString(),
+                            ConstellationParameter.Type.Word, node.Guid));
                     else
-                        Attributes.Add(previousAttribute);
+                        Parameters.Add(previousAttribute);
                 }
-                else if (node.Name == "ObjectAttribute")
+                else if (node.Name == "ObjectParameter")
                 {
-                    var previousAttribute = GetAttributeByName(node.AttributesData[0].Value.GetString(), previousAttributes.ToArray());
+                    var previousAttribute = GetParameterByName(node.ParametersData[0].Value.GetString(), previousParameters.ToArray());
                     if (previousAttribute == null)
-                        Attributes.Add(new BehaviourAttribute(new Ray().Set(null as object),
-                            node.AttributesData[0].Value.GetString(),
-                            BehaviourAttribute.Type.UnityObject, node.Guid));
+                        Parameters.Add(new ConstellationParameter(new Ray().Set(null as object),
+                            node.ParametersData[0].Value.GetString(),
+                            ConstellationParameter.Type.UnityObject, node.Guid));
                     else
-                        Attributes.Add(previousAttribute);
+                        Parameters.Add(previousAttribute);
                 }
             }
         }
@@ -132,19 +129,19 @@ namespace Constellation.Unity3D
             }
         }
 
-        BehaviourAttribute GetAttributeByName(string name, BehaviourAttribute[] attributes)
+        ConstellationParameter GetParameterByName(string name, ConstellationParameter[] parameters)
         {
-            foreach (var attribute in attributes)
+            foreach (var parameter in parameters)
             {
-                if (attribute.Name == name)
-                    return attribute;
+                if (parameter.Name == name)
+                    return parameter;
             }
             return null;
         }
 
         bool IsAttribute(NodeData node)
         {
-            if (node.Name == "ValueAttribute" || node.Name == "WordAttribute" || node.Name == "ObjectAttribute")
+            if (node.Name == "ValueParameter" || node.Name == "WordParameter" || node.Name == "ObjectParameter")
                 return true;
 
             return false;

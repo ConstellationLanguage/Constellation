@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Constellation.CoreNodes {
-    public class Condition : INode, IReceiver, IAttributeUpdate {
+    public class Condition : INode, IReceiver, IParameterUpdate {
         private ISender sender;
         
         private Ray var1;
@@ -32,15 +32,15 @@ namespace Constellation.CoreNodes {
             _node.AddOutput(false, "else");
             _node.AddOutput(false, "any");
 
-            conditionAttribute = _node.AddAttribute (ifValue, Parameter.AttributeType.Conditionals, "ex: $1>$2");
-            thenAttribute = _node.AddAttribute (thenValue, Parameter.AttributeType.Then, "ex: $2");
-            elseAttribute = _node.AddAttribute (elseValue, Parameter.AttributeType.Else, "ex: $3");
+            conditionAttribute = _node.AddParameter (ifValue, Parameter.ParameterType.Conditionals, "ex: $1>$2");
+            thenAttribute = _node.AddParameter (thenValue, Parameter.ParameterType.Then, "ex: $2");
+            elseAttribute = _node.AddParameter (elseValue, Parameter.ParameterType.Else, "ex: $3");
             var1 = new Ray();
             var2 = new Ray();
             var3 = new Ray();
         } 
 
-        public void OnAttributesUpdate() {
+        public void OnParametersUpdate() {
             Set();
         }
 
@@ -70,7 +70,7 @@ namespace Constellation.CoreNodes {
                 var3.Set(_value);
             }
 
-            if(_input.isWarm) {
+            if(_input.isBright) {
                 if(conditon.isConditionMet())
                     sender.Send(conditon.ConditionResult(), 0);
                 else

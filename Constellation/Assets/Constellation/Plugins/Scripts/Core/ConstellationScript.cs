@@ -27,7 +27,7 @@ namespace Constellation.Unity3D
             script.Nodes = new List<NodeData>();
             script.Links = new List<LinkData>();
 
-            if(_script.Nodes != null)
+            if (_script.Nodes != null)
                 foreach (var node in _script.Nodes) 
                     AddNode (node);
 
@@ -35,6 +35,7 @@ namespace Constellation.Unity3D
                 foreach(var link in _script.Links) {
                     AddLink(link);
             }
+            script.Name = _script.Name;
             return this;
         }
 

@@ -2,23 +2,23 @@
 namespace Constellation
 {
     [System.Serializable]
-    public class AttributeData
+    public class ParameterData
     {
         public Ray Value;
-        public Parameter.AttributeType Type;
+        public Parameter.ParameterType Type;
 
-        public AttributeData(Parameter.AttributeType _type)
+        public ParameterData(Parameter.ParameterType _type)
         {
             Value = new Ray();
             Value.Set(0);
             Type = _type;
         }
 
-        public AttributeData(Parameter.AttributeType _type, Ray variable)
+        public ParameterData(Parameter.ParameterType _type, Ray variable)
         {
-            if(_type == Parameter.AttributeType.Value)
+            if(_type == Parameter.ParameterType.Value)
                 Value = new Ray().Set(variable.GetFloat());
-            else if(_type == Parameter.AttributeType.Word)
+            else if(_type == Parameter.ParameterType.Word)
                  Value = new Ray().Set(variable.GetString());
             else 
                 Value = new Ray().Set(variable.GetString());
