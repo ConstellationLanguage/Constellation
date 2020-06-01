@@ -24,26 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: b211000e-9d99-4882-9431-d8061ddec9ab
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 15
-      YPosition: 170
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: 6579597f-d594-4ede-b8b5-0fa534c10a88
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 860eadab-d776-4a4a-97c3-7fc77724ef70
       Name: Print
       Namespace: CoreNodes
@@ -58,34 +40,8 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: a4d0a5ff-17b5-464d-9062-f720c98169bf
-      Name: Var
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 155
-      YPosition: 200
-      SizeX: 100
-      SizeY: 60
-      Inputs:
-      - Guid: b0571b8d-4cd1-4bb5-b14c-13efca261299
-        IsBright: 0
-        Type: Var
-        Description: New var
-      - Guid: da3e3fe5-151e-4fbf-83f4-c2c0e226fa58
-        IsBright: 1
-        Type: Any
-        Description: Send var
-      Outputs:
-      - Guid: 8d76369c-c351-4cfd-8ae6-148a58296aec
-        IsWarm: 0
-        Type: Var
-        Description: Output var
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 6
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: d0cbcb0a-62bd-45f8-b271-a1ad5d1678ac
       Name: DeltaTime
       Namespace: Unity
@@ -101,40 +57,91 @@ MonoBehaviour:
         Description: Value
       Outputs:
       - Guid: 15350263-6fc2-4c45-87b5-62a32f03ae64
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Value x Delta time
-      AttributesData: []
-    - Guid: 673d0850-d9b8-422d-a3f2-1c778b2b0c6d
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d8e72ba3-eb26-4fbc-b37d-6c88c2f14ca8
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 170
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 6579597f-d594-4ede-b8b5-0fa534c10a88
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 24624d69-c13e-4c82-b6d6-d32cf4ea446b
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 155
+      YPosition: 200
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: b0571b8d-4cd1-4bb5-b14c-13efca261299
+        IsBright: 0
+        Type: Generic
+        Description: New var
+      - Guid: da3e3fe5-151e-4fbf-83f4-c2c0e226fa58
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: 8d76369c-c351-4cfd-8ae6-148a58296aec
+        IsBright: 0
+        Type: Generic
+        Description: Output var
+      ParametersData:
+      - Value:
+          stringValue: Var
+          floatValue: 0.000001
+        Type: 6
+      DiscreteParametersData: []
+    - Guid: 5a48444a-b270-40ba-854b-8e26d6f4d368
       Name: LateUpdate
       Namespace: Unity
       OverrideDisplayedName: 
       XPosition: 45
       YPosition: 220
-      SizeX: 75
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 043c2a05-4b7a-4c36-b698-b5819b606816
-        IsWarm: 1
+        IsBright: 1
         Type: Ray
         Description: Ray on lateUpdate
-      AttributesData: []
-    - Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 13b3b869-2d3e-459f-9f02-3c353c291ef6
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 27.5
       YPosition: 286
-      SizeX: 160
-      SizeY: 52
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: Called after all updates
+          stringValue: Your note here
           floatValue: 0.000001
         Type: 2
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: de437ff7-ba2d-4091-8405-eee278021809
@@ -143,7 +150,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 15350263-6fc2-4c45-87b5-62a32f03ae64
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Value x Delta time
       outputPositionY: 0
@@ -155,7 +162,7 @@ MonoBehaviour:
         Description: New var
       Output:
         Guid: 6579597f-d594-4ede-b8b5-0fa534c10a88
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -167,7 +174,7 @@ MonoBehaviour:
         Description: Send var
       Output:
         Guid: 043c2a05-4b7a-4c36-b698-b5819b606816
-        IsWarm: 1
+        IsBright: 0
         Type: Ray
         Description: Ray on lateUpdate
       outputPositionY: 0
@@ -179,7 +186,7 @@ MonoBehaviour:
         Description: Value
       Output:
         Guid: 8d76369c-c351-4cfd-8ae6-148a58296aec
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Output var
       outputPositionY: 0
@@ -187,4 +194,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

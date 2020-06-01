@@ -24,43 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 6fab211f-0784-4604-a12f-51d75a30e19d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 70
-      YPosition: 125
-      SizeX: 189
-      SizeY: 49
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: 'Output 1 on mouse pressed
-
-'
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 2d44615e-0041-44bc-a015-7bddb9a3a17d
-      Name: MouseButtonDown
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 70
-      YPosition: 180
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: f338930b-58ea-41d7-b08c-d01188ffe6fc
-        IsWarm: 1
-        Type: Var
-        Description: 1 on mouse button down else 0
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: f8aca848-8286-4a31-a703-b93946f292f3
       Name: Print
       Namespace: CoreNodes
@@ -75,7 +40,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 4b164e7d-1e6c-4c04-ac65-f3ecf2970119
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 70
+      YPosition: 125
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 88cb850c-af82-474a-b7fd-46d007141b17
+      Name: MouseButtonDown
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 70
+      YPosition: 180
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: f338930b-58ea-41d7-b08c-d01188ffe6fc
+        IsBright: 1
+        Type: Var
+        Description: 1 on mouse button down else 0
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: f593b06e-6fa7-45a5-a94e-078194844b65
@@ -84,7 +86,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: f338930b-58ea-41d7-b08c-d01188ffe6fc
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: 1 on mouse button down else 0
       outputPositionY: 0
@@ -92,4 +94,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

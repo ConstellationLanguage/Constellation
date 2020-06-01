@@ -24,41 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 75
-      SizeX: 237
-      SizeY: 51
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Returns the next power of two value.
-          floatValue: 0.000001
-        Type: 2
-    - Guid: baa646c0-331d-4e32-81d1-495c9a48308f
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 150
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 6dceaba1-bfb1-45bd-be92-0e9dde75badf
       Name: NextPowerOfTwo
       Namespace: Math
@@ -74,10 +41,11 @@ MonoBehaviour:
         Description: Var
       Outputs:
       - Guid: 7d116c94-554e-4191-bad9-54a70257d10f
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Next power of two
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: cee56bc2-9c75-40ba-a4bf-41da6cb3617f
       Name: Print
       Namespace: CoreNodes
@@ -92,7 +60,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 48a3a368-1b65-46a8-a313-254783bbdd3c
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 75
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 3e2f08c3-3441-43e5-b567-f322083d4e52
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 150
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: bd25bd9c-3362-4436-b18f-e07b5e49e535
@@ -101,7 +106,7 @@ MonoBehaviour:
         Description: Var
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -113,7 +118,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 7d116c94-554e-4191-bad9-54a70257d10f
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Next power of two
       outputPositionY: 0
@@ -121,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

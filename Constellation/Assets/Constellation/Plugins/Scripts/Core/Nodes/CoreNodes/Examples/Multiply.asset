@@ -24,7 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 0c198543-8909-4d64-86ad-76b4358d0b92
       Name: Print
       Namespace: CoreNodes
@@ -39,26 +40,8 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: 9ede0e47-f834-4012-9158-ed495050171e
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 25
-      YPosition: 95
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 2
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: b1f45bcd-f9db-4956-a0e4-832d0ddb56d9
       Name: Multiply
       Namespace: CoreNodes
@@ -78,11 +61,32 @@ MonoBehaviour:
         Description: Value to multiply
       Outputs:
       - Guid: 7c235b66-1797-4086-b4c1-2ca18e27d3b2
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Result $1 x $2
-      AttributesData: []
-    - Guid: 4350c2d3-974c-4817-b448-cfdf6aae21c5
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: fce43f36-95df-4e50-b533-0a4166a452e9
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 25
+      YPosition: 95
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 771f6595-8090-4ade-9c21-c3874ae68d19
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
@@ -93,14 +97,15 @@ MonoBehaviour:
       Inputs: []
       Outputs:
       - Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 2
+          floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
@@ -109,7 +114,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 7c235b66-1797-4086-b4c1-2ca18e27d3b2
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Result $1 x $2
       outputPositionY: 0
@@ -121,7 +126,7 @@ MonoBehaviour:
         Description: Multiply factor
       Output:
         Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -133,12 +138,12 @@ MonoBehaviour:
         Description: Value to multiply
       Output:
         Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
       GUID: ca46a3f1-deb7-4415-b00d-fb99adbf4923
-    Name: 
+    Name: Multiply
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

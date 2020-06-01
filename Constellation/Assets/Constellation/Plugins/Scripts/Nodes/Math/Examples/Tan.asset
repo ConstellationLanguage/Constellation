@@ -24,22 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 65
-      SizeX: 260
-      SizeY: 50
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Returns the tangent of angle f in radians.
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: b78de301-d9b8-4497-9913-98e7da776213
       Name: Tan
       Namespace: Math
@@ -55,10 +41,11 @@ MonoBehaviour:
         Description: X
       Outputs:
       - Guid: 31074be5-60c6-4f9c-979a-c6f67ee14175
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Tan of X
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 64a46ef6-e4a2-4a82-8bd0-67939806039a
       Name: Print
       Namespace: CoreNodes
@@ -73,26 +60,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: d1206f0b-a1ca-4e60-bd99-21eef43d6a9f
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 9395c9c0-fec4-41a0-82d4-f53963e1e638
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 65
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 7baae020-5e15-4ca5-8171-2ea518becf12
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 130
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 61f56dc5-1655-4c67-8d2a-9e79a4b0bf50
@@ -101,7 +106,7 @@ MonoBehaviour:
         Description: X
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -113,7 +118,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 31074be5-60c6-4f9c-979a-c6f67ee14175
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Tan of X
       outputPositionY: 0
@@ -121,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

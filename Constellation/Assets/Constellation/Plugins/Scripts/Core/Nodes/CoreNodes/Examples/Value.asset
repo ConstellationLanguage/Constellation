@@ -24,7 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 8a9a9aac-121a-4feb-890f-c7b34f65cc23
       Name: Print
       Namespace: CoreNodes
@@ -39,38 +40,40 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: f11ba600-281a-4cca-ae1d-d1ddc47cccb8
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 77163301-596a-4286-86f6-3a0bed924e09
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 90
       YPosition: 90
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 2789db98-4cee-46da-9b20-cf2de8ec9c3b
+      DiscreteParametersData: []
+    - Guid: acf03794-9a21-4ddd-b885-b46da03a5cce
       Name: Var
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 255
       YPosition: 90
-      SizeX: 100
-      SizeY: 60
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
         IsBright: 0
-        Type: Var
+        Type: Generic
         Description: New var
       - Guid: 61778486-a912-41ee-9af7-0513bea2f814
         IsBright: 1
@@ -78,14 +81,15 @@ MonoBehaviour:
         Description: Send var
       Outputs:
       - Guid: e373e282-292e-4f9f-b106-59f3de4467c9
-        IsWarm: 0
-        Type: Var
+        IsBright: 0
+        Type: Generic
         Description: Output var
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
+          stringValue: Var
+          floatValue: 0.000001
         Type: 6
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
@@ -94,7 +98,7 @@ MonoBehaviour:
         Description: New var
       Output:
         Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -106,7 +110,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: e373e282-292e-4f9f-b106-59f3de4467c9
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Output var
       outputPositionY: 0
@@ -118,7 +122,7 @@ MonoBehaviour:
         Description: Send var
       Output:
         Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -126,4 +130,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

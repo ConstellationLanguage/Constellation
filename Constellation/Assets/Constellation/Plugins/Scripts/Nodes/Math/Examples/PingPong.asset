@@ -24,23 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 40
-      YPosition: 75
-      SizeX: 519
-      SizeY: 53
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: PingPongs the value t, so that it is never larger than length
-            and never smaller than 0.
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: b46adf47-d445-42a7-b50b-fa826a7cab05
       Name: PingPong
       Namespace: Math
@@ -60,10 +45,11 @@ MonoBehaviour:
         Description: Lenght
       Outputs:
       - Guid: 6d98e3f9-0438-4f66-8f58-2787a8d6a877
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Ping Pong T value
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 3b09010d-02fa-4c97-b7a7-6949e5fdb672
       Name: Print
       Namespace: CoreNodes
@@ -78,45 +64,64 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: d59f0bb6-ae3a-4c4d-a9e6-a7e51b728149
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: dee3a6a0-4221-4321-b084-4e5ea6cee0df
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 75
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 833f5d40-6f87-496d-a0a7-391d74e24676
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 45
       YPosition: 145
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 7c67110c-0f80-486d-8a0e-5b988dff7f5e
+      DiscreteParametersData: []
+    - Guid: dfe797fe-edc5-423f-8451-cafd494d60d1
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 45
       YPosition: 185
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: fc68dfd7-ca3c-4332-bd2b-c4f1213ad35a
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: f824bf87-2e3f-4f41-8b6e-d9ad77d4e4d6
@@ -125,7 +130,7 @@ MonoBehaviour:
         Description: T
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -137,7 +142,7 @@ MonoBehaviour:
         Description: Lenght
       Output:
         Guid: fc68dfd7-ca3c-4332-bd2b-c4f1213ad35a
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -149,7 +154,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 6d98e3f9-0438-4f66-8f58-2787a8d6a877
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Ping Pong T value
       outputPositionY: 0
@@ -157,4 +162,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -24,22 +24,24 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: c8c6f8eb-bb17-4a74-adcc-8ad35908a2c8
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 84e22b38-0d7e-451c-b30a-f39bc8fde5bc
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 180
       YPosition: 110
-      SizeX: 251
-      SizeY: 58
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: Allows you to comment your code
+          stringValue: Your note here
           floatValue: 0.000001
         Type: 2
+      DiscreteParametersData: []
     Links: []
     Name: 
   IsInstance: 0

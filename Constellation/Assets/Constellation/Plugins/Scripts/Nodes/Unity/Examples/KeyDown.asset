@@ -24,26 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 901aefd0-608b-435d-8c70-7c0340cd5f6a
-      Name: KeyDown
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 40
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
-        IsWarm: 1
-        Type: Var
-        Description: 1 on key down else 0
-      AttributesData:
-      - Value:
-          stringValue: w
-          floatValue: 0.000001
-        Type: 1
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: edc3d6fc-64da-4af7-b5a6-947e250f805a
       Name: Print
       Namespace: CoreNodes
@@ -58,25 +40,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: 1b86364f-a103-4b66-bd85-1d0177a33afc
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 491dc52b-a9b9-4f8f-b5e9-8c5c2d2d885c
+      Name: KeyDown
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 40
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
+        IsBright: 1
+        Type: Var
+        Description: 1 on key down else 0
+      ParametersData:
+      - Value:
+          stringValue: 
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 37908aad-b67f-4a68-a231-077ef98037a7
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 100
-      SizeX: 237
-      SizeY: 61
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: 'Output 1 the frame the key is pressed.
-
-            Otherwise
-            it''s 0.'
+          stringValue: Your note here
           floatValue: 0.000001
         Type: 2
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 405c0592-2a24-4d10-b23b-3c3dc6b5b405
@@ -85,7 +86,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: 1 on key down else 0
       outputPositionY: 0
@@ -93,4 +94,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -24,41 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 55
-      SizeX: 178
-      SizeY: 53
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Generate 2D Perlin noise.
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 3ac5eb14-b54c-4ab8-b53f-ba426fbf7b28
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 135
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 8e4c80c8-e731-4642-8be5-988dcd54b14f
       Name: Print
       Namespace: CoreNodes
@@ -73,7 +40,8 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: e7c8c493-1245-4a3c-9c7d-b86000680c56
       Name: PerlinNoise
       Namespace: Math
@@ -93,29 +61,67 @@ MonoBehaviour:
         Description: Y
       Outputs:
       - Guid: cb83f3de-3853-453e-9e4f-8b050f01735e
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Next power of two
-      AttributesData: []
-    - Guid: 2680036d-3de9-4c7e-a043-75f14eff6124
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: cc65c269-a18e-443b-be16-b16e9f5fde9f
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 55
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 834f9142-c15e-421c-9c25-a41410e26b2b
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 135
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 518ec44c-57f3-42ad-b46f-f83c62a4375c
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 20
       YPosition: 185
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: fc4ceb6f-cfeb-40bf-998f-d7408986f5fb
@@ -124,7 +130,7 @@ MonoBehaviour:
         Description: X
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -136,7 +142,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: cb83f3de-3853-453e-9e4f-8b050f01735e
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Next power of two
       outputPositionY: 0
@@ -148,7 +154,7 @@ MonoBehaviour:
         Description: Y
       Output:
         Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -156,4 +162,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

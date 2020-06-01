@@ -149,12 +149,12 @@ namespace Constellation
             }
 
             var a = 0;
-            foreach (Parameter paramerter in node.GetParameters())
+            foreach (Parameter parameter in node.GetParameters())
             {
                 if (_nodeData.GetParameters()[a].Value.IsFloat())
-                    paramerter.Value.Set(_nodeData.GetParameters()[a].Value.GetFloat());
+                    parameter.Value.Set(_nodeData.GetParameters()[a].Value.GetFloat());
                 else
-                    paramerter.Value.Set(_nodeData.GetParameters()[a].Value.GetString());
+                    parameter.Value.Set(_nodeData.GetParameters()[a].Value.GetString());
                 a++;
             }
             return node;

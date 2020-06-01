@@ -24,41 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 85
-      SizeX: 209
-      SizeY: 48
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Returns the cosine of angle f.
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 6579f71b-266f-496f-8e03-3266da128e51
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 155
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 2c29c699-b3b4-42f0-a47e-bd8fb7855d45
       Name: Cosinus
       Namespace: Math
@@ -74,10 +41,11 @@ MonoBehaviour:
         Description: a
       Outputs:
       - Guid: 93924b9e-820f-4b2f-88b3-9195dab1ec21
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Cos(a)
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: b59132da-abbc-4764-b008-60cd334e79ba
       Name: Print
       Namespace: CoreNodes
@@ -92,7 +60,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 1948259c-ac2a-4c2a-b36c-fd3e646480e6
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 85
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: a15e5f36-9e92-48b7-acc6-61410d5e8e49
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 155
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 24094890-f392-4295-8277-751991f834a8
@@ -101,7 +106,7 @@ MonoBehaviour:
         Description: a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -113,7 +118,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 93924b9e-820f-4b2f-88b3-9195dab1ec21
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Cos(a)
       outputPositionY: 0
@@ -121,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

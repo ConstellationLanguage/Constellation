@@ -24,7 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 48189c32-d69e-4862-86fb-5e78c4a60e6b
       Name: Print
       Namespace: CoreNodes
@@ -39,26 +40,28 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: b5223a37-5db3-427e-ba76-ba6aee765424
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: fc145113-5a1c-430c-a502-bded72b4b88d
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 85
       YPosition: 95
-      SizeX: 134
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The Word
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: 'Print something '
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
@@ -67,7 +70,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The Word
       outputPositionY: 0

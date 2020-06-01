@@ -24,41 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 65
-      SizeX: 340
-      SizeY: 65
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Clamps value between 0 and 1 and returns value.
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 83ac9bb2-0709-4680-99dc-706cc7caa4a0
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 145
-      SizeX: 100
-      SizeY: 43
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 0f5dd8d4-9696-4121-8680-1a9e6a28525e
       Name: Clamp01
       Namespace: Math
@@ -74,10 +41,11 @@ MonoBehaviour:
         Description: a
       Outputs:
       - Guid: 96419bec-14ab-4a69-9af0-d7cd10e12d8c
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Clamps value between 0 and 1 and returns value.
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 38c22978-01ab-4a91-8149-f8315c76dc12
       Name: Print
       Namespace: CoreNodes
@@ -92,7 +60,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d0a0bb50-8b31-40a6-8da1-6b3930fa2d53
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 65
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: bb111eaa-71ee-4860-ae59-c75cc1f20822
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 145
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: be2c2e8d-1640-419f-8316-0901116bed39
@@ -101,7 +106,7 @@ MonoBehaviour:
         Description: a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -113,7 +118,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 96419bec-14ab-4a69-9af0-d7cd10e12d8c
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Clamps value between 0 and 1 and returns value.
       outputPositionY: 0
@@ -121,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

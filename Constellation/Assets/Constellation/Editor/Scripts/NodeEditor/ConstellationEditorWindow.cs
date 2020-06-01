@@ -453,12 +453,12 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
 
         ScriptDataService.RefreshConstellationEditorDataList();
         ScriptDataService.UpdateStaticConstellationNodesNames();
-        ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllStaticScriptsInProject(), ScriptDataService.GetAllScriptDataInProject());
+        ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllStaticScriptsDataInProject(), ScriptDataService.GetAllScriptDataInProject());
 
 
         if (refreshTutorials)
         {
-            ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllStaticScriptsInProject(), ScriptDataService.GetAllTutorialScriptsInProject());
+            ConstellationParser.UpdateScriptsNodes(ScriptDataService.GetAllStaticScriptsDataInProject(), ScriptDataService.GetAllTutorialScriptsDataInProject());
         }
         ScriptDataService.SetAllScriptsDirty();
         SetupNodeWindow();

@@ -24,42 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 55
-      YPosition: 75
-      SizeX: 467
-      SizeY: 52
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Calculates the shortest difference between two given angles
-            given in degrees..
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 252b949e-2fea-4338-8d50-b4a71b45a0a8
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 55
-      YPosition: 135
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 3af44752-93ed-43cb-bf6f-2b840b0e89f9
       Name: DeltaAngle
       Namespace: Math
@@ -79,10 +45,11 @@ MonoBehaviour:
         Description: Angle b
       Outputs:
       - Guid: 989006ad-3882-4372-bab5-e8946b688cf1
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Sortest difference between a and b
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: a29d3d55-d2f1-4c61-aaaf-48686fc75541
       Name: Print
       Namespace: CoreNodes
@@ -97,26 +64,64 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: ebfdfd38-5302-4805-b3f6-95b50b3e34f9
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 40363cb7-aee6-4dff-aa39-0a4d7da4dbb6
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 55
+      YPosition: 75
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 5a7c7011-abc7-40c1-bafc-ece020b6468e
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 55
+      YPosition: 135
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: d624b805-a2d5-44ad-97f0-b7c119de318f
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 55
       YPosition: 175
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: eb52b2b5-0cb6-4f98-aa71-874dc1a81bf6
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: a95c8065-87a5-4e66-96a2-8df9b9c19329
@@ -125,7 +130,7 @@ MonoBehaviour:
         Description: Angle a
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -137,7 +142,7 @@ MonoBehaviour:
         Description: Angle b
       Output:
         Guid: eb52b2b5-0cb6-4f98-aa71-874dc1a81bf6
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -149,7 +154,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 989006ad-3882-4372-bab5-e8946b688cf1
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Sortest difference between a and b
       outputPositionY: 0
@@ -157,4 +162,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

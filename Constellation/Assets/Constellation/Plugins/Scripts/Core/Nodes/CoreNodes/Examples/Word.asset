@@ -24,22 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 1bcbaf0c-892b-4cc8-a874-0c32b816721d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 110
-      YPosition: 40
-      SizeX: 182
-      SizeY: 46
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Triggered on first frame
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 56090df3-b345-4a00-ba58-03631965fd9a
       Name: Print
       Namespace: CoreNodes
@@ -54,26 +40,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: 07e09b2d-a1e0-49ec-b87a-fd8dc67e5463
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d0e2371a-2046-4725-8d9c-8ea0349825c3
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 110
+      YPosition: 40
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 98e8f604-5017-43f0-b6b5-270a07c8ef95
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 45
       YPosition: 90
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The Word
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: gjghjgjh
+          stringValue: your word
           floatValue: 0.000001
         Type: 1
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: d32b6bb0-e3fb-4934-a197-68c5494c09b8
@@ -82,7 +86,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The Word
       outputPositionY: 0
@@ -90,4 +94,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

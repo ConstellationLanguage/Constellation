@@ -14,21 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     Nodes:
-    - Guid: 49193f73-3f65-413a-809d-2091c0423cf3
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 255
-      YPosition: 20
-      SizeX: 100
-      SizeY: 53
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Store a color
-          floatValue: 0.000001
-        Type: 2
     - Guid: f5a5dbde-1065-4a98-ae89-021a2fa35da6
       Name: Tutorial
       Namespace: ConstellationTypes
@@ -39,7 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: fbc62cc8-e2d1-48e3-a6a0-3bd43b4bef0b
       Name: MaterialColor
       Namespace: Unity
@@ -58,34 +44,52 @@ MonoBehaviour:
         Type: Color
         Description: Color
       Outputs: []
-      AttributesData: []
-    - Guid: 7ca08420-4965-49e7-ade3-f337b03c4688
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: c82c3ed4-4d28-4af4-afa8-7c5471a91f80
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 255
+      YPosition: 20
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: f8879ff7-8732-4c66-819c-d7bc1bdb9985
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 60
       YPosition: 120
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 713eba08-2fb6-4aed-8bbd-4ed1fa8a8e73
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 51018996-a894-4e68-a8e6-2897a3a26a2c
+      DiscreteParametersData: []
+    - Guid: 03ed4000-7062-49eb-999b-4a1c93a403d5
       Name: Color
       Namespace: Unity
       OverrideDisplayedName: 
       XPosition: 285
       YPosition: 120
-      SizeX: 100
-      SizeY: 100
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 9d19313a-1fc5-4e5f-8048-c52f3d18e53f
         IsBright: 1
@@ -105,98 +109,103 @@ MonoBehaviour:
         Description: A
       Outputs:
       - Guid: 71fad15b-a981-4eff-8d78-6c4edce5413d
-        IsWarm: 0
+        IsBright: 0
         Type: Color
         Description: Color[R][G][B][A]
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: R
+          stringValue: 1
           floatValue: 0.000001
         Type: 10
       - Value:
-          stringValue: G
+          stringValue: 1
           floatValue: 0.000001
         Type: 11
       - Value:
-          stringValue: B
+          stringValue: 1
           floatValue: 0.000001
         Type: 12
       - Value:
-          stringValue: A
+          stringValue: 1
           floatValue: 0.000001
         Type: 13
-    - Guid: a0c427f7-92c7-4242-bb93-3e60ea5f38d8
+      DiscreteParametersData: []
+    - Guid: 64a4bea3-6d5c-445b-be0e-b44eb231d2c1
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 60
       YPosition: 165
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 08bbfb94-583d-4126-85d9-3704d67ab232
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 511408e5-25c2-4137-bfb9-527f9b01d594
+      DiscreteParametersData: []
+    - Guid: c2a08b86-2ae9-49a3-8fc4-1906a5f9b41f
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 60
       YPosition: 210
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: a9c9fdab-8310-4f1e-8f62-2e7e5a1c71c6
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 4c8e1609-cac4-4ebb-8d0a-65c3bc62e667
+      DiscreteParametersData: []
+    - Guid: 5c4e42b4-055b-4387-8596-2581c78c661b
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 60
       YPosition: 260
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 6471a8ef-acbf-45fe-bb4d-8140d400008a
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 244890a0-1114-416f-910e-4c4b38f70d04
+      DiscreteParametersData: []
+    - Guid: dfb8c83c-4809-4cef-b5b4-404197f566c5
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 55
       YPosition: 310
-      SizeX: 341
-      SizeY: 52
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs: []
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: The alpha channel require a material that supports alpha
+          stringValue: Your note here
           floatValue: 0.000001
         Type: 2
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 11af3ca4-404b-47dc-885a-f291361b1b6b
@@ -205,7 +214,7 @@ MonoBehaviour:
         Description: Color
       Output:
         Guid: 71fad15b-a981-4eff-8d78-6c4edce5413d
-        IsWarm: 0
+        IsBright: 0
         Type: Color
         Description: Color[R][G][B][A]
       outputPositionY: 0
@@ -217,7 +226,7 @@ MonoBehaviour:
         Description: R
       Output:
         Guid: 713eba08-2fb6-4aed-8bbd-4ed1fa8a8e73
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -229,7 +238,7 @@ MonoBehaviour:
         Description: G
       Output:
         Guid: 08bbfb94-583d-4126-85d9-3704d67ab232
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -241,7 +250,7 @@ MonoBehaviour:
         Description: B
       Output:
         Guid: a9c9fdab-8310-4f1e-8f62-2e7e5a1c71c6
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -253,7 +262,7 @@ MonoBehaviour:
         Description: A
       Output:
         Guid: 6471a8ef-acbf-45fe-bb4d-8140d400008a
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -261,4 +270,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

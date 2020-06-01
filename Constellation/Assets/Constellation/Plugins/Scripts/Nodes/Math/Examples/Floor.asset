@@ -24,43 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 95
-      SizeX: 314
-      SizeY: 47
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: 'Returns the largest integer smaller to or equal to f.
-
-'
-          floatValue: 0.000001
-        Type: 2
-    - Guid: fdbda605-ba37-44e1-84a9-a76de7aa2702
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 150
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 5ff5d61e-cd0c-4207-991e-7dced6a9a131
       Name: Floor
       Namespace: Math
@@ -76,10 +41,11 @@ MonoBehaviour:
         Description: A
       Outputs:
       - Guid: 21e23d7f-6b89-45b4-a7de-3d7f8100f53a
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Largest integer smaller to or equal to a.
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 3211a958-90c9-4e73-80ca-b6bde5ecea5c
       Name: Print
       Namespace: CoreNodes
@@ -94,7 +60,44 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: f2c8751f-4f1d-4cbf-8045-72dd9c06d49d
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 95
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: c53920a4-f45b-410d-a550-302029b12b4f
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 150
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: cb86a724-8885-4925-a303-5a4dcb903477
@@ -103,7 +106,7 @@ MonoBehaviour:
         Description: A
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -115,7 +118,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 21e23d7f-6b89-45b4-a7de-3d7f8100f53a
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Largest integer smaller to or equal to a.
       outputPositionY: 0
@@ -123,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

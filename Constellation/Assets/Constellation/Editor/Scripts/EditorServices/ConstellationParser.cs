@@ -23,7 +23,6 @@ namespace ConstellationEditor
 
         public void UpdateScriptNodes(ConstellationScriptData script, ConstellationScriptData[] constellationScripts)
         {
-
             List<NodeData> nodesToRemove = new List<NodeData>();
             NodesFactory = new NodesFactory(constellationScripts);
             foreach (var node in script.Nodes)
@@ -70,6 +69,11 @@ namespace ConstellationEditor
                     if(!foundDifference)
                     {
                         i = 0;
+                        if(node.GetParameters().Length != nodeObject.GetParameters().Length)
+                        {
+                            nodesToRemove.Add(node);
+                        }
+
                         foreach (var parameter in node.GetParameters())
                         {
                             if (parameter.Type != nodeObject.GetParameters()[i].Type)
@@ -82,9 +86,6 @@ namespace ConstellationEditor
                     }
                 }
             }
-
-            /*if (nodesToRemove.Count == 0)
-                return;*/
 
             foreach (var node in nodesToRemove)
             {

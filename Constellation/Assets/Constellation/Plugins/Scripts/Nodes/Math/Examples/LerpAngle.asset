@@ -24,42 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 40
-      YPosition: 100
-      SizeX: 590
-      SizeY: 48
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Same as Lerp but makes sure the values interpolate correctly
-            when they wrap around 360 degrees.
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 4342500f-0142-4783-a152-a4da9c923ed6
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 35
-      YPosition: 180
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: c2e36d99-11b3-4e73-a1d4-35dd15cac596
       Name: Print
       Namespace: CoreNodes
@@ -74,7 +40,8 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: cb5c376b-afd2-4f6a-a7ff-4b4a928671bf
       Name: LerpAngle
       Namespace: Math
@@ -98,48 +65,87 @@ MonoBehaviour:
         Description: T
       Outputs:
       - Guid: 8f36160d-5562-4c52-8ca9-f4b57260e68c
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Same as lerp but with radians
-      AttributesData: []
-    - Guid: 77cb5e67-ee32-49d9-ab88-69ffcd86a57c
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 275ea0ca-8223-40ce-a7d3-d0428b912365
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 100
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 185c4a3c-898e-47ba-8214-3787abcfca71
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 35
+      YPosition: 180
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 83c29a4b-783a-4fa2-800a-1357ac4558f1
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 35
       YPosition: 225
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 200
+          floatValue: 0
         Type: 0
-    - Guid: 32a1f72c-1211-426a-ad24-f1e2d2ac1aa0
+      DiscreteParametersData: []
+    - Guid: 2be50a6a-a674-4da7-b65f-e3fcdd2b8b33
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 35
       YPosition: 270
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 5ca775b3-4772-4a54-a1df-ded015188958
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 655a3cbc-3864-4a4c-8aac-5b395828b607
@@ -148,7 +154,7 @@ MonoBehaviour:
         Description: A
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -160,7 +166,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 8f36160d-5562-4c52-8ca9-f4b57260e68c
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Same as lerp but with radians
       outputPositionY: 0
@@ -172,7 +178,7 @@ MonoBehaviour:
         Description: B
       Output:
         Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -184,7 +190,7 @@ MonoBehaviour:
         Description: T
       Output:
         Guid: 5ca775b3-4772-4a54-a1df-ded015188958
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -192,4 +198,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

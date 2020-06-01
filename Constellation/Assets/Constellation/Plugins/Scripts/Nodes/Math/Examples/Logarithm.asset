@@ -24,42 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 90
-      SizeX: 387
-      SizeY: 54
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Returns the logarithm of a specified number in a specified
-            base.
-          floatValue: 0.000001
-        Type: 2
-    - Guid: 1dd8716c-9202-4acf-8b62-ad89b5469d6a
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 160
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
-        Type: Var
-        Description: The value
-      AttributesData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 33606498-a465-48a7-aadf-0e8c0a0ec0f9
       Name: Print
       Namespace: CoreNodes
@@ -74,7 +40,8 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 97276933-bd3f-4946-b71e-b4f4a89a2614
       Name: Logarithm
       Namespace: Math
@@ -90,10 +57,47 @@ MonoBehaviour:
         Description: A
       Outputs:
       - Guid: 0e622f88-73bf-4025-9414-948ca66ec246
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Log(A)
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 3d96f4fe-4e45-4df4-80e8-22abb438cc39
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 0cf1c37c-e420-4c9d-954c-a48db660bf14
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 160
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: e54ab28e-da51-475d-a38d-d9b3f5c848ad
@@ -102,7 +106,7 @@ MonoBehaviour:
         Description: A
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -114,7 +118,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 0e622f88-73bf-4025-9414-948ca66ec246
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Log(A)
       outputPositionY: 0
@@ -122,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

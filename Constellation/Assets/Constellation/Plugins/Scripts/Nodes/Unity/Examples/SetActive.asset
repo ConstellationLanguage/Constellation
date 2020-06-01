@@ -24,22 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 635b980e-d069-4503-8277-706632d49359
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 165
-      YPosition: 35
-      SizeX: 204
-      SizeY: 49
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Deactivate a gameobject
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 5713588b-8885-44dc-adba-fbc40d6a8318
       Name: FindByName
       Namespace: Unity
@@ -55,29 +41,11 @@ MonoBehaviour:
         Description: Game Object Name
       Outputs:
       - Guid: f9a1a6f5-b65b-4ffd-a3eb-fbbe160e6a2b
-        IsWarm: 0
+        IsBright: 0
         Type: Object
         Description: Gameobject
-      AttributesData: []
-    - Guid: 71d19ea7-9cf0-4719-842f-b78831a73975
-      Name: Word
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 100
-      SizeX: 100
-      SizeY: 40
-      Inputs: []
-      Outputs:
-      - Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
-        IsWarm: 1
-        Type: Var
-        Description: The Word
-      AttributesData:
-      - Value:
-          stringValue: Cube
-          floatValue: 0.000001
-        Type: 1
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: b1404f6b-cc46-4457-a32c-203905d2ef46
       Name: SetActive
       Namespace: Unity
@@ -101,29 +69,67 @@ MonoBehaviour:
         Description: send currend enabled state
       Outputs:
       - Guid: 297186dc-dc8d-4e69-b9ed-c5823406a978
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: get the current state
-      AttributesData: []
-    - Guid: 04f5f394-315e-4364-b6d7-d5e335424de7
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 005569b9-bde9-411f-acfd-39de6ec15060
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 165
+      YPosition: 35
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 5aa96682-c9db-49ee-9040-e3fa03c0e9c8
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 100
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: ee488e23-d83a-4a99-9846-cd743026d719
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 150
       YPosition: 145
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 1
+          floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 41b57a35-fdc1-4e23-b21b-df6891733318
@@ -132,7 +138,7 @@ MonoBehaviour:
         Description: Game Object Name
       Output:
         Guid: c3bfe419-deb5-4df8-bb83-fe1230e2263a
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The Word
       outputPositionY: 0
@@ -144,7 +150,7 @@ MonoBehaviour:
         Description: The gameobject to activate
       Output:
         Guid: f9a1a6f5-b65b-4ffd-a3eb-fbbe160e6a2b
-        IsWarm: 0
+        IsBright: 0
         Type: Object
         Description: Gameobject
       outputPositionY: 0
@@ -156,7 +162,7 @@ MonoBehaviour:
         Description: 1 = activate; 0 = disable
       Output:
         Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -168,7 +174,7 @@ MonoBehaviour:
         Description: send currend enabled state
       Output:
         Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -176,4 +182,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

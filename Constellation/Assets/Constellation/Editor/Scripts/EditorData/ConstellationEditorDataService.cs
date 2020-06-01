@@ -57,7 +57,7 @@ namespace ConstellationEditor
             }
         }
 
-        public ConstellationScriptData[] GetAllStaticScriptsInProject()
+        public ConstellationScriptData[] GetAllStaticScriptsDataInProject()
         {
             var nodes = new List<ConstellationScriptData>();
             foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationStaticNodes)
@@ -74,14 +74,14 @@ namespace ConstellationEditor
             return nodes.ToArray();
         }
 
-        public ConstellationScriptData[] GetAllTutorialScriptsInProject()
+        public ConstellationScriptData[] GetAllTutorialScriptsDataInProject()
         {
             var nodes = new List<ConstellationScriptData>();
             foreach (var constellationTutorialScript in EditorData.ScriptAssembly.ConstellationTutorials)
             {
                 foreach (var node in constellationTutorialScript.GetNodes())
                 {
-                    if (node.Name == StaticConstellationNode.NAME)
+                    if (node.Name == Tutorial.NAME)
                     {
                         nodes.Add(constellationTutorialScript.script);
                         break;
@@ -115,6 +115,25 @@ namespace ConstellationEditor
             return EditorData.ScriptAssembly.ConstellationScripts.ToArray();
         }
 
+        public ConstellationScript[] GetAllTutorialScriptsInProject()
+        {
+            if (EditorData.ScriptAssembly.ConstellationTutorials == null || EditorData.ScriptAssembly.ConstellationTutorials.Count == 0)
+            {
+                SetupScriptAssembly();
+            }
+            return EditorData.ScriptAssembly.ConstellationTutorials.ToArray();
+        }
+
+        public ConstellationScript[] GetAllStaticScriptsInProject()
+        {
+            if (EditorData.ScriptAssembly.ConstellationStaticNodes == null || EditorData.ScriptAssembly.ConstellationStaticNodes.Count == 0)
+            {
+                SetupScriptAssembly();
+            }
+            return EditorData.ScriptAssembly.ConstellationStaticNodes.ToArray();
+        }
+
+
         public ConstellationScriptData[] GetAllScriptDataInProject()
         {
             if (EditorData.ScriptAssembly.ConstellationScripts == null || EditorData.ScriptAssembly.ConstellationScripts.Count == 0)
@@ -137,6 +156,16 @@ namespace ConstellationEditor
             foreach (var constellationScript in GetAllScriptsInProject())
             {
                 EditorUtility.SetDirty(constellationScript);
+            }
+
+            foreach(var constellationTutorial in GetAllTutorialScriptsInProject())
+            {
+                EditorUtility.SetDirty(constellationTutorial);
+            }
+
+            foreach (var constellationStatics in GetAllStaticScriptsInProject ())
+            {
+                EditorUtility.SetDirty(constellationStatics);
             }
         }
 

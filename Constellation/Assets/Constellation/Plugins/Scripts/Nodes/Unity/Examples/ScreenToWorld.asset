@@ -24,22 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 513f3a34-a047-4858-a890-ca8bcb72b816
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 347.5
-      YPosition: 48
-      SizeX: 281
-      SizeY: 52
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: Draw a raycast relative to Screen Position
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 8d4ceb9d-8ed5-4599-9d5e-58b42a607e73
       Name: ScreenToWorld
       Namespace: Unity
@@ -67,49 +53,11 @@ MonoBehaviour:
         Description: Calculate
       Outputs:
       - Guid: d79aa243-a6b5-4c8f-9642-8375f9250667
-        IsWarm: 0
-        Type: Vec3
-        Description: The hit position
-      AttributesData: []
-    - Guid: eaa91955-eb6f-4eb6-a121-bb1629a9fc12
-      Name: SplitVec3
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 515
-      YPosition: 225
-      SizeX: 100
-      SizeY: 80
-      Inputs:
-      - Guid: 3e78330f-b077-449d-ba3c-9c49df66c089
         IsBright: 0
         Type: Vec3
-        Description: Vec3
-      Outputs:
-      - Guid: 54642018-8cb0-43c3-8452-526643ee2e43
-        IsWarm: 0
-        Type: Var
-        Description: X
-      - Guid: ad141474-2b74-4ace-87d3-52c53bec760b
-        IsWarm: 0
-        Type: Var
-        Description: Y
-      - Guid: f66dff20-1038-4a19-ad20-0f4231891e64
-        IsWarm: 0
-        Type: Var
-        Description: Z
-      AttributesData:
-      - Value:
-          stringValue: X
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: Y
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: Z
-          floatValue: 0.000001
-        Type: 9
+        Description: The hit position
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: b4d820ba-bcb8-4f04-bcd0-1e312cb658e0
       Name: Print
       Namespace: CoreNodes
@@ -124,60 +72,120 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
-    - Guid: 2adb5044-f3a3-4ce0-9c80-b4c8ed652e94
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 04e21bfd-8495-4207-bf2c-da3a62245d06
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 347.5
+      YPosition: 48
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 46f8010f-8485-499f-a2aa-4c41eb2228cf
+      Name: SplitVec3
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 515
+      YPosition: 225
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: 3e78330f-b077-449d-ba3c-9c49df66c089
+        IsBright: 1
+        Type: Vec3
+        Description: Vec3
+      Outputs:
+      - Guid: 54642018-8cb0-43c3-8452-526643ee2e43
+        IsBright: 0
+        Type: Var
+        Description: X
+      - Guid: ad141474-2b74-4ace-87d3-52c53bec760b
+        IsBright: 0
+        Type: Var
+        Description: Y
+      - Guid: f66dff20-1038-4a19-ad20-0f4231891e64
+        IsBright: 0
+        Type: Var
+        Description: Z
+      ParametersData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+      DiscreteParametersData: []
+    - Guid: 12f4daee-00d6-4443-a3a3-b4a2791cd66a
       Name: MousePosition
       Namespace: Unity
       OverrideDisplayedName: 
       XPosition: 135
       YPosition: 225
-      SizeX: 75
-      SizeY: 60
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 8379d8b8-2cd4-4d88-87b7-0110bdf45214
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: Mouse position X
       - Guid: cb9ab707-33bd-4575-9b94-5d55745324f9
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: Mosue position Y
-      AttributesData: []
-    - Guid: ef3693ea-11ed-4a31-82fb-6f8534739d73
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 37cd9109-f29e-43db-9f92-2ce2081472c3
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 135
       YPosition: 290
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: e4fca731-491f-499a-a57e-7eab1df61ab2
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 501b981f-355b-4cc4-a1c6-093288630386
+      DiscreteParametersData: []
+    - Guid: 6c2c1d1e-548c-4a27-8b18-f5840a2c3d9b
       Name: Update
       Namespace: Unity
       OverrideDisplayedName: 
       XPosition: 135
       YPosition: 335
-      SizeX: 99
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: dd33d602-de2c-4baf-aaf7-673f07948afb
-        IsWarm: 1
+        IsBright: 1
         Type: Ray
         Description: Ray on update
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: b6748dc0-4833-4d54-b00f-ee5c86ab263d
@@ -186,7 +194,7 @@ MonoBehaviour:
         Description: Position X
       Output:
         Guid: 8379d8b8-2cd4-4d88-87b7-0110bdf45214
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: Mouse position X
       outputPositionY: 0
@@ -198,7 +206,7 @@ MonoBehaviour:
         Description: Position Y
       Output:
         Guid: cb9ab707-33bd-4575-9b94-5d55745324f9
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: Mosue position Y
       outputPositionY: 0
@@ -210,7 +218,7 @@ MonoBehaviour:
         Description: Distance
       Output:
         Guid: e4fca731-491f-499a-a57e-7eab1df61ab2
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -222,7 +230,7 @@ MonoBehaviour:
         Description: Calculate
       Output:
         Guid: dd33d602-de2c-4baf-aaf7-673f07948afb
-        IsWarm: 1
+        IsBright: 0
         Type: Ray
         Description: Ray on update
       outputPositionY: 0
@@ -234,7 +242,7 @@ MonoBehaviour:
         Description: Vec3
       Output:
         Guid: d79aa243-a6b5-4c8f-9642-8375f9250667
-        IsWarm: 0
+        IsBright: 0
         Type: Vec3
         Description: The hit position
       outputPositionY: 0
@@ -246,7 +254,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: 54642018-8cb0-43c3-8452-526643ee2e43
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: X
       outputPositionY: 0
@@ -258,7 +266,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: ad141474-2b74-4ace-87d3-52c53bec760b
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Y
       outputPositionY: 0
@@ -270,7 +278,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: f66dff20-1038-4a19-ad20-0f4231891e64
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Z
       outputPositionY: 0
@@ -278,4 +286,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -24,25 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: b21022cb-b673-4c87-badf-c970e11b5b24
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 15
-      YPosition: 55
-      SizeX: 388
-      SizeY: 70
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: 'Add force to the rigidbody
-
-            If gameobject does
-            not have a rigidbody attached one is added'
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: c51376ad-b2f7-48d9-ae32-666c364c8622
       Name: AddForce
       Namespace: Physics
@@ -61,34 +44,52 @@ MonoBehaviour:
         Type: Vec3
         Description: Vec3 world relative
       Outputs: []
-      AttributesData: []
-    - Guid: df5da2be-de46-4ab0-a90c-739829a829e0
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 7a3f3015-2288-450b-b6a1-540a4ffff418
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 55
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: c7878e7b-cb67-4bdc-a773-1de44a4d263e
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 15
       YPosition: 165
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 8fb2e2c1-cf64-4faa-8f09-eab2ffd09e85
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 4405c6bd-77de-4e75-9d64-2dc307f16e35
+      DiscreteParametersData: []
+    - Guid: 236de39a-3d8d-404b-a9c0-ff27cb36eefe
       Name: Vec3
       Namespace: Unity
       OverrideDisplayedName: 
       XPosition: 170
       YPosition: 165
-      SizeX: 100
-      SizeY: 80
+      SizeX: 0
+      SizeY: 0
       Inputs:
       - Guid: 45ab6a62-b154-470f-b4bd-e547eec35f3b
         IsBright: 1
@@ -104,60 +105,63 @@ MonoBehaviour:
         Description: Z
       Outputs:
       - Guid: f98ca7d2-1718-4c65-b21c-b832a9d427b9
-        IsWarm: 0
+        IsBright: 0
         Type: Vec3
         Description: Vec3[X][Y][Z]
-      AttributesData:
+      ParametersData:
       - Value:
-          stringValue: X
+          stringValue: 0
           floatValue: 0.000001
         Type: 7
       - Value:
-          stringValue: Y
+          stringValue: 0
           floatValue: 0.000001
         Type: 8
       - Value:
-          stringValue: Z
+          stringValue: 0
           floatValue: 0.000001
         Type: 9
-    - Guid: 105c9ea0-01f1-40d0-a305-efd44d3c67cc
+      DiscreteParametersData: []
+    - Guid: 6d2e4748-6b1a-454a-a76a-f5fcf0282736
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 15
       YPosition: 210
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 91578fe3-d0a6-4138-9863-f9daa0b9aa47
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-    - Guid: 06889808-b087-4b33-b88a-166f429bac31
+      DiscreteParametersData: []
+    - Guid: 187b0a1a-afd9-4c78-891b-ecc74500ffc7
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 15
       YPosition: 255
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: 04e0a05e-d5d5-4cba-8c3b-e58061041532
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 45ab6a62-b154-470f-b4bd-e547eec35f3b
@@ -166,7 +170,7 @@ MonoBehaviour:
         Description: X
       Output:
         Guid: 8fb2e2c1-cf64-4faa-8f09-eab2ffd09e85
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -178,7 +182,7 @@ MonoBehaviour:
         Description: Y
       Output:
         Guid: 91578fe3-d0a6-4138-9863-f9daa0b9aa47
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -190,7 +194,7 @@ MonoBehaviour:
         Description: Z
       Output:
         Guid: 04e0a05e-d5d5-4cba-8c3b-e58061041532
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -202,7 +206,7 @@ MonoBehaviour:
         Description: Vec3 world relative
       Output:
         Guid: f98ca7d2-1718-4c65-b21c-b832a9d427b9
-        IsWarm: 0
+        IsBright: 0
         Type: Vec3
         Description: Vec3[X][Y][Z]
       outputPositionY: 0
@@ -210,4 +214,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

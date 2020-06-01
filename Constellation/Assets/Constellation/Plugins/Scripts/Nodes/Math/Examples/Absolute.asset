@@ -24,27 +24,8 @@ MonoBehaviour:
       SizeY: 30
       Inputs: []
       Outputs: []
-      AttributesData: []
-    - Guid: 4ce8c513-e7cb-4182-bc70-55056fc7e30d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 15
-      YPosition: 55
-      SizeX: 213
-      SizeY: 79
-      Inputs: []
-      Outputs: []
-      AttributesData:
-      - Value:
-          stringValue: 'Abs(float f);
-
-            Description
-
-            Returns
-            the absolute value of f.'
-          floatValue: 0.000001
-        Type: 2
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 322f9e10-eb70-4db1-b3f9-fb089a4a798c
       Name: Print
       Namespace: CoreNodes
@@ -59,7 +40,8 @@ MonoBehaviour:
         Type: Any
         Description: value to log in console
       Outputs: []
-      AttributesData: []
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: bd45d5a8-c9cf-4230-97ab-be1b67612dc7
       Name: Absolute
       Namespace: Math
@@ -75,29 +57,47 @@ MonoBehaviour:
         Description: Value abs
       Outputs:
       - Guid: ae259d60-d64b-4664-9adc-f9740fda4c58
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Absolute value
-      AttributesData: []
-    - Guid: 5c457890-1405-45c0-a8ca-16c6ce71d586
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 96226336-d74e-430c-afa8-e9228b9bb3d7
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 55
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 6ed0b3d8-f1fd-48da-a104-afcd29450063
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 15
       YPosition: 145
-      SizeX: 100
-      SizeY: 40
+      SizeX: 0
+      SizeY: 0
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 1
         Type: Var
         Description: The value
-      AttributesData:
+      ParametersData:
       - Value:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
+      DiscreteParametersData: []
     Links:
     - Input:
         Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
@@ -106,7 +106,7 @@ MonoBehaviour:
         Description: value to log in console
       Output:
         Guid: ae259d60-d64b-4664-9adc-f9740fda4c58
-        IsWarm: 0
+        IsBright: 0
         Type: Var
         Description: Absolute value
       outputPositionY: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
         Description: Value abs
       Output:
         Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsWarm: 1
+        IsBright: 0
         Type: Var
         Description: The value
       outputPositionY: 0
@@ -126,4 +126,4 @@ MonoBehaviour:
     Name: 
   IsInstance: 0
   IsDifferentThanSource: 0
-  ScriptAssembly: {fileID: 0}
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
