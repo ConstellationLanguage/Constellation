@@ -18,7 +18,7 @@ public class NodeSelectorPanel
         var nodes = new List<string>(NodesFactory.GetAllNodesExcludeDiscretes());
         foreach (var customNode in customNodes)
         {
-            nodes.Add("Constellation.Custom." + customNode.Name);
+            nodes.Add(GetStaticNodeFullNameSpace() + customNode.NameSpace + "." + customNode.Name);
         }
         namespaces = NodesFactory.GetAllNamespaces(nodes.ToArray());
         NodeNamespaceData = new List<NodeNamespacesData>();
@@ -32,11 +32,21 @@ public class NodeSelectorPanel
             var nodes = new List<string>(NodesFactory.GetAllNodesExcludeDiscretes());
             foreach (var customNode in customNodes)
             {
-                nodes.Add("Constellation.Custom." + customNode.Name);
+                nodes.Add(GetStaticNodeFullNameSpace() + customNode.NameSpace + "." + customNode.Name);
             }
             var nodeNamespace = new NodeNamespacesData(_namespace, nodes.ToArray());
             NodeNamespaceData.Add(nodeNamespace);
         }
+    }
+
+    private string GetStaticNodeNameSpace()
+    {
+        return "|" + Constellation.ConstellationTypes.StaticConstellationNode.NAME + "|";
+    }
+
+    private string GetStaticNodeFullNameSpace()
+    {
+        return "Constellation." + GetStaticNodeNameSpace();
     }
 
     private void FilterNodes(string _filer)
@@ -55,7 +65,8 @@ public class NodeSelectorPanel
         nodeSelectorScrollPos = EditorGUILayout.BeginScrollView(nodeSelectorScrollPos, GUILayout.Width(_width), GUILayout.Height(_height - SearchFieldSize));
         foreach (NodeNamespacesData nodeNamespace in NodeNamespaceData)
         {
-            GUILayout.Label(nodeNamespace.namespaceName, GUI.skin.GetStyle("OL Title"), GUILayout.Width(_width - 20));
+            var displayedNamespace = nodeNamespace.namespaceName.Replace(GetStaticNodeNameSpace(), "");
+            GUILayout.Label(displayedNamespace, GUI.skin.GetStyle("OL Title"), GUILayout.Width(_width - 20));
             var selGridInt = GUILayout.SelectionGrid(-1, nodeNamespace.GetNiceNames(), 1 + (int)Mathf.Floor(_width / 255));
             if (selGridInt >= 0)
             {

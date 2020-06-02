@@ -10,8 +10,16 @@ namespace ConstellationEditor
 
         public void UpdateScriptsNodes(ConstellationScriptData[] staticConstellationNodes, ConstellationScriptData[] constellationScripts)
         {
+
             foreach (var script in staticConstellationNodes)
             {
+                foreach(var node in script.Nodes)
+                {
+                    if(node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
+                    {
+                        script.NameSpace = node.GetParameters()[0].Value.GetString();
+                    }
+                }
                 UpdateScriptNodes(script, staticConstellationNodes);
             }
 
@@ -34,16 +42,16 @@ namespace ConstellationEditor
                 }
                 else if (node.Inputs.Count != nodeObject.Inputs.Count || node.Outputs.Count != nodeObject.Outputs.Count || node.GetParameters().Length != nodeObject.GetParameters().Length)
                 {
-                    
+
                     nodesToRemove.Add(node);
                 }
                 else
                 {
                     var foundDifference = false;
                     var i = 0;
-                    foreach(var input in node.GetInputs())
+                    foreach (var input in node.GetInputs())
                     {
-                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != "Any") || input.IsBright != nodeObject.Inputs[i].isBright)
+                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != "Any") || input.IsBright != nodeObject.Inputs[i].isBright || input.Description != nodeObject.Inputs[i].Description)
                         {
                             nodesToRemove.Add(node);
                             foundDifference = true;
@@ -51,13 +59,13 @@ namespace ConstellationEditor
                         }
                         i++;
                     }
-                    
+
                     if (!foundDifference)
                     {
                         i = 0;
                         foreach (var output in node.GetOutputs())
                         {
-                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != "Any") || output.IsBright != nodeObject.Outputs[i].IsWarm)
+                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != "Any") || output.IsBright != nodeObject.Outputs[i].IsWarm || output.Description != nodeObject.Outputs[i].Description)
                             {
                                 nodesToRemove.Add(node);
                                 break;
@@ -66,10 +74,10 @@ namespace ConstellationEditor
                         }
                     }
 
-                    if(!foundDifference)
+                    if (!foundDifference)
                     {
                         i = 0;
-                        if(node.GetParameters().Length != nodeObject.GetParameters().Length)
+                        if (node.GetParameters().Length != nodeObject.GetParameters().Length)
                         {
                             nodesToRemove.Add(node);
                         }
@@ -97,6 +105,16 @@ namespace ConstellationEditor
                     replacementNode.YPosition = node.YPosition;
                     replacementNode.XSize = node.SizeX;
                     replacementNode.YSize = node.SizeY;
+
+
+                    if (node.ParametersData.Count == replacementNode.NodeParameters.Count)
+                    {
+                        for (var i = 0; i < replacementNode.NodeParameters.Count; i++)
+                        {
+                            replacementNode.NodeParameters[i].Value = new Ray(node.ParametersData[i].Value);
+                        }
+                    }
+
 
                     if (node.Inputs != null && replacementNode.Inputs != null)
                     {
@@ -141,7 +159,7 @@ namespace ConstellationEditor
                 }
             }
 
-            foreach(var link in script.Links)
+            foreach (var link in script.Links)
             {
                 //if()
             }

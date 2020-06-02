@@ -59,6 +59,11 @@ namespace Constellation
             if (NodeGetters == null)
                 Setup();
 
+            if (_nodenamespaces.Contains("|" + ConstellationTypes.StaticConstellationNode.NAME +"|"))
+            {
+                _nodenamespaces = "Custom";
+            }
+
             foreach (var nodesGetter in NodeGetters)
             {
                 if (nodesGetter.GetNameSpace() == _nodenamespaces)

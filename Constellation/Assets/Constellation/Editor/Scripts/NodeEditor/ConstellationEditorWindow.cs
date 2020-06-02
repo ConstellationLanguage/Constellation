@@ -403,7 +403,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
         if (node.Name == Constellation.ConstellationTypes.Tutorial.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertCurrentConstellationToTutorial();
-        } else if(node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
+        } else if (node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertToConstellationNodeScript();
         }

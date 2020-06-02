@@ -84,7 +84,6 @@ namespace Constellation
                     }
                 }
             }
-            //Debug.Log(guid + " not found for Input");
             return null;
         }
 
