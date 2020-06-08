@@ -1,19 +1,13 @@
 ﻿namespace Constellation
 {
-    public static class TypeConst
+    public class TypeConst: IConstellationRule
     {
-        public delegate void LinkValid();
-        public delegate void LinkAdded(string linkGuid);
-        public const string UNDEFINED = "Undefined";
         public const string ANY = "Any";
         public const string GENERIC = "Generic";
         public const string VAR = "Var";
 
-        public static NodeData AddNode(NodesFactory nodesFactory, string nodeName, string nodeNamespace, ConstellationScriptData constellationScript)
+        public NodeData NodeAdded(NodeData nodeData, Node<INode>  newNode, ConstellationScriptData constellationScript)
         {
-            var newNode = nodesFactory.GetNode(nodeName, nodeNamespace);
-            
-            var nodeData = new NodeData(newNode);
             var genericNode = newNode.NodeType as IGenericNode;
             if (genericNode as IGenericNode != null)
             {
@@ -22,19 +16,15 @@
                     var genericOutputsID = genericNode.GetGenericOutputByLinkedInput(i);
                     for (var j = 0; j < genericOutputsID.Length; j++)
                     {
-                        nodeData.Outputs[genericOutputsID[j]].Type = UNDEFINED;
+                        nodeData.Outputs[genericOutputsID[j]].Type = ConstellationRules.UNDEFINED;
                     }
                 }
             }
 
-            nodeData = constellationScript.AddNode(nodeData);
-            nodeData.XPosition = 0;
-            nodeData.YPosition = 0;
-
             return nodeData;
         }
 
-        public static void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid)
+        public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid)
         {
             var linkedinputID = 0;
             var linkedOutputID = 0;
@@ -93,32 +83,12 @@
             }
         }
 
-        public static bool CreateLink(InputData _input, OutputData _output, ConstellationScriptData constellationScript, LinkValid linkIsValid, LinkAdded linkCreated)
-        {
-            if (_output != null && _output.Type == UNDEFINED && _input != null && _input.Type != UNDEFINED)
-                return false;
-
-            //if ()
-            if (IsTypeValid(_input, _output))
-            {
-                var newLink = new LinkData(_input, _output);
-                if (TypeConst.IsLinkValid(newLink, constellationScript))
-                {
-                    linkIsValid();
-                    constellationScript.AddLink(newLink);
-                    linkCreated(newLink.GUID);
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static bool IsTypeValid(InputData _input, OutputData _output)
+        public bool IsTypeValid(InputData _input, OutputData _output)
         {
             return (_input != null && _output != null) && (_input.Type == _output.Type || (_input.Type == ANY && _output.Type != GENERIC) || (_input.Type != GENERIC && _output.Type == ANY) || (_input.Type != ANY && _output.Type == GENERIC) || (_input.Type == GENERIC && _output.Type != ANY));
         }
 
-        public static bool IsLinkValid(LinkData _link, ConstellationScriptData _constellationScriptData)
+        public bool IsLinkValid(LinkData _link, ConstellationScriptData _constellationScriptData)
         {
             foreach (LinkData link in _constellationScriptData.Links)
             {
@@ -130,7 +100,7 @@
             return true;
         }
 
-        public static void RemoveNode(NodeData node, ConstellationScriptData constellationScript)
+        public void RemoveNode(NodeData node, ConstellationScriptData constellationScript)
         {
             constellationScript.RemoveNode(node.Guid);
         }

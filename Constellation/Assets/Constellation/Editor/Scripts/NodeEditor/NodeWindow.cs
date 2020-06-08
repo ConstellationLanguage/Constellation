@@ -33,9 +33,11 @@ namespace ConstellationEditor
         private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
         private string focusedNode = "";
         private Vector2 mousePosition;
+        private ConstellationRules constellationRules;
 
         public NodeWindow(string _editorPath, ConstellationEditorDataService _constellationEditorData, Vector2 windowSize, Vector2 scrollPosition)
         {
+            constellationRules = new ConstellationRules();
             farNodeX = windowSize.x;
             farNodeY = windowSize.y;
             editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);
@@ -47,7 +49,7 @@ namespace ConstellationEditor
             Nodes = new List<NodeView>();
             EditorData = _constellationEditorData;
             ConstellationScript = EditorData.Script;
-            Links = new LinksView(ConstellationScript);
+            Links = new LinksView(ConstellationScript, constellationRules);
             NodeFactory = new NodesFactory(ConstellationScript.ScriptAssembly.GetAllStaticScriptData());
 
             foreach (var node in ConstellationScript.GetNodes())
@@ -101,14 +103,14 @@ namespace ConstellationEditor
         public void AddNode(string nodeName, string nodeNamespace, ConstellationEditorEvents.EditorEvents editorEvent)
         {
             editorEvent(ConstellationEditorEvents.EditorEventType.AddToUndo, "Add node");
-            var nodeData = TypeConst.AddNode(NodeFactory, nodeName, nodeNamespace, ConstellationScript.script);
+            var nodeData = constellationRules.AddNode(NodeFactory, nodeName, nodeNamespace, ConstellationScript.script);
             var newNodeView = new NodeView(nodeData);
             Nodes.Add(newNodeView);
             newNodeView.UpdateNodeSize(0, 0, EditorData.GetConstellationEditorConfig());
             newNodeView.SetPosition(ScrollPosition.x + (windowSizeX * 0.5f), ScrollPosition.y + (windowSizeY * 0.5f));
             newNodeView.LockNodePosition();
             SetNodeToFirst(newNodeView);
-            editorEvent(ConstellationEditorEvents.EditorEventType.NodeAdded, nodeData.Guid);
+            editorEvent(ConstellationEditorEvents.EditorEventType.NodeAdded, (string)nodeData.Guid);
         }
 
         public NodeData[] GetSelectionCopy()
@@ -143,7 +145,7 @@ namespace ConstellationEditor
                     SelectedNodes.Remove(nodeView);
                     Nodes.Remove(nodeView);
                     callback(ConstellationEditorEvents.EditorEventType.NodeDeleted, node.Guid);
-                    TypeConst.RemoveNode(nodeView.NodeData, ConstellationScript.script);
+                    constellationRules.RemoveNode(nodeView.NodeData, ConstellationScript.script);
                     return;
                 }
             }
@@ -519,7 +521,7 @@ namespace ConstellationEditor
 
         private void UpdateGenericNodeByLinkGUID(string guid)
         {
-            TypeConst.UpdateGenericNodeByLinkGUID(ConstellationScript.script, NodeFactory, guid);
+            constellationRules.UpdateGenericNodeByLinkGUID(ConstellationScript.script, NodeFactory, guid);
         }
 
         private void SetNodeToFirst(NodeView node)

@@ -20,10 +20,12 @@ namespace ConstellationEditor
         public Color WarmInputObjectColor = new Color(0.2f, 0.6f, 0.55f);
         public Color ColdInputObjectColor = new Color(0.2f, 0.3f, 0.6f);
         const int deleteButtonSize = 15;
+        private ConstellationRules constellationRules;
 
-        public LinksView(ConstellationScript _constellationScript)
+        public LinksView(ConstellationScript _constellationScript, ConstellationRules _constellationRules)
         {
             constellationScript = _constellationScript;
+            constellationRules = _constellationRules;
         }
 
         public LinkData[] GetLinks()
@@ -192,7 +194,7 @@ namespace ConstellationEditor
 
         public void AddLinkFromOutput(OutputData _output, ConstellationEditorEvents.EditorEvents editorEvents)
         {
-            if (TypeConst.CreateLink(selectedInput, _output, constellationScript.script, () =>
+            if (constellationRules.AddLink(selectedInput, _output, constellationScript.script, () =>
             {
                 editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Added link");
             }, (string linkGUID) =>
@@ -212,7 +214,7 @@ namespace ConstellationEditor
 
         public void AddLinkFromInput(InputData _input, ConstellationEditorEvents.EditorEvents editorEvents)
         {
-            if (TypeConst.CreateLink(_input, selectedOutput, constellationScript.script, () =>
+            if (constellationRules.AddLink(_input, selectedOutput, constellationScript.script, () =>
             {
                 editorEvents(ConstellationEditorEvents.EditorEventType.AddToUndo, "Added link");
             }, (string linkGUID) =>

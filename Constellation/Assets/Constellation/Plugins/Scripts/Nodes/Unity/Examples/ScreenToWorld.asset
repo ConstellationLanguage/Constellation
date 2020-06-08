@@ -284,6 +284,7 @@ MonoBehaviour:
       outputPositionY: 0
       GUID: 0abf9a62-1c5d-4888-8c30-f8ff5d5e84ac
     Name: 
+    NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0
   ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
