@@ -143,6 +143,15 @@ namespace Constellation
                 newNode.YPosition = nodeData.YPosition;
                 newNode.XSize = nodeData.SizeX;
                 newNode.YSize = nodeData.SizeY;
+                for(var i = 0; i < newNode.Inputs.Count; i++)
+                {
+                    newNode.Inputs[i].Type = nodeData.Inputs[i].Type;
+                }
+
+                for (var i = 0; i < newNode.Outputs.Count; i++)
+                {
+                    newNode.Outputs[i].Type = nodeData.Outputs[i].Type;
+                }
             }
             Nodes.Add(newNode);
             if(Injector != null)
