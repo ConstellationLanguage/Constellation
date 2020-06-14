@@ -2,10 +2,6 @@
 {
     public class TypeConst: IConstellationRule
     {
-        public const string ANY = "Any";
-        public const string GENERIC = "Generic";
-        public const string VAR = "Var";
-
         public NodeData NodeAdded(NodeData nodeData, Node<INode>  newNode, ConstellationScriptData constellationScript)
         {
             var genericNode = newNode.NodeType as IGenericNode;
@@ -16,7 +12,7 @@
                     var genericOutputsID = genericNode.GetGenericOutputByLinkedInput(i);
                     for (var j = 0; j < genericOutputsID.Length; j++)
                     {
-                        nodeData.Outputs[genericOutputsID[j]].Type = ConstellationRules.UNDEFINED;
+                        nodeData.Outputs[genericOutputsID[j]].Type = ConstellationEditorRules.UNDEFINED;
                     }
                 }
             }
@@ -85,7 +81,7 @@
 
         public bool IsTypeValid(InputData _input, OutputData _output)
         {
-            return (_input != null && _output != null) && (_input.Type == _output.Type || (_input.Type == ANY && _output.Type != GENERIC) || (_input.Type != GENERIC && _output.Type == ANY) || (_input.Type != ANY && _output.Type == GENERIC) || (_input.Type == GENERIC && _output.Type != ANY));
+            return (_input != null && _output != null) && (_input.Type == _output.Type || (_input.Type == ConstellationEditorRules.ANY && _output.Type != ConstellationEditorRules.GENERIC) || (_input.Type != ConstellationEditorRules.GENERIC && _output.Type == ConstellationEditorRules.ANY) || (_input.Type != ConstellationEditorRules.ANY && _output.Type == ConstellationEditorRules.GENERIC) || (_input.Type == ConstellationEditorRules.GENERIC && _output.Type != ConstellationEditorRules.ANY));
         }
 
         public bool IsLinkValid(LinkData _link, ConstellationScriptData _constellationScriptData)

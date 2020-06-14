@@ -50,7 +50,7 @@ namespace ConstellationEditor
                     var i = 0;
                     foreach (var input in node.GetInputs())
                     {
-                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != TypeConst.ANY && nodeObject.Inputs[i].Type !=  TypeConst.GENERIC && nodeObject.Inputs[i].Type != ConstellationRules.UNDEFINED) || input.IsBright != nodeObject.Inputs[i].isBright || input.Description != nodeObject.Inputs[i].Description)
+                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != ConstellationEditorRules.ANY && nodeObject.Inputs[i].Type != ConstellationEditorRules.GENERIC && nodeObject.Inputs[i].Type != ConstellationEditorRules.UNDEFINED) || input.IsBright != nodeObject.Inputs[i].isBright || input.Description != nodeObject.Inputs[i].Description)
                         {
                             nodesToRemove.Add(node);
                             foundDifference = true;
@@ -64,7 +64,7 @@ namespace ConstellationEditor
                         i = 0;
                         foreach (var output in node.GetOutputs())
                         {
-                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != TypeConst.ANY && nodeObject.Outputs[i].Type != TypeConst.GENERIC && nodeObject.Outputs[i].Type != ConstellationRules.UNDEFINED) || output.IsBright != nodeObject.Outputs[i].IsWarm || output.Description != nodeObject.Outputs[i].Description)
+                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != ConstellationEditorRules.ANY && nodeObject.Outputs[i].Type != ConstellationEditorRules.GENERIC && nodeObject.Outputs[i].Type != ConstellationEditorRules.UNDEFINED) || output.IsBright != nodeObject.Outputs[i].IsWarm || output.Description != nodeObject.Outputs[i].Description)
                             {
                                 nodesToRemove.Add(node);
                                 break;

@@ -33,11 +33,11 @@ namespace ConstellationEditor
         private string editorPath = "Assets/Constellation/Editor/EditorAssets/";
         private string focusedNode = "";
         private Vector2 mousePosition;
-        private ConstellationRules constellationRules;
+        private ConstellationEditorRules constellationRules;
 
         public NodeWindow(string _editorPath, ConstellationEditorDataService _constellationEditorData, Vector2 windowSize, Vector2 scrollPosition)
         {
-            constellationRules = new ConstellationRules();
+            constellationRules = new ConstellationEditorRules();
             farNodeX = windowSize.x;
             farNodeY = windowSize.y;
             editorScrollSize = new Vector2(farNodeX + 400, farNodeY + 400);

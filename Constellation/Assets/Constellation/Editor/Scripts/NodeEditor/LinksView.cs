@@ -20,9 +20,9 @@ namespace ConstellationEditor
         public Color WarmInputObjectColor = new Color(0.2f, 0.6f, 0.55f);
         public Color ColdInputObjectColor = new Color(0.2f, 0.3f, 0.6f);
         const int deleteButtonSize = 15;
-        private ConstellationRules constellationRules;
+        private ConstellationEditorRules constellationRules;
 
-        public LinksView(ConstellationScript _constellationScript, ConstellationRules _constellationRules)
+        public LinksView(ConstellationScript _constellationScript, ConstellationEditorRules _constellationRules)
         {
             constellationScript = _constellationScript;
             constellationRules = _constellationRules;

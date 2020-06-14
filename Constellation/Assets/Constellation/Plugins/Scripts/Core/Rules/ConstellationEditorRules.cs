@@ -4,14 +4,17 @@ using System.Linq;
 
 namespace Constellation
 {
-    public class ConstellationRules
+    public class ConstellationEditorRules
     {
         public const string UNDEFINED = "Undefined";
+        public const string ANY = "Any";
+        public const string GENERIC = "Generic";
+        public const string VAR = "Var";
         public delegate void LinkValid();
         public delegate void LinkAdded(string linkGuid);
         private List<IConstellationRule> constellationRules;
 
-        public ConstellationRules()
+        public ConstellationEditorRules()
         {
             SetAllConstellationRules();
         }
@@ -49,7 +52,7 @@ namespace Constellation
             return nodeData;
         }
 
-        public bool AddLink(InputData _input, OutputData _output, ConstellationScriptData constellationScript, ConstellationRules.LinkValid linkIsValid, ConstellationRules.LinkAdded linkCreated)
+        public bool AddLink(InputData _input, OutputData _output, ConstellationScriptData constellationScript, ConstellationEditorRules.LinkValid linkIsValid, ConstellationEditorRules.LinkAdded linkCreated)
         {
             var newLink = new LinkData(_input, _output);
             foreach (var constellationRule in constellationRules)
