@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Vec3
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 6a1b8e49-9572-4198-b80a-294f855a40aa
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 4efbe79c-d908-408c-8349-894709c2dc2b
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 125
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: a9fba9c9-9a4b-4ab5-8902-c7370e9090cc
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 295ebcb5-1423-48a1-91da-8efbe8856c40
+      Name: Transform
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 495
+      YPosition: 130
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: e7045461-e481-4ef6-ae88-745e6a9ac5cc
+        IsBright: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 684c8c6d-5ec3-4123-9b13-90b12d80ad26
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 position
+      - Guid: c7c4d2ff-48ca-46e9-a1ff-e5295bebe471
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 rotation
+      - Guid: 2ec84da7-3abe-4d5c-8658-d44b04c4966a
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 scale
+      - Guid: a733586b-1214-4fac-8e64-4aa71e1292ec
+        IsBright: 1
+        Type: Any
+        Description: Send
+      Outputs:
+      - Guid: 55b84282-301f-418d-8244-de4c284011f1
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 position
+      - Guid: da81eab4-59da-4399-9227-d6582a22d643
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 rotation
+      - Guid: 946c08ad-5215-4850-aacb-9cb6be5ef07d
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 scale
+      - Guid: f04b5cb3-ab29-4775-8c89-2e99acde1329
+        IsBright: 0
+        Type: Object
+        Description: Transform
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 8284a0c0-d247-444b-82fe-b5e6e15876b3
+      Name: Vec3
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 360
+      YPosition: 150
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: b9dc1077-c29e-46d2-9936-6a99efa7ecde
+        IsBright: 1
+        Type: Var
+        Description: X
+      - Guid: 8b59ce33-c8fd-40b3-befa-502d62853dc9
+        IsBright: 1
+        Type: Var
+        Description: Y
+      - Guid: 97a9d775-e15e-4664-8473-955ce112fd06
+        IsBright: 1
+        Type: Var
+        Description: Z
+      Outputs:
+      - Guid: ab9138d5-e576-42a1-8b44-c997d511eef7
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3[X][Y][Z]
+      ParametersData:
+      - Value:
+          stringValue: 0
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: 0
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: 0
+          floatValue: 0.000001
+        Type: 9
+      DiscreteParametersData: []
+    - Guid: 9cc3f5e6-6962-407b-93ff-0e1d98253f8e
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 170
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 6a1460ed-ced1-49d5-9778-d36f5912e9c3
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 215
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 3b875138-893d-4909-b211-69108b78872e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 97a9d775-e15e-4664-8473-955ce112fd06
+        IsBright: 0
+        Type: Var
+        Description: Z
+      Output:
+        Guid: 3b875138-893d-4909-b211-69108b78872e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: b711e366-c6c3-4eca-a813-2deca6093f3e
+    - Input:
+        Guid: 8b59ce33-c8fd-40b3-befa-502d62853dc9
+        IsBright: 0
+        Type: Var
+        Description: Y
+      Output:
+        Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 8b59e54e-4b84-4477-b568-3c05e0533fe1
+    - Input:
+        Guid: b9dc1077-c29e-46d2-9936-6a99efa7ecde
+        IsBright: 0
+        Type: Var
+        Description: X
+      Output:
+        Guid: a9fba9c9-9a4b-4ab5-8902-c7370e9090cc
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: c6f4f821-c753-4233-9e46-7802f9e006ef
+    - Input:
+        Guid: 684c8c6d-5ec3-4123-9b13-90b12d80ad26
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 position
+      Output:
+        Guid: ab9138d5-e576-42a1-8b44-c997d511eef7
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 0
+      GUID: e1215bfd-3756-4fdb-975a-f16a947f2a2d
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

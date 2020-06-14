@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: CeilToInt
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: e55e9ee6-2edd-41cf-b271-3b9361b51b3f
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 64a397c6-a63e-4e7c-ac63-cddd5b446d36
+      Name: CeilToInt
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 220
+      YPosition: 160
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 4b24e755-094c-41d5-b8f9-6845d11d1adc
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 95f9ad32-e98f-43f1-afcf-208be91505a4
+        IsBright: 0
+        Type: Var
+        Description: smallest integer greater to or equal to a
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 5679ffa8-22db-45f2-9a33-cf8b23025de6
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 370
+      YPosition: 160
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: b5269708-ca71-41ec-a9b6-1adad7d09734
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 65
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 9c9eb8cf-f02f-4e74-9669-c3d6fc755f0b
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 160
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 4b24e755-094c-41d5-b8f9-6845d11d1adc
+        IsBright: 1
+        Type: Var
+        Description: a
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: d0ae919d-5c7c-4b3b-bffc-ca118c7b02f4
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 95f9ad32-e98f-43f1-afcf-208be91505a4
+        IsBright: 0
+        Type: Var
+        Description: smallest integer greater to or equal to a
+      outputPositionY: 0
+      GUID: b3b6a416-fa41-4083-ac46-cff586b04edc
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

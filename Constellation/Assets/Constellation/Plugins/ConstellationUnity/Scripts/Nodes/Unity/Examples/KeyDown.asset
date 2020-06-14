@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: KeyDown
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: e34679b7-507c-4def-9fac-126228b131df
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 5
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: edc3d6fc-64da-4af7-b5a6-947e250f805a
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 235
+      YPosition: 40
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 405c0592-2a24-4d10-b23b-3c3dc6b5b405
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 491dc52b-a9b9-4f8f-b5e9-8c5c2d2d885c
+      Name: KeyDown
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 40
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
+        IsBright: 1
+        Type: Var
+        Description: 1 on key down else 0
+      ParametersData:
+      - Value:
+          stringValue: 
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 37908aad-b67f-4a68-a231-077ef98037a7
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 100
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 405c0592-2a24-4d10-b23b-3c3dc6b5b405
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
+        IsBright: 0
+        Type: Var
+        Description: 1 on key down else 0
+      outputPositionY: 0
+      GUID: dd52be14-f505-4870-863d-d20e3b2ea976
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

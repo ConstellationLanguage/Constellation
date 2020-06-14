@@ -218,6 +218,7 @@ namespace ConstellationEditor
         {
             var constellationScript = ScriptableObject.CreateInstance<T>();
             constellationScript.IsInstance = true;
+            constellationScript.CanChangeType = false;
             var path = "Assets/Constellation/Editor/EditorData/Temp/" + constellation.Name + "(Instance).asset";
 
             Script = constellationScript;
@@ -367,6 +368,7 @@ namespace ConstellationEditor
             SaveEditorData();
             SaveScripts();
             RefreshConstellationEditorDataList();
+            Script.CanChangeType = true;
             return Script;
         }
 
@@ -469,6 +471,7 @@ namespace ConstellationEditor
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
             Script = tutorialAsset;
+            Script.CanChangeType = false;
             RefreshConstellationEditorDataList();
             return Script;
         }
@@ -482,6 +485,7 @@ namespace ConstellationEditor
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
             Script = tutorialAsset;
+            Script.CanChangeType = true;
             RefreshConstellationEditorDataList();
             return Script;
         }
@@ -495,6 +499,7 @@ namespace ConstellationEditor
             AssetDatabase.DeleteAsset(scriptPath);
             AssetDatabase.CreateAsset(tutorialAsset, scriptPath);
             Script = tutorialAsset;
+            Script.CanChangeType = false;
             RefreshConstellationEditorDataList();
             return Script;
         }

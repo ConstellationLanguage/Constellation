@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Clamp01
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: c595ed11-9474-472c-88f8-7d5808fdb4d3
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 0f5dd8d4-9696-4121-8680-1a9e6a28525e
+      Name: Clamp01
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 215
+      YPosition: 145
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: be2c2e8d-1640-419f-8316-0901116bed39
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 96419bec-14ab-4a69-9af0-d7cd10e12d8c
+        IsBright: 0
+        Type: Var
+        Description: Clamps value between 0 and 1 and returns value.
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 38c22978-01ab-4a91-8149-f8315c76dc12
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 360
+      YPosition: 145
+      SizeX: 75
+      SizeY: 43
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d0a0bb50-8b31-40a6-8da1-6b3930fa2d53
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 65
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: bb111eaa-71ee-4860-ae59-c75cc1f20822
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 145
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: be2c2e8d-1640-419f-8316-0901116bed39
+        IsBright: 1
+        Type: Var
+        Description: a
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 13c8bc72-efeb-4267-b2f1-95f97143fcd6
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 96419bec-14ab-4a69-9af0-d7cd10e12d8c
+        IsBright: 0
+        Type: Var
+        Description: Clamps value between 0 and 1 and returns value.
+      outputPositionY: 0
+      GUID: 5d68dad5-7ac6-4c18-8465-dd7841038eaa
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

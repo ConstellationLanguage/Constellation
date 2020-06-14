@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: MoveTowards
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: c24ed6f0-51ae-450c-8192-a55f7913706c
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 5
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 7ec00232-0185-48e9-84b5-4cda3d11b8ad
+      Name: MoveTowards
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 180
+      YPosition: 125
+      SizeX: 75
+      SizeY: 80
+      Inputs:
+      - Guid: c335eccb-07fa-44df-9409-c06e7ce7694f
+        IsBright: 0
+        Type: Var
+        Description: Current
+      - Guid: 398e506c-7bcd-4309-b7e2-2150a0ea159a
+        IsBright: 0
+        Type: Var
+        Description: Target
+      - Guid: 236fc706-9b2e-40c8-9947-bc014fc337ac
+        IsBright: 1
+        Type: Var
+        Description: MaxDelta
+      Outputs:
+      - Guid: b4885023-5fc5-4c3d-839c-3164da2aa5ed
+        IsBright: 0
+        Type: Var
+        Description: Move a value toward target
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: aa5b26e2-6408-4b48-94d0-c17929805fbb
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 350
+      YPosition: 125
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: c5aeef3c-ccfd-40ba-ad20-05180b148187
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 115
+      YPosition: 45
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: a8a04869-4d45-48e4-b012-6f638aa33520
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 125
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 9089e780-d557-4b05-bb5f-b6d767e4a7d6
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 170
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: e524355a-31af-4f51-b86b-2e1da34b66cc
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 4badc2f9-906a-49a5-916c-219b32826f36
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 215
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 6ba67840-6231-4a2d-8848-31f7a5bf5ff4
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: c335eccb-07fa-44df-9409-c06e7ce7694f
+        IsBright: 0
+        Type: Var
+        Description: Current
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: a5ac60c7-191a-41fb-bf08-c4ddb8deefda
+    - Input:
+        Guid: 398e506c-7bcd-4309-b7e2-2150a0ea159a
+        IsBright: 0
+        Type: Var
+        Description: Target
+      Output:
+        Guid: e524355a-31af-4f51-b86b-2e1da34b66cc
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 1fb2be02-d4be-49f5-a733-f20d8a9b629d
+    - Input:
+        Guid: 236fc706-9b2e-40c8-9947-bc014fc337ac
+        IsBright: 1
+        Type: Var
+        Description: MaxDelta
+      Output:
+        Guid: 6ba67840-6231-4a2d-8848-31f7a5bf5ff4
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 195bf1e5-30bb-4270-98ea-2236742ff0cb
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: b4885023-5fc5-4c3d-839c-3164da2aa5ed
+        IsBright: 0
+        Type: Var
+        Description: Move a value toward target
+      outputPositionY: 0
+      GUID: b596437c-efe6-4bdd-8384-546f63a702bf
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Multiply
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 4c530423-7f53-4baa-af7e-e51c31817af0
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 0c198543-8909-4d64-86ad-76b4358d0b92
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 350
+      YPosition: 95
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: b1f45bcd-f9db-4956-a0e4-832d0ddb56d9
+      Name: Multiply
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 205
+      YPosition: 95
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 0d3cebd4-24aa-4136-97d2-df68d201b04e
+        IsBright: 0
+        Type: Var
+        Description: Multiply factor
+      - Guid: fdfdd617-be01-4b88-94c8-8d57ec4c2ac1
+        IsBright: 1
+        Type: Var
+        Description: Value to multiply
+      Outputs:
+      - Guid: 7c235b66-1797-4086-b4c1-2ca18e27d3b2
+        IsBright: 0
+        Type: Var
+        Description: Result $1 x $2
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: fce43f36-95df-4e50-b533-0a4166a452e9
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 25
+      YPosition: 95
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 771f6595-8090-4ade-9c21-c3874ae68d19
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 25
+      YPosition: 145
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 6f51ac76-867a-46db-a8f3-a5437bf78f58
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 7c235b66-1797-4086-b4c1-2ca18e27d3b2
+        IsBright: 0
+        Type: Var
+        Description: Result $1 x $2
+      outputPositionY: 0
+      GUID: 978d61a2-fbb8-4e71-981b-c7403fc1c2cf
+    - Input:
+        Guid: 0d3cebd4-24aa-4136-97d2-df68d201b04e
+        IsBright: 0
+        Type: Var
+        Description: Multiply factor
+      Output:
+        Guid: 8bd9e8c8-8830-43f9-b919-2bfe4a2ce313
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 34d03f3b-fb88-4d83-ad5d-42c7cbc46b81
+    - Input:
+        Guid: fdfdd617-be01-4b88-94c8-8d57ec4c2ac1
+        IsBright: 1
+        Type: Var
+        Description: Value to multiply
+      Output:
+        Guid: 41e57e51-dc5d-43e9-9227-2074abbd8778
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: ca46a3f1-deb7-4415-b00d-fb99adbf4923
+    Name: Multiply
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

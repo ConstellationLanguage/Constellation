@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: ArcTan2
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: d052cee4-6e19-4bb0-bb06-79cae4fba6a0
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 5
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: fce01b13-d0d1-4d95-900e-ff51c007049e
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 375
+      YPosition: 160
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 8b6cf5b5-897a-46ba-a529-7e66e1cb3120
+      Name: ArcTan2
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 160
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 763814a7-d47b-4d78-955f-be6ceb35d8e3
+        IsBright: 0
+        Type: Var
+        Description: x
+      - Guid: 0cf51c74-0f1e-4c41-905d-e340f934cfe5
+        IsBright: 1
+        Type: Var
+        Description: y
+      Outputs:
+      - Guid: bfd3de42-706d-4fc1-920c-0cced6f668bc
+        IsBright: 0
+        Type: Var
+        Description: Angle between the x-axis and a 2D vector starting at zero and
+          terminating at (x,y)
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 870e465c-2c44-410c-be90-320e3ecc14f2
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 70
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: f55f8b99-fba3-4c49-89f9-42dd901315ff
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 160
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 1e5c2ae4-d3db-472d-8400-5a7e4559a729
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 205
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 8d165b49-078d-4974-a174-1db64022d41f
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: bfd3de42-706d-4fc1-920c-0cced6f668bc
+        IsBright: 0
+        Type: Var
+        Description: Angle between the x-axis and a 2D vector starting at zero and
+          terminating at (x,y)
+      outputPositionY: 0
+      GUID: 7342036c-03ee-4ea0-99c4-7eb15403082c
+    - Input:
+        Guid: 763814a7-d47b-4d78-955f-be6ceb35d8e3
+        IsBright: 0
+        Type: Var
+        Description: x
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: fe747542-ac1a-4d49-a923-d75e556820a4
+    - Input:
+        Guid: 0cf51c74-0f1e-4c41-905d-e340f934cfe5
+        IsBright: 1
+        Type: Var
+        Description: y
+      Output:
+        Guid: 8d165b49-078d-4974-a174-1db64022d41f
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 82f1087e-f21e-4f6c-a0ce-6eba50356d95
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

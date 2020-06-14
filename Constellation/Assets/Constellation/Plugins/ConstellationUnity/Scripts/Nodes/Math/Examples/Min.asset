@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Min
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 8d5ec4d7-b5e3-4c4a-835c-76a83216d93c
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: effdb6ce-3bf0-4784-b49f-b2ed9a972d77
+      Name: Min
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 155
+      YPosition: 140
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: b60ea58c-96f5-4b01-b8a9-9bb10bc9cc69
+        IsBright: 0
+        Type: Var
+        Description: Var1
+      - Guid: 90b02090-cfcd-4226-ac2c-e1834ad13049
+        IsBright: 1
+        Type: Var
+        Description: Var2
+      Outputs:
+      - Guid: 72e345e2-e8d1-41b3-be1f-b800b2f5b4d9
+        IsBright: 0
+        Type: Var
+        Description: Min value
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d2c2e532-a4fa-4d71-b485-1546273fcd00
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 265
+      YPosition: 140
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 6ebea542-78ef-4a1f-a336-109637fdbd9d
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 50
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 279eb7e3-0c64-476e-9097-cd77a7c9c4b7
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 140
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 791009f2-29ff-4d58-89c2-ad664e283274
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 185
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 4d3829db-284f-4066-b5af-61db81a07009
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: b60ea58c-96f5-4b01-b8a9-9bb10bc9cc69
+        IsBright: 0
+        Type: Var
+        Description: Var1
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: f7e2c3a7-4c80-4086-a07e-2b767dd8b2f0
+    - Input:
+        Guid: 90b02090-cfcd-4226-ac2c-e1834ad13049
+        IsBright: 1
+        Type: Var
+        Description: Var2
+      Output:
+        Guid: 4d3829db-284f-4066-b5af-61db81a07009
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 77b91e4a-d378-468a-a653-b0124f052168
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 72e345e2-e8d1-41b3-be1f-b800b2f5b4d9
+        IsBright: 0
+        Type: Var
+        Description: Min value
+      outputPositionY: 0
+      GUID: 9f552060-ad9a-4af0-882f-593ec905273a
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

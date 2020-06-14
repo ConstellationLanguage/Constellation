@@ -99,7 +99,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
             NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
             NodeWindow.Draw(RequestRepaint, OnEditorEvent, ScriptDataService.GetConstellationEditorConfig(), out nodeWindowSize, out nodeWindowScrollPosition);
             DrawVerticalSplit();
-            NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded);
+            NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded, ScriptDataService.Script.CanChangeType);
             EditorGUILayout.EndHorizontal();
             if (ScriptDataService.CloseOpenedConstellation(constellationToRemove))
             {

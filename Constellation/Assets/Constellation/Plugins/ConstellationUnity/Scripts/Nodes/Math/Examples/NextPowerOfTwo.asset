@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: NextPowerOfTwo
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: bc497736-15b8-4ed9-b9d5-0affb6b2f5a1
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 0
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 6dceaba1-bfb1-45bd-be92-0e9dde75badf
+      Name: NextPowerOfTwo
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 180
+      YPosition: 150
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: bd25bd9c-3362-4436-b18f-e07b5e49e535
+        IsBright: 1
+        Type: Var
+        Description: Var
+      Outputs:
+      - Guid: 7d116c94-554e-4191-bad9-54a70257d10f
+        IsBright: 0
+        Type: Var
+        Description: Next power of two
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: cee56bc2-9c75-40ba-a4bf-41da6cb3617f
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 345
+      YPosition: 150
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 48a3a368-1b65-46a8-a313-254783bbdd3c
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 75
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 3e2f08c3-3441-43e5-b567-f322083d4e52
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 150
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: bd25bd9c-3362-4436-b18f-e07b5e49e535
+        IsBright: 1
+        Type: Var
+        Description: Var
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 09bd45db-b9bb-406f-94ce-1c1b20062afa
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 7d116c94-554e-4191-bad9-54a70257d10f
+        IsBright: 0
+        Type: Var
+        Description: Next power of two
+      outputPositionY: 0
+      GUID: 6570480c-4383-4d90-bcde-083180c9acec
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

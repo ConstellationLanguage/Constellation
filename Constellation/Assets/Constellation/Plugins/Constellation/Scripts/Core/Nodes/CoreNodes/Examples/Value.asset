@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Value
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 8e8f340f-69f1-4d03-8fba-0fd9a2368e6e
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 8a9a9aac-121a-4feb-890f-c7b34f65cc23
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 545
+      YPosition: 90
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: bfc579e3-bb44-436d-a097-f7c080569e0b
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 77163301-596a-4286-86f6-3a0bed924e09
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 90
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: acf03794-9a21-4ddd-b885-b46da03a5cce
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 255
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
+        IsBright: 0
+        Type: Generic
+        Description: New var
+      - Guid: 61778486-a912-41ee-9af7-0513bea2f814
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: e373e282-292e-4f9f-b106-59f3de4467c9
+        IsBright: 0
+        Type: Generic
+        Description: Output var
+      ParametersData:
+      - Value:
+          stringValue: Var
+          floatValue: 0.000001
+        Type: 6
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
+        IsBright: 0
+        Type: Var
+        Description: New var
+      Output:
+        Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 72d55a11-0562-4825-bdcb-8408c6cff17f
+    - Input:
+        Guid: bfc579e3-bb44-436d-a097-f7c080569e0b
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: e373e282-292e-4f9f-b106-59f3de4467c9
+        IsBright: 0
+        Type: Var
+        Description: Output var
+      outputPositionY: 0
+      GUID: 529812d8-0b14-4305-a5bf-7c0213dadc38
+    - Input:
+        Guid: 61778486-a912-41ee-9af7-0513bea2f814
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Output:
+        Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 5056701a-ce8a-48a7-b917-505ff3a1f5bd
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

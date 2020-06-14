@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: ClosestPowerOf2
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: be7b02a2-6b27-4e59-a5c3-7427fc7d8ee2
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 1d661460-6f69-4521-9acf-b0f347844554
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 340
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: cf03eaf7-e73b-422c-8075-9f35d5988adf
+      Name: ClosestPowerOf2
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 210
+      YPosition: 155
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: a910cfc0-b731-4097-89fb-254fb0547ba1
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 4efa78fa-a4fe-41b6-a49d-711b589fa9d7
+        IsBright: 0
+        Type: Var
+        Description: Closest power of two
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 15c3628c-8ef0-491a-ab1f-b7ecb2c3451a
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 9511127a-7699-4b91-a05f-0ea9935e3d1b
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 155
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: a910cfc0-b731-4097-89fb-254fb0547ba1
+        IsBright: 1
+        Type: Var
+        Description: a
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 43c1adb8-f3b7-44cb-be2f-dcf46b86b7ab
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 4efa78fa-a4fe-41b6-a49d-711b589fa9d7
+        IsBright: 0
+        Type: Var
+        Description: Closest power of two
+      outputPositionY: 0
+      GUID: fca79903-1ed7-4d23-81fa-317f65b1454c
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

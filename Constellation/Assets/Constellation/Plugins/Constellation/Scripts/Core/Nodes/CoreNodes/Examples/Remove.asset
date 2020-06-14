@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Remove
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 5b2d2314-9b4c-4af8-92b6-380b97ceeaca
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d25d782b-6240-4959-a919-ca922f302611
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 585
+      YPosition: 80
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 96fd9bab-8f0b-45ed-93c3-c670c64a56b1
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 38ec225a-76a0-4c89-ac70-572a6e09e2fd
+      Name: Remove
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 415
+      YPosition: 80
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 171b7819-dae9-4117-a136-2e8d02fdf82c
+        IsBright: 0
+        Type: Var
+        Description: Value to remove
+      - Guid: 37e1839e-dbbf-49f2-96e8-b9ebc84a6114
+        IsBright: 1
+        Type: Var
+        Description: Remove factor
+      Outputs:
+      - Guid: d85308a9-8e03-4abb-857a-08d6aec454a3
+        IsBright: 0
+        Type: Var
+        Description: $1 - $2
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 028a4ea3-af49-471a-9bae-79943cfec6cc
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 215
+      YPosition: 80
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: ecb6539a-724c-4d16-ada9-8faa2d805e5d
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: c5ed64fd-a534-4aab-b3bb-ef433170b3c7
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 215
+      YPosition: 125
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: ac13adf3-2c8e-4e99-bfef-6a9d9f532453
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: e01e03f2-2d4d-48ed-8fab-945346d7fc46
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 160
+      YPosition: 250
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 9c4b6495-c0c8-4f4c-8738-e0fad842a0b6
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: cfc0578d-695b-42d9-b6ba-a10b38e0ef77
+      Name: Remove
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 435
+      YPosition: 280
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: b190e684-35b4-4cfe-bf76-53ec1bef9071
+        IsBright: 0
+        Type: Var
+        Description: Value to remove
+      - Guid: 55c0a197-b8af-44e1-8b60-66527c6fe53a
+        IsBright: 1
+        Type: Var
+        Description: Remove factor
+      Outputs:
+      - Guid: 57a2c3f8-d1f7-4f15-8492-c182ad0125da
+        IsBright: 0
+        Type: Var
+        Description: $1 - $2
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 6f2a0f78-06c8-4db2-8212-6c7136f6c8f8
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 585
+      YPosition: 280
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 3179bd4d-f33e-47a3-a66f-7d1c41983606
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: f345bebd-c2d9-4b8c-b216-2185fd245a5e
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 300
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: e33213d3-4586-4662-a326-63a0e9827cf3
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 171b7819-dae9-4117-a136-2e8d02fdf82c
+        IsBright: 0
+        Type: Var
+        Description: Value to remove
+      Output:
+        Guid: ecb6539a-724c-4d16-ada9-8faa2d805e5d
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: f0c46c06-b032-4362-a8f6-11d836e8b4d0
+    - Input:
+        Guid: 96fd9bab-8f0b-45ed-93c3-c670c64a56b1
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: d85308a9-8e03-4abb-857a-08d6aec454a3
+        IsBright: 0
+        Type: Var
+        Description: $1 - $2
+      outputPositionY: 0
+      GUID: b512a5f2-c974-42e5-b7a3-c9c285b1d1c0
+    - Input:
+        Guid: 37e1839e-dbbf-49f2-96e8-b9ebc84a6114
+        IsBright: 1
+        Type: Var
+        Description: Remove factor
+      Output:
+        Guid: ac13adf3-2c8e-4e99-bfef-6a9d9f532453
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 56eddffd-af7a-41e7-92e2-b39c4587f098
+    - Input:
+        Guid: b190e684-35b4-4cfe-bf76-53ec1bef9071
+        IsBright: 0
+        Type: Var
+        Description: Value to remove
+      Output:
+        Guid: 9c4b6495-c0c8-4f4c-8738-e0fad842a0b6
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 90e6ff93-24e2-4cc3-ae55-56f3475cc0f4
+    - Input:
+        Guid: 55c0a197-b8af-44e1-8b60-66527c6fe53a
+        IsBright: 1
+        Type: Var
+        Description: Remove factor
+      Output:
+        Guid: e33213d3-4586-4662-a326-63a0e9827cf3
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 38c3b9ad-e20d-493f-b702-6954bfdc6cb5
+    - Input:
+        Guid: 3179bd4d-f33e-47a3-a66f-7d1c41983606
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 57a2c3f8-d1f7-4f15-8492-c182ad0125da
+        IsBright: 0
+        Type: Var
+        Description: $1 - $2
+      outputPositionY: 0
+      GUID: c12c60bf-659b-4311-a6de-3352ce1c5dad
+    Name: Remove
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: LerpAngle
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 7246cd40-e78c-42c0-93c7-3b80043ef448
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: c2e36d99-11b3-4e73-a1d4-35dd15cac596
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 355
+      YPosition: 180
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: cb5c376b-afd2-4f6a-a7ff-4b4a928671bf
+      Name: LerpAngle
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 190
+      YPosition: 180
+      SizeX: 75
+      SizeY: 80
+      Inputs:
+      - Guid: 655a3cbc-3864-4a4c-8aac-5b395828b607
+        IsBright: 0
+        Type: Var
+        Description: A
+      - Guid: 159eafdb-9518-4deb-8b51-cda80a59739e
+        IsBright: 0
+        Type: Var
+        Description: B
+      - Guid: 994e5f2a-87d8-455e-9d70-80941a4ce69e
+        IsBright: 1
+        Type: Var
+        Description: T
+      Outputs:
+      - Guid: 8f36160d-5562-4c52-8ca9-f4b57260e68c
+        IsBright: 0
+        Type: Var
+        Description: Same as lerp but with radians
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 275ea0ca-8223-40ce-a7d3-d0428b912365
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 100
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 185c4a3c-898e-47ba-8214-3787abcfca71
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 35
+      YPosition: 180
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 83c29a4b-783a-4fa2-800a-1357ac4558f1
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 35
+      YPosition: 225
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 2be50a6a-a674-4da7-b65f-e3fcdd2b8b33
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 35
+      YPosition: 270
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 5ca775b3-4772-4a54-a1df-ded015188958
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 655a3cbc-3864-4a4c-8aac-5b395828b607
+        IsBright: 0
+        Type: Var
+        Description: A
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 67660d14-313e-4b5a-99a2-44b6769666ff
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 8f36160d-5562-4c52-8ca9-f4b57260e68c
+        IsBright: 0
+        Type: Var
+        Description: Same as lerp but with radians
+      outputPositionY: 0
+      GUID: dc56bfab-8515-42db-a54d-077c479ea9f2
+    - Input:
+        Guid: 159eafdb-9518-4deb-8b51-cda80a59739e
+        IsBright: 0
+        Type: Var
+        Description: B
+      Output:
+        Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 7a9a25b3-dbb4-4d2c-94a8-ff6d09164c64
+    - Input:
+        Guid: 994e5f2a-87d8-455e-9d70-80941a4ce69e
+        IsBright: 1
+        Type: Var
+        Description: T
+      Output:
+        Guid: 5ca775b3-4772-4a54-a1df-ded015188958
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: c46981e7-2437-46d7-86da-24ee26b36594
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Print
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 9d1c897f-c0cd-4270-b79d-7119d272f382
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 48189c32-d69e-4862-86fb-5e78c4a60e6b
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 305
+      YPosition: 95
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: fc145113-5a1c-430c-a502-bded72b4b88d
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 85
+      YPosition: 95
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: a674f17e-4b42-4112-97d5-7b58e1d4d491
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 16c78191-80ca-4145-8d36-677aee64d6c7
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -57,7 +57,7 @@ public class NodeSelectorPanel
         }
     }
 
-    public void Draw(float _width, float _height, NodeAdded OnNodeAdded)
+    public void Draw(float _width, float _height, NodeAdded OnNodeAdded, bool _allowTypesNodes)
     {
         GUILayout.BeginVertical();
         DrawSearchField();
@@ -65,6 +65,10 @@ public class NodeSelectorPanel
         nodeSelectorScrollPos = EditorGUILayout.BeginScrollView(nodeSelectorScrollPos, GUILayout.Width(_width), GUILayout.Height(_height - SearchFieldSize));
         foreach (NodeNamespacesData nodeNamespace in NodeNamespaceData)
         {
+            if(!_allowTypesNodes && nodeNamespace.namespaceName == Constellation.ConstellationTypes.NameSpace.NAME) 
+            {
+                continue;
+            }
             var displayedNamespace = nodeNamespace.namespaceName.Replace(GetStaticNodeNameSpace(), "");
             GUILayout.Label(displayedNamespace, GUI.skin.GetStyle("OL Title"), GUILayout.Width(_width - 20));
             var selGridInt = GUILayout.SelectionGrid(-1, nodeNamespace.GetNiceNames(), 1 + (int)Mathf.Floor(_width / 255));

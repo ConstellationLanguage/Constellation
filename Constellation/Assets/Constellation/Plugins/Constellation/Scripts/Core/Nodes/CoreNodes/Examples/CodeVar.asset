@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: CodeVar
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 6464db48-4c86-474a-aee1-4611922c5c83
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 20
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 9a90ced0-3986-47b5-b765-4134e8995c2a
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 735
+      YPosition: 90
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 3b6761da-2fbb-4658-b338-55ac48c6aee5
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: f4f3024e-78d7-4fa4-849d-f5a310304e88
+      Name: FindByName
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 225
+      YPosition: 90
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 0e986731-8f71-459c-8d40-7b655d6eaad3
+        IsBright: 1
+        Type: Var
+        Description: Game Object Name
+      Outputs:
+      - Guid: faed684f-eae8-4872-af08-654fd8e0641f
+        IsBright: 0
+        Type: Object
+        Description: Gameobject
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: cd27a85c-91b2-4f28-acee-444a292e7dcc
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 574.5
+      YPosition: 10
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: ba52d140-6864-4284-af05-e1a5877fb1c7
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: bc28fbd9-35d8-4c23-9122-d659abe69b7e
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: ef8f1daa-a35f-48cd-a61f-a6e551aeb73b
+      Name: GetComponent
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 370
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: c7cec4a4-9f92-4062-b3c2-37e62e286503
+        IsBright: 1
+        Type: Object
+        Description: Object which contain the component
+      - Guid: ce9eef85-81d2-4344-bb82-030f097d485e
+        IsBright: 1
+        Type: Var
+        Description: Send the component
+      Outputs:
+      - Guid: c796c43e-10b4-441d-b8b1-1eabc9c5ca41
+        IsBright: 0
+        Type: Object
+        Description: The Component
+      ParametersData:
+      - Value:
+          stringValue: ComponentName
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 497b1bc0-a558-43bb-aeae-3cc665a33ab6
+      Name: CodeVar
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 575
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs:
+      - Guid: 871eb923-20d8-4f7e-bd12-c882b6c17f11
+        IsBright: 0
+        Type: Object
+        Description: Object which contains the var
+      - Guid: e04424e1-f63a-4065-9f97-567e90832bfe
+        IsBright: 0
+        Type: Var
+        Description: Set Var
+      - Guid: 52ef9142-0d0e-46e2-8ee8-09a5e358bba6
+        IsBright: 1
+        Type: Var
+        Description: Push var
+      Outputs:
+      - Guid: 0963e40d-e220-478d-92ac-2c29167b6b48
+        IsBright: 0
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: VarName
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 206b54a0-2685-4069-9c6b-d2c3a8a80967
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 425
+      YPosition: 155
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: f00895a4-fed3-416c-b546-04c3341d0f24
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 0e986731-8f71-459c-8d40-7b655d6eaad3
+        IsBright: 0
+        Type: Var
+        Description: Game Object Name
+      Output:
+        Guid: bc28fbd9-35d8-4c23-9122-d659abe69b7e
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 6eb71628-5436-4c09-a621-9a514628e9af
+    - Input:
+        Guid: 52ef9142-0d0e-46e2-8ee8-09a5e358bba6
+        IsBright: 0
+        Type: Var
+        Description: Push var
+      Output:
+        Guid: f00895a4-fed3-416c-b546-04c3341d0f24
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 05a9aa8d-1701-4588-b0c2-f4b698439da7
+    - Input:
+        Guid: e04424e1-f63a-4065-9f97-567e90832bfe
+        IsBright: 0
+        Type: Var
+        Description: Set Var
+      Output:
+        Guid: f00895a4-fed3-416c-b546-04c3341d0f24
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 91c239b4-2ee7-4e91-a03a-f2aa49693db8
+    - Input:
+        Guid: 3b6761da-2fbb-4658-b338-55ac48c6aee5
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 0963e40d-e220-478d-92ac-2c29167b6b48
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 358243f8-189a-456c-869a-7ecaa1483bbd
+    - Input:
+        Guid: c7cec4a4-9f92-4062-b3c2-37e62e286503
+        IsBright: 0
+        Type: Object
+        Description: Object which contain the component
+      Output:
+        Guid: faed684f-eae8-4872-af08-654fd8e0641f
+        IsBright: 0
+        Type: Object
+        Description: Gameobject
+      outputPositionY: 133.5
+      GUID: 
+    - Input:
+        Guid: 871eb923-20d8-4f7e-bd12-c882b6c17f11
+        IsBright: 0
+        Type: Object
+        Description: Object which contains the var
+      Output:
+        Guid: c796c43e-10b4-441d-b8b1-1eabc9c5ca41
+        IsBright: 0
+        Type: Object
+        Description: The Component
+      outputPositionY: 172.5
+      GUID: 
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Clamp
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 97f88cba-2011-4f24-9993-63ae3f0a44ae
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 52362d60-bd6d-4ec2-aa63-53aa18eb999e
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 375
+      YPosition: 145
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 0eef9616-0c43-463c-b6b7-e03e30d6337f
+      Name: Clamp
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 145
+      SizeX: 75
+      SizeY: 80
+      Inputs:
+      - Guid: 35eadc5a-9c77-4986-afbf-8ea366ae22ef
+        IsBright: 0
+        Type: Var
+        Description: min
+      - Guid: f55d5731-7c11-4dad-bc0c-0d3e561250a9
+        IsBright: 0
+        Type: Var
+        Description: max
+      - Guid: 14e0b3a8-8557-495d-a4d4-3f71699402a8
+        IsBright: 1
+        Type: Var
+        Description: t
+      Outputs:
+      - Guid: e99adbb4-24b9-48a9-8f18-1e0d331b86dc
+        IsBright: 0
+        Type: Var
+        Description: Clamps a value between a minimum value and maximum value
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 27ea3840-f586-4d79-b9d6-159fb832e7b0
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 70
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 7d653b08-9233-4cae-a4fb-6a33cf81019c
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 145
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: f14e59e3-1d12-41c5-b4cb-57758aa5354e
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 190
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 8a29e07c-46a0-4532-82b3-d3779872c6b6
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 3f9ac672-c3b6-42dd-8cc6-5dc350aa36d7
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 235
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 1dcb5dfc-bb3a-44c7-b15b-3f2419acaf0c
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: e99adbb4-24b9-48a9-8f18-1e0d331b86dc
+        IsBright: 0
+        Type: Var
+        Description: Clamps a value between a minimum value and maximum value
+      outputPositionY: 0
+      GUID: 3a106e14-71fe-442b-bcd7-d00d5d298ae5
+    - Input:
+        Guid: 35eadc5a-9c77-4986-afbf-8ea366ae22ef
+        IsBright: 0
+        Type: Var
+        Description: min
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 4739ff31-a779-49bf-8a95-9e942122adb1
+    - Input:
+        Guid: f55d5731-7c11-4dad-bc0c-0d3e561250a9
+        IsBright: 0
+        Type: Var
+        Description: max
+      Output:
+        Guid: 8a29e07c-46a0-4532-82b3-d3779872c6b6
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 066d9713-f423-456a-8242-13b9bd7f23bb
+    - Input:
+        Guid: 14e0b3a8-8557-495d-a4d4-3f71699402a8
+        IsBright: 1
+        Type: Var
+        Description: t
+      Output:
+        Guid: 1dcb5dfc-bb3a-44c7-b15b-3f2419acaf0c
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: f797a76c-bafc-4b2c-a28a-c5753f77b7ec
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

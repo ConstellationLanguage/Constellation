@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Word
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: b785d6a4-e8af-40b8-a272-af24fe93e4a5
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 56090df3-b345-4a00-ba58-03631965fd9a
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 90
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: d32b6bb0-e3fb-4934-a197-68c5494c09b8
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: d0e2371a-2046-4725-8d9c-8ea0349825c3
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 110
+      YPosition: 40
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 98e8f604-5017-43f0-b6b5-270a07c8ef95
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 90
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: d32b6bb0-e3fb-4934-a197-68c5494c09b8
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 0edbca37-24c8-4794-bf41-a848b9259f41
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

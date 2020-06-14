@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Pow
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 178c0c99-87c2-4f37-a8bf-ae538f0e6340
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 5
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 81a39175-de0c-4341-bc6b-f914c7abd39c
+      Name: Pow
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 200
+      YPosition: 115
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: b22c9255-d1d8-483a-96bf-938670012d94
+        IsBright: 0
+        Type: Var
+        Description: F
+      - Guid: 55ce7f9d-2f73-4d69-ba30-9652e50cc4fb
+        IsBright: 1
+        Type: Var
+        Description: P
+      Outputs:
+      - Guid: 6d6d901f-7c55-4fc3-add3-b769a61dc39c
+        IsBright: 0
+        Type: Var
+        Description: F raised to power P
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: c9a6312b-2118-445d-a937-9fc21ae6e964
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 310
+      YPosition: 115
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: f14dd096-da6e-4d95-8c75-f938c9175696
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 55
+      YPosition: 55
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 057fd936-f472-4c73-bd7d-63b0c98b78b7
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 115
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 3579a8a2-cb40-4f15-87c7-3a06cb6b65d8
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 165
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: 49595b40-1fe2-482a-89a1-ad0663e7f849
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: b22c9255-d1d8-483a-96bf-938670012d94
+        IsBright: 0
+        Type: Var
+        Description: F
+      Output:
+        Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 1852189c-f75a-4d5b-a2ed-828d08fe9305
+    - Input:
+        Guid: 55ce7f9d-2f73-4d69-ba30-9652e50cc4fb
+        IsBright: 1
+        Type: Var
+        Description: P
+      Output:
+        Guid: 49595b40-1fe2-482a-89a1-ad0663e7f849
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 4931237d-7c99-4981-bf34-02ef3521647d
+    - Input:
+        Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 6d6d901f-7c55-4fc3-add3-b769a61dc39c
+        IsBright: 0
+        Type: Var
+        Description: F raised to power P
+      outputPositionY: 0
+      GUID: e9281874-ba26-4883-b097-c80f5512d53a
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

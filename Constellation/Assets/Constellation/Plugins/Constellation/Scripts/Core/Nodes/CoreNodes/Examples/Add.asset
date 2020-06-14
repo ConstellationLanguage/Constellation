@@ -1,0 +1,431 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: Add
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: d53666cc-b070-4ac7-9d21-38beea88e1a6
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 10
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: ca015f07-d4cc-408c-80fd-cb5211d17634
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 90
+      YPosition: 50
+      SizeX: 127
+      SizeY: 54
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 0abbeccf-2fb9-45d1-8f90-f1dd5a30fc62
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 550
+      YPosition: 110
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 0b2f2774-bfed-4398-9562-c8540e5a5eae
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 100
+      YPosition: 110
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: c14e426c-1ce2-4cef-a9e8-8a727b9fa3d6
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: b33fbcf0-0561-414a-815c-243135ad9fce
+      Name: Add
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 330
+      YPosition: 125
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
+        IsBright: 0
+        Type: Var
+        Description: value 1
+      - Guid: 9c4759aa-0eef-462f-89b2-03a16383ddea
+        IsBright: 1
+        Type: Var
+        Description: value 2
+      Outputs:
+      - Guid: a5885a10-5079-412e-874d-d1a23f93e4b8
+        IsBright: 0
+        Type: Var
+        Description: value 1 + value 2
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: c7761b00-14e3-4a4d-bf00-3b1a3dd1ee8f
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 100
+      YPosition: 155
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 683518e2-c036-4ac9-9a12-9c95b28b2d40
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 47f0e173-8585-4a87-b372-3f7330eee9e2
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 95
+      YPosition: 250
+      SizeX: 100
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 7019bbc2-e1ba-475f-ab8e-2bb3c9118a25
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 550
+      YPosition: 305
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 63de6d21-c920-4317-8c9e-7c9642431724
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: cef8b36f-5b72-4294-9cd7-e8f79a17d765
+      Name: Add
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 350
+      YPosition: 305
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: d1888c5e-7055-4557-933a-1a0481907c5a
+        IsBright: 0
+        Type: Var
+        Description: value 1
+      - Guid: 47ad52d1-01ad-4451-a36e-9b2c93beb0b9
+        IsBright: 1
+        Type: Var
+        Description: value 2
+      Outputs:
+      - Guid: 469d6ec5-4f7a-402e-9b16-2294f053b1f1
+        IsBright: 0
+        Type: Var
+        Description: value 1 + value 2
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: af8aec68-3cf0-4a0d-8f57-89b8ec72db8d
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 100
+      YPosition: 305
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: c5b802d6-3845-4886-8ae8-84d57555ff9b
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 099f2776-638f-4136-bab3-2d970f1d7c47
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 75
+      YPosition: 350
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: a8f3b015-3303-4a18-875b-aa4fce95e927
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 391dc584-88a3-40dd-ae28-0a1c2cc5bc60
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 90
+      YPosition: 450
+      SizeX: 100
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: a422df8e-5d52-4cbd-85b6-3600aba6a611
+      Name: Add
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 350
+      YPosition: 500
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
+        IsBright: 0
+        Type: Var
+        Description: value 1
+      - Guid: 18d3ca0a-03b2-44e4-b891-41a2cc5d4ad7
+        IsBright: 1
+        Type: Var
+        Description: value 2
+      Outputs:
+      - Guid: 7dba2295-6ad5-4ad9-bb39-ad52a1f46355
+        IsBright: 0
+        Type: Var
+        Description: value 1 + value 2
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 18f98c8d-0b9c-4193-a1d5-4f96d1042083
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 550
+      YPosition: 500
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 78b9b581-3a7f-48c3-969d-9a44da144cd7
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 100
+      YPosition: 500
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: e0a60224-fdab-4ba4-b6a2-82d34e60a2e1
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: your word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: daeafa04-936d-4ce4-b8ed-5a92186e140d
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 100
+      YPosition: 545
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 5e837ed2-956c-414d-93f9-9f34f236a492
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 2ccbd022-a6a9-4c57-b4a5-dfc88691db91
+        IsBright: 0
+        Type: Var
+        Description: value 1
+      Output:
+        Guid: c14e426c-1ce2-4cef-a9e8-8a727b9fa3d6
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 56daec69-5cfe-4be2-a4a6-2c693678169a
+    - Input:
+        Guid: 9c4759aa-0eef-462f-89b2-03a16383ddea
+        IsBright: 0
+        Type: Var
+        Description: value 2
+      Output:
+        Guid: 683518e2-c036-4ac9-9a12-9c95b28b2d40
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: f850d247-e01e-4273-b290-aff277ba06e4
+    - Input:
+        Guid: 09149b4d-02af-43c4-937f-58ea2feeff22
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: a5885a10-5079-412e-874d-d1a23f93e4b8
+        IsBright: 0
+        Type: Var
+        Description: value 1 + value 2
+      outputPositionY: 0
+      GUID: 24f6c75d-5cc4-4492-88fa-b02ae56114b2
+    - Input:
+        Guid: 63de6d21-c920-4317-8c9e-7c9642431724
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 469d6ec5-4f7a-402e-9b16-2294f053b1f1
+        IsBright: 0
+        Type: Var
+        Description: value 1 + value 2
+      outputPositionY: 0
+      GUID: dd9e47e6-4d29-4ac8-8a2b-a675e6dbc1a1
+    - Input:
+        Guid: d1888c5e-7055-4557-933a-1a0481907c5a
+        IsBright: 0
+        Type: Var
+        Description: value 1
+      Output:
+        Guid: c5b802d6-3845-4886-8ae8-84d57555ff9b
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: f24d47a6-6acb-4ddc-a44e-a845b919775e
+    - Input:
+        Guid: 47ad52d1-01ad-4451-a36e-9b2c93beb0b9
+        IsBright: 0
+        Type: Var
+        Description: value 2
+      Output:
+        Guid: a8f3b015-3303-4a18-875b-aa4fce95e927
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 374bd1de-1836-4434-aac3-ca7ddb6af96a
+    - Input:
+        Guid: 39ee7449-cc37-464a-b215-dbe56b8fdd4f
+        IsBright: 0
+        Type: Var
+        Description: value 1
+      Output:
+        Guid: e0a60224-fdab-4ba4-b6a2-82d34e60a2e1
+        IsBright: 0
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: beb32e0d-57fb-4a76-9051-f917a05753b0
+    - Input:
+        Guid: 18d3ca0a-03b2-44e4-b891-41a2cc5d4ad7
+        IsBright: 0
+        Type: Var
+        Description: value 2
+      Output:
+        Guid: 5e837ed2-956c-414d-93f9-9f34f236a492
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: abdfe28b-3cac-4679-8808-76f5452a3b67
+    - Input:
+        Guid: 2180f59e-d72a-474d-831a-4b8ed3f3ebee
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 7dba2295-6ad5-4ad9-bb39-ad52a1f46355
+        IsBright: 0
+        Type: Var
+        Description: value 1 + value 2
+      outputPositionY: 0
+      GUID: 88be5711-b283-48fb-ab69-18bbe65ce7fb
+    Name: Add
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}
