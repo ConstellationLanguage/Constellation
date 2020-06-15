@@ -26,26 +26,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: fbc62cc8-e2d1-48e3-a6a0-3bd43b4bef0b
-      Name: MaterialColor
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 450
-      YPosition: 100
-      SizeX: 75
-      SizeY: 60
-      Inputs:
-      - Guid: fa326c37-d21f-4127-bbf9-be4b58e70d99
-        IsBright: 0
-        Type: Object
-        Description: Game Object
-      - Guid: 11af3ca4-404b-47dc-885a-f291361b1b6b
-        IsBright: 0
-        Type: Color
-        Description: Color
-      Outputs: []
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: c82c3ed4-4d28-4af4-afa8-7c5471a91f80
       Name: Note
       Namespace: CoreNodes
@@ -81,54 +61,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-      DiscreteParametersData: []
-    - Guid: 03ed4000-7062-49eb-999b-4a1c93a403d5
-      Name: Color
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 285
-      YPosition: 120
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 9d19313a-1fc5-4e5f-8048-c52f3d18e53f
-        IsBright: 1
-        Type: Var
-        Description: R
-      - Guid: 57c02de0-0a4c-4b7b-852b-87bee97e7fc8
-        IsBright: 1
-        Type: Var
-        Description: G
-      - Guid: 60d48d57-cfbf-4762-b1ab-f89a9e705e48
-        IsBright: 1
-        Type: Var
-        Description: B
-      - Guid: 52a6d018-da25-4217-b531-aacccfa1d9b6
-        IsBright: 1
-        Type: Var
-        Description: A
-      Outputs:
-      - Guid: 71fad15b-a981-4eff-8d78-6c4edce5413d
-        IsBright: 0
-        Type: Color
-        Description: Color[R][G][B][A]
-      ParametersData:
-      - Value:
-          stringValue: 1
-          floatValue: 0.000001
-        Type: 10
-      - Value:
-          stringValue: 1
-          floatValue: 0.000001
-        Type: 11
-      - Value:
-          stringValue: 1
-          floatValue: 0.000001
-        Type: 12
-      - Value:
-          stringValue: 1
-          floatValue: 0.000001
-        Type: 13
       DiscreteParametersData: []
     - Guid: 64a4bea3-6d5c-445b-be0e-b44eb231d2c1
       Name: Value

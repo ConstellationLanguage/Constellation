@@ -7,7 +7,6 @@ namespace Constellation
     [System.Serializable]
     public class NodesFactory
     {
-        public static NodesFactory Current;
         public List<INodeGetter> NodeGetters;
         public List<IRequestAssembly> AssemblyRequester;
         ConstellationScriptData[] staticConstellationScripts;
@@ -18,14 +17,24 @@ namespace Constellation
             Setup();
         }
 
+        public ConstellationScriptData [] GetStaticScripts()
+        {
+            return staticConstellationScripts;
+        }
+
         public ConstellationScriptData[] GetStaticConstellationScripts()
         {
             return staticConstellationScripts;
         }
 
+        public void UpdateConstellatioNScripts(ConstellationScriptData [] newStaticConstellationList)
+        {
+            staticConstellationScripts = newStaticConstellationList;
+            Setup();
+        }
+
         private void Setup()
         {
-            Current = this;
             SetInterfaces(staticConstellationScripts);
         }
 
@@ -53,7 +62,7 @@ namespace Constellation
             }
         }
     
-        public Node<INode> GetNode(string _nodeName, string _nodenamespaces)
+        public Node<INode> GetNode(string _nodeName, string _nodenamespaces, IConstellationFileParser jsonParser)
         {
             if (NodeGetters == null)
                 Setup();

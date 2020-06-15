@@ -38,7 +38,7 @@ namespace Constellation
 
         public NodeData AddNode(NodesFactory nodesFactory, string nodeName, string nameSpace, ConstellationScriptData constellationScript)
         {
-            var newNode = nodesFactory.GetNode(nodeName, nameSpace);
+            var newNode = nodesFactory.GetNode(nodeName, nameSpace, null);
             var nodeData = new NodeData(newNode);
             foreach (var constellationRule in constellationRules)
             {

@@ -44,7 +44,7 @@ namespace Constellation.Unity3D
             if (isInitialized) // do not initialize twice
                 return;
 
-            nodeFactory = new NodesFactory(ConstellationData.ScriptAssembly.GetAllStaticScriptData());
+            nodeFactory = new NodesFactory(ConstellationData?.ScriptAssembly?.GetAllStaticScriptData());
 
             var nodes = ConstellationData.GetNodes();
             constellation = new Constellation(ConstellationData.script,

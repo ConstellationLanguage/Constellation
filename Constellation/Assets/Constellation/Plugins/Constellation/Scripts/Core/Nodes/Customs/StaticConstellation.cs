@@ -85,10 +85,7 @@ namespace Constellation.ConstellationNodes
 
             //constellation = new Constellation();
 
-            if (NodesFactory.Current == null)
-                nodesFactory = new NodesFactory(constellationScripts);
-            else
-                nodesFactory = NodesFactory.Current;
+            nodesFactory = new NodesFactory(constellationScripts);
 
             var parametersCounter = 0;
             var entryCounter = 0;

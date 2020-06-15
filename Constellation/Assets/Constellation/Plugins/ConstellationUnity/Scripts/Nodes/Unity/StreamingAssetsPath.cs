@@ -11,7 +11,7 @@ namespace Constellation.Unity
         public void Setup(INodeParameters _node)
         {
             sender = _node.GetSender();
-            _node.AddOutput(false, "Path");
+            _node.AddOutput(true, "Path");
         }
 
         public string NodeName()
@@ -31,7 +31,7 @@ namespace Constellation.Unity
         public void OnAwake()
         {
             string filePath = Application.streamingAssetsPath;
-            sender.Send(new Ray(filePath), 0);
+            sender.Send(new Ray(filePath+ "/"), 0);
         }
     }
 }

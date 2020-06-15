@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Constellation.Unity {
+namespace Constellation.Visual {
     public class MaterialColor : INode, IReceiver, IAwakable, IRequireGameObject {
         public const string NAME = "MaterialColor";
         private Renderer renderer;

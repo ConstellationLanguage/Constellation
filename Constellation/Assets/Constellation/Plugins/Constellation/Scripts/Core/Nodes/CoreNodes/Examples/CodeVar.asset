@@ -42,26 +42,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: f4f3024e-78d7-4fa4-849d-f5a310304e88
-      Name: FindByName
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 225
-      YPosition: 90
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 0e986731-8f71-459c-8d40-7b655d6eaad3
-        IsBright: 1
-        Type: Var
-        Description: Game Object Name
-      Outputs:
-      - Guid: faed684f-eae8-4872-af08-654fd8e0641f
-        IsBright: 0
-        Type: Object
-        Description: Gameobject
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: cd27a85c-91b2-4f28-acee-444a292e7dcc
       Name: Note
       Namespace: CoreNodes
@@ -95,34 +75,6 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: your word
-          floatValue: 0.000001
-        Type: 1
-      DiscreteParametersData: []
-    - Guid: ef8f1daa-a35f-48cd-a61f-a6e551aeb73b
-      Name: GetComponent
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 370
-      YPosition: 90
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: c7cec4a4-9f92-4062-b3c2-37e62e286503
-        IsBright: 1
-        Type: Object
-        Description: Object which contain the component
-      - Guid: ce9eef85-81d2-4344-bb82-030f097d485e
-        IsBright: 1
-        Type: Var
-        Description: Send the component
-      Outputs:
-      - Guid: c796c43e-10b4-441d-b8b1-1eabc9c5ca41
-        IsBright: 0
-        Type: Object
-        Description: The Component
-      ParametersData:
-      - Value:
-          stringValue: ComponentName
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Constellation.ConstellationNodes;
 
 namespace Constellation
 {
@@ -16,6 +17,20 @@ namespace Constellation
             NodeAdded onNodeAdded = null)
         {
             NodesFactory = nodesFactory;
+            var newAssembly = new List<ConstellationScriptData>();
+            if(nodesFactory.GetStaticScripts() == null)
+            {
+                
+                foreach (var node in constellationScriptData.Nodes)
+                {
+                    if (node.Name == "NestedConstellation")
+                    {
+                       UnityEngine.Debug.Log(node.Name);
+                       newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
+                    }
+                }
+                nodesFactory.UpdateConstellatioNScripts(newAssembly.ToArray());
+            }
             SetNodes(constellationScriptData.GetNodes(), onNodeAdded);
             SetLinks(constellationScriptData.GetLinks());
         }

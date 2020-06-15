@@ -97,7 +97,7 @@ namespace ConstellationEditor
             foreach (var node in nodesToRemove)
             {
                 script.RemoveNode(node.Guid);
-                var replacementNode = NodesFactory.GetNode(node.Name, node.Namespace);
+                var replacementNode = NodesFactory.GetNode(node.Name, node.Namespace, null);
                 if (replacementNode != null)
                 {
                     replacementNode.XPosition = node.XPosition;
@@ -105,12 +105,14 @@ namespace ConstellationEditor
                     replacementNode.XSize = node.SizeX;
                     replacementNode.YSize = node.SizeY;
 
-
-                    if (node.ParametersData.Count == replacementNode.NodeParameters.Count)
+                    if (node.ParametersData != null && replacementNode.NodeParameters != null)
                     {
-                        for (var i = 0; i < replacementNode.NodeParameters.Count; i++)
+                        if (node.ParametersData.Count == replacementNode.NodeParameters.Count)
                         {
-                            replacementNode.NodeParameters[i].Value = new Ray(node.ParametersData[i].Value);
+                            for (var i = 0; i < replacementNode.NodeParameters.Count; i++)
+                            {
+                                replacementNode.NodeParameters[i].Value = new Ray(node.ParametersData[i].Value);
+                            }
                         }
                     }
 

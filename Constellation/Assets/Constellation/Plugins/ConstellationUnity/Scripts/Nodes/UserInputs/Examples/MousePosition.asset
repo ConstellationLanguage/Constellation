@@ -126,26 +126,6 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []
-    - Guid: 2c3f1135-78a4-4e24-aeb4-004392d68044
-      Name: MousePosition
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 25
-      YPosition: 185
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: 1e5ed267-ddfa-4d27-83b4-86ab174c3a83
-        IsBright: 1
-        Type: Var
-        Description: Mouse position X
-      - Guid: d25ce62c-ef10-4bbf-bf74-cc8399b1a498
-        IsBright: 1
-        Type: Var
-        Description: Mosue position Y
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 92b3531a-7210-43e8-96e0-0b853fd51da5
       Name: Word
       Namespace: CoreNodes

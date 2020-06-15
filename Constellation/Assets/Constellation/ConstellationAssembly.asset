@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: ConstellationAssembly
   m_EditorClassIdentifier: 
   ConstellationScripts:
-  - {fileID: 11400000, guid: b1916d247086d42439699310c73eee56, type: 2}
-  - {fileID: 11400000, guid: c17d506b7fe1da648873e528ec9c36eb, type: 2}
-  - {fileID: 11400000, guid: fd389613dc1d07049953e1d8b4b226f3, type: 2}
-  - {fileID: 11400000, guid: 59aac4d639bda7d40915ae9ffac44326, type: 2}
+  - {fileID: 11400000, guid: fbc5b70ec38ac4b44b179ce83d138adf, type: 2}
+  - {fileID: 11400000, guid: 17a672aa298063d4b93162f9d7d857b6, type: 2}
   ConstellationTutorials:
   - {fileID: 11400000, guid: b4a3acbb7b9e7c34291a4b67cc375b6c, type: 2}
   - {fileID: 11400000, guid: 05107024e4356074a88e2ab4bb20a305, type: 2}
@@ -68,7 +66,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92d60c6da7b175f439c6c52921fc75c3, type: 2}
   - {fileID: 11400000, guid: 8efb81fc622b72f43902c152987439bd, type: 2}
   - {fileID: 11400000, guid: 77ac93668b4f12244b8316a19cf8e61c, type: 2}
-  - {fileID: 11400000, guid: f26e029a5a6e447439dff5406273db3e, type: 2}
   - {fileID: 11400000, guid: 061f5d7bf6a50f846a9fcf59fcf64176, type: 2}
   - {fileID: 11400000, guid: 35b0a4e593f0adb42996378d66a95081, type: 2}
   - {fileID: 11400000, guid: 3f5ab1c5a2c4d3748b61f46f48abc331, type: 2}
@@ -81,4 +78,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b77d97af8c0212d4d97c2ddfc4af7e89, type: 2}
   - {fileID: 11400000, guid: 97e131cd41320fd47b55ddc025ff7a33, type: 2}
   - {fileID: 11400000, guid: ac6a8e1a274431f4db003b0d5417ff9c, type: 2}
-  ConstellationStaticNodes: []
+  - {fileID: 11400000, guid: f26e029a5a6e447439dff5406273db3e, type: 2}
+  ConstellationStaticNodes:
+  - {fileID: 11400000, guid: 3e0dc528cec463d43a58490b28c2dcdc, type: 2}

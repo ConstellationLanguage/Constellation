@@ -26,54 +26,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 5713588b-8885-44dc-adba-fbc40d6a8318
-      Name: FindByName
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 175
-      YPosition: 100
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 41b57a35-fdc1-4e23-b21b-df6891733318
-        IsBright: 1
-        Type: Var
-        Description: Game Object Name
-      Outputs:
-      - Guid: f9a1a6f5-b65b-4ffd-a3eb-fbbe160e6a2b
-        IsBright: 0
-        Type: Object
-        Description: Gameobject
-      ParametersData: []
-      DiscreteParametersData: []
-    - Guid: b1404f6b-cc46-4457-a32c-203905d2ef46
-      Name: SetActive
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 300
-      YPosition: 100
-      SizeX: 75
-      SizeY: 80
-      Inputs:
-      - Guid: 1ce5b566-6755-4923-8cf9-09eb950fe4d3
-        IsBright: 0
-        Type: Object
-        Description: The gameobject to activate
-      - Guid: d0871da0-3222-45da-a293-ab7bf4d37bbe
-        IsBright: 0
-        Type: Var
-        Description: 1 = activate; 0 = disable
-      - Guid: 2348bf64-8186-465c-a8ae-a294a3ba4fef
-        IsBright: 1
-        Type: Var
-        Description: send currend enabled state
-      Outputs:
-      - Guid: 297186dc-dc8d-4e69-b9ed-c5823406a978
-        IsBright: 0
-        Type: Var
-        Description: get the current state
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 005569b9-bde9-411f-acfd-39de6ec15060
       Name: Note
       Namespace: CoreNodes

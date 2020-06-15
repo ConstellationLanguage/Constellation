@@ -42,26 +42,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 491dc52b-a9b9-4f8f-b5e9-8c5c2d2d885c
-      Name: KeyDown
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 40
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: a8f816f8-2ae7-45c4-aba7-b990673ae568
-        IsBright: 1
-        Type: Var
-        Description: 1 on key down else 0
-      ParametersData:
-      - Value:
-          stringValue: 
-          floatValue: 0.000001
-        Type: 1
-      DiscreteParametersData: []
     - Guid: 37908aad-b67f-4a68-a231-077ef98037a7
       Name: Note
       Namespace: CoreNodes

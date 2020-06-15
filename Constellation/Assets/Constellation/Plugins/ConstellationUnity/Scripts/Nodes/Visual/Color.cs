@@ -1,4 +1,4 @@
-namespace Constellation.Unity
+namespace Constellation.Visual
 {
     public class Color : INode, IReceiver
     {

@@ -26,54 +26,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 5131d7ff-e2f6-427e-970c-278ca67429ed
-      Name: Transform
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 500
-      YPosition: 260
-      SizeX: 75
-      SizeY: 120
-      Inputs:
-      - Guid: fc2a2d27-ef6e-46dd-a682-5a0f3d5fcb4a
-        IsBright: 0
-        Type: Object
-        Description: Transform object
-      - Guid: ab79f031-6b3b-4234-b0f3-fd6f2ff8daea
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 position
-      - Guid: 9897b1c9-8da1-480a-9cee-09b0c994e476
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 rotation
-      - Guid: 286f6327-345e-4834-be55-1cd210766688
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 scale
-      - Guid: 84fe57bc-3a94-4ca3-b9bb-dd74146d7688
-        IsBright: 1
-        Type: Any
-        Description: Send
-      Outputs:
-      - Guid: 61ce132f-e141-4d0d-8b98-cd126e7a224c
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 position
-      - Guid: 88ecc535-629e-4752-8018-7dffba1c4051
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 rotation
-      - Guid: 0f59eccb-ee84-4755-b6b0-660569877f1b
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 scale
-      - Guid: e1af93d0-129e-4d6c-a0f4-2e40fa7ef2c2
-        IsBright: 0
-        Type: Object
-        Description: Transform
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 28d8da25-d764-4c03-8231-3935ad1b7e48
       Name: Note
       Namespace: CoreNodes

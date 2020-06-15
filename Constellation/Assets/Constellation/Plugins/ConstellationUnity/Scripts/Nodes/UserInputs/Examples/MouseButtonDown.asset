@@ -58,26 +58,6 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
       DiscreteParametersData: []
-    - Guid: 88cb850c-af82-474a-b7fd-46d007141b17
-      Name: MouseButtonDown
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 70
-      YPosition: 180
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: f338930b-58ea-41d7-b08c-d01188ffe6fc
-        IsBright: 1
-        Type: Var
-        Description: 1 on mouse button down else 0
-      ParametersData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-      DiscreteParametersData: []
     Links:
     - Input:
         Guid: f593b06e-6fa7-45a5-a94e-078194844b65

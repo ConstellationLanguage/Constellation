@@ -26,54 +26,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 08fa29ae-6f56-442e-a1ec-aa32d7df31ea
-      Name: Transform
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 425
-      YPosition: 195
-      SizeX: 75
-      SizeY: 120
-      Inputs:
-      - Guid: f2f65f22-c3b1-46ba-bcad-640e29234c9f
-        IsBright: 0
-        Type: Object
-        Description: Transform object
-      - Guid: 958bc412-952e-4ef1-b505-585a4f887b00
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 position
-      - Guid: d01d0176-10f3-4c04-88b2-e746bcb6a6ea
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 rotation
-      - Guid: cd4846d6-1cd4-4eaf-888d-67bb3f43317a
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 scale
-      - Guid: 309609a5-9473-4a20-8b1c-4dcaec79cd67
-        IsBright: 1
-        Type: Any
-        Description: Send
-      Outputs:
-      - Guid: 7ab7ee08-3c8d-40bb-b0fc-e6552b780260
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 position
-      - Guid: 32e6c4e9-e711-4e5b-bd28-668d2d2e05cc
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 rotation
-      - Guid: 66075376-b09f-47c4-bf3f-7753ff27578b
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 scale
-      - Guid: 5d929381-bdbc-425f-be19-cb55028868d4
-        IsBright: 0
-        Type: Object
-        Description: Transform
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 41b5f507-fe4d-4695-9921-182014113770
       Name: Note
       Namespace: CoreNodes
@@ -109,26 +61,6 @@ MonoBehaviour:
           stringValue: Default
           floatValue: 0.000001
         Type: 1
-      DiscreteParametersData: []
-    - Guid: 494b0dc2-4da8-4acf-b183-3f91967a9aa5
-      Name: Instantiate
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 265
-      YPosition: 195
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 87a5f949-bc8b-40b4-aa5c-21bdbcd094e3
-        IsBright: 1
-        Type: Object
-        Description: GameObject
-      Outputs:
-      - Guid: dbb39e0e-7a55-4c32-b448-14595a0661ba
-        IsBright: 1
-        Type: Object
-        Description: Instantiated GameObject
-      ParametersData: []
       DiscreteParametersData: []
     - Guid: acae8ed9-ccf6-4427-ba6a-5e9e2c50a35d
       Name: Value

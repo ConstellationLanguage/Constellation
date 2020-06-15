@@ -82,26 +82,6 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
       DiscreteParametersData: []
-    - Guid: f7061602-261b-438b-b64e-e33d9507ea26
-      Name: Key
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 30
-      YPosition: 180
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: 29c3c917-901e-4a7a-8bf1-6b9d01dc287b
-        IsBright: 1
-        Type: Var
-        Description: Output 1 when key pressed
-      ParametersData:
-      - Value:
-          stringValue: 
-          floatValue: 0.000001
-        Type: 1
-      DiscreteParametersData: []
     - Guid: 179f6843-6552-459a-8172-afa503e803bf
       Name: Word
       Namespace: CoreNodes

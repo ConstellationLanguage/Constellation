@@ -26,38 +26,6 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 8d4ceb9d-8ed5-4599-9d5e-58b42a607e73
-      Name: ScreenToWorld
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 360
-      YPosition: 225
-      SizeX: 75
-      SizeY: 100
-      Inputs:
-      - Guid: b6748dc0-4833-4d54-b00f-ee5c86ab263d
-        IsBright: 0
-        Type: Var
-        Description: Position X
-      - Guid: 5fc6aeec-1de0-4685-bf15-6d74f8fe8c33
-        IsBright: 0
-        Type: Var
-        Description: Position Y
-      - Guid: 503b7e43-0e99-4b96-82b4-e8dd5b90b94f
-        IsBright: 0
-        Type: Var
-        Description: Distance
-      - Guid: bd94ea82-485c-49a7-8fea-b40a4b50f602
-        IsBright: 1
-        Type: Any
-        Description: Calculate
-      Outputs:
-      - Guid: d79aa243-a6b5-4c8f-9642-8375f9250667
-        IsBright: 0
-        Type: Vec3
-        Description: The hit position
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: b4d820ba-bcb8-4f04-bcd0-1e312cb658e0
       Name: Print
       Namespace: CoreNodes
@@ -89,26 +57,6 @@ MonoBehaviour:
           stringValue: Your note here
           floatValue: 0.000001
         Type: 2
-      DiscreteParametersData: []
-    - Guid: 12f4daee-00d6-4443-a3a3-b4a2791cd66a
-      Name: MousePosition
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 135
-      YPosition: 225
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: 8379d8b8-2cd4-4d88-87b7-0110bdf45214
-        IsBright: 1
-        Type: Var
-        Description: Mouse position X
-      - Guid: cb9ab707-33bd-4575-9b94-5d55745324f9
-        IsBright: 1
-        Type: Var
-        Description: Mosue position Y
-      ParametersData: []
       DiscreteParametersData: []
     - Guid: 37cd9109-f29e-43db-9f92-2ce2081472c3
       Name: Value

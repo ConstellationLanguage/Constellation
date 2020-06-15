@@ -26,12 +26,6 @@ namespace Constellation.Unity {
                 case LoadScene.NAME:
                     INode nodeLoadScene = new LoadScene () as INode;
                     return new Node<INode> (nodeLoadScene);
-                case Color.NAME:
-                    INode nodeColor = new Color () as INode;
-                    return new Node<INode> (nodeColor);
-                case MaterialColor.NAME:
-                    INode materialColor = new MaterialColor()  as INode;
-                    return new Node<INode> (materialColor);
                 case Quit.NAME:
                     INode quit = new Quit() as INode;
                     return new Node<INode> (quit);
