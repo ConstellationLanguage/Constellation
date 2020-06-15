@@ -26,7 +26,6 @@ namespace Constellation
         private void Setup()
         {
             Current = this;
-            //SetConstellationAssembly();
             SetInterfaces(staticConstellationScripts);
         }
 

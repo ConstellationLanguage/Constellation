@@ -370,6 +370,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
     {
         try
         {
+            Selection.objects = new Object[0];
             previousSelectedGameObject = null;
             if (IsConstellationSelected())
             {
