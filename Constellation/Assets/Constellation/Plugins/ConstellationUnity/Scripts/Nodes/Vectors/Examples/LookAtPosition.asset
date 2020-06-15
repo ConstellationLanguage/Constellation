@@ -74,30 +74,6 @@ MonoBehaviour:
         Description: Transform
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 69352f2d-577a-4b26-b0d3-2d7ef5acd3bd
-      Name: LookAtPosition
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 375
-      YPosition: 300
-      SizeX: 75
-      SizeY: 60
-      Inputs:
-      - Guid: 24c2b0fe-c619-459c-bd40-5268f2481819
-        IsBright: 0
-        Type: Object
-        Description: GameObject position
-      - Guid: e7f67c5f-ddb3-4721-8f12-8d2dfb2169ed
-        IsBright: 1
-        Type: Vec3
-        Description: Position to look at
-      Outputs:
-      - Guid: 786a61ef-706b-4e85-a6d0-cb169823bfa8
-        IsBright: 0
-        Type: Vec3
-        Description: Target rotation
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 28d8da25-d764-4c03-8231-3935ad1b7e48
       Name: Note
       Namespace: CoreNodes
@@ -133,46 +109,6 @@ MonoBehaviour:
           stringValue: UNDEFINED
           floatValue: 0
         Type: 0
-      DiscreteParametersData: []
-    - Guid: 76f2f054-314c-49b0-9b35-6cc758a4a963
-      Name: Vec3
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 210
-      YPosition: 320
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 1e2b221e-1c0b-429a-9a8b-9fdf79657b3a
-        IsBright: 1
-        Type: Var
-        Description: X
-      - Guid: 24b1b168-cfe5-4ccc-8de4-69130aaaf134
-        IsBright: 1
-        Type: Var
-        Description: Y
-      - Guid: 199837df-1d00-4924-8296-6901b3b13efb
-        IsBright: 1
-        Type: Var
-        Description: Z
-      Outputs:
-      - Guid: a85c77eb-628e-4466-b04c-4d6cf3fe347f
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3[X][Y][Z]
-      ParametersData:
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 9
       DiscreteParametersData: []
     - Guid: 41e4f212-45f2-4ee7-82fd-31f1f24a5e45
       Name: Value

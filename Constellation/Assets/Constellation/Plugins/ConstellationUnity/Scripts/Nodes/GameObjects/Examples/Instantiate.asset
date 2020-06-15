@@ -130,46 +130,6 @@ MonoBehaviour:
         Description: Instantiated GameObject
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: ddf6daee-6be6-4fda-9406-22880aa53a11
-      Name: Vec3
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 285
-      YPosition: 240
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 36dac4cd-27cf-4316-900d-55348d36ec32
-        IsBright: 1
-        Type: Var
-        Description: X
-      - Guid: 8ccda47a-08a6-4a0a-abd6-f2fb61abfd43
-        IsBright: 1
-        Type: Var
-        Description: Y
-      - Guid: ecf18d1b-1074-4282-8637-87bab1b035f4
-        IsBright: 1
-        Type: Var
-        Description: Z
-      Outputs:
-      - Guid: cea6c99e-84e3-42b9-afcf-4f1937663b76
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3[X][Y][Z]
-      ParametersData:
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 9
-      DiscreteParametersData: []
     - Guid: acae8ed9-ccf6-4427-ba6a-5e9e2c50a35d
       Name: Value
       Namespace: CoreNodes

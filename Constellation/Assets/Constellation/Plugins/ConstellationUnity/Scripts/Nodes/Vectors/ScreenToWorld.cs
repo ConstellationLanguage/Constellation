@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Constellation.Unity {
+namespace Constellation.Vectors {
     public class ScreenToWorld : INode, IReceiver {
         private Vector3 movingVector;
         private ISender sender;

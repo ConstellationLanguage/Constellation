@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Constellation.Unity {
+namespace Constellation.GameObjects {
     public class Transform : INode, IReceiver, IRequireGameObject {
         public const string NAME = "Transform";
-        private Transform transform;
         private GameObject gameObject;
         private Ray GameObject;
         private Ray Position;

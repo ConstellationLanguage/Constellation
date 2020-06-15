@@ -1,4 +1,4 @@
-namespace Constellation.Unity
+namespace Constellation.Vectors
 {
     public class Vec3 : INode, IReceiver
     {

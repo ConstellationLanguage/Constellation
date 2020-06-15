@@ -1,5 +1,5 @@
 
-namespace Constellation.Components {
+namespace Constellation.Animation {
     public class UnityComponentsNodeFactory: INodeGetter {
 
         public string GetNameSpace()

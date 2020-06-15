@@ -1,9 +1,8 @@
-﻿namespace Constellation.Unity
+﻿namespace Constellation.UserInputs
 {
     public class Key : INode, IReceiver, IUpdatable
     {
 		public const string NAME = "Key";
-        public Transform transform;
 		private Parameter key;
 		private ISender sender;
         public void Setup(INodeParameters _nodeParameters)

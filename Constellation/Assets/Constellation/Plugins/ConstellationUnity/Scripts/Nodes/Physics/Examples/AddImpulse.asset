@@ -82,46 +82,6 @@ MonoBehaviour:
           floatValue: 0
         Type: 0
       DiscreteParametersData: []
-    - Guid: c5c6175b-5adc-4cff-b90e-45aafdc3f933
-      Name: Vec3
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 235
-      YPosition: 170
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 9088f183-87f4-4317-a77c-9754eb4bf416
-        IsBright: 1
-        Type: Var
-        Description: X
-      - Guid: 54186ac5-9881-449c-87dd-4774f79ffa84
-        IsBright: 1
-        Type: Var
-        Description: Y
-      - Guid: 9c35b797-b57f-4600-bdb8-9d2a1266659d
-        IsBright: 1
-        Type: Var
-        Description: Z
-      Outputs:
-      - Guid: 327fdf4e-15e1-402c-9e80-c8cf12769da5
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3[X][Y][Z]
-      ParametersData:
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: 0
-          floatValue: 0.000001
-        Type: 9
-      DiscreteParametersData: []
     - Guid: e0b6a4d5-c6e3-4301-bb81-60395ceb5724
       Name: Value
       Namespace: CoreNodes

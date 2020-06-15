@@ -1,4 +1,4 @@
-namespace Constellation.Unity {
+namespace Constellation.GameObjects {
     public class FindByName : INode, IReceiver, IAwakable {
         public const string NAME = "FindByName";
         private ISender sender;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Constellation.Components {
+namespace Constellation.Animation {
     public class AnimatorComponent : INode, IReceiver, IRequireGameObject {
         UnityEngine.Animator animator;
         private Ray varName;

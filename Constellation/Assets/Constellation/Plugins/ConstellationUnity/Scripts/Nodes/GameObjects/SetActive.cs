@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Constellation.Unity {
+namespace Constellation.GameObjects
+{
 	public class SetActive : INode, IReceiver, IRequireGameObject {
 		public const string NAME = "SetActive";
 		UnityEngine.GameObject GameObject;

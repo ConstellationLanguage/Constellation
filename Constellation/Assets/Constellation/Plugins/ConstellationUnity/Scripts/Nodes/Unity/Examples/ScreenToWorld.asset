@@ -90,46 +90,6 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
       DiscreteParametersData: []
-    - Guid: 46f8010f-8485-499f-a2aa-4c41eb2228cf
-      Name: SplitVec3
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 515
-      YPosition: 225
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 3e78330f-b077-449d-ba3c-9c49df66c089
-        IsBright: 1
-        Type: Vec3
-        Description: Vec3
-      Outputs:
-      - Guid: 54642018-8cb0-43c3-8452-526643ee2e43
-        IsBright: 0
-        Type: Var
-        Description: X
-      - Guid: ad141474-2b74-4ace-87d3-52c53bec760b
-        IsBright: 0
-        Type: Var
-        Description: Y
-      - Guid: f66dff20-1038-4a19-ad20-0f4231891e64
-        IsBright: 0
-        Type: Var
-        Description: Z
-      ParametersData:
-      - Value:
-          stringValue: X
-          floatValue: 0.000001
-        Type: 7
-      - Value:
-          stringValue: Y
-          floatValue: 0.000001
-        Type: 8
-      - Value:
-          stringValue: Z
-          floatValue: 0.000001
-        Type: 9
-      DiscreteParametersData: []
     - Guid: 12f4daee-00d6-4443-a3a3-b4a2791cd66a
       Name: MousePosition
       Namespace: Unity

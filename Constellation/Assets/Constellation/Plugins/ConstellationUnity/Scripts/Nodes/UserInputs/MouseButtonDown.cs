@@ -1,9 +1,8 @@
-namespace Constellation.Unity
+namespace Constellation.UserInputs
 {
-    public class KeyDown : INode, IReceiver, IUpdatable
+    public class MouseButtonDown : INode, IReceiver, IUpdatable
     {
-		public const string NAME = "KeyDown";
-        public Transform transform;
+		public const string NAME = "MouseButtonDown";
 		private Parameter key;
 		private ISender sender;
 		private Ray keyState;
@@ -11,8 +10,8 @@ namespace Constellation.Unity
         {
 			var newValue = new Ray();
 			sender = _nodeParameters.GetSender();
-            _nodeParameters.AddOutput(true, "1 on key down else 0");
-			key = _nodeParameters.AddParameter(newValue, Parameter.ParameterType.Word, "Key code");
+            _nodeParameters.AddOutput(true, "1 on mouse button down else 0");
+			key = _nodeParameters.AddParameter(newValue, Parameter.ParameterType.Value, "mouse button code");
 			keyState = new Ray().Set(0);
         }
 
@@ -26,7 +25,7 @@ namespace Constellation.Unity
 
 		public void OnUpdate()
 		{
-			if(UnityEngine.Input.GetKeyDown(key.Value.GetString())){
+			if(UnityEngine.Input.GetMouseButtonDown((int)key.Value.GetFloat())){
 				sender.Send(keyState.Set(1), 0);
 			} else {
 				sender.Send(keyState.Set(0), 0);

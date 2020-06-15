@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Constellation.Unity {
+namespace Constellation.Vectors {
 	public class LookAtPosition : INode, IReceiver{
 
 		public const string NAME = "LookAtPosition";

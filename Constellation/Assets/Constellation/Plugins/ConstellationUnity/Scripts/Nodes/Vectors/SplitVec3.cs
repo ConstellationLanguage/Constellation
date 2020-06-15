@@ -1,4 +1,5 @@
-namespace Constellation.Unity {
+namespace Constellation.Vectors
+{
     public class SplitVec3 : INode, IReceiver {
         public const string NAME = "SplitVec3";
         private ISender sender;

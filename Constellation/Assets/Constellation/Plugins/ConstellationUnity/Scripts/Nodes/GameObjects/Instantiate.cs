@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Constellation.Unity
+namespace Constellation.GameObjects
 {
     public class Instantiate : INode, IReceiver
     {

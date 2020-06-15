@@ -1,7 +1,7 @@
-﻿namespace Constellation.Unity {
+﻿namespace Constellation.UserInputs
+{
     public class MousePosition : INode, IReceiver, IUpdatable {
         public const string NAME = "MousePosition";
-        public Transform transform;
         private ISender Sender;
         private ISender YPositionSender;
         private Ray XPosition;
