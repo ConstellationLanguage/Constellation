@@ -274,8 +274,10 @@ namespace ConstellationEditor
                     path = "Assets" + path.Substring(Application.dataPath.Length);
                 }
             }
+            newScript.script = Script.script;
             AssetDatabase.CreateAsset(newScript, path);
             SaveAll();
+            RefreshConstellationEditorDataList();
         }
 
         public bool CloseOpenedConstellation(ConstellationScriptInfos scriptInfos)

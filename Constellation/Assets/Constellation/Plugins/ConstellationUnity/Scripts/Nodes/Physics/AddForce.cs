@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Constellation.Physics {
-    public class AddForce :RigidBodyUtils, INode {
+    public class AddForce: RigidBodyUtils, INode {
         public const string NAME = "AddForce";
 
         public override string NodeName()

@@ -8,7 +8,7 @@ namespace Constellation {
 			var2 = _var2;
 		}
 		public bool isConditionMet () {
-			if (var1.GetFloat () > var2.GetFloat ())
+			if (var1.GetFloat () > var2.GetFloat())
 				return true;
 			else
 				return false;

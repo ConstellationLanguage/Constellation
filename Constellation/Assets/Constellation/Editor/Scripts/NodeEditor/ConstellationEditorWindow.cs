@@ -41,7 +41,29 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
     {
         EditorApplication.playModeStateChanged += OnPlayStateChanged;
         UnityEditor.Undo.undoRedoPerformed += OnUndoPerformed;
+        SetupWindow();
+    }
 
+    void SetupNodeSelector()
+    {
+        NodeSelector = new NodeSelectorPanel(ScriptDataService.GetEditorData().ScriptAssembly.GetAllStaticScriptData());
+        NodeSelector.SetupNamespaceData((ScriptDataService.GetEditorData().ScriptAssembly.GetAllStaticScriptData()));
+    }
+
+    void NodeAdded(string _nodeName, string _namespace)
+    {
+        NodeWindow.AddNode(_nodeName, _namespace, OnEditorEvent);
+        ScriptDataService.SaveScripts();
+    }
+
+    void ResetWindow()
+    {
+        ScriptDataService = null;
+        SetupWindow();
+    }
+
+    void SetupWindow()
+    {
         if (ScriptDataService == null)
         {
             ScriptDataService = new ConstellationEditorDataService();
@@ -58,18 +80,6 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
         }
     }
 
-    void SetupNodeSelector()
-    {
-        NodeSelector = new NodeSelectorPanel(ScriptDataService.GetEditorData().ScriptAssembly.GetAllStaticScriptData());
-        NodeSelector.SetupNamespaceData((ScriptDataService.GetEditorData().ScriptAssembly.GetAllStaticScriptData()));
-    }
-
-    void NodeAdded(string _nodeName, string _namespace)
-    {
-        NodeWindow.AddNode(_nodeName, _namespace, OnEditorEvent);
-        ScriptDataService.SaveScripts();
-    }
-
     void OnGUI()
     {
         if (!IsConstellationSelected())
@@ -79,39 +89,47 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
         }
         else
         {
-            TopBarPanel.Draw(this, this, this);
-            var constellationName = NodeTabPanel.Draw(ScriptDataService.OpenedScripts.ToArray());
-            if (constellationName != null)
+            try
             {
-                var selectedGameObjects = Selection.gameObjects;
-                if (Application.isPlaying)
+                TopBarPanel.Draw(this, this, this);
+                var constellationName = NodeTabPanel.Draw(ScriptDataService.OpenedScripts.ToArray());
+                if (constellationName != null)
                 {
-                    ScriptDataService.CloseCurrentConstellationInstance();
-                    Open(ScriptDataService.OpenedScripts.ToArray()[0]);
-                    previousSelectedGameObject = selectedGameObjects[0];
+                    var selectedGameObjects = Selection.gameObjects;
+                    if (Application.isPlaying)
+                    {
+                        ScriptDataService.CloseCurrentConstellationInstance();
+                        Open(ScriptDataService.OpenedScripts.ToArray()[0]);
+                        previousSelectedGameObject = selectedGameObjects[0];
+                    }
+                    Open(constellationName);
                 }
-                Open(constellationName);
-            }  
-            var constellationToRemove = NodeTabPanel.ConstellationToRemove();
-            EditorGUILayout.BeginHorizontal();
-            if (NodeWindow == null)
-                ParseScript();
-            NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
-            NodeWindow.Draw(RequestRepaint, OnEditorEvent, ScriptDataService.GetConstellationEditorConfig(), out nodeWindowSize, out nodeWindowScrollPosition);
-            DrawVerticalSplit();
-            NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded, ScriptDataService.Script.CanChangeType);
-            EditorGUILayout.EndHorizontal();
-            if (ScriptDataService.CloseOpenedConstellation(constellationToRemove))
-            {
-                if (ScriptDataService.OpenedScripts.Count > 0)
+                var constellationToRemove = NodeTabPanel.ConstellationToRemove();
+                EditorGUILayout.BeginHorizontal();
+                if (NodeWindow == null)
+                    ParseScript();
+                NodeWindow.UpdateSize(position.width - nodeSelectorWidth - splitThickness, position.height - NodeTabPanel.GetHeight());
+                NodeWindow.Draw(RequestRepaint, OnEditorEvent, ScriptDataService.GetConstellationEditorConfig(), out nodeWindowSize, out nodeWindowScrollPosition);
+                DrawVerticalSplit();
+                NodeSelector.Draw(nodeSelectorWidth, position.height, NodeAdded, ScriptDataService.Script.CanChangeType);
+                EditorGUILayout.EndHorizontal();
+                if (ScriptDataService.CloseOpenedConstellation(constellationToRemove))
                 {
-                    Open(ScriptDataService.OpenedScripts[0]);
-                }else
-                {
-                    ScriptDataService.Script = null;
+                    if (ScriptDataService.OpenedScripts.Count > 0)
+                    {
+                        Open(ScriptDataService.OpenedScripts[0]);
+                    }
+                    else
+                    {
+                        ScriptDataService.Script = null;
+                    }
                 }
+                DrawInstancePannel();
             }
-            DrawInstancePannel();
+            catch (System.Exception exception)
+            {
+                UnexpectedError(exception.StackTrace);
+            }
         }
 
         if (requestRepaint)
@@ -143,45 +161,52 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
 
     void Update()
     {
-        if (Application.isPlaying && IsConstellationSelected())
+        try
         {
-            if (NodeWindow != null && previousSelectedGameObject != null && ScriptDataService.GetCurrentScript().IsInstance)
+            if (Application.isPlaying && IsConstellationSelected())
             {
-                NodeWindow.Update(currentEditableConstellation.GetConstellation(), OnEditorEvent);
-            }
-
-            var selectedGameObjects = Selection.gameObjects;
-            if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject || selectedGameObjects[0].activeInHierarchy == false)
-                return;
-            else if (ScriptDataService.OpenedScripts.Count > 0)
-            {
-                ScriptDataService.CloseCurrentConstellationInstance();
-                Open(ScriptDataService.OpenedScripts.ToArray()[0]);
-                previousSelectedGameObject = selectedGameObjects[0];
-            } else
-            {
-                ScriptDataService.Script = null;
-            }
-
-            var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationEditable>() as ConstellationEditable;
-            if (selectedConstellation != null)
-            {
-                currentEditableConstellation = selectedConstellation;
-                previousSelectedGameObject = selectedGameObjects[0];
-                if(selectedConstellation.ConstellationData.GetType() == typeof(ConstellationTutorialScript))
-                    OpenConstellationInstance <ConstellationTutorialScript> (selectedConstellation.GetConstellation(), AssetDatabase.GetAssetPath(selectedConstellation.GetConstellationData()));
-                else
-                    OpenConstellationInstance<ConstellationScript>(selectedConstellation.GetConstellation(), AssetDatabase.GetAssetPath(selectedConstellation.GetConstellationData()));
-                
-                if (selectedConstellation.GetConstellation() == null)
+                if (NodeWindow != null && previousSelectedGameObject != null && ScriptDataService.GetCurrentScript().IsInstance)
                 {
+                    NodeWindow.Update(currentEditableConstellation.GetConstellation(), OnEditorEvent);
+                }
+
+                var selectedGameObjects = Selection.gameObjects;
+                if (selectedGameObjects.Length == 0 || selectedGameObjects[0] == previousSelectedGameObject || selectedGameObjects[0].activeInHierarchy == false)
                     return;
+                else if (ScriptDataService.OpenedScripts.Count > 0)
+                {
+                    ScriptDataService.CloseCurrentConstellationInstance();
+                    Open(ScriptDataService.OpenedScripts.ToArray()[0]);
+                    previousSelectedGameObject = selectedGameObjects[0];
+                }
+                else
+                {
+                    ScriptDataService.Script = null;
+                }
+
+                var selectedConstellation = selectedGameObjects[0].GetComponent<ConstellationEditable>() as ConstellationEditable;
+                if (selectedConstellation != null && selectedConstellation.ConstellationData != null)
+                {
+                    currentEditableConstellation = selectedConstellation;
+                    previousSelectedGameObject = selectedGameObjects[0];
+                    if (selectedConstellation.ConstellationData.GetType() == typeof(ConstellationTutorialScript))
+                        OpenConstellationInstance<ConstellationTutorialScript>(selectedConstellation.GetConstellation(), AssetDatabase.GetAssetPath(selectedConstellation.GetConstellationData()));
+                    else
+                        OpenConstellationInstance<ConstellationScript>(selectedConstellation.GetConstellation(), AssetDatabase.GetAssetPath(selectedConstellation.GetConstellationData()));
+
+                    if (selectedConstellation.GetConstellation() == null)
+                    {
+                        return;
+                    }
                 }
             }
-        }
-        else
+            else
+            {
+                previousSelectedGameObject = null;
+            }
+        }catch(System.Exception exception)
         {
-            previousSelectedGameObject = null;
+            UnexpectedError(exception.StackTrace);
         }
     }
 
@@ -240,6 +265,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
 
     void SetupNodeWindow()
     {
+        //SetupWindow();
         NodeWindow = new NodeWindow(editorPath, ScriptDataService, nodeWindowSize, nodeWindowScrollPosition);
     }
 
@@ -252,7 +278,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
     public void Open(ConstellationScriptInfos _path)
     {
         var openedConstellation = ScriptDataService.OpenConstellation(_path);
-        if(openedConstellation != null)
+        if (openedConstellation != null)
         {
             ConstellationScript = openedConstellation;
             SetupNodeWindow();
@@ -263,6 +289,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
     public void Save()
     {
         ScriptDataService.SaveScripts();
+        AssetDatabase.SaveAssets();
     }
 
     public void New()
@@ -289,12 +316,12 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
             return false;
     }
 
-    public void OpenConstellationInstance <T> (Constellation.Constellation constellation, string path) where T: ConstellationScript
+    public void OpenConstellationInstance<T>(Constellation.Constellation constellation, string path) where T : ConstellationScript
     {
-        ScriptDataService.OpenConstellationInstance <T> (constellation, path);
+        ScriptDataService.OpenConstellationInstance<T>(constellation, path);
         ConstellationScript = ScriptDataService.Script;
         ConstellationScript.ScriptAssembly = ScriptDataService.GetEditorData().ScriptAssembly;
-        
+
         SetupNodeWindow();
     }
 
@@ -332,30 +359,46 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
         Open(ScriptDataService.OpenedScripts.ToArray()[0]);
     }
 
+    void UnexpectedError(string Error)
+    {
+        ResetWindow();
+        Debug.LogError("[CONSTELLATION] Something unexpected happened \n" + Error);
+        EditorUtility.DisplayDialog("CONSTELLATION", "Something unexpected happened. See the console for more details.", "Ok");
+    }
+
     void OnPlayStateChanged(PlayModeStateChange state)
     {
-        previousSelectedGameObject = null;
-        if (state == PlayModeStateChange.EnteredEditMode)
+        try
         {
-            ResetInstances();
-            ScriptDataService.CloseCurrentConstellationInstance();
-            if (ScriptDataService.OpenedScripts.Count > 0)
+            previousSelectedGameObject = null;
+            if (IsConstellationSelected())
             {
-                Open(ScriptDataService.OpenedScripts[0]);
+                if (state == PlayModeStateChange.EnteredEditMode)
+                {
+                    ResetInstances();
+                    ScriptDataService.CloseCurrentConstellationInstance();
+                    if (ScriptDataService.OpenedScripts.Count > 0)
+                    {
+                        Open(ScriptDataService.OpenedScripts[0]);
+                    }
+                }
+
+                if (state == PlayModeStateChange.ExitingEditMode)
+                {
+                    ScriptDataService.RefreshConstellationEditorDataList();
+                    ParseScript();
+                }
+
+                if (ScriptDataService.GetEditorData().ExampleData.openExampleConstellation && state == PlayModeStateChange.EnteredPlayMode)
+                {
+                    var nodeExampleLoader = new ExampleSceneLoader();
+                    nodeExampleLoader.RunExample(ScriptDataService.GetEditorData().ExampleData.constellationName, ScriptDataService);
+                    ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = false;
+                }
             }
-        }
-
-        if (state == PlayModeStateChange.ExitingEditMode)
+        }catch(System.Exception exception)
         {
-            ScriptDataService.RefreshConstellationEditorDataList();
-            ParseScript();
-        }
-
-        if (ScriptDataService.GetEditorData().ExampleData.openExampleConstellation && state == PlayModeStateChange.EnteredPlayMode)
-        {
-            var nodeExampleLoader = new ExampleSceneLoader();
-            nodeExampleLoader.RunExample(ScriptDataService.GetEditorData().ExampleData.constellationName, ScriptDataService);
-            ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = false;
+            UnexpectedError(exception.StackTrace);
         }
     }
 
@@ -403,7 +446,8 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
         if (node.Name == Constellation.ConstellationTypes.Tutorial.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertCurrentConstellationToTutorial();
-        } else if (node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
+        }
+        else if (node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
         {
             ConstellationScript = ScriptDataService.ConvertToConstellationNodeScript();
         }

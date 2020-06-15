@@ -76,21 +76,21 @@ namespace Constellation.CoreNodes {
 
         private void LinkMoreVar (string[] condition, Ray _var1, Ray _var2, Ray _var3) {
             Ray var1 = new Ray ();
-            if (condition[0] == "$1")
+            if (condition[0].Contains("$1"))
                 var1 = _var1;
-            else if (condition[0] == "$2")
+            else if (condition[0].Contains("$2"))
                 var1 = _var2;
-            else if (condition[0] == "$3")
+            else if (condition[0].Contains("$3"))
                 var1 = _var3;
             else
                 var1 = new Ray ().Set (condition[0]);
 
             Ray var2 = new Ray ();
-            if (condition[1] == "$1")
+            if (condition[1].Contains("$1"))
                 var2 = _var1;
-            else if (condition[1] == "$2")
+            else if (condition[1].Contains("$2"))
                 var2 = _var2;
-            else if (condition[1] == "$3")
+            else if (condition[1].Contains("$3"))
                 var2 = _var3;
             else
                 var2 = new Ray ().Set (condition[1]);

@@ -54,6 +54,10 @@ namespace Constellation {
 
 		public static Vector3 ConvertToVector3 (Ray variable) {
 			var array = variable.GetArray ();
+
+			if (array == null)
+				return Vector3.zero;
+
 			if (array.Length >= 3)
 				return new Vector3 (array[0].GetFloat (), array[1].GetFloat (), array[2].GetFloat ());
 			else if (array.Length == 2)

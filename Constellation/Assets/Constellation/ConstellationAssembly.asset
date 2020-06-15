@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConstellationScripts:
   - {fileID: 11400000, guid: b1916d247086d42439699310c73eee56, type: 2}
+  - {fileID: 11400000, guid: c17d506b7fe1da648873e528ec9c36eb, type: 2}
+  - {fileID: 11400000, guid: fd389613dc1d07049953e1d8b4b226f3, type: 2}
   - {fileID: 11400000, guid: 59aac4d639bda7d40915ae9ffac44326, type: 2}
   ConstellationTutorials:
   - {fileID: 11400000, guid: b4a3acbb7b9e7c34291a4b67cc375b6c, type: 2}
@@ -79,8 +81,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09d5282446a3f60429b169faa2ddde7e, type: 2}
   - {fileID: 11400000, guid: fc3795a1e76ecac4ca32812524e8bf74, type: 2}
   - {fileID: 11400000, guid: ac6a8e1a274431f4db003b0d5417ff9c, type: 2}
-  ConstellationStaticNodes:
-  - {fileID: 11400000, guid: f60f3a87f615b5e4d969cd44919b5917, type: 2}
-  - {fileID: 11400000, guid: 7f81dd1baf0c91640a3d2870656d3fd9, type: 2}
-  - {fileID: 11400000, guid: 58f1aa080669ffd498a65552532d373a, type: 2}
-  - {fileID: 11400000, guid: d3e7edb695a103645b17bf1406dd1422, type: 2}
+  ConstellationStaticNodes: []
