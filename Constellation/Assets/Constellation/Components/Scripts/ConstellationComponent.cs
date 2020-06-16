@@ -114,7 +114,7 @@ namespace Constellation.Unity3D
 
         public void SetUnityObject()
         {
-            foreach (var node in constellation.GetNodes())
+            foreach (var node in constellation.GetAllNodesAndSubNodes())
             {
                 AddUnityObject(node);
             }

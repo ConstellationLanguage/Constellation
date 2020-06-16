@@ -4,7 +4,7 @@ using Constellation.Parameters;
 
 namespace Constellation.ConstellationNodes
 {
-    public class StaticConstellation : INode, IReceiver, ICustomNode, IDiscreteNode, IRayReceiver
+    public class StaticConstellation : INode, IReceiver, ICustomNode, IDiscreteNode, IRayReceiver, ISubNodes
     {
         private ISender sender;
         private Parameter nameParameter; // attributes are setted in the editor.
@@ -83,8 +83,6 @@ namespace Constellation.ConstellationNodes
             if (isInitialized) // do not initialize twice
                 return;
 
-            //constellation = new Constellation();
-
             nodesFactory = new NodesFactory(constellationScripts);
 
             var parametersCounter = 0;
@@ -129,8 +127,8 @@ namespace Constellation.ConstellationNodes
                 }
             });
             constellation.Initialize(System.Guid.NewGuid().ToString(), nameParameter.Value.GetString());
-            if (constellation.GetInjector() is IAwakable)
-                constellation.GetInjector().OnAwake();
+            /*if (constellation.GetInjector() is IAwakable)
+                constellation.GetInjector().OnAwake();*/
 
             isInitialized = true;
         }
@@ -193,6 +191,11 @@ namespace Constellation.ConstellationNodes
         public void SendRay(Ray ray, int id) 
         {
             sender.Send(ray, id);
+        }
+
+        public Node<INode> [] GetSubNodes()
+        {
+            return constellation.GetNodes();
         }
     }
 

@@ -29,12 +29,6 @@ namespace Constellation.Unity {
                 case Quit.NAME:
                     INode quit = new Quit() as INode;
                     return new Node<INode> (quit);
-                case LoadTextFileAtPath.NAME:
-                    INode loadTextFileAtPath = new LoadTextFileAtPath() as INode;
-                    return new Node<INode>(loadTextFileAtPath);
-                case StreamingAssetsPath.NAME:
-                    INode streamingAssetsPath = new StreamingAssetsPath() as INode;
-                    return new Node<INode>(streamingAssetsPath);
                 case AddConstellationBehaviourFromJSON.NAME:
                     INode addConstellationBehaviourFromJSON = new AddConstellationBehaviourFromJSON() as INode;
                     return new Node<INode>(addConstellationBehaviourFromJSON);

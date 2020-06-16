@@ -81,3 +81,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f26e029a5a6e447439dff5406273db3e, type: 2}
   ConstellationStaticNodes:
   - {fileID: 11400000, guid: 3e0dc528cec463d43a58490b28c2dcdc, type: 2}
+  - {fileID: 11400000, guid: f1563f2b67c55704aa16442bb24a2cf8, type: 2}

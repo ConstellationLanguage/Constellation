@@ -68,7 +68,7 @@ namespace Constellation
             if (Destroyable == null)
                 Destroyable = new List<IDestroy>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as IDestroy != null)
                 {
@@ -82,7 +82,7 @@ namespace Constellation
             if (LoggersInjectors == null)
                 LoggersInjectors = new List<IInjectLogger>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as IInjectLogger != null)
                 {
@@ -108,7 +108,7 @@ namespace Constellation
             if (Awakables == null)
                 Awakables = new List<IAwakable>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as IAwakable != null)
                 {
@@ -122,7 +122,7 @@ namespace Constellation
             if (updatables == null)
                 updatables = new List<IUpdatable>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as IUpdatable != null)
                 {
@@ -155,7 +155,7 @@ namespace Constellation
             if (lateUpdatables == null)
                 lateUpdatables = new List<ILateUpdatable>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as ILateUpdatable != null)
                 {
@@ -171,7 +171,7 @@ namespace Constellation
                 CollisionStayListeners = new List<ICollisionStay>();
             }
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as ICollisionStay != null)
                 {
@@ -187,7 +187,7 @@ namespace Constellation
                 CollisionExitListeners = new List<ICollisionExit>();
             }
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as ICollisionExit != null)
                 {
@@ -203,7 +203,7 @@ namespace Constellation
                 CollisionEnterListeners = new List<ICollisionEnter>();
             }
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as ICollisionEnter != null)
                 {
@@ -217,7 +217,7 @@ namespace Constellation
             if (FixedUpdatables == null)
                 FixedUpdatables = new List<IFixedUpdate>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as IFixedUpdate != null)
                 {
@@ -275,7 +275,7 @@ namespace Constellation
             if (teleportsIn == null)
                 teleportsIn = new List<ITeleportIn>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as ITeleportIn != null)
                 {
@@ -291,7 +291,7 @@ namespace Constellation
             if (teleportsOut == null)
                 teleportsOut = new List<ITeleportOut>();
 
-            foreach (var node in Constellation.GetNodes())
+            foreach (var node in Constellation.GetAllNodesAndSubNodes())
             {
                 if (node.NodeType as ITeleportOut != null)
                 {

@@ -1,17 +1,18 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Constellation.Unity
+namespace Constellation.FilesIO
 {
-    public class StreamingAssetsPath : INode, IReceiver, IAwakable
+    public class LoadResource : INode, IReceiver
     {
-        public const string NAME = "StreamingAssetsPath";
+        public const string NAME = "LoadResource";
         private ISender sender;
 
         public void Setup(INodeParameters _node)
         {
+            _node.AddInput(this, true, "File path");
+            _node.AddOutput(false, "Object","The resource");
             sender = _node.GetSender();
-            _node.AddOutput(true, "Path");
         }
 
         public string NodeName()
@@ -26,12 +27,11 @@ namespace Constellation.Unity
 
         public void Receive(Ray _value, Input _input)
         {
-        }
-
-        public void OnAwake()
-        {
-            string filePath = Application.streamingAssetsPath;
-            sender.Send(new Ray(filePath+ "/"), 0);
+            if (_input.InputId == 0)
+            {
+                var resource = Resources.Load(_value.GetString());
+                sender.Send(new Ray().Set(resource), 0);
+            }
         }
     }
 }

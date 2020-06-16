@@ -8,6 +8,7 @@ namespace Constellation
     {
         public static ConstellationEventSystem eventSystem;
         private List<Node<INode>> Nodes;
+        private List<Node<INode>> AllNodes;
         public List<Link> Links;
         public delegate void NodeAdded(Node<INode> node, NodeData nodeData);
         protected NodesFactory NodesFactory;
@@ -25,7 +26,6 @@ namespace Constellation
                 {
                     if (node.Name == "NestedConstellation")
                     {
-                       UnityEngine.Debug.Log(node.Name);
                        newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
                     }
                 }
@@ -118,6 +118,29 @@ namespace Constellation
         }
 
 
+        public Node<INode>[] GetAllNodesAndSubNodes()
+        {
+            if (Nodes == null)
+                Nodes = new List<Node<INode>>();
+
+            var allNodes = new List<Node<INode>>();
+
+            foreach(var node in Nodes)
+            {
+                allNodes.Add(node);
+                if (node.NodeType is ISubNodes)
+                {
+                    var allSubNodes = (node.NodeType as ISubNodes).GetSubNodes();
+                    foreach (var subNode in allSubNodes)
+                    {
+                        allNodes.Add(subNode);
+                    }
+                }
+            }
+
+            return allNodes.ToArray();
+        }
+
         public Node<INode>[] GetNodes()
         {
             if (Nodes == null)
@@ -176,6 +199,7 @@ namespace Constellation
             {
                 (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts());
             }
+
             return newNode;
         }
 
@@ -219,7 +243,6 @@ namespace Constellation
                     return;
                 }
             }
-            //Debug.LogError("Constellation: Node not found");
         }
 
         public Link AddLink(Link link)

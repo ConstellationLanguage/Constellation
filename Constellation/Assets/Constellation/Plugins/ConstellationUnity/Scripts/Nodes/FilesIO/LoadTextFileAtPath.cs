@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Constellation.Unity
+namespace Constellation.FilesIO
 {
     public class LoadTextFileAtPath : INode, IReceiver
     {
