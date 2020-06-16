@@ -88,6 +88,7 @@ namespace Constellation.ConstellationNodes
             var parametersCounter = 0;
             var entryCounter = 0;
             var exitCounter = 0;
+            Debug.Log(constellationNodeData.Value.GetString());
             constellation = new Constellation(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString()), nodesFactory, (newNode, node) =>
             {
                 if (newNode.NodeType is IExitNode)

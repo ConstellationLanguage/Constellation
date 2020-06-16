@@ -13,9 +13,9 @@ namespace ConstellationEditor
 
             foreach (var script in staticConstellationNodes)
             {
-                foreach(var node in script.Nodes)
+                foreach (var node in script.Nodes)
                 {
-                    if(node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
+                    if (node.Name == Constellation.ConstellationTypes.StaticConstellationNode.NAME)
                     {
                         script.NameSpace = node.GetParameters()[0].Value.GetString();
                     }
@@ -33,66 +33,72 @@ namespace ConstellationEditor
         {
             List<NodeData> nodesToRemove = new List<NodeData>();
             NodesFactory = new NodesFactory(constellationScripts);
-                foreach (var node in script.Nodes)
+            foreach (var node in script.Nodes)
+            {
+                var nodeObject = NodesFactory.GetNodeSafeMode(node);
+
+
+                if (nodeObject == null)
                 {
-                    var nodeObject = NodesFactory.GetNodeSafeMode(node);
-                    if (nodeObject == null)
+                    nodesToRemove.Add(node);
+                }
+                else if (node.Inputs.Count != nodeObject.Inputs.Count || node.Outputs.Count != nodeObject.Outputs.Count || node.GetParameters().Length != nodeObject.GetParameters().Length)
+                {
+                    nodesToRemove.Add(node);
+                }
+                else if (node.Namespace == Constellation.ConstellationNodes.NameSpace.NAME) // to be done only when the node is edited
+                {
+                    nodesToRemove.Add(node);
+                }
+                else
+                {
+                    var foundDifference = false;
+                    var i = 0;
+                    foreach (var input in node.GetInputs())
                     {
-                        nodesToRemove.Add(node);
-                    }
-                    else if (node.Inputs.Count != nodeObject.Inputs.Count || node.Outputs.Count != nodeObject.Outputs.Count || node.GetParameters().Length != nodeObject.GetParameters().Length)
-                    {
-                        nodesToRemove.Add(node);
-                    }
-                    else
-                    {
-                        var foundDifference = false;
-                        var i = 0;
-                        foreach (var input in node.GetInputs())
+                        if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != ConstellationEditorRules.ANY && nodeObject.Inputs[i].Type != ConstellationEditorRules.GENERIC && nodeObject.Inputs[i].Type != ConstellationEditorRules.UNDEFINED) || input.IsBright != nodeObject.Inputs[i].isBright || input.Description != nodeObject.Inputs[i].Description)
                         {
-                            if ((input.Type != nodeObject.Inputs[i].Type && nodeObject.Inputs[i].Type != ConstellationEditorRules.ANY && nodeObject.Inputs[i].Type != ConstellationEditorRules.GENERIC && nodeObject.Inputs[i].Type != ConstellationEditorRules.UNDEFINED) || input.IsBright != nodeObject.Inputs[i].isBright || input.Description != nodeObject.Inputs[i].Description)
+                            nodesToRemove.Add(node);
+                            foundDifference = true;
+                            break;
+                        }
+                        i++;
+                    }
+
+                    if (!foundDifference)
+                    {
+                        i = 0;
+                        foreach (var output in node.GetOutputs())
+                        {
+                            if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != ConstellationEditorRules.ANY && nodeObject.Outputs[i].Type != ConstellationEditorRules.GENERIC && nodeObject.Outputs[i].Type != ConstellationEditorRules.UNDEFINED) || output.IsBright != nodeObject.Outputs[i].IsWarm || output.Description != nodeObject.Outputs[i].Description)
                             {
                                 nodesToRemove.Add(node);
-                                foundDifference = true;
                                 break;
                             }
                             i++;
                         }
+                    }
 
-                        if (!foundDifference)
+                    if (!foundDifference)
+                    {
+                        i = 0;
+                        if (node.GetParameters().Length != nodeObject.GetParameters().Length)
                         {
-                            i = 0;
-                            foreach (var output in node.GetOutputs())
-                            {
-                                if ((output.Type != nodeObject.Outputs[i].Type && nodeObject.Outputs[i].Type != ConstellationEditorRules.ANY && nodeObject.Outputs[i].Type != ConstellationEditorRules.GENERIC && nodeObject.Outputs[i].Type != ConstellationEditorRules.UNDEFINED) || output.IsBright != nodeObject.Outputs[i].IsWarm || output.Description != nodeObject.Outputs[i].Description)
-                                {
-                                    nodesToRemove.Add(node);
-                                    break;
-                                }
-                                i++;
-                            }
+                            nodesToRemove.Add(node);
                         }
 
-                        if (!foundDifference)
+                        foreach (var parameter in node.GetParameters())
                         {
-                            i = 0;
-                            if (node.GetParameters().Length != nodeObject.GetParameters().Length)
+                            if (parameter.Type != nodeObject.GetParameters()[i].Type)
                             {
                                 nodesToRemove.Add(node);
+                                break;
                             }
-
-                            foreach (var parameter in node.GetParameters())
-                            {
-                                if (parameter.Type != nodeObject.GetParameters()[i].Type)
-                                {
-                                    nodesToRemove.Add(node);
-                                    break;
-                                }
-                                i++;
-                            }
+                            i++;
                         }
                     }
                 }
+            }
 
             foreach (var node in nodesToRemove)
             {

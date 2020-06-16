@@ -67,6 +67,9 @@ namespace Constellation.CoreNodes {
                 case BrightExit.NAME:
                     INode brightExit = new BrightExit() as INode;
                     return new Node<INode>(brightExit);
+                case IsUpdated.NAME:
+                    INode isUpdated = new IsUpdated() as INode;
+                    return new Node<INode>(isUpdated);
                 default:
                     return null;
             }

@@ -8,7 +8,6 @@ namespace Constellation
     {
         public static ConstellationEventSystem eventSystem;
         private List<Node<INode>> Nodes;
-        private List<Node<INode>> AllNodes;
         public List<Link> Links;
         public delegate void NodeAdded(Node<INode> node, NodeData nodeData);
         protected NodesFactory NodesFactory;
@@ -24,7 +23,7 @@ namespace Constellation
                 
                 foreach (var node in constellationScriptData.Nodes)
                 {
-                    if (node.Name == "NestedConstellation")
+                    if (node.Namespace == ConstellationNodes.NameSpace.NAME)
                     {
                        newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
                     }

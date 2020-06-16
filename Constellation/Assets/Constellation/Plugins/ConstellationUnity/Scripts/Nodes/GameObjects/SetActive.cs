@@ -28,7 +28,7 @@ namespace Constellation.GameObjects
 		}
 
 		public void Receive (Ray _value, Input _input) { 
-			if(_input.isBright){
+			if(_input.isBright && GameObject != null){
 				if(GameObject.activeSelf == true)
 					sender.Send(new Ray(1), 0);
 				else
@@ -38,7 +38,8 @@ namespace Constellation.GameObjects
 			if(_input.InputId == 0)
 				GameObject = UnityObjectsConvertions.ConvertToGameObject(_value.GetObject());
 
-			if(_input.InputId == 1){
+			if(_input.InputId == 1 && GameObject != null)
+			{
 				if(_value.GetFloat() == 1)
 					GameObject.SetActive(true);
 				else 

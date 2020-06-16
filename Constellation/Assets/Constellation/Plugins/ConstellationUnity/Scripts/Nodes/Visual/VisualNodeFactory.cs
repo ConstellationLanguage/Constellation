@@ -15,6 +15,9 @@ namespace Constellation.Visual {
                 case MaterialColor.NAME:
                     INode materialColor = new MaterialColor() as INode;
                     return new Node<INode>(materialColor);
+                case ParticlesEmission.NAME:
+                    INode particleEmission = new ParticlesEmission() as INode;
+                    return new Node<INode>(particleEmission);
                 default:
                     return null;
             }

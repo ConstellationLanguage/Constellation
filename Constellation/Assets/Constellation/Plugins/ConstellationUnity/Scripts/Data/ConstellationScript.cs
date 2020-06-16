@@ -37,6 +37,7 @@ namespace Constellation.Unity3D
                     AddLink(link);
             }
             script.Name = _script.Name;
+            script.NameSpace = _script.NameSpace;
             return this;
         }
 
