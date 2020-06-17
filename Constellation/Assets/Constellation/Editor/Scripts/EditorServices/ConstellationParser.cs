@@ -8,7 +8,7 @@ namespace ConstellationEditor
     {
         private NodesFactory NodesFactory;
 
-        public void UpdateScriptsNodes(ConstellationScriptData[] staticConstellationNodes, ConstellationScriptData[] constellationScripts)
+        public void UpdateScriptsNodes(ConstellationScriptData[] staticConstellationNodes, ConstellationScriptData[] constellationScripts, IConstellationFileParser constellationFileParser)
         {
 
             foreach (var script in staticConstellationNodes)
@@ -20,22 +20,22 @@ namespace ConstellationEditor
                         script.NameSpace = node.GetParameters()[0].Value.GetString();
                     }
                 }
-                UpdateScriptNodes(script, staticConstellationNodes);
+                UpdateScriptNodes(script, staticConstellationNodes, constellationFileParser);
             }
 
             foreach (var script in constellationScripts)
             {
-                UpdateScriptNodes(script, staticConstellationNodes);
+                UpdateScriptNodes(script, staticConstellationNodes, constellationFileParser);
             }
         }
 
-        public void UpdateScriptNodes(ConstellationScriptData script, ConstellationScriptData[] constellationScripts)
+        public void UpdateScriptNodes(ConstellationScriptData script, ConstellationScriptData[] constellationScripts, IConstellationFileParser constellationFileParser)
         {
             List<NodeData> nodesToRemove = new List<NodeData>();
             NodesFactory = new NodesFactory(constellationScripts);
             foreach (var node in script.Nodes)
             {
-                var nodeObject = NodesFactory.GetNodeSafeMode(node);
+                var nodeObject = NodesFactory.GetNodeSafeMode(node, constellationFileParser);
 
 
                 if (nodeObject == null)

@@ -7,7 +7,7 @@ namespace Constellation.FilesIO {
         }
 
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case StreamingAssetsPath.NAME:
                     INode streamingAssetsPath = new StreamingAssetsPath() as INode;

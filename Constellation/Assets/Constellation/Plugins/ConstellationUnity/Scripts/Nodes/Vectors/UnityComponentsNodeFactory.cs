@@ -8,7 +8,7 @@ namespace Constellation.Vectors {
         }
 
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case Forward.NAME:
                     var nodeForward = new Forward () as INode;

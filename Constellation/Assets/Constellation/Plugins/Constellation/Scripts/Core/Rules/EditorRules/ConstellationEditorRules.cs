@@ -75,11 +75,11 @@ namespace Constellation
             return false;
         }
 
-        public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid)
+        public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid, IConstellationFileParser constellationParser)
         {
             foreach (var constellationRule in constellationRules)
             {
-                constellationRule.UpdateGenericNodeByLinkGUID(constellationScript, nodesFactory, guid);
+                constellationRule.UpdateGenericNodeByLinkGUID(constellationScript, nodesFactory, guid, constellationParser);
             }
         }
 

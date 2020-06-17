@@ -2,9 +2,9 @@
 {
     public interface ICustomNode
     {
-        void UpdateNode(ConstellationScriptData constellation);
-        void SetupNodeIO();
+        void UpdateNode(ConstellationScriptData constellation, IConstellationFileParser constellationFileParser);
+        void SetupNodeIO(IConstellationFileParser constellationFileParser);
         string GetDisplayName();
-        void InitializeConstellation(ConstellationScriptData[] constellationScripts, bool isPrivateScope);
+        void InitializeConstellation(ConstellationScriptData[] constellationScripts, IConstellationFileParser constellationFileParser, bool isPrivateScope);
     }
 }

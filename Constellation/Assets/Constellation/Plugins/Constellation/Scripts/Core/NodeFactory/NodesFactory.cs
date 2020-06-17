@@ -88,7 +88,7 @@ namespace Constellation
             {
                 if (nodesGetter.GetNameSpace() == _nodenamespaces)
                 {
-                    var node = nodesGetter.GetNode(_nodeName);
+                    var node = nodesGetter.GetNode(_nodeName, jsonParser);
                     if (node != null)
                         return node;
                 }
@@ -96,7 +96,7 @@ namespace Constellation
             return null;
         }
 
-        public Node<INode> GetNodeSafeMode(NodeData _nodeData)
+        public Node<INode> GetNodeSafeMode(NodeData _nodeData, IConstellationFileParser constellationFileParser)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace Constellation
                 {
                     if (nodesGetter.GetNameSpace() == _nodeData.Namespace)
                     {
-                        var selectedNode = nodesGetter.GetNode(_nodeData.Name);
+                        var selectedNode = nodesGetter.GetNode(_nodeData.Name, constellationFileParser);
                         if (selectedNode != null)
                         {
                             node = selectedNode;
@@ -143,14 +143,14 @@ namespace Constellation
 
         }
 
-        public Node<INode> GetNode(NodeData _nodeData)
+        public Node<INode> GetNode(NodeData _nodeData, IConstellationFileParser constellationFileParser)
         {
             Node<INode> node = null;
             foreach (var nodesGetter in NodeGetters)
             {
                 if (nodesGetter.GetNameSpace() == _nodeData.Namespace)
                 {
-                    var selectedNode = nodesGetter.GetNode(_nodeData.Name);
+                    var selectedNode = nodesGetter.GetNode(_nodeData.Name, constellationFileParser);
                     if (selectedNode != null)
                     {
                         node = selectedNode;

@@ -6,7 +6,7 @@ namespace Constellation.UI {
             return NameSpace.NAME;
         }
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case Text.NAME:
                     INode nodeText = new Text () as INode;

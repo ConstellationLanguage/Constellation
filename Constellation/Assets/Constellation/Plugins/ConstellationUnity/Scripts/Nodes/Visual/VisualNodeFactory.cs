@@ -7,7 +7,7 @@ namespace Constellation.Visual {
         }
 
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case Color.NAME:
                     INode nodeColor = new Color() as INode;

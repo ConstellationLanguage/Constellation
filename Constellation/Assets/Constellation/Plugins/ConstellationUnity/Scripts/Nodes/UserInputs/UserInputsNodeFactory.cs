@@ -9,7 +9,7 @@ namespace Constellation.UserInputs
         }
 
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case KeyDown.NAME:
                     INode nodeKeyDown = new KeyDown() as INode;

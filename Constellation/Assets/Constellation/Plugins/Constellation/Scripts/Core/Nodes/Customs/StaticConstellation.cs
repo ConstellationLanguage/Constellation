@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using Constellation.Parameters;
 
 namespace Constellation.ConstellationNodes
@@ -36,9 +35,9 @@ namespace Constellation.ConstellationNodes
             return nameParameter.Value.GetString();
         }
 
-        public void SetupNodeIO()
+        public void SetupNodeIO(IConstellationFileParser constellationFileParser)
         {
-            var constellation = JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString());
+            var constellation = constellationFileParser.ParseConstellationScript(constellationNodeData.Value.GetString());
             NodeParameters = new List<Ray>();
             foreach (var nestedNode in constellation.Nodes)
             {
@@ -68,13 +67,13 @@ namespace Constellation.ConstellationNodes
             }
         }
 
-        public void UpdateNode(ConstellationScriptData constellation)
+        public void UpdateNode(ConstellationScriptData constellation, IConstellationFileParser constellationFileParser)
         {
             nameParameter.Value = new Ray().Set(constellation.Name);
-            constellationNodeData.Value = new Ray().Set(UnityEngine.JsonUtility.ToJson(constellation));
+            constellationNodeData.Value = new Ray().Set(constellationFileParser.ParseConstellationScript(constellation));
         }
 
-        public void InitializeConstellation(ConstellationScriptData[] constellationScripts, bool isLocalScope)
+        public void InitializeConstellation(ConstellationScriptData[] constellationScripts, IConstellationFileParser constellationFileParser, bool isLocalScope)
         {
             Entries = new List<Node<INode>>();
             BrightEntriesInfos = new List<BrightEntryInfos>();
@@ -83,7 +82,7 @@ namespace Constellation.ConstellationNodes
             if (isInitialized) // do not initialize twice
                 return;
 
-            var scriptData = UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString());
+            var scriptData = constellationFileParser.ParseConstellationScript(constellationNodeData.Value.GetString());
             if (isLocalScope)
             {
                 nodesFactory = new NodesFactory(null);
@@ -92,7 +91,7 @@ namespace Constellation.ConstellationNodes
                 {
                     if (node.Namespace == ConstellationNodes.NameSpace.NAME)
                     {
-                        newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
+                        newAssembly.Add(constellationFileParser.ParseConstellationScript(node.DiscreteParametersData[1].Value.GetString()));
                     }
                 }
                 nodesFactory.UpdateConstellationScripts(newAssembly.ToArray());
@@ -106,7 +105,7 @@ namespace Constellation.ConstellationNodes
             var parametersCounter = 0;
             var entryCounter = 0;
             var exitCounter = 0;
-            constellation = new Constellation(scriptData, nodesFactory, (newNode, node) =>
+            constellation = new Constellation(scriptData, nodesFactory, constellationFileParser, (newNode, node) =>
             {
                 if (newNode.NodeType is IExitNode)
                 {

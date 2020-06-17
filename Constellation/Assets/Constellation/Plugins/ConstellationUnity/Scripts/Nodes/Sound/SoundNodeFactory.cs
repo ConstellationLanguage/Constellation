@@ -7,7 +7,7 @@ namespace Constellation.Sound {
         }
 
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case AudioSource.NAME:
                     INode nodeAudioSource = new AudioSource () as INode;

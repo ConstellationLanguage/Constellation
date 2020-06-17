@@ -6,7 +6,7 @@ namespace Constellation.Unity {
             return NameSpace.NAME;
         }
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case DeltaTime.NAME:
                     INode nodeDeltaTime = new DeltaTime () as INode;

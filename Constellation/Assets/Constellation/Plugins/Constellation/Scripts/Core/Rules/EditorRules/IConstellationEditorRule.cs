@@ -6,6 +6,6 @@
         bool IsTypeValid(InputData _input, OutputData _output);
         bool IsLinkValid(LinkData _link, ConstellationScriptData _constellationScriptData);
         void RemoveNode(NodeData node, ConstellationScriptData constellationScript);
-        void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid);
+        void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid, IConstellationFileParser constellationParser);
     }
 }

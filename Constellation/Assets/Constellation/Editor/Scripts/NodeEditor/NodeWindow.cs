@@ -521,7 +521,7 @@ namespace ConstellationEditor
 
         private void UpdateGenericNodeByLinkGUID(string guid)
         {
-            constellationRules.UpdateGenericNodeByLinkGUID(ConstellationScript.script, NodeFactory, guid);
+            constellationRules.UpdateGenericNodeByLinkGUID(ConstellationScript.script, NodeFactory, guid, new UntiyConstellationParser());
         }
 
         private void SetNodeToFirst(NodeView node)

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Constellation.ConstellationNodes;
 
 namespace Constellation
 {
@@ -12,22 +11,21 @@ namespace Constellation
         public delegate void NodeAdded(Node<INode> node, NodeData nodeData);
         protected NodesFactory NodesFactory;
         private bool isConstellationInitialized;
+        IConstellationFileParser fileParser;
 
-        public Constellation(ConstellationScriptData constellationScriptData, 
-            NodesFactory nodesFactory, 
-            NodeAdded onNodeAdded = null)
+        public Constellation(ConstellationScriptData constellationScriptData, NodesFactory nodesFactory, IConstellationFileParser constellationFileParser, NodeAdded onNodeAdded = null)
         {
+            fileParser = constellationFileParser;
             isConstellationInitialized = false;
             NodesFactory = nodesFactory;
             var newAssembly = new List<ConstellationScriptData>();
             if(nodesFactory.GetStaticScripts() == null || nodesFactory.GetIsLocalScope())
             {
-                UnityEngine.Debug.Log("Private scope");
                 foreach (var node in constellationScriptData.Nodes)
                 {
                     if (node.Namespace == ConstellationNodes.NameSpace.NAME)
                     {
-                       newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
+                       newAssembly.Add(constellationFileParser.ParseConstellationScript(node.DiscreteParametersData[1].Value.GetString()));
                     }
                 }
                 nodesFactory.UpdateConstellationScripts(newAssembly.ToArray());
@@ -42,7 +40,7 @@ namespace Constellation
         {
             foreach (NodeData node in nodes)
             {
-                var newNode = NodesFactory.GetNode(node);
+                var newNode = NodesFactory.GetNode(node, fileParser);
                 AddNode(newNode, node.Guid, node);
                 if(onNodeAdded != null)
                     onNodeAdded(newNode, node);
@@ -198,7 +196,7 @@ namespace Constellation
 
             if (newNode.NodeType is ICustomNode)
             {
-                (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts(), NodesFactory.GetIsLocalScope());
+                (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts(), fileParser, NodesFactory.GetIsLocalScope());
             }
 
             if (Injector != null)

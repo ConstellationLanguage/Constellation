@@ -47,9 +47,7 @@ namespace Constellation.Unity3D
             nodeFactory = new NodesFactory(ConstellationData?.ScriptAssembly?.GetAllStaticScriptData());
 
             var nodes = ConstellationData.GetNodes();
-            constellation = new Constellation(ConstellationData.script,
-                nodeFactory,
-                (newNode, node) =>
+            constellation = new Constellation(ConstellationData.script, nodeFactory, new UntiyConstellationParser(), (newNode, node) =>
                 {
                     var attributesCounter = 0;
                     if (IsAttribute(node) && Parameters != null)

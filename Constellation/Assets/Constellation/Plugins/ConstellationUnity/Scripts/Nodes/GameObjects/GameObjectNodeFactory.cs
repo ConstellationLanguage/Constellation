@@ -8,7 +8,7 @@ namespace Constellation.GameObjects
         }
 
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case Transform.NAME:
                     INode nodeTransform = new Transform() as INode;

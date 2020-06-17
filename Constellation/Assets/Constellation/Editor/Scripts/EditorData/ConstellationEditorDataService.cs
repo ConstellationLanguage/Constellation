@@ -62,6 +62,7 @@ namespace ConstellationEditor
             var nodes = new List<ConstellationScriptData>();
             foreach (var constellationScript in EditorData.ScriptAssembly.ConstellationStaticNodes)
             {
+
                 foreach (var node in constellationScript.GetNodes())
                 {
                     if (node.Name == StaticConstellationNode.NAME)

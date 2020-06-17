@@ -20,15 +20,15 @@
             return nodeData;
         }
 
-        public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid)
+        public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid, IConstellationFileParser constellationParser)
         {
             var linkedinputID = 0;
             var linkedOutputID = 0;
             var connectedNodes = constellationScript.GetNodesWithLinkGUID(guid, out linkedinputID, out linkedOutputID);
             var outputNode = connectedNodes[0];
             var inputNode = connectedNodes[1];
-            var inputNodeType = nodesFactory.GetNode(inputNode).NodeType;
-            var outputNodeType = nodesFactory.GetNode(outputNode).NodeType;
+            var inputNodeType = nodesFactory.GetNode(inputNode, constellationParser).NodeType;
+            var outputNodeType = nodesFactory.GetNode(outputNode, constellationParser).NodeType;
             var inputGenericNodeScript = inputNodeType as IGenericNode;
             var mirrorInputNodeScript = inputNodeType as IMirrorNode;
             var mirrorOutputNodeScript = outputNodeType as IMirrorNode;

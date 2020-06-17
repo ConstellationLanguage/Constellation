@@ -10,7 +10,7 @@ namespace Constellation.ConstellationNodes
             return NameSpace.NAME;
         }
 
-        public Node<INode> GetNode(string nodeName)
+        public Node<INode> GetNode(string nodeName, IConstellationFileParser constellationFileParser)
         {
             INode customNode = new StaticConstellation() as INode;
             var node = new Node<INode>(customNode);
@@ -20,8 +20,8 @@ namespace Constellation.ConstellationNodes
             {
                 if(script.Name == nodeName)
                 {
-                    (customNode as ICustomNode).UpdateNode(script);
-                    (customNode as ICustomNode).SetupNodeIO();
+                    (customNode as ICustomNode).UpdateNode(script, constellationFileParser);
+                    (customNode as ICustomNode).SetupNodeIO(constellationFileParser);
                     return node;
                 }
             }

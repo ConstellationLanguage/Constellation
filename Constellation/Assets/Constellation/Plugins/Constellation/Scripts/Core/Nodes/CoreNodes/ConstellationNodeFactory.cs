@@ -8,7 +8,7 @@ namespace Constellation.CoreNodes {
             return NameSpace.NAME;
         }
 
-        public Node<INode> GetNode (string nodeName) {
+        public Node<INode> GetNode (string nodeName, IConstellationFileParser constellationFileParser) {
             switch (nodeName) {
                 case Add.NAME:
                     INode nodeAdd = new Add () as INode;
