@@ -43,6 +43,9 @@ namespace Constellation.Unity3D
 
         public NodeData [] GetAllExitNodes()
         {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             var exitNodes = new List<NodeData>();
             foreach(var node in script.Nodes)
             {
@@ -54,6 +57,9 @@ namespace Constellation.Unity3D
 
         public NodeData[] GetAllEntryNodes()
         {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             var entry = new List<NodeData>();
             foreach (var node in script.Nodes)
             {
@@ -64,6 +70,9 @@ namespace Constellation.Unity3D
         }
 
         public NodeData AddNode (NodeData _node) {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             if (script.Nodes == null)
                 script.Nodes = new List<NodeData> ();
             var newNode = new NodeData (_node);
@@ -91,10 +100,16 @@ namespace Constellation.Unity3D
         }
 
         public void RemoveNode (NodeData _node) {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             script.Nodes.Remove (_node);
         }
 
         public void RemoveNode (Node<INode> _node) {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             foreach (NodeData node in script.Nodes) {
                 if (_node.GetGuid () == node.Guid) {
                     script.Nodes.Remove (node);
@@ -117,6 +132,9 @@ namespace Constellation.Unity3D
 
         public NodeData GetNodeByGUID(string guid)
         {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             foreach (NodeData node in script.Nodes)
             {
                 if (guid == node.Guid)
@@ -128,6 +146,9 @@ namespace Constellation.Unity3D
         }
 
         public LinkData[] GetLinks () {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             if (script.Links == null)
                 script.Links = new List<LinkData> ();
 
@@ -135,6 +156,9 @@ namespace Constellation.Unity3D
         }
 
         public NodeData[] GetNodes () {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             if (script.Nodes == null)
                 script.Nodes = new List<NodeData> ();
 
@@ -142,12 +166,18 @@ namespace Constellation.Unity3D
         }
 
         public void AddLink (LinkData _link) {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             if (script.Links == null)
                 script.Links = new List<LinkData> ();
             script.Links.Add (_link);
         }
 
         public LinkData AddLink (Link _link) {
+            if (script == null)
+                script = new ConstellationScriptData();
+
             if (script.Links == null)
                 script.Links = new List<LinkData> ();
             var newLink = new LinkData (_link);

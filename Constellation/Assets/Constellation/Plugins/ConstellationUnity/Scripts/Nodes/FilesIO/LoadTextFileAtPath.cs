@@ -12,6 +12,7 @@ namespace Constellation.FilesIO
         {
             _node.AddInput(this, true, "File path");
             _node.AddOutput(false, "The text");
+            _node.AddOutput(false, "Failure");
             sender = _node.GetSender();
         }
 
@@ -35,8 +36,15 @@ namespace Constellation.FilesIO
                 while (!www.isDone)
                 {
                 }
-                string jsonString = www.downloadHandler.text;
-                sender.Send(new Ray().Set(jsonString), 0);
+
+                if (www.error == null)
+                {
+                    string jsonString = www.downloadHandler.text;
+                    sender.Send(new Ray().Set(jsonString), 0);
+                } else
+                {
+                    sender.Send(new Ray().Set(www.error), 1);
+                }
             }
         }
     }
