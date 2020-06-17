@@ -24,7 +24,7 @@ namespace Constellation.Unity3D {
         }
         
         public void AddNode (NodeData node) {
-            var newNode = nodeFactory.GetNode (node, new UntiyConstellationParser());
+            var newNode = nodeFactory.GetNode (node, new UnityConstellationParser());
             constellation.AddNode (newNode, node.Guid);
             AddUnityObject (newNode);
         }

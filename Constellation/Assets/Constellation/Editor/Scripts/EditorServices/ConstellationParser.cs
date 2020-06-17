@@ -103,7 +103,7 @@ namespace ConstellationEditor
             foreach (var node in nodesToRemove)
             {
                 script.RemoveNode(node.Guid);
-                var replacementNode = NodesFactory.GetNode(node.Name, node.Namespace, null);
+                var replacementNode = NodesFactory.GetNode(node.Name, node.Namespace, new UnityConstellationParser());
                 if (replacementNode != null)
                 {
                     replacementNode.XPosition = node.XPosition;

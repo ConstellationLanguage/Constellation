@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Constellation;
 
-public class UntiyConstellationParser : IConstellationFileParser
+public class UnityConstellationParser : IConstellationFileParser
 {
     public ConstellationScriptData ParseConstellationScript(string JSON)
     {
