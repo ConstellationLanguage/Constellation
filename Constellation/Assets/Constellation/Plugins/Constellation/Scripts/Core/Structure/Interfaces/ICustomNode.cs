@@ -5,6 +5,6 @@
         void UpdateNode(ConstellationScriptData constellation);
         void SetupNodeIO();
         string GetDisplayName();
-        void InitializeConstellation(ConstellationScriptData[] constellationScripts);
+        void InitializeConstellation(ConstellationScriptData[] constellationScripts, bool isPrivateScope);
     }
 }

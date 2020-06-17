@@ -10,9 +10,11 @@ namespace Constellation
         public List<INodeGetter> NodeGetters;
         public List<IRequestAssembly> AssemblyRequester;
         ConstellationScriptData[] staticConstellationScripts;
+        private bool isLocalScope;
 
         public NodesFactory(ConstellationScriptData[] staticConstellationScripts)
         {
+            isLocalScope = false;
             this.staticConstellationScripts = staticConstellationScripts;
             Setup();
         }
@@ -31,6 +33,16 @@ namespace Constellation
         {
             staticConstellationScripts = newStaticConstellationList;
             Setup();
+        }
+
+        public void SetLocalScope()
+        {
+            isLocalScope = true;
+        }
+
+        public bool GetIsLocalScope()
+        {
+            return isLocalScope;
         }
 
         private void Setup()

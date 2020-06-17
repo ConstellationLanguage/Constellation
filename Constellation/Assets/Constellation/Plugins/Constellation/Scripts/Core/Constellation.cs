@@ -20,9 +20,9 @@ namespace Constellation
             isConstellationInitialized = false;
             NodesFactory = nodesFactory;
             var newAssembly = new List<ConstellationScriptData>();
-            if(nodesFactory.GetStaticScripts() == null)
+            if(nodesFactory.GetStaticScripts() == null || nodesFactory.GetIsLocalScope())
             {
-                
+                UnityEngine.Debug.Log("Private scope");
                 foreach (var node in constellationScriptData.Nodes)
                 {
                     if (node.Namespace == ConstellationNodes.NameSpace.NAME)
@@ -31,6 +31,7 @@ namespace Constellation
                     }
                 }
                 nodesFactory.UpdateConstellationScripts(newAssembly.ToArray());
+                nodesFactory.SetLocalScope();
             }
             SetNodes(constellationScriptData.GetNodes(), onNodeAdded);
             SetLinks(constellationScriptData.GetLinks());
@@ -197,7 +198,7 @@ namespace Constellation
 
             if (newNode.NodeType is ICustomNode)
             {
-                (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts());
+                (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts(), NodesFactory.GetIsLocalScope());
             }
 
             if (Injector != null)

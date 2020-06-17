@@ -74,7 +74,7 @@ namespace Constellation.ConstellationNodes
             constellationNodeData.Value = new Ray().Set(UnityEngine.JsonUtility.ToJson(constellation));
         }
 
-        public void InitializeConstellation(ConstellationScriptData[] constellationScripts)
+        public void InitializeConstellation(ConstellationScriptData[] constellationScripts, bool isLocalScope)
         {
             Entries = new List<Node<INode>>();
             BrightEntriesInfos = new List<BrightEntryInfos>();
@@ -83,17 +83,35 @@ namespace Constellation.ConstellationNodes
             if (isInitialized) // do not initialize twice
                 return;
 
-            nodesFactory = new NodesFactory(constellationScripts);
+            var scriptData = UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString());
+            if (isLocalScope)
+            {
+                nodesFactory = new NodesFactory(null);
+                var newAssembly = new List<ConstellationScriptData>();
+                foreach (var node in scriptData.Nodes)
+                {
+                    if (node.Namespace == ConstellationNodes.NameSpace.NAME)
+                    {
+                        newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
+                    }
+                }
+                nodesFactory.UpdateConstellationScripts(newAssembly.ToArray());
+                nodesFactory.SetLocalScope();
+            }
+            else
+            {
+                nodesFactory = new NodesFactory(constellationScripts);
+            }
 
             var parametersCounter = 0;
             var entryCounter = 0;
             var exitCounter = 0;
-            constellation = new Constellation(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString()), nodesFactory, (newNode, node) =>
+            constellation = new Constellation(scriptData, nodesFactory, (newNode, node) =>
             {
                 if (newNode.NodeType is IExitNode)
                 {
                     ExitNodes.Add(newNode.NodeType as IExitNode);
-                    if(newNode.NodeType is IBrightExitNode)
+                    if (newNode.NodeType is IBrightExitNode)
                     {
                         (newNode.NodeType as IBrightExitNode).SubscribeReceiver(this, exitCounter);
                     }
@@ -112,7 +130,7 @@ namespace Constellation.ConstellationNodes
                     Entries.Add(newNode);
                 }
 
-                if(newNode.NodeType.NodeName() == Parameters.ValueParameter.NAME || newNode.NodeType.NodeName() == Parameters.WordParameter.NAME)
+                if (newNode.NodeType.NodeName() == Parameters.ValueParameter.NAME || newNode.NodeType.NodeName() == Parameters.WordParameter.NAME)
                 {
                     parameters.Add(newNode.NodeType as IReceiver);
                 }
@@ -154,7 +172,7 @@ namespace Constellation.ConstellationNodes
         //Receive from inputs.
         public void Receive(Ray _value, Input _input)
         {
-            if(_input.InputId >= Parameter.ParameterInputID)
+            if (_input.InputId >= Parameter.ParameterInputID)
             {
                 var parameterID = _input.InputId - 1000;
                 parameters[parameterID].Receive(_value, _input);
@@ -186,14 +204,14 @@ namespace Constellation.ConstellationNodes
             }
         }
 
-        public void SendRay(Ray ray, int id) 
+        public void SendRay(Ray ray, int id)
         {
             sender.Send(ray, id);
         }
 
-        public Node<INode> [] GetSubNodes()
+        public Node<INode>[] GetSubNodes()
         {
-            return constellation.GetNodes();
+            return constellation.GetAllNodesAndSubNodes();
         }
 
         public void OnAwake()
@@ -207,7 +225,7 @@ namespace Constellation.ConstellationNodes
     {
         public Node<INode> BrightEntry;
         public int Id;
-        
+
         public BrightEntryInfos(Node<INode> _brightEntry, int _id)
         {
             BrightEntry = _brightEntry;
