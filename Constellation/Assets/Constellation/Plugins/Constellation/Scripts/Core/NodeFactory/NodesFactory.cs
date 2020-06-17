@@ -27,7 +27,7 @@ namespace Constellation
             return staticConstellationScripts;
         }
 
-        public void UpdateConstellatioNScripts(ConstellationScriptData [] newStaticConstellationList)
+        public void UpdateConstellationScripts(ConstellationScriptData [] newStaticConstellationList)
         {
             staticConstellationScripts = newStaticConstellationList;
             Setup();

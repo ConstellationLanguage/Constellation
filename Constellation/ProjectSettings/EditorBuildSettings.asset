@@ -8,7 +8,4 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Devdir/Test.unity
-    guid: b90b8e4995e05db45aaa3613372f1bc5
   m_configObjects: {}

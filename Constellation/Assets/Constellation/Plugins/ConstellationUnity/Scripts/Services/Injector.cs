@@ -108,7 +108,7 @@ namespace Constellation
             if (Awakables == null)
                 Awakables = new List<IAwakable>();
 
-            foreach (var node in Constellation.GetAllNodesAndSubNodes())
+            foreach (var node in Constellation.GetNodes())
             {
                 if (node.NodeType as IAwakable != null)
                 {

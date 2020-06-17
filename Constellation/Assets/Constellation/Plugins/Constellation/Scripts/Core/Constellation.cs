@@ -28,7 +28,7 @@ namespace Constellation
                        newAssembly.Add(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(node.DiscreteParametersData[1].Value.GetString()));
                     }
                 }
-                nodesFactory.UpdateConstellatioNScripts(newAssembly.ToArray());
+                nodesFactory.UpdateConstellationScripts(newAssembly.ToArray());
             }
             SetNodes(constellationScriptData.GetNodes(), onNodeAdded);
             SetLinks(constellationScriptData.GetLinks());
@@ -191,13 +191,14 @@ namespace Constellation
                 }
             }
             Nodes.Add(newNode);
-            if(Injector != null)
-                Injector.RefreshConstellationEvents();
 
             if (newNode.NodeType is ICustomNode)
             {
                 (newNode.NodeType as ICustomNode).InitializeConstellation(NodesFactory.GetStaticConstellationScripts());
             }
+
+            if (Injector != null)
+                Injector.RefreshConstellationEvents();
 
             return newNode;
         }

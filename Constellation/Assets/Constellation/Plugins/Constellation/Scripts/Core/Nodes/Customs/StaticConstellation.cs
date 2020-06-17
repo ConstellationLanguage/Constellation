@@ -88,7 +88,6 @@ namespace Constellation.ConstellationNodes
             var parametersCounter = 0;
             var entryCounter = 0;
             var exitCounter = 0;
-            Debug.Log(constellationNodeData.Value.GetString());
             constellation = new Constellation(UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString()), nodesFactory, (newNode, node) =>
             {
                 if (newNode.NodeType is IExitNode)
@@ -128,8 +127,8 @@ namespace Constellation.ConstellationNodes
                 }
             });
             constellation.Initialize(System.Guid.NewGuid().ToString(), nameParameter.Value.GetString());
-            /*if (constellation.GetInjector() is IAwakable)
-                constellation.GetInjector().OnAwake();*/
+            if (constellation.GetInjector() is IAwakable)
+                constellation.GetInjector().OnAwake();
 
             isInitialized = true;
         }

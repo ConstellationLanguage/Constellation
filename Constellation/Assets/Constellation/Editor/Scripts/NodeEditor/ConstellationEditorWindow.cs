@@ -257,7 +257,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
 
     void OnNodeMoved()
     {
-        if (Application.isPlaying && previousSelectedGameObject != null)
+        if (Application.isPlaying && previousSelectedGameObject != null && ConstellationScript.IsInstance)
         {
             ConstellationScript.IsDifferentThanSource = true;
         }
@@ -426,7 +426,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
 
     protected void OnLinkAdded(LinkData link)
     {
-        if (Application.isPlaying && previousSelectedGameObject != null)
+        if (Application.isPlaying && previousSelectedGameObject != null && ConstellationScript.IsInstance)
         {
             currentEditableConstellation.AddLink(link);
             ConstellationScript.IsDifferentThanSource = true;
@@ -435,7 +435,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
 
     protected void OnLinkRemoved(LinkData link)
     {
-        if (Application.isPlaying && previousSelectedGameObject != null)
+        if (Application.isPlaying && previousSelectedGameObject != null && ConstellationScript.IsInstance)
         {
             currentEditableConstellation.RemoveLink(link);
             ConstellationScript.IsDifferentThanSource = true;
@@ -453,7 +453,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
             ConstellationScript = ScriptDataService.ConvertToConstellationNodeScript();
         }
 
-        if (Application.isPlaying && previousSelectedGameObject != null)
+        if (Application.isPlaying && previousSelectedGameObject != null && ConstellationScript.IsInstance)
         {
             currentEditableConstellation.AddNode(node);
             ConstellationScript.IsDifferentThanSource = true;
@@ -470,7 +470,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
         {
             ConstellationScript = ScriptDataService.ConvertToConstellationScript();
         }
-        if (Application.isPlaying && previousSelectedGameObject != null)
+        if (Application.isPlaying && previousSelectedGameObject != null && ConstellationScript.IsInstance)
         {
             currentEditableConstellation.RemoveNode(node);
             ConstellationScript.IsDifferentThanSource = true;
