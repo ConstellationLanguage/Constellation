@@ -24,7 +24,7 @@ namespace Constellation.GameObjects {
 
         public void Receive (Ray value, Input _input) {
             if (_input.isBright){
-                GameObject = new Ray ().Set (UnityEngine.GameObject.Find (value.GetString ()));
+                GameObject = new Ray ().Set (UnityEngine.GameObject.Find (value.GetString()));
                 sender.Send (GameObject, 0);
             }
         }

@@ -4,7 +4,7 @@ namespace Constellation.GameObjects
 {
 	public class SetActive : INode, IReceiver, IRequireGameObject {
 		public const string NAME = "SetActive";
-		UnityEngine.GameObject GameObject;
+		UnityEngine.GameObject gameObject;
 		ISender sender;
 		public void Setup (INodeParameters _nodeParameters) {
 			_nodeParameters.AddInput (this, false, "Object", "The gameobject to activate");
@@ -24,26 +24,28 @@ namespace Constellation.GameObjects
 		}
 
 		public void Set (GameObject _gameObject) {
-			GameObject = _gameObject;
+			gameObject = _gameObject;
 		}
 
 		public void Receive (Ray _value, Input _input) { 
-			if(_input.isBright && GameObject != null){
-				if(GameObject.activeSelf == true)
+			if(_input.isBright && gameObject != null){
+				if(gameObject.activeSelf == true)
 					sender.Send(new Ray(1), 0);
 				else
 					sender.Send(new Ray(0), 0);
 			}
 
-			if(_input.InputId == 0)
-				GameObject = UnityObjectsConvertions.ConvertToGameObject(_value.GetObject());
-
-			if(_input.InputId == 1 && GameObject != null)
+			if (_input.InputId == 0)
 			{
-				if(_value.GetFloat() == 1)
-					GameObject.SetActive(true);
-				else 
-					GameObject.SetActive(false);
+				Set(UnityObjectsConvertions.ConvertToGameObject(_value.GetObject()));
+			}
+
+			if(_input.InputId == 1 && gameObject != null)
+			{
+				if (_value.GetFloat() == 1)
+					gameObject.SetActive(true);
+				else
+					gameObject.SetActive(false);
 			}
 
 		}

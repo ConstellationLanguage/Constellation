@@ -11,11 +11,13 @@ namespace Constellation
         public List<Link> Links;
         public delegate void NodeAdded(Node<INode> node, NodeData nodeData);
         protected NodesFactory NodesFactory;
+        private bool isConstellationInitialized;
 
         public Constellation(ConstellationScriptData constellationScriptData, 
             NodesFactory nodesFactory, 
             NodeAdded onNodeAdded = null)
         {
+            isConstellationInitialized = false;
             NodesFactory = nodesFactory;
             var newAssembly = new List<ConstellationScriptData>();
             if(nodesFactory.GetStaticScripts() == null)
@@ -32,6 +34,7 @@ namespace Constellation
             }
             SetNodes(constellationScriptData.GetNodes(), onNodeAdded);
             SetLinks(constellationScriptData.GetLinks());
+            isConstellationInitialized = true;
         }
 
         void SetNodes(NodeData[] nodes, NodeAdded onNodeAdded)
@@ -199,6 +202,15 @@ namespace Constellation
 
             if (Injector != null)
                 Injector.RefreshConstellationEvents();
+
+            if (isConstellationInitialized)
+            {
+                if (newNode.NodeType is IAwakable)
+                {
+                    (newNode.NodeType as IAwakable).OnAwake();
+                }
+            }
+
 
             return newNode;
         }
