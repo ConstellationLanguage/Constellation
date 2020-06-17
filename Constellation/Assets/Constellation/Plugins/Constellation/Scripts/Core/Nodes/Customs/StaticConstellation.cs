@@ -37,7 +37,7 @@ namespace Constellation.ConstellationNodes
 
         public void SetupNodeIO(IConstellationFileParser constellationFileParser)
         {
-            var constellation = constellationFileParser.ParseConstellationScript(constellationNodeData.Value.GetString());
+            var constellation = UnityEngine.JsonUtility.FromJson<ConstellationScriptData>(constellationNodeData.Value.GetString());//constellationFileParser.ParseConstellationScript(constellationNodeData.Value.GetString());
             NodeParameters = new List<Ray>();
             foreach (var nestedNode in constellation.Nodes)
             {
@@ -69,8 +69,9 @@ namespace Constellation.ConstellationNodes
 
         public void UpdateNode(ConstellationScriptData constellation, IConstellationFileParser constellationFileParser)
         {
+            UnityEngine.Debug.Log(constellationFileParser);
             nameParameter.Value = new Ray().Set(constellation.Name);
-            constellationNodeData.Value = new Ray().Set(constellationFileParser.ParseConstellationScript(constellation));
+            constellationNodeData.Value = new Ray().Set(UnityEngine.JsonUtility.ToJson(constellation));
         }
 
         public void InitializeConstellation(ConstellationScriptData[] constellationScripts, IConstellationFileParser constellationFileParser, bool isLocalScope)
