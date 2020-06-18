@@ -40,5 +40,10 @@ namespace Constellation.Unity
             UnityObject.Set(_value);
             sender.Send(UnityObject, 0);
         }
+
+        public bool DisplayInConstellation()
+        {
+            return false;
+        }
     }
 }

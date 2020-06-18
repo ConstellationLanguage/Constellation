@@ -36,5 +36,10 @@
             }
             sender.Send (Value, 0);
         }
+
+        public bool DisplayInConstellation()
+        {
+            return true;
+        }
     }
 }

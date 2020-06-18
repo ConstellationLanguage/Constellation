@@ -6,8 +6,8 @@ namespace Constellation.ConstellationNodes
     public class StaticConstellation : INode, IReceiver, ICustomNode, IDiscreteNode, IRayReceiver, ISubNodes, IAwakable
     {
         private ISender sender;
-        private Parameter nameParameter; // attributes are setted in the editor.
-        private Parameter constellationNodeData; // attributes are setted in the editor.
+        private Parameter nameParameter; // parameters are setted in the editor.
+        private Parameter constellationNodeData; // parameters are setted in the editor.
         public const string NAME = "StaticConstellation"; //Setting the node name (need to be a const to be used in the factory without the node instantiated)
         Constellation constellation;
         ConstellationScriptData ConstellationData;
@@ -137,7 +137,7 @@ namespace Constellation.ConstellationNodes
                 if (IsAttribute(node) && NodeParameters[parametersCounter] != null)
                 {
                     IParameter nodeParameter = newNode.NodeType as IParameter;
-                    if (node.Name != "ObjectParameter" && parametersCounter < NodeParameters.Count)
+                    if (nodeParameter.DisplayInConstellation() && parametersCounter < NodeParameters.Count)
                         nodeParameter.SetParameter(NodeParameters[parametersCounter]);
 
                     parametersCounter++;

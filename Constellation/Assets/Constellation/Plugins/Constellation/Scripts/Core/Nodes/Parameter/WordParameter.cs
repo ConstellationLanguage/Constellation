@@ -40,5 +40,10 @@
             defaultValue.Set(_value);
             sender.Send(defaultValue, 0);
         }
+
+        public bool DisplayInConstellation()
+        {
+            return true;
+        }
     }
 }
