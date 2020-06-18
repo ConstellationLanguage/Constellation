@@ -116,17 +116,20 @@ namespace ConstellationEditor
 
         private static Ray IfCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "if", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
+            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "if", editorStyles.NodeValueAttributeLabelStyle);
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
         }
 
         private static Ray ThenCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "then", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
+            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "then", editorStyles.NodeValueAttributeLabelStyle);
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
         }
 
         private static Ray ElseCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "else", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
+            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "else", editorStyles.NodeValueAttributeLabelStyle);
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
         }
     }
 }

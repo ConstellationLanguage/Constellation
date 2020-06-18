@@ -15,6 +15,7 @@ MonoBehaviour:
   ConstellationScripts:
   - {fileID: 11400000, guid: fbc5b70ec38ac4b44b179ce83d138adf, type: 2}
   - {fileID: 11400000, guid: 9aba942fb27133c4abec6df01d8357c8, type: 2}
+  - {fileID: 11400000, guid: a71e3259a639acf4e9a70faebe95c7d8, type: 2}
   - {fileID: 11400000, guid: 17a672aa298063d4b93162f9d7d857b6, type: 2}
   ConstellationTutorials:
   - {fileID: 11400000, guid: b4a3acbb7b9e7c34291a4b67cc375b6c, type: 2}
