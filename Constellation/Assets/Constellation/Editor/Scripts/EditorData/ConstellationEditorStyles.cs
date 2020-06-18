@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace ConstellationEditor
 {
@@ -15,17 +16,28 @@ namespace ConstellationEditor
         public ConstellationIOStyles IOUnknownStyle;
         public ConstellationIOStyles IOUndefinedStyle;
         public List<ConstellationIOStyles> IOStyles;
-        public GUIStyle NodeValueAttributeStyle;
-        public GUIStyle NodeValueAttributeLabelStyle;
-        public GUIStyle NodeWordAttributeStyle;
-        public GUIStyle NodeXAtrributeStyle;
-        public GUIStyle NodeYAtrributeStyle;
-        public GUIStyle NodeZAtrributeStyle;
-        public GUIStyle NodeRAtrributeStyle;
-        public GUIStyle NodeGAtrributeStyle;
-        public GUIStyle NodeBAtrributeStyle;
-        public GUIStyle NodeAAtrributeStyle;
-        public GUIStyle NodeReadOnlyAttributeStyle;
+        [FormerlySerializedAs("NodeValueAttributeStyle")]
+        public GUIStyle NodeValueParameterStyle;
+        [FormerlySerializedAs("NodeValueAttributeLabelStyle")]
+        public GUIStyle NodeValueParameterLabelStyle;
+        [FormerlySerializedAs("NodeWordAttributeStyle")]
+        public GUIStyle NodeWordParameterStyle;
+        [FormerlySerializedAs("NodeXAtrributeStyle")]
+        public GUIStyle NodeXParameterStyle;
+        [FormerlySerializedAs("NodeYAtrributeStyle")]
+        public GUIStyle NodeYParameterStyle;
+        [FormerlySerializedAs("NodeZAtrributeStyle")]
+        public GUIStyle NodeZParameterStyle;
+        [FormerlySerializedAs("NodeRAtrributeStyle")]
+        public GUIStyle NodeRParameterStyle;
+        [FormerlySerializedAs("NodeRAtrributeStyle")]
+        public GUIStyle NodeGParameterStyle;
+        [FormerlySerializedAs("NodeBAtrributeStyle")]
+        public GUIStyle NodeBParameterStyle;
+        [FormerlySerializedAs("NodeAAtrributeStyle")]
+        public GUIStyle NodeAParameterStyle;
+        [FormerlySerializedAs("NodeReadOnlyAttributeStyle")]
+        public GUIStyle NodeReadOnlyParameterStyle;
         public GUIStyle GenericDeleteStyle;
         public GUIStyle GenericQuestionStyle;
         public float nodeTitleHeight = 20;

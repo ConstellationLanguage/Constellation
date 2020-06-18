@@ -14,12 +14,12 @@ namespace ConstellationEditor
             {
                 case Parameter.ParameterType.Value:
                     canBeFocused = true;
-                    var valueToReturn = Value.Set(EditorGUI.FloatField(size, " ", Value.GetFloat(), editorStyles.NodeValueAttributeStyle));
-                    EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "<>", editorStyles.NodeValueAttributeLabelStyle);
+                    var valueToReturn = Value.Set(EditorGUI.FloatField(size, " ", Value.GetFloat(), editorStyles.NodeValueParameterStyle));
+                    EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "<>", editorStyles.NodeValueParameterLabelStyle);
                     return valueToReturn;
                 case Parameter.ParameterType.Word:
                     canBeFocused = true;
-                    return Value.Set(EditorGUI.TextField(size, "", Value.GetString(), editorStyles.NodeWordAttributeStyle));
+                    return Value.Set(EditorGUI.TextField(size, "", Value.GetString(), editorStyles.NodeWordParameterStyle));
                 case Parameter.ParameterType.Conditionals:
                     canBeFocused = true;
                     return IfCharacterFilter(size, Value, editorStyles);
@@ -37,28 +37,28 @@ namespace ConstellationEditor
                     //noteSkin.alignment = TextAnchor.UpperLeft;
                     return textAreaValue;
                 case Parameter.ParameterType.ReadOnlyValue:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeReadOnlyAttributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeReadOnlyParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyXValue:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeXAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeXParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyYValue:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeYAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeYParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyZValue:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeZAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeZParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyValueR:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeRAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeRParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyValueG:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeGAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeGParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyValueB:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeBAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeBParameterStyle);
                     return Value;
                 case Parameter.ParameterType.ReadOnlyValueA:
-                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeAAtrributeStyle);
+                    EditorGUI.LabelField(size, Value.GetString(), editorStyles.NodeAParameterStyle);
                     return Value;
                 case Parameter.ParameterType.RenameNodeTitle:
                     EditorGUI.LabelField(size, Value.GetString());
@@ -116,20 +116,20 @@ namespace ConstellationEditor
 
         private static Ray IfCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "if", editorStyles.NodeValueAttributeLabelStyle);
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
+            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "if", editorStyles.NodeValueParameterLabelStyle);
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordParameterStyle), "[a-zA-Z ]", ""));
         }
 
         private static Ray ThenCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "then", editorStyles.NodeValueAttributeLabelStyle);
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
+            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "then", editorStyles.NodeValueParameterLabelStyle);
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordParameterStyle), "[a-zA-Z ]", ""));
         }
 
         private static Ray ElseCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "else", editorStyles.NodeValueAttributeLabelStyle);
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
+            EditorGUI.LabelField(new Rect(size.x, size.y - 8, 30, 30), "else", editorStyles.NodeValueParameterLabelStyle);
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "    ", Value.GetString(), editorStyles.NodeWordParameterStyle), "[a-zA-Z ]", ""));
         }
     }
 }
