@@ -37,7 +37,7 @@ namespace ConstellationEditor
 
             foreach (var attribute in node.ParametersData)
             {
-                attribute.Value = AttributeStyleFactory.Reset(attribute.Type, attribute.Value);
+                attribute.Value = ParametersStyleFactory.Reset(attribute.Type, attribute.Value);
             }
         }
 
@@ -279,7 +279,7 @@ namespace ConstellationEditor
                     {
                         GUI.SetNextControlName(parameterControleName);
                         var currentParameterValue = parameter.Value.GetString();
-                        parameter.Value = AttributeStyleFactory.Draw(parameter.Type, parameterRect, nodeAttributeRect, parameter.Value, editorStyles,out isFocusable);
+                        parameter.Value = ParametersStyleFactory.Draw(parameter.Type, parameterRect, nodeAttributeRect, parameter.Value, editorStyles,out isFocusable);
                         if (parameter.Value != null)
                         {
                             if (currentParameterValue != parameter.Value.GetString())

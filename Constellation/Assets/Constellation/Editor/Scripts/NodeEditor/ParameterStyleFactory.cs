@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ConstellationEditor
 {
-    public static class AttributeStyleFactory
+    public static class ParametersStyleFactory
     {
         public static Ray Draw(Parameter.ParameterType type, Rect size, Rect attributeArea, Ray Value, ConstellationEditorStyles editorStyles, out bool canBeFocused)
         {
@@ -22,13 +22,13 @@ namespace ConstellationEditor
                     return Value.Set(EditorGUI.TextField(size, "", Value.GetString(), editorStyles.NodeWordAttributeStyle));
                 case Parameter.ParameterType.Conditionals:
                     canBeFocused = true;
-                    return IfCharacterFilter(size, Value);
+                    return IfCharacterFilter(size, Value, editorStyles);
                 case Parameter.ParameterType.Then:
                     canBeFocused = true;
-                    return ThenCharacterFilter(size, Value);
+                    return ThenCharacterFilter(size, Value, editorStyles);
                 case Parameter.ParameterType.Else:
                     canBeFocused = true;
-                    return ElseCharacterFilter(size, Value);
+                    return ElseCharacterFilter(size, Value, editorStyles);
                 case Parameter.ParameterType.NoteField:
                     canBeFocused = true;
                     GUI.color = new Color(0.9f, 0.85f, 0.25f);
@@ -114,19 +114,19 @@ namespace ConstellationEditor
             }
         }
 
-        private static Ray IfCharacterFilter(Rect size, Ray Value)
+        private static Ray IfCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "if", Value.GetString()), "[a-zA-Z ]", ""));
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "if", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
         }
 
-        private static Ray ThenCharacterFilter(Rect size, Ray Value)
+        private static Ray ThenCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "then", Value.GetString()), "[a-zA-Z ]", ""));
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "then", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
         }
 
-        private static Ray ElseCharacterFilter(Rect size, Ray Value)
+        private static Ray ElseCharacterFilter(Rect size, Ray Value, ConstellationEditorStyles editorStyles)
         {
-            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "else", Value.GetString()), "[a-zA-Z ]", ""));
+            return Value.Set(Regex.Replace(EditorGUI.TextField(size, "else", Value.GetString(), editorStyles.NodeWordAttributeStyle), "[a-zA-Z ]", ""));
         }
     }
 }
