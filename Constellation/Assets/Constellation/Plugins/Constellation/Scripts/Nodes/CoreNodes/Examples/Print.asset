@@ -26,12 +26,28 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 17dce43e-d64f-44da-8555-787896415884
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 60
+      YPosition: 85
+      SizeX: 291
+      SizeY: 61
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Print in the console.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 48189c32-d69e-4862-86fb-5e78c4a60e6b
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 305
-      YPosition: 95
+      XPosition: 285
+      YPosition: 175
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -46,10 +62,10 @@ MonoBehaviour:
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 85
-      YPosition: 95
-      SizeX: 0
-      SizeY: 0
+      XPosition: 65
+      YPosition: 175
+      SizeX: 116
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: adb6b3ce-3475-4c23-bfd6-0af304fff6db
@@ -58,7 +74,7 @@ MonoBehaviour:
         Description: The Word
       ParametersData:
       - Value:
-          stringValue: your word
+          stringValue: Hello world
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []
@@ -75,7 +91,7 @@ MonoBehaviour:
         Description: The Word
       outputPositionY: 0
       GUID: 16c78191-80ca-4145-8d36-677aee64d6c7
-    Name: 
+    Name: Print
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

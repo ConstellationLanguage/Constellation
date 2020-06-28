@@ -26,12 +26,64 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: bb4ac0ca-07b7-4a80-bd1e-3ae84c3c95a2
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 25
+      YPosition: 75
+      SizeX: 253
+      SizeY: 48
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: 1 will send the second input 0 will stop
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 83bf62f4-050b-4fbc-9872-26219172ded1
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 500
+      YPosition: 130
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 5c5abc23-3304-43e3-a765-79d69ef28ceb
+      Name: Key
+      Namespace: UserInputs
+      OverrideDisplayedName: 
+      XPosition: 30
+      YPosition: 140
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: d3d7350d-39ef-4845-822f-ba1f11aac5b3
+        IsBright: 1
+        Type: Var
+        Description: Output 1 when key pressed
+      ParametersData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
     - Guid: 052f1738-51b9-4e5d-a695-7dbb5176c998
       Name: Switch
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 385
-      YPosition: 130
+      YPosition: 170
       SizeX: 75
       SizeY: 60
       Inputs:
@@ -50,37 +102,33 @@ MonoBehaviour:
         Description: Output if on
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 83bf62f4-050b-4fbc-9872-26219172ded1
-      Name: Print
+    - Guid: 67d1f877-c1be-48e8-8a6d-598f34d4c0b7
+      Name: Var
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 500
-      YPosition: 130
-      SizeX: 75
-      SizeY: 40
+      XPosition: 225
+      YPosition: 190
+      SizeX: 100
+      SizeY: 60
       Inputs:
-      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+      - Guid: d99e050f-e2b4-4ec9-8f54-cf9158582ddf
         IsBright: 0
+        Type: Var
+        Description: New var
+      - Guid: fe79d0ed-1389-40c2-88b9-21913a6d4139
+        IsBright: 1
         Type: Any
-        Description: value to log in console
-      Outputs: []
-      ParametersData: []
-      DiscreteParametersData: []
-    - Guid: bb4ac0ca-07b7-4a80-bd1e-3ae84c3c95a2
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 335
-      YPosition: 45
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
+        Description: Send var
+      Outputs:
+      - Guid: e072cf22-d85c-47ce-9808-48acf1851fa3
+        IsBright: 0
+        Type: Var
+        Description: Output var
       ParametersData:
       - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
       DiscreteParametersData: []
     - Guid: 788221d6-52e7-4cec-8356-8568101d4fd0
       Name: Word
@@ -88,8 +136,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 30
       YPosition: 190
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 043902d7-0920-4b36-8009-4ceb9e81e2fa
@@ -102,42 +150,14 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []
-    - Guid: 67d1f877-c1be-48e8-8a6d-598f34d4c0b7
-      Name: Var
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 225
-      YPosition: 190
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: d99e050f-e2b4-4ec9-8f54-cf9158582ddf
-        IsBright: 0
-        Type: Generic
-        Description: New var
-      - Guid: fe79d0ed-1389-40c2-88b9-21913a6d4139
-        IsBright: 1
-        Type: Any
-        Description: Send var
-      Outputs:
-      - Guid: e072cf22-d85c-47ce-9808-48acf1851fa3
-        IsBright: 0
-        Type: Generic
-        Description: Output var
-      ParametersData:
-      - Value:
-          stringValue: Var
-          floatValue: 0.000001
-        Type: 6
-      DiscreteParametersData: []
     - Guid: 496b3031-9b27-4e2d-b3de-04e0b2bc60f9
       Name: Update
       Namespace: Unity
       OverrideDisplayedName: 
-      XPosition: 80
+      XPosition: 55
       YPosition: 235
-      SizeX: 0
-      SizeY: 0
+      SizeX: 75
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 8071efca-263f-4c12-beab-37c74a583b28
@@ -147,18 +167,6 @@ MonoBehaviour:
       ParametersData: []
       DiscreteParametersData: []
     Links:
-    - Input:
-        Guid: d99e050f-e2b4-4ec9-8f54-cf9158582ddf
-        IsBright: 0
-        Type: Var
-        Description: New var
-      Output:
-        Guid: 043902d7-0920-4b36-8009-4ceb9e81e2fa
-        IsBright: 0
-        Type: Var
-        Description: The Word
-      outputPositionY: 0
-      GUID: b86693c4-1bab-4533-bbdc-16e0331f742f
     - Input:
         Guid: fe79d0ed-1389-40c2-88b9-21913a6d4139
         IsBright: 1
@@ -196,18 +204,30 @@ MonoBehaviour:
       outputPositionY: 0
       GUID: e99ca712-272f-4d73-ba4c-5af9138a63e8
     - Input:
+        Guid: d99e050f-e2b4-4ec9-8f54-cf9158582ddf
+        IsBright: 0
+        Type: Var
+        Description: New var
+      Output:
+        Guid: 043902d7-0920-4b36-8009-4ceb9e81e2fa
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: 5a956ea5-54ed-4aae-8f5f-bf71a48baebb
+    - Input:
         Guid: 2477d507-03ff-4e4b-9f7d-ff023b7f3abc
         IsBright: 0
         Type: Var
         Description: 1 = on, 0 = off
       Output:
-        Guid: 863eb55d-fea5-4de3-9560-7bba6ff82367
-        IsBright: 0
+        Guid: d3d7350d-39ef-4845-822f-ba1f11aac5b3
+        IsBright: 1
         Type: Var
         Description: Output 1 when key pressed
       outputPositionY: 0
-      GUID: 8fc6db1d-a3f4-4902-b972-e6384f51009f
-    Name: 
+      GUID: a5df1481-665a-4b07-b2aa-8da116b9d3ff
+    Name: Switch
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

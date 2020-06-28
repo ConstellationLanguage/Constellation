@@ -30,20 +30,20 @@ MonoBehaviour:
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 180
-      YPosition: 110
-      SizeX: 0
-      SizeY: 0
+      XPosition: 15
+      YPosition: 55
+      SizeX: 259
+      SizeY: 55
       Inputs: []
       Outputs: []
       ParametersData:
       - Value:
-          stringValue: Your note here
+          stringValue: Usefull to comment your constellations :)
           floatValue: 0.000001
         Type: 2
       DiscreteParametersData: []
     Links: []
-    Name: 
+    Name: Note
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

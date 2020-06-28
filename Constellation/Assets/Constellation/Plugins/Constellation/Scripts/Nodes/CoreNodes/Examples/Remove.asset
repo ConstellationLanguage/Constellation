@@ -26,12 +26,28 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 8aad3619-2f51-4050-88a8-fbcea24a21ed
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 80
+      YPosition: 60
+      SizeX: 159
+      SizeY: 49
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Substract 2 values
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: d25d782b-6240-4959-a919-ca922f302611
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 585
-      YPosition: 80
+      XPosition: 450
+      YPosition: 155
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -46,8 +62,8 @@ MonoBehaviour:
       Name: Remove
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 415
-      YPosition: 80
+      XPosition: 280
+      YPosition: 155
       SizeX: 75
       SizeY: 60
       Inputs:
@@ -70,8 +86,8 @@ MonoBehaviour:
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 215
-      YPosition: 80
+      XPosition: 80
+      YPosition: 155
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -83,15 +99,15 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
       DiscreteParametersData: []
     - Guid: c5ed64fd-a534-4aab-b3bb-ef433170b3c7
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 215
-      YPosition: 125
+      XPosition: 80
+      YPosition: 200
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -103,15 +119,31 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 2
         Type: 0
+      DiscreteParametersData: []
+    - Guid: 45ee86b0-2c5d-45aa-8b6b-65a32ba59873
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 80
+      YPosition: 265
+      SizeX: 214
+      SizeY: 49
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Removes a value from a word
+          floatValue: 0.000001
+        Type: 2
       DiscreteParametersData: []
     - Guid: e01e03f2-2d4d-48ed-8fab-945346d7fc46
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 160
-      YPosition: 250
+      XPosition: 90
+      YPosition: 330
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -122,7 +154,7 @@ MonoBehaviour:
         Description: The Word
       ParametersData:
       - Value:
-          stringValue: your word
+          stringValue: 'My word '
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []
@@ -130,8 +162,8 @@ MonoBehaviour:
       Name: Remove
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 435
-      YPosition: 280
+      XPosition: 295
+      YPosition: 355
       SizeX: 75
       SizeY: 60
       Inputs:
@@ -154,8 +186,8 @@ MonoBehaviour:
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 585
-      YPosition: 280
+      XPosition: 445
+      YPosition: 355
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -170,8 +202,8 @@ MonoBehaviour:
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 230
-      YPosition: 300
+      XPosition: 90
+      YPosition: 375
       SizeX: 100
       SizeY: 40
       Inputs: []
@@ -182,7 +214,7 @@ MonoBehaviour:
         Description: The Word
       ParametersData:
       - Value:
-          stringValue: your word
+          stringValue: My
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []

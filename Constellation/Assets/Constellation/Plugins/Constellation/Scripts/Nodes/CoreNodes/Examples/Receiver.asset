@@ -26,12 +26,112 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 87c9c73e-cd1b-45fe-9f80-de93e1147483
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 60
+      SizeX: 255
+      SizeY: 101
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Receive a var from a sender
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 1519c41f-f37f-4936-8d72-62d051f1d174
+      Name: Sender
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 340
+      YPosition: 190
+      SizeX: 146
+      SizeY: 40
+      Inputs:
+      - Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
+        IsBright: 1
+        Type: Var
+        Description: value to send
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Event
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: e3e0b45f-93fb-43e8-8364-e50d6c95ce5d
+      Name: Word
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 190
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      ParametersData:
+      - Value:
+          stringValue: Sent word
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 7afbb1eb-7daf-4e00-96ca-20438a3b6c9c
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 215
+      YPosition: 190
+      SizeX: 100
+      SizeY: 60
+      Inputs:
+      - Guid: 00e7b504-549b-403e-874e-55811d4e5d68
+        IsBright: 0
+        Type: Var
+        Description: New var
+      - Guid: 08f84ec5-b986-4a47-9540-164919c0a77d
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: 02536efb-2500-4d14-967a-a0e0f645dedb
+        IsBright: 0
+        Type: Var
+        Description: Output var
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+      DiscreteParametersData: []
+    - Guid: 854e5c32-9f30-4777-b4da-7af058dd4783
+      Name: Update
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 240
+      SizeX: 101
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 91a4f122-ae62-4e28-b793-437a0735cc52
+        IsBright: 1
+        Type: Ray
+        Description: Ray on update
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 45af2a90-4eb9-44db-9aea-95928f968487
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 250
-      YPosition: 200
+      XPosition: 270
+      YPosition: 325
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -42,98 +142,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 7afbb1eb-7daf-4e00-96ca-20438a3b6c9c
-      Name: Var
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 195
-      YPosition: 65
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 00e7b504-549b-403e-874e-55811d4e5d68
-        IsBright: 0
-        Type: Generic
-        Description: New var
-      - Guid: 08f84ec5-b986-4a47-9540-164919c0a77d
-        IsBright: 1
-        Type: Any
-        Description: Send var
-      Outputs:
-      - Guid: 02536efb-2500-4d14-967a-a0e0f645dedb
-        IsBright: 0
-        Type: Generic
-        Description: Output var
-      ParametersData:
-      - Value:
-          stringValue: Var
-          floatValue: 0.000001
-        Type: 6
-      DiscreteParametersData: []
-    - Guid: e3e0b45f-93fb-43e8-8364-e50d6c95ce5d
-      Name: Word
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 25
-      YPosition: 65
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
-        IsBright: 1
-        Type: Var
-        Description: The Word
-      ParametersData:
-      - Value:
-          stringValue: your word
-          floatValue: 0.000001
-        Type: 1
-      DiscreteParametersData: []
-    - Guid: 1519c41f-f37f-4936-8d72-62d051f1d174
-      Name: Sender
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 320
-      YPosition: 65
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
-        IsBright: 1
-        Type: Var
-        Description: value to send
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: event name
-          floatValue: 0.000001
-        Type: 1
-      DiscreteParametersData: []
-    - Guid: 854e5c32-9f30-4777-b4da-7af058dd4783
-      Name: Update
-      Namespace: Unity
-      OverrideDisplayedName: 
-      XPosition: 90
-      YPosition: 110
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: 91a4f122-ae62-4e28-b793-437a0735cc52
-        IsBright: 1
-        Type: Ray
-        Description: Ray on update
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 048f8f7e-64d3-49ba-ac67-8c6f14b7279e
       Name: Receiver
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 30
-      YPosition: 200
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 325
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 2a03dbc4-9ede-4956-8f95-f7d636a2ac06
@@ -142,39 +158,11 @@ MonoBehaviour:
         Description: Received Value from a sender
       ParametersData:
       - Value:
-          stringValue: event name
+          stringValue: Event
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []
-    - Guid: 87c9c73e-cd1b-45fe-9f80-de93e1147483
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 36.5
-      YPosition: 259
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     Links:
-    - Input:
-        Guid: 00e7b504-549b-403e-874e-55811d4e5d68
-        IsBright: 0
-        Type: Var
-        Description: New var
-      Output:
-        Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
-        IsBright: 0
-        Type: Var
-        Description: The Word
-      outputPositionY: 0
-      GUID: e846b5f0-6ae4-4fbf-8d9a-1688ccf583b1
     - Input:
         Guid: 259b5007-b291-4d91-b7ee-446c437cc2cf
         IsBright: 0
@@ -211,7 +199,19 @@ MonoBehaviour:
         Description: Received Value from a sender
       outputPositionY: 0
       GUID: c0f5a27e-4088-44b2-8aa7-4120ef6e6258
-    Name: 
+    - Input:
+        Guid: 00e7b504-549b-403e-874e-55811d4e5d68
+        IsBright: 0
+        Type: Var
+        Description: New var
+      Output:
+        Guid: 1eabe6ff-dd6f-4981-991e-f8f3be869515
+        IsBright: 1
+        Type: Var
+        Description: The Word
+      outputPositionY: 0
+      GUID: cb5a3cc1-be5e-46f0-af3b-e3d047c83cc0
+    Name: Receiver
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0
