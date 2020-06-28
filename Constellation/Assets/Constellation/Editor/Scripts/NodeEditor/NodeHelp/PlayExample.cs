@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public delegate void PlayExample();
     public class PlayBar {
         public PlayBar () {

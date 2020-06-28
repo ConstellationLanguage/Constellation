@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Constellation;
 using Constellation.Unity3D;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     [System.Serializable]
     public class ClipBoard
@@ -19,6 +19,8 @@ namespace ConstellationEditor
                 var newNode = new NodeData(view.NodeData);
                 newNode.XPosition = view.NodeData.XPosition + 30;
                 newNode.YPosition = view.NodeData.YPosition + 30;
+                newNode.SizeX = view.NodeData.SizeX;
+                newNode.SizeY = view.NodeData.SizeY;
                 newNode.Guid = System.Guid.NewGuid().ToString();
 
                 foreach (var input in newNode.Inputs)
@@ -74,6 +76,8 @@ namespace ConstellationEditor
                 var newNode = new NodeData(node);
                 newNode.XPosition = node.XPosition;
                 newNode.YPosition = node.YPosition;
+                newNode.SizeX = node.SizeX;
+                newNode.SizeY = node.SizeY;
                 pastedNodes.Add(newNode);
             }
 

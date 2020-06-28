@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public class ExampleSceneLoader {
         public ExampleSceneLoader () { }
 

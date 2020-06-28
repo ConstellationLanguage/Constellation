@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Serialization;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     [CreateAssetMenu(fileName = "ConstellationStyle", menuName = "Constellation Editor/Editor style", order = 1)]
     public class ConstellationEditorStyles : ScriptableObject

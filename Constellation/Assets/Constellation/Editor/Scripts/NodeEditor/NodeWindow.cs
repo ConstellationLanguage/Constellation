@@ -5,7 +5,7 @@ using Constellation;
 using System.Linq;
 using Constellation.Unity3D;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     public class NodeWindow
     {

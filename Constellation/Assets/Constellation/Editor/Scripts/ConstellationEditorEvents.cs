@@ -1,4 +1,4 @@
-﻿namespace ConstellationEditor
+﻿namespace ConstellationUnityEditor
 {
     public class ConstellationEditorEvents
     {

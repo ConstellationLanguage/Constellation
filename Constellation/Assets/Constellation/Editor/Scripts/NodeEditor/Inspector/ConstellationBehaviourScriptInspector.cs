@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     [CustomEditor(typeof(ConstellationBehaviourScript))]
     public class ConstellationBehaviourScriptInspector : Editor

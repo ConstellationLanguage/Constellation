@@ -7,7 +7,7 @@ using Constellation.Unity3D;
 using Constellation.ConstellationTypes;
 using System.Linq;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     [System.Serializable]
     public class ConstellationEditorDataService

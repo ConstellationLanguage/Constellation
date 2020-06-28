@@ -1,4 +1,4 @@
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public class ExamplePlayer {
         protected ConstellationEditorData EditorData;
         public ExamplePlayer () {

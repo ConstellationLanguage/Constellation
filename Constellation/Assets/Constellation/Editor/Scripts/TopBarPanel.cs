@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public static class TopBarPanel {
         public static bool Draw (ILoadable loadable, ICopyable copyable, IParsable compilable) {
             try

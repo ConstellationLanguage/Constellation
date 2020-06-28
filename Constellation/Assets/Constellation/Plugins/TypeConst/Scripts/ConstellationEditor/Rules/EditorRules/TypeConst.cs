@@ -1,8 +1,8 @@
 ﻿namespace Constellation
 {
-    public class TypeConst: IConstellationEditorRule
+    public class TypeConst : IConstellationEditorRule
     {
-        public NodeData NodeAdded(NodeData nodeData, Node<INode>  newNode, ConstellationScriptData constellationScript)
+        public NodeData NodeAdded(NodeData nodeData, Node<INode> newNode, ConstellationScriptData constellationScript)
         {
             var genericNode = newNode.NodeType as IGenericNode;
             if (genericNode as IGenericNode != null)
@@ -20,7 +20,7 @@
             return nodeData;
         }
 
-        public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid, IConstellationFileParser constellationParser)
+        public void LinkAdded(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid, IConstellationFileParser constellationParser)
         {
             var linkedinputID = 0;
             var linkedOutputID = 0;
@@ -79,26 +79,14 @@
             }
         }
 
-        public bool IsTypeValid(InputData _input, OutputData _output)
+        public bool IsLinkValid(InputData _input, OutputData _output)
         {
             return (_input != null && _output != null) && (_input.Type == _output.Type || (_input.Type == ConstellationEditorRules.ANY && _output.Type != ConstellationEditorRules.GENERIC) || (_input.Type != ConstellationEditorRules.GENERIC && _output.Type == ConstellationEditorRules.ANY) || (_input.Type != ConstellationEditorRules.ANY && _output.Type == ConstellationEditorRules.GENERIC) || (_input.Type == ConstellationEditorRules.GENERIC && _output.Type != ConstellationEditorRules.ANY));
         }
 
-        public bool IsLinkValid(LinkData _link, ConstellationScriptData _constellationScriptData)
+        public bool CanRemoveNode(NodeData node, ConstellationScriptData constellationScript)
         {
-            foreach (LinkData link in _constellationScriptData.Links)
-            {
-                if (_link.Input.Guid == link.Input.Guid && _link.Output.Guid == link.Output.Guid)
-                {
-                    return false;
-                }
-            }
             return true;
-        }
-
-        public void RemoveNode(NodeData node, ConstellationScriptData constellationScript)
-        {
-            constellationScript.RemoveNode(node.Guid);
         }
     }
 }

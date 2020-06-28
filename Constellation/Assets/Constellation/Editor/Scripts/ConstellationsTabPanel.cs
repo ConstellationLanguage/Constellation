@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     [System.Serializable]
     public class ConstellationsTabPanel

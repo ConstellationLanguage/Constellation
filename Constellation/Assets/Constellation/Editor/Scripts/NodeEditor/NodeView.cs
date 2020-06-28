@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     public class NodeView
     {

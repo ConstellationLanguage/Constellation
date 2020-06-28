@@ -1,4 +1,4 @@
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     [System.Serializable]
     public class ConstellationScriptInfos {
         public enum ConstellationScriptTag {NoTag, Tutorial, Nestable};

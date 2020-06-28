@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     public static class ParametersStyleFactory
     {

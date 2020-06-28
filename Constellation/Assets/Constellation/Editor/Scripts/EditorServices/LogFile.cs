@@ -8,7 +8,7 @@ public class LogFile
     public static void WriteString(string fileName, string message)
     {
 
-        var folderPath = ConstellationEditor.ConstellationEditor.GetEditorPath() + "EditorData/Logs";
+        var folderPath = ConstellationUnityEditor.ConstellationEditor.GetEditorPath() + "EditorData/Logs";
         Directory.CreateDirectory(folderPath);
         string path = folderPath + "/" + fileName + DateTime.UtcNow.Ticks +".txt";
         

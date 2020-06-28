@@ -3,7 +3,7 @@ using Constellation;
 using UnityEditor;
 using Constellation.Unity3D;
 
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     public class LinksView
     {

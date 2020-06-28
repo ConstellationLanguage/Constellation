@@ -1,4 +1,4 @@
-namespace ConstellationEditor{
+namespace ConstellationUnityEditor{
     public static class ConstellationLinks {
         public static readonly string Source = "https://github.com/AntoineCharton/Constellation";
         public static readonly string Wiki = "https://github.com/AntoineCharton/Constellation/wiki";

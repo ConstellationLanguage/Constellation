@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Constellation.Unity3D;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
 	public class ConstellationEditorData : ScriptableObject {
 		public List<ConstellationScriptInfos> LastOpenedConstellationPath;
 		public float SliderX;

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using Constellation;
-using ConstellationEditor;
+using ConstellationUnityEditor;
 using Constellation.Unity3D;
 
 public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IParsable
@@ -14,7 +14,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
     public ConstellationEditorDataService ScriptDataService;
     public ConstellationScript ConstellationScript;
     public float nodeSelectorWidth = 300;
-    public ConstellationParser ConstellationParser;
+    public ConstellationParsingRules ConstellationParser;
     const float splitThickness = 3;
 
     public Vector2 nodeWindowSize;
@@ -487,7 +487,7 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
     public bool ParseScript(bool refreshTutorials = false)
     {
         if (ConstellationParser == null)
-            ConstellationParser = new ConstellationParser();
+            ConstellationParser = new ConstellationParsingRules();
 
         if (ScriptDataService == null)
         {

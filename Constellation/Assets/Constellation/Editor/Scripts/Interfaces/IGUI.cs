@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public interface IGUI {
         void DragWindow ();
         void SetColor (Color color);

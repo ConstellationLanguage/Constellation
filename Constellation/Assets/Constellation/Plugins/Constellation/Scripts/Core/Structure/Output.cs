@@ -7,14 +7,14 @@ namespace Constellation
 	{
 		public List<IReceiver> Receivers;
 		public string Guid;
-		public bool IsWarm;
+		public bool IsBright;
 		public string Type;
 		public string Description;
 
-		public Output (string _guid, bool _isWarm, string _type, string _description)
+		public Output (string _guid, bool _isBright, string _type, string _description)
 		{
 			Guid = _guid;
-			IsWarm = _isWarm;
+			IsBright = _isBright;
 			Type = _type;
 			Description = _description;
 		}

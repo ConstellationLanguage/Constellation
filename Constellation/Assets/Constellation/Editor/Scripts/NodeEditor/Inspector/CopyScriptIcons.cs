@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 // makes sure that the static constructor is always called in the editor.
-namespace ConstellationEditor
+namespace ConstellationUnityEditor
 {
     [InitializeOnLoad]
     public class CopyScriptIcons : Editor

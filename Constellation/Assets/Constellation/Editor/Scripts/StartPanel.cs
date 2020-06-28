@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public static class StartPanel {
         public static void Draw(ILoadable loadable) {
             if(GUILayout.Button("New")) {

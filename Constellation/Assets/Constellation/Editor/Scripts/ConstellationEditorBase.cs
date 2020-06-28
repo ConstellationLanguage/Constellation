@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public class ExtendedEditorWindow : EditorWindow, IGUI {
         public bool shouldRepaint = false;
 

@@ -2,7 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     public static class EditorUtils {
         public static T[] GetAllInstances<T> () where T : ScriptableObject {
             string[] guids = AssetDatabase.FindAssets ("t:" + typeof (T).Name); //FindAssets uses tags check documentation for more info

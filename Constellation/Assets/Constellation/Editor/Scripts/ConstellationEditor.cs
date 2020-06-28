@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace ConstellationEditor {
+namespace ConstellationUnityEditor {
     [System.Serializable]
     public static class ConstellationEditor {
         [SerializeField]

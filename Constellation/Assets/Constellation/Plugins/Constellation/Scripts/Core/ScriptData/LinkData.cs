@@ -11,7 +11,7 @@ namespace Constellation
         public LinkData(Link _link)
         {
             Input = new InputData(_link.Input.Guid, _link.Input.isBright, _link.Type, _link.Input.Description);
-            Output = new OutputData(_link.Output.Guid, _link.Output.IsWarm, _link.Type, _link.Output.Description);
+            Output = new OutputData(_link.Output.Guid, _link.Output.IsBright, _link.Type, _link.Output.Description);
             GUID = _link.Guid;
         }
 

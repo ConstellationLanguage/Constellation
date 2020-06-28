@@ -28,7 +28,7 @@ namespace Constellation
                 .Where(p => type.IsAssignableFrom(p));
             foreach (var t in types)
             {
-                if (t.FullName != "Constellation.IConstellationEditorRule")
+                if (t.FullName != typeof(IConstellationEditorRule).FullName)
                 {
                     var rule = Activator.CreateInstance(t) as IConstellationEditorRule;
                     constellationRules.Add(rule);
@@ -55,31 +55,33 @@ namespace Constellation
         public bool AddLink(InputData _input, OutputData _output, ConstellationScriptData constellationScript, ConstellationEditorRules.LinkValid linkIsValid, ConstellationEditorRules.LinkAdded linkCreated)
         {
             var newLink = new LinkData(_input, _output);
+            if (_output == null || _input == null)
+                return false;
+
             foreach (var constellationRule in constellationRules)
             {
-                if (_output != null && _output.Type == UNDEFINED && _input != null && _input.Type != UNDEFINED)
-                    return false;
-
-                if (constellationRule.IsTypeValid(_input, _output))
+                if (constellationRule.IsLinkValid(_input, _output))
                 {
-
-                    if (constellationRule.IsLinkValid(newLink, constellationScript))
+                    if (!IsLinkValid(newLink, constellationScript))
                     {
-                        linkIsValid();
-                        constellationScript.AddLink(newLink);
-                        linkCreated(newLink.GUID);
-                        return true;
+                        return false;
                     }
+                } else if(_input != null && _output != null)
+                {
+                    return false;
                 }
             }
-            return false;
+            linkIsValid();
+            constellationScript.AddLink(newLink);
+            linkCreated(newLink.GUID);
+            return true;
         }
 
         public void UpdateGenericNodeByLinkGUID(ConstellationScriptData constellationScript, NodesFactory nodesFactory, string guid, IConstellationFileParser constellationParser)
         {
             foreach (var constellationRule in constellationRules)
             {
-                constellationRule.UpdateGenericNodeByLinkGUID(constellationScript, nodesFactory, guid, constellationParser);
+                constellationRule.LinkAdded(constellationScript, nodesFactory, guid, constellationParser);
             }
         }
 
@@ -87,8 +89,22 @@ namespace Constellation
         {
             foreach (var constellationRule in constellationRules)
             {
-                constellationRule.RemoveNode(node, constellationScript);
+                if (!constellationRule.CanRemoveNode(node, constellationScript))
+                    return;
             }
+            constellationScript.RemoveNode(node.Guid);
+        }
+
+        public bool IsLinkValid(LinkData _link, ConstellationScriptData _constellationScriptData)
+        {
+            foreach (LinkData link in _constellationScriptData.Links)
+            {
+                if (_link.Input.Guid == link.Input.Guid && _link.Output.Guid == link.Output.Guid)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

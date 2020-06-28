@@ -27,7 +27,7 @@ namespace Constellation {
             }
 
             foreach (Output output in _node.GetOutputs ()) {
-                Outputs.Add (new OutputData (output.Guid, output.IsWarm, output.Type, output.Description));
+                Outputs.Add (new OutputData (output.Guid, output.IsBright, output.Type, output.Description));
             }
 
             foreach (Parameter parameter in _node.GetParameters ()) {
@@ -85,6 +85,8 @@ namespace Constellation {
 
             XPosition = _node.XPosition;
             YPosition = _node.YPosition;
+            SizeX = _node.SizeX;
+            SizeY = _node.SizeY;
             Name = _node.Name;
             Namespace = _node.Namespace;
             Guid = _node.Guid;
