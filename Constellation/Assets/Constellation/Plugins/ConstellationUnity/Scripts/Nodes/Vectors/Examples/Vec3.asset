@@ -26,14 +26,78 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 0174a9e2-469d-4ad9-8c87-069ec04bfaa3
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 65
+      YPosition: 65
+      SizeX: 316
+      SizeY: 52
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Used to set a Vec3 for example a transform position
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: aa783898-a017-4489-b9c8-5ef460b0edcd
+      Name: Transform
+      Namespace: GameObjects
+      OverrideDisplayedName: 
+      XPosition: 435
+      YPosition: 130
+      SizeX: 75
+      SizeY: 120
+      Inputs:
+      - Guid: 26b0bf1c-dcc1-4cb4-a53b-a9c1b6f4fa07
+        IsBright: 0
+        Type: Object
+        Description: Transform object
+      - Guid: 6bef51ec-55d8-4ff4-aa06-02e203c9f31f
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 position
+      - Guid: 0a399484-397f-4741-8fd4-28a2c4ea36e3
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 rotation
+      - Guid: 63875bcb-fb6c-4744-b4dd-228c7fa4bcd3
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 scale
+      - Guid: e94199da-9342-4b9f-9ef7-b493cec03f1e
+        IsBright: 1
+        Type: Any
+        Description: Send
+      Outputs:
+      - Guid: 73b28481-b02a-4e26-9370-42778a138325
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 position
+      - Guid: e1335f72-2f00-48a0-9a9b-770ee9ec129f
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 rotation
+      - Guid: c23c453d-10fc-4f44-9535-ef22314457fa
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 scale
+      - Guid: 6574b1f0-3292-4497-aff0-707c3e783c9e
+        IsBright: 0
+        Type: Object
+        Description: Transform
+      ParametersData: []
+      DiscreteParametersData: []
     - Guid: 4efbe79c-d908-408c-8349-894709c2dc2b
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 230
-      YPosition: 125
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 135
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: a9fba9c9-9a4b-4ab5-8902-c7370e9090cc
@@ -46,14 +110,54 @@ MonoBehaviour:
           floatValue: 0
         Type: 0
       DiscreteParametersData: []
+    - Guid: 5da0b500-0a78-4daa-9063-a3734937e328
+      Name: Vec3
+      Namespace: Vectors
+      OverrideDisplayedName: 
+      XPosition: 275
+      YPosition: 150
+      SizeX: 100
+      SizeY: 80
+      Inputs:
+      - Guid: 5059e4f1-91c7-4ab3-ac50-eff363bcb6a3
+        IsBright: 1
+        Type: Var
+        Description: X
+      - Guid: 4ce8cbac-2b53-4f11-97df-c9c73d99292b
+        IsBright: 1
+        Type: Var
+        Description: Y
+      - Guid: 6d17d8ce-fd1a-4ada-81d6-2fae274e7874
+        IsBright: 1
+        Type: Var
+        Description: Z
+      Outputs:
+      - Guid: bf353713-0d08-4c44-be1b-9dab3966831d
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3[X][Y][Z]
+      ParametersData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+      DiscreteParametersData: []
     - Guid: 9cc3f5e6-6962-407b-93ff-0e1d98253f8e
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 230
-      YPosition: 170
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 180
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
@@ -63,17 +167,17 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
       DiscreteParametersData: []
     - Guid: 6a1460ed-ced1-49d5-9778-d36f5912e9c3
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 230
-      YPosition: 215
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 225
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 3b875138-893d-4909-b211-69108b78872e
@@ -88,54 +192,54 @@ MonoBehaviour:
       DiscreteParametersData: []
     Links:
     - Input:
-        Guid: 97a9d775-e15e-4664-8473-955ce112fd06
-        IsBright: 0
-        Type: Var
-        Description: Z
-      Output:
-        Guid: 3b875138-893d-4909-b211-69108b78872e
-        IsBright: 0
-        Type: Var
-        Description: The value
-      outputPositionY: 0
-      GUID: b711e366-c6c3-4eca-a813-2deca6093f3e
-    - Input:
-        Guid: 8b59ce33-c8fd-40b3-befa-502d62853dc9
-        IsBright: 0
-        Type: Var
-        Description: Y
-      Output:
-        Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
-        IsBright: 0
-        Type: Var
-        Description: The value
-      outputPositionY: 0
-      GUID: 8b59e54e-4b84-4477-b568-3c05e0533fe1
-    - Input:
-        Guid: b9dc1077-c29e-46d2-9936-6a99efa7ecde
-        IsBright: 0
+        Guid: 5059e4f1-91c7-4ab3-ac50-eff363bcb6a3
+        IsBright: 1
         Type: Var
         Description: X
       Output:
         Guid: a9fba9c9-9a4b-4ab5-8902-c7370e9090cc
-        IsBright: 0
+        IsBright: 1
         Type: Var
         Description: The value
       outputPositionY: 0
-      GUID: c6f4f821-c753-4233-9e46-7802f9e006ef
+      GUID: c0fd2d92-f4c1-4d5b-814f-e5620a3cc6af
     - Input:
-        Guid: 684c8c6d-5ec3-4123-9b13-90b12d80ad26
+        Guid: 4ce8cbac-2b53-4f11-97df-c9c73d99292b
+        IsBright: 1
+        Type: Var
+        Description: Y
+      Output:
+        Guid: 23d35d00-16cd-4356-901a-7f2abd5b6da0
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: f1f5307e-be3d-4d47-b079-3467f22ae3d9
+    - Input:
+        Guid: 6d17d8ce-fd1a-4ada-81d6-2fae274e7874
+        IsBright: 1
+        Type: Var
+        Description: Z
+      Output:
+        Guid: 3b875138-893d-4909-b211-69108b78872e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 02cb1ddd-fd64-454f-a771-17193e02d218
+    - Input:
+        Guid: 6bef51ec-55d8-4ff4-aa06-02e203c9f31f
         IsBright: 0
         Type: Vec3
         Description: Vec3 position
       Output:
-        Guid: ab9138d5-e576-42a1-8b44-c997d511eef7
+        Guid: bf353713-0d08-4c44-be1b-9dab3966831d
         IsBright: 0
         Type: Vec3
         Description: Vec3[X][Y][Z]
       outputPositionY: 0
-      GUID: e1215bfd-3756-4fdb-975a-f16a947f2a2d
-    Name: 
+      GUID: c1fd41ae-8ace-4bcb-a48c-3be8c510924f
+    Name: Vec3
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

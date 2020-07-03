@@ -26,12 +26,28 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: d0e2371a-2046-4725-8d9c-8ea0349825c3
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 95
+      SizeX: 144
+      SizeY: 50
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Use to set a word
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 56090df3-b345-4a00-ba58-03631965fd9a
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 230
-      YPosition: 90
+      XPosition: 235
+      YPosition: 155
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -42,30 +58,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: d0e2371a-2046-4725-8d9c-8ea0349825c3
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 110
-      YPosition: 40
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 98e8f604-5017-43f0-b6b5-270a07c8ef95
       Name: Word
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 90
-      SizeX: 0
-      SizeY: 0
+      XPosition: 50
+      YPosition: 155
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: b48dc0b7-2709-45e2-a329-44da0071a14c
@@ -74,7 +74,7 @@ MonoBehaviour:
         Description: The Word
       ParametersData:
       - Value:
-          stringValue: your word
+          stringValue: My word
           floatValue: 0.000001
         Type: 1
       DiscreteParametersData: []
@@ -91,7 +91,7 @@ MonoBehaviour:
         Description: The Word
       outputPositionY: 0
       GUID: 0edbca37-24c8-4794-bf41-a848b9259f41
-    Name: 
+    Name: Word
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

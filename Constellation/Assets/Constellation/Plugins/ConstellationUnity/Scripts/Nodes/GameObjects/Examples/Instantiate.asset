@@ -20,59 +20,90 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 15
       YPosition: 20
-      SizeX: 75
-      SizeY: 30
+      SizeX: 146
+      SizeY: 41
       Inputs: []
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 41b5f507-fe4d-4695-9921-182014113770
+    - Guid: 248cae1c-b8da-4472-a58b-e45ea466e952
       Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 265
-      YPosition: 130
-      SizeX: 0
-      SizeY: 0
+      XPosition: 120
+      YPosition: 85
+      SizeX: 494
+      SizeY: 64
       Inputs: []
       Outputs: []
       ParametersData:
       - Value:
-          stringValue: Your note here
+          stringValue: 'Use to instantiate a Gameobject.
+
+            If the object
+            cannot be instantiated or is null it will instantiate an empty Gameobject'
           floatValue: 0.000001
         Type: 2
       DiscreteParametersData: []
-    - Guid: 562404a2-7bce-4eee-a816-ff10992d1b6b
-      Name: ObjectParameter
-      Namespace: Unity
+    - Guid: d6708427-469f-4a47-9aaa-9a7c8cfbd903
+      Name: Instantiate
+      Namespace: GameObjects
       OverrideDisplayedName: 
-      XPosition: 40
-      YPosition: 195
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: a0688b26-0f01-4001-991d-b0b0ecd4ed69
+      XPosition: 445
+      YPosition: 170
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 60f1c957-4c24-4341-9061-578a0ff0e5bd
         IsBright: 1
         Type: Object
-        Description: Unity object
+        Description: GameObject
+      Outputs:
+      - Guid: b619f824-9026-4a22-9ff6-4e2186b97e25
+        IsBright: 1
+        Type: Object
+        Description: Instantiated GameObject
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 8653ee2b-b881-4fe5-8b47-c8fe96b8a725
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 305
+      YPosition: 170
+      SizeX: 100
+      SizeY: 60
+      Inputs:
+      - Guid: dfda4b9d-e3d6-423c-8f80-f7892389ad04
+        IsBright: 0
+        Type: Object
+        Description: New var
+      - Guid: f56eb086-5543-4b48-ae6a-d2e217868a5b
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: 56e56510-6b33-4836-886a-1cd5ad024918
+        IsBright: 0
+        Type: Object
+        Description: Output var
       ParametersData:
       - Value:
-          stringValue: Default
-          floatValue: 0.000001
-        Type: 1
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
       DiscreteParametersData: []
-    - Guid: acae8ed9-ccf6-4427-ba6a-5e9e2c50a35d
+    - Guid: 4140ef96-8021-4f04-9613-81634245b627
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 145
-      YPosition: 260
-      SizeX: 0
-      SizeY: 0
+      XPosition: 135
+      YPosition: 190
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
-      - Guid: ae7f34e7-1f0c-420a-bb76-2d11f9b21ed8
+      - Guid: 6825323f-9b8d-480c-8ca4-b33751feb831
         IsBright: 1
         Type: Var
         Description: The value
@@ -84,54 +115,30 @@ MonoBehaviour:
       DiscreteParametersData: []
     Links:
     - Input:
-        Guid: 87a5f949-bc8b-40b4-aa5c-21bdbcd094e3
-        IsBright: 0
+        Guid: 60f1c957-4c24-4341-9061-578a0ff0e5bd
+        IsBright: 1
         Type: Object
         Description: GameObject
       Output:
-        Guid: a0688b26-0f01-4001-991d-b0b0ecd4ed69
+        Guid: 56e56510-6b33-4836-886a-1cd5ad024918
         IsBright: 0
         Type: Object
-        Description: Unity object
+        Description: Output var
       outputPositionY: 0
-      GUID: 95ea7e2e-4eae-4e78-82dc-42bfc4b41cee
+      GUID: 10c643db-ff81-4596-8432-74ab363a58b4
     - Input:
-        Guid: f2f65f22-c3b1-46ba-bcad-640e29234c9f
-        IsBright: 0
-        Type: Object
-        Description: Transform object
-      Output:
-        Guid: dbb39e0e-7a55-4c32-b448-14595a0661ba
-        IsBright: 0
-        Type: Object
-        Description: Instantiated GameObject
-      outputPositionY: 0
-      GUID: 715a0f79-cc46-4c21-9c6f-a052b48d9c72
-    - Input:
-        Guid: 958bc412-952e-4ef1-b505-585a4f887b00
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3 position
-      Output:
-        Guid: cea6c99e-84e3-42b9-afcf-4f1937663b76
-        IsBright: 0
-        Type: Vec3
-        Description: Vec3[X][Y][Z]
-      outputPositionY: 0
-      GUID: 78f4e740-719f-4837-8775-66c8d1802226
-    - Input:
-        Guid: 8ccda47a-08a6-4a0a-abd6-f2fb61abfd43
+        Guid: f56eb086-5543-4b48-ae6a-d2e217868a5b
         IsBright: 1
-        Type: Var
-        Description: Y
+        Type: Any
+        Description: Send var
       Output:
-        Guid: ae7f34e7-1f0c-420a-bb76-2d11f9b21ed8
-        IsBright: 0
+        Guid: 6825323f-9b8d-480c-8ca4-b33751feb831
+        IsBright: 1
         Type: Var
         Description: The value
       outputPositionY: 0
-      GUID: 431d8a21-5b53-4578-986a-aa594f6c4dec
-    Name: 
+      GUID: 61bdbc1b-d4fa-4c7e-b168-b474bfd0f1ad
+    Name: Instantiate
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

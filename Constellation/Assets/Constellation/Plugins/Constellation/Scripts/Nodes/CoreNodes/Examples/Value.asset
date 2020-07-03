@@ -26,12 +26,28 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 24d021b4-15d1-47b7-b83d-3095b7527d40
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 65
+      YPosition: 60
+      SizeX: 304
+      SizeY: 52
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Value allows set a number. Could be a float, int ...
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 8a9a9aac-121a-4feb-890f-c7b34f65cc23
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 545
-      YPosition: 90
+      XPosition: 525
+      YPosition: 125
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -42,14 +58,42 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: acf03794-9a21-4ddd-b885-b46da03a5cce
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 235
+      YPosition: 125
+      SizeX: 100
+      SizeY: 60
+      Inputs:
+      - Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
+        IsBright: 0
+        Type: Var
+        Description: New var
+      - Guid: 61778486-a912-41ee-9af7-0513bea2f814
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: e373e282-292e-4f9f-b106-59f3de4467c9
+        IsBright: 0
+        Type: Var
+        Description: Output var
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+      DiscreteParametersData: []
     - Guid: 77163301-596a-4286-86f6-3a0bed924e09
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 90
-      YPosition: 90
-      SizeX: 0
-      SizeY: 0
+      XPosition: 70
+      YPosition: 125
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
@@ -59,50 +103,10 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 5
         Type: 0
       DiscreteParametersData: []
-    - Guid: acf03794-9a21-4ddd-b885-b46da03a5cce
-      Name: Var
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 255
-      YPosition: 90
-      SizeX: 0
-      SizeY: 0
-      Inputs:
-      - Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
-        IsBright: 0
-        Type: Generic
-        Description: New var
-      - Guid: 61778486-a912-41ee-9af7-0513bea2f814
-        IsBright: 1
-        Type: Any
-        Description: Send var
-      Outputs:
-      - Guid: e373e282-292e-4f9f-b106-59f3de4467c9
-        IsBright: 0
-        Type: Generic
-        Description: Output var
-      ParametersData:
-      - Value:
-          stringValue: Var
-          floatValue: 0.000001
-        Type: 6
-      DiscreteParametersData: []
     Links:
-    - Input:
-        Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
-        IsBright: 0
-        Type: Var
-        Description: New var
-      Output:
-        Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
-        IsBright: 0
-        Type: Var
-        Description: The value
-      outputPositionY: 0
-      GUID: 72d55a11-0562-4825-bdcb-8408c6cff17f
     - Input:
         Guid: bfc579e3-bb44-436d-a097-f7c080569e0b
         IsBright: 0
@@ -127,7 +131,19 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 5056701a-ce8a-48a7-b917-505ff3a1f5bd
-    Name: 
+    - Input:
+        Guid: 2d8c04cb-2fb5-42c8-8d40-a46589e77d99
+        IsBright: 0
+        Type: Var
+        Description: New var
+      Output:
+        Guid: a30374d0-9f8f-4dda-aec1-c8c554467ee7
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: b0b6fc74-9f46-43c8-9aef-3a7c1f531b28
+    Name: Value
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

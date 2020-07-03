@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: cda27e7f-03f7-475f-a581-70ce86abdea6
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 65
+      YPosition: 55
+      SizeX: 407
+      SizeY: 59
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs largest of two or more values.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 7008b50f-153a-455a-bb83-72158fa18535
       Name: Print
       Namespace: CoreNodes
@@ -66,30 +82,14 @@ MonoBehaviour:
         Description: Max value
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: cda27e7f-03f7-475f-a581-70ce86abdea6
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 65
-      YPosition: 60
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 69042936-c38c-4f15-84d9-cf0c9251e92e
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 65
       YPosition: 125
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -99,7 +99,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 5
         Type: 0
       DiscreteParametersData: []
     - Guid: 411f4756-a692-4ec6-bf60-cc37c6391de4
@@ -108,8 +108,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 65
       YPosition: 170
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: d4616c40-489d-461f-ae02-bff14b6d3da0
@@ -119,7 +119,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -159,7 +159,7 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: ab821b0c-a4e6-4fa8-b32d-60d48d91e090
-    Name: 
+    Name: Max
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

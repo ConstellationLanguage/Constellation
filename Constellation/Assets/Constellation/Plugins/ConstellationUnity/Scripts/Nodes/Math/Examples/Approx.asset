@@ -26,28 +26,29 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: c0dc52e2-9358-4a3f-bfd7-eaeef35231ad
-      Name: Print
+    - Guid: 18c1cf83-3497-43a9-8c1f-a469ea05e874
+      Name: Note
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 550
-      YPosition: 110
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
-        IsBright: 0
-        Type: Any
-        Description: value to log in console
+      XPosition: 35
+      YPosition: 60
+      SizeX: 417
+      SizeY: 56
+      Inputs: []
       Outputs: []
-      ParametersData: []
+      ParametersData:
+      - Value:
+          stringValue: Compares two floating point values and output 1 if they are
+            similar.
+          floatValue: 0.000001
+        Type: 2
       DiscreteParametersData: []
     - Guid: ff433301-967c-4290-99b8-73ae64af7ac3
       Name: Approx
       Namespace: Math
       OverrideDisplayedName: 
-      XPosition: 390
-      YPosition: 110
+      XPosition: 205
+      YPosition: 130
       SizeX: 75
       SizeY: 60
       Inputs:
@@ -66,30 +67,14 @@ MonoBehaviour:
         Description: true if +- the same
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 18c1cf83-3497-43a9-8c1f-a469ea05e874
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 215
-      YPosition: 15
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: a08e7549-ad07-43ee-8ab4-8273c4af9ac8
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 225
-      YPosition: 110
-      SizeX: 0
-      SizeY: 0
+      XPosition: 40
+      YPosition: 130
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -99,17 +84,33 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
+      DiscreteParametersData: []
+    - Guid: c0dc52e2-9358-4a3f-bfd7-eaeef35231ad
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 335
+      YPosition: 130
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 33ed2c1e-72a1-4bae-ac8f-c2a94c1f9df9
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
       DiscreteParametersData: []
     - Guid: cb75e684-be76-45a1-bd15-2e387771e250
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 220.5
-      YPosition: 161
-      SizeX: 0
-      SizeY: 0
+      XPosition: 40
+      YPosition: 180
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: b2710ff0-4518-427d-9473-27e98c24b92c
@@ -119,7 +120,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -159,7 +160,7 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 5e412413-ca84-4b7b-96b4-d19a7154bd7c
-    Name: 
+    Name: Approx
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

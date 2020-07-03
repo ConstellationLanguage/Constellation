@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 96226336-d74e-430c-afa8-e9228b9bb3d7
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 15
+      YPosition: 75
+      SizeX: 204
+      SizeY: 50
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Returns the absolute value
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 322f9e10-eb70-4db1-b3f9-fb089a4a798c
       Name: Print
       Namespace: CoreNodes
@@ -62,30 +78,14 @@ MonoBehaviour:
         Description: Absolute value
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 96226336-d74e-430c-afa8-e9228b9bb3d7
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 15
-      YPosition: 55
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 6ed0b3d8-f1fd-48da-a104-afcd29450063
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 15
       YPosition: 145
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: -5
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 3d8f696c-c33b-40c9-9fbd-6f8f0985bf44
-    Name: 
+    Name: Absolute
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

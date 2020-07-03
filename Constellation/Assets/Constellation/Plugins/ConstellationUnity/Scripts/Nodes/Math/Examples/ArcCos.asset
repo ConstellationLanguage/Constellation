@@ -26,12 +26,29 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: edb77a20-7582-48e9-b02c-8303a0bab9fd
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 85
+      SizeX: 399
+      SizeY: 52
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: output the arc-cosine of f - the angle in radians whose cosine
+            is f.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 823d5130-069b-457e-9c4c-31a96cb94a7f
       Name: ArcCos
       Namespace: Math
       OverrideDisplayedName: 
-      XPosition: 395
-      YPosition: 110
+      XPosition: 195
+      YPosition: 190
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -50,8 +67,8 @@ MonoBehaviour:
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 550
-      YPosition: 110
+      XPosition: 350
+      YPosition: 190
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -62,30 +79,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: edb77a20-7582-48e9-b02c-8303a0bab9fd
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 225
-      YPosition: 20
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 7c7393e0-9d81-4e62-8136-faf9b2cb2ca4
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 225
-      YPosition: 110
-      SizeX: 0
-      SizeY: 0
+      XPosition: 25
+      YPosition: 190
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +96,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 0.5
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +124,7 @@ MonoBehaviour:
         Description: arc-cosine of a
       outputPositionY: 0
       GUID: 6d43eb30-a81b-4112-9abd-1751665aac2b
-    Name: 
+    Name: ArcCos
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 3d96f4fe-4e45-4df4-80e8-22abb438cc39
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 90
+      SizeX: 365
+      SizeY: 51
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the natural (base e) logarithm of a specified number.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 33606498-a465-48a7-aadf-0e8c0a0ec0f9
       Name: Print
       Namespace: CoreNodes
@@ -62,30 +78,14 @@ MonoBehaviour:
         Description: Log(A)
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 3d96f4fe-4e45-4df4-80e8-22abb438cc39
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 90
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 0cf1c37c-e420-4c9d-954c-a48db660bf14
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 160
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 100
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Log(A)
       outputPositionY: 0
       GUID: ab290109-bd87-4f2f-b48a-f95188643ebe
-    Name: 
+    Name: Logarithm
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

@@ -26,6 +26,23 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 7a32188c-9eec-4865-93f1-2602a986f893
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 65
+      YPosition: 40
+      SizeX: 456
+      SizeY: 57
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs a random float number between min [inclusive] and
+            max [inclusive]
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: d2a86757-fb89-4c44-81f0-765fde341898
       Name: Print
       Namespace: CoreNodes
@@ -66,30 +83,14 @@ MonoBehaviour:
         Description: Random Value between Start and End
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 7a32188c-9eec-4865-93f1-2602a986f893
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 125
-      YPosition: 50
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 41dd61b7-3e94-4a7d-8910-fbb16c167bb6
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 125
       YPosition: 105
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -99,27 +100,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-      DiscreteParametersData: []
-    - Guid: dedf3da9-993b-404b-94dc-db2a56874208
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 10
-      YPosition: 155
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: c700fa47-6f07-4e7d-89c4-a48a1cf5cfc0
-        IsBright: 1
-        Type: Var
-        Description: The value
-      ParametersData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: -5
         Type: 0
       DiscreteParametersData: []
     - Guid: 90e7c9f3-6eb3-48ac-a372-6248d7b25108
@@ -128,8 +109,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 160
       YPosition: 155
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 60
       Inputs:
       - Guid: d4c54c64-0a6d-4e0d-ae4f-89c80059a267
         IsBright: 0
@@ -146,9 +127,29 @@ MonoBehaviour:
         Description: Output var
       ParametersData:
       - Value:
-          stringValue: Var
-          floatValue: 0.000001
+          stringValue: UNDEFINED
+          floatValue: 0
         Type: 6
+      DiscreteParametersData: []
+    - Guid: dedf3da9-993b-404b-94dc-db2a56874208
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 155
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: c700fa47-6f07-4e7d-89c4-a48a1cf5cfc0
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 10
+        Type: 0
       DiscreteParametersData: []
     - Guid: 7a4bc8eb-6a8c-4454-b79b-65fc4a16152f
       Name: Update
@@ -156,8 +157,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 35
       YPosition: 200
-      SizeX: 0
-      SizeY: 0
+      SizeX: 75
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 298ec055-a2ea-4ae8-bc06-c6cc144d40c4
@@ -227,7 +228,7 @@ MonoBehaviour:
         Description: Current setted word
       outputPositionY: 0
       GUID: 7a93226d-fb36-40b7-be56-d59c9cfacdb0
-    Name: 
+    Name: Random
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

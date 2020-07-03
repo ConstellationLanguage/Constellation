@@ -27,7 +27,10 @@ namespace Constellation.GameObjects
         public void Receive(Ray _value, Input _input)
         {
             UnityObject.Set(_value.GetObject());
-            sender.Send(new Ray().Set(GameObject.Instantiate(_value.GetObject() as GameObject)), 0);
+            if(_value.GetObject() as GameObject != null)
+                sender.Send(new Ray().Set(GameObject.Instantiate(_value.GetObject() as GameObject)), 0);
+            else
+                sender.Send(new Ray().Set(new GameObject() as GameObject), 0);
         }
     }
 }

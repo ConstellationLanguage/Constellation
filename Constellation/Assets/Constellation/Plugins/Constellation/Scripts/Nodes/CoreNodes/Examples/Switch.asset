@@ -42,22 +42,6 @@ MonoBehaviour:
           floatValue: 0.000001
         Type: 2
       DiscreteParametersData: []
-    - Guid: 83bf62f4-050b-4fbc-9872-26219172ded1
-      Name: Print
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 500
-      YPosition: 130
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
-        IsBright: 0
-        Type: Any
-        Description: value to log in console
-      Outputs: []
-      ParametersData: []
-      DiscreteParametersData: []
     - Guid: 5c5abc23-3304-43e3-a765-79d69ef28ceb
       Name: Key
       Namespace: UserInputs
@@ -100,6 +84,22 @@ MonoBehaviour:
         IsBright: 0
         Type: Var
         Description: Output if on
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 83bf62f4-050b-4fbc-9872-26219172ded1
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 505
+      YPosition: 170
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 5bbaa959-7fa0-4ae7-a203-4248320f8be5
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
       ParametersData: []
       DiscreteParametersData: []
     - Guid: 67d1f877-c1be-48e8-8a6d-598f34d4c0b7

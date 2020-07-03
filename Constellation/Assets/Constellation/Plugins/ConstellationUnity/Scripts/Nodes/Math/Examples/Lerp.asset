@@ -26,12 +26,28 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: da2550bf-4504-4acf-90ea-f90b5c755018
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 35
+      YPosition: 60
+      SizeX: 387
+      SizeY: 60
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: The interpolated float result between the two float values.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: f14475d6-37c9-4b58-81e8-b170e42a5469
       Name: Lerp
       Namespace: Math
       OverrideDisplayedName: 
       XPosition: 195
-      YPosition: 130
+      YPosition: 170
       SizeX: 75
       SizeY: 80
       Inputs:
@@ -59,7 +75,7 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 340
-      YPosition: 130
+      YPosition: 170
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -70,30 +86,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: da2550bf-4504-4acf-90ea-f90b5c755018
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 35
-      YPosition: 60
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: cadcd757-3168-44ed-b3c7-77e3f4c77083
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 40
-      YPosition: 130
-      SizeX: 0
-      SizeY: 0
+      YPosition: 170
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -103,7 +103,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 1
         Type: 0
       DiscreteParametersData: []
     - Guid: aa59b56d-5cf0-43d9-a8f5-bb76b141d0dc
@@ -111,9 +111,9 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 40
-      YPosition: 175
-      SizeX: 0
-      SizeY: 0
+      YPosition: 215
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 0198d179-456a-4d25-b888-15b4e10baee5
@@ -123,7 +123,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 2
         Type: 0
       DiscreteParametersData: []
     - Guid: cd8510ac-e039-483c-8e77-f574f8c39341
@@ -131,9 +131,9 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 40
-      YPosition: 220
-      SizeX: 0
-      SizeY: 0
+      YPosition: 260
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: fe52d8d0-e08f-499b-bc34-f62d3b5bfa55
@@ -195,7 +195,7 @@ MonoBehaviour:
         Description: T=0 output A, T=1 output B
       outputPositionY: 0
       GUID: cd0021af-adc5-4796-82b1-afecd7557b32
-    Name: 
+    Name: Lerp
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

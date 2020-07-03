@@ -26,12 +26,28 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 9395c9c0-fec4-41a0-82d4-f53963e1e638
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 65
+      SizeX: 399
+      SizeY: 61
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the tangent of angle f in radians.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: b78de301-d9b8-4497-9913-98e7da776213
       Name: Tan
       Namespace: Math
       OverrideDisplayedName: 
       XPosition: 210
-      YPosition: 130
+      YPosition: 145
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -51,7 +67,7 @@ MonoBehaviour:
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 370
-      YPosition: 130
+      YPosition: 145
       SizeX: 75
       SizeY: 40
       Inputs:
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 9395c9c0-fec4-41a0-82d4-f53963e1e638
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 65
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 7baae020-5e15-4ca5-8171-2ea518becf12
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
-      YPosition: 130
-      SizeX: 0
-      SizeY: 0
+      YPosition: 145
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Tan of X
       outputPositionY: 0
       GUID: ebc21236-d607-486c-807e-c647a3f37bae
-    Name: 
+    Name: Tan
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

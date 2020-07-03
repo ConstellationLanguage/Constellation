@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: d0a0bb50-8b31-40a6-8da1-6b3930fa2d53
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 65
+      SizeX: 337
+      SizeY: 51
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Clamps value between 0 and 1 and outputs value.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 0f5dd8d4-9696-4121-8680-1a9e6a28525e
       Name: Clamp01
       Namespace: Math
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: d0a0bb50-8b31-40a6-8da1-6b3930fa2d53
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 65
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: bb111eaa-71ee-4860-ae59-c75cc1f20822
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 145
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 5
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Clamps value between 0 and 1 and returns value.
       outputPositionY: 0
       GUID: 5d68dad5-7ac6-4c18-8465-dd7841038eaa
-    Name: 
+    Name: Clamp01
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

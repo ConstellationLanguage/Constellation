@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 6728cf7a-66bb-4e5b-9973-e2c1ee1cd7a7
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 25
+      YPosition: 70
+      SizeX: 360
+      SizeY: 53
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the sine of angle f
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 0e27c028-66b1-4f39-a866-dabfa9293618
       Name: Sinus
       Namespace: Math
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 6728cf7a-66bb-4e5b-9973-e2c1ee1cd7a7
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 25
-      YPosition: 80
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 83d334d1-42ad-4587-8125-aa2fb6659fbc
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 25
       YPosition: 145
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Sin(A)
       outputPositionY: 0
       GUID: 617534da-88a9-4d27-98e8-258b7e7d8e61
-    Name: 
+    Name: Sinus
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

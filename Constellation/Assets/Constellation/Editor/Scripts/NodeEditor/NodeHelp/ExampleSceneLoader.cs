@@ -22,7 +22,7 @@ namespace ConstellationUnityEditor {
             var exampleConstellation = constellationEditorDataService.GetConstellationByName (name);
             if (exampleConstellation == null) {
                 EditorUtility.DisplayDialog ("Oops...",
-                    "The example you are trying to open does not exist... If you need more info on " + name + ", you can still double right click on either input or outputs.",
+                    "The example you are trying to open does not exist... If you need more info on " + name + ", you can mouse over on the inputs or the outputs.",
                     "Go back");
                 EditorApplication.isPlaying = false;
                 return;

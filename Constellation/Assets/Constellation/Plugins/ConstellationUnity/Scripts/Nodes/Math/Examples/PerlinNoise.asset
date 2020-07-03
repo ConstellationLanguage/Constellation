@@ -26,6 +26,23 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: cc65c269-a18e-443b-be16-b16e9f5fde9f
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 55
+      SizeX: 535
+      SizeY: 51
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: float Value between 0.0 and 1.0. (Output value might be slightly
+            below 0.0 or beyond 1.0.)
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 8e4c80c8-e731-4642-8be5-988dcd54b14f
       Name: Print
       Namespace: CoreNodes
@@ -66,30 +83,14 @@ MonoBehaviour:
         Description: Next power of two
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: cc65c269-a18e-443b-be16-b16e9f5fde9f
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 55
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 834f9142-c15e-421c-9c25-a41410e26b2b
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 20
       YPosition: 135
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -99,7 +100,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10
         Type: 0
       DiscreteParametersData: []
     - Guid: 518ec44c-57f3-42ad-b46f-f83c62a4375c
@@ -108,8 +109,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 20
       YPosition: 185
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 61260f3e-08e5-4b6b-b021-dbef62d97535
@@ -119,7 +120,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -159,7 +160,7 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 4cae788a-9a20-48d0-8a00-b5b6d32bd7c6
-    Name: 
+    Name: PerlinNoise
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

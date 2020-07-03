@@ -26,13 +26,30 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 48a3a368-1b65-46a8-a313-254783bbdd3c
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 75
+      SizeX: 392
+      SizeY: 63
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the next power of two that is equal to, or greater
+            than, the argument.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 6dceaba1-bfb1-45bd-be92-0e9dde75badf
       Name: NextPowerOfTwo
       Namespace: Math
       OverrideDisplayedName: 
       XPosition: 180
       YPosition: 150
-      SizeX: 75
+      SizeX: 118
       SizeY: 40
       Inputs:
       - Guid: bd25bd9c-3362-4436-b18f-e07b5e49e535
@@ -62,30 +79,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 48a3a368-1b65-46a8-a313-254783bbdd3c
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 75
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 3e2f08c3-3441-43e5-b567-f322083d4e52
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 20
       YPosition: 150
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +96,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 7
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +124,7 @@ MonoBehaviour:
         Description: Next power of two
       outputPositionY: 0
       GUID: 6570480c-4383-4d90-bcde-083180c9acec
-    Name: 
+    Name: NextPowerOfTwo
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

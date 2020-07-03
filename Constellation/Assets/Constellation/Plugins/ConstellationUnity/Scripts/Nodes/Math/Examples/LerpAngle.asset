@@ -26,6 +26,23 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 275ea0ca-8223-40ce-a7d3-d0428b912365
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 100
+      SizeX: 581
+      SizeY: 55
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Same as Lerp but makes sure the values interpolate correctly
+            when they wrap around 360 degrees.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: c2e36d99-11b3-4e73-a1d4-35dd15cac596
       Name: Print
       Namespace: CoreNodes
@@ -70,30 +87,14 @@ MonoBehaviour:
         Description: Same as lerp but with radians
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 275ea0ca-8223-40ce-a7d3-d0428b912365
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 40
-      YPosition: 100
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 185c4a3c-898e-47ba-8214-3787abcfca71
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 35
       YPosition: 180
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -112,8 +113,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 35
       YPosition: 225
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 472b76e3-0078-4cc3-86de-4f7110adbd0f
@@ -123,7 +124,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 90
         Type: 0
       DiscreteParametersData: []
     - Guid: 2be50a6a-a674-4da7-b65f-e3fcdd2b8b33
@@ -132,8 +133,8 @@ MonoBehaviour:
       OverrideDisplayedName: 
       XPosition: 35
       YPosition: 270
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: 5ca775b3-4772-4a54-a1df-ded015188958
@@ -195,7 +196,7 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: c46981e7-2437-46d7-86da-24ee26b36594
-    Name: 
+    Name: LerpAngle
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

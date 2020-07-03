@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: f2c8751f-4f1d-4cbf-8045-72dd9c06d49d
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 80
+      SizeX: 356
+      SizeY: 50
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the largest integer smaller than or equal to f.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 5ff5d61e-cd0c-4207-991e-7dced6a9a131
       Name: Floor
       Namespace: Math
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: f2c8751f-4f1d-4cbf-8045-72dd9c06d49d
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 45
-      YPosition: 95
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: c53920a4-f45b-410d-a550-302029b12b4f
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 45
       YPosition: 150
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10.7
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Largest integer smaller to or equal to a.
       outputPositionY: 0
       GUID: 21e6e1b1-91d4-4312-95bc-a173184b83a2
-    Name: 
+    Name: Floor
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

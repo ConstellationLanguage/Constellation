@@ -26,13 +26,30 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 40363cb7-aee6-4dff-aa39-0a4d7da4dbb6
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 75
+      SizeX: 519
+      SizeY: 49
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Calculates the shortest difference between two given angles
+            given in degrees.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 3af44752-93ed-43cb-bf6f-2b840b0e89f9
       Name: DeltaAngle
       Namespace: Math
       OverrideDisplayedName: 
       XPosition: 205
       YPosition: 135
-      SizeX: 75
+      SizeX: 112
       SizeY: 60
       Inputs:
       - Guid: a95c8065-87a5-4e66-96a2-8df9b9c19329
@@ -50,11 +67,31 @@ MonoBehaviour:
         Description: Sortest difference between a and b
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 5a7c7011-abc7-40c1-bafc-ece020b6468e
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 55
+      YPosition: 135
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1080
+        Type: 0
+      DiscreteParametersData: []
     - Guid: a29d3d55-d2f1-4c61-aaaf-48686fc75541
       Name: Print
       Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 320
+      XPosition: 350
       YPosition: 135
       SizeX: 75
       SizeY: 40
@@ -66,50 +103,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 40363cb7-aee6-4dff-aa39-0a4d7da4dbb6
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 55
-      YPosition: 75
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
-    - Guid: 5a7c7011-abc7-40c1-bafc-ece020b6468e
-      Name: Value
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 55
-      YPosition: 135
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs:
-      - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
-        IsBright: 1
-        Type: Var
-        Description: The value
-      ParametersData:
-      - Value:
-          stringValue: UNDEFINED
-          floatValue: 0
-        Type: 0
-      DiscreteParametersData: []
     - Guid: d624b805-a2d5-44ad-97f0-b7c119de318f
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 55
       YPosition: 175
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: eb52b2b5-0cb6-4f98-aa71-874dc1a81bf6
@@ -119,7 +120,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 90
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -159,7 +160,7 @@ MonoBehaviour:
         Description: Sortest difference between a and b
       outputPositionY: 0
       GUID: b033e83e-0957-487a-9796-21f512ed80af
-    Name: 
+    Name: DeltaAngle
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

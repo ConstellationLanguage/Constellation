@@ -26,25 +26,21 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 4afc554a-88de-4fac-afef-6b30b76c60cd
-      Name: Ceil
-      Namespace: Math
+    - Guid: 96cbc6e6-a095-4a0e-8690-2bd8c84190bd
+      Name: Note
+      Namespace: CoreNodes
       OverrideDisplayedName: 
-      XPosition: 200
-      YPosition: 170
-      SizeX: 75
-      SizeY: 40
-      Inputs:
-      - Guid: bd651214-55c2-4678-a344-09d6b68905ec
-        IsBright: 1
-        Type: Var
-        Description: a
-      Outputs:
-      - Guid: 67030c82-b898-4969-8d91-1fed045aac6f
-        IsBright: 0
-        Type: Var
-        Description: Smallest integer greater to or equal to a
-      ParametersData: []
+      XPosition: 50
+      YPosition: 85
+      SizeX: 259
+      SizeY: 53
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Output the smallest integer greater to or equal to f.
+          floatValue: 0.000001
+        Type: 2
       DiscreteParametersData: []
     - Guid: 293e6c3a-f52b-4961-9b07-3a3a17fc2ccd
       Name: Print
@@ -62,30 +58,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 96cbc6e6-a095-4a0e-8690-2bd8c84190bd
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 85
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 1c91fd7f-5751-485c-854e-3660c67335e5
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 170
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,8 +75,28 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10.2
         Type: 0
+      DiscreteParametersData: []
+    - Guid: 4afc554a-88de-4fac-afef-6b30b76c60cd
+      Name: Ceil
+      Namespace: Math
+      OverrideDisplayedName: 
+      XPosition: 220
+      YPosition: 170
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: bd651214-55c2-4678-a344-09d6b68905ec
+        IsBright: 1
+        Type: Var
+        Description: a
+      Outputs:
+      - Guid: 67030c82-b898-4969-8d91-1fed045aac6f
+        IsBright: 0
+        Type: Var
+        Description: Smallest integer greater to or equal to a
+      ParametersData: []
       DiscreteParametersData: []
     Links:
     - Input:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: The value
       outputPositionY: 0
       GUID: 77a09466-313d-4fc6-85ab-35023576ae88
-    Name: 
+    Name: Ceil
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

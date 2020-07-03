@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: a8154f4f-2715-4220-924b-4a5bd7a85554
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 40
+      YPosition: 85
+      SizeX: 302
+      SizeY: 53
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs e raised to the specified power.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: b8d6d5c3-7f9c-4673-8f01-59f54913d18a
       Name: Exp
       Namespace: Math
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: a8154f4f-2715-4220-924b-4a5bd7a85554
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 95
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: d2591d9f-ec55-40f2-950d-cf34853f7fdf
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 180
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 6
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: e raised to A power
       outputPositionY: 0
       GUID: 9f77c9e3-d46c-4baa-9090-888f068db024
-    Name: 
+    Name: Exp
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

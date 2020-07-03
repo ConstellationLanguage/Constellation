@@ -26,6 +26,23 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 19b33dfa-5fe9-41c3-b6d1-434e78036bdf
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 35
+      YPosition: 60
+      SizeX: 374
+      SizeY: 48
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Output the arc-sine of f - the angle in radians whose sine
+            is f.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 6f0a6db5-2dd0-443d-b7c5-3811fff2c932
       Name: Print
       Namespace: CoreNodes
@@ -62,30 +79,14 @@ MonoBehaviour:
         Description: the arc-sine of a
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 19b33dfa-5fe9-41c3-b6d1-434e78036bdf
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 35
-      YPosition: 60
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 65007ec4-94b5-42ab-aade-3749d701b59f
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 160
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +96,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 0.5
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +124,7 @@ MonoBehaviour:
         Description: the arc-sine of a
       outputPositionY: 0
       GUID: 5a8f329f-9bce-47f9-a1a8-c154b090f2db
-    Name: 
+    Name: ArcSin
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 15c3628c-8ef0-491a-ab1f-b7ecb2c3451a
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 90
+      SizeX: 379
+      SizeY: 50
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the closest power of two value.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 1d661460-6f69-4521-9acf-b0f347844554
       Name: Print
       Namespace: CoreNodes
@@ -62,30 +78,14 @@ MonoBehaviour:
         Description: Closest power of two
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 15c3628c-8ef0-491a-ab1f-b7ecb2c3451a
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 90
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: 9511127a-7699-4b91-a05f-0ea9935e3d1b
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 155
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 7
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Closest power of two
       outputPositionY: 0
       GUID: fca79903-1ed7-4d23-81fa-317f65b1454c
-    Name: 
+    Name: ClosestPowerOf2
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 39ed21b3-00ee-4a44-97f1-7b740b01f2e1
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 90
+      SizeX: 337
+      SizeY: 57
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs square root of f.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 2f7c3d1c-5726-469c-bda3-8bfbd4b6377a
       Name: SquareRoot
       Namespace: Math
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 39ed21b3-00ee-4a44-97f1-7b740b01f2e1
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 50
-      YPosition: 100
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: fe9569a6-749f-4b66-80d8-95df559e7b36
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 50
       YPosition: 160
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 10
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Square Root of X
       outputPositionY: 0
       GUID: 2358b117-036e-4f53-9fa7-7e3a610c8d88
-    Name: 
+    Name: SquareRoot
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0

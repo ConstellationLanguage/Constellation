@@ -26,6 +26,22 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 1948259c-ac2a-4c2a-b36c-fd3e646480e6
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 85
+      SizeX: 341
+      SizeY: 53
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Outputs the cosine of angle f.
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 2c29c699-b3b4-42f0-a47e-bd8fb7855d45
       Name: Cosinus
       Namespace: Math
@@ -62,30 +78,14 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
-    - Guid: 1948259c-ac2a-4c2a-b36c-fd3e646480e6
-      Name: Note
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 20
-      YPosition: 85
-      SizeX: 0
-      SizeY: 0
-      Inputs: []
-      Outputs: []
-      ParametersData:
-      - Value:
-          stringValue: Your note here
-          floatValue: 0.000001
-        Type: 2
-      DiscreteParametersData: []
     - Guid: a15e5f36-9e92-48b7-acc6-61410d5e8e49
       Name: Value
       Namespace: CoreNodes
       OverrideDisplayedName: 
       XPosition: 20
       YPosition: 155
-      SizeX: 0
-      SizeY: 0
+      SizeX: 100
+      SizeY: 40
       Inputs: []
       Outputs:
       - Guid: c16c7442-c3af-41ff-8c3c-3c15b2d6601e
@@ -95,7 +95,7 @@ MonoBehaviour:
       ParametersData:
       - Value:
           stringValue: UNDEFINED
-          floatValue: 0
+          floatValue: 3.14
         Type: 0
       DiscreteParametersData: []
     Links:
@@ -123,7 +123,7 @@ MonoBehaviour:
         Description: Cos(a)
       outputPositionY: 0
       GUID: 61c33f65-60b3-4930-814f-581c28e068bb
-    Name: 
+    Name: Cosinus
     NameSpace: 
   IsInstance: 0
   IsDifferentThanSource: 0
