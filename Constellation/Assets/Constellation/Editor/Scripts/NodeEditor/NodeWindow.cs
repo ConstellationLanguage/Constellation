@@ -329,6 +329,13 @@ namespace ConstellationUnityEditor
 
         public void Update(Constellation.Constellation constellation, ConstellationEditorEvents.EditorEvents editorEvents)
         {
+            /*foreach (var link in constellation.GetLinks())
+            {
+                foreach (var linkdata in Links)
+                {
+                    if (link.GUID == nodeda)
+            }*/
+
             foreach (var node in constellation.GetNodes())
             {
                 foreach (var nodeData in Nodes)

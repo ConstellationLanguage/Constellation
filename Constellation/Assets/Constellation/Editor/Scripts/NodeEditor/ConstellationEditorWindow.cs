@@ -204,7 +204,8 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
             {
                 previousSelectedGameObject = null;
             }
-        }catch(System.Exception exception)
+        }
+        catch (System.Exception exception)
         {
             UnexpectedError(exception.StackTrace);
         }
@@ -397,7 +398,8 @@ public class ConstellationEditorWindow : EditorWindow, ILoadable, ICopyable, IPa
                     ScriptDataService.GetEditorData().ExampleData.openExampleConstellation = false;
                 }
             }
-        }catch(System.Exception exception)
+        }
+        catch (System.Exception exception)
         {
             UnexpectedError(exception.StackTrace);
         }

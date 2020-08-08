@@ -15,10 +15,6 @@ namespace ConstellationUnityEditor
         public OutputData selectedOutput;
 
         public Rect AtrributeSize = new Rect(18, 15, 88, 20);
-        public Color WarmInputColor = new Color(0.8f, 0.5f, 0.3f);
-        public Color ColdInputColor = Color.yellow;
-        public Color WarmInputObjectColor = new Color(0.2f, 0.6f, 0.55f);
-        public Color ColdInputObjectColor = new Color(0.2f, 0.3f, 0.6f);
         const int deleteButtonSize = 15;
         private ConstellationEditorRules constellationRules;
 

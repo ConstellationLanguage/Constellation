@@ -26,6 +26,25 @@ MonoBehaviour:
       Outputs: []
       ParametersData: []
       DiscreteParametersData: []
+    - Guid: 33c97b4d-2ef6-49a0-bb1d-1016ecc3e99c
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 120
+      YPosition: 75
+      SizeX: 354
+      SizeY: 93
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: 'Outputs 0 if the first input doesn''t send anything
+
+            Outputs
+            1 if the firt input received a ray this frame.'
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
     - Guid: 265647b8-9d4f-443d-b0a6-1cc8cde5082b
       Name: Key
       Namespace: UserInputs
@@ -45,30 +64,6 @@ MonoBehaviour:
           stringValue: w
           floatValue: 0.000001
         Type: 1
-      DiscreteParametersData: []
-    - Guid: db72319d-440d-4d6a-9efd-ebe946092c62
-      Name: IsUpdated
-      Namespace: CoreNodes
-      OverrideDisplayedName: 
-      XPosition: 305
-      YPosition: 210
-      SizeX: 75
-      SizeY: 60
-      Inputs:
-      - Guid: e675fc57-69bb-4715-890a-75502028e40c
-        IsBright: 0
-        Type: Any
-        Description: Check if node was updated since last frame
-      - Guid: 0be553be-bb9e-4f54-9686-03c7cad4fcdf
-        IsBright: 1
-        Type: Any
-        Description: The updateCheck
-      Outputs:
-      - Guid: 26fe14e6-1deb-45c8-a991-edc0dcb026f1
-        IsBright: 0
-        Type: Var
-        Description: 1 if updated 0 if not
-      ParametersData: []
       DiscreteParametersData: []
     - Guid: 3486b226-83da-45af-a894-231ec855b59b
       Name: Print
@@ -108,6 +103,30 @@ MonoBehaviour:
         IsBright: 0
         Type: Var
         Description: Output if on
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: db72319d-440d-4d6a-9efd-ebe946092c62
+      Name: IsUpdated
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 305
+      YPosition: 210
+      SizeX: 93
+      SizeY: 60
+      Inputs:
+      - Guid: e675fc57-69bb-4715-890a-75502028e40c
+        IsBright: 0
+        Type: Any
+        Description: Check if node was updated since last frame
+      - Guid: 0be553be-bb9e-4f54-9686-03c7cad4fcdf
+        IsBright: 1
+        Type: Any
+        Description: The updateCheck
+      Outputs:
+      - Guid: 26fe14e6-1deb-45c8-a991-edc0dcb026f1
+        IsBright: 0
+        Type: Var
+        Description: 1 if updated 0 if not
       ParametersData: []
       DiscreteParametersData: []
     - Guid: cc2bcef0-a344-41d3-bf67-e11cac1f5ca0

@@ -1,0 +1,358 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: AddTorque
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 92672ba1-30cb-49d1-86a5-34a643bb86f8
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 25
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 6944a0b9-83a4-47e8-9907-2b0409319e10
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 45
+      YPosition: 85
+      SizeX: 405
+      SizeY: 70
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: 'Add torque to a rigidbody.
+
+            If there is none
+            on the gameobject it will add one on ray received'
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 81660669-482b-4180-943f-9dfb46baa350
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 205
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 010390e7-2783-414d-8338-2e39185b7f3c
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 52002dbe-7a38-4f29-a0a2-c80a84ad3931
+      Name: AddTorque
+      Namespace: Physics
+      OverrideDisplayedName: 
+      XPosition: 515
+      YPosition: 210
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: b6341abe-4a7a-4e09-a8da-ba3ba22e3582
+        IsBright: 0
+        Type: Object
+        Description: The game object affected
+      - Guid: a3c57079-f2f4-4312-be5b-4bac7612ca09
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 world relative
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 6b95c01a-70ea-49c8-8659-2308186bf608
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 370
+      YPosition: 230
+      SizeX: 100
+      SizeY: 60
+      Inputs:
+      - Guid: ad2243b2-5e29-412b-b347-e269e033da08
+        IsBright: 0
+        Type: Vec3
+        Description: New var
+      - Guid: 29e2ca0c-4aff-43fe-b773-62c60aae0150
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: 4bff2bd6-cf48-4a33-a7f9-ab23e6761438
+        IsBright: 0
+        Type: Vec3
+        Description: Output var
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+      DiscreteParametersData: []
+    - Guid: 1b91f64f-9dad-4270-960f-3c8dfc59cff1
+      Name: Vec3
+      Namespace: Vectors
+      OverrideDisplayedName: 
+      XPosition: 225
+      YPosition: 230
+      SizeX: 100
+      SizeY: 80
+      Inputs:
+      - Guid: 0b3cf893-ddfb-4755-be9c-257872f32ce7
+        IsBright: 1
+        Type: Var
+        Description: X
+      - Guid: dea531da-8962-4294-9b71-93334cd474d9
+        IsBright: 1
+        Type: Var
+        Description: Y
+      - Guid: 049692e5-359f-444a-8c4e-e9ed6e654a3e
+        IsBright: 1
+        Type: Var
+        Description: Z
+      Outputs:
+      - Guid: 4fcaab4d-9d19-4391-85b1-d44ae921a29b
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3[X][Y][Z]
+      ParametersData:
+      - Value:
+          stringValue: X
+          floatValue: 0.000001
+        Type: 7
+      - Value:
+          stringValue: Y
+          floatValue: 0.000001
+        Type: 8
+      - Value:
+          stringValue: Z
+          floatValue: 0.000001
+        Type: 9
+      DiscreteParametersData: []
+    - Guid: 838da612-ce9e-4eee-b3f3-826b15cc6593
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 250
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 762ac78d-8519-41e0-ad8b-be589bc26634
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 20
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 820f781a-069c-468b-9dd9-3e8dd3c84f7b
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 295
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: cb35efea-4531-4550-88f8-b1ccd5810e5a
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 4f9e39e3-8bc4-43d7-a11a-fa234dfb9220
+      Name: Key
+      Namespace: UserInputs
+      OverrideDisplayedName: 
+      XPosition: 50
+      YPosition: 355
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: beb800d7-9120-4d41-95d2-098b892f6989
+        IsBright: 1
+        Type: Var
+        Description: Output 1 when key pressed
+      ParametersData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: f7bf1bd1-bfd9-4272-a63c-c21b3b09b67d
+      Name: Switch
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 250
+      YPosition: 355
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: c7bd84fe-1964-491a-9eaf-6185519984b4
+        IsBright: 0
+        Type: Var
+        Description: 1 = on, 0 = off
+      - Guid: f2be52b8-398c-477b-bc44-4ab5c0df08ac
+        IsBright: 1
+        Type: Ray
+        Description: Value to send
+      Outputs:
+      - Guid: a89f58e2-8aa0-4df9-93cd-c7a34da4cdf9
+        IsBright: 0
+        Type: Ray
+        Description: Output if on
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 4e27d6e5-6530-44af-9e09-64cd06abe98b
+      Name: Update
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 75
+      YPosition: 400
+      SizeX: 75
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: ab64ce9b-d83a-40e7-8306-b05619b21bda
+        IsBright: 1
+        Type: Ray
+        Description: Ray on update
+      ParametersData: []
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: ad2243b2-5e29-412b-b347-e269e033da08
+        IsBright: 0
+        Type: Vec3
+        Description: New var
+      Output:
+        Guid: 4fcaab4d-9d19-4391-85b1-d44ae921a29b
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3[X][Y][Z]
+      outputPositionY: 0
+      GUID: b41df230-335b-42ff-a28b-4c725162c9fe
+    - Input:
+        Guid: 0b3cf893-ddfb-4755-be9c-257872f32ce7
+        IsBright: 1
+        Type: Var
+        Description: X
+      Output:
+        Guid: 010390e7-2783-414d-8338-2e39185b7f3c
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 9757dac9-77ce-475a-aa1d-80a8bb2a2ffc
+    - Input:
+        Guid: dea531da-8962-4294-9b71-93334cd474d9
+        IsBright: 1
+        Type: Var
+        Description: Y
+      Output:
+        Guid: 762ac78d-8519-41e0-ad8b-be589bc26634
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 1610adc4-4121-4469-9ede-3e588b5aeabf
+    - Input:
+        Guid: 049692e5-359f-444a-8c4e-e9ed6e654a3e
+        IsBright: 1
+        Type: Var
+        Description: Z
+      Output:
+        Guid: cb35efea-4531-4550-88f8-b1ccd5810e5a
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: e28860af-28b6-47ca-82c7-59c94d86d06b
+    - Input:
+        Guid: c7bd84fe-1964-491a-9eaf-6185519984b4
+        IsBright: 0
+        Type: Var
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: beb800d7-9120-4d41-95d2-098b892f6989
+        IsBright: 1
+        Type: Var
+        Description: Output 1 when key pressed
+      outputPositionY: 0
+      GUID: 408b9a1e-3bee-487c-b9f9-93d438d83a85
+    - Input:
+        Guid: f2be52b8-398c-477b-bc44-4ab5c0df08ac
+        IsBright: 1
+        Type: Ray
+        Description: Value to send
+      Output:
+        Guid: ab64ce9b-d83a-40e7-8306-b05619b21bda
+        IsBright: 1
+        Type: Ray
+        Description: Ray on update
+      outputPositionY: 0
+      GUID: d7268fac-f41b-49f4-9d3d-62bf12d1d07e
+    - Input:
+        Guid: 29e2ca0c-4aff-43fe-b773-62c60aae0150
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Output:
+        Guid: a89f58e2-8aa0-4df9-93cd-c7a34da4cdf9
+        IsBright: 0
+        Type: Ray
+        Description: Output if on
+      outputPositionY: 0
+      GUID: e67f54e1-39f4-40de-aeb2-4760f7fbb290
+    - Input:
+        Guid: a3c57079-f2f4-4312-be5b-4bac7612ca09
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3 world relative
+      Output:
+        Guid: 4bff2bd6-cf48-4a33-a7f9-ab23e6761438
+        IsBright: 0
+        Type: Vec3
+        Description: Output var
+      outputPositionY: 0
+      GUID: 49b3116b-e595-4303-8f21-78e814cd7c41
+    Name: AddTorque
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 89a4fe11dbae2084b9f9f1c4677b96eb, type: 2}

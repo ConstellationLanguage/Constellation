@@ -1,4 +1,6 @@
-﻿namespace Constellation
+﻿using System;
+
+namespace Constellation
 {
 	[System.Serializable]
 	public class Link: ConstellationObject, IReceiver
@@ -7,6 +9,7 @@
 		public Output Output;
 		public string GUID;
 		public string Type;
+		public long LastUpdate = 0;
 
 		public Link(Input _input, Output _output, string _type, string _guid)
 		{
@@ -19,6 +22,7 @@
 		}
 
 		public void Receive(Ray value, Input input){
+			LastUpdate = DateTime.Now.Ticks;
 			Input.Receive(value, Input);
 		}
 
