@@ -16,7 +16,7 @@ Go check [this thread](https://www.reddit.com/r/Unity3D/comments/7nzkdx/constell
 - Integration with unity attribute system (Objects, string and number).
 - OSC support with pure data examples.
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=8Td5A-MAb4s" target="_blank"><img src="http://img.youtube.com/vi/8Td5A-MAb4s/0.jpg" 
+<a href="https://www.youtube.com/watch?v=qwCve30Al94" target="_blank"><img src="http://img.youtube.com/vi/qwCve30Al94/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="50%" height="auto" border="10" /></a>
 
 # Want to help? It's easy!
