@@ -235,18 +235,6 @@ MonoBehaviour:
       outputPositionY: 0
       GUID: 6eabd89e-1372-490d-91c2-4d3dfbcfb80d
     - Input:
-        Guid: e675fc57-69bb-4715-890a-75502028e40c
-        IsBright: 0
-        Type: Any
-        Description: Check if node was updated since last frame
-      Output:
-        Guid: 0378bf9e-e082-4a9a-b92e-1f0e0ddd8dcd
-        IsBright: 1
-        Type: Var
-        Description: Output 1 when key pressed
-      outputPositionY: 0
-      GUID: ab0c1c31-db66-4601-a9c9-a27282112cc8
-    - Input:
         Guid: 43d59d4f-a4f1-48a0-bcce-f64f33f35706
         IsBright: 0
         Type: Var
@@ -294,6 +282,18 @@ MonoBehaviour:
         Description: Output if on
       outputPositionY: 0
       GUID: 1523d292-f89a-483e-90f1-f4cc918f4d98
+    - Input:
+        Guid: e675fc57-69bb-4715-890a-75502028e40c
+        IsBright: 0
+        Type: Any
+        Description: Check if node was updated since last frame
+      Output:
+        Guid: 0378bf9e-e082-4a9a-b92e-1f0e0ddd8dcd
+        IsBright: 1
+        Type: Var
+        Description: Output 1 when key pressed
+      outputPositionY: 0
+      GUID: 6083ada2-efa0-49f7-a2ef-8edfb1308989
     Name: IsUpdated
     NameSpace: 
   IsInstance: 0

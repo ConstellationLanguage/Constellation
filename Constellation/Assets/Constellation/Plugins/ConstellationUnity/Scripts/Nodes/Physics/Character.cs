@@ -12,7 +12,7 @@ namespace Constellation.Physics {
             _nodeParameters.AddInput (this, false, "Vertical");
             _nodeParameters.AddInput (this, false, "Horizontal");
             _nodeParameters.AddInput (this, false, "Jump");
-            _nodeParameters.AddInput (this, false, "Update Physics");
+            _nodeParameters.AddInput (this, false, ConstellationEditorRules.ANY, "Update Physics");
         }
 
         public string NodeName () {

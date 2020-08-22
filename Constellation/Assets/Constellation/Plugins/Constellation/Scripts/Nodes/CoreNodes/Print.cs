@@ -29,8 +29,20 @@ namespace Constellation.CoreNodes
                 return;
             }
 
-             if (value.GetObject() != null)
+            if (value.GetObject() != null)
+            {
                 logger.Log(value.GetObject());
+            }
+
+            if (value.GetArray() != null)
+            {
+                var arrayValue = "[]:";
+                foreach(var arrayElement in value.GetArray())
+                {
+                    arrayValue = $"{arrayValue} {arrayElement.GetString()}";
+                }
+                logger.Log(arrayValue);
+            }
         }
 
         public void InjectLogger(Services.ILogger _logger)

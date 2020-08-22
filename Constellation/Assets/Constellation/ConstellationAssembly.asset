@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ConstellationAssembly
   m_EditorClassIdentifier: 
   ConstellationScripts:
+  - {fileID: 11400000, guid: 479b3e2150f0b914abd7312ad5fd3d39, type: 2}
   - {fileID: 11400000, guid: fbc5b70ec38ac4b44b179ce83d138adf, type: 2}
   - {fileID: 11400000, guid: 9aba942fb27133c4abec6df01d8357c8, type: 2}
   - {fileID: 11400000, guid: a71e3259a639acf4e9a70faebe95c7d8, type: 2}
@@ -70,6 +71,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8efb81fc622b72f43902c152987439bd, type: 2}
   - {fileID: 11400000, guid: 77ac93668b4f12244b8316a19cf8e61c, type: 2}
   - {fileID: 11400000, guid: 4bbe5f17bf47353418d0bfce7e3a9b1a, type: 2}
+  - {fileID: 11400000, guid: 3c784f920acdd994da2867ce3e3be306, type: 2}
   - {fileID: 11400000, guid: 061f5d7bf6a50f846a9fcf59fcf64176, type: 2}
   - {fileID: 11400000, guid: 35b0a4e593f0adb42996378d66a95081, type: 2}
   - {fileID: 11400000, guid: 3f5ab1c5a2c4d3748b61f46f48abc331, type: 2}
