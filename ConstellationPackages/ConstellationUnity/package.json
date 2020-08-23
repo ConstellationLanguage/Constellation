@@ -1,0 +1,18 @@
+{
+  "name": "com.unity.constellation-unity",
+  "version": "0.7.0",
+  "displayName": "Constellation Unity",
+  "description": "The nodes used in unity",
+  "unity": "2020.1",
+  "dependencies": {
+    "com.unity.constellation-core": "0.7.0"
+  },
+  "keywords": [
+    "Visual Scripting"
+  ],
+  "author": {
+    "name": "Constellation",
+    "email": "antoine.charton@geek-zebra.com",
+    "url": "https://www.geek-zebra.com/"
+  }
+}

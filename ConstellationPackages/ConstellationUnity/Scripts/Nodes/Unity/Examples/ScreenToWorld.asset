@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: ScreenToWorld
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: ef766333-e44d-491b-a100-0fc53f57a7fd
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 20
+      YPosition: 15
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: b4d820ba-bcb8-4f04-bcd0-1e312cb658e0
+      Name: Print
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 710
+      YPosition: 225
+      SizeX: 75
+      SizeY: 40
+      Inputs:
+      - Guid: 4a8e7d9d-e225-4ad4-b0ce-40c973ff6475
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 04e21bfd-8495-4207-bf2c-da3a62245d06
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 347.5
+      YPosition: 48
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Your note here
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 37cd9109-f29e-43db-9f92-2ce2081472c3
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 135
+      YPosition: 290
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: e4fca731-491f-499a-a57e-7eab1df61ab2
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: 6c2c1d1e-548c-4a27-8b18-f5840a2c3d9b
+      Name: Update
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 135
+      YPosition: 335
+      SizeX: 0
+      SizeY: 0
+      Inputs: []
+      Outputs:
+      - Guid: dd33d602-de2c-4baf-aaf7-673f07948afb
+        IsBright: 1
+        Type: Ray
+        Description: Ray on update
+      ParametersData: []
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: b6748dc0-4833-4d54-b00f-ee5c86ab263d
+        IsBright: 0
+        Type: Var
+        Description: Position X
+      Output:
+        Guid: 8379d8b8-2cd4-4d88-87b7-0110bdf45214
+        IsBright: 0
+        Type: Var
+        Description: Mouse position X
+      outputPositionY: 0
+      GUID: a77e4421-fe44-42c8-842e-edc6378273cb
+    - Input:
+        Guid: 5fc6aeec-1de0-4685-bf15-6d74f8fe8c33
+        IsBright: 0
+        Type: Var
+        Description: Position Y
+      Output:
+        Guid: cb9ab707-33bd-4575-9b94-5d55745324f9
+        IsBright: 0
+        Type: Var
+        Description: Mosue position Y
+      outputPositionY: 0
+      GUID: c0928569-3422-4aab-85fd-c79494c146b4
+    - Input:
+        Guid: 503b7e43-0e99-4b96-82b4-e8dd5b90b94f
+        IsBright: 0
+        Type: Var
+        Description: Distance
+      Output:
+        Guid: e4fca731-491f-499a-a57e-7eab1df61ab2
+        IsBright: 0
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 22d1b694-7e32-4f9b-bd62-0ac9de259646
+    - Input:
+        Guid: bd94ea82-485c-49a7-8fea-b40a4b50f602
+        IsBright: 1
+        Type: Any
+        Description: Calculate
+      Output:
+        Guid: dd33d602-de2c-4baf-aaf7-673f07948afb
+        IsBright: 0
+        Type: Ray
+        Description: Ray on update
+      outputPositionY: 0
+      GUID: 5ec8aaa4-c36b-4558-96fc-332f77cc22b9
+    - Input:
+        Guid: 3e78330f-b077-449d-ba3c-9c49df66c089
+        IsBright: 0
+        Type: Vec3
+        Description: Vec3
+      Output:
+        Guid: d79aa243-a6b5-4c8f-9642-8375f9250667
+        IsBright: 0
+        Type: Vec3
+        Description: The hit position
+      outputPositionY: 0
+      GUID: e008c6a0-59bc-4424-b468-7add635a3c9c
+    - Input:
+        Guid: 4a8e7d9d-e225-4ad4-b0ce-40c973ff6475
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: 54642018-8cb0-43c3-8452-526643ee2e43
+        IsBright: 0
+        Type: Var
+        Description: X
+      outputPositionY: 0
+      GUID: a8196070-d1f2-4da1-86ef-6cfbfc2f01f5
+    - Input:
+        Guid: 4a8e7d9d-e225-4ad4-b0ce-40c973ff6475
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: ad141474-2b74-4ace-87d3-52c53bec760b
+        IsBright: 0
+        Type: Var
+        Description: Y
+      outputPositionY: 0
+      GUID: 7b8e3a77-81e7-4e99-ba4e-bf827f920fd3
+    - Input:
+        Guid: 4a8e7d9d-e225-4ad4-b0ce-40c973ff6475
+        IsBright: 0
+        Type: Any
+        Description: value to log in console
+      Output:
+        Guid: f66dff20-1038-4a19-ad20-0f4231891e64
+        IsBright: 0
+        Type: Var
+        Description: Z
+      outputPositionY: 0
+      GUID: 0abf9a62-1c5d-4888-8c30-f8ff5d5e84ac
+    Name: 
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 02efe7b4041ae2b41931710e321b10f7, type: 2}

@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fbfb0892e200c4b900f8f3c6626ba1, type: 3}
+  m_Name: Character
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: 7bcef526-c1b4-40c4-a3d4-88e1e272c5bc
+      Name: Character
+      Namespace: Physics
+      OverrideDisplayedName: 
+      XPosition: 530
+      YPosition: 215
+      SizeX: 75
+      SizeY: 120
+      Inputs:
+      - Guid: e7160eb5-efb3-415c-acb2-5dfa38e7cde8
+        IsBright: 0
+        Type: Object
+        Description: Character controller object
+      - Guid: 29c03642-3b61-4c47-8da7-d18ad0fd846b
+        IsBright: 0
+        Type: Var
+        Description: Vertical
+      - Guid: c967ee1a-97c2-4589-a408-1972e2728e0e
+        IsBright: 0
+        Type: Var
+        Description: Horizontal
+      - Guid: 73034650-88d4-4137-830d-1fb2cb17e932
+        IsBright: 0
+        Type: Var
+        Description: Jump
+      - Guid: 12a077cc-ac65-4162-8168-d4fd4642422d
+        IsBright: 0
+        Type: Any
+        Description: Update Physics
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 932110b1-1466-444b-924b-f557b45329da
+      Name: KeyDown
+      Namespace: UserInputs
+      OverrideDisplayedName: 
+      XPosition: 110
+      YPosition: 235
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 985695e4-4279-4cc3-9c6a-e9367a462409
+        IsBright: 1
+        Type: Var
+        Description: 1 on key down else 0
+      ParametersData:
+      - Value:
+          stringValue: w
+          floatValue: 0.000001
+        Type: 1
+      DiscreteParametersData: []
+    - Guid: 886383cb-9627-4ae4-9d53-d279328df490
+      Name: Switch
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 400
+      YPosition: 235
+      SizeX: 75
+      SizeY: 60
+      Inputs:
+      - Guid: f45655d2-b605-4c23-8da9-afba2cfd24c4
+        IsBright: 0
+        Type: Var
+        Description: 1 = on, 0 = off
+      - Guid: 02cd3498-1be0-4c13-8e17-4ee1c1ab6fcc
+        IsBright: 1
+        Type: Var
+        Description: Value to send
+      Outputs:
+      - Guid: 6d56de06-849a-4153-9205-a43533677dd4
+        IsBright: 0
+        Type: Var
+        Description: Output if on
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: afad3ce6-c5a4-4099-b40f-40f166375b89
+      Name: Var
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 240
+      YPosition: 290
+      SizeX: 100
+      SizeY: 60
+      Inputs:
+      - Guid: 10e7efbd-4d6a-4947-a91e-c89583b66140
+        IsBright: 0
+        Type: Var
+        Description: New var
+      - Guid: 715d841b-ce11-4087-b47c-77df404947d6
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Outputs:
+      - Guid: 073dbdbf-7750-46e5-8e31-231012a020eb
+        IsBright: 0
+        Type: Var
+        Description: Output var
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 0
+        Type: 6
+      DiscreteParametersData: []
+    - Guid: 680b7087-c637-4e47-b81f-3eaba182f208
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 110
+      YPosition: 290
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: aafd3d2f-fe22-4603-8843-998bb6b31912
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+      DiscreteParametersData: []
+    - Guid: df34521e-ef1a-43c4-bf65-2a351970cd92
+      Name: Update
+      Namespace: Unity
+      OverrideDisplayedName: 
+      XPosition: 400
+      YPosition: 295
+      SizeX: 75
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: 781db65d-76ac-4235-8668-2c4478798007
+        IsBright: 1
+        Type: Ray
+        Description: Ray on update
+      ParametersData: []
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: f45655d2-b605-4c23-8da9-afba2cfd24c4
+        IsBright: 0
+        Type: Var
+        Description: 1 = on, 0 = off
+      Output:
+        Guid: 985695e4-4279-4cc3-9c6a-e9367a462409
+        IsBright: 1
+        Type: Var
+        Description: 1 on key down else 0
+      outputPositionY: 0
+      GUID: 67dd50f9-ecfb-4a95-a34c-0bee3a049c99
+    - Input:
+        Guid: 10e7efbd-4d6a-4947-a91e-c89583b66140
+        IsBright: 0
+        Type: Var
+        Description: New var
+      Output:
+        Guid: aafd3d2f-fe22-4603-8843-998bb6b31912
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 410911d7-cf9a-4669-8b02-80764164dcfa
+    - Input:
+        Guid: 02cd3498-1be0-4c13-8e17-4ee1c1ab6fcc
+        IsBright: 1
+        Type: Var
+        Description: Value to send
+      Output:
+        Guid: 073dbdbf-7750-46e5-8e31-231012a020eb
+        IsBright: 0
+        Type: Var
+        Description: Output var
+      outputPositionY: 0
+      GUID: ebbcb1e9-7a0b-4ea4-9af0-1b4e07302427
+    - Input:
+        Guid: 715d841b-ce11-4087-b47c-77df404947d6
+        IsBright: 1
+        Type: Any
+        Description: Send var
+      Output:
+        Guid: 985695e4-4279-4cc3-9c6a-e9367a462409
+        IsBright: 1
+        Type: Var
+        Description: 1 on key down else 0
+      outputPositionY: 0
+      GUID: 9c3ed3c8-fffa-4e9c-9d97-8cdc84c66cb3
+    - Input:
+        Guid: 29c03642-3b61-4c47-8da7-d18ad0fd846b
+        IsBright: 0
+        Type: Var
+        Description: Vertical
+      Output:
+        Guid: 6d56de06-849a-4153-9205-a43533677dd4
+        IsBright: 0
+        Type: Var
+        Description: Output if on
+      outputPositionY: 0
+      GUID: a18ffa77-3270-47fd-a95c-e05fa0a53f48
+    - Input:
+        Guid: 12a077cc-ac65-4162-8168-d4fd4642422d
+        IsBright: 0
+        Type: Any
+        Description: Update Physics
+      Output:
+        Guid: 781db65d-76ac-4235-8668-2c4478798007
+        IsBright: 1
+        Type: Ray
+        Description: Ray on update
+      outputPositionY: 0
+      GUID: 8363f4a5-ee72-47e7-9a63-2c63675586ed
+    Name: Character
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 1
+  ScriptAssembly: {fileID: 11400000, guid: 02efe7b4041ae2b41931710e321b10f7, type: 2}

@@ -1,0 +1,15 @@
+{
+    "name": "TypeConst",
+    "references": [
+        "GUID:de0c9620f32a1c345b45f1e5054bc4ab"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

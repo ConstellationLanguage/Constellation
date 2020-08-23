@@ -1,26 +1,5 @@
 {
   "dependencies": {
-    "com.unity.2d.sprite": {
-      "version": "1.0.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {}
-    },
-    "com.unity.2d.tilemap": {
-      "version": "1.0.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {}
-    },
-    "com.unity.ads": {
-      "version": "3.4.7",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.analytics": {
       "version": "3.3.5",
       "depth": 0,
@@ -36,6 +15,28 @@
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
+    },
+    "com.unity.constellation-core": {
+      "version": "file:C:/dev/ConstellationRepos/ConstellationMainRepo/ConstellationPackages/ConstellationCore",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.unity.constellation-type-const": {
+      "version": "file:C:/dev/ConstellationRepos/ConstellationMainRepo/ConstellationPackages/TypeConst",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.constellation-core": "0.7.0"
+      }
+    },
+    "com.unity.constellation-unity": {
+      "version": "file:C:/dev/ConstellationRepos/ConstellationMainRepo/ConstellationPackages/ConstellationUnity",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.constellation-core": "0.7.0"
+      }
     },
     "com.unity.ext.nunit": {
       "version": "1.0.0",

@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e0c27b56b45584480eca40adc9b724, type: 3}
+  m_Name: SetActive
+  m_EditorClassIdentifier: 
+  script:
+    Nodes:
+    - Guid: f800e6d2-e958-4cac-9962-b406241bf742
+      Name: Tutorial
+      Namespace: ConstellationTypes
+      OverrideDisplayedName: 
+      XPosition: 10
+      YPosition: 20
+      SizeX: 75
+      SizeY: 30
+      Inputs: []
+      Outputs: []
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: 005569b9-bde9-411f-acfd-39de6ec15060
+      Name: Note
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 75
+      YPosition: 95
+      SizeX: 267
+      SizeY: 50
+      Inputs: []
+      Outputs: []
+      ParametersData:
+      - Value:
+          stringValue: Used to disable or enable a gameobject
+          floatValue: 0.000001
+        Type: 2
+      DiscreteParametersData: []
+    - Guid: 4df2b8df-e524-4862-8a43-4297cc05fad9
+      Name: SetActive
+      Namespace: GameObjects
+      OverrideDisplayedName: 
+      XPosition: 230
+      YPosition: 165
+      SizeX: 75
+      SizeY: 80
+      Inputs:
+      - Guid: 27ab9b13-9168-4c06-ad15-96b38601fe52
+        IsBright: 0
+        Type: Object
+        Description: The gameobject to activate
+      - Guid: 69eb06fd-265b-4506-8a58-75961f34ebab
+        IsBright: 0
+        Type: Var
+        Description: 1 = activate; 0 = disable
+      - Guid: eac3d584-4eaf-476a-81c5-187c1cfe0cd5
+        IsBright: 1
+        Type: Var
+        Description: send currend enabled state
+      Outputs:
+      - Guid: 5c0d0120-6085-4900-9957-78107b69f411
+        IsBright: 0
+        Type: Var
+        Description: get the current state
+      ParametersData: []
+      DiscreteParametersData: []
+    - Guid: ee488e23-d83a-4a99-9846-cd743026d719
+      Name: Value
+      Namespace: CoreNodes
+      OverrideDisplayedName: 
+      XPosition: 65
+      YPosition: 185
+      SizeX: 100
+      SizeY: 40
+      Inputs: []
+      Outputs:
+      - Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
+        IsBright: 1
+        Type: Var
+        Description: The value
+      ParametersData:
+      - Value:
+          stringValue: UNDEFINED
+          floatValue: 1
+        Type: 0
+      DiscreteParametersData: []
+    Links:
+    - Input:
+        Guid: 69eb06fd-265b-4506-8a58-75961f34ebab
+        IsBright: 0
+        Type: Var
+        Description: 1 = activate; 0 = disable
+      Output:
+        Guid: cff70c1e-0507-4c72-be47-04fe0ce47358
+        IsBright: 1
+        Type: Var
+        Description: The value
+      outputPositionY: 0
+      GUID: 9990dab7-3cf5-4bbe-af5f-f0592efd41e1
+    Name: SetActive
+    NameSpace: 
+  IsInstance: 0
+  IsDifferentThanSource: 0
+  CanChangeType: 0
+  ScriptAssembly: {fileID: 11400000, guid: 02efe7b4041ae2b41931710e321b10f7, type: 2}
