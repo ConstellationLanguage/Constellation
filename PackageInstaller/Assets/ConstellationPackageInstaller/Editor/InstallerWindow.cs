@@ -117,7 +117,7 @@ public class InstallerWindow : EditorWindow
             GUI.color = yellow;
             if (GUILayout.Button("Finish", GUILayout.Height(EditorGUIUtility.singleLineHeight)))
             {
-                FileUtil.DeleteFileOrDirectory("ConstellationPackageInstaller");
+                FileUtil.DeleteFileOrDirectory(Application.dataPath + "/ConstellationPackageInstaller");
                 this.Close();
             }
         }
