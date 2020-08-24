@@ -1,5 +1,5 @@
 {
-  "name": "com.unity.constellation-core",
+  "name": "com.constellation.constellation-core",
   "version": "0.7.0",
   "displayName": "Constellation Core",
   "description": "Constellation is a visual scripting language for unity that gives you the tools of a programmer without having to write a single line of code. Its goal is to give a user friendly approach to programming.",
@@ -11,5 +11,6 @@
     "name": "Constellation",
     "email": "antoine.charton@geek-zebra.com",
     "url": "https://www.geek-zebra.com/"
-  }
+  },
+  "type": "tool"
 }

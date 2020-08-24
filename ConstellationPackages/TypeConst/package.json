@@ -1,5 +1,5 @@
 {
-  "name": "com.unity.constellation-type-const",
+  "name": "com.constellation.constellation-type-const",
   "version": "0.7.0",
   "displayName": "Constellation Type Const",
   "description": "Add type to the editor",
@@ -12,7 +12,8 @@
     "email": "antoine.charton@geek-zebra.com",
     "url": "https://www.geek-zebra.com/"
   },
+  "type": "tool",
   "dependencies": {
-    "com.unity.constellation-core": "0.7.0"
+    "com.constellation.constellation-core": "0.7.0"
   }
 }
