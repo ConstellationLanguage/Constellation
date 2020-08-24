@@ -1,0 +1,16 @@
+{
+  "name": "com.constellation.constellation-package-manager",
+  "version": "0.1.0",
+  "displayName": "Constellation Package Manager",
+  "description": "Allows you to choose your version of constellation",
+  "unity": "2020.1",
+  "keywords": [
+    "Visual Scripting"
+  ],
+  "author": {
+    "name": "Constellation",
+    "email": "antoine.charton@geek-zebra.com",
+    "url": "https://www.geek-zebra.com/"
+  },
+  "type": "tool"
+}
