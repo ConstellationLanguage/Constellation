@@ -1,21 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using UnityEditor.PackageManager.Requests;
 using UnityEditor.PackageManager;
 
+[InitializeOnLoad]
 public class InstallerWindow : EditorWindow
 {
-    static AddRequest Request;
-    static bool HasRequested;
-    static bool Success;
-    static bool Failure;
+    static AddRequest request;
+    static bool hasRequested;
+    static bool failure;
     [SerializeField]
     static InstallerWindow window;
+
+    static InstallerWindow()
+    {
+        EditorApplication.update += Update;
+    }
+
+    // You cannot open a window on initialize so waiting for update.
+    static void Update()
+    {
+        Initialize();
+        EditorApplication.update -= Update;
+    }
+
     // Add menu named "My Window" to the Window menu
     [MenuItem("Window/Constellation Installer")]
-    static void Init()
+    static void Initialize()
     {
         // Get existing open window or if none, make a new one:
         window = (InstallerWindow)EditorWindow.GetWindow(typeof(InstallerWindow));
@@ -42,7 +53,7 @@ public class InstallerWindow : EditorWindow
         var background = AssetDatabase.LoadAssetAtPath("Assets/ConstellationPackageInstaller/Editor/ConstellationLogo.png", typeof(Texture2D)) as Texture2D;
         GUI.DrawTexture(new Rect(0, 0, 400, 400), background);
 
-        if (!HasRequested)
+        if (!hasRequested)
         {
             GUILayout.Label("Constellation Setup", titleFontStyle);
             GUILayout.Space(EditorGUIUtility.singleLineHeight * 2);
@@ -79,13 +90,13 @@ public class InstallerWindow : EditorWindow
             GUI.color = yellow;
             if (GUILayout.Button("Install", GUILayout.Height(EditorGUIUtility.singleLineHeight * 4)))
             {
-                Request = Client.Add("https://github.com/ConstellationLanguage/Constellation.git?path=/ConstellationPackages/ConstellationPackageManager#ConstellationPackageInstaller");
+                request = Client.Add("https://github.com/ConstellationLanguage/Constellation.git?path=/ConstellationPackages/ConstellationPackageManager#ConstellationPackageInstaller");
                 EditorApplication.update += Progress;
-                HasRequested = true;
+                hasRequested = true;
             }
             GUI.color = Color.white;
         }
-        else if(Failure)
+        else if(failure)
         {
             GUILayout.Label("Could not install", titleFontStyle);
             GUILayout.Space(EditorGUIUtility.singleLineHeight * 2);
@@ -101,40 +112,32 @@ public class InstallerWindow : EditorWindow
             GUI.color = yellow;
             if (GUILayout.Button("Install", GUILayout.Height(EditorGUIUtility.singleLineHeight * 4)))
             {
-                Request = Client.Add("https://github.com/ConstellationLanguage/Constellation.git?path=/ConstellationPackages/ConstellationPackageManager#ConstellationPackageInstalle");
+                request = Client.Add("https://github.com/ConstellationLanguage/Constellation.git?path=/ConstellationPackages/ConstellationPackageManager#ConstellationPackageInstalle");
                 EditorApplication.update += Progress;
-                HasRequested = true;
+                hasRequested = true;
             }
         }
-        else if (!Success)
+        else
         {
             GUILayout.Label("Processing", titleFontStyle);
-        }
-        else if (Success)
-        {
-            GUILayout.Label("Success!", titleFontStyle);
-            GUILayout.FlexibleSpace();
-            GUI.color = yellow;
-            if (GUILayout.Button("Finish", GUILayout.Height(EditorGUIUtility.singleLineHeight)))
-            {
-                FileUtil.DeleteFileOrDirectory(Application.dataPath + "/ConstellationPackageInstaller");
-                this.Close();
-            }
         }
     }
 
     static void Progress()
     {
-        if (Request.IsCompleted)
+        if (request.IsCompleted)
         {
-            if (Request.Status == StatusCode.Success)
+            if (request.Status == StatusCode.Success)
             {
-                Success = true;
+                EditorUtility.DisplayDialog("Success!", "Package installer will close and uninstall itslef. To begin with constellation open the constellation installer to install your packages", "Continue");
+                FileUtil.DeleteFileOrDirectory(Application.dataPath + "/ConstellationPackageInstaller");
+                FileUtil.DeleteFileOrDirectory(Application.dataPath + "/ConstellationPackageInstaller.meta");
+                window.Close();
             }
-            else if (Request.Status >= StatusCode.Failure)
+            else if (request.Status >= StatusCode.Failure)
             {
-                Failure = true;
-                Debug.Log(Request.Error.message);
+                failure = true;
+                Debug.Log(request.Error.message);
             }
 
             EditorApplication.update -= Progress;
